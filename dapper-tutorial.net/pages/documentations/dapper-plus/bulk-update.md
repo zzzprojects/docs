@@ -18,7 +18,7 @@ using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlSer
 }
 ```
 
-{% include component-try-it.html href='https://dotnetfiddle.net/lX7yj6' %}
+[Try it](https://dotnetfiddle.net/lX7yj6)
 
 - [Bulk Update with options](#example---bulk-update-with-options)
 - [Update single](#example---update-single)
@@ -38,7 +38,7 @@ using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlSer
     connection.UseBulkOptions(options => options.BatchSize = 100).BulkUpdate(customers);
 }		
 ```
-{% include component-try-it.html href='https://dotnetfiddle.net/PN85Ym' %}
+[Try it](https://dotnetfiddle.net/PN85Ym)
 
 ## Example - Update Single
 UPDATE a single entity with Bulk Operation.
@@ -51,7 +51,7 @@ using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlSer
     connection.BulkUpdate(customers);
 }	
 ```
-{% include component-try-it.html href='https://dotnetfiddle.net/o1WkMA' %}
+[Try it](https://dotnetfiddle.net/o1WkMA)
 
 ## Example - Update Many
 UPDATE many entities with Bulk Operation.
@@ -64,7 +64,7 @@ using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlSer
     connection.BulkUpdate(customers);
 }	
 ```
-{% include component-try-it.html href='hhttps://dotnetfiddle.net/10RLzV' %}
+[Try it](hhttps://dotnetfiddle.net/10RLzV)
 
 ## Example - Update with relation (One to One)
 UPDATE entities with a one to one relation with Bulk Operation.
@@ -78,7 +78,7 @@ using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlSer
     connection.BulkUpdate(suppliers, x => x.Product);
 }		
 ```
-{% include component-try-it.html href='https://dotnetfiddle.net/rwjvqz' %}
+[Try it](https://dotnetfiddle.net/rwjvqz)
 
 ## Example - Update with relation (One to Many)
 UPDATE entities with a one to many relation with Bulk Operation.
@@ -92,4 +92,4 @@ using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlSer
     connection.BulkUpdate(suppliers, x => x.Products);
 }
 ```
-{% include component-try-it.html href='https://dotnetfiddle.net/fsTfEg' %}
+[Try it](https://dotnetfiddle.net/fsTfEg)
