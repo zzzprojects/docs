@@ -26,7 +26,7 @@ using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlSer
 - [Update with relation (One to One)](#example---update-with-relation-one-to-one)
 - [Update with relation (One to Many)](#example---update-with-relation-one-to-many)
 
-## Example - Bulk Insert with options
+## Example - Bulk Update with options
 
 You can customize `BulkUpdate` operation with different options which is available using the `UseBulkOptions`. The options parameter let you use a lambda expression to customize the way entities are updated.
 
