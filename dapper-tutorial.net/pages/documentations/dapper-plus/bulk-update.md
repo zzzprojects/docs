@@ -28,7 +28,7 @@ using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlSer
 
 ## Example - Bulk Insert with options
 
-You can customize `BulkUpdate` operation with different options which is available using the `UseBulkOptions`. The options parameter let you use a lambda expression to customize the way entities are inserted.
+You can customize `BulkUpdate` operation with different options which is available using the `UseBulkOptions`. The options parameter let you use a lambda expression to customize the way entities are updated.
 
 ```csharp
 DapperPlusManager.Entity<Customer>().Table("Customers"); 
