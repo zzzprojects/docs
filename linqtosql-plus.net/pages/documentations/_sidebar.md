@@ -1,0 +1,26 @@
+- Bulk Operations
+   - [Bulk Insert](bulk-insert.md)
+   - [Bulk Update](bulk-update.md)
+   - [Bulk Delete](bulk-delete.md)
+   - [Bulk Merge](bulk-merge.md)
+   - [Bulk Synchronize](bulk-synchronize.md)
+   - [Bulk SaveChanges](bulk-savechanges.md)
+- Batch Operations
+   - [Delete from Query](delete-from-query.md)
+   - [Update from Query](update-from-query.md)
+- C# Eval Expression
+   - [LINQ Dynamic](eval-expressions/linq-dynamic.md)
+   - [Eval.Compile](eval-expressions/eval-compile.md)
+   - [Eval.Execute](eval-expressions/eval-execute.md)
+- Options
+   - [Audit](options-summary/audit.md)
+   - [Batch](options-summary/batch.md)
+   - [Column](options-summary/column.md)
+   - [Execute Event](options-summary/execute-event.md)
+   - [Identity](options-summary/identity.md)
+   - [Key](options-summary/key.md)
+   - [Logging](options-summary/logging.md)
+   - [Temporary Table](options-summary/temporary-table.md)
+   - [Transaction](options-summary/transaction.md)
+   - [Transient Error](options-summary/transient-error.md)
+   - [SQL Server](options-summary/sql-server.md)
