@@ -6,6 +6,7 @@ Name: Bulk Delete
 # Dapper Plus - Bulk Delete
 
 ## Description
+
 DELETE entities using Bulk Operation.
 
 - [Delete single](#example---delete-single)
@@ -24,7 +25,7 @@ using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlSer
 	connection.BulkDelete(connection.Query<Customer>("Select * FROM CUSTOMERS WHERE CustomerID in (53,57) ").ToList());
 }	
 ```
-{% include component-try-it.html href='https://dotnetfiddle.net/v9D2sE' %}
+[Try it](https://dotnetfiddle.net/Eu7Xoj)
 
 ## Example - Delete Many
 DELETE many entities with Bulk Operation.
@@ -37,7 +38,7 @@ using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlSer
 	connection.BulkDelete(connection.Query<Customer>("Select * FROM CUSTOMERS WHERE CustomerID in (53,57) ").ToList());
 }	
 ```
-{% include component-try-it.html href='https://dotnetfiddle.net/aYkEwF' %}
+[Try it](https://dotnetfiddle.net/qmClqw)
 
 ## Example - Delete with relation (One to One)
 DELETE entities with a one to one relation with Bulk Operation.
@@ -51,7 +52,7 @@ using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlSer
 	connection.BulkDelete(suppliers.Select(x => x.Product)).BulkDelete(suppliers);
 }
 ```
-{% include component-try-it.html href='https://dotnetfiddle.net/9qGgQv' %}
+[Try it](https://dotnetfiddle.net/U6CGtD)
 
 ## Example - Delete with relation (One to Many)
 DELETE entities with a one to many relation with Bulk Operation.
@@ -65,4 +66,4 @@ using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlSer
 	connection.BulkDelete(suppliers.SelectMany(x => x.Products)).BulkDelete(suppliers);
 }
 ```
-{% include component-try-it.html href='https://dotnetfiddle.net/SEGvy9' %}
+[Try it](https://dotnetfiddle.net/7BVhC5)
