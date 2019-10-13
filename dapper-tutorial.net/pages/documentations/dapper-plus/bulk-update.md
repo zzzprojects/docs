@@ -7,38 +7,12 @@ Name: Bulk Update
 
 ## Description
 
-The `BulkUpdate` extension method let you update a large number of entities in your database using Bulk Operation.
+UPDATE entities using Bulk Operation.
 
-```csharp
-DapperPlusManager.Entity<Customer>().Table("Customers"); 
-		
-using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServerW3Schools()))
-{
-    connection.BulkUpdate(customers);
-}
-```
-
-[Try it](https://dotnetfiddle.net/lX7yj6)
-
-- [Bulk Update with options](#example---bulk-update-with-options)
 - [Update single](#example---update-single)
 - [Update many](#example---update-many)
 - [Update with relation (One to One)](#example---update-with-relation-one-to-one)
 - [Update with relation (One to Many)](#example---update-with-relation-one-to-many)
-
-## Example - Bulk Update with options
-
-You can customize `BulkUpdate` operation with different options which is available using the `UseBulkOptions`. The options parameter let you use a lambda expression to customize the way entities are updated.
-
-```csharp
-DapperPlusManager.Entity<Customer>().Table("Customers"); 
-		
-using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServerW3Schools()))
-{
-    connection.UseBulkOptions(options => options.BatchSize = 100).BulkUpdate(customers);
-}		
-```
-[Try it](https://dotnetfiddle.net/PN85Ym)
 
 ## Example - Update Single
 UPDATE a single entity with Bulk Operation.
