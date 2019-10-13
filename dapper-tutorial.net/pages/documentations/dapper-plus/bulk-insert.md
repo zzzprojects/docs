@@ -14,20 +14,6 @@ INSERT entities using Bulk Operation.
 - [Insert with relation (One to One)](#example---insert-with-relation-one-to-one)
 - [Insert with relation (One to Many)](#example---insert-with-relation-one-to-many)
 
-## Example - Bulk Insert with options
-
-You can customize `BulkInsert` operation with different options which is available using the `UseBulkOptions`. The options parameter let you use a lambda expression to customize the way entities are inserted.
-
-```csharp
-DapperPlusManager.Entity<Customer>().Table("Customers"); 
-		
-using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServerW3Schools()))
-{
-    connection.UseBulkOptions(options => options.BatchSize = 100).BulkInsert(customers);
-}		
-```
-[Try it](https://dotnetfiddle.net/uMfPES)
-
 ## Example - Insert Single
 
 INSERT a single entity with Bulk Operation.
