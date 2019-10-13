@@ -1,4 +1,3 @@
-- [Eval](eval.md)
-- [Value](value.md)
-- [Options](options.md)
-- [Configuration](configuration.md)
+- [Overview](overview.md)
+- [NuGet & Download](nuget-download.md)
+- [Tutorial & Learn](tutorial-learn.md)
