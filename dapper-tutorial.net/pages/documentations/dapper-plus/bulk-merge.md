@@ -24,7 +24,7 @@ using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlSer
 	connection.BulkMerge(new List<Customer>() { new Customer() { CustomerName = "ExampleBulkMerge", ContactName = "Example Name :" +  1}});
 }		
 ```
-{% include component-try-it.html href='https://dotnetfiddle.net/U6g6Gd' %}
+[Try it](https://dotnetfiddle.net/EOby5U)
 
 ## Example - Merge Many
 MERGE many entities with Bulk Operation.
@@ -37,7 +37,7 @@ using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlSer
 	connection.BulkMerge(customers);
 }
 ```
-{% include component-try-it.html href='https://dotnetfiddle.net/T3R43T' %}
+[Try it](https://dotnetfiddle.net/Ncp8RC)
 
 ## Example - Merge with relation (One to One)
 MERGE entities with a one to one relation with Bulk Operation.
@@ -51,7 +51,7 @@ using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlSer
 	connection.BulkMerge(suppliers).ThenForEach(x => x.Product.SupplierID = x.SupplierID).ThenBulkMerge(x => x.Product);
 }
 ```
-{% include component-try-it.html href='https://dotnetfiddle.net/CJfb4l' %}
+[Try it](https://dotnetfiddle.net/zUIMnK)
 
 ## Example - Merge with relation (One to Many)
 MERGE entities with a one to many relation with Bulk Operation.
@@ -65,4 +65,4 @@ using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlSer
 	connection.BulkMerge(suppliers).ThenForEach(x => x.Products.ForEach(y => y.SupplierID =  x.SupplierID)).ThenBulkMerge(x => x.Products);
 }
 ```
-{% include component-try-it.html href='https://dotnetfiddle.net/9C5Yd2' %}
+[Try it](https://dotnetfiddle.net/YM0zev)
