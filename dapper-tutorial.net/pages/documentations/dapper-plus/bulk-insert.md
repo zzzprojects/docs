@@ -7,61 +7,12 @@ Name: Bulk Insert
 
 ## Description
 
-The Dapper Plus `BulkInsert` extension method lets you insert a large number of entities in your database.
+INSERT entities using Bulk Operation.
 
-```csharp
-// Easy to use
-connection.BulkInsert(orders);
-
-// Easy to customize
-connection.UseBulkOptions(options => options.InsertIfNotExists = true)
-          .BulkInsert(orders);
-```
-[Try it](https://dotnetfiddle.net/lEKXBk)
-
-### Performance Comparison
-
-| Operations      | 1,000 Entities | 2,000 Entities | 5,000 Entities |
-| :-------------- | -------------: | -------------: | -------------: |
-| Execute (Many)  | 1,200 ms       | 2,400 ms       | 6,000 ms       |
-| BulkInsert      | 50 ms          | 55 ms          | 75 ms          |
-
-[Try this benchmark online](https://dotnetfiddle.net/Heh61y)
-
-> HINT: A lot of factors might affect the benchmark time such as index, column type, latency, throttling, etc.
-
-The `BulkInsert` extension method let you insert a large number of entities in your database using Bulk Operation.
-
-```csharp
-DapperPlusManager.Entity<Customer>().Table("Customers"); 
-		
-using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServerW3Schools()))
-{
-    connection.BulkInsert(customers);
-}
-```
-
-[Try it](https://dotnetfiddle.net/FLGNyE)
-
-- [Bulk Insert with options](#example---bulk-insert-with-options)
 - [Insert single](#example---insert-single)
 - [Insert many](#example---insert-many)
 - [Insert with relation (One to One)](#example---insert-with-relation-one-to-one)
 - [Insert with relation (One to Many)](#example---insert-with-relation-one-to-many)
-
-## Example - Bulk Insert with options
-
-You can customize `BulkInsert` operation with different options which is available using the `UseBulkOptions`. The options parameter let you use a lambda expression to customize the way entities are inserted.
-
-```csharp
-DapperPlusManager.Entity<Customer>().Table("Customers"); 
-		
-using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServerW3Schools()))
-{
-    connection.UseBulkOptions(options => options.BatchSize = 100).BulkInsert(customers);
-}		
-```
-[Try it](https://dotnetfiddle.net/uMfPES)
 
 ## Example - Insert Single
 
