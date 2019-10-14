@@ -1,5 +1,6 @@
 - [Getting Started](getting-started/overview.md)
 - Documentation
 	- [Documentation](documentations/eval-execute.md)
+	- [Troubleshooting](troubleshooting/trial-period-expired-exception.md)
 	- [Release Notes](https://github.com/zzzprojects/Eval-Expression.NET/releases)
 - [Online Examples](/online-examples)

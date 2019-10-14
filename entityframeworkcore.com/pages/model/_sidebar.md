@@ -1,0 +1,11 @@
+- Approach
+   - [Code First](approach-code-first.md)
+   - [Database First](approach-database-first.md)
+- Migrations
+   - [Migrations](migrations.md)
+- Model
+   - [Data Annotations](model-data-annotations.md)
+   - [Fluent API](model-fluent-api.md)
+   - [Inheritance](model-inheritance.md)
+   - [Relationships](model-relationships.md)
+   - [Explicit Values](model-explicit-values.md)
