@@ -13,7 +13,7 @@ var ctx = new EntitiesContext();
 // LOAD blogs and related active posts and comments.
 var blogs = ctx.Blogs.IncludeFilter(x => x.Posts.Where(y => !y.IsSoftDeleted))
                      .IncludeFilter(x => x.Posts.Where(y => !y.IsSoftDeleted)
-                                                .Select(y => y.Comments
+                                                .SelectMany(y => y.Comments
                                                               .Where(z => !z.IsSoftDeleted)))
                      .ToList();
 
