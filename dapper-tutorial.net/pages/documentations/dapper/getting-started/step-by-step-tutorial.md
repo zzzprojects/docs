@@ -143,9 +143,12 @@ Generally, we create View with the same name as an Action method, so let's creat
 }
 
 </table>
+```
+
 Let's run your application and specify the following Url.
 
 ```csharp
 http://localhost:55016/Customer/
 ```
+
 <img src="https://raw.githubusercontent.com/zzzprojects/docs/master/dapper-tutorial.net/images/view-customer-data.png">
