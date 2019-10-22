@@ -2,7 +2,7 @@
 Permalink: ef6-query-deferred-using-query-cache-and-query-future
 ---
 
-# EF+ Query Deferred
+#  Query Deferred
 
 Defer the execution of a query which is normally executed to allow some features like Query Cache and Query Future.
 

@@ -2,7 +2,7 @@
 Permalink: ef6-query-db-set-filter-by-as-no-filter
 ---
 
-# EF+ Query Filter AsNoFilter
+# DbSet Filter - Query Filter AsNoFilter
 
 You can bypass all filters by using AsNoFilter method in a query if a special scenario doesn't require filtering.
 

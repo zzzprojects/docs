@@ -2,7 +2,7 @@
 Permalink: ef6-query-filter-security-access
 ---
 
-# Security Access
+# Query Filter - Security Access
 
 Viewing sensible data often requires some permissions. For example, not everyone can see all posts in a forum.
 

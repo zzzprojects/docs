@@ -2,7 +2,7 @@
 Permalink: ef6-query-include-filter-soft-delete
 ---
 
-# Soft Delete
+# Query IncludeFilter - Soft Delete
 
 Soft Deleted Records (Include active related entities)
 

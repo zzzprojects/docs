@@ -2,7 +2,7 @@
 Permalink: ef6-query-filter-by-enable-disable
 ---
 
-# EF+ Query Filter Enable/Disable
+# Query Filter - Filter Enable/Disable
 
 Filters are very flexible, you can enable and disable them at any time and only for a specific inheritance or interface if desired.
 

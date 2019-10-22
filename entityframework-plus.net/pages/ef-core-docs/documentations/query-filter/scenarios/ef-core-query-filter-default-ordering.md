@@ -2,7 +2,7 @@
 Permalink: ef-core-query-filter-default-ordering
 ---
 
-# Default Ordering
+# Query Filter - Default Ordering
 
 Default ordering can be often useful for base table like category. No matter the query, you probably want to show categories by alphabetic order.
 

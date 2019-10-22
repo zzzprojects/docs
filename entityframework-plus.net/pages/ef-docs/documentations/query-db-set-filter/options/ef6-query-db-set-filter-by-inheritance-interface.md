@@ -2,7 +2,7 @@
 Permalink: ef6-query-db-set-filter-by-inheritance-interface
 ---
 
-# EF+ Query Filter By Inheritance/Interface
+# DbSet Filter - Query Filter By Inheritance/Interface
 
 Filter can be enabled and disabled by class inheritance and interface.
 

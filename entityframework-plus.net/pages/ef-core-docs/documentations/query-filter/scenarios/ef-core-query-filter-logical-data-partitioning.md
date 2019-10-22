@@ -2,7 +2,7 @@
 Permalink: ef-core-query-filter-logical-data-partitioning
 ---
 
-# Logical Data Partitioning
+# Query Filter - Logical Data Partitioning
 
 A common scenario is to retrieve products by category or the ones available only for a specific country. All data are stored in the same table but only a specific range should be available.
 

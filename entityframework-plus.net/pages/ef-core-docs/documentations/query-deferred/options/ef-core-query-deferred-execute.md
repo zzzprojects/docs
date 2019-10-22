@@ -2,7 +2,7 @@
 Permalink: ef-core-query-deferred-execute
 ---
 
-# EF+ Query Deferred Execute
+# Query Deferred - Execute
 
 Execute the deferred query and return the result.
 
@@ -18,7 +18,7 @@ var count = countDeferred.Execute();
 ```
 [Try it](https://dotnetfiddle.net/Ou2Ly4)
 
-## EF+ Query Deferred Execute Async
+# Query Deferred - Execute Async
 
 Execute the Deferred query asynchronously and return the result.
 

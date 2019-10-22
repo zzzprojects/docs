@@ -2,7 +2,7 @@
 Permalink: ef6-query-future-multi-tables-information
 ---
 
-# Multi tables information scenario 
+# Query Future - Multi tables information scenario 
 
 Client and all related information (order, invoice, etc.) must be loaded.
 

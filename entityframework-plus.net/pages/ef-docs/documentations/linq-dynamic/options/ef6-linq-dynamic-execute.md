@@ -2,7 +2,7 @@
 Permalink: ef6-linq-dynamic-execute
 ---
 
-# Execute
+# LINQ Dynamic - Execute
 
 The Execute method is the LINQ Dynamic ultimate methods which let you evaluate and execute a dynamic expression and return the result.
 

@@ -2,7 +2,7 @@
 Permalink: ef6-audit-soft-add-soft-delete
 ---
 
-# Soft Add & Soft Delete
+# Audit - Soft Add & Soft Delete
 
 ## Problem
 

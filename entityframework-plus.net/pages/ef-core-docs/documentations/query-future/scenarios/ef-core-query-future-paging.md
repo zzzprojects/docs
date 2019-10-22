@@ -2,7 +2,7 @@
 Permalink: ef-core-query-future-paging
 ---
 
-# Paging Scenario
+# Query Future - Paging Scenario
 
 The first ten posts must be returned but you also need to know the total numbers of posts
 

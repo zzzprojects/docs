@@ -2,7 +2,7 @@
 Permalink: ef-core-batch-delete-inmemory
 ---
 
-# EF Core InMemory
+# Batch Delete - EF Core InMemory
 
 ### Problem
 

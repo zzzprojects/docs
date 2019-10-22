@@ -2,7 +2,7 @@
 Permalink: ef-core-query-cache-control
 ---
 
-# EF Query Cache Control
+# Query Cache - Cache Control
 
 EF+ Cache is very flexible and lets you have full control over the cache.
 

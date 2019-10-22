@@ -2,7 +2,7 @@
 Permalink: ef6-batch-delete-executing-interceptor
 ---
 
-# Executing Interceptor
+# Batch Delete - Executing Interceptor
 
 ### Problem
 

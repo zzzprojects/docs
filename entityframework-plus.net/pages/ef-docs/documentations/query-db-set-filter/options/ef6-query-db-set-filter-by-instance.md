@@ -2,7 +2,7 @@
 Permalink: ef6-query-db-set-filter-by-instance
 ---
 
-# EF+ Query Filter By Instance
+# DbSet Filter - Query Filter By Instance
 
 Instance filter applies filters to the current context only. The filtering logic is added once the context is created.
 

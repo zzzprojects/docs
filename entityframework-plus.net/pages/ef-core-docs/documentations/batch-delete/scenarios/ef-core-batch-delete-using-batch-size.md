@@ -2,7 +2,7 @@
 Permalink: ef-core-batch-delete-using-batch-size
 ---
 
-# Batch Size
+# Batch Delete - Batch Size
 
 ## Problem
 

@@ -2,7 +2,7 @@
 Permalink: ef-core-query-filter-object-state
 ---
 
-# Object State
+# Query Filter - Object State
 
 Removing inactive or soft deleted records is probably the most common scenario. A soft delete is often useful when related data cannot be deleted. For example, the customer cannot be deleted because related orders cannot be deleted instead, he becomes inactive.
 

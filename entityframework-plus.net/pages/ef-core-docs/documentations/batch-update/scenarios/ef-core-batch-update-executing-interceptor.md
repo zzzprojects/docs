@@ -2,7 +2,7 @@
 Permalink: ef-core-batch-update-executing-interceptor
 ---
 
-# Executing Interceptor
+# Batch Update - Executing Interceptor
 
 ### Problem
 
