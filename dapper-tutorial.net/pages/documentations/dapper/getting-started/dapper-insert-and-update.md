@@ -14,7 +14,7 @@ The `Execute()` extension method in Dapper enables you to execute a command one 
 
 ## Insert
 
-Inserting a single new record is really easy. All we need to do is write an `INSERT` statement with parameters for each column that we want to set. To insert data into the database, the `CustomerController` contains two `Create` action methods.
+Inserting a single new record is easy. All we need to do is write an `INSERT` statement with parameters for each column that we want to set. To insert data into the database, the `CustomerController` contains two `Create` action methods.
 
  - The first method is for the `GET` process which will run when we call the method.
  - The second method is for the `POST` process which will run when we submit the entry to the server.
@@ -128,7 +128,7 @@ To update data to the database, the `CustomerController` contains two `Edit` act
  - The first method for the `GET` process which will run when we call the method.
  - The second method for the `POST` process which will run when we submit the entry to the server.
  
-In Controller `Edit` action for `POST`, let's add the following code to update the existing customer record to the **Customers** table.
+In Controller `Edit` actions, let's add the following code to update the existing customer record into the **Customers** table.
 
 ```csharp
 // GET: Customer/Edit/5
@@ -236,6 +236,112 @@ Click the Add button and it will add the following code for you.
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
+```
+
+## Delete
+
+Deleting an entity is the easiest of all, because it only requires a unique `Id` to identify the entity being deleted. The SQL statement is a simple `DELETE` with a `WHERE` clause on the `Id` column.
+
+To delete a record from the database, the `CustomerController` contains two `Delete` action methods.
+
+ - The first method is for the `GET` process which will run when we call the method.
+ - The second method is for the `POST` process which will run when we submit the delete request to the server.
+
+In Controller `Delete` actions, let's add the following code to delete the existing customer record from the **Customers** table.
+
+```csharp
+// GET: Customer/Delete/5
+public ActionResult Delete(int id)
+{
+    Customer customer = new Customer();
+    using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["CustomerConnection"].ConnectionString))
+    {
+        customer = db.Query<Customer>("Select * From Customers WHERE CustomerID =" + id, new { id }).SingleOrDefault();
+    }
+    return View(customer);
+}
+
+// POST: Customer/Delete/5
+[HttpPost]
+public ActionResult Delete(int id, FormCollection collection)
+{
+    try
+    {
+        using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["CustomerConnection"].ConnectionString))
+        {
+            string sqlQuery = "Delete From Customers WHERE CustomerID = " + id;
+
+            int rowsAffected = db.Execute(sqlQuery);
+        }
+
+        return RedirectToAction("Index");
+    }
+    catch
+    {
+        return View();
+    }
+}
+```
+
+Let's create a view by right-clicking on the `Delete` action method in `CustomerController` and select **Add View**. On Add Scaffold dialog, choose **MVC 5 View** and click on the Add button.
+
+<img src="https://raw.githubusercontent.com/zzzprojects/docs/master/dapper-tutorial.net/images/create-view-6.png">
+
+ - On the Add View dialog, the View name will appear by default. 
+ - Select the template from the Template dropdown list for which you want to create a view, e.g. Delete.
+ - Choose your model class, e.g. Customer
+ 
+Click the Add button and it will add the following code for you.
+
+```csharp
+@model DapperDemoApp.Models.Customer
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Customer</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
 ```
 
 Let's run your application and you will see all the customers.
