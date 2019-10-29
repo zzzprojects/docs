@@ -4,8 +4,6 @@ Permalink: ef-core-batch-delete
 
 # Batch Delete
 
-> This feature is now available on [Entity Framework Classic - Delete from Query](http://entityframework-classic.net/delete-from-query). Entity Framework Classic is a supported version from the latest EF6 code base. It supports .NET Framework and .NET Core and overcomes some EF limitations by adding tons of must-haves built-in features.
-
 ## Introduction
 
 Deleting using Entity Framework Core can be very slow if you need to delete hundreds or thousands of entities. Entities are first loaded in the context before being deleted which is very bad for the performance and then, they are deleted one by one which makes the delete operation even worse.
@@ -55,12 +53,6 @@ If you need to use one of this feature, you need to use the library [Entity Fram
 In other words, even if you put a filter, all rows tables could be potentially deleted if the filter is made on the client-side.
 
 We always recommend to [disable the client evaluation](https://docs.microsoft.com/en-us/ef/core/querying/client-eval#optional-behavior-throw-an-exception-for-client-evaluation) to avoid performance issue in your application.
-
-## Requirements
-
-- **EFCore+ Batch Delete:** Full version or Standalone version
-- **Entity Framework Version:** EFCore
-- **Minimum Framework Version:** .NET Framework 4
 
 ## Conclusion
 

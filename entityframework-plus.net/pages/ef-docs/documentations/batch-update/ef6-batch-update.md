@@ -4,8 +4,6 @@ Permalink: batch-update
 
 # Batch Update
 
-> This feature is now available on [Entity Framework Classic - Update from Query](http://entityframework-classic.net/update-from-query). Entity Framework Classic is a supported version from the latest EF6 code base. It supports .NET Framework and .NET Core and overcomes some EF limitations by adding tons of must-haves built-in features.
-
 ## Introduction
 
 Updating using Entity Framework can be very slow if you need to update hundreds or thousands of entities with the same expression. Entities are first loaded in the context before being updated which is very bad for the performance and then, they are updated one by one which makes the update operation even worse.
@@ -38,12 +36,6 @@ ctx.Users.Where(x => x.LastLoginDate < date)
  - **DO NOT** support TPT
  
 If you need to use one of this feature, you need to use the library [Entity Framework Extensions](https://entityframework-extensions.net/)
-  
-## Requirements
-
-- **EF+ Batch Delete:** Full version or Standalone version
-- **Entity Framework Version:** EF5, EF6
-- **Minimum Framework Version:** .NET Framework 4
 
 ## Conclusion
 

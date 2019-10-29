@@ -116,13 +116,6 @@ ctx.Posts.IncludeOptimized(q => q.Comments.Take(1)).ToList();
 
 ```
 
-## Requirements
-
- - **EF+ Query IncludeOptimized:** Full version or Standalone version
- - **Database Provider:** All supported
- - **Entity Framework Version:** EF6, EF5
- - **Minimum Framework Version:** .NET Framework 4
-
 ## Conclusion
 
 EF+ Query IncludeOptimized drastically decreases the amount of data transferred and lets you filter included related entities. In some scenario, this may be the only viable solution to avoid SQL Timeout.

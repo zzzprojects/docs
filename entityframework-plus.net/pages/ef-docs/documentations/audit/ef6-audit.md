@@ -47,19 +47,6 @@ foreach(var entry in entries)
  - [Retrieve AuditEntries for specific item](scenarios/ef6-audit-retrieve-audit-entries-for-specific-item.md)
  - [Audit Customization](scenarios/ef6-audit-customization.md)
  - [Audit + Entity Framework Extensions](scenarios/ef6-audit-ef-extensions.md)
- 
-## Limitations
-
- - Entity Framework 7:
-   - **DO NOT** support relationship
-   - **DO NOT** populate EntitySetName value
-
-## Requirements
-
- - **EF+ Audit:** Full version or Standalone version
- - **Database Provider:** All supported
- - **Entity Framework Version:** EF5, EF6, EF7
- - **Minimum Framework Version:** .NET Framework 4
 
 ## Troubleshooting
 

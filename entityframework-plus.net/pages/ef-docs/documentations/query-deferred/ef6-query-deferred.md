@@ -4,8 +4,6 @@ Permalink: query-deferred
 
 # Query Deferred
 
-> This feature is now available on [Entity Framework Classic - Query Deferred](http://entityframework-classic.net/query-deferred). Entity Framework Classic is a supported version from the latest EF6 code base. It supports .NET Framework and .NET Core and overcomes some EF limitations by adding tons of must-haves built-in features.
-
 ## Introduction
 
 There are two types of IQueryable extension methods:
@@ -81,17 +79,6 @@ EF Query Deferred brings advantages to other third party features:
 When a deferred method is used, the query expression is created exactly like a non-deferred method but instead of invoking the execute method from the query provider, a new instance of a class QueryDeferred<TResult> is created using the query and the expression.
 
 The QueryDeferred instance has methods to either execute the expression from the query provider or let a third party library use the object query.
-
-## Limitations
-
-None.
-
-## Requirements
-
- - **EF+ Query Deferred:** Full version or Standalone version
- - **Database Provider:** All supported
- - **Entity Framework Version:** EF5, EF6
- - **Minimum Framework Version:** .NET Framework 4
 
 ## Conclusion
 

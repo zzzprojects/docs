@@ -131,13 +131,6 @@ var list = ctx.SetFiltered<Post>().ToList();
 
 For this kind of scenario, we recommend using instead: [EntityFramework.DynamicFilters](https://github.com/zzzprojects/EntityFramework.DynamicFilters).
 
-## Requirements
-
- - **EF+ Query Filter:** Full version or Standalone version
- - **Database Provider:** All supported
- - **Entity Framework Version:** EF5, EF6
- - **Minimum Framework Version:** .NET Framework 4
-
 ## Conclusion
 
 **EF+ Query Filter** is very powerful and very easy to use. Our filter version covers all kinds of requirements an application could have.
