@@ -1,0 +1,4 @@
+- Documentation
+   - [Documentation](documentations/overview.md)
+   - [Troubleshooting](troubleshooting/timeout-expired.md)
+- [Knowledge Base](/knowledge-base)

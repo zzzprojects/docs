@@ -2,7 +2,7 @@
 Permalink: ef6-audit-retrieve-audit-entries-for-specific-item
 ---
 
-# Retrieve AuditEntries for specific item
+# Audit - Retrieve AuditEntries for specific item
 
 ## Problem
 

@@ -2,7 +2,7 @@
 Permalink: ef-core-audit-exclude-include-entity
 ---
 
-# Exclude & Include Entity
+# Audit - Exclude & Include Entity
 
 ## Problem
 

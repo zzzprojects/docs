@@ -2,7 +2,7 @@
 Permalink: ef-core-query-filter-by-inheritance-interface
 ---
 
-# EF+ Query Filter By Inheritance/Interface
+# Query Filter - Filter By Inheritance/Interface
 
 Filter can be enabled and disabled by class inheritance and interface.
 

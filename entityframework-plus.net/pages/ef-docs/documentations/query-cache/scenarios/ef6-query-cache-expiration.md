@@ -2,7 +2,7 @@
 Permalink: ef6-query-cache-expiration
 ---
 
-# EF+ Query Cache Expiration
+# Query Cache - Cache Expiration
 
 All common caching features like absolute expiration, sliding expiration, removed callback are supported.
 

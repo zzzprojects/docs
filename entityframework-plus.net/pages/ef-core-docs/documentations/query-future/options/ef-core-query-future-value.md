@@ -2,7 +2,7 @@
 Permalink: ef-core-query-future-value
 ---
 
-# EF+ Query FutureValue
+# Query Future - FutureValue
 
 Query FutureValue delays the execution of the query returning a result.
 

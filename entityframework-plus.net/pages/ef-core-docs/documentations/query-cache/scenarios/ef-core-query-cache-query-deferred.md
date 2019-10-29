@@ -2,7 +2,7 @@
 Permalink: ef-core-query-cache-query-deferred
 ---
 
-## EF+ Query Cache Query Deferred
+# Query Cache - Query Deferred
 
 Immediate resolution methods like **Count()** and **FirstOrDefault()** cannot be cached since their expected behavior is to cache the count result or only the first item.
 

@@ -7,38 +7,12 @@ Name: Bulk Insert
 
 ## Description
 
-The `BulkInsert` extension method let you insert a large number of entities in your database using Bulk Operation.
+INSERT entities using Bulk Operation.
 
-```csharp
-DapperPlusManager.Entity<Customer>().Table("Customers"); 
-		
-using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServerW3Schools()))
-{
-    connection.BulkInsert(customers);
-}
-```
-
-{% include component-try-it.html href='https://dotnetfiddle.net/FLGNyE' %}
-
-- [Bulk Insert with options](#example---bulk-insert-with-options)
 - [Insert single](#example---insert-single)
 - [Insert many](#example---insert-many)
 - [Insert with relation (One to One)](#example---insert-with-relation-one-to-one)
 - [Insert with relation (One to Many)](#example---insert-with-relation-one-to-many)
-
-## Example - Bulk Insert with options
-
-You can customize `BulkInsert` operation with different options which is available using the `UseBulkOptions`. The options parameter let you use a lambda expression to customize the way entities are inserted.
-
-```csharp
-DapperPlusManager.Entity<Customer>().Table("Customers"); 
-		
-using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServerW3Schools()))
-{
-    connection.UseBulkOptions(options => options.BatchSize = 100).BulkInsert(customers);
-}		
-```
-{% include component-try-it.html href='https://dotnetfiddle.net/uMfPES' %}
 
 ## Example - Insert Single
 
@@ -52,7 +26,7 @@ using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlSer
 	connection.BulkInsert(new List<Customer>() { new Customer() { CustomerName = "ExampleBulkInsert", ContactName = "Example Name :" +  1}});
 }		
 ```
-{% include component-try-it.html href='https://dotnetfiddle.net/swvvDb' %}
+[Try it](https://dotnetfiddle.net/swvvDb)
 
 ## Example - Insert Many
 INSERT many entities with Bulk Operation.
@@ -65,7 +39,7 @@ using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlSer
 	connection.BulkInsert(customers);
 }
 ```
-{% include component-try-it.html href='https://dotnetfiddle.net/3Z4SzH' %}
+[Try it](https://dotnetfiddle.net/3Z4SzH)
 
 ## Example - Insert with relation (One to One)
 INSERT entities with a one to one relation with Bulk Operation.
@@ -79,7 +53,7 @@ using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlSer
 	connection.BulkInsert(suppliers).ThenForEach(x => x.Product.SupplierID = x.SupplierID).ThenBulkInsert(x => x.Product);
 }	
 ```
-{% include component-try-it.html href='https://dotnetfiddle.net/tEZywR' %}
+[Try it](https://dotnetfiddle.net/tEZywR)
 
 ## Example - Insert with relation (One to Many)
 INSERT entities with a one to many relation with Bulk Operation.
@@ -93,7 +67,7 @@ using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlSer
 	connection.BulkInsert(suppliers).ThenForEach(x => x.Products.ForEach(y => y.SupplierID =  x.SupplierID)).ThenBulkInsert(x => x.Products);
 }
 ```
-{% include component-try-it.html href='https://dotnetfiddle.net/NbCYoZ' %}
+[Try it](https://dotnetfiddle.net/NbCYoZ)
 
 ## Real Life Scenarios
 
@@ -110,7 +84,7 @@ using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlSer
 }	
 ```
 
-{% include component-try-it.html href='https://dotnetfiddle.net/9YcUe8' %}
+[Try it](https://dotnetfiddle.net/9YcUe8)
 
 ### Insert without returning identity value
 
@@ -131,4 +105,4 @@ using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlSer
 }
 ```
 
-{% include component-try-it.html href='https://dotnetfiddle.net/Zbf1Qk' %}
+[Try it](https://dotnetfiddle.net/Zbf1Qk)

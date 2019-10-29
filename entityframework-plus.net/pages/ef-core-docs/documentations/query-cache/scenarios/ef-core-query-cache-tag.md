@@ -2,7 +2,7 @@
 Permalink: ef-core-query-cache-tag
 ---
 
-# EF+ Query Cache Tag & ExpireTag
+# Query Cache - Tag & ExpireTag
 
 Tagging the cache lets you expire later on all cached entries with a specific tag by calling the **ExpireTag** method.
 

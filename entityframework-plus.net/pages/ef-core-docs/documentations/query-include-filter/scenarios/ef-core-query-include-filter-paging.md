@@ -3,7 +3,7 @@
 Permalink: ef-core-query-include-filter-paging
 ---
 
-# Paging
+# Query IncludeFilter - Paging
 
 Paging (Include a range of related entities)
 

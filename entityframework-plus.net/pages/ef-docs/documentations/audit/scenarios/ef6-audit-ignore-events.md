@@ -2,7 +2,7 @@
 Permalink: ef-core-audit-ignore-events
 ---
 
-# Ignore Events
+# Audit - Ignore Events
 
 ### Problem
 

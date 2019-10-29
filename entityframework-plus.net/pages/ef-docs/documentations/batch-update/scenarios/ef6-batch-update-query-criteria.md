@@ -2,7 +2,7 @@
 Permalink: ef6-batch-update-query-criteria
 ---
 
-# Batch Update using Query Criteria
+# Batch Update - Query Criteria
 
 ## Problem
 

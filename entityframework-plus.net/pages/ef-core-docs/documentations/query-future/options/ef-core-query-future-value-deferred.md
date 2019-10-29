@@ -2,7 +2,7 @@
 Permalink: ef-core-query-future-value-deferred
 ---
 
-# EF+ Query FutureValue Deferred
+# Query Future - FutureValue Deferred
 
 Immediate resolution methods like **Count()** and **FirstOrDefault()** cannot use future methods since it executes the query immediately.
 

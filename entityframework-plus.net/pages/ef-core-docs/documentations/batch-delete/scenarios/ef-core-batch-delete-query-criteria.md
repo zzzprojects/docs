@@ -2,7 +2,7 @@
 Permalink: ef-core-batch-delete-query-criteria
 ---
 
-# Batch Delete using Query Criteria
+# Batch Delete - Query Criteria
 
 ### Problem
 

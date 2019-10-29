@@ -6,6 +6,7 @@ Name: Bulk Update
 # Dapper Plus - Bulk Update
 
 ## Description
+
 UPDATE entities using Bulk Operation.
 
 - [Update single](#example---update-single)
@@ -24,7 +25,7 @@ using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlSer
     connection.BulkUpdate(customers);
 }	
 ```
-{% include component-try-it.html href='https://dotnetfiddle.net/nl29KW' %}
+[Try it](https://dotnetfiddle.net/o1WkMA)
 
 ## Example - Update Many
 UPDATE many entities with Bulk Operation.
@@ -37,7 +38,7 @@ using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlSer
     connection.BulkUpdate(customers);
 }	
 ```
-{% include component-try-it.html href='https://dotnetfiddle.net/Z2ttwQ' %}
+[Try it](hhttps://dotnetfiddle.net/10RLzV)
 
 ## Example - Update with relation (One to One)
 UPDATE entities with a one to one relation with Bulk Operation.
@@ -51,7 +52,7 @@ using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlSer
     connection.BulkUpdate(suppliers, x => x.Product);
 }		
 ```
-{% include component-try-it.html href='https://dotnetfiddle.net/ueWXDF' %}
+[Try it](https://dotnetfiddle.net/rwjvqz)
 
 ## Example - Update with relation (One to Many)
 UPDATE entities with a one to many relation with Bulk Operation.
@@ -65,4 +66,4 @@ using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlSer
     connection.BulkUpdate(suppliers, x => x.Products);
 }
 ```
-{% include component-try-it.html href='https://dotnetfiddle.net/2coF4V' %}
+[Try it](https://dotnetfiddle.net/fsTfEg)

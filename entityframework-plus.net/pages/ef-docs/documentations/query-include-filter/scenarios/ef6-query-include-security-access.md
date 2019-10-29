@@ -2,7 +2,7 @@
 Permalink: ef6-query-include-security-access
 ---
 
-# Security Access
+# Query IncludeFilter - Security Access
 
 Security Access (Include available related entities)
 
