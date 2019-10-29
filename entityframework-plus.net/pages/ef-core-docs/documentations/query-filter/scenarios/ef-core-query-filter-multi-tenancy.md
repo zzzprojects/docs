@@ -2,7 +2,7 @@
 Permalink: ef-core-query-filter-multi-tenancy
 ---
 
-# Multi-Tenancy
+# Query Filter - Multi-Tenancy
 
 An example of multi-tenancy is an online store for which the same instance of the database is used by multiple independent applications or clients and the data should not be shared between them.
 

@@ -2,7 +2,7 @@
 Permalink: ef6-query-filter-by-query
 ---
 
-# EF+ Query Filter By Query
+# Query Filter - Filter By Query
 
 Query filter applies filters to specific queries only. The filtering logic is added globally or by instance but in a disabled state and then it is enabled by these specific queries.
 

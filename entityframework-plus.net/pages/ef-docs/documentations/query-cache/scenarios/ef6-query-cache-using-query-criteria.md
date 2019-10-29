@@ -2,7 +2,7 @@
 Permalink: ef6-query-cache-using-query-criteria
 ---
 
-# EF+ Query Cache
+# Query Cache
 
 Return the query result from the cache. If the query is not cached yet, it will be materialized and cached before being returned.
 

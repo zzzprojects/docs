@@ -2,7 +2,7 @@
 Permalink: ef-core-audit-customization
 ---
 
-# Audit Customization
+# Audit - Customization
 
 ## Problem
 

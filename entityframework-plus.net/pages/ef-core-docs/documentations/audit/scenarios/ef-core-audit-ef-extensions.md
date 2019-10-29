@@ -2,7 +2,7 @@
 Permalink: ef-core-audit-ef-extensions
 ---
 
-# Audit + Entity Framework Extensions
+# Audit - With Entity Framework Extensions
 
 If you are using Entity Framework Extensions, it is still possible to use the EF+ Audit features.
 

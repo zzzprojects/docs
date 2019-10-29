@@ -2,7 +2,7 @@
 Permalink: ef6-query-db-set-filter-global
 ---
 
-# EF+ Query Filter Global
+# DbSet Filter - Query Filter Global
 
 Global filter can be used by any context.
 

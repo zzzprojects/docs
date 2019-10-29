@@ -2,7 +2,7 @@
 Permalink: ef-core-query-include-filter-load-multiple-level
 ---
 
-# Load multiple levels
+# Query IncludeFilter - Load multiple levels
 
 {% include template-example.html %} 
 ```csharp

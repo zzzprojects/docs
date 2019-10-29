@@ -2,7 +2,7 @@
 Permalink: ef6-batch-delete-using-batch-size
 ---
 
-# Batch Size
+# Batch Delete - Batch Size
 
 ## Problem
 

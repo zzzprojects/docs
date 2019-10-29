@@ -2,7 +2,7 @@
 Permalink: ef-core-batch-delete-using-batch-delay-interval
 ---
 
-# Batch Delay Interval
+# Batch Delete - Batch Delay Interval
 
 ### Problem
 

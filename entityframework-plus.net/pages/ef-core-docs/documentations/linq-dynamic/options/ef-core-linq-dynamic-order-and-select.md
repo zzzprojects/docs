@@ -2,7 +2,7 @@
 Permalink: ef-core-linq-dynamic-order-and-select
 ---
 
-# Order && Select
+# LINQ Dynamic - Order && Select
 
 All LINQ selector and order are supported. Most of them require the "Dynamic" suffix to not override default behavior (Ordering or selecting by a string is valid).
 

@@ -2,7 +2,7 @@
 Permalink: ef-core-query-filter-by-as-no-filter
 ---
 
-# EF+ Query Filter AsNoFilter
+# Query Filter - Filter AsNoFilter
 
 You can bypass all filters by using AsNoFilter method in a query if a special scenario doesn't require filtering.
 

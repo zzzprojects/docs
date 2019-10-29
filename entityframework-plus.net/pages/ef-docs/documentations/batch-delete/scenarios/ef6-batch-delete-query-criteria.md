@@ -2,7 +2,7 @@
 Permalink: ef6-batch-delete-query-criteria
 ---
 
-# Batch Delete using Query Criteria
+# Batch Delete - using Query Criteria
 
 ### Problem
 

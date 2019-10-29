@@ -2,7 +2,7 @@
 Permalink: ef-core-query-filter-global
 ---
 
-# EF+ Query Filter Global
+# Query Filter - Filter Global
 
 Global filter can be used by any context.
 
