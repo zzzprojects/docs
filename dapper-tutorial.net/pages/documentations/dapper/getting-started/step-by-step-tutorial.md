@@ -7,7 +7,7 @@ Name: setup-database
 
 ## What is Dapper?
 
-Dapper is an object-relational mapping (ORM) for the .NET platform. it provides a framework for mapping an object-oriented domain model to a traditional relational database.
+Dapper is an object-relational mapping (ORM) for the .NET platform. It provides a framework for mapping an object-oriented domain model to a traditional relational database.
 
  - Dapper provides a mapping between databases and .NET objects. 
  - It owns the title of King of Micro ORM in terms of speed and is as fast as using a raw ADO.NET data reader.
