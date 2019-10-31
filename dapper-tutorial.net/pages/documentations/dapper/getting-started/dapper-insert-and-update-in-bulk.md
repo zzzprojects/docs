@@ -5,7 +5,7 @@ Name: dapper-insert-and-update-in-bulk
 
 # Dapper - Insert and Update in Bulk
 
-A bulk operation is a single-target operation that can take a list of objects. A batch operation includes multiple target operations that each can take a list of objects. [Dapper Plus](http://dapper-plus.net/) extends the `IDbConnection` interface with Bulk Operations methods.
+A bulk operation is a single-target operation that can take a list of objects. A batch operation includes multiple target operations that each can take a list of objects. [Dapper Plus](http://dapper-plus.net/) extends the `IDbConnection` interface with Bulk Operations methods:
 
  - Bulk Insert
  - Bulk Update
