@@ -78,6 +78,33 @@ using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlSer
 
 [Try it](https://dotnetfiddle.net/4yltvn)
 
+## Mapping
+
+The `DapperPlusMapper` allows you to map the conceptual model (Entity) with the storage model (Database).
+
+### Mapper - Table
+
+The `Table()` sets the destination table or view name (including schema). By default, the name mapped is singular.
+
+```csharp
+DapperPlusManager.Entity<Customer>()
+    .Table("tbl_Customers");
+```
+
+[Try it](https://dotnetfiddle.net/3GCxZX)
+
+### Mapper - Identity
+
+The `Identity()` sets column(s) which the database generates value. The value is outputted from the destination table (insert and merge action).
+
+```csharp
+DapperPlusManager.Entity<Customer>()
+			.Table("Customers")
+			.Identity(x => x.CustomerID);
+```
+
+[Try it](https://dotnetfiddle.net/d9fw17)
+
 ## Scenarios
 
 Inserting thousands of entities for an initial load or a file importation is a typical scenario. Let's assume that we want to import customers' data provided in CSV format, and we have the following customers already in the database.
