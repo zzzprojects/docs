@@ -187,3 +187,4 @@ Now click on Details link of any customer and you will see all the details for t
 
 <img src="https://raw.githubusercontent.com/zzzprojects/docs/master/dapper-tutorial.net/images/display-customer-details.png">
 
+[Try it online](https://dotnetfiddle.net/XYPFlV)
