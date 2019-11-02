@@ -178,10 +178,12 @@ Again, we will create a Detail view by right-clicking on the `Details` action me
     @Html.ActionLink("Back to List", "Index")
 </p>
 ```
- 
+
 Let's run your application and you will see all the customers.
 
 <img src="https://raw.githubusercontent.com/zzzprojects/docs/master/dapper-tutorial.net/images/display-all-customers.png">
+
+[Try it online](https://dotnetfiddle.net/oMw3qO)
 
 Now click on Details link of any customer and you will see all the details for that customer.
 
