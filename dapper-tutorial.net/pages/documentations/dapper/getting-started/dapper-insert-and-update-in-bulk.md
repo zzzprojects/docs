@@ -99,8 +99,8 @@ The `Identity()` sets column(s) which the database generates value. The value is
 
 ```csharp
 DapperPlusManager.Entity<Customer>()
-			.Table("Customers")
-			.Identity(x => x.CustomerID);
+    .Table("Customers")
+    .Identity(x => x.CustomerID);
 ```
 
 [Try it](https://dotnetfiddle.net/d9fw17)
