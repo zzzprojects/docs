@@ -244,6 +244,8 @@ In the POST action, the customer's data is parsed and inserted into the database
 }
 ```
 
+[Try it online](https://dotnetfiddle.net/LAiJgP)
+
 Let's update the menu options by changing the '_layout.cshtml' file, so that the user can view this data and also make some changes as needed.
 
 ```csharp
