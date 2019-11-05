@@ -152,3 +152,5 @@ http://localhost:55016/Customer/
 ```
 
 <img src="https://raw.githubusercontent.com/zzzprojects/docs/master/dapper-tutorial.net/images/view-customer-data.png">
+
+[Try it online](https://dotnetfiddle.net/MyI0LA)

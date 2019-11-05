@@ -119,6 +119,8 @@ Click the Add button and it will add the following code for you.
 }
 ```
 
+[Try it online](https://dotnetfiddle.net/415Svb)
+
 ## Update
 
 Updating an existing entity is similar to inserting. All we need is a SQL statement containing an `UPDATE` statement that sets the appropriate columns. We also want to make sure we include a `WHERE` clause limiting the update only to the row with the specified `Id`.
@@ -238,6 +240,8 @@ Click the Add button and it will add the following code for you.
 }
 ```
 
+[Try it online](https://dotnetfiddle.net/C1Akcb)
+
 ## Delete
 
 Deleting an entity is the easiest of all, because it only requires a unique `Id` to identify the entity being deleted. The SQL statement is a simple `DELETE` with a `WHERE` clause on the `Id` column.
@@ -343,6 +347,8 @@ Click the Add button and it will add the following code for you.
     }
 </div>
 ```
+
+[Try it online](https://dotnetfiddle.net/JY5ivx)
 
 Let's run your application and you will see all the customers.
 
