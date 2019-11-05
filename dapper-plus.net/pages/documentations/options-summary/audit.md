@@ -25,6 +25,10 @@ connection.UseBulkOptions(x =>
 
 Try it: [.NET Framework](https://dotnetfiddle.net/s8wLF9) | [.NET Core](https://dotnetfiddle.net/cjasQV)
 
+## Scenarios
+- Saving the audit history in a database
+- Saving the audit history in a log file
+
 ## Options
 | Name                               | Description                                                           |
 |:-----------------------------------|:----------------------------------------------------------------------|
@@ -38,7 +42,3 @@ Try it: [.NET Framework](https://dotnetfiddle.net/s8wLF9) | [.NET Core](https://
 |[AuditActionType](../options/audit-entities.md#audit-action-type) | The `AuditActionType` enum definition.  |
 |[AuditEntry](../options/audit-entities.md#audit-entry) | The `AuditEntry` class definition. |
 |[AuditEntryItem](../options/audit-entities.md#audit-entry-item) | The `AuditEntryItem` class definition. |
-
-## Scenarios
-- Saving the audit history in a database
-- Saving the audit history in a log file
