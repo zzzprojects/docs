@@ -3,6 +3,7 @@
    - [Introduction](dapper/dapper.md)
 - Methods
    - [Execute](dapper/execute.md)
+   - [ExecuteReader](dapper/execute-reader.md)
    - [Query](dapper/query.md)
    - [QueryFirst](dapper/queryfirst.md)
    - [QueryFirstOrDefault](dapper/queryfirstordefault.md)
