@@ -35,6 +35,6 @@ Try it: [.NET Framework](https://dotnetfiddle.net/s8wLF9) | [.NET Core](https://
 ## Entities
 | Name                               | Description                                                           |
 |:-----------------------------------|:----------------------------------------------------------------------|
-|[AuditActionType](../options/audit-entities.md#audit-action-type) | The  |
+|[AuditActionType](../options/audit-entities.md#audit-action-type) | The `AuditActionType` enum definition  |
 |[AuditEntry](../options/audit-entities.md#audit-entry) | The `AuditEntry` class definition |
 |[AuditEntryItem](../options/audit-entities.md#audit-entry-item) | The `AuditEntryItem` class definition |
