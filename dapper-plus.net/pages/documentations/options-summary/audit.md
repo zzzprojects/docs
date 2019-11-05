@@ -28,13 +28,13 @@ Try it: [.NET Framework](https://dotnetfiddle.net/s8wLF9) | [.NET Core](https://
 ## Options
 | Name                               | Description                                                           |
 |:-----------------------------------|:----------------------------------------------------------------------|
-|[UseAudit](../options/use-audit.md)  | Gets or sets if the `Audit` feature is enabled |
-|[AuditEntries](../options/audit-entries.md)  | Gets or sets the list of `AuditEntries` that will be populated during the bulk operations |
+|[UseAudit](../options/use-audit.md)  | Gets or sets if the `Audit` feature is enabled. |
+|[AuditEntries](../options/audit-entries.md)  | Gets or sets the list of `AuditEntries` that will be populated during the bulk operations. |
 |[AuditMode](../options/audit-mode.md)  | Gets or sets which properties/columns should be included/excluded. |
 
 ## Entities
 | Name                               | Description                                                           |
 |:-----------------------------------|:----------------------------------------------------------------------|
-|[AuditActionType](../options/audit-entities.md#audit-action-type) | The `AuditActionType` enum definition  |
-|[AuditEntry](../options/audit-entities.md#audit-entry) | The `AuditEntry` class definition |
-|[AuditEntryItem](../options/audit-entities.md#audit-entry-item) | The `AuditEntryItem` class definition |
+|[AuditActionType](../options/audit-entities.md#audit-action-type) | The `AuditActionType` enum definition.  |
+|[AuditEntry](../options/audit-entities.md#audit-entry) | The `AuditEntry` class definition. |
+|[AuditEntryItem](../options/audit-entities.md#audit-entry-item) | The `AuditEntryItem` class definition. |
