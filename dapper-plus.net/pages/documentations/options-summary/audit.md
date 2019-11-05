@@ -38,3 +38,7 @@ Try it: [.NET Framework](https://dotnetfiddle.net/s8wLF9) | [.NET Core](https://
 |[AuditActionType](../options/audit-entities.md#audit-action-type) | The `AuditActionType` enum definition.  |
 |[AuditEntry](../options/audit-entities.md#audit-entry) | The `AuditEntry` class definition. |
 |[AuditEntryItem](../options/audit-entities.md#audit-entry-item) | The `AuditEntryItem` class definition. |
+
+## Scenarios
+- Saving the audit history in a database
+- Saving the audit history in a log file
