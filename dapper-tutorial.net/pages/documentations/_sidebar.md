@@ -2,8 +2,9 @@
 - Getting Started
    - [Introduction](dapper/dapper.md)
 - Methods
-   - [Execute](dapper/execute.md)
+   - [Execute](dapper/execute.md) 
    - [ExecuteReader](dapper/execute-reader.md)
+   - [ExecuteScalar](dapper/execute-scalar.md)
    - [Query](dapper/query.md)
    - [QueryFirst](dapper/queryfirst.md)
    - [QueryFirstOrDefault](dapper/queryfirstordefault.md)
