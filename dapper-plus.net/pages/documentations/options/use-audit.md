@@ -1,6 +1,6 @@
 # UseAudit
 
-## Definition
+## Description
 
 The `UseAudit` property sets if `UPDATED`, `INSERTED` and `DELETED` data from the database should be returned as `AuditEntries`.
 
@@ -18,11 +18,3 @@ connection.UseBulkOptions(x =>
 ```
 
 Try it: [.NET Framework](https://dotnetfiddle.net/s8wLF9) | [.NET Core](https://dotnetfiddle.net/cjasQV)
-
-## Purpose
-Logging old and new values are often useful to keep a history of changes in the database or file.
-
-## FAQ
-
-### Why enabling this option decreases the performance?
-Enabling this option will require additional data to be returned from the database.

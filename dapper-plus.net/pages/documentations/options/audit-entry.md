@@ -1,4 +1,4 @@
-# AuditEntries
+# AuditEntry
 
 ## Description
 
@@ -7,16 +7,6 @@ The `AuditEntries` property which is of type `List<AuditEntry>` gets `UPDATED`, 
 The following example sets `UseAudit` to `true` and assigns the list of `AuditEntries` to populate.
 
 ```csharp
-List<AuditEntry> auditEntries = new List<AuditEntry>(); 
-        
-connection.UseBulkOptions(x => 
-{ 
-    x.AuditEntries = auditEntries; 
-    x.UseAudit = true;
-})
-.BulkMerge(list);
+TBD
 ```
 Try it: [.NET Framework](https://dotnetfiddle.net/XB5npF) | [.NET Core](https://dotnetfiddle.net/y4w1ZG)
-
-## Purpose
-Logging old and new values are often useful to keep a history of changes in the database or file.

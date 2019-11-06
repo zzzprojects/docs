@@ -42,3 +42,10 @@ Try it: [.NET Framework](https://dotnetfiddle.net/s8wLF9) | [.NET Core](https://
 |[AuditActionType](../options/audit-entities.md#audit-action-type) | The `AuditActionType` enum definition.  |
 |[AuditEntry](../options/audit-entities.md#audit-entry) | The `AuditEntry` class definition. |
 |[AuditEntryItem](../options/audit-entities.md#audit-entry-item) | The `AuditEntryItem` class definition. |
+|[AuditModeType](../options/audit-entities.md#audit-entry-item) | The `AuditEntryItem` class definition. |
+|[ColumnMappingAuditModeType](../options/audit-entities.md#audit-entry-item) | The `AuditEntryItem` class definition. |
+
+## FAQ
+
+### Why enabling this option decreases the performance?
+Enabling this option will require additional data to be returned from the database.

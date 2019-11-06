@@ -1,20 +1,37 @@
 # AuditActionType
 
-## Definition
+## Description
 
-The `AuditEntries` property which is of type `List<AuditEntry>` gets `UPDATED`, `INSERTED` and `DELETED` data from the database when `UseAudit` is enabled.
-
-The following example sets `UseAudit` to `true` and assigns the list of `AuditEntries` to populate.
+The `AuditActionType` is a property of the `AuditEntry` class. It represent the SQL action that has been performed for the entry (A Delete, Insert, or Update).
 
 ```csharp
-TBD
+namespace Z.BulkOperations
+{
+    /// <summary>Values that represent AuditActionType.</summary>
+    public enum AuditActionType
+    {
+        /// <summary>An enum constant representing the delete option.</summary>
+        Delete,
+
+        /// <summary>An enum constant representing the insert option.</summary>
+        Insert,
+
+        /// <summary>An enum constant representing the update option.</summary>
+        Update
+    }
+}
 ```
+
+> HINT: The `AuditActionType` is in Z.BulkOperations namespace since the library is used under the hood.
+
+## Example
+In this example, a BulkMerge will be performed:
+
+- We will retrieve in the first table, all audit entry that has been inserted.
+- We will retrieve in the second table, all audit entry that has been updated.
+
+```csharp
+// ...code...
+```
+
 Try it: [.NET Framework](https://dotnetfiddle.net/XB5npF) | [.NET Core](https://dotnetfiddle.net/y4w1ZG)
-
-## Purpose
-Logging old and new values are often useful to keep a history of changes in the database or file.
-
-## FAQ
-
-### Why enabling this option decreases the performance?
-Enabling this option will require additional data to be returned from the database.
