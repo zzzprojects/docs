@@ -6,6 +6,7 @@ The `AuditEntries` property which is of type `List<AuditEntry>` gets `UPDATED`, 
 
 The following example sets `UseAudit` to `true` and assigns the list of `AuditEntries` to populate.
 
+```csharp
 List<AuditEntry> auditEntries = new List<AuditEntry>(); 
         
 connection.UseBulkOptions(x => 
