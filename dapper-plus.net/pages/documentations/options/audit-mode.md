@@ -26,6 +26,8 @@ Try it: [.NET Framework](https://dotnetfiddle.net/ulrLSL) | [.NET Core](https://
 
 ## Example
 
+In this example,
+
 The `AuditMode` property can also be set globally instead of only for any particular bulk operation to include or exclude all columns from the database.
 
 ```csharp
