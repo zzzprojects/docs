@@ -4,22 +4,27 @@
 
 The `AuditMode` property sets to include or exclude all columns from the database which should be returned as `AuditEntries`. By default, all columns are included.
 
+## Example
+
+In this example,
+
 The following example sets `UseAudit` to `true`, assigns the list of `AuditEntries` to populate, and also sets the `AuditMode` to `AuditModeType.ExcludeAll`.
 
 ```csharp
-List<AuditEntry> auditEntries = new List<AuditEntry>(); 
-        
-connection.UseBulkOptions(x => 
-{ 
-    x.UseAudit = true;
-    x.AuditEntries = auditEntries;
-    x.AuditMode = AuditModeType.ExcludeAll;
-    
-})
-.BulkMerge(list);
+namespace Z.BulkOperations
+{
+    /// <summary>Values that represent AuditModeType.</summary>
+    public enum AuditModeType
+    {
+        IncludeAll,
+        ExcludeAll
+    }
+}
 ```
 
 Try it: [.NET Framework](https://dotnetfiddle.net/ulrLSL) | [.NET Core](https://dotnetfiddle.net/T5MgRa)
+
+## Example
 
 The `AuditMode` property can also be set globally instead of only for any particular bulk operation to include or exclude all columns from the database.
 

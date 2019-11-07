@@ -2,7 +2,12 @@
 
 ## Description
 
-The `AuditActionType` is a property of the `AuditEntry` class. It represent the SQL action that has been performed for the entry (A Delete, Insert, or Update).
+The `AuditActionType` is a property of the `AuditEntry` class.
+
+It represent the SQL action that has been performed for the entry:
+- Delete
+- Insert
+- Update
 
 ```csharp
 namespace Z.BulkOperations
@@ -25,6 +30,7 @@ namespace Z.BulkOperations
 > HINT: The `AuditActionType` is in Z.BulkOperations namespace since the library is used under the hood.
 
 ## Example
+
 In this example, a BulkMerge will be performed:
 
 - We will retrieve in the first table, all audit entry that has been inserted.
