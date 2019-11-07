@@ -1,6 +1,6 @@
 # AuditMode
 
-## Definition
+## Description
 
 The `AuditMode` property sets to include or exclude all columns from the database which should be returned as `AuditEntries`. By default, all columns are included.
 
@@ -39,11 +39,3 @@ connection.UseBulkOptions(x =>
 ```
 
 Try it: [.NET Framework](https://dotnetfiddle.net/BtWOMy) | [.NET Core](https://dotnetfiddle.net/ezJ9Iu)
-
-## Purpose
-Logging old and new values are often useful to keep a history of changes in the database or file.
-
-## FAQ
-
-### Why enabling this option decreases the performance?
-Enabling this option will require additional data to be returned from the database.
