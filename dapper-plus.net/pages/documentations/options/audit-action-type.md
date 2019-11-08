@@ -41,6 +41,8 @@ As a result, **3** `AuditEntry` will be created with the `Action` property value
 
 ```csharp
 // ...code...
+
+// Try it online to see the result
 ```
 
 Try it: [.NET Framework](https://dotnetfiddle.net/XB5npF) | [.NET Core](https://dotnetfiddle.net/y4w1ZG)
