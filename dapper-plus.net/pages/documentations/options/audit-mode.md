@@ -2,7 +2,31 @@
 
 ## Description
 
-The `AuditMode` property sets to include or exclude all columns from the database which should be returned as `AuditEntries`. By default, all columns are included.
+The `AuditMode` is a method to exclude or include property that will be part of the auditing
+
+```csharp
+namespace Z.Dapper.Plus
+{
+    public partial class DapperPlusEntityMapper<T>
+    {
+        /// <summary>Audit mode column.</summary>
+        /// <param name="copyFromConfiguration">The copy from configuration.</param>
+        /// <returns>A DapperPlusEntityMapper&lt;T&gt;</returns>
+        public DapperPlusEntityMapper<T> AuditMode(DapperPlusEntityMapper<T> copyFromConfiguration);
+
+        /// <summary>Audit mode.</summary>
+        /// <param name="auditMode">The audit mode.</param>
+        /// <returns>A DapperPlusEntityMapper&lt;T&gt;</returns>
+        public DapperPlusEntityMapper<T> AuditMode(AuditModeType auditMode);
+
+        /// <summary>Audit mode column.</summary>
+        /// <param name="selectors">The selectors.</param>
+        /// <param name="columnMappingAuditMode">The column mapping audit mode.</param>
+        /// <returns>A DapperPlusEntityMapper&lt;T&gt;</returns>
+        public DapperPlusEntityMapper<T> AuditMode(Expression<Func<T, object>> selectors, ColumnMappingAuditModeType columnMappingAuditMode);
+    }
+}
+```
 
 ## Example
 
@@ -25,8 +49,6 @@ namespace Z.BulkOperations
 Try it: [.NET Framework](https://dotnetfiddle.net/ulrLSL) | [.NET Core](https://dotnetfiddle.net/T5MgRa)
 
 ## Example
-
-In this example,
 
 The `AuditMode` property can also be set globally instead of only for any particular bulk operation to include or exclude all columns from the database.
 
