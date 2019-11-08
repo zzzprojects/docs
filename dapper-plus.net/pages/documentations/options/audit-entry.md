@@ -18,51 +18,25 @@ namespace Z.BulkOperations
     /// <summary>An audit entry.</summary>
     public class AuditEntry
     {
-        internal AuditActionType _action;
-        internal DateTime _date;
-        internal Dictionary<object, object> _metas;
-        internal string _tableName;
-        internal List<AuditEntryItem> _values;
-
         /// <summary>Gets or sets the action.</summary>
         /// <value>The action.</value>
-        public AuditActionType Action
-        {
-            get { return _action; }
-            set { _action = value; }
-        }
-
+        public AuditActionType Action { get; set; }
+		
         /// <summary>Gets or sets the Date/Time of the date.</summary>
         /// <value>The date.</value>
-        public DateTime Date
-        {
-            get { return _date; }
-            set { _date = value; }
-        }
+        public DateTime Date { get; set; }
 
         /// <summary>Gets or sets the metas.</summary>
         /// <value>The metas.</value>
-        public Dictionary<object, object> Metas
-        {
-            get { return _metas; }
-            set { _metas = value; }
-        }
+        public Dictionary<object, object> Metas { get; set; }
 
         /// <summary>Gets or sets the name of the table.</summary>
         /// <value>The name of the table.</value>
-        public string TableName
-        {
-            get { return _tableName; }
-            set { _tableName = value; }
-        }
+        public string TableName { get; set; }
 
         /// <summary>Gets or sets the values.</summary>
         /// <value>The values.</value>
-        public List<AuditEntryItem> Values
-        {
-            get { return _values; }
-            set { _values = value; }
-        }
+        public List<AuditEntryItem> Values { get; set; }
     }
 }
 ```

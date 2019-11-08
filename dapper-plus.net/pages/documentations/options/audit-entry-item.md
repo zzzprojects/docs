@@ -15,33 +15,17 @@ namespace Z.BulkOperations
     /// <summary>An audit entry item.</summary>
     public class AuditEntryItem
     {
-        internal string _columnName;
-        internal object _newValue;
-        internal object _oldValue;
-
         /// <summary>Gets or sets the name of the column.</summary>
         /// <value>The name of the column.</value>
-        public string ColumnName
-        {
-            get { return _columnName; }
-            set { _columnName = value; }
-        }
+        public string ColumnName { get; set; }
 
         /// <summary>Gets or sets the new value.</summary>
         /// <value>The new value.</value>
-        public object NewValue
-        {
-            get { return _newValue; }
-            set { _newValue = value; }
-        }
+        public object NewValue { get; set; }
 
         /// <summary>Gets or sets the old value.</summary>
         /// <value>The old value.</value>
-        public object OldValue
-        {
-            get { return _oldValue; }
-            set { _oldValue = value; }
-        }
+        public object OldValue { get; set; }
     }
 }
 ```
