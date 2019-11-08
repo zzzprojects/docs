@@ -12,18 +12,27 @@ namespace Z.Dapper.Plus
         /// <summary>Audit mode column.</summary>
         /// <param name="copyFromConfiguration">The copy from configuration.</param>
         /// <returns>A DapperPlusEntityMapper&lt;T&gt;</returns>
-        public DapperPlusEntityMapper<T> AuditMode(DapperPlusEntityMapper<T> copyFromConfiguration);
+        public DapperPlusEntityMapper<T> AuditMode(DapperPlusEntityMapper<T> copyFromConfiguration)
+        {
+            // ...code...
+        }
 
         /// <summary>Audit mode.</summary>
         /// <param name="auditMode">The audit mode.</param>
         /// <returns>A DapperPlusEntityMapper&lt;T&gt;</returns>
-        public DapperPlusEntityMapper<T> AuditMode(AuditModeType auditMode);
+        public DapperPlusEntityMapper<T> AuditMode(AuditModeType auditMode)
+        {
+            // ...code...
+        }
 
         /// <summary>Audit mode column.</summary>
         /// <param name="selectors">The selectors.</param>
         /// <param name="columnMappingAuditMode">The column mapping audit mode.</param>
         /// <returns>A DapperPlusEntityMapper&lt;T&gt;</returns>
-        public DapperPlusEntityMapper<T> AuditMode(Expression<Func<T, object>> selectors, ColumnMappingAuditModeType columnMappingAuditMode);
+        public DapperPlusEntityMapper<T> AuditMode(Expression<Func<T, object>> selectors, ColumnMappingAuditModeType columnMappingAuditMode)
+        {
+            // ...code...
+        } 
     }
 }
 ```
