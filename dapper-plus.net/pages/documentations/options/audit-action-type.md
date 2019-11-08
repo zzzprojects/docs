@@ -35,6 +35,7 @@ In this example,
 
 We will execute a `BulkMerge` on a list that contains **1** new customer and **2** existing customers.
 
+// will display in a grid...
 As a result, **3** `AuditEntry` will be created with the `Action` property value set to:
 - `AuditActionType.Insert` for the **1** new customer
 - `AuditActionType.Update` for the **2** existing customers
