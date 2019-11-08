@@ -10,9 +10,6 @@ It represent metadata about a specific row:
 - When the action has been performed
 
 ```csharp
-using System;
-using System.Collections.Generic;
-
 namespace Z.BulkOperations
 {
     /// <summary>An audit entry.</summary>
