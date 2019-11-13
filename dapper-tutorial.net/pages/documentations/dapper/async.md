@@ -131,11 +131,11 @@ using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlSer
 
     using (var multi = connection.QueryMultipleAsync(sql).Result)
     {
-        var invoices = multi.Read<Order>().ToList();
-        var invoiceItems = multi.Read<OrderDetail>().ToList();
+        var orders = multi.Read<Order>().ToList();
+        var orderDetails = multi.Read<OrderDetail>().ToList();
                 
-        FiddleHelper.WriteTable(invoices);
-        FiddleHelper.WriteTable(invoiceItems);
+        FiddleHelper.WriteTable(orders);
+        FiddleHelper.WriteTable(orderDetails);
     }
 }
 ```
