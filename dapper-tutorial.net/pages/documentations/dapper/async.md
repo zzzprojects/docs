@@ -15,105 +15,129 @@ Dapper also extend the IDbConnection interface with Async (asynchronous) methods
 - [QuerySingleOrDefaultAsync](#querysingleordefaultasync)
 - [QueryMultipleAsync](#querymultipleasync)
 
-> We only added non-asynchronous version in this tutorial to make it easier to read.
+> We only added a non-asynchronous version in this tutorial to make it easier to read.
 
 ## ExecuteAsync
+
+The `ExecuteAsync` can execute a command one or multiple times asynchronously and return the number of affected rows. 
 
 ```csharp
 string sql = "INSERT INTO Customers (CustomerName) Values (@CustomerName);";
 
 using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServerW3Schools()))
 {
-	var affectedRows = connection.ExecuteAsync(sql, new {CustomerName = "Mark"}).Result;
+    var affectedRows = connection.ExecuteAsync(sql, new {CustomerName = "Mark"}).Result;
 
-	Console.WriteLine(affectedRows);
+    Console.WriteLine(affectedRows);
 
-	var customer = connection.Query<Customer>("Select * FROM CUSTOMERS WHERE CustomerName = 'Mark'").ToList();
+    var customer = connection.Query<Customer>("Select * FROM CUSTOMERS WHERE CustomerName = 'Mark'").ToList();
 
-	FiddleHelper.WriteTable(customer);
+    FiddleHelper.WriteTable(customer);
 }
 ```
 {% include component-try-it.html href='https://dotnetfiddle.net/2rVSi0' %}
 
 ## QueryAsync
+
+The `QueryAsync` can execute a query and map the result asynchronously.
 ```csharp
 string sql = "SELECT TOP 10 * FROM OrderDetails";
 
 using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServerW3Schools()))
 {
-	var orderDetails = connection.QueryAsync<OrderDetail>(sql).Result.ToList();
+    var orderDetails = connection.QueryAsync<OrderDetail>(sql).Result.ToList();
 
-	Console.WriteLine(orderDetails.Count());
+    Console.WriteLine(orderDetails.Count());
 
-	FiddleHelper.WriteTable(orderDetails);
+    FiddleHelper.WriteTable(orderDetails);
 }
 ```
 {% include component-try-it.html href='https://dotnetfiddle.net/X79bZI' %}
 
 ## QueryFirstAsync
+
+The `QueryFirstAsync` can execute a query and map asynchronously the first result.
+
 ```csharp
 string sql = "SELECT * FROM OrderDetails WHERE OrderDetailID = @OrderDetailID;";
 
 using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServerW3Schools()))
 {
-	var orderDetail = connection.QueryFirstAsync<OrderDetail>(sql, new {OrderDetailID = 1}).Result;
+    var orderDetail = connection.QueryFirstAsync<OrderDetail>(sql, new {OrderDetailID = 1}).Result;
 
-	FiddleHelper.WriteTable(new List<OrderDetail>() { orderDetail } );
+    FiddleHelper.WriteTable(new List<OrderDetail>() { orderDetail } );
 }
 ```
 {% include component-try-it.html href='https://dotnetfiddle.net/7Jbdcg' %}
 
 ## QueryFirstOrDefaultAsync
+
+The `QueryFirstOrDefaultAsync` can execute a query and map asynchronously the first result, or a default value if the sequence contains no elements.
+
 ```csharp
 string sql = "SELECT * FROM OrderDetails WHERE OrderDetailID = @OrderDetailID;";
 
 using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServerW3Schools()))
 {
-	var orderDetail = connection.QueryFirstOrDefaultAsync<OrderDetail>(sql, new {OrderDetailID = 1}).Result;
+    var orderDetail = connection.QueryFirstOrDefaultAsync<OrderDetail>(sql, new {OrderDetailID = 1}).Result;
 
-	FiddleHelper.WriteTable(new List<OrderDetail>() { orderDetail } );
+    FiddleHelper.WriteTable(new List<OrderDetail>() { orderDetail } );
 }
 ```
 {% include component-try-it.html href='https://dotnetfiddle.net/26NWaz' %}
 
 ## QuerySingleAsync
+
+The `QuerySingleAsync` can execute a query and map asynchronously the first result and throws an exception if there is not exactly one element in the sequence.
+
 ```csharp
 string sql = "SELECT * FROM OrderDetails WHERE OrderDetailID = @OrderDetailID;";
 
 using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServerW3Schools()))
-{			
-	var orderDetail = connection.QuerySingleOrDefaultAsync<OrderDetail>(sql, new {OrderDetailID = 1}).Result;
+{            
+    var orderDetail = connection.QuerySingleOrDefaultAsync<OrderDetail>(sql, new {OrderDetailID = 1}).Result;
 
-	FiddleHelper.WriteTable(new List<OrderDetail>() { orderDetail } );
+    FiddleHelper.WriteTable(new List<OrderDetail>() { orderDetail } );
 }
 ```
 {% include component-try-it.html href='https://dotnetfiddle.net/pmjYFp' %}
 
 ## QuerySingleOrDefaultAsync
+
+The `QuerySingleOrDefaultAsync` can execute a query and map asynchronously the first result, or a default value if the sequence is empty; this method throws an exception if there is more than one element in the sequence.
+
 ```csharp
 string sql = "SELECT * FROM OrderDetails WHERE OrderDetailID = @OrderDetailID;";
 
 using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServerW3Schools()))
 {
-	var orderDetail = connection.QuerySingleOrDefaultAsync<OrderDetail>(sql, new {OrderDetailID = 1}).Result;
+    var orderDetail = connection.QuerySingleOrDefaultAsync<OrderDetail>(sql, new {OrderDetailID = 1}).Result;
 
-	FiddleHelper.WriteTable(new List<OrderDetail>() { orderDetail } );
+    FiddleHelper.WriteTable(new List<OrderDetail>() { orderDetail } );
 }
 ```
 {% include component-try-it.html href='https://dotnetfiddle.net/WvbA02' %}
 
 ## QueryMultipleAsync
+
+The `QuerySingleOrDefaultAsync` can execute multiple queries within the same command and map results asynchronously.
+
 ```csharp
-var sql = "SELECT * FROM Invoice; SELECT * FROM InvoiceItem;";
+var sql = "SELECT TOP 3 * FROM Orders; SELECT TOP 3 * FROM OrderDetails;";
 
-using (var connection = My.ConnectionFactory())
+using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServerW3Schools()))
 {
-	connection.Open();
+    connection.Open();
 
-	using (var multi = connection.QueryMultipleAsync(sql, new { InvoiceID = 1 }).Result)
-	{
-		var invoice = multi.Read<Invoice>().First();
-		var invoiceItems = multi.Read<InvoiceItem>().ToList();
-	}
+    using (var multi = connection.QueryMultipleAsync(sql).Result)
+    {
+        var invoices = multi.Read<Order>().ToList();
+        var invoiceItems = multi.Read<OrderDetail>().ToList();
+                
+        FiddleHelper.WriteTable(invoices);
+        FiddleHelper.WriteTable(invoiceItems);
+    }
 }
 ```
+
+{% include component-try-it.html href='https://dotnetfiddle.net/EoRmrF' %}
