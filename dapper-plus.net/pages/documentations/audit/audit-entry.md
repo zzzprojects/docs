@@ -44,9 +44,9 @@ namespace Z.BulkOperations
 
 In this example,
 
-A BulkMerge will be performed and the code will display all `AuditEntry` informations:
-- 1 rows has been inserted
-- 2 rows has been updated
+We will execute a `BulkMerge` on a list that contains **1** new customer and **2** existing customers.
+
+As a result, we will display all created `AuditEntry`.
 
 ```csharp
 // ...code...

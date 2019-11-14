@@ -8,7 +8,9 @@ The `AuditEntries` property which is of type `List<AuditEntry>` gets `UPDATED`, 
 
 In this example,
 
-The following example sets `UseAudit` to `true` and assigns the list of `AuditEntries` to populate.
+We will execute a `BulkMerge` on a list that contains **1** new customer and **2** existing customers.
+
+As a result, we will display all created `AuditEntry`.
 
 ```csharp
 List<AuditEntry> auditEntries = new List<AuditEntry>(); 

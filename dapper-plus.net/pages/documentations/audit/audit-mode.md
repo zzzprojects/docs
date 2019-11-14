@@ -41,6 +41,16 @@ namespace Z.Dapper.Plus
 
 In this example,
 
+We will execute a `BulkMerge` on a list that contains **1** new customer and **2** existing customers.
+
+
+
+As a result, we will display all created `AuditEntry` and their `AuditEntryItem`.
+
+
+
+In this example,
+
 The following example sets `UseAudit` to `true`, assigns the list of `AuditEntries` to populate, and also sets the `AuditMode` to `AuditModeType.ExcludeAll`.
 
 ```csharp
