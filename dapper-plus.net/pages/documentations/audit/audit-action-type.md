@@ -10,16 +10,16 @@ It represent the SQL operation that has been executed in the database.
 // The https://bulk-operations.net/ library is used under the hood
 namespace Z.BulkOperations
 {
-    /// <summary>Values that represent AuditActionType.</summary>
+    /// <summary>The SQL operation that has been executed in the database..</summary>
     public enum AuditActionType
     {
-        /// <summary>An enum constant representing the delete option.</summary>
+        /// <summary>An enum constant representing the delete operation.</summary>
         Delete = 0,
 
-        /// <summary>An enum constant representing the insert option.</summary>
+        /// <summary>An enum constant representing the insert operation.</summary>
         Insert = 1,
 
-        /// <summary>An enum constant representing the update option.</summary>
+        /// <summary>An enum constant representing the update operation.</summary>
         Update = 2
     }
 }
