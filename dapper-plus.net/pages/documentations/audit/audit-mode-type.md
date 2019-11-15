@@ -38,7 +38,7 @@ With the following **Mapping**:
 With the following **BulkOptions**:
 
 - `UseAudit`: To enable the audit feature
-- `AuditEntries`: To retrieving audit entries
+- `AuditEntries`: To retrieve audit entries
 
 As a result, only the `Code` and `Description` properties will be populated in the `AuditEntry` list.
 
