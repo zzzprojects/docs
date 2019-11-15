@@ -2,7 +2,7 @@
 
 ## Description
 
-The `AuditModeType` is an enum used to include or exclude all properties in the Audit.
+The `AuditModeType` is an enum used to include or exclude all entity properties in the Audit.
 
 The default value is `AuditModeType.IncludeAll`.
 
@@ -10,13 +10,13 @@ The default value is `AuditModeType.IncludeAll`.
 // The https://bulk-operations.net/ library is used under the hood.
 namespace Z.BulkOperations
 {
-    /// <summary>The enum that represents if properties are included or excluded.</summary>
+    /// <summary>The enum that represents if all entity properties are included or excluded.</summary>
     public enum AuditModeType
     {
-        /// <summary>The name/value that represents if all properties are included.</summary>
+        /// <summary>The name/value that represents if all entity properties are included.</summary>
         IncludeAll = 0,
 		
-        /// <summary>The name/value that represents if all properties are excluded.</summary>
+        /// <summary>The name/value that represents if all entity properties are excluded.</summary>
         ExcludeAll = 1
     }
 }
