@@ -42,9 +42,12 @@ With the following **BulkOptions**:
 - `AuditEntries`: To retrieve audit entries
 
 ```csharp
-// ...code...
-
-// Try it online to see the result
+connection.UseBulkOptions(x => 
+{ 
+	x.AuditEntries = auditEntries; 
+	x.UseAudit = true;
+})
+.BulkMerge(list);
 ```
 
 Try it: [.NET Framework](https://dotnetfiddle.net/WTIe5L) | [.NET Core](https://dotnetfiddle.net/y4w1ZG)
