@@ -47,7 +47,7 @@ With the following **BulkOptions**:
 // Try it online to see the result
 ```
 
-Try it: [.NET Framework](https://dotnetfiddle.net/XB5npF) | [.NET Core](https://dotnetfiddle.net/y4w1ZG)
+Try it: [.NET Framework](https://dotnetfiddle.net/WTIe5L) | [.NET Core](https://dotnetfiddle.net/y4w1ZG)
 
 ### Result
 
