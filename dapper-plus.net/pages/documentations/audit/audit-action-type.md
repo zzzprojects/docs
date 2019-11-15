@@ -15,6 +15,12 @@ namespace Z.BulkOperations
     {
         /// <summary>The name/value when a DELETE operation is executed.</summary>
         Delete = 0,
+        
+        /// <summary>The name/value that represents used when a DELETE operation is executed.</summary>
+        Delete = 0,
+        
+        /// <summary>The name/value that represents the DELETE operation.</summary>
+        Delete = 0,
 
         /// <summary>The action value when a DELETE operation is executed.</summary>
         Insert = 1,
