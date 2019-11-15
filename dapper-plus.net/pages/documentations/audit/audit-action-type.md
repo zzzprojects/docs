@@ -2,7 +2,7 @@
 
 ## Description
 
-The `AuditActionType` is an enum used for the `Action` property of the [AuditEntry](audit-entry.md) class.
+The `AuditActionType` is an enum used for the `Action` property in the [AuditEntry](audit-entry.md) class.
 
 It represent the SQL operation that has been executed in the database.
 
