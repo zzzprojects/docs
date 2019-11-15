@@ -24,7 +24,6 @@ namespace Z.BulkOperations
 > HINT: The `AuditModeType` is in Z.BulkOperations namespace since the library is used under the hood.
 
 ## Example
-In this example,
 
 We will demonstrate how to include only specific properties.
 
