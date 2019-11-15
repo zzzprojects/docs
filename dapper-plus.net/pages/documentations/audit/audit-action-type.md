@@ -37,7 +37,7 @@ We will demonstrate how the `Action` property is populated.
 
 A `BulkMerge` will be executed on a list that contains **1** new customer and **2** existing customers.
 
-With the following BulkOptions:
+With the following **BulkOptions**:
 
 - `UseAudit`: To enable the audit feature
 - `AuditEntries`: To retrieving audit entries
