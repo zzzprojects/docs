@@ -40,7 +40,7 @@ A `BulkMerge` will be executed on a list that contains **1** new customer and **
 With the following **BulkOptions**:
 
 - `UseAudit`: To enable the audit feature
-- `AuditEntries`: To retrieving audit entries
+- `AuditEntries`: To retrieve audit entries
 
 As a result, **3** `AuditEntry` will be created with the `Action` property value set to:
 
