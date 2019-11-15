@@ -19,7 +19,7 @@ namespace Z.BulkOperations
         /// <summary>The action value when a DELETE operation is executed.</summary>
         Insert = 1,
 
-        /// <summary>An enum constant that represents the update operation.</summary>
+        /// <summary>An enum constant that represents the UPDATE operation.</summary>
         Update = 2
     }
 }
