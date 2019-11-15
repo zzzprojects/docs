@@ -53,7 +53,7 @@ FiddleHelper.WriteTable("1 - Inserted Customers", auditEntries.Where(x => x.Acti
 FiddleHelper.WriteTable("2 - Updated Customers", auditEntries.Where(x => x.Action == AuditActionType.Update));
 ```
 
-Try it: [.NET Framework](https://dotnetfiddle.net/WTIe5L) | [.NET Core](https://dotnetfiddle.net/y4w1ZG)
+Try it: [.NET Core](https://dotnetfiddle.net/y4w1ZG) | [.NET Framework](https://dotnetfiddle.net/WTIe5L)
 
 ### Result
 
@@ -61,5 +61,3 @@ We will split the `AuditEntries` list by their `AuditActionType` value.
 
 - `AuditActionType.Insert`: Will display the **1** new customer
 - `AuditActionType.Update`: Will display the **2** existing customers
-
-
