@@ -29,7 +29,7 @@ namespace Z.BulkOperations
 
 We will demonstrate how to split the `AuditEntries` list by their `AuditActionType` value.
 
-### Description
+### Execute
 
 We will execute a `BulkMerge` on a list that contains **2** existing customers and **1** new customer.
 
