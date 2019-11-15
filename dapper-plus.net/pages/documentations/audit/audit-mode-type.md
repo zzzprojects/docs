@@ -23,6 +23,12 @@ namespace Z.BulkOperations
 
 > HINT: The `AuditModeType` is in Z.BulkOperations namespace since the library is used under the hood.
 
+## Example
+
+In this example,
+
+We will demonstrate how the `Action` property is populated.
+
 ### Execute
 A `BulkMerge` will be executed on a list that contains **1** new customer and **2** existing customers.
 
