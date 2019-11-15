@@ -36,6 +36,8 @@ With the following **BulkOptions**:
 - `AuditEntries`: To set the audit entries list
 - `UseAudit`: To enable the audit feature
 
+Then we will split the `AuditEntries` list by their `AuditActionType` value.
+
 ```csharp
 // Mapping
 DapperPlusManager.Entity<Customer>().Table("Customer");
