@@ -35,7 +35,6 @@ In this example,
 
 We will demonstrate how the `Action` property is populated.
 
-### Execute
 A `BulkMerge` will be executed on a list that contains **1** new customer and **2** existing customers.
 
 With the following **BulkOptions**:
@@ -45,7 +44,7 @@ With the following **BulkOptions**:
 
 ### Result
 
-**3** `AuditEntry` will be created with the `Action` property value set to:
+The **AuditEntries** property will contains **3** `AuditEntry` with the `Action` property value set to:
 
 - `AuditActionType.Insert`: For the **1** new customer
 - `AuditActionType.Update`: For the **2** existing customers
