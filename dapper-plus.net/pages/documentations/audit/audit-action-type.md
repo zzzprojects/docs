@@ -33,8 +33,8 @@ We will demonstrate how to split the `AuditEntries` list by their `AuditActionTy
 We will execute a `BulkMerge` on a list that contains **1** new customer and **2** existing customers.
 
 With the following **BulkOptions**:
-- `UseAudit`: `True` to enable the audit feature
-- `AuditEntries`: To retrieve audit entries
+- `AuditEntries`: To set the audit entries list
+- `UseAudit`: To enable the audit feature
 
 ```csharp
 // Mapping
