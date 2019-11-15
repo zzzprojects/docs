@@ -45,6 +45,7 @@ With the following **BulkOptions**:
 DapperPlusManager.Entity<Customer>().Table("Customer");
 
 // Execute a BulkMerge with the following BulkOptions
+List<AuditEntry> auditEntries = new List<AuditEntry>(); 
 connection.UseBulkOptions(x => 
 { 
 	x.AuditEntries = auditEntries; 
