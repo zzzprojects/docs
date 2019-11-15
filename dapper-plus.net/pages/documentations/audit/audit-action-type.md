@@ -33,8 +33,8 @@ We will demonstrate how to split the `AuditEntries` list by their `AuditActionTy
 We will execute a `BulkMerge` on a list that contains **2** existing customers and **1** new customer.
 
 With the following **BulkOptions**:
-- `AuditEntries`: To set the audit entries list
-- `UseAudit`: To enable the audit feature
+- [AuditEntries](audit-entries.md): To set the audit entries list
+- [UseAudit](use-audit.md): To enable the audit feature
 
 Then we split the `AuditEntries` list by their `AuditActionType` value.
 
