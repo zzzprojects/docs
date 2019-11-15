@@ -40,7 +40,6 @@ With the following **BulkOptions**:
 ### Result
 We will split the `AuditEntries` list by their `AuditActionType` value.
 
-### Code
 ```csharp
 // Mapping
 DapperPlusManager.Entity<Customer>().Table("Customer");
