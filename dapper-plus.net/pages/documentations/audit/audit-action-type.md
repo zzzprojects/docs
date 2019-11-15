@@ -13,7 +13,7 @@ namespace Z.BulkOperations
     /// <summary>The action that represent the SQL operation that has been executed in the database.</summary>
     public enum AuditActionType
     {
-        /// <summary>The DELETE operation.</summary>
+        /// <summary>When a DELETE operation is executed.</summary>
         Delete = 0,
 
         /// <summary>The action value when a DELETE operation is executed.</summary>
