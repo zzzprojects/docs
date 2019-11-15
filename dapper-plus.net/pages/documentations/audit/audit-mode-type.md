@@ -28,7 +28,7 @@ In this example,
 
 We will demonstrate how to include only specific properties.
 
-We will execute a BulkMerge on a list that contains **1** new customer and **2** existing customers.
+We will execute a `BulkMerge` on a list that contains **1** new customer and **2** existing customers.
 
 With the following **Mapping**:
 
