@@ -4,7 +4,7 @@
 
 The `AuditActionType` is a property of the `AuditEntry` class.
 
-It represent the SQL action that has been performed for the entry:
+It represents the SQL action that has been performed for the entry:
 - Delete
 - Insert
 - Update
@@ -33,7 +33,7 @@ namespace Z.BulkOperations
 
 In this example,
 
-We will execute a `BulkMerge` on a list that contains **1** new customer and **2** existing customers.
+We will execute a `BulkMerge` on a list that contains **1** new customers and **2** existing customers.
 
 As a result, **3** `AuditEntry` will be created with the `Action` property value set to:
 - `AuditActionType.Insert` for the **1** new customer
