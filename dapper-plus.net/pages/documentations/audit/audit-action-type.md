@@ -37,8 +37,6 @@ With the following **BulkOptions**:
 - [AuditEntries](audit-entries.md): To set the audit entries list
 - [UseAudit](use-audit.md): To enable the audit feature
 
-Then we split the `AuditEntries` list by their `AuditActionType` value.
-
 ```csharp
 // Mapping
 DapperPlusManager.Entity<Customer>().Table("Customer");
@@ -58,3 +56,6 @@ FiddleHelper.WriteTable("2 - Inserted Customers", auditEntries.Where(x => x.Acti
 ```
 
 Try it: [.NET Framework](https://dotnetfiddle.net/WTIe5L) | [.NET Core](https://dotnetfiddle.net/y4w1ZG)
+
+### Result
+Then we split the `AuditEntries` list by their `AuditActionType` value.
