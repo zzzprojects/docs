@@ -31,7 +31,7 @@ We will demonstrate how to get `AuditEntries` by `AuditActionType` value.
 
 ### Execute
 
-We will execute a `BulkMerge` on a list that contains **2** existing customers and **1** new customer.
+We will execute a `BulkMerge` on a list that contains **1** new customer and **2** existing customers.
 
 ### Code
 
@@ -49,8 +49,8 @@ connection.UseBulkOptions(x =>
 .BulkMerge(list);
 
 // Result
-FiddleHelper.WriteTable("1 - Updated Customers", auditEntries.Where(x => x.Action == AuditActionType.Update));
-FiddleHelper.WriteTable("2 - Inserted Customers", auditEntries.Where(x => x.Action == AuditActionType.Insert));
+FiddleHelper.WriteTable("1 - Inserted Customers", auditEntries.Where(x => x.Action == AuditActionType.Insert));
+FiddleHelper.WriteTable("2 - Updated Customers", auditEntries.Where(x => x.Action == AuditActionType.Update));
 ```
 
 Try it: [.NET Framework](https://dotnetfiddle.net/WTIe5L) | [.NET Core](https://dotnetfiddle.net/y4w1ZG)
