@@ -69,14 +69,18 @@ With the following **BulkOptions**:
 - `UseAudit`: To enable the audit feature
 - `AuditEntries`: To retrieve audit entries
 
-As a result,
-
-The **AuditEntries** property will contains **3** `AuditEntry` with the `Action` property value set to:
-
-ThOnly the `Code` and `Description` properties will be populated in the `AuditEntry` list.
 
 ```csharp
 // ...code...
 ```
 
 Try it: [.NET Framework](https://dotnetfiddle.net/XB5npF) | [.NET Core](https://dotnetfiddle.net/y4w1ZG)
+
+
+### Result
+
+The `AuditEntries` property will contains **3** `AuditEntry` with the `Action` property value set to:
+
+- `AuditActionType.Insert`: For the **1** new customer
+- `AuditActionType.Update`: For the **2** existing customers
+
