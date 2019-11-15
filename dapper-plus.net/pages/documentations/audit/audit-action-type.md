@@ -42,7 +42,9 @@ With the following **BulkOptions**:
 - `UseAudit`: To enable the audit feature
 - `AuditEntries`: To retrieve audit entries
 
-As a result, **3** `AuditEntry` will be created with the `Action` property value set to:
+As a result,
+
+**3** `AuditEntry` will be created with the `Action` property value set to:
 
 - `AuditActionType.Insert`: For the **1** new customer
 - `AuditActionType.Update`: For the **2** existing customers
