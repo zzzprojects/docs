@@ -24,13 +24,13 @@ namespace Z.BulkOperations
 
 ## Example
 
-We will demonstrate how to include only specific properties by excluding first all properties.
+We will demonstrate how to include only specific properties by excluding all properties then specifying properties to include.
 
 ### Mapping
 
 We will use the following **Mapping**:
-- `AuditMode(AuditModeType.ExcludeAll)`: To exclude all properties by default
-- `AuditMode(AuditModeType.Include, x => new { x.CustomerID, x.Code })`: To include the `CustomerID` and `Code` properties
+- `AuditMode(AuditModeType.ExcludeAll)`: To exclude all properties
+- `AuditMode(x => new { x.CustomerID, x.Name }, ColumnMappingAuditModeType.Include)`: To include the `CustomerID` and `Name` properties
 
 ### Execute
 
@@ -42,29 +42,27 @@ With the following **BulkOptions**:
 
 ### Result
 
-...
-The `AuditEntries` property will contains **3** `AuditEntry`. The `Values` property will only contains the `CustomerID` and `Code` properties, all other properties are ignored.
-
-We will split the `AuditEntries` list by their `AuditActionType` value.
+We will show all `AuditEntry` values.
 
 ### Code
 
 ```csharp
 // Mapping
-DapperPlusManager.Entity<Customer>().Table("Customer");
-
+DapperPlusManager.Entity<Customer>().Table("Customer")
+	.AuditMode(AuditModeType.ExcludeAll)
+	.AuditMode(x => new { x.CustomerID, x.Name }, ColumnMappingAuditModeType.Include);
+	
 // Execute
 List<AuditEntry> auditEntries = new List<AuditEntry>(); 
 connection.UseBulkOptions(x => 
 { 
-    x.AuditEntries = auditEntries; 
-    x.UseAudit = true;
+	x.AuditEntries = auditEntries; 
+	x.UseAudit = true;
 })
-.BulkMerge(list);
+.BulkMerge(list); 
 
 // Result
-FiddleHelper.WriteTable("1 - Updated Customers", auditEntries.Where(x => x.Action == AuditActionType.Update));
-FiddleHelper.WriteTable("2 - Inserted Customers", auditEntries.Where(x => x.Action == AuditActionType.Insert));
+FiddleHelper.WriteTable(auditEntries.SelectMany(x => x.Values));
 ```
 
 Try it: [.NET Framework](https://dotnetfiddle.net/CDA98j) | [.NET Core](https://dotnetfiddle.net/y4w1ZG)
