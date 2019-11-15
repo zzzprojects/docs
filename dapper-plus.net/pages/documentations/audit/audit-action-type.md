@@ -16,13 +16,13 @@ namespace Z.BulkOperations
     public enum AuditActionType
     {
         /// <summary>An enum constant representing the delete option.</summary>
-        Delete,
+        Delete = 0,
 
         /// <summary>An enum constant representing the insert option.</summary>
-        Insert,
+        Insert = 1,
 
         /// <summary>An enum constant representing the update option.</summary>
-        Update
+        Update = 2
     }
 }
 ```
@@ -53,5 +53,5 @@ Try it: [.NET Framework](https://dotnetfiddle.net/WTIe5L) | [.NET Core](https://
 
 The `AuditEntries` property will contains **3** `AuditEntry` with the `Action` property value set to:
 
-- `AuditActionType.Insert`: For the **1** new customer
-- `AuditActionType.Update`: For the **2** existing customers
+- `AuditActionType.Insert = 1`: For the **1** new customer
+- `AuditActionType.Update = 2`: For the **2** existing customers
