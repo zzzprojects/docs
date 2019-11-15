@@ -24,13 +24,13 @@ namespace Z.BulkOperations
 
 ## Example
 
-We will demonstrate how to include specific properties by excluding all entity properties and then including specific properties.
+We will demonstrate how to include specific properties.
 
 ### Mapping
 
 We will use the following **Mapping**:
-- `AuditMode(AuditModeType.ExcludeAll)`: To exclude all properties
-- `AuditMode(x => new { x.CustomerID, x.Name }, ColumnMappingAuditModeType.Include)`: To include the `CustomerID` and `Name` properties
+- `AuditMode(AuditModeType.ExcludeAll)`: To exclude all entity properties
+- `AuditMode(x => new { x.CustomerID, x.Name }, ColumnMappingAuditModeType.Include)`: To include specific properties
 
 ### Execute
 
