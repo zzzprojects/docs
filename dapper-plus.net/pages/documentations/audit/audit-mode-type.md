@@ -10,13 +10,13 @@ The default value is `AuditModeType.IncludeAll`.
 // The https://bulk-operations.net/ library is used under the hood.
 namespace Z.BulkOperations
 {
-    /// <summary>The enum that represents if properties are included or excluded from the Audit.</summary>
+    /// <summary>The enum that represents if properties are included or excluded.</summary>
     public enum AuditModeType
     {
-		/// <summary>The name/value that represents if all properties are included in the Audit.</summary>
+		/// <summary>The name/value that represents if all properties are included.</summary>
         IncludeAll = 0,
 		
-		/// <summary>The name/value that represents if all properties are excluded in the Audit.</summary>
+		/// <summary>The name/value that represents if all properties are excluded.</summary>
         ExcludeAll = 1
     }
 }
