@@ -44,7 +44,7 @@ With the following **BulkOptions**:
 // Mapping
 DapperPlusManager.Entity<Customer>().Table("Customer");
 
-// Execute + BulkOptions
+// Execute with following BulkOptions
 connection.UseBulkOptions(x => 
 { 
 	x.AuditEntries = auditEntries; 
