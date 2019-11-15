@@ -7,7 +7,7 @@ The `AuditActionType` is a property of the `AuditEntry` class.
 It represent the SQL action that has been performed in the database for every entities.
 
 ```csharp
-// something here....The `AuditActionType` uses the Z.BulkOperations namespace since the library is used under the hood.
+// something here.. library is used under the hood.
 namespace Z.BulkOperations
 {
     /// <summary>Values that represent AuditActionType.</summary>
