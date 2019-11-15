@@ -31,7 +31,7 @@ We will demonstrate how to get `AuditEntries` by `AuditActionType` value.
 
 ### Execute
 
-We will execute a `BulkMerge` on a list that contains **1** new Customer and **2** existing Customer.
+We will execute a `BulkMerge` on a list that contains **1** new customer and **2** existing customers.
 
 ### Code
 
@@ -59,7 +59,7 @@ Try it: [.NET Framework](https://dotnetfiddle.net/WTIe5L) | [.NET Core](https://
 
 We will split the `AuditEntries` list by their `AuditActionType` value.
 
-- `AuditActionType.Insert`: Will display the **1** new `Customer`
+- `AuditActionType.Insert`: Will display the **1** new customer
 - `AuditActionType.Update`: Will display the **2** existing customers
 
 
