@@ -60,5 +60,8 @@ Try it: [.NET Framework](https://dotnetfiddle.net/WTIe5L) | [.NET Core](https://
 
 The `AuditEntries` property will contains **3** `AuditEntry` with the `Action` property value set to:
 
-- `1 = AuditActionType.Insert`: For the **1** new customer
-- `2 = AuditActionType.Update`: For the **2** existing customers
+- `AuditActionType.Update = 2`: For the **2** existing customers
+- `AuditActionType.Insert = 1`: For the **1** new customer
+
+The first result table only display audit entries that has been updated. The second result table only display audit entries that has been inserted.
+
