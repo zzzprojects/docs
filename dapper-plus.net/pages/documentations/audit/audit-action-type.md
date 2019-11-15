@@ -31,8 +31,6 @@ namespace Z.BulkOperations
 
 ## Example
 
-In this example,
-
 We will demonstrate how the `Action` property is populated.
 
 ### Execute
