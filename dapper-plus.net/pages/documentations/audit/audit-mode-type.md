@@ -34,7 +34,7 @@ We will use the following **Mapping**:
 
 ### Execute
 
-We will execute a `BulkMerge` on a list that contains **2** existing customers and **1** new customer.
+We will execute a `BulkMerge`.
 
 ### Code
 
