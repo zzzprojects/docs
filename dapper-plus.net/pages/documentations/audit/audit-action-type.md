@@ -30,13 +30,13 @@ namespace Z.BulkOperations
 We will demonstrate how to split the `AuditEntries` list by their `AuditActionType` value.
 
 ### Code
-We will execute a `BulkMerge` on a list that contains **1** new customer and **2** existing customers.
+We will execute a `BulkMerge` on a list that contains **2** existing customers and **1** new customer.
 
 With the following **BulkOptions**:
 - `AuditEntries`: To set the audit entries list
 - `UseAudit`: To enable the audit feature
 
-Then we will split the `AuditEntries` list by their `AuditActionType` value.
+Then we split the `AuditEntries` list by their `AuditActionType` value.
 
 ```csharp
 // Mapping
@@ -60,8 +60,8 @@ Try it: [.NET Framework](https://dotnetfiddle.net/WTIe5L) | [.NET Core](https://
 
 ### Result
 
-The `AuditEntries` list will contains **3** `AuditEntry`
-- The first result table displays audit entries that has been updated
+The `AuditEntries` list will contains **3** `AuditEntry`:
+- The first result show **2** `AuditEntries`for the existing customers
 - The second result table displays audit entries that has been inserted
 
 
