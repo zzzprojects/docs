@@ -42,6 +42,10 @@ With the following **BulkOptions**:
 - `AuditEntries`: To retrieve audit entries
 
 ```csharp
+// Mapping
+DapperPlusManager.Entity<Customer>().Table("Customer");
+
+// BulkOptions
 connection.UseBulkOptions(x => 
 { 
 	x.AuditEntries = auditEntries; 
