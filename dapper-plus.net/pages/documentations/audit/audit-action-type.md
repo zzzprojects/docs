@@ -35,15 +35,40 @@ In this example,
 
 We will execute a `BulkMerge` on a list that contains **1** new customer and **2** existing customers.
 
-// will display in a grid...
 As a result, **3** `AuditEntry` will be created with the `Action` property value set to:
 - `AuditActionType.Insert` for the **1** new customer
 - `AuditActionType.Update` for the **2** existing customers
 
 ```csharp
-// ...code...
+List<AuditEntry> auditEntries = new List<AuditEntry>();
+        
+List<Customer> customers = connection.Query<Customer>("SELECT * FROM Customers").ToList();
 
-// Try it online to see the result
+customers.ForEach(c => 
+{
+    c.Name += "_Updated";
+    c.Description += "_Updated";
+});
+
+customers.Add(new Customer() { Name = "Customer_4", Description = "Description for Customer 4", IsActive = true });
+customers.Add(new Customer() { Name = "Customer_4", Description = "Description for Customer 4", IsActive = true });
+
+connection.UseBulkOptions(x =>
+{
+    x.AuditEntries = auditEntries;
+    x.UseAudit = true;
+})
+.BulkMerge(customers);
+        
+foreach(var audit in auditEntries.Where(a => a.Action == AuditActionType.Update))
+{
+    FiddleHelper.WriteTable(audit.Action.ToString(), audit.Values);
+}
+        
+foreach(var audit in auditEntries.Where(a => a.Action == AuditActionType.Insert))
+{
+    FiddleHelper.WriteTable(audit.Action.ToString(), audit.Values);
+}
 ```
 
-Try it: [.NET Framework](https://dotnetfiddle.net/XB5npF) | [.NET Core](https://dotnetfiddle.net/y4w1ZG)
+Try it: [.NET Framework](https://dotnetfiddle.net/ASctoz) | [.NET Core](https://dotnetfiddle.net/T1pyjd)
