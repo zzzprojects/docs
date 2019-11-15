@@ -2,33 +2,33 @@
 
 ## Description
 
-The `AuditActionType` is a property of the `BulkOperation` class. 
+The `AuditModeType` is an enum used to include or exclude all properties.
 
-The default value is `IncludeAll`.
-
-IncludeAll: All columns are audited by default. To exclude a column, you need to specify it at the column mapping level
-ExcludeAll: All columns are NOT audited by default. To include a column, you need to specify it at the column mapping level
+The default value is `AuditModeType.IncludeAll`.
 
 ```csharp
+// The https://bulk-operations.net/ library is used under the hood.
 namespace Z.BulkOperations
 {
-    /// <summary>Values that represent AuditModeType.</summary>
+    /// <summary>The enum that represents that all properties are included or excluded.</summary>
     public enum AuditModeType
     {
-        IncludeAll,
-        ExcludeAll
+		/// <summary>The name/value that represents that all properties are included.</summary>
+        IncludeAll = 0,
+		
+		/// <summary>The name/value that represents that all properties are excluded.</summary>
+        ExcludeAll = 1
     }
 }
 ```
-
-> HINT: The `AuditModeType` is in Z.BulkOperations namespace since the library is used under the hood.
 
 ## Example
 
 We will demonstrate how to include only specific properties.
 
 ### Execute
-We will execute a `BulkMerge` on a list that contains **1** new customer and **2** existing customers.
+
+We will execute a `BulkMerge` on a list that contains **2** existing customers and **1** new customer.
 
 With the following **Mapping**:
 
@@ -36,18 +36,34 @@ With the following **Mapping**:
 - `AuditMode(AuditModeType.Include, x => new { x.CustomerID, x.Code })`: To include the `CustomerID` and `Code` properties in the auditing.
 
 With the following **BulkOptions**:
-
-- `UseAudit`: To enable the audit feature
-- `AuditEntries`: To retrieve audit entries
-
-
-```csharp
-// ...code...
-```
-
-Try it: [.NET Framework](https://dotnetfiddle.net/XB5npF) | [.NET Core](https://dotnetfiddle.net/y4w1ZG)
-
+- [AuditEntries](audit-entries.md): To set the audit entries list
+- [UseAudit](use-audit.md): To enable the audit feature
 
 ### Result
 
+...
 The `AuditEntries` property will contains **3** `AuditEntry`. The `Values` property will only contains the `CustomerID` and `Code` properties, all other properties are ignored.
+
+We will split the `AuditEntries` list by their `AuditActionType` value.
+
+### Code
+
+```csharp
+// Mapping
+DapperPlusManager.Entity<Customer>().Table("Customer");
+
+// Execute
+List<AuditEntry> auditEntries = new List<AuditEntry>(); 
+connection.UseBulkOptions(x => 
+{ 
+    x.AuditEntries = auditEntries; 
+    x.UseAudit = true;
+})
+.BulkMerge(list);
+
+// Result
+FiddleHelper.WriteTable("1 - Updated Customers", auditEntries.Where(x => x.Action == AuditActionType.Update));
+FiddleHelper.WriteTable("2 - Inserted Customers", auditEntries.Where(x => x.Action == AuditActionType.Insert));
+```
+
+Try it: [.NET Framework](https://dotnetfiddle.net/WTIe5L) | [.NET Core](https://dotnetfiddle.net/y4w1ZG)
