@@ -36,8 +36,6 @@ We will use the following mapping:
 
 We will execute a `BulkMerge` on a list that contains 1 new customer and 2 existing customers.
 
-### Code
-
 ```csharp
 // Mapping
 DapperPlusManager.Entity<Customer>().Table("Customer")
