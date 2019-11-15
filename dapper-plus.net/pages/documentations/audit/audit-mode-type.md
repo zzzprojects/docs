@@ -24,10 +24,23 @@ namespace Z.BulkOperations
 > HINT: The `AuditModeType` is in Z.BulkOperations namespace since the library is used under the hood.
 
 ## Example
-In this example, 
+In this example,
 
-A BulkMerge will be performed. All column will be excluded but we will include only the primary key.
+We will demonstrate how to include only specific properties.
 
+We will execute a BulkMerge on a list that contains **1** new customer and **2** existing customers.
+
+With the following `Mapping`:
+
+- `AuditMode(AuditModeType.ExcludeAll)`: To exclude all properties from the auditing
+- `AuditMode(AuditModeType.Include, x => new { x.Code, x.Description })`: To include the `Code` and `Description` in the auditing.
+
+With the following BulkOptions:
+
+- `UseAudit`: To enable the audit feature
+- `AuditEntries`: To retrieving audit entries
+
+As a result, only the `Code` and `Description` properties will be populated in the `AuditEntry` list.
 
 ```csharp
 // ...code...
