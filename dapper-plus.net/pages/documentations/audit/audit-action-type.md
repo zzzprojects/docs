@@ -27,7 +27,9 @@ namespace Z.BulkOperations
 
 ## Example
 
-We will demonstrate how the `Action` property is populated.
+We will demonstrate an example that 
+
+how the `Action` property is populated.
 
 ### Execute
 We will execute a `BulkMerge` on a list that contains **1** new customer and **2** existing customers.
