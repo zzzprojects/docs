@@ -4,6 +4,10 @@
 
 The `UseAudit` property sets if `UPDATED`, `INSERTED` and `DELETED` data from the database should be returned as `AuditEntries`.
 
+## Example
+
+In this example,
+
 The following example sets `UseAudit` to `true` and assigns the list of `AuditEntries` to populate.
 
 ```csharp

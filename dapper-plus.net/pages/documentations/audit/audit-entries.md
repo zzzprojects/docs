@@ -4,7 +4,13 @@
 
 The `AuditEntries` property which is of type `List<AuditEntry>` gets `UPDATED`, `INSERTED` and `DELETED` data from the database when `UseAudit` is enabled.
 
-The following example sets `UseAudit` to `true` and assigns the list of `AuditEntries` to populate.
+## Example
+
+In this example,
+
+We will execute a `BulkMerge` on a list that contains **1** new customer and **2** existing customers.
+
+As a result, we will display all created `AuditEntry`.
 
 ```csharp
 List<AuditEntry> auditEntries = new List<AuditEntry>(); 
@@ -16,7 +22,5 @@ connection.UseBulkOptions(x =>
 })
 .BulkMerge(list);
 ```
-Try it: [.NET Framework](https://dotnetfiddle.net/XB5npF) | [.NET Core](https://dotnetfiddle.net/y4w1ZG)
 
-## Purpose
-Logging old and new values are often useful to keep a history of changes in the database or file.
+Try it: [.NET Framework](https://dotnetfiddle.net/XB5npF) | [.NET Core](https://dotnetfiddle.net/y4w1ZG)

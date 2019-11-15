@@ -1,15 +1,18 @@
 # Audit
 
 ## Description
+
 The Dapper Plus audit feature lets you track changes of all modifications that happened in the database during the bulk operations. You can create after a history of who modified a table, what was an old value, what was the new value.
 
 ## Key Features
+
 - Allow getting a history of modification
 - Allow storing the history in a database or log file
 - Allow tracking who, what, when a modification occurred
 - Allow knowing what the old and new value was
 
 ## Getting Started
+
 To use the audit feature, you need first to enable it and provide a list if AuditEntry that will be populated during the operations.
 
 ```csharp
@@ -26,10 +29,12 @@ connection.UseBulkOptions(x =>
 Try it: [.NET Framework](https://dotnetfiddle.net/s8wLF9) | [.NET Core](https://dotnetfiddle.net/cjasQV)
 
 ## Scenarios
+
 - Saving the audit history in a database
 - Saving the audit history in a log file
 
 ## Options
+
 | Name                               | Description                                                           |
 |:-----------------------------------|:----------------------------------------------------------------------|
 |[UseAudit](../options/use-audit.md)  | Gets or sets if the `Audit` feature is enabled. |
@@ -37,6 +42,7 @@ Try it: [.NET Framework](https://dotnetfiddle.net/s8wLF9) | [.NET Core](https://
 |[AuditMode](../options/audit-mode.md)  | Gets or sets which properties/columns should be included/excluded. |
 
 ## Entities
+
 | Name                               | Description                                                           |
 |:-----------------------------------|:----------------------------------------------------------------------|
 |[AuditActionType](../options/audit-entities.md#audit-action-type) | The `AuditActionType` enum definition.  |
@@ -48,4 +54,5 @@ Try it: [.NET Framework](https://dotnetfiddle.net/s8wLF9) | [.NET Core](https://
 ## FAQ
 
 ### Why enabling this option decreases the performance?
+
 Enabling this option will require additional data to be returned from the database.
