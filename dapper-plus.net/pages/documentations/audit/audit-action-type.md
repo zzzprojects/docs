@@ -41,9 +41,6 @@ With the following **BulkOptions**:
 
 We will split the `AuditEntries` list by their `AuditActionType` value:
 
-- `AuditActionType.Insert`: For the **1** new customer
-- `AuditActionType.Update`: For the **2** existing customers
-
 ### Code
 
 ```csharp
