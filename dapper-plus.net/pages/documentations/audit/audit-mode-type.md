@@ -24,7 +24,7 @@ namespace Z.BulkOperations
 
 ## Example
 
-We will demonstrate how to include only specific properties by excluding all properties then specifying properties to include.
+We will demonstrate how to include only specific properties by excluding all entity properties and then including specific properties.
 
 ### Mapping
 
