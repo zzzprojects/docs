@@ -67,4 +67,4 @@ FiddleHelper.WriteTable("1 - Updated Customers", auditEntries.Where(x => x.Actio
 FiddleHelper.WriteTable("2 - Inserted Customers", auditEntries.Where(x => x.Action == AuditActionType.Insert));
 ```
 
-Try it: [.NET Framework](https://dotnetfiddle.net/WTIe5L) | [.NET Core](https://dotnetfiddle.net/y4w1ZG)
+Try it: [.NET Framework](https://dotnetfiddle.net/CDA98j) | [.NET Core](https://dotnetfiddle.net/y4w1ZG)
