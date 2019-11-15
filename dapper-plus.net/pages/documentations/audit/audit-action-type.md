@@ -38,7 +38,10 @@ With the following **BulkOptions**:
 - [UseAudit](use-audit.md): To enable the audit feature
 
 ### Result
+
 We will split the `AuditEntries` list by their `AuditActionType` value.
+
+### Code
 
 ```csharp
 // Mapping
