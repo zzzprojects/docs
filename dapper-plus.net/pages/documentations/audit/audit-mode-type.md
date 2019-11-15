@@ -55,3 +55,31 @@ The `AuditEntries` property will contains **3** `AuditEntry` with the `Action` p
 - `AuditActionType.Insert`: For the **1** new customer
 - `AuditActionType.Update`: For the **2** existing customers
 
+## Example
+
+In this example,
+
+We will demonstrate how the `Action` property is populated.
+
+### Execute
+A `BulkMerge` will be executed on a list that contains **1** new customer and **2** existing customers.
+
+With the following **BulkOptions**:
+
+- `UseAudit`: To enable the audit feature
+- `AuditEntries`: To retrieve audit entries
+
+```csharp
+// ...code...
+
+// Try it online to see the result
+```
+
+Try it: [.NET Framework](https://dotnetfiddle.net/XB5npF) | [.NET Core](https://dotnetfiddle.net/y4w1ZG)
+
+### Result
+
+The `AuditEntries` property will contains **3** `AuditEntry` with the `Action` property value set to:
+
+- `AuditActionType.Insert`: For the **1** new customer
+- `AuditActionType.Update`: For the **2** existing customers
