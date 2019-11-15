@@ -50,7 +50,8 @@ connection.UseBulkOptions(x =>
 .BulkMerge(list);
 
 // Result
-FiddleHelper.WriteTable(auditEntries);
+FiddleHelper.WriteTable("1 - Updated Customers", auditEntries.Where(x => x.Action == AuditActionType.Update));
+FiddleHelper.WriteTable("2 - Inserted Customers", auditEntries.Where(x => x.Action == AuditActionType.Insert));
 ```
 
 Try it: [.NET Framework](https://dotnetfiddle.net/WTIe5L) | [.NET Core](https://dotnetfiddle.net/y4w1ZG)
