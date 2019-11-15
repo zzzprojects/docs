@@ -39,7 +39,7 @@ With the following **BulkOptions**:
 
 ### Result
 
-We will split the `AuditEntries` list by their `AuditActionType` value:
+We will split the `AuditEntries` list by their `AuditActionType` value.
 
 ### Code
 
