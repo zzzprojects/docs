@@ -2,7 +2,7 @@
 
 ## Description
 
-The `AuditModeType` is an enum used to include or exclude all entity properties in the Audit.
+The `AuditModeType` is an enum that represents if all entity properties are included or excluded.
 
 The default value is `AuditModeType.IncludeAll`.
 
