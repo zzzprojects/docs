@@ -59,7 +59,6 @@ FiddleHelper.WriteTable(auditEntries.SelectMany(x => x.Values));
 
 Try it: [.NET Framework](https://dotnetfiddle.net/CDA98j) | [.NET Core](https://dotnetfiddle.net/y4w1ZG)
 
-
 ### Result
 
 We will show all `AuditEntry` values. The only information that appears is about the `CustomerID` and `Name` property.
