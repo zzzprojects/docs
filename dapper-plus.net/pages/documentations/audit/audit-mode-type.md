@@ -40,7 +40,9 @@ With the following **BulkOptions**:
 - `UseAudit`: To enable the audit feature
 - `AuditEntries`: To retrieve audit entries
 
-As a result, only the `Code` and `Description` properties will be populated in the `AuditEntry` list.
+As a result,
+
+Only the `Code` and `Description` properties will be populated in the `AuditEntry` list.
 
 ```csharp
 // ...code...
