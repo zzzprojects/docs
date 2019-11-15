@@ -28,7 +28,7 @@ We will demonstrate how to include specific entity properties.
 
 ### Mapping
 
-We will use the following **Mapping**:
+We will use the following mapping:
 - `AuditMode(AuditModeType.ExcludeAll)`: To exclude all entity properties
 - `AuditMode(x => new { x.CustomerID, x.Name }, ColumnMappingAuditModeType.Include)`: To include specific properties
 
