@@ -33,10 +33,6 @@ We will demonstrate how to get `AuditEntries` by `AuditActionType` value.
 
 We will execute a `BulkMerge` on a list that contains **2** existing customers and **1** new customer.
 
-With the following **BulkOptions**:
-- [AuditEntries](audit-entries.md): To set the audit entries list
-- [UseAudit](use-audit.md): To enable the audit feature
-
 ### Result
 
 We will split the `AuditEntries` list by their `AuditActionType` value.
