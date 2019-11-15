@@ -24,7 +24,7 @@ namespace Z.BulkOperations
 
 ## Example
 
-We will demonstrate how to include specific properties.
+We will demonstrate how to include specific entity properties.
 
 ### Mapping
 
