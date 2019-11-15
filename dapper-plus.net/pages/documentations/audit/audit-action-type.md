@@ -35,7 +35,7 @@ In this example,
 
 We will demonstrate how the `Action` property is populated.
 
-###### Execute
+### Execute
 A `BulkMerge` will be executed on a list that contains **1** new customer and **2** existing customers.
 
 With the following **BulkOptions**:
