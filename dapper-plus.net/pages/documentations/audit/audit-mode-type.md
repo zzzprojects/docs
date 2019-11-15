@@ -57,7 +57,7 @@ connection.UseBulkOptions(x =>
 FiddleHelper.WriteTable(auditEntries.SelectMany(x => x.Values));
 ```
 
-Try it: [.NET Framework](https://dotnetfiddle.net/CDA98j) | [.NET Core](https://dotnetfiddle.net/y4w1ZG)
+Try it: [.NET Core](https://dotnetfiddle.net/y4w1ZG) | [.NET Framework](https://dotnetfiddle.net/CDA98j)
 
 ### Result
 
