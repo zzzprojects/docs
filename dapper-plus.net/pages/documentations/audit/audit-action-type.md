@@ -52,6 +52,9 @@ connection.UseBulkOptions(x =>
 	x.UseAudit = true;
 })
 .BulkMerge(list);
+
+// Result
+FiddleHelper.WriteTable(auditEntries);
 ```
 
 Try it: [.NET Framework](https://dotnetfiddle.net/WTIe5L) | [.NET Core](https://dotnetfiddle.net/y4w1ZG)
