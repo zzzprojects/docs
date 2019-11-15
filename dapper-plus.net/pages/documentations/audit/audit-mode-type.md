@@ -33,7 +33,7 @@ We will execute a `BulkMerge` on a list that contains **1** new customer and **2
 With the following **Mapping**:
 
 - `AuditMode(AuditModeType.ExcludeAll)`: To exclude all properties from the auditing
-- `AuditMode(AuditModeType.Include, x => new { x.Code, x.Description })`: To include the `Code` and `Description` in the auditing.
+- `AuditMode(AuditModeType.Include, x => new { x.Code, x.Description })`: To include the `Code` and `Description` properties in the auditing.
 
 With the following **BulkOptions**:
 
