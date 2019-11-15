@@ -36,14 +36,6 @@ We will use the following **Mapping**:
 
 We will execute a `BulkMerge` on a list that contains **2** existing customers and **1** new customer.
 
-With the following **BulkOptions**:
-- [AuditEntries](audit-entries.md): To set the audit entries list
-- [UseAudit](use-audit.md): To enable the audit feature
-
-### Result
-
-We will show all `AuditEntry` values. The only information that appears is about the `CustomerID` and `Name` property.
-
 ### Code
 
 ```csharp
@@ -66,3 +58,8 @@ FiddleHelper.WriteTable(auditEntries.SelectMany(x => x.Values));
 ```
 
 Try it: [.NET Framework](https://dotnetfiddle.net/CDA98j) | [.NET Core](https://dotnetfiddle.net/y4w1ZG)
+
+
+### Result
+
+We will show all `AuditEntry` values. The only information that appears is about the `CustomerID` and `Name` property.
