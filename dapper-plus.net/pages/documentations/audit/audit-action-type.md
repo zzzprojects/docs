@@ -44,8 +44,8 @@ With the following BulkOptions:
 
 As a result, **3** `AuditEntry` will be created with the `Action` property value set to:
 
-- AuditActionType.Insert: For the **1** new customer
-- AuditActionType.Update: For the **2** existing customers
+- `AuditActionType.Insert`: For the **1** new customer
+- `AuditActionType.Update`: For the **2** existing customers
 
 ```csharp
 // ...code...
