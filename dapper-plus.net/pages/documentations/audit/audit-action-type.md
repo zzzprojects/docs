@@ -16,7 +16,7 @@ namespace Z.BulkOperations
         /// <summary>The DELETE operation.</summary>
         Delete = 0,
 
-        /// <summary>The INSERT operation.</summary>
+        /// <summary>The action value when a DELETE operation is executed.</summary>
         Insert = 1,
 
         /// <summary>An enum constant representing the update operation.</summary>
