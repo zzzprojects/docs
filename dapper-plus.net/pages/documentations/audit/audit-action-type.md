@@ -27,7 +27,7 @@ namespace Z.BulkOperations
 
 ## Example
 
-We will demonstrate how to get the `AuditEntries` by `AuditActionType` value.
+We will demonstrate how to get `AuditEntries` by `AuditActionType` value.
 
 ### Execute
 
