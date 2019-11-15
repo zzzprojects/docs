@@ -2,7 +2,7 @@
 
 ## Description
 
-The `AuditModeType` is an enum used to include or exclude all properties from the Audit.
+The `AuditModeType` is an enum used to include or exclude all properties in the Audit.
 
 The default value is `AuditModeType.IncludeAll`.
 
@@ -24,16 +24,17 @@ namespace Z.BulkOperations
 
 ## Example
 
-We will demonstrate how to include only specific properties.
+We will demonstrate how to include only specific properties by excluding first all properties.
+
+### Mapping
+
+We will use the following **Mapping**:
+- `AuditMode(AuditModeType.ExcludeAll)`: To exclude all properties by default
+- `AuditMode(AuditModeType.Include, x => new { x.CustomerID, x.Code })`: To include the `CustomerID` and `Code` properties
 
 ### Execute
 
 We will execute a `BulkMerge` on a list that contains **2** existing customers and **1** new customer.
-
-With the following **Mapping**:
-
-- `AuditMode(AuditModeType.ExcludeAll)`: To exclude all properties from the auditing
-- `AuditMode(AuditModeType.Include, x => new { x.CustomerID, x.Code })`: To include the `CustomerID` and `Code` properties in the auditing.
 
 With the following **BulkOptions**:
 - [AuditEntries](audit-entries.md): To set the audit entries list
