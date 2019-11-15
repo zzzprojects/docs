@@ -59,6 +59,7 @@ Try it: [.NET Framework](https://dotnetfiddle.net/WTIe5L) | [.NET Core](https://
 
 We will split the `AuditEntries` list by their `AuditActionType` value.
 
-- `AuditActionType.Update`: Will display the **2** existing customers
 - `AuditActionType.Insert`: Will display the **1** new customer
+- `AuditActionType.Update`: Will display the **2** existing customers
+
 
