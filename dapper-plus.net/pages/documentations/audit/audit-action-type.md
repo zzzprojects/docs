@@ -64,3 +64,8 @@ The AuditEntries property will contains 3 AuditEntry with the Action property va
 
 1 = AuditActionType.Insert: For the 1 new customer
 2 = AuditActionType.Update: For the 2 existing customers
+
+The `AuditEntries` property will contains **3** `AuditEntry` with the `Action` property value set to:
+
+- `1 = AuditActionType.Insert`: For the **1** new customer
+- `2 = AuditActionType.Update`: For the **2** existing customers
