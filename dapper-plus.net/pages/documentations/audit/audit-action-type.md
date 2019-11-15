@@ -7,7 +7,7 @@ The `AuditActionType` is an enum used for the `Action` property in the [AuditEnt
 It represents the SQL operation executed in the database.
 
 ```csharp
-// The https://bulk-operations.net/ library is used under the hood
+// The https://bulk-operations.net/ library is used under the hood.
 namespace Z.BulkOperations
 {
     /// <summary>The action representing the SQL operation executed in the database.</summary>
