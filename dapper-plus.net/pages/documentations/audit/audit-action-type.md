@@ -10,7 +10,7 @@ It represents the SQL operation executed in the database.
 // The https://bulk-operations.net/ library is used under the hood.
 namespace Z.BulkOperations
 {
-    /// <summary>The action representing the SQL operation executed in the database.</summary>
+    /// <summary>The action that represents the SQL operation executed in the database.</summary>
     public enum AuditActionType
     {
         /// <summary>The name/value when a DELETE operation is executed.</summary>
