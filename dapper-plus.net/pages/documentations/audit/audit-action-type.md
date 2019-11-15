@@ -59,13 +59,6 @@ Try it: [.NET Framework](https://dotnetfiddle.net/WTIe5L) | [.NET Core](https://
 
 We will split the `AuditEntries` list by their `AuditActionType` value.
 
+- `AuditActionType.Update`: Will display the **2** existing customers
+- `AuditActionType.Insert`: Will display the **1** new customer
 
-The AuditEntries property will contains 3 AuditEntry with the Action property value set to:
-
-1 = AuditActionType.Insert: For the 1 new customer
-2 = AuditActionType.Update: For the 2 existing customers
-
-The `AuditEntries` property will contains **3** `AuditEntry` with the `Action` property value set to:
-
-- `1 = AuditActionType.Insert`: For the **1** new customer
-- `2 = AuditActionType.Update`: For the **2** existing customers
