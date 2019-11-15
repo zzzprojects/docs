@@ -27,9 +27,7 @@ namespace Z.BulkOperations
 
 ## Example
 
-We will demonstrate an example that 
-
-how the `Action` property is populated.
+We will demonstrate an example that will show audit entries for entities that has been updated and inserted.
 
 ### Execute
 We will execute a `BulkMerge` on a list that contains **1** new customer and **2** existing customers.
