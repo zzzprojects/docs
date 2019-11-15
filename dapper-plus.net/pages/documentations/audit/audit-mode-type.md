@@ -42,7 +42,7 @@ With the following **BulkOptions**:
 
 ### Result
 
-We will show all `AuditEntry` values. Only information about the `CustomerID` and `Name` will appears.
+We will show all `AuditEntry` values. Only information about the `CustomerID` and `Name` property will appears.
 
 ### Code
 
