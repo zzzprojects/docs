@@ -33,10 +33,6 @@ We will demonstrate how to get `AuditEntries` by `AuditActionType` value.
 
 We will execute a `BulkMerge` on a list that contains **2** existing customers and **1** new customer.
 
-### Result
-
-We will split the `AuditEntries` list by their `AuditActionType` value.
-
 ### Code
 
 ```csharp
@@ -58,5 +54,9 @@ FiddleHelper.WriteTable("2 - Inserted Customers", auditEntries.Where(x => x.Acti
 ```
 
 Try it: [.NET Framework](https://dotnetfiddle.net/WTIe5L) | [.NET Core](https://dotnetfiddle.net/y4w1ZG)
+
+### Result
+
+We will split the `AuditEntries` list by their `AuditActionType` value.
 
 
