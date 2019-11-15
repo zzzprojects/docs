@@ -4,16 +4,16 @@
 
 The `AuditActionType` is an enum used for the `Action` property in the [AuditEntry](audit-entry.md) class.
 
-It represent the SQL operation that has been executed in the database.
+It represents the SQL operation executed in the database.
 
 ```csharp
 // The https://bulk-operations.net/ library is used under the hood
 namespace Z.BulkOperations
 {
-    /// <summary>The action that represent the SQL operation that has been executed in the database.</summary>
+    /// <summary>The action representing the SQL operation executed in the database.</summary>
     public enum AuditActionType
     {
-        /// <summary>When a DELETE operation is executed.</summary>
+        /// <summary>The name/value when a DELETE operation is executed.</summary>
         Delete = 0,
 
         /// <summary>The action value when a DELETE operation is executed.</summary>
@@ -44,8 +44,8 @@ DapperPlusManager.Entity<Customer>().Table("Customer");
 List<AuditEntry> auditEntries = new List<AuditEntry>(); 
 connection.UseBulkOptions(x => 
 { 
-	x.AuditEntries = auditEntries; 
-	x.UseAudit = true;
+    x.AuditEntries = auditEntries; 
+    x.UseAudit = true;
 })
 .BulkMerge(list);
 
