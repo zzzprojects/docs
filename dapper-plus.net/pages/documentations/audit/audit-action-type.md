@@ -2,7 +2,7 @@
 
 ## Description
 
-The `AuditActionType` is a property of the `AuditEntry` class.
+The `AuditActionType` is a property of the [AuditEntry](audit-entry) class.
 
 It represent the SQL operation that has been executed in the database.
 
