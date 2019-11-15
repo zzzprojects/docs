@@ -10,7 +10,7 @@ It represent the SQL operation that has been executed in the database.
 // The https://bulk-operations.net/ library is used under the hood
 namespace Z.BulkOperations
 {
-    /// <summary>The SQL operation that has been executed in the database..</summary>
+    /// <summary>The SQL operation that has been executed in the database.</summary>
     public enum AuditActionType
     {
         /// <summary>An enum constant representing the delete operation.</summary>
