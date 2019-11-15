@@ -57,18 +57,3 @@ FiddleHelper.WriteTable("2 - Inserted Customers", auditEntries.Where(x => x.Acti
 ```
 
 Try it: [.NET Framework](https://dotnetfiddle.net/WTIe5L) | [.NET Core](https://dotnetfiddle.net/y4w1ZG)
-
-### Result
-
-The `AuditEntries` list will contains **3** `AuditEntry`:
-- The first result show **2** `AuditEntries`for the existing customers
-- The second result table displays audit entries that has been inserted
-
-
-with the `Action` property value set to:
-
-- `AuditActionType.Update = 2`: For the **2** existing customers
-- `AuditActionType.Insert = 1`: For the **1** new customer
-
-The first result table only display audit entries that has been updated. The second result table only display audit entries that has been inserted.
-
