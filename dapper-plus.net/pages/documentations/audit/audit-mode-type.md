@@ -58,8 +58,6 @@ The `AuditEntries` property will contains **3** `AuditEntry` with the `Action` p
 
 ## Example
 
-In this example,
-
 We will demonstrate how the `Action` property is populated.
 
 ### Execute
