@@ -33,7 +33,7 @@ We will execute a `BulkMerge` on a list that contains **1** new customer and **2
 With the following **Mapping**:
 
 - `AuditMode(AuditModeType.ExcludeAll)`: To exclude all properties from the auditing
-- `AuditMode(AuditModeType.Include, x => new { x.Code, x.Description })`: To include the `Code` and `Description` properties in the auditing.
+- `AuditMode(AuditModeType.Include, x => new { x.CustomerID, x.Code })`: To include the `CustomerID` and `Code` properties in the auditing.
 
 With the following **BulkOptions**:
 
@@ -50,7 +50,9 @@ Try it: [.NET Framework](https://dotnetfiddle.net/XB5npF) | [.NET Core](https://
 
 ### Result
 
-The `AuditEntries` property will contains **3** `AuditEntry` with the `Action` property value set to:
+The AuditEntries property will contains 3 AuditEntry with the Action property value set to:
 
-- `AuditActionType.Insert`: For the **1** new customer
-- `AuditActionType.Update`: For the **2** existing customers
+ThOnly the Code and Description properties will be populated in the AuditEntry list.
+
+
+The `AuditEntries` property will contains **3** `AuditEntry`. The `Values` property will only contains the `CustomerID` and `Code` properties, all other properties are ignored.
