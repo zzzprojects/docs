@@ -44,7 +44,7 @@ With the following **BulkOptions**:
 
 ### Result
 
-The **AuditEntries** property will contains **3** `AuditEntry` with the `Action` property value set to:
+The `AuditEntries` property will contains **3** `AuditEntry` with the `Action` property value set to:
 
 - `AuditActionType.Insert`: For the **1** new customer
 - `AuditActionType.Update`: For the **2** existing customers
