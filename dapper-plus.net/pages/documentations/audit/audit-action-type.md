@@ -27,7 +27,7 @@ namespace Z.BulkOperations
 }
 ```
 
-> HINT: The `AuditActionType` is in Z.BulkOperations namespace since the library is used under the hood.
+> HINT: The `AuditActionType` uses the Z.BulkOperations namespace since the library is used under the hood.
 
 ## Example
 
