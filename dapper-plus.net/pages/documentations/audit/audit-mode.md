@@ -41,7 +41,7 @@ namespace Z.Dapper.Plus
 
 In this example,
 
-We will execute a `BulkMerge` on a list that contains **1** new customer and **2** existing customers.
+We will execute a `BulkMerge` on a list that contains **1** new customers and **2** existing customers.
 
 
 
@@ -55,7 +55,7 @@ The following example sets `UseAudit` to `true`, assigns the list of `AuditEntri
 
 ```csharp
 List<AuditEntry> auditEntries = new List<AuditEntry>(); 
-		
+        
 connection.UseBulkOptions(x => 
 { 
     x.AuditEntries = auditEntries; 
