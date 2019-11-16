@@ -60,6 +60,6 @@ We used the following mapping:
 
 We executed a `BulkMerge` on a list that contains **1** new customer and **2** existing customers.
 
-### Result
+### Output
 
 We outputted all `AuditEntry` values. The only information that appears is about the `CustomerID` and `Name` property.
