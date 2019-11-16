@@ -26,11 +26,19 @@ namespace Z.BulkOperations
 ## Example
 In this example, 
 
-A BulkMerge will be performed. All column will be excluded but we will include only the primary key.
+A BulkMerge will be performed. All columns will be excluded but we will include only the primary key.
 
 
 ```csharp
-// ...code...
+List<AuditEntry> auditEntries = new List<AuditEntry>(); 
+        
+connection.UseBulkOptions(x => 
+{ 
+    x.AuditEntries = auditEntries; 
+    x.UseAudit = true;
+    x.AuditMode = AuditModeType.ExcludeAll;
+})
+.BulkMerge(list); 
 ```
 
-Try it: [.NET Framework](https://dotnetfiddle.net/XB5npF) | [.NET Core](https://dotnetfiddle.net/y4w1ZG)
+Try it: [.NET Framework](https://dotnetfiddle.net/ObXmob) | [.NET Core](https://dotnetfiddle.net/wnbHSR)
