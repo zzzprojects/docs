@@ -53,7 +53,7 @@ FiddleHelper.WriteTable("1 - Inserted Customers", auditEntries.Where(x => x.Acti
 FiddleHelper.WriteTable("2 - Updated Customers", auditEntries.Where(x => x.Action == AuditActionType.Update));
 ```
 
-Try it: [.NET Core](https://dotnetfiddle.net/y4w1ZG) | [.NET Framework](https://dotnetfiddle.net/WTIe5L)
+Try it: [.NET Core](https://dotnetfiddle.net/7WJZTe) | [.NET Framework](https://dotnetfiddle.net/WTIe5L)
 
 ### Result
 
