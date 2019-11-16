@@ -43,7 +43,7 @@ connection.UseBulkOptions(x =>
 })
 .BulkMerge(list); 
 
-// Result
+// Output
 FiddleHelper.WriteTable(auditEntries.SelectMany(x => x.Values));
 ```
 
