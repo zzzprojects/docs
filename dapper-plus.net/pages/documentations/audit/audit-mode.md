@@ -54,15 +54,15 @@ In this example,
 The following example sets `UseAudit` to `true`, assigns the list of `AuditEntries` to populate, and also sets the `AuditMode` to `AuditModeType.ExcludeAll`.
 
 ```csharp
-namespace Z.BulkOperations
-{
-    /// <summary>Values that represent AuditModeType.</summary>
-    public enum AuditModeType
-    {
-        IncludeAll,
-        ExcludeAll
-    }
-}
+List<AuditEntry> auditEntries = new List<AuditEntry>(); 
+		
+connection.UseBulkOptions(x => 
+{ 
+    x.AuditEntries = auditEntries; 
+    x.UseAudit = true;
+    x.AuditMode = AuditModeType.ExcludeAll;
+})
+.BulkMerge(list); 
 ```
 
 Try it: [.NET Framework](https://dotnetfiddle.net/ulrLSL) | [.NET Core](https://dotnetfiddle.net/T5MgRa)
