@@ -51,7 +51,7 @@ Try it: [.NET Core](https://dotnetfiddle.net/1tKhnW) | [.NET Framework](https://
 
 ### Mapping
 
-We used the following mapping:
+We mapped:
 
 - `AuditMode(AuditModeType.ExcludeAll)`: To exclude all entity properties
 - `AuditMode(x => new { x.CustomerID, x.Name }, ColumnMappingAuditModeType.Include)`: To include specific properties
