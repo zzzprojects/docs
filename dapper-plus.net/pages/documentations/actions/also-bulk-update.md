@@ -1,6 +1,6 @@
 # Also Bulk Update
 
-## Definition
+## Description
 
 The Dapper Plus AlsoBulkUpdate method allow to UPDATE entities in a database table or a view using a lambda expression.
 
