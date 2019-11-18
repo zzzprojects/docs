@@ -1,6 +1,6 @@
 # Also Bulk Insert
 
-## Definition
+## Description
 
 The Dapper Plus AlsoBulkInsert method allow to INSERTs entities in a database table or a view using a lambda expression.
 
