@@ -1,6 +1,6 @@
 # Also Bulk Merge
 
-## Definition
+## Description
 
 The Dapper Plus AlsoBulkMerge method allows to MERGE entities in a database table or a view using a lambda expression.
 
