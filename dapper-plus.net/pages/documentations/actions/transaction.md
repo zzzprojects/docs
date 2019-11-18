@@ -1,6 +1,6 @@
 # Transaction
 
-## Definition
+## Description
 
 All Dapper Plus extension methods are also available on the IDbTransaction interface.
 
