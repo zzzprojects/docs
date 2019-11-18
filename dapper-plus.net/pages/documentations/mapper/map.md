@@ -1,6 +1,6 @@
 # Map
 
-## Definition
+## Description
 
 Dapper Plus Mapper allows mapping the conceptual model (Entity) with the storage model (Database).
 
