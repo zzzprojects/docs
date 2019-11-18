@@ -1,6 +1,6 @@
 # Transient Error Options
 
-## Definition
+## Description
 
 Dapper Plus Mapper method allows configuring transient options.
 
