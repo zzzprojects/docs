@@ -21,4 +21,4 @@ connection.UseBulkOptions(x =>
 .BulkMerge(list);
 ```
 
-Try it: [.NET Framework](https://dotnetfiddle.net/s8wLF9) | [.NET Core](https://dotnetfiddle.net/cjasQV)
+Try it: [.NET Core](https://dotnetfiddle.net/cjasQV) | [.NET Framework](https://dotnetfiddle.net/s8wLF9)
