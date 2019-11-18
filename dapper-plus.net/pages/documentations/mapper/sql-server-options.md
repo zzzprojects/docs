@@ -1,6 +1,6 @@
 # SQL Server Options
 
-## Definition
+## Description
 
 Dapper Plus Mapper allows to configure SqlServer options.
 

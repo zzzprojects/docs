@@ -1,6 +1,6 @@
 # Also Bulk Delete
 
-## Definition
+## Description
 
 The Dapper Plus AlsoBulkDelete method allows to DELETE entities in a database table or a view using a lambda expression.
 

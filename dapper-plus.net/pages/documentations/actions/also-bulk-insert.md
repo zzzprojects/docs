@@ -1,8 +1,8 @@
 # Also Bulk Insert
 
-## Definition
+## Description
 
-The Dapper Plus AlsoBulkInsert method allow to INSERTs entities in a database table or a view using a lambda expression.
+The Dapper Plus AlsoBulkInsert method allows to INSERTs entities in a database table or a view using a lambda expression.
 
 The lambda expression uses the entity or the IEnumerable<TEntity> from the last Bulk[Action] or ThenBulk[Action] chained method. (The action can be an insert, update, delete or merge operation).
 

@@ -1,6 +1,6 @@
 # Then Bulk Update
 
-## Definition
+## Description
 
 The Dapper Plus ThenBulkUpdate method allows to UPDATE entities in a database table or a view using a lambda expression.
 

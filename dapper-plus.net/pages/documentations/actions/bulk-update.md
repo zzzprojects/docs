@@ -1,13 +1,13 @@
 # Bulk Update
 
 
-## Definition
+## Description
 
 The Dapper Plus BulkUpdate method allows to UPDATE entities in a database table or a view.
 
 ## Bulk Update Entity
 
-The Dapper Plus BulkUpdate method allows updating a single or multiple entities of the same type.
+The Dapper Plus BulkUpdate method allows updating single or multiple entities of the same type.
 
 
 ```csharp

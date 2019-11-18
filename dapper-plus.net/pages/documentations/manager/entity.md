@@ -1,6 +1,6 @@
 # Entity
 
-## Definition
+## Description
 
 Adds or updates the mapper associated with the type and mapping key.
 

@@ -38,7 +38,22 @@ A BulkMerge will be performed. All columns are included by default but we explic
 
 
 ```csharp
-// ...code...
+// Mapping
+DapperPlusManager.Entity<Customer>().Table("Customer")
+    .AuditMode(AuditModeType.ExcludeAll)
+    .AuditMode(x => new { x.CustomerID, x.Name }, ColumnMappingAuditModeType.Include);
+    
+// Execute
+List<AuditEntry> auditEntries = new List<AuditEntry>(); 
+connection.UseBulkOptions(x => 
+{ 
+    x.AuditEntries = auditEntries; 
+    x.UseAudit = true;
+})
+.BulkMerge(list);
+
+// Result
+FiddleHelper.WriteTable(auditEntries.SelectMany(x => x.Values));
 ```
 
-Try it: [.NET Framework](https://dotnetfiddle.net/XB5npF) | [.NET Core](https://dotnetfiddle.net/y4w1ZG)
+Try it: [.NET Core](https://dotnetfiddle.net/AmxN6Z) | [.NET Framework](https://dotnetfiddle.net/ANSXt4)

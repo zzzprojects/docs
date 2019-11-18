@@ -41,7 +41,7 @@ namespace Z.Dapper.Plus
 
 In this example,
 
-We will execute a `BulkMerge` on a list that contains **1** new customer and **2** existing customers.
+We will execute a `BulkMerge` on a list that contains **1** new customers and **2** existing customers.
 
 
 
@@ -65,7 +65,7 @@ namespace Z.BulkOperations
 }
 ```
 
-Try it: [.NET Framework](https://dotnetfiddle.net/ulrLSL) | [.NET Core](https://dotnetfiddle.net/T5MgRa)
+Try it: [.NET Core](https://dotnetfiddle.net/T5MgRa) | [.NET Framework](https://dotnetfiddle.net/ulrLSL)
 
 ## Example
 
@@ -86,4 +86,4 @@ connection.UseBulkOptions(x =>
 .BulkMerge(list);
 ```
 
-Try it: [.NET Framework](https://dotnetfiddle.net/BtWOMy) | [.NET Core](https://dotnetfiddle.net/ezJ9Iu)
+Try it: [.NET Core](https://dotnetfiddle.net/ezJ9Iu) | [.NET Framework](https://dotnetfiddle.net/BtWOMy)

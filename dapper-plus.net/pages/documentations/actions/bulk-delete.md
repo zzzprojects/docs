@@ -1,12 +1,12 @@
 # Bulk Delete
 
-## Definition
+## Description
 
 The Dapper Plus BulkDelete method allows to DELETE entities in a database table or a view.
 
 ## Bulk Delete Entity
 
-The Dapper Plus BulkDelete method allows deleting a single or multiple entities of the same type.
+The Dapper Plus BulkDelete method allows deleting single or multiple entities of the same type.
 
 
 ```csharp
