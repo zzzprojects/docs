@@ -1,6 +1,6 @@
 # Then Bulk Insert
 
-## Definition
+## Description
 
 The Dapper Plus ThenBulkInsert method allows to INSERT entities in a database table or a view using a lambda expression.
 
