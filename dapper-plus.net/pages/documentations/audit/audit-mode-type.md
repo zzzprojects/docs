@@ -62,4 +62,4 @@ Try it: [.NET Core](https://dotnetfiddle.net/1tKhnW) | [.NET Framework](https://
 
 ### Result
 
-We will output all `AuditEntry` values. The only information that appears is about the `CustomerID` and `Name` property.
+We outputted all `AuditEntry` values. The only information that appears is about the `CustomerID` and `Name` property.
