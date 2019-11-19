@@ -32,4 +32,4 @@ To make both features live together, method in Query DbSetFilter has been rename
  - [By Query](options/ef6-query-db-set-filter-by-query.md)
  - [By Inheritance/Interface](options/ef6-query-db-set-filter-by-inheritance-interface.md)
  - [By Enable/Disable](options/ef6-query-db-set-filter-by-enable-disable.md)
- - [By AsNoFilter](options/ef6-query-db-set-filter-by-as-no-filter.md)
+ - [By AsNoDbSetFilter](options/ef6-query-db-set-filter-by-as-no-db-set-filter.md)

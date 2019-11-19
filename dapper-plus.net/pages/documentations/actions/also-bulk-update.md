@@ -1,8 +1,8 @@
 # Also Bulk Update
 
-## Definition
+## Description
 
-The Dapper Plus AlsoBulkUpdate method allow to UPDATE entities in a database table or a view using a lambda expression.
+The Dapper Plus AlsoBulkUpdate method allows to UPDATE entities in a database table or a view using a lambda expression.
 
 The lambda expression uses the entity or the IEnumerable<TEntity> from the last Bulk[Action] or ThenBulk[Action] chained method. (The action can be an insert, update, delete or merge operation).
 
@@ -59,7 +59,7 @@ connection.BulkUpdate(orders)
 
 ## Also Bulk Update Chain Action
 
-The Dapper Plus AlsoBulkUpdate method allows chaining multiple bulk action methods.
+The Dapper Plus AlsoBulkUpdate method allows for chaining multiple bulk action methods.
 
 
 ```csharp

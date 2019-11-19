@@ -1,6 +1,6 @@
 # Mapper Factory
 
-## Definition
+## Description
 
 Sets the mapper factory to use to create a new Mapper.
 

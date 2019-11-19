@@ -1,6 +1,6 @@
 # Temporary Table Options
 
-## Definition
+## Description
 
 Dapper Plus Mapper allows configuring temporary table options.
 

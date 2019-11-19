@@ -1,10 +1,10 @@
 ---
-Permalink: ef6-query-db-set-filter-by-as-no-filter
+Permalink: ef6-query-db-set-filter-by-as-no-db-set-filter
 ---
 
-# DbSet Filter - Query Filter AsNoFilter
+# DbSet Filter - Query Filter AsNoDbSetFilter
 
-You can bypass all filters by using AsNoFilter method in a query if a special scenario doesn't require filtering.
+You can bypass all filters by using AsNoDbSetFilter method in a query if a special scenario doesn't require filtering.
 
 {% include template-example.html %} 
 ```csharp
