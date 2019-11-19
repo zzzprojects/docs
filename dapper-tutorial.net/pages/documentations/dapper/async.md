@@ -35,7 +35,7 @@ using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlSer
     FiddleHelper.WriteTable(customer);
 }
 ```
-{% include component-try-it.html href='https://dotnetfiddle.net/2rVSi0' %}
+Try it: [.NET Core](https://dotnetfiddle.net/xnZ8IU) | [.NET Framework](https://dotnetfiddle.net/2rVSi0)
 
 ## QueryAsync
 
@@ -52,7 +52,7 @@ using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlSer
     FiddleHelper.WriteTable(orderDetails);
 }
 ```
-{% include component-try-it.html href='https://dotnetfiddle.net/X79bZI' %}
+Try it: [.NET Core](https://dotnetfiddle.net/hHb3wO) | [.NET Framework](https://dotnetfiddle.net/X79bZI)
 
 ## QueryFirstAsync
 
@@ -68,7 +68,7 @@ using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlSer
     FiddleHelper.WriteTable(new List<OrderDetail>() { orderDetail } );
 }
 ```
-{% include component-try-it.html href='https://dotnetfiddle.net/7Jbdcg' %}
+Try it: [.NET Core](https://dotnetfiddle.net/uZlDVp) | [.NET Framework](https://dotnetfiddle.net/7Jbdcg)
 
 ## QueryFirstOrDefaultAsync
 
@@ -84,7 +84,7 @@ using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlSer
     FiddleHelper.WriteTable(new List<OrderDetail>() { orderDetail } );
 }
 ```
-{% include component-try-it.html href='https://dotnetfiddle.net/26NWaz' %}
+Try it: [.NET Core](https://dotnetfiddle.net/dc8hgc) | [.NET Framework](https://dotnetfiddle.net/26NWaz)
 
 ## QuerySingleAsync
 
@@ -100,7 +100,7 @@ using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlSer
     FiddleHelper.WriteTable(new List<OrderDetail>() { orderDetail } );
 }
 ```
-{% include component-try-it.html href='https://dotnetfiddle.net/pmjYFp' %}
+Try it: [.NET Core](https://dotnetfiddle.net/q0xyFF) | [.NET Framework](https://dotnetfiddle.net/pmjYFp)
 
 ## QuerySingleOrDefaultAsync
 
@@ -116,7 +116,7 @@ using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlSer
     FiddleHelper.WriteTable(new List<OrderDetail>() { orderDetail } );
 }
 ```
-{% include component-try-it.html href='https://dotnetfiddle.net/WvbA02' %}
+Try it: [.NET Core](https://dotnetfiddle.net/ZPq3LL) | [.NET Framework](https://dotnetfiddle.net/WvbA02)
 
 ## QueryMultipleAsync
 
@@ -140,4 +140,4 @@ using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlSer
 }
 ```
 
-{% include component-try-it.html href='https://dotnetfiddle.net/EoRmrF' %}
+Try it: [.NET Core](https://dotnetfiddle.net/RiQFaO) | [.NET Framework](https://dotnetfiddle.net/EoRmrF)
