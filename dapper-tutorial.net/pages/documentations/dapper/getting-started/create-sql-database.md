@@ -55,7 +55,7 @@ public class Customer
 Dapper is an ORM library, which extends methods of `IDbConnection` interface. These extension methods have efficient code to perform insert, update delete and select methods.
 
 ```csharp
-string sql = "INSERT INTO Customers (FirstName, LastName, Email) Values ('Carson',	'Alexander', 'carson.alexander@example.com');";
+string sql = "INSERT INTO Customers (FirstName, LastName, Email) Values ('Carson', 'Alexander', 'carson.alexander@example.com');";
 
 using (var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["Connection"].ConnectionString))
 {

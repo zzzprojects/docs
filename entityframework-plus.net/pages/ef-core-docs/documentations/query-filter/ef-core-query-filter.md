@@ -103,13 +103,6 @@ Here is a list of known method that no longer work with query filtered with the 
  - Min
  - Sum
 
-## Requirements
-
- - **EF+ Query Filter:** Full version or Standalone version
- - **Database Provider:** All supported
- - **Entity Framework Version:** EF5, EF6
- - **Minimum Framework Version:** .NET Framework 4
-
 ## Conclusion
 
 **EF+ Query Filter** is very powerful and very easy to use. Our filter version covers all kinds of requirements an application could have.

@@ -1,7 +1,7 @@
 # Bulk Merge
 
 
-## Definition
+## Description
 
 The Dapper Plus BulkMerge method allows to MERGE entities in a database table or a view.
 

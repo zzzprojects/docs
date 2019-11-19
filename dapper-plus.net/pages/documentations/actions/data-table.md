@@ -1,7 +1,7 @@
 # Datatable
 
 
-## Definition
+## Description
 
 Dapper Plus can also perform operations on DataTable
 

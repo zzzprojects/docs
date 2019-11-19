@@ -105,13 +105,6 @@ ctx.Posts.IncludeFilter(q => q.Comments.Take(1)).ToList();
 
 ```
 
-## Requirements
-
- - **EF+ Query IncludeFilter:** Full version or Standalone version
- - **Database Provider:** All supported
- - **Entity Framework Version:** EF6
- - **Minimum Framework Version:** .NET Framework 4
-
 ## Conclusion
 
 Filtering included related entities is one of the most frequently asked questions in forums. **EF+ Query IncludeFilter** now makes it possible without any learning curve required for a junior developer to understand what the method does.

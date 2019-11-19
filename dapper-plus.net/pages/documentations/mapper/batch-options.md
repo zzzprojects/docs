@@ -1,6 +1,6 @@
 # Batch Options
 
-## Definition
+## Description
 
 Dapper Plus Mapper allows configuring batch options.
 

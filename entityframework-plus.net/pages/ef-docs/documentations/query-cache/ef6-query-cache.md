@@ -4,8 +4,6 @@ Permalink: query-cache
 
 # Query Cache
 
-> This feature is now available on [Entity Framework Classic - Query Cache](http://entityframework-classic.net/query-cache). Entity Framework Classic is a supported version from the latest EF6 code base. It supports .NET Framework and .NET Core and overcomes some EF limitations by adding tons of must-haves built-in features.
-
 ## Introduction
 
 Caching entities or query results to improve an application's performance is a very frequent scenario. Major ORM like NHibernate had this feature for a long time but, unfortunately for Entity Framework users, second level caching is only available through third party libraries.
@@ -55,13 +53,6 @@ When **FromCache** is invoked, The QueryCacheManager returns the result if a cac
  - **The Cache Key:** The cache key is created by combining a cache prefix, all cache tags and the query expression.
 
  - **The Query Materialized:** The query is materialized by either using "ToList()" method or "Execute()" method for query deferred.
-
-## Requirements
-
- - **EF+ Query Cache:** Full version or Standalone version
- - **Database Provider:** All supported
- - **Entity Framework Version:** EF5, EF6
- - **Minimum Framework Version:** .NET Framework 4
 
 ## Conclusion
 

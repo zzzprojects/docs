@@ -53,13 +53,6 @@ foreach(var entry in entries)
   - **DO NOT** support relationship
   - **DO NOT** populate EntitySetName value
 
-## Requirements
-
- - **EF+ Audit:** Full version or Standalone version
- - **Database Provider:** All supported
- - **Entity Framework Core Version:** EFCore 1.0+
- - **Minimum Framework Version:** .NET Core 1.0
-
 ## Troubleshooting
 
 Why only my key is added when updating my entity?

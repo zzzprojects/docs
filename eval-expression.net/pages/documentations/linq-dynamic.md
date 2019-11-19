@@ -1,6 +1,8 @@
 # LINQ Dynamic
 
 ## Description
+(All LINQ Dynamic methods are FREE to use)
+
 Extend the IEnumerable&lt;T&gt; and IQueryable&lt;T&gt; interface with methods to use LINQ with dynamic expressions.
 
 Since LINQ (Language Integrated Query) has been introduced in .NET 3.5, it has been one of the most used feature. ORM like Entity Framework takes advantage of this feature and allows you to write type-safe queries.
@@ -11,8 +13,14 @@ In theory, you should only use it to write type-safe queries. However, the reali
 You can use any LINQ method that supports predicate with a dynamic C# expression :
 
 - Deferred
+   - OrderByDescendingDynamic
+   - OrderByDynamic
+   - SelectDynamic
+   - SelectMany
    - SkipWhile
-   - TakeWhile
+   - TakeWhile 
+   - ThenByDescendingDynamic
+   - ThenByDynamic
    - Where
 - Immediate
    - All
@@ -30,22 +38,11 @@ You can use any LINQ method that supports predicate with a dynamic C# expression
 ```csharp
 var list = new List<int>() { 1, 2, 3, 4, 5 };
 
-var list2 = list.Where(x => "x > 2");
-var list3 = list.Where(x => "x > X", new { X = 2 }); // with parameter
+var list2 = list.WhereDynamic(x => "x > 2");
+var list3 = list.WhereDynamic(x => "x > X", new { X = 2 }); // with parameter
 ```
 {% include component-try-it.html href='https://dotnetfiddle.net/S42mkU' %}
 
-## LINQ Dynamic - Ordering and Selecting
-You can use any ordering and selecting method with a dynamic C# expression: 
-
- - OrderByDescendingDynamic
- - OrderByDynamic
- - SelectDynamic
- - SelectMany
- - ThenByDescendingDynamic
- - ThenByDynamic
-
-> The **"Dynamic"** suffix is required for not overriding the default behavior (ordering or selecting by a string is valid).
 
 ### Example
 ```csharp
