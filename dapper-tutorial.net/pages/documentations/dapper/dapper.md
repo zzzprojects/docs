@@ -6,15 +6,15 @@ Name: Dapper
 # Dapper
 
 ## What's Dapper?
-Dapper is a simple object mapper for .NET and own the title of **King of Micro ORM** in terms of speed and is virtually as fast as using a raw ADO.NET data reader. An ORM is an Object Relational Mapper, which is responsible for mapping between database and programming language.
+Dapper is a simple object mapper for .NET and owns the title of **King of Micro ORM** in terms of speed and is virtually as fast as using a raw ADO.NET data reader. An ORM is an Object Relational Mapper, which is responsible for mapping between database and programming language.
 
-Dapper extend the IDbConnection by providing useful extension methods to query your database.
+Dapper extends the IDbConnection by providing useful extension methods to query your database.
 
 ## How Dapper Works?
-It is a three step process.
+It is a three-step process.
 - Create an IDbConnection object.
 - Write a query to perform CRUD operations.
-- Pass query as a parameter in Execute method.
+- Pass query as a parameter in the Execute method.
 
 ## Installation
 Dapper is installed through NuGet: <a href="https://www.nuget.org/packages/Dapper" target="_blank">https://www.nuget.org/packages/Dapper</a>
@@ -24,7 +24,7 @@ PM> Install-Package Dapper
 ```
 
 ## Requirement
-Dapper work with any database provider since there is no DB specific implementation.
+Dapper works with any database provider since there is no DB specific implementation.
 
 ## Methods
 Dapper will extend your IDbConnection interface with multiple methods:
@@ -44,19 +44,19 @@ string sqlCustomerInsert = "INSERT INTO Customers (CustomerName) Values (@Custom
 
 using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServerW3Schools()))
 {
-	var orderDetails = connection.Query<OrderDetail>(sqlOrderDetails).ToList();
-	var orderDetail = connection.QueryFirstOrDefault<OrderDetail>(sqlOrderDetail, new {OrderDetailID = 1});
-	var affectedRows = connection.Execute(sqlCustomerInsert,  new {CustomerName = "Mark"});
+    var orderDetails = connection.Query<OrderDetail>(sqlOrderDetails).ToList();
+    var orderDetail = connection.QueryFirstOrDefault<OrderDetail>(sqlOrderDetail, new {OrderDetailID = 1});
+    var affectedRows = connection.Execute(sqlCustomerInsert,  new {CustomerName = "Mark"});
 
-	Console.WriteLine(orderDetails.Count);
-	Console.WriteLine(affectedRows);
+    Console.WriteLine(orderDetails.Count);
+    Console.WriteLine(affectedRows);
 
-	FiddleHelper.WriteTable(orderDetails);
-	FiddleHelper.WriteTable(new List<OrderDetail>() { orderDetail });
+    FiddleHelper.WriteTable(orderDetails);
+    FiddleHelper.WriteTable(new List<OrderDetail>() { orderDetail });
 }
 ```
 
-{% include component-try-it.html href='https://dotnetfiddle.net/vIvUNm' %}
+Try it: [.NET Core](https://dotnetfiddle.net/FghvFq) | [.NET Framework](https://dotnetfiddle.net/vIvUNm)
 
 ## Parameter
 Execute and queries method can use parameters from multiple different ways:
@@ -80,8 +80,8 @@ parameter.Add("@Code", "Many_Insert_0", DbType.String, ParameterDirection.Input)
 parameter.Add("@RowCount", dbType: DbType.Int32, direction: ParameterDirection.ReturnValue);
 
 connection.Execute(sql,
-	parameter,
-	commandType: CommandType.StoredProcedure);
+    parameter,
+    commandType: CommandType.StoredProcedure);
 
 int rowCount = parameter.Get<int>("@RowCount");
 
@@ -105,19 +105,19 @@ string sqlOrderDetails = "SELECT TOP 10 * FROM OrderDetails;";
 
 using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServerW3Schools()))
 {
-	var anonymousList = connection.Query(sqlOrderDetails).ToList();
-	var orderDetails = connection.Query<OrderDetail>(sqlOrderDetails).ToList();
+    var anonymousList = connection.Query(sqlOrderDetails).ToList();
+    var orderDetails = connection.Query<OrderDetail>(sqlOrderDetails).ToList();
 
-	Console.WriteLine(anonymousList.Count);
-	Console.WriteLine(orderDetails.Count);
+    Console.WriteLine(anonymousList.Count);
+    Console.WriteLine(orderDetails.Count);
 
-	FiddleHelper.WriteTable(orderDetails);
+    FiddleHelper.WriteTable(orderDetails);
 
-	FiddleHelper.WriteTable(connection.Query(sqlOrderDetails).FirstOrDefault());
+    FiddleHelper.WriteTable(connection.Query(sqlOrderDetails).FirstOrDefault());
 }
 ```
 
-{% include component-try-it.html href='https://dotnetfiddle.net/EbR9BP' %}
+Try it: [.NET Core](https://dotnetfiddle.net/VPwBKR) | [.NET Framework](https://dotnetfiddle.net/EbR9BP)
 
 ## Utilities
 
@@ -136,12 +136,12 @@ connection.Query<Invoice>(sql, buffered: false)
 // Transaction
 using (var transaction = connection.BeginTransaction())
 {
-	var affectedRows = connection.Execute(sql,
-	new {Kind = InvoiceKind.WebInvoice, Code = "Single_Insert_1"},
-	commandType: CommandType.StoredProcedure,
-	transaction: transaction);
+    var affectedRows = connection.Execute(sql,
+    new {Kind = InvoiceKind.WebInvoice, Code = "Single_Insert_1"},
+    commandType: CommandType.StoredProcedure,
+    transaction: transaction);
 
-	transaction.Commit();
+    transaction.Commit();
 }
 
 // Stored Procedure
