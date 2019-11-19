@@ -42,7 +42,7 @@ using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlSer
 }
 ```
 
-{% include component-try-it.html href='https://dotnetfiddle.net/1K2DU4' %}
+Try it: [.NET Core](https://dotnetfiddle.net/5GFAdJ) | [.NET Framework](https://dotnetfiddle.net/1K2DU4)
 
 ## Example - Query Strongly Typed
 Raw SQL query can be executed using Query method and map the result to a strongly typed list.
@@ -60,7 +60,7 @@ using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlSer
 }
 ```
 
-{% include component-try-it.html href='https://dotnetfiddle.net/dXZc0s' %}
+Try it: [.NET Core](https://dotnetfiddle.net/CvMkj8) | [.NET Framework](https://dotnetfiddle.net/dXZc0s)
 
 ## Example - Query Multi-Mapping (One to One)
 Raw SQL query can be executed using Query method and map the result to a strongly typed list with a one to one relation.
@@ -123,7 +123,7 @@ using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlSer
 }
 ```
 
-{% include component-try-it.html href='https://dotnetfiddle.net/DPiy2b' %}
+Try it: [.NET Core](https://dotnetfiddle.net/HClmCa) | [.NET Framework](https://dotnetfiddle.net/DPiy2b)
 
 ## Example - Query Multi-Type
 Raw SQL query can be executed using Query method and map the result to a list of different types.
