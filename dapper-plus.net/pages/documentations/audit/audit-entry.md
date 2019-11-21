@@ -70,7 +70,7 @@ Try it: [.NET Core](https://dotnetfiddle.net/Zz2EcH) | [.NET Framework](https://
 
 ### Result
 
-We will split the `AuditEntries` list by their `AuditActionType` value:
+We outputted `AuditEntries` list grouped by their `AuditActionType` value:
 
 - `AuditActionType.Insert`: Will display the **1** new customer
 - `AuditActionType.Update`: Will display the **2** existing customers
