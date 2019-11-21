@@ -7,7 +7,7 @@ IsUpdated: 1
 # Dapper - QueryFirst 
 
 ## Description
-QueryFirst method is an extension method which can be called from any object of type IDbConnection. It can execute a query and map the first result.
+QueryFirst method is an extension method that can be called from any object of type IDbConnection. It can execute a query and map the first result.
 
 The result can be mapped to:
 
@@ -15,7 +15,7 @@ The result can be mapped to:
 - [Strongly Typed](#example---query-strongly-typed)
 
 ### Parameters
-The following table shows different parameter of an QueryFirst method.
+The following table shows the different parameters of a QueryFirst method.
 
 | Name | Description |
 | :--- | :---------- |
@@ -43,13 +43,13 @@ string sql = "SELECT * FROM OrderDetails WHERE OrderDetailID = @OrderDetailID;";
 
 using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServerW3Schools()))
 {
-	var orderDetail = connection.QueryFirst(sql, new {OrderDetailID = 1});
+    var orderDetail = connection.QueryFirst(sql, new {OrderDetailID = 1});
 
-	FiddleHelper.WriteTable(orderDetail);
+    FiddleHelper.WriteTable(orderDetail);
 }
 ```
 
-{% include component-try-it.html href='https://dotnetfiddle.net/eogWc1' %}
+Try it: [.NET Core](https://dotnetfiddle.net/CDQKMN) | [.NET Framework](https://dotnetfiddle.net/eogWc1)
 
 ## Example - Query Strongly Typed
 Execute a query and map the first result to a strongly typed list.
@@ -59,10 +59,10 @@ string sql = "SELECT * FROM OrderDetails WHERE OrderDetailID = @OrderDetailID;";
 
 using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServerW3Schools()))
 {
-	var orderDetail = connection.QueryFirst<OrderDetail>(sql, new {OrderDetailID = 1});
+    var orderDetail = connection.QueryFirst<OrderDetail>(sql, new {OrderDetailID = 1});
 
-	FiddleHelper.WriteTable(orderDetail);
+    FiddleHelper.WriteTable(orderDetail);
 }
 ```
 
-{% include component-try-it.html href='https://dotnetfiddle.net/AV0OgZ' %}
+Try it: [.NET Core](https://dotnetfiddle.net/FTB4ih) | [.NET Framework](https://dotnetfiddle.net/AV0OgZ)

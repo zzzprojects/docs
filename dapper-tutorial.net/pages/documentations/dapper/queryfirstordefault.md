@@ -6,7 +6,7 @@ Name: QueryFirstOrDefault
 # Dapper - QueryFirstOrDefault
 
 ## Description
-QueryFirstOrDefault method is an extension method which can be called from any object of type IDbConnection. It can execute a query and map the first result, or a default value if the sequence contains no elements.
+QueryFirstOrDefault method is an extension method that can be called from any object of type IDbConnection. It can execute a query and map the first result, or a default value if the sequence contains no elements.
 
 The result can be mapped to:
 
@@ -14,7 +14,7 @@ The result can be mapped to:
 - [Strongly Typed](#example---query-strongly-typed)
 
 ### Parameters
-The following table shows different parameter of an QueryFirstOrDefault method.
+The following table shows the different parameters of a QueryFirstOrDefault method.
 
 | Name | Description |
 | :--- | :---------- |
@@ -41,13 +41,13 @@ Execute a query and map the first result to a dynamic list, or a default value i
 string sql = "SELECT * FROM OrderDetails WHERE OrderDetailID = @OrderDetailID;";
 
 using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServerW3Schools()))
-{			
-	var orderDetail = connection.QueryFirstOrDefault(sql, new {OrderDetailID = 1});
+{            
+    var orderDetail = connection.QueryFirstOrDefault(sql, new {OrderDetailID = 1});
 
-	FiddleHelper.WriteTable(orderDetail);
+    FiddleHelper.WriteTable(orderDetail);
 }
 ```
-{% include component-try-it.html href='https://dotnetfiddle.net/58YMxR' %}
+Try it: [.NET Core](https://dotnetfiddle.net/6f9rcQ) | [.NET Framework](https://dotnetfiddle.net/58YMxR)
 
 ## Example - Query Strongly Typed
 Execute a query and map the first result to a strongly typed list, or a default value if the sequence contains no elements.
@@ -57,9 +57,9 @@ string sql = "SELECT * FROM OrderDetails WHERE OrderDetailID = @OrderDetailID;";
 
 using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServerW3Schools()))
 {
-	var orderDetail = connection.QueryFirstOrDefault<OrderDetail>(sql, new {OrderDetailID = 1});
+    var orderDetail = connection.QueryFirstOrDefault<OrderDetail>(sql, new {OrderDetailID = 1});
 
-	FiddleHelper.WriteTable(new List<OrderDetail>() { orderDetail });
+    FiddleHelper.WriteTable(new List<OrderDetail>() { orderDetail });
 }
 ```
-{% include component-try-it.html href='https://dotnetfiddle.net/2WQ7sc' %}
+Try it: [.NET Core](https://dotnetfiddle.net/Ct5P3q) | [.NET Framework](https://dotnetfiddle.net/2WQ7sc)

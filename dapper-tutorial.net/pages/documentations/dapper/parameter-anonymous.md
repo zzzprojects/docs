@@ -26,7 +26,7 @@ using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlSer
 	FiddleHelper.WriteTable(customer);
 }
 ```
-{% include component-try-it.html href='https://dotnetfiddle.net/Z1iRIQ' %}  
+Try it: [.NET Core](https://dotnetfiddle.net/wNl0G3) | [.NET Framework](https://dotnetfiddle.net/Z1iRIQ)
 
 ### Many
 Execute many times a SQL Command
@@ -47,4 +47,4 @@ using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlSer
 	Console.WriteLine(affectedRows);
 )
 ```
-{% include component-try-it.html href='https://dotnetfiddle.net/fvRKsY' %}  
+Try it: [.NET Core](https://dotnetfiddle.net/df2ZDH) | [.NET Framework](https://dotnetfiddle.net/fvRKsY)

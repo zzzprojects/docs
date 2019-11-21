@@ -6,14 +6,14 @@ Name: Execute
 # Dapper - Execute 
 
 ## Description
-Execute is an extension method which can be called from any object of type IDbConnection. It can execute a command one or multiple times and return the number of affected rows. This method is usually used to execute:
+Execute is an extension method that can be called from any object of type IDbConnection. It can execute a command one or multiple times and return the number of affected rows. This method is usually used to execute:
 - [Stored Procedure](#example---execute-stored-procedure)
 - [INSERT statement](#example---execute-insert)
 - [UPDATE statement](#example---execute-update)
 - [DELETE statement](#example---execute-delete)
 
 ### Parameters
-The following table shows different parameter of an Execute method.
+The following table shows the different parameters of an Execute method.
 
 | Name | Description |
 | :--- | :---------- |
@@ -78,16 +78,16 @@ string sql = "INSERT INTO Customers (CustomerName) Values (@CustomerName);";
 
 using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServerW3Schools()))
 {
-	var affectedRows = connection.Execute(sql, new {CustomerName = "Mark"});
+    var affectedRows = connection.Execute(sql, new {CustomerName = "Mark"});
 
-	Console.WriteLine(affectedRows);
+    Console.WriteLine(affectedRows);
 
-	var customer = connection.Query<Customer>("Select * FROM CUSTOMERS WHERE CustomerName = 'Mark'").ToList();
+    var customer = connection.Query<Customer>("Select * FROM CUSTOMERS WHERE CustomerName = 'Mark'").ToList();
 
-	FiddleHelper.WriteTable(customer);
+    FiddleHelper.WriteTable(customer);
 }
 ```
-{% include component-try-it.html href='https://dotnetfiddle.net/P2uw27' %}
+Try it: [.NET Core](https://dotnetfiddle.net/nLqtS0) | [.NET Framework](https://dotnetfiddle.net/P2uw27)
 
 ### Many
 Execute the INSERT Statement multiple times. Once for every object in the array list.
@@ -98,20 +98,20 @@ string sql = "INSERT INTO Customers (CustomerName) Values (@CustomerName);";
 
 using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServerW3Schools()))
 {
-	connection.Open();
+    connection.Open();
 
-	var affectedRows = connection.Execute(sql,
-	new[]
-	{
-	new {CustomerName = "John"},
-	new {CustomerName = "Andy"},
-	new {CustomerName = "Allan"}
-	}
+    var affectedRows = connection.Execute(sql,
+    new[]
+    {
+    new {CustomerName = "John"},
+    new {CustomerName = "Andy"},
+    new {CustomerName = "Allan"}
+    }
 );
 
 Console.WriteLine(affectedRows);
 ```
-{% include component-try-it.html href='https://dotnetfiddle.net/vHOVx6' %}
+Try it: [.NET Core](https://dotnetfiddle.net/Sfuqkx) | [.NET Framework](https://dotnetfiddle.net/vHOVx6)
 
 ## Example - Execute UPDATE
 
@@ -123,13 +123,13 @@ Execute the UPDATE Statement a single time.
 string sql = "UPDATE Categories SET Description = @Description WHERE CategoryID = @CategoryID;";
 
 using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServerW3Schools()))
-{			
-	var affectedRows = connection.Execute(sql,new {CategoryID = 1, Description = "Soft drinks, coffees, teas, beers, mixed drinks, and ales"});
+{            
+    var affectedRows = connection.Execute(sql,new {CategoryID = 1, Description = "Soft drinks, coffees, teas, beers, mixed drinks, and ales"});
 
-	Console.WriteLine(affectedRows);
+    Console.WriteLine(affectedRows);
 }
 ```
-{% include component-try-it.html href='https://dotnetfiddle.net/CWdH6z' %}
+Try it: [.NET Core](https://dotnetfiddle.net/yDvsoS) | [.NET Framework](https://dotnetfiddle.net/CWdH6z)
 
 ### Many
 Execute the UPDATE Statement multiple times. Once for every object in the array list.
@@ -139,18 +139,18 @@ Execute the UPDATE Statement multiple times. Once for every object in the array 
 string sql = "UPDATE Categories SET Description = @Description WHERE CategoryID = @CategoryID;";
 
 using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServerW3Schools()))
-{	
-	var affectedRows = connection.Execute(sql,
-	new[]
-	{
-	new {CategoryID = 1, Description = "Soft drinks, coffees, teas, beers, mixed drinks, and ales"},
-	new {CategoryID = 4, Description = "Cheeses and butters etc."}
-	}
+{    
+    var affectedRows = connection.Execute(sql,
+    new[]
+    {
+    new {CategoryID = 1, Description = "Soft drinks, coffees, teas, beers, mixed drinks, and ales"},
+    new {CategoryID = 4, Description = "Cheeses and butters etc."}
+    }
 );
 
 Console.WriteLine(affectedRows);
 ```
-{% include component-try-it.html href='https://dotnetfiddle.net/qCdKI3' %}
+Try it: [.NET Core]() | [.NET Framework](https://dotnetfiddle.net/qCdKI3)
 
 ## Example - Execute DELETE
 
@@ -162,14 +162,14 @@ Execute the DELETE Statement a single time.
 string sql = "DELETE FROM Customers WHERE CustomerID = @CustomerID";
 
 using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServerW3Schools()))
-{			
-	var affectedRows = connection.Execute(sql, new {CustomerID = 1});
+{            
+    var affectedRows = connection.Execute(sql, new {CustomerID = 1});
 
-	Console.WriteLine(affectedRows);
+    Console.WriteLine(affectedRows);
 }
 ```
 
-{% include component-try-it.html href='https://dotnetfiddle.net/4bFT32' %}
+Try it: [.NET Core](https://dotnetfiddle.net/yk3cDO) | [.NET Framework](https://dotnetfiddle.net/4bFT32)
 
 ### Many
 Execute the DELETE Statement multiple times. Once for every object in the array list.
@@ -179,17 +179,17 @@ Execute the DELETE Statement multiple times. Once for every object in the array 
 string sql = "DELETE FROM OrderDetails WHERE OrderDetailID = @OrderDetailID";
 
 using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServerW3Schools()))
-{			
-	var affectedRows = connection.Execute(sql, 
-		new[]
-	{
-	new {OrderDetailID = 1},
-	new {OrderDetailID = 2},
-	new {OrderDetailID = 3}
-	}
+{            
+    var affectedRows = connection.Execute(sql, 
+        new[]
+    {
+    new {OrderDetailID = 1},
+    new {OrderDetailID = 2},
+    new {OrderDetailID = 3}
+    }
 );
 
 Console.WriteLine(affectedRows);
 ```
 
-{% include component-try-it.html href='https://dotnetfiddle.net/nxP1vL' %}
+Try it: [.NET Core](https://dotnetfiddle.net/2igFqM) | [.NET Framework](https://dotnetfiddle.net/nxP1vL)

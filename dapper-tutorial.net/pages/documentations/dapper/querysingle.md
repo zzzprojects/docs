@@ -6,7 +6,7 @@ Name: QuerySingle
 # Dapper - QuerySingle 
 
 ## Description
-QuerySingle method is an extension method which can be called from any object of type IDbConnection. It can execute a query and map the first result, and throws an exception if there is not exactly one element in the sequence.
+QuerySingle method is an extension method that can be called from any object of type IDbConnection. It can execute a query and map the first result and throws an exception if there is not exactly one element in the sequence.
 
 The result can be mapped to:
 
@@ -14,7 +14,7 @@ The result can be mapped to:
 - [Strongly Typed](#example---query-strongly-typed)
 
 ### Parameters
-The following table shows different parameter of an QuerySingle method.
+The following table shows the different parameters of a QuerySingle method.
 
 | Name | Description |
 | :--- | :---------- |
@@ -47,7 +47,7 @@ using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlSer
 	FiddleHelper.WriteTable(orderDetail);
 }
 ```
-{% include component-try-it.html href='https://dotnetfiddle.net/uEq0HC' %}
+Try it: [.NET Core](https://dotnetfiddle.net/ZYSItm) | [.NET Framework](https://dotnetfiddle.net/uEq0HC)
 
 ## Example - Query Strongly Typed
 Execute a query and map the first result to a strongly typed list, and throws an exception if there is not exactly one element in the sequence.
@@ -62,4 +62,4 @@ using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlSer
 	FiddleHelper.WriteTable(new List<OrderDetail>() { orderDetail });
 }
 ```
-{% include component-try-it.html href='https://dotnetfiddle.net/vnkv7q' %}
+Try it: [.NET Core](https://dotnetfiddle.net/oEsh6D) | [.NET Framework](https://dotnetfiddle.net/vnkv7q)
