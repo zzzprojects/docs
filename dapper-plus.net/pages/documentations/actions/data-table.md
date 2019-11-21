@@ -3,7 +3,7 @@
 
 ## Description
 
-Dapper Plus can also perform operations on DataTable
+Dapper Plus can also perform operations on DataTable.
 
 
 ```csharp
