@@ -23,9 +23,9 @@ DapperPlusManager.Entity<Customer>().Table("Customers");
 using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServerW3Schools()))
 {
     connection.BulkUpdate(customers);
-}	
+}    
 ```
-[Try it](https://dotnetfiddle.net/o1WkMA)
+Try it: [.NET Core](https://dotnetfiddle.net/wUbog7) | [.NET Framework](https://dotnetfiddle.net/o1WkMA)
 
 ## Example - Update Many
 UPDATE many entities with Bulk Operation.
@@ -36,9 +36,9 @@ DapperPlusManager.Entity<Customer>().Table("Customers");
 using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServerW3Schools()))
 {
     connection.BulkUpdate(customers);
-}	
+}    
 ```
-[Try it](hhttps://dotnetfiddle.net/10RLzV)
+Try it: [.NET Core](https://dotnetfiddle.net/23NZSH) | [.NET Framework](hhttps://dotnetfiddle.net/10RLzV)
 
 ## Example - Update with relation (One to One)
 UPDATE entities with a one to one relation with Bulk Operation.
@@ -48,14 +48,14 @@ DapperPlusManager.Entity<Supplier>().Table("Suppliers").Identity(x => x.Supplier
 DapperPlusManager.Entity<Product>().Table("Products").Identity(x => x.ProductID);
 
 using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServerW3Schools()))
-{	
+{    
     connection.BulkUpdate(suppliers, x => x.Product);
-}		
+}        
 ```
-[Try it](https://dotnetfiddle.net/rwjvqz)
+Try it: [.NET Core](https://dotnetfiddle.net/xqbyE7) | [.NET Framework](https://dotnetfiddle.net/rwjvqz)
 
 ## Example - Update with relation (One to Many)
-UPDATE entities with a one to many relation with Bulk Operation.
+UPDATE entities with a one to many relations with Bulk Operation.
 
 ```csharp
 DapperPlusManager.Entity<Supplier>().Table("Suppliers").Identity(x => x.SupplierID);
@@ -66,4 +66,4 @@ using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlSer
     connection.BulkUpdate(suppliers, x => x.Products);
 }
 ```
-[Try it](https://dotnetfiddle.net/fsTfEg)
+Try it: [.NET Core](https://dotnetfiddle.net/l799dF) | [.NET Framework](https://dotnetfiddle.net/fsTfEg)
