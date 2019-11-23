@@ -166,7 +166,7 @@ info@zzzprojects.com
 
 | Name | Description | Example (DataTable) | Example (Entity) |
 | :--- | :----------  | :------ | :------ |
-| `BulkMerge<T>(items)` | Bulk insert entities in your database. | [Try it](https://dotnetfiddle.net/hjTQmE) | [Try it](https://dotnetfiddle.net/z2lxbA) |
+| `BulkMerge<T>(items)` | Bulk insert entities in your database. | [.NET Core](https://dotnetfiddle.net/omnRAu) / [.NET Framework](https://dotnetfiddle.net/hjTQmE) | [.NET Core](https://dotnetfiddle.net/QkE41S) / [.NET Framework](https://dotnetfiddle.net/z2lxbA) |
 | `BulkMergeAsync<T>(items)` | Bulk insert entities asynchronously in your database. | | |
 | `BulkMergeAsync<T>(items, cancellationToken)` | Bulk insert entities asynchronously in your database. | | |
 
@@ -174,7 +174,7 @@ info@zzzprojects.com
 More options can be found here:
 
 - [Audit](https://bulk-operations.net/audit)
-- [Batch](https://bulk-operations.net/batch)
+- [.NET Core]() / [Batch](https://bulk-operations.net/batch)
 - [Execute Event](https://bulk-operations.net/execute-event)
 - [Log](https://bulk-operations.net/log)
 - [Temporary Table](https://bulk-operations.net/temporary-table)
