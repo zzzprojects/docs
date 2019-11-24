@@ -34,7 +34,7 @@ namespace Z.BulkOperations
 
 In this example, 
 
-A BulkMerge will be performed. All columns are included by default but we explicit exclude an image column.
+A BulkMerge will be performed. All columns are included by default but we explicit exclude an `Description` and `IsActive` columns.
 
 
 ```csharp
