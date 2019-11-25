@@ -6,14 +6,14 @@ Name: Plus
 # Dapper Plus
 
 ## What's Dapper Plus?
-Dapper Plus extend the IDbConnection interface with Bulk Operations methods:
+Dapper Plus extends the IDbConnection interface with Bulk Operations methods:
 
 - Bulk Insert
 - Bulk Update
 - Bulk Delete
 - Bulk Merge
 
-This library is the **fastest  way** to perform saving operations in a database.
+This library is the **fastest way** to perform saving operations in a database.
 
 Official Website: <a href="http://dapper-plus.net/" target="_blank">http://dapper-plus.net/</a>
 
@@ -49,25 +49,25 @@ DapperPlusManager.Entity<Product>().Table("Products").Identity(x => x.ProductID)
 // STEP BULKINSERT
 using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServerW3Schools()))
 {
-	connection.BulkInsert(suppliers).ThenForEach(x => x.Products.ForEach(y => y.SupplierID =  x.SupplierID)).ThenBulkInsert(x => x.Products);
+    connection.BulkInsert(suppliers).ThenForEach(x => x.Products.ForEach(y => y.SupplierID =  x.SupplierID)).ThenBulkInsert(x => x.Products);
 }
 
 // STEP BULKUPDATE
 using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServerW3Schools()))
 {
-	connection.BulkUpdate(suppliers, x => x.Products);
+    connection.BulkUpdate(suppliers, x => x.Products);
 }
 
 // STEP BULKMERGE
 using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServerW3Schools()))
 {
-	connection.BulkMerge(suppliers).ThenForEach(x => x.Products.ForEach(y => y.SupplierID =  x.SupplierID)).ThenBulkMerge(x => x.Products);
+    connection.BulkMerge(suppliers).ThenForEach(x => x.Products.ForEach(y => y.SupplierID =  x.SupplierID)).ThenBulkMerge(x => x.Products);
 }
 
 // STEP BULKDELETE
 using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServerW3Schools()))
 {
-	connection.BulkDelete(suppliers.SelectMany(x => x.Products)).BulkDelete(suppliers);
+    connection.BulkDelete(suppliers.SelectMany(x => x.Products)).BulkDelete(suppliers);
 }
 ```
-{% include component-try-it.html href='https://dotnetfiddle.net/dbMVfr' %}
+Try it: [.NET Core](https://dotnetfiddle.net/FTB4ih) | [.NET Framework](https://dotnetfiddle.net/dbMVfr)

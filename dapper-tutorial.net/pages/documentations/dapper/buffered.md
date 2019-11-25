@@ -23,4 +23,4 @@ using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlSer
 	FiddleHelper.WriteTable(orderDetails.Take(10));
 }
 ```
-{% include component-try-it.html href='https://dotnetfiddle.net/gLwGJO' %}
+Try it: [.NET Core](https://dotnetfiddle.net/m716aX) | [.NET Framework](https://dotnetfiddle.net/gLwGJO)

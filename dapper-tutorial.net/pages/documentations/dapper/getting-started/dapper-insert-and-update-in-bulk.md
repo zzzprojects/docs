@@ -23,7 +23,7 @@ using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlSer
 }
 ```
 
-[Try it](https://dotnetfiddle.net/Ste0Sq)
+Try it: [.NET Core](https://dotnetfiddle.net/GjoUpm) | [.NET Framework](https://dotnetfiddle.net/Ste0Sq)
 
 ## Bulk Update
 
@@ -39,7 +39,7 @@ using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlSer
 }
 ```
 
-[Try it](https://dotnetfiddle.net/aAstP6)
+Try it: [.NET Core](https://dotnetfiddle.net/JZfSWN) | [.NET Framework](https://dotnetfiddle.net/aAstP6)
 
 ## Bulk Delete
 
@@ -54,7 +54,7 @@ using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlSer
 }
 ```
 
-[Try it](https://dotnetfiddle.net/I0ETUe)
+Try it: [.NET Core](https://dotnetfiddle.net/jTjPId) | [.NET Framework](https://dotnetfiddle.net/I0ETUe)
 
 ## Bulk Merge
 
@@ -76,7 +76,7 @@ using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlSer
 }
 ```
 
-[Try it](https://dotnetfiddle.net/4yltvn)
+Try it: [.NET Core](https://dotnetfiddle.net/v7WtOI) | [.NET Framework](https://dotnetfiddle.net/4yltvn)
 
 ## Mapping
 
@@ -91,7 +91,7 @@ DapperPlusManager.Entity<Customer>()
     .Table("tbl_Customers");
 ```
 
-[Try it](https://dotnetfiddle.net/3GCxZX)
+Try it: [.NET Core](https://dotnetfiddle.net/KCRMGQ) | [.NET Framework](https://dotnetfiddle.net/3GCxZX)
 
 ### Mapper - Identity
 
@@ -103,7 +103,7 @@ DapperPlusManager.Entity<Customer>()
     .Identity(x => x.CustomerID);
 ```
 
-[Try it](https://dotnetfiddle.net/d9fw17)
+Try it: [.NET Core](https://dotnetfiddle.net/KCRMGQ) | [.NET Framework](https://dotnetfiddle.net/d9fw17)
 
 ## Scenarios
 

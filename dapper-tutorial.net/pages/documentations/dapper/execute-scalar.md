@@ -30,4 +30,4 @@ using(var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServ
 }
 ```
 
-[Try it](https://dotnetfiddle.net/W7VwHn)
+Try it: [.NET Core](https://dotnetfiddle.net/JdlLM1) | [.NET Framework](https://dotnetfiddle.net/W7VwHn)

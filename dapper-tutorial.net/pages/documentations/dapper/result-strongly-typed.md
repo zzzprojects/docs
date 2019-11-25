@@ -25,15 +25,15 @@ Query method can execute a query and map the result to a strongly typed list.
 string sql = "SELECT TOP 10 * FROM OrderDetails";
 
 using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServerW3Schools()))
-{			
-	var orderDetails = connection.Query<OrderDetail>(sql).ToList();
+{            
+    var orderDetails = connection.Query<OrderDetail>(sql).ToList();
 
-	Console.WriteLine(orderDetails.Count);
+    Console.WriteLine(orderDetails.Count);
 
-	FiddleHelper.WriteTable(orderDetails);
+    FiddleHelper.WriteTable(orderDetails);
 }
 ```
-{% include component-try-it.html href='https://dotnetfiddle.net/dXZc0s' %}
+Try it: [.NET Core](https://dotnetfiddle.net/CvMkj8) | [.NET Framework](https://dotnetfiddle.net/dXZc0s)
 
 ## Example - QueryFirst
 QueryFirst method can execute a query and map the first result to a strongly typed list.
@@ -42,13 +42,13 @@ QueryFirst method can execute a query and map the first result to a strongly typ
 string sql = "SELECT * FROM OrderDetails WHERE OrderDetailID = @OrderDetailID;";
 
 using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServerW3Schools()))
-{			
-	var orderDetail = connection.QueryFirst<OrderDetail>(sql, new {OrderDetailID = 1});
+{            
+    var orderDetail = connection.QueryFirst<OrderDetail>(sql, new {OrderDetailID = 1});
 
-	FiddleHelper.WriteTable( new List<OrderDetail>() { orderDetail });
+    FiddleHelper.WriteTable( new List<OrderDetail>() { orderDetail });
 }
 ```
-{% include component-try-it.html href='https://dotnetfiddle.net/AV0OgZ' %}
+Try it: [.NET Core](https://dotnetfiddle.net/FTB4ih) | [.NET Framework](https://dotnetfiddle.net/AV0OgZ)
 
 ## Example - QueryFirstOrDefault
 QueryFirstOrDefault method can execute a query and map the first result to a strongly typed list, or a default value if the sequence contains no elements.
@@ -58,28 +58,28 @@ string sql = "SELECT * FROM OrderDetails WHERE OrderDetailID = @OrderDetailID;";
 
 using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServerW3Schools()))
 {
-	var orderDetail = connection.QueryFirstOrDefault<OrderDetail>(sql, new {OrderDetailID = 1});
+    var orderDetail = connection.QueryFirstOrDefault<OrderDetail>(sql, new {OrderDetailID = 1});
 
-	FiddleHelper.WriteTable(new List<OrderDetail>() { orderDetail });
+    FiddleHelper.WriteTable(new List<OrderDetail>() { orderDetail });
 }
 ```
 
-{% include component-try-it.html href='https://dotnetfiddle.net/2WQ7sc' %}
+Try it: [.NET Core](https://dotnetfiddle.net/Ct5P3q) | [.NET Framework](https://dotnetfiddle.net/2WQ7sc)
 
 ## Example - QuerySingle
-QuerySingle method can execute a query and map the first result to a strongly typed list, and throws an exception if there is not exactly one element in the sequence.
+QuerySingle method can execute a query and map the first result to a strongly typed list and throws an exception if there is not exactly one element in the sequence.
 
 ```csharp
 string sql = "SELECT * FROM OrderDetails WHERE OrderDetailID = @OrderDetailID;";
 
 using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServerW3Schools()))
-{			
-	var orderDetail = connection.QuerySingle<OrderDetail>(sql, new {OrderDetailID = 1});
+{            
+    var orderDetail = connection.QuerySingle<OrderDetail>(sql, new {OrderDetailID = 1});
 
-	FiddleHelper.WriteTable(new List<OrderDetail>() { orderDetail });
+    FiddleHelper.WriteTable(new List<OrderDetail>() { orderDetail });
 }
 ```
-{% include component-try-it.html href='https://dotnetfiddle.net/vnkv7q' %}
+Try it: [.NET Core](https://dotnetfiddle.net/oEsh6D) | [.NET Framework](https://dotnetfiddle.net/vnkv7q)
 
 ## Example - QuerySingleOrDefault
 QuerySingleOrDefault method can execute a query and map the first result to a strongly typed list, or a default value if the sequence is empty; this method throws an exception if there is more than one element in the sequence.
@@ -88,10 +88,10 @@ QuerySingleOrDefault method can execute a query and map the first result to a st
 string sql = "SELECT * FROM OrderDetails WHERE OrderDetailID = @OrderDetailID;";
 
 using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServerW3Schools()))
-{			
-	var orderDetail = connection.QuerySingleOrDefault<OrderDetail>(sql, new {OrderDetailID = 1});
+{            
+    var orderDetail = connection.QuerySingleOrDefault<OrderDetail>(sql, new {OrderDetailID = 1});
 
-	FiddleHelper.WriteTable(new List<OrderDetail>() { orderDetail });
+    FiddleHelper.WriteTable(new List<OrderDetail>() { orderDetail });
 }
 ```
-{% include component-try-it.html href='https://dotnetfiddle.net/kFMKnL' %}
+Try it: [.NET Core](https://dotnetfiddle.net/BNTmxc) | [.NET Framework](https://dotnetfiddle.net/kFMKnL)
