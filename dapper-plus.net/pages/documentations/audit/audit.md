@@ -37,19 +37,19 @@ Try it: [.NET Core](https://dotnetfiddle.net/cjasQV) | [.NET Framework](https://
 
 | Name                               | Description                                                           |
 |:-----------------------------------|:----------------------------------------------------------------------|
-|[UseAudit](../options/use-audit.md)  | Gets or sets if the `Audit` feature is enabled. |
-|[AuditEntries](../options/audit-entries.md)  | Gets or sets the list of `AuditEntries` that will be populated during the bulk operations. |
-|[AuditMode](../options/audit-mode.md)  | Gets or sets which properties/columns should be included/excluded. |
+|[UseAudit](use-audit.md)  | Gets or sets if the `Audit` feature is enabled. |
+|[AuditEntries](audit-entries.md)  | Gets or sets the list of `AuditEntries` that will be populated during the bulk operations. |
+|[AuditMode](audit-mode.md)  | Gets or sets which properties/columns should be included/excluded. |
 
 ## Entities
 
 | Name                               | Description                                                           |
 |:-----------------------------------|:----------------------------------------------------------------------|
-|[AuditActionType](../options/audit-entities.md#audit-action-type) | The `AuditActionType` enum definition.  |
-|[AuditEntry](../options/audit-entities.md#audit-entry) | The `AuditEntry` class definition. |
-|[AuditEntryItem](../options/audit-entities.md#audit-entry-item) | The `AuditEntryItem` class definition. |
-|[AuditModeType](../options/audit-entities.md#audit-entry-item) | The `AuditEntryItem` class definition. |
-|[ColumnMappingAuditModeType](../options/audit-entities.md#audit-entry-item) | The `AuditEntryItem` class definition. |
+|[AuditActionType](audit-entities.md#audit-action-type) | The `AuditActionType` enum definition.  |
+|[AuditEntry](audit-entities.md#audit-entry) | The `AuditEntry` class definition. |
+|[AuditEntryItem](audit-entities.md#audit-entry-item) | The `AuditEntryItem` class definition. |
+|[AuditModeType](audit-entities.md#audit-entry-item) | The `AuditEntryItem` class definition. |
+|[ColumnMappingAuditModeType](audit-entities.md#audit-entry-item) | The `AuditEntryItem` class definition. |
 
 ## FAQ
 
