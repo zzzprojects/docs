@@ -39,51 +39,68 @@ namespace Z.Dapper.Plus
 
 ## Example
 
-In this example,
+We will demonstrate how to exclude or include all entity properties using the `AuditMode` method.
 
-We will execute a `BulkMerge` on a list that contains **1** new customers and **2** existing customers.
+## Execute
 
-
+We will execute a `BulkMerge` on a list that contains **1** new customer and **2** existing customers.
 
 As a result, we will display all created `AuditEntry` and their `AuditEntryItem`.
 
+### Code - AuditMode Method
 
-
-In this example,
-
-The following example sets `UseAudit` to `true`, assigns the list of `AuditEntries` to populate, and also sets the `AuditMode` to `AuditModeType.ExcludeAll`.
-
+The `AuditMode` method will exclude or include all entity properties globally for all the bulk operation.
 ```csharp
-namespace Z.BulkOperations
-{
-    /// <summary>Values that represent AuditModeType.</summary>
-    public enum AuditModeType
-    {
-        IncludeAll,
-        ExcludeAll
-    }
-}
-```
-
-Try it: [.NET Core](https://dotnetfiddle.net/T5MgRa) | [.NET Framework](https://dotnetfiddle.net/ulrLSL)
-
-## Example
-
-The `AuditMode` property can also be set globally instead of only for any particular bulk operation to include or exclude all columns from the database.
-
-```csharp
-DapperPlusManager.Entity<Customer>().Table("Customers")
-    .Identity(x => x.CustomerID)
+// Mapping
+DapperPlusManager.Entity<Customer>().Table("Customer")
     .AuditMode(AuditModeType.ExcludeAll);
         
+// Execute
 List<AuditEntry> auditEntries = new List<AuditEntry>(); 
-        
 connection.UseBulkOptions(x => 
 { 
     x.AuditEntries = auditEntries; 
     x.UseAudit = true;
 })
-.BulkMerge(list);
+.BulkMerge(list); 
+
+// Result
+FiddleHelper.WriteTable("AuditEntry Values", auditEntries.SelectMany(x => x.Values));
+FiddleHelper.WriteTable("1 - Inserted Customers", auditEntries.Where(x => x.Action == AuditActionType.Insert));
+FiddleHelper.WriteTable("2 - Updated Customers", auditEntries.Where(x => x.Action == AuditActionType.Update));
 ```
 
 Try it: [.NET Core](https://dotnetfiddle.net/ezJ9Iu) | [.NET Framework](https://dotnetfiddle.net/BtWOMy)
+
+### Code - AuditMode Property
+
+The `AuditMode` property will set only for any particular bulk operation to include or exclude all entity properties.
+
+```csharp
+// Mapping
+DapperPlusManager.Entity<Customer>().Table("Customer");
+        
+// Execute
+List<AuditEntry> auditEntries = new List<AuditEntry>(); 
+connection.UseBulkOptions(x => 
+{ 
+    x.AuditEntries = auditEntries; 
+    x.UseAudit = true;
+    x.AuditMode = AuditModeType.ExcludeAll;
+})
+.BulkMerge(list); 
+
+// Result
+FiddleHelper.WriteTable("AuditEntry Values", auditEntries.SelectMany(x => x.Values));
+FiddleHelper.WriteTable("1 - Inserted Customers", auditEntries.Where(x => x.Action == AuditActionType.Insert));
+FiddleHelper.WriteTable("2 - Updated Customers", auditEntries.Where(x => x.Action == AuditActionType.Update));
+```
+
+Try it: [.NET Core](https://dotnetfiddle.net/T5MgRa) | [.NET Framework](https://dotnetfiddle.net/ulrLSL)
+
+## Result
+
+We outputted the `AuditEntry` values, but in this case, we have excluded all the properties so there is no result. We have also outputted all the `AuditEntries` list by their `AuditActionType` value:
+
+- `AuditActionType.Insert`: Will display the **1** new customer
+- `AuditActionType.Update`: Will display the **2** existing customers
