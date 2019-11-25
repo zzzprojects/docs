@@ -45,11 +45,11 @@ Try it: [.NET Core](https://dotnetfiddle.net/cjasQV) | [.NET Framework](https://
 
 | Name                               | Description                                                           |
 |:-----------------------------------|:----------------------------------------------------------------------|
-|[AuditActionType](audit-entities.md#audit-action-type) | The `AuditActionType` enum definition.  |
-|[AuditEntry](audit-entities.md#audit-entry) | The `AuditEntry` class definition. |
-|[AuditEntryItem](audit-entities.md#audit-entry-item) | The `AuditEntryItem` class definition. |
-|[AuditModeType](audit-entities.md#audit-entry-item) | The `AuditEntryItem` class definition. |
-|[ColumnMappingAuditModeType](audit-entities.md#audit-entry-item) | The `AuditEntryItem` class definition. |
+|[AuditActionType](audit-action-type.md) | The `AuditActionType` enum definition.  |
+|[AuditEntry](audit-entry.md) | The `AuditEntry` class definition. |
+|[AuditEntryItem](audit-entry-item.md) | The `AuditEntryItem` class definition. |
+|[AuditModeType](audit-mode-type.md) | The `AuditEntryItem` class definition. |
+|[ColumnMappingAuditModeType](column-mapping-audit-mode-type.md) | The `AuditEntryItem` class definition. |
 
 ## FAQ
 
