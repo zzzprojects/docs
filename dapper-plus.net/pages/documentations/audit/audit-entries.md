@@ -6,11 +6,15 @@ The `AuditEntries` property which is of type `List<AuditEntry>` gets `UPDATED`, 
 
 ## Example
 
-In this example,
+We will demonstrate how `AuditEntries` gets `UPDATED`, `INSERTED` and `DELETED`.
 
-We will execute a `BulkMerge` on a list that contains **1** new customers and **2** existing customers.
+## Execute
 
-As a result, we will display all created `AuditEntry`.
+We will execute a `BulkMerge` on a list that contains **1** new customer and **2** existing customers.
+
+As a result, we will display all the `AuditEntry` values.
+
+## Code
 
 ```csharp
 // Mapping
@@ -24,6 +28,13 @@ connection.UseBulkOptions(x =>
     x.UseAudit = true;
 })
 .BulkMerge(list);
+
+// Result
+FiddleHelper.WriteTable(auditEntries.SelectMany(x => x.Values));
 ```
 
 Try it: [.NET Core](https://dotnetfiddle.net/y4w1ZG) | [.NET Framework](https://dotnetfiddle.net/XB5npF)
+
+## Result
+
+We outputted the `AuditEntry` values which displays the `ColumnName`, `NewValue` and `OldValue`.
