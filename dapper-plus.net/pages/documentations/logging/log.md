@@ -2,11 +2,10 @@
 
 ## Description
 
-TBD
+The `Log` property is an action executed when a message of type "Information" happens.
 
 ```csharp
-/// <summary>Gets or sets the log.</summary>
-/// <value>The log.</value>
+/// <summary>Gets or sets the Log property. The `Log` property is an action executed when a message of type "Information" happens.</summary>
 public Action<string> Log { get; set; }
 ```
 

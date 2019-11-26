@@ -2,11 +2,10 @@
 
 ## Description
 
-TBD
+The `LogDump` property stores all messages of type "Information". This option requires to set the `UseLogDump` property to `true`.
 
 ```csharp
-/// <summary>Gets or sets the log dump.</summary>
-/// <value>The log dump.</value>
+/// <summary>Gets or sets the LogDump property. The `LogDump` property stores all messages of type "Information". This option requires to set the `UseLogDump` property to `true`.</summary>
 public StringBuilder LogDump { get; set; }
 ```
 
