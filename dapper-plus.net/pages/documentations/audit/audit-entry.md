@@ -43,13 +43,13 @@ namespace Z.BulkOperations
 
 We will demonstrate how to get information about the modified row.
 
-## Execute
+### Execute
 
 We will execute a `BulkMerge` on a list that contains **1** new customer and **2** existing customers.
 
 As a result, we will display all created `AuditEntry` and their `AuditEntryItem`.
 
-## Code
+### Code
 
 ```csharp
 // Mapping

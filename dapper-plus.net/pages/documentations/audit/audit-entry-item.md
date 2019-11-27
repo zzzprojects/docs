@@ -35,13 +35,13 @@ namespace Z.BulkOperations
 
 We will demonstrate how to see the metadata and changes made to each column in the database.
 
-## Execute
+### Execute
 
 We will execute a `BulkMerge` on a list that contains **1** new customer and **2** existing customers.
 
 As a result, we will display all created `AuditEntry` and their `AuditEntryItem`.
 
-## Code
+### Code
 
 ```csharp
 // Mapping

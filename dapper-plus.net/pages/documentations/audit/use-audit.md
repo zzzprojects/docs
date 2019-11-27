@@ -8,13 +8,13 @@ The `UseAudit` property sets if `UPDATED`, `INSERTED` and `DELETED` data from th
 
 We will demonstrate how `UseAudit` property sets `UPDATED`, `INSERTED` and `DELETED` data from the database.
 
-## Execute
+### Execute
 
 We will execute a `BulkMerge` on a list that contains **1** new customer, and **2** existing customers.
 
 As a result, we will display all the `AuditEntry`.
 
-## Code
+### Code
 
 The following example sets `UseAudit` to `true` and assigns the list of `AuditEntries` to populate.
 

@@ -5,7 +5,6 @@
 The `AuditMode` is a method to exclude or include property that will be part of the auditing
 
 ```csharp
-// The https://bulk-operations.net/ library is used under the hood.
 namespace Z.Dapper.Plus
 {
     public partial class DapperPlusEntityMapper<T>
@@ -42,7 +41,7 @@ namespace Z.Dapper.Plus
 
 We will demonstrate how to exclude or include all entity properties using the `AuditMode` method.
 
-## Execute
+### Execute
 
 We will execute a `BulkMerge` on a list that contains **1** new customer and **2** existing customers.
 
@@ -99,7 +98,7 @@ FiddleHelper.WriteTable("2 - Updated Customers", auditEntries.Where(x => x.Actio
 
 Try it: [.NET Core](https://dotnetfiddle.net/T5MgRa) | [.NET Framework](https://dotnetfiddle.net/ulrLSL)
 
-## Result
+### Result
 
 We outputted the `AuditEntry` values, but in this case, we have excluded all the properties so there is no result. We have also outputted all the `AuditEntries` list by their `AuditActionType` value:
 
