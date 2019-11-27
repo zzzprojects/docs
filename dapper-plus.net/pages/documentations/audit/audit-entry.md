@@ -50,6 +50,7 @@ We will execute a `BulkMerge` on a list that contains **1** new customer and **2
 
 As a result, we will display all created `AuditEntry` and their `AuditEntryItem`.
 
+## Code
 
 ```csharp
 // Mapping
