@@ -11,6 +11,7 @@ Include: The column is always included in the audit.
 Exclude: The column is always excluded from the audit.
 
 ```csharp
+// The https://bulk-operations.net/ library is used under the hood.
 namespace Z.BulkOperations
 {
     /// <summary>Values that represent ColumnMappingAuditModeType.</summary>
@@ -28,14 +29,24 @@ namespace Z.BulkOperations
 }
 ```
 
-> HINT: The `ColumnMappingAuditModeType` is in Z.BulkOperations namespace since the library is used under the hood.
-
 ## Example
 
-In this example, 
+We will demonstrate how to include specific entity properties.
 
-A BulkMerge will be performed. All columns are included by default but we explicit exclude an `Description` and `IsActive` columns.
+### Mapping
 
+We will use the following mapping:
+
+- `AuditMode(AuditModeType.ExcludeAll)`: To exclude all entity properties
+- `AuditMode(x => new { x.CustomerID, x.Name }, ColumnMappingAuditModeType.Include)`: To include specific properties
+
+### Execute
+
+We will execute a `BulkMerge` on a list that contains **1** new customer and **2** existing customers.
+
+### Code
+
+A BulkMerge will be performed. All columns are included by default but we explicit exclude a `Description` and `IsActive` columns.
 
 ```csharp
 // Mapping
@@ -57,3 +68,7 @@ FiddleHelper.WriteTable(auditEntries.SelectMany(x => x.Values));
 ```
 
 Try it: [.NET Core](https://dotnetfiddle.net/AmxN6Z) | [.NET Framework](https://dotnetfiddle.net/ANSXt4)
+
+### Result
+
+We outputted all `AuditEntry` values. The only information that appears is about the `CustomerID` and `Name` property.

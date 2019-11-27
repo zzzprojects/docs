@@ -6,10 +6,11 @@ The `AuditEntry` represents a row that has been modified.
 
 It represents metadata about a specific row:
 - Which tale affected...
-- What action has been performance
+- What action has been performed
 - When the action has been performed
 
 ```csharp
+// The https://bulk-operations.net/ library is used under the hood.
 namespace Z.BulkOperations
 {
     /// <summary>An audit entry.</summary>
@@ -38,15 +39,17 @@ namespace Z.BulkOperations
 }
 ```
 
-> HINT: The `AuditEntry` is in Z.BulkOperations namespace since the library is used under the hood.
-
 ## Example
 
-In this example,
+We will demonstrate how to get information about the modified row.
 
-We will execute a `BulkMerge` on a list that contains **1** new customers and **2** existing customers.
+## Execute
 
-As a result, we will display all created `AuditEntry`.
+We will execute a `BulkMerge` on a list that contains **1** new customer and **2** existing customers.
+
+As a result, we will display all created `AuditEntry` and their `AuditEntryItem`.
+
+## Code
 
 ```csharp
 // Mapping

@@ -16,17 +16,27 @@ The Dapper Plus audit feature lets you track changes of all modifications that h
 To use the audit feature, you need first to enable it and provide a list if AuditEntry that will be populated during the operations.
 
 ```csharp
-List<AuditEntry> auditEntries = new List<AuditEntry>(); 
+// Mapping
+DapperPlusManager.Entity<Customer>().Table("Customer");
+                
+// Connection
+var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServer());
         
+// Execute
+List<AuditEntry> auditEntries = new List<AuditEntry>(); 
 connection.UseBulkOptions(x => 
 { 
     x.AuditEntries = auditEntries; 
     x.UseAudit = true;
 })
-.BulkMerge(list);
+.BulkMerge(list); 
+
+// Result
+FiddleHelper.WriteTable("1 - Inserted Customers", auditEntries.Where(x => x.Action == AuditActionType.Insert));
+FiddleHelper.WriteTable("2 - Updated Customers", auditEntries.Where(x => x.Action == AuditActionType.Update));
 ```
 
-Try it: [.NET Core](https://dotnetfiddle.net/cjasQV) | [.NET Framework](https://dotnetfiddle.net/s8wLF9)
+Try it: [.NET Core](https://dotnetfiddle.net/TnH93l) | [.NET Framework](https://dotnetfiddle.net/Yo8cts)
 
 ## Scenarios
 
@@ -37,19 +47,19 @@ Try it: [.NET Core](https://dotnetfiddle.net/cjasQV) | [.NET Framework](https://
 
 | Name                               | Description                                                           |
 |:-----------------------------------|:----------------------------------------------------------------------|
-|[UseAudit](../options/use-audit.md)  | Gets or sets if the `Audit` feature is enabled. |
-|[AuditEntries](../options/audit-entries.md)  | Gets or sets the list of `AuditEntries` that will be populated during the bulk operations. |
-|[AuditMode](../options/audit-mode.md)  | Gets or sets which properties/columns should be included/excluded. |
+|[UseAudit](use-audit.md)  | Gets or sets if the `Audit` feature is enabled. |
+|[AuditEntries](audit-entries.md)  | Gets or sets the list of `AuditEntries` that will be populated during the bulk operations. |
+|[AuditMode](audit-mode.md)  | Gets or sets which properties/columns should be included/excluded. |
 
 ## Entities
 
 | Name                               | Description                                                           |
 |:-----------------------------------|:----------------------------------------------------------------------|
-|[AuditActionType](../options/audit-entities.md#audit-action-type) | The `AuditActionType` enum definition.  |
-|[AuditEntry](../options/audit-entities.md#audit-entry) | The `AuditEntry` class definition. |
-|[AuditEntryItem](../options/audit-entities.md#audit-entry-item) | The `AuditEntryItem` class definition. |
-|[AuditModeType](../options/audit-entities.md#audit-entry-item) | The `AuditEntryItem` class definition. |
-|[ColumnMappingAuditModeType](../options/audit-entities.md#audit-entry-item) | The `AuditEntryItem` class definition. |
+|[AuditActionType](audit-action-type.md) | The `AuditActionType` enum definition.  |
+|[AuditEntry](audit-entry.md) | The `AuditEntry` class definition. |
+|[AuditEntryItem](audit-entry-item.md) | The `AuditEntryItem` class definition. |
+|[AuditModeType](audit-mode-type.md) | The `AuditEntryItem` class definition. |
+|[ColumnMappingAuditModeType](column-mapping-audit-mode-type.md) | The `AuditEntryItem` class definition. |
 
 ## FAQ
 

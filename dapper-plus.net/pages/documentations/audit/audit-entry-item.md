@@ -10,6 +10,7 @@ It represents metadata about a specific column:
 - OldValue
 
 ```csharp
+// The https://bulk-operations.net/ library is used under the hood.
 namespace Z.BulkOperations
 {
     /// <summary>An audit entry item.</summary>
@@ -30,16 +31,17 @@ namespace Z.BulkOperations
 }
 ```
 
-> HINT: The `AuditEntryItem` is in Z.BulkOperations namespace since the library is used under the hood.
-
 ## Example
 
-In this example,
+We will demonstrate how to see the metadata and changes made to each column in the database.
 
-We will execute a `BulkMerge` on a list that contains **1** new customers and **2** existing customers.
+## Execute
+
+We will execute a `BulkMerge` on a list that contains **1** new customer and **2** existing customers.
 
 As a result, we will display all created `AuditEntry` and their `AuditEntryItem`.
 
+## Code
 
 ```csharp
 // Mapping
@@ -72,6 +74,8 @@ foreach(var audit in auditEntries.Where(a => a.Action == AuditActionType.Update)
 Try it: [.NET Core](https://dotnetfiddle.net/uMWFra) | [.NET Framework](https://dotnetfiddle.net/IVhoAb)
 
 ### Result
+
+We outputted the `AuditEntry` values and we can see the metadata and changes made to each column in the database.
 
 We will split the `AuditEntries` list by their `AuditActionType` value:
 
