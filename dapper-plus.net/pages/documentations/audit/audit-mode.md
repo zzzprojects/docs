@@ -5,6 +5,7 @@
 The `AuditMode` is a method to exclude or include property that will be part of the auditing
 
 ```csharp
+// The https://bulk-operations.net/ library is used under the hood.
 namespace Z.Dapper.Plus
 {
     public partial class DapperPlusEntityMapper<T>
