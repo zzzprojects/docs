@@ -11,11 +11,15 @@ public bool UseLogDump { get; set; }
 
 ## Example
 
-We will demonstrate how to [TBD]
+We will demonstrate how to use the `LogDump` to log all messages.
 
 ### Execute
 
-We will execute a `BulkMerge` on a list that contains [TBD]
+First, we will use the `UseBulkOptions` method to set:
+- `UseLogDump = true`: To enable the `LogDump`.
+- `LogDump = sb`: To specify the `StringBuilder` to use to dump all messages.
+
+Then we will execute a `BulkMerge` on a list that contains **1** new customer and **2** existing customers.
 
 ### Code
 
@@ -27,4 +31,4 @@ Try it: [.NET Core]([TBD]) | [.NET Framework]([TBD])
 
 ### Result
 
-We outputted [TBD]
+We outputted the `StringBuilder` text which contains all SQL statements executed in the database.
