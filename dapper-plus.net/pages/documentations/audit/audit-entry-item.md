@@ -10,6 +10,7 @@ It represents metadata about a specific column:
 - OldValue
 
 ```csharp
+// The https://bulk-operations.net/ library is used under the hood.
 namespace Z.BulkOperations
 {
     /// <summary>An audit entry item.</summary>
@@ -29,8 +30,6 @@ namespace Z.BulkOperations
     }
 }
 ```
-
-> HINT: The `AuditEntryItem` is in Z.BulkOperations namespace since the library is used under the hood.
 
 ## Example
 
