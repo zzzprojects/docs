@@ -11,6 +11,7 @@ Include: The column is always included in the audit.
 Exclude: The column is always excluded from the audit.
 
 ```csharp
+// The https://bulk-operations.net/ library is used under the hood.
 namespace Z.BulkOperations
 {
     /// <summary>Values that represent ColumnMappingAuditModeType.</summary>
