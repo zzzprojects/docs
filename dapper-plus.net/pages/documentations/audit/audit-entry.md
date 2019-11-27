@@ -10,6 +10,7 @@ It represents metadata about a specific row:
 - When the action has been performed
 
 ```csharp
+// The https://bulk-operations.net/ library is used under the hood.
 namespace Z.BulkOperations
 {
     /// <summary>An audit entry.</summary>
@@ -37,8 +38,6 @@ namespace Z.BulkOperations
     }
 }
 ```
-
-> HINT: The `AuditEntry` is in Z.BulkOperations namespace since the library is used under the hood.
 
 ## Example
 
