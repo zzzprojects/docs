@@ -5,7 +5,7 @@
 When the `UseLogDump` property is `true`, the `LogDump` property stores all messages of type "Information".
 
 ```csharp
-/// <summary>Gets or sets the UseLogDump property. When the `UseLogDump` property is `true`, the `LogDump` property stores all messages of type "Information".</summary>
+/// <summary>Gets or sets the `UseLogDump` property. When the `UseLogDump` property is `true`, the `LogDump` property stores all messages of type "Information".</summary>
 public bool UseLogDump { get; set; }
 ```
 

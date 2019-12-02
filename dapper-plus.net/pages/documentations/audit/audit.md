@@ -47,19 +47,24 @@ Try it: [.NET Core](https://dotnetfiddle.net/TnH93l) | [.NET Framework](https://
 
 | Name                               | Description                                                           |
 |:-----------------------------------|:----------------------------------------------------------------------|
-|[UseAudit](use-audit.md)  | Gets or sets if the `Audit` feature is enabled. |
-|[AuditEntries](audit-entries.md)  | Gets or sets the list of `AuditEntries` that will be populated during the bulk operations. |
-|[AuditMode](audit-mode.md)  | Gets or sets which properties/columns should be included/excluded. |
+|[UseAudit](use-audit.md)  | Gets or sets the `UseAudit` property. When the `UseAudit` property is `true`, the [AuditEntries](audit-entries.md) property stores auditing metadata about `INSERTED`, `UPDATED`, and `DELETED` rows and values. |
+|[AuditEntries](audit-entries.md)  | Gets or sets the `AuditEntries` property. The `AuditEntries` property stores auditing metadata about `INSERTED`, `UPDATED`, and `DELETED` rows and values. This option requires to set the [UseAudit](use-audit.md) property to `true`. |
+
+## Methods
+
+| Name                               | Description                                                           |
+|:-----------------------------------|:----------------------------------------------------------------------|
+|[AuditMode](audit-mode.md)  | The `AuditMode` method allows you to exclude or include properties from the auditing. |
 
 ## Entities
 
 | Name                               | Description                                                           |
 |:-----------------------------------|:----------------------------------------------------------------------|
-|[AuditActionType](audit-action-type.md) | The `AuditActionType` enum definition.  |
-|[AuditEntry](audit-entry.md) | The `AuditEntry` class definition. |
-|[AuditEntryItem](audit-entry-item.md) | The `AuditEntryItem` class definition. |
-|[AuditModeType](audit-mode-type.md) | The `AuditEntryItem` class definition. |
-|[ColumnMappingAuditModeType](column-mapping-audit-mode-type.md) | The `AuditEntryItem` class definition. |
+|[AuditActionType](audit-action-type.md) | The `AuditActionType` enum represents the action that has been performed (Delete, Insert or Update). The action is used in the [AuditEntry](audit-entry.md) class.  |
+|[AuditEntry](audit-entry.md) | The `AuditEntry` class represents the auditing row metadata that has been modified. The auditing value metadata is a list of [AuditEntryItem](audit-entry-item.md) class. |
+|[AuditEntryItem](audit-entry-item.md) | The `AuditEntryItem` class represents the auditing value metadata of a row that has been modified. The entry item is used in the [AuditEntry](audit-entry.md) class. |
+|[AuditModeType](audit-mode-type.md) | The `AuditModeType` enum represents if all properties should be included or excluded from the auditing. The default value is `AuditModeType.IncludeAll`. |
+|[ColumnMappingAuditModeType](column-mapping-audit-mode-type.md) | The `ColumnMappingAuditModeType` enum represents if a specific property should be included or excluded from the auditing. The default value is `ColumnMappingAuditModeType.Inherit`. |
 
 ## FAQ
 
