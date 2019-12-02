@@ -2,7 +2,7 @@
 
 ## Description
 
-The Dapper Plus audit feature lets you track changes of all modifications that happened in the database during the bulk operations. You can create after a history of who modified a table, what was an old value, what was the new value.
+The Dapper Plus audit feature lets you track changes of all modifications that happened in the database during the bulk operations. It allow you to create an history of who modified a table, what was an old value, what was the new value.
 
 ## Key Features
 
@@ -16,13 +16,6 @@ The Dapper Plus audit feature lets you track changes of all modifications that h
 To use the audit feature, you need first to enable it and provide a list if AuditEntry that will be populated during the operations.
 
 ```csharp
-// Mapping
-DapperPlusManager.Entity<Customer>().Table("Customer");
-                
-// Connection
-var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServer());
-        
-// Execute
 List<AuditEntry> auditEntries = new List<AuditEntry>(); 
 connection.UseBulkOptions(x => 
 { 
@@ -30,17 +23,13 @@ connection.UseBulkOptions(x =>
     x.UseAudit = true;
 })
 .BulkMerge(list); 
-
-// Result
-FiddleHelper.WriteTable("1 - Inserted Customers", auditEntries.Where(x => x.Action == AuditActionType.Insert));
-FiddleHelper.WriteTable("2 - Updated Customers", auditEntries.Where(x => x.Action == AuditActionType.Update));
 ```
 
 Try it: [.NET Core](https://dotnetfiddle.net/TnH93l) | [.NET Framework](https://dotnetfiddle.net/Yo8cts)
 
 ## Scenarios
 
-- Saving the audit history in a database
+- [Saving audit history in a database](/scenarios/save-audit-history-in-a-database.md)
 - Saving the audit history in a log file
 
 ## Options
@@ -70,4 +59,4 @@ Try it: [.NET Core](https://dotnetfiddle.net/TnH93l) | [.NET Framework](https://
 
 ### Why enabling this option decreases the performance?
 
-Enabling this option will require additional data to be returned from the database.
+When enabling this options, additional SQL are required such as returning all old and new values.
