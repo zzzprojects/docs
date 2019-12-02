@@ -18,7 +18,7 @@ public class EntityContext : DbContext
 // SELECT * FROM Customers WHERE IsDeleted = 0
 var list = context.Customers.ToList();
 ```
-Try it: [NET Core](https://dotnetfiddle.net/g1XRz1) / [NET Framework](https://dotnetfiddle.net/aDsTWW)
+Try it: [NET Core](https://dotnetfiddle.net/g1XRz1) | [NET Framework](https://dotnetfiddle.net/aDsTWW)
 
 The filter is applied in the database and application side:
 - **Database side**: Whenever possible, the filter is applied in the SQL query.
@@ -65,7 +65,7 @@ public class EntityContext : DbContext
 // SELECT * FROM Customers WHERE IsDeleted = 0
 var list = context.Customers.ToList();
 ```
-Try it: [NET Core](https://dotnetfiddle.net/cgSy5d) / [NET Framework](https://dotnetfiddle.net/7cKY2x)
+Try it: [NET Core](https://dotnetfiddle.net/cgSy5d) | [NET Framework](https://dotnetfiddle.net/7cKY2x)
 
 ### Instance Query Filter
 You can create an **Instance Query Filter** after a context instance has been created. This filter will be specific to this context instance. If your context instance already has query filter both filters will be enabled.
@@ -82,7 +82,7 @@ using (var context = new EntityContext())
 	FiddleHelper.WriteTable("Customers", list);			
 }
 ```
-Try it: [NET Core](https://dotnetfiddle.net/S2tCDX) / [NET Framework](https://dotnetfiddle.net/qjRFbZ)
+Try it: [NET Core](https://dotnetfiddle.net/S2tCDX) | [NET Framework](https://dotnetfiddle.net/qjRFbZ)
 
 ### Enable/Disable Query Filter
 You can enable/disable your **Query Filter** with the `Enable()`, `Disable()`, `EnableFilter(id)`, and `DisableFilder(id)` methods.
@@ -135,7 +135,7 @@ using (var context = new EntityContext())
 	}
 }
 ```
-Try it: [NET Core](https://dotnetfiddle.net/hxOZQz) / [NET Framework](https://dotnetfiddle.net/tctGi0)
+Try it: [NET Core](https://dotnetfiddle.net/hxOZQz) | [NET Framework](https://dotnetfiddle.net/tctGi0)
 
 > DANGER: DO NOT disable `Global Query Filter` unless you want to disable the filter for all your context instances.
 
@@ -163,7 +163,7 @@ public class EntityContext : DbContext
 // SELECT * FROM Customers WHERE IsDeleted = 0
 var list = context.Customers.ToList();
 ```
-Try it: [NET Core](https://dotnetfiddle.net/dVOBXI) / [NET Framework](https://dotnetfiddle.net/b1kwHs)
+Try it: [NET Core](https://dotnetfiddle.net/dVOBXI) | [NET Framework](https://dotnetfiddle.net/b1kwHs)
 
 > HINT: The filter is usually applied to an interface named `ISoftDelete` inherited by all entity types that use Soft Delete. 
 
@@ -189,7 +189,7 @@ public class EntityContext : DbContext
 // SELECT * FROM Customers WHERE TenantID = 1
 var list = context.Customers.ToList();
 ```
-Try it: [NET Core](https://dotnetfiddle.net/9WAJRN) / [NET Framework](https://dotnetfiddle.net/WuWGCy)
+Try it: [NET Core](https://dotnetfiddle.net/9WAJRN) | [NET Framework](https://dotnetfiddle.net/WuWGCy)
 
 > HINT: The filter is usually applied to an interface named `ITenant` inherited by all entity types that use multi-tenancy.
 
@@ -222,7 +222,7 @@ public class EntityContext : DbContext
 	public DbSet<Customer> Customers { get; set; }
 }
 ```
-Try it: [NET Core](https://dotnetfiddle.net/YU8JLJ) / [NET Framework](https://dotnetfiddle.net/HP9Fbe)
+Try it: [NET Core](https://dotnetfiddle.net/YU8JLJ) | [NET Framework](https://dotnetfiddle.net/HP9Fbe)
 
 ## Documentation
 
@@ -272,38 +272,4 @@ For example:
 3. You load the same customer with all his invoices
 4. The customer invoices have not been filtered
 
-That is because both loaded customers are the same object instance. You can use `AsNoTracking` or use a new context instance if you need the customer with his invoice filtered.
-
-That is not a bug, that's how the `ChangeTracker` works.
-
-```csharp
-using (var context = new EntityContext())
-{
-	// 1. You load a customer with all his invoices
-	var customerA = context.Customers.Include(x => x.Invoices).FirstOrDefault();
-	FiddleHelper.WriteTable(customerA.Invoices);
-	
-	// 2. You add a filter to the invoice entity type
-	var filter = context.Configuration.QueryFilter.Filter<ISoftDelete>(customer => !customer.IsDeleted);
-	
-	// 3. You load the same customer with all his invoices
-	var customerB = context.Customers.Include(x => x.Invoices).FirstOrDefault();
-	
-	// 4. The customer invoices have not been filtered
-	FiddleHelper.WriteTable(customerB.Invoices);
-	
-	// Cause: That is because both loaded customers are the same object instance
-	Console.WriteLine("Object reference equals: " + object.ReferenceEquals(customerA, customerB));				
-}
-```
-Try it: [NET Core](https://dotnetfiddle.net/OZ1Jvj) / [NET Framework](https://dotnetfiddle.net/oPE2ve)
-
-## FAQ
-
-<details>
-<summary>Why should I use `Query Filter` over `Query ResultFilter`?</summary>
-
-The **Query Filter** in most cases filters on the database side, so less rows are returned which leads to better performance.
-
-The **Query ResultFilter** should only be used when the predicate cannot be interpreted as a query expression.
-</details>
+T
