@@ -50,7 +50,7 @@ context.SaveChanges();
 // SELECT COUNT(1) FROM Customers
 Console.WriteLine("Count Customer is : " +   futurValue.Value);    
 ```
-Try it: [NET Core](https://dotnetfiddle.net/I7kZ13) / [NET Framework](https://dotnetfiddle.net/OshIRK)
+Try it: [NET Core](https://dotnetfiddle.net/I7kZ13) | [NET Framework](https://dotnetfiddle.net/OshIRK)
 
 ## Documnentation
 
