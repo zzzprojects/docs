@@ -173,7 +173,7 @@ info@zzzprojects.com
 
 | Name | Description | Example (DataTable) | Example (Entity) |
 | :--- | :----------  | :------ | :------ |
-| `BulkInsert<T>(items)` | Bulk insert entities in your database. | [Try it](https://dotnetfiddle.net/ikjsmq) | [Try it](https://dotnetfiddle.net/oz7CCC) |
+| `BulkInsert<T>(items)` | Bulk insert entities in your database. | [.NET Core](https://dotnetfiddle.net/hjSPVg) / [.NET Framework](https://dotnetfiddle.net/ikjsmq) | [.NET Core](https://dotnetfiddle.net/VFOcRg) / [.NET Framework](https://dotnetfiddle.net/oz7CCC) |
 | `BulkInsertAsync<T>(items)` | Bulk insert entities asynchronously in your database. | |
 | `BulkInsertAsync<T>(items, cancellationToken)` | Bulk insert entities asynchronously in your database. | |
 

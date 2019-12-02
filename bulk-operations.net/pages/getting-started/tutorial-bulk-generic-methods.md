@@ -1,6 +1,6 @@
 # Bulk Generic Methods
 
-## Introduction
+## Description
 Bulk Generic Methods allow you to work with strongly type expression.
 
 | Name      | Description |

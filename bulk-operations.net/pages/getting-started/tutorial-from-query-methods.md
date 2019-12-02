@@ -1,6 +1,6 @@
 # From Query Methods
 
-## Introduction
+## Description
 FromQuery operations allow you to use LINQ Query to execute an operation directly in the database
 
 | Name      | Description |

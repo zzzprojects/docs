@@ -1,6 +1,6 @@
 # Bulk SaveChanges
 
-## Introduction
+## Description
 
 Execute an INSERT/UPDATE/DELETE operation using the DataRowState of the DataTable.
 
@@ -17,3 +17,5 @@ bulk.BatchSize = 1000;
 // Easy to use
 bulk.BulkSaveChanges(dt);
 ```
+
+Try it: [.NET Core](https://dotnetfiddle.net/fK4QYL) | [.NET Framework](https://dotnetfiddle.net/sm4a1B)
