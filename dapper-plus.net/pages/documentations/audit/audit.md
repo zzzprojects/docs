@@ -49,9 +49,9 @@ Try it: [.NET Core](https://dotnetfiddle.net/TnH93l) | [.NET Framework](https://
 
 | Name                               | Description                                                           |
 |:-----------------------------------|:----------------------------------------------------------------------|
-|[AuditActionType](audit-action-type.md) | The `AuditActionType` enum represents the action that has been performed (Delete, Insert or Update). The action is used in the [AuditEntry](audit-entry.md) class.  |
-|[AuditEntry](audit-entry.md) | The `AuditEntry` class represents the auditing row metadata that has been modified. The auditing value metadata is a list of [AuditEntryItem](audit-entry-item.md) class. |
-|[AuditEntryItem](audit-entry-item.md) | The `AuditEntryItem` class represents the auditing value metadata of a row that has been modified. The entry item is used in the [AuditEntry](audit-entry.md) class. |
+|[AuditActionType](audit-action-type.md) | The `AuditActionType` enum represents the action that has been performed (Delete, Insert or Update). |
+|[AuditEntry](audit-entry.md) | The `AuditEntry` class represents the auditing row metadata that has been modified. |
+|[AuditEntryItem](audit-entry-item.md) | The `AuditEntryItem` class represents the auditing value metadata of a row that has been modified. |
 |[AuditModeType](audit-mode-type.md) | The `AuditModeType` enum represents if all properties should be included or excluded from the auditing. The default value is `AuditModeType.IncludeAll`. |
 |[ColumnMappingAuditModeType](column-mapping-audit-mode-type.md) | The `ColumnMappingAuditModeType` enum represents if a specific property should be included or excluded from the auditing. The default value is `ColumnMappingAuditModeType.Inherit`. |
 
