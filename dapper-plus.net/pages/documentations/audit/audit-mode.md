@@ -39,7 +39,7 @@ namespace Z.Dapper.Plus
 
 ## Example
 
-We will demonstrate how to exclude all properties to include only specific properties
+We will demonstrate how to exclude all properties to include only specific properties.
 
 ### Mapping
 
