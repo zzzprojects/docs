@@ -1,7 +1,7 @@
 # Bulk SaveChanges
 
 ## Description
-The **EF Bulk SaveChanges** feature let you save thousands of entities in your database efficiently.
+The **EF Bulk SaveChanges** feature lets you save thousands of entities in your database efficiently.
 
 This feature is provided by the library [EF Extensions](https://entityframework-extensions.net/bulk-savechanges) _(Included with EF Classic)_. EF Extensions is used by over 2000 customers all over the world and supports all Entity Framework versions (EF4, EF5, EF6, EF Core, EF Classic).
 
@@ -16,7 +16,7 @@ context.BulkSaveChanges();
 // Easy to customize
 context.BulkSaveChanges(bulk => bulk.BatchSize = 100);
 ```
-Try it: [NET Framework](https://dotnetfiddle.net/1JFvZe) | [NET Core](https://dotnetfiddle.net/8Rc5Eg)
+Try it: [NET Core](https://dotnetfiddle.net/8Rc5Eg) | [NET Framework](https://dotnetfiddle.net/1JFvZe)
 
 ## Performance Comparison
 
@@ -26,7 +26,7 @@ Try it: [NET Framework](https://dotnetfiddle.net/1JFvZe) | [NET Core](https://do
 | BulkSaveChanges | 175 ms         | 325 ms         | 750 ms         |
 | BulkSaveChanges(false) | 125 ms  | 200 ms         | 450 ms         |
 
-Try it: [NET Framework](https://dotnetfiddle.net/Ad1bmZ) | [NET Core](https://dotnetfiddle.net/cIGiKE)
+Try it: [NET Core](https://dotnetfiddle.net/cIGiKE) | [NET Framework](https://dotnetfiddle.net/Ad1bmZ)
 
 > HINT: Performance may differ from a database to another. A lot of factors might affect the benchmark time such as index, column type, latency, throttling, etc.
 
@@ -39,7 +39,7 @@ Using the `ChangeTracker` to detect and persist changes automatically is great! 
 `BulkSaveChanges` works exactly like `SaveChanges` but reduces the number of database round-trips required to help significantly improve the performance.
 
 ### Why BulkSaveChanges(false) is faster than BulkSaveChanges?
-The `BulkSaveChanges` method uses a lot of methods coming from `Entity Framework`. When passing `false` in parameter, some logic such as identity propagation use custom logic that has been optimized. Learn more about [EF Extensions - Improve BulkSaveChanges](https://entityframework-extensions.net/improve-bulk-savechanges)
+The `BulkSaveChanges` method uses a lot of methods coming from the `Entity Framework`. When passing `false` in parameter, some logic such as identity propagation uses custom logic that has been optimized. Learn more about [EF Extensions - Improve BulkSaveChanges](https://entityframework-extensions.net/improve-bulk-savechanges)
 
 ## Documentation
 
@@ -49,14 +49,14 @@ The `BulkSaveChanges` method uses a lot of methods coming from `Entity Framework
 
 | Name | Description | Example |
 | :--- | :---------- | :------ |
-| `BulkSaveChanges()` | Save all changes made in this context to the underlying database by executing bulk operations. | [NET Framework](https://dotnetfiddle.net/2cxxaZ) / [NET Core](https://dotnetfiddle.net/zuEZ3k)|
-| `BulkSaveChanges(Action<BulkOperation> bulkOperationFactory)` | Save all changes made in this context to the underlying database by executing bulk operations. | [NET Framework](https://dotnetfiddle.net/DRewVs) / [NET Core](https://dotnetfiddle.net/BTsiuO)|
-| `BulkSaveChanges(bool useEntityFrameworkPropagation)` | Save all changes made in this context to the underlying database by executing bulk operations. | [NET Framework](https://dotnetfiddle.net/6k6I05) / [EFCore](https://dotnetfiddle.net/TZD1ja)|
-| `BulkSaveChanges(bool useEntityFrameworkPropagation, Action<BulkOperation> bulkOperationFactory)` | Save all changes made in this context to the underlying database by executing bulk operations. | [NET Framework](https://dotnetfiddle.net/sNLPlo) / [EFCore](https://dotnetfiddle.net/upjXHX)|
-| `BulkSaveChangesAsync()` | Save all changes asynchronously made in this context to the underlying database by executing bulk operations. | [NET Framework](https://dotnetfiddle.net/0J6Tp2) / [EFCore](https://dotnetfiddle.net/1VCThG) |
-| `BulkSaveChangesAsync(Action<BulkOperation> bulkOperationFactory)` | Save all changes asynchronously made in this context to the underlying database by executing bulk operations. | [NET Framework](https://dotnetfiddle.net/SOpkTp) / [EFCore](https://dotnetfiddle.net/32JKZw) |
-| `BulkSaveChangesAsync(bool useEntityFrameworkPropagation)` | Save all changes asynchronously made in this context to the underlying database by executing bulk operations. | [NET Framework](https://dotnetfiddle.net/OZlBcS) / [NET Core](https://dotnetfiddle.net/2qAiDY) |
-| `BulkSaveChangesAsync(bool useEntityFrameworkPropagation, Action<BulkOperation> bulkOperationFactory)` | Save all changes asynchronously made in this context to the underlying database by executing bulk operations. | [NET Framework](https://dotnetfiddle.net/rjh5m9) / [NET Core](https://dotnetfiddle.net/xY8F52) |
+| `BulkSaveChanges()` | Save all changes made in this context to the underlying database by executing bulk operations. | [NET Core](https://dotnetfiddle.net/zuEZ3k) / [NET Framework](https://dotnetfiddle.net/2cxxaZ) |
+| `BulkSaveChanges(Action<BulkOperation> bulkOperationFactory)` | Save all changes made in this context to the underlying database by executing bulk operations. | [NET Core](https://dotnetfiddle.net/BTsiuO) / [NET Framework](https://dotnetfiddle.net/DRewVs) |
+| `BulkSaveChanges(bool useEntityFrameworkPropagation)` | Save all changes made in this context to the underlying database by executing bulk operations. | [NET Core](https://dotnetfiddle.net/TZD1ja) / [NET Framework](https://dotnetfiddle.net/6k6I05) |
+| `BulkSaveChanges(bool useEntityFrameworkPropagation, Action<BulkOperation> bulkOperationFactory)` | Save all changes made in this context to the underlying database by executing bulk operations. | [NET Core](https://dotnetfiddle.net/upjXHX) / [NET Framework](https://dotnetfiddle.net/sNLPlo) |
+| `BulkSaveChangesAsync()` | Save all changes asynchronously made in this context to the underlying database by executing bulk operations. | [NET Core](https://dotnetfiddle.net/1VCThG) / [NET Framework](https://dotnetfiddle.net/0J6Tp2) |
+| `BulkSaveChangesAsync(Action<BulkOperation> bulkOperationFactory)` | Save all changes asynchronously made in this context to the underlying database by executing bulk operations. | [NET Core](https://dotnetfiddle.net/32JKZw) / [NET Framework](https://dotnetfiddle.net/SOpkTp) |
+| `BulkSaveChangesAsync(bool useEntityFrameworkPropagation)` | Save all changes asynchronously made in this context to the underlying database by executing bulk operations. | [NET Core](https://dotnetfiddle.net/2qAiDY) / [NET Framework](https://dotnetfiddle.net/OZlBcS) |
+| `BulkSaveChangesAsync(bool useEntityFrameworkPropagation, Action<BulkOperation> bulkOperationFactory)` | Save all changes asynchronously made in this context to the underlying database by executing bulk operations. | [NET Core](https://dotnetfiddle.net/xY8F52) / [NET Framework](https://dotnetfiddle.net/rjh5m9) |
 
 ## Learn more
 

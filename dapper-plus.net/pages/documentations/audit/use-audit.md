@@ -2,23 +2,44 @@
 
 ## Description
 
-The `UseAudit` property sets if `UPDATED`, `INSERTED` and `DELETED` data from the database should be returned as `AuditEntries`.
+When the `UseAudit` property is `true`, the [AuditEntries](audit-entries.md) property stores auditing metadata about `INSERTED`, `UPDATED`, and `DELETED` rows and values.
+
+```csharp
+/// <summary>Gets or sets the `UseAudit` property. When the `UseAudit` property is `true`, the [AuditEntries](audit-entries.md) property stores auditing metadata about `INSERTED`, `UPDATED`, and `DELETED` rows and values.</summary>
+public bool UseAudit { get; set; }
+```
 
 ## Example
 
-In this example,
+We will demonstrate how to use the `UseAudit` and `AuditEntries` properties.
 
-The following example sets `UseAudit` to `true` and assigns the list of `AuditEntries` to populate.
+### Execute
+
+We will execute a `BulkMerge` on a list that contains **1** new customer, and **2** existing customers.
+
+We will use the following BulkOptions:
+- UseAudit: To enable the auditing feature.
+- AuditEntries: To retrieve auditing metadata.
+
+### Code
 
 ```csharp
+// Execute
 List<AuditEntry> auditEntries = new List<AuditEntry>(); 
-        
-connection.UseBulkOptions(x => 
+connection.UseBulkOptions(options => 
 { 
-    x.AuditEntries = auditEntries; 
-    x.UseAudit = true;
+    options.UseAudit = true;
+    options.AuditEntries = auditEntries; 
 })
-.BulkMerge(list);
+.BulkMerge(list); 
+
+// Result
+FiddleHelper.WriteTable("1 - AuditEntry", auditEntries);
+FiddleHelper.WriteTable("2 - AuditEntryItem", auditEntries.SelectMany(x => x.Values));
 ```
 
 Try it: [.NET Core](https://dotnetfiddle.net/cjasQV) | [.NET Framework](https://dotnetfiddle.net/s8wLF9)
+
+### Result
+
+We outputted all `AuditEntry` and `AuditEntryItem` auditing metadata.

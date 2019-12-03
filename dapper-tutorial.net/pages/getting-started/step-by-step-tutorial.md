@@ -1,6 +1,6 @@
 ---
 PermaID: 1000200
-Name: setup-database
+Name: step-by-step-tutorial
 ---
 
 # Step by Step Tutorial 

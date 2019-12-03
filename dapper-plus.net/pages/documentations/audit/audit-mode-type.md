@@ -2,21 +2,21 @@
 
 ## Description
 
-The `AuditModeType` is an enum that represents all entity properties are included or excluded.
+The `AuditModeType` enum represents if all properties should be included or excluded from the auditing. The default value is `AuditModeType.IncludeAll`.
 
-The default value is `AuditModeType.IncludeAll`.
+You can include or exclude specific properties with the [ColumnMappingAuditModeType](column-mapping-audit-mode-type.md) enum.
 
 ```csharp
-// The https://bulk-operations.net/ library is used under the hood.
+// The namespace is different because the https://bulk-operations.net/ library is used under the hood..
 namespace Z.BulkOperations
 {
-    /// <summary>The enum that represents all entity properties are included or excluded.</summary>
+    /// <summary>The `AuditModeType` enum represents if all properties should be included or excluded from the auditing. The default value is `AuditModeType.IncludeAll`.</summary>
     public enum AuditModeType
     {
-        /// <summary>The name/value that represents all entity properties are included.</summary>
+        /// <summary>The name/value that represents if all entity properties are included (Default Value).</summary>
         IncludeAll = 0,
 		
-        /// <summary>The name/value that represents all entity properties are excluded.</summary>
+        /// <summary>The name/value that represents if all entity properties are excluded.</summary>
         ExcludeAll = 1
     }
 }
@@ -24,14 +24,14 @@ namespace Z.BulkOperations
 
 ## Example
 
-We will demonstrate how to include specific entity properties.
+We will demonstrate how to exclude all properties to include only specific properties.
 
 ### Mapping
 
 We will use the following mapping:
 
-- `AuditMode(AuditModeType.ExcludeAll)`: To exclude all entity properties
-- `AuditMode(x => new { x.CustomerID, x.Name }, ColumnMappingAuditModeType.Include)`: To include specific properties
+- `AuditMode(AuditModeType.ExcludeAll)`: To exclude all properties.
+- `AuditMode(x => new { x.CustomerID, x.Name }, ColumnMappingAuditModeType.Include)`: To include specific properties.
 
 ### Execute
 
@@ -47,10 +47,10 @@ DapperPlusManager.Entity<Customer>().Table("Customer")
 	
 // Execute
 List<AuditEntry> auditEntries = new List<AuditEntry>(); 
-connection.UseBulkOptions(x => 
+connection.UseBulkOptions(options => 
 { 
-	x.AuditEntries = auditEntries; 
-	x.UseAudit = true;
+    options.UseAudit = true;
+    options.AuditEntries = auditEntries; 
 })
 .BulkMerge(list); 
 
@@ -62,4 +62,4 @@ Try it: [.NET Core](https://dotnetfiddle.net/1tKhnW) | [.NET Framework](https://
 
 ### Result
 
-We outputted all `AuditEntry` values. The only information that appears is about the `CustomerID` and `Name` property.
+We outputted all `AuditEntryItem` auditing metadata. The only information that appears is about the `CustomerID` and `Name` property.
