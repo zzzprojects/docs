@@ -11,15 +11,14 @@ public Action<string> Log { get; set; }
 
 ## Example
 
-We will demonstrate how to log all messages into a `StringBuilder`.
+We will demonstrate how to log all messages into a `StringBuilder` using the `Log` property.
 
 ### Execute
 
-We will set options in the `UseBulkOptions` methods:
-- `Log = (s) => sb.AppendLine(s)`: to specify to append the message in the `StringBuilder`.
+We will execute a `BulkMerge` on a list that contains **1** new customer, and **2** existing customers.
 
-Then we will execute a `BulkMerge` on a list that contains **1** new customer and **2** existing customers.
-
+We will use the following BulkOptions:
+- `Log`: To specify the action to append the message in the `StringBuilder`.
 
 ### Code
 
@@ -27,7 +26,7 @@ Then we will execute a `BulkMerge` on a list that contains **1** new customer an
 [TBD]
 ```
 
-Try it: [.NET Core]([TBD]) | [.NET Framework]([TBD])
+Try it: [.NET Core](https://dotnetfiddle.net/o1SQgv) | [.NET Framework](https://dotnetfiddle.net/e0EKfI)
 
 ### Result
 

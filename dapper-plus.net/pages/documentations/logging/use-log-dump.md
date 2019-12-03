@@ -2,24 +2,24 @@
 
 ## Description
 
-When the `UseLogDump` property is `true`, the `LogDump` property stores all messages of type "Information".
+When the `UseLogDump` property is `true`, the [LogDump](log-dump.md) property stores all messages of type "Information".
 
 ```csharp
-/// <summary>Gets or sets the `UseLogDump` property. When the `UseLogDump` property is `true`, the `LogDump` property stores all messages of type "Information".</summary>
+/// <summary>Gets or sets the `UseLogDump` property. When the `UseLogDump` property is `true`, the [LogDump](log-dump.md) property stores all messages of type "Information".</summary>
 public bool UseLogDump { get; set; }
 ```
 
 ## Example
 
-We will demonstrate how to use the `LogDump` to log all messages.
+We will demonstrate how to use the `UseLogDump` and `LogDump` properties to log all messages.
 
 ### Execute
 
-First, we will use the `UseBulkOptions` method to set:
-- `UseLogDump = true`: To enable the `LogDump`.
-- `LogDump = sb`: To specify the `StringBuilder` to use to dump all messages.
+We will execute a `BulkMerge` on a list that contains **1** new customer, and **2** existing customers.
 
-Then we will execute a `BulkMerge` on a list that contains **1** new customer and **2** existing customers.
+We will use the following BulkOptions:
+- `UseLogDump`: To enable the `LogDump`.
+- `LogDump`: To specify the `StringBuilder` to use to dump all messages.
 
 ### Code
 
@@ -27,7 +27,7 @@ Then we will execute a `BulkMerge` on a list that contains **1** new customer an
 [TBD]
 ```
 
-Try it: [.NET Core]([TBD]) | [.NET Framework]([TBD])
+Try it: [.NET Core](https://dotnetfiddle.net/j3x8uw) | [.NET Framework]([TBD])
 
 ### Result
 
