@@ -12,8 +12,26 @@ We will demonstrate how to exclude all properties to include only specific prope
 
 We will use the following mapping:
 
-- `bulk.AuditMode = AuditModeType.ExcludeAll;`: To exclude all properties.
-- `bulk.ColumnMappings.Add(new ColumnMapping<Customer>("CustomerID", true){AuditMode = ColumnMappingAuditModeType.Include});`: To include specific properties.
+#### To exclude all properties
+
+`bulk.AuditMode = AuditModeType.ExcludeAll;`
+
+#### To include specific properties
+
+```csharp
+bulk.ColumnMappings.Add(
+    new ColumnMapping<Customer>("CustomerID", true)
+    {
+        AuditMode = ColumnMappingAuditModeType.Include
+    }
+);
+bulk.ColumnMappings.Add(
+    new ColumnMapping<Customer>("Name")
+    {
+        AuditMode = ColumnMappingAuditModeType.Include
+    }
+);
+```
 
 ### Execute
 
