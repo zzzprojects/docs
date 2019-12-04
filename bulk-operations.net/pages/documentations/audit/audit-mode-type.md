@@ -30,11 +30,11 @@ We will demonstrate how to exclude all properties to include only specific prope
 
 We will use the following mapping:
 
-##### To exclude all properties
+#### To exclude all properties
 
 `bulk.AuditMode = AuditModeType.ExcludeAll;`
 
-##### To include specific properties
+#### To include specific properties
 
 ```csharp
 bulk.ColumnMappings.Add(
