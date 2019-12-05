@@ -26,7 +26,7 @@ We will use the following BulkOptions:
 ```csharp
 // Execute
 List<AuditEntry> auditEntries = new List<AuditEntry>();            
-context.BulkSaveChanges(options =>
+context.BulkMerge(list, options =>
 {
     options.UseAudit = true;
     options.AuditEntries = auditEntries;
