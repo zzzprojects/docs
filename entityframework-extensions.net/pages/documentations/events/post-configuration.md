@@ -6,7 +6,7 @@ The `PostConfiguration` event is raised just before a bulk method is called, suc
 
 ## Example
 
-The following sets the `Log` property in the `PostConfiguration` event.
+The following example sets the `Log` property in the `PostConfiguration` event.
  
 ```csharp
 using (var context = new EntityContext())
