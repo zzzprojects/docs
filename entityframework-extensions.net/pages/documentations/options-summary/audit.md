@@ -2,7 +2,7 @@
 
 ## Description
 
-The Bulk Operations audit feature allows you to track changes of all modifications that happened in the database during the Bulk Operations. Also, it lets you create a history of who modified a table, what was an old value and a new value.
+The EFE audit feature allows you to track changes of all modifications that happened in the database during the Bulk Operations. Also, it lets you create a history of who modified a table, what was an old value and a new value.
 
 ## Key Features
 
