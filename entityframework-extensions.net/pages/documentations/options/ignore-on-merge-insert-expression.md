@@ -1,5 +1,7 @@
 # Ignore OnMergeInsert Expression
 
+## Description
+
 The `IgnoreOnMergeInsertExpression` allows you to ignore some columns when the `BulkMerge` method executes the `insert` statement and these columns will only be used in `update` statement.
 
 The following example ignores the `Description` property in insertion and will be considered when updating the records.
@@ -17,4 +19,4 @@ using (var context = new EntityContext())
     });
 }
 ```
-[Try it in EF6](https://dotnetfiddle.net/ggtMXb) | [Try it in EF Core](https://dotnetfiddle.net/SFCCCZ)
+Try it: [EF Core](https://dotnetfiddle.net/SFCCCZ) | [EF6](https://dotnetfiddle.net/ggtMXb)
