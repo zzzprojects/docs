@@ -1,6 +1,7 @@
 # TemporaryTableUseTableLock
 
-## Definition
+## Description
+
 Gets or sets if the temporary table must be locked when inserting records into it.
 
 
