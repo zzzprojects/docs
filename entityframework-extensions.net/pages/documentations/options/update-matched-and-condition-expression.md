@@ -1,5 +1,7 @@
 # UpdateMatched AndCondition Expression
 
+## Description
+
 The `UpdateMatchedAndConditionExpression` allows you to perform the bulk update operation if the specified property value is equal to the database value. 
 
 The following example updates all those records in which `CreatedDate` value is equal to the database value.
@@ -24,6 +26,6 @@ using (var context = new EntityContext())
 }
 ```
 
-[Try it in EF6](https://dotnetfiddle.net/qq3XCY) | [Try it in EF Core](https://dotnetfiddle.net/NUwq90)
+Try it: [EF Core](https://dotnetfiddle.net/NUwq90) | [EF6](https://dotnetfiddle.net/qq3XCY)
 
  - It will update all the records except for the last one because the `CreatedDate` property is updated.
