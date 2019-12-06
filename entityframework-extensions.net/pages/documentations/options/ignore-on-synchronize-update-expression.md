@@ -1,5 +1,7 @@
 # Ignore OnSynchronizeUpdate Expression
 
+## Description
+
 The `IgnoreOnSynchronizeUpdateExpression` allows you to ignore some columns when the `BulkSynchronize` method executes the `UPDATE` statement and these columns will only be used in `INSERT` statement.
 
 The following example ignores the `CreatedDate` property when updating the existing records, and it will be considered in insertion only.
@@ -36,7 +38,7 @@ using (var context = new EntityContext())
 }
 ```
 
-[Try it in EF6](https://dotnetfiddle.net/ebEAZa) | [Try it in EF Core](https://dotnetfiddle.net/kXoLcy)
+Try it: [EF Core](https://dotnetfiddle.net/kXoLcy) | [EF6](https://dotnetfiddle.net/ebEAZa)
 
  - It updates all the columns of an existing records except for the `CreatedDate` column because `CreatedDate` property is specified in `IgnoreOnSynchronizeUpdateExpression`. 
  - It will insert non-matching rows that exist in the source (`customers` list).
