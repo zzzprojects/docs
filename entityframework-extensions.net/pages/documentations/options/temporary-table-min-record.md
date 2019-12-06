@@ -1,6 +1,7 @@
 # TemporaryTableMinRecord
 
-## Definition
+## Description
+
 Gets or sets the minimum number of records to use a temporary table instead of using SQL derived table.
 
 
