@@ -1,5 +1,7 @@
 # MergeMatched AndNotCondition Expression
 
+## Description
+
 The `MergeMatchedAndOneNotConditionExpression` allows you to perform only the `UPDATE` in the `BulkMerge` if the specified property value is not equal to the database value. 
 
 The following example updates all those records in which `ModifiedDate` value is not equal to the database value.
@@ -18,7 +20,7 @@ using (var context = new EntityContext())
 }
 ```
 
-[Try it in EF6](https://dotnetfiddle.net/ptwEKZ) | [Try it in EF Core](https://dotnetfiddle.net/LQZuak)
+Try it: [EF Core](https://dotnetfiddle.net/LQZuak) | [EF6](https://dotnetfiddle.net/ptwEKZ)
 
  - It will update all the records except for the last record.
  - The `ModifiedDate` property is only updated for the first two records and not for the last record.
