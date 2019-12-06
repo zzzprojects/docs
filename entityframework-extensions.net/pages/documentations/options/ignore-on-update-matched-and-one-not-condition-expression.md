@@ -1,5 +1,7 @@
 # Ignore OnUpdateMatched AndOneNotCondition Expression
 
+## Description
+
 The `IgnoreOnUpdateMatchedAndOneNotConditionExpression` is the inverse of `MergeMatchedAndNotConditionExpression` 
 
  - The `UpdateMatchedAndOneNotConditionExpression` allows you to perform the bulk update operation if the specified property value is not equal to the database value.
@@ -27,7 +29,7 @@ using (var context = new EntityContext())
 }
 ```
 
-[Try it in EF6](https://dotnetfiddle.net/5v8F8E) | [Try it in EF Core](https://dotnetfiddle.net/cbtsCP)
+Try it: [EF Core](https://dotnetfiddle.net/cbtsCP) | [EF6](https://dotnetfiddle.net/5v8F8E)
 
  - It will update all the records except for the last record.
  - The `ModifiedDate` property is only updated for the first two records and not for the last record.
