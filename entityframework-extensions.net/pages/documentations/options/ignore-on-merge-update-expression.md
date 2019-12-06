@@ -1,5 +1,7 @@
 # Ignore OnMergeUpdate Expression
 
+## Description
+
 The `IgnoreOnMergeUpdateExpression` allows you to ignore some columns when the `BulkMerge` method executes the `update` statement and these columns will only be used in `insert` statement.
 
 The following example ignores the `Name` and `IsActive` properties while updating the records and will be considered during insertion.
@@ -28,4 +30,4 @@ using (var context = new EntityContext())
     });
 }
 ```
-[Try it in EF6](https://dotnetfiddle.net/Z0xM1L) | [Try it in EF Core](https://dotnetfiddle.net/Spifzy)
+Try it: [EF Core](https://dotnetfiddle.net/Spifzy) | [EF6](https://dotnetfiddle.net/Z0xM1L)
