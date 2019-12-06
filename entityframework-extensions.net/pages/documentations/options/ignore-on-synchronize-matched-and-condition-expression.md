@@ -1,5 +1,7 @@
 # Ignore OnSynchronizeMatched AndCondition Expression
 
+## Description
+
 The `IgnoreOnSynchronizeMatchedAndConditionExpression` is the inverse of `SynchronizeMatchedAndConditionExpression`.
 
  - The `SynchronizeMatchedAndConditionExpression` allows you to perform the bulk synchronize operation if the specified property value is not equal to the database value.
@@ -33,6 +35,6 @@ using (var context = new EntityContext())
 }
 ```
 
-[Try it in EF](https://dotnetfiddle.net/eta7wV) | [Try it in EF Core](https://dotnetfiddle.net/Zi6dzI)
+Try it: [EF Core](https://dotnetfiddle.net/Zi6dzI) | [EF6](https://dotnetfiddle.net/eta7wV)
 
  - It will update all the records except for the last record because the `CreatedDate` property is updated for the last record.
