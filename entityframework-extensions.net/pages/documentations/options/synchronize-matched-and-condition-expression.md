@@ -1,5 +1,7 @@
 # SynchronizeMatched AndCondition Expression
 
+## Description
+
 The `SynchronizeMatchedAndConditionExpression` allows you to perform the bulk synchronize operation if the specified property value is equal to the database value. 
 
 The following example updates all those records in which `CreatedDate` value is equal to the database value.
@@ -25,6 +27,6 @@ using (var context = new EntityContext())
 }
 ```
 
-[Try it in EF6](https://dotnetfiddle.net/5W8jyb) | [Try it in EF Core](https://dotnetfiddle.net/yFY5tG)
+Try it: [EF Core](https://dotnetfiddle.net/yFY5tG) | [EF6](https://dotnetfiddle.net/5W8jyb) 
 
  - It will update all the records except for the last one because the `CreatedDate` property is updated for the last record.
