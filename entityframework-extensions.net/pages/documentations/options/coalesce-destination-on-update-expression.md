@@ -1,5 +1,7 @@
 # Coalesce Destination OnUpdate Expression
 
+## Description
+
 The `CoalesceDestinationOnUpdateExpression` is the inverse of `CoalesceOnUpdateExpression`, it allows you to update the new value if the database value is null otherwise keep the database value when `BulkUpdate` method is executed.
 
 The following example will update only those columns for which the value is null in the database for the specified properties.
@@ -17,7 +19,7 @@ using (var context = new EntityContext())
 }
 ```
 
-[Try it in EF6](https://dotnetfiddle.net/oJgbnd) | [Try it in EF Core](https://dotnetfiddle.net/DVfHF4)
+Try it: [EF Core](https://dotnetfiddle.net/DVfHF4) | [EF6](https://dotnetfiddle.net/oJgbnd)
 
  - It will update the value in the `Description` column because the database value is null.
  - The value for `Name` is not null so it will not update the `Name` column.
