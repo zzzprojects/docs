@@ -1,6 +1,6 @@
 # Fake ObjectContext Instance
 
-## Factory Classes
+## Description
 
 The Effort library provides multiple factory classes that developers can choose from as per their requirements, and all of them can serve well in different scenarios.
 
