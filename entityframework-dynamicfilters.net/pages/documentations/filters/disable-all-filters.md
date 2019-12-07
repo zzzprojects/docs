@@ -1,6 +1,6 @@
 # DisableAllFilters
 
-## Definition
+## Description
 
 DisableAllFilters method disables all filters within a DbContext at once which are globally enabled. 
 
