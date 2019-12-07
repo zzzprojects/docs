@@ -1,6 +1,6 @@
 # Overview
 
-## Definition
+## Description
 
 **EntityFramework Dynamic Filters** is a library that Creates global and scoped filters for Entity Framework queries.
 
