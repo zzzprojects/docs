@@ -1,6 +1,6 @@
 # EnableFilter
 
-## Definition
+## Description
 
 EnableFilter selectively enable the filter which is globally disabled. Enabling a globally disabled filter will apply only to that DbContext and it will not affect any other DbContext instances.
 
