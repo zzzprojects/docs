@@ -1,6 +1,6 @@
 # Data Loaders
 
-## Definition
+## Description
 
 Data loaders are useful components in the Effort library that were designed to help set up the initial state of a fake database.
 
