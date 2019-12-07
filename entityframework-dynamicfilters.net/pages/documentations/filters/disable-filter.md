@@ -1,6 +1,6 @@
 # DisableAllFilters
 
-## Definition
+## Description
 
 DisableFilter selectively disable the filter which is globally enabled. 
 
