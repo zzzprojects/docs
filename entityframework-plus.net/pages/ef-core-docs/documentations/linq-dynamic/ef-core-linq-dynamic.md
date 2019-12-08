@@ -4,7 +4,7 @@ Permalink: ef-core-linq-dynamic
 
 # LINQ Dynamic
 
-## Introduction
+## Description
 
 **LINQ Dynamic** in Entity Framework is supported through the [Eval-Expression.NET](https://eval-expression.net/linq-dynamic) Library. That feature is free to use even for commercial library.
 
