@@ -1,6 +1,6 @@
 # Overview
 
-## Definition
+## Description
 
 **Entity Framework Plus** is a library that Improve Entity Framework performance and overcome limitations with **MUST-HAVE** features.
 
