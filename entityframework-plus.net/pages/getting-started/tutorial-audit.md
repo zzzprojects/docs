@@ -1,6 +1,6 @@
 # Audit
 
-## Audit
+## Description
 
 Allow to easily track changes, exclude/include entity or property and auto save audit entries in the database.
 
