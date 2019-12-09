@@ -4,7 +4,7 @@ Permalink: batch-update
 
 # Batch Update
 
-## Introduction
+## Description
 
 Updating using Entity Framework can be very slow if you need to update hundreds or thousands of entities with the same expression. Entities are first loaded in the context before being updated which is very bad for the performance and then, they are updated one by one which makes the update operation even worse.
 
