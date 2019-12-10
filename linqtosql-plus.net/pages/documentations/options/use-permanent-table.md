@@ -1,8 +1,8 @@
 # UsePermanentTable
 
-## Definition
-Gets or sets if the library should `create` and `drop` a permanent table instead of using a temporary table.
+## Description
 
+Gets or sets if the library should `create` and `drop` a permanent table instead of using a temporary table.
 
 ```csharp
 context.BulkSaveChanges(options =>
