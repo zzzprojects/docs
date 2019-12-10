@@ -1,8 +1,8 @@
 # UseLogDump
 
-## Definition
-Gets or sets if all `log` related to database event should be stored in a `LogDump` property.
+## Description
 
+Gets or sets if all `log` related to database event should be stored in a `LogDump` property.
 
 ```csharp
 StringBuilder logDump;
