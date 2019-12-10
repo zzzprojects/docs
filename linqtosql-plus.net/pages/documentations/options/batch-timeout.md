@@ -1,6 +1,7 @@
 # BatchTimeout
 
-## Definition
+## Description
+
 Gets or sets the maximum of time in seconds to wait for a batch before the command throws a timeout exception. 
 
 
