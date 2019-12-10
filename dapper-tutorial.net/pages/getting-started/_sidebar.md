@@ -1,0 +1,7 @@
+- [Step by Step Tutorial](step-by-step-tutorial.md)
+- [Create MVC Project](create-mvc-project.md)
+- [Create SQL Database](create-sql-database.md)
+- [Add Dapper NuGet Reference](dapper-add-nuget-reference.md)
+- [Query Data](dapper-query-data.md)
+- [Insert and Update](dapper-insert-and-update.md)
+- [Insert and Update in Bulk](dapper-insert-and-update-in-bulk.md)

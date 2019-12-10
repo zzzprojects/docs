@@ -2,21 +2,23 @@
 
 ## Description
 
-TBD
+The `Log` property is an action executed when a message of type "Information" happens.
 
 ```csharp
-/// <summary>Gets or sets the log.</summary>
-/// <value>The log.</value>
+/// <summary>Gets or sets the Log property. The `Log` property is an action executed when a message of type "Information" happens.</summary>
 public Action<string> Log { get; set; }
 ```
 
 ## Example
 
-We will demonstrate how to [TBD]
+We will demonstrate how to log all messages into a `StringBuilder` using the `Log` property.
 
 ### Execute
 
-We will execute a `BulkMerge` on a list that contains [TBD]
+We will execute a `BulkMerge` on a list that contains **1** new customer, and **2** existing customers.
+
+We will use the following BulkOptions:
+- `Log`: To specify the action to append the message in the `StringBuilder`.
 
 ### Code
 
@@ -24,8 +26,8 @@ We will execute a `BulkMerge` on a list that contains [TBD]
 [TBD]
 ```
 
-Try it: [.NET Core]([TBD]) | [.NET Framework]([TBD])
+Try it: [.NET Core](https://dotnetfiddle.net/o1SQgv) | [.NET Framework](https://dotnetfiddle.net/e0EKfI)
 
 ### Result
 
-We outputted [TBD]
+We outputted the `StringBuilder` text which contains all SQL statements executed in the database.

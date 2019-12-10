@@ -1,7 +1,7 @@
 # Bulk Methods
 
-## Introduction
-The .NET Bulk Operations library allow you to perform all operations in your database.
+## Description
+The .NET Bulk Operations library allows you to perform all operations in your database.
 
 | Name      | Description |
 | :-------------- | :------------- |

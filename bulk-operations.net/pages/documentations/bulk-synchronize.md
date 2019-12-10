@@ -2,7 +2,7 @@
 
 ## Description
 
-The `BulkSynchronize` extension method let you synchronize a large number of entities in your database.
+The `BulkSynchronize` extension method lets you synchronize a large number of entities in your database.
 
 A synchronize is a mirror operation from the data source to the database. All rows that match the entity key are `UPDATED`, non-matching rows that exist from the source are `INSERTED`, non-matching rows that exist in the database are `DELETED`.
 
@@ -16,7 +16,7 @@ bulk.DestinationTableName = "Customers";
 bulk.AutoMapKeyExpression = customer => customer.Code;
 bulk.BulkSynchronize(customers);
 ```
-[Try it (Entity)](https://dotnetfiddle.net/06N89k)
+Try it (Entity): [.NET Core](https://dotnetfiddle.net/NH837U) | [.NET Framework](https://dotnetfiddle.net/06N89k)
 
 ```csharp
 // Easy to use
@@ -29,7 +29,7 @@ bulk.AutoMapKeyName = "Code";
 bulk.BulkSynchronize(dtCustomers);
 });
 ```
-[Try it (DataTable)](https://dotnetfiddle.net/RLvbF1)
+Try it (DataTable): [.NET Core](https://dotnetfiddle.net/hizkul) | [.NET Framework](https://dotnetfiddle.net/RLvbF1)
 
 ### Scenarios
 The `BulkSynchronize` method is **fast** but also **flexible** to let you handle various scenarios such as:
@@ -53,16 +53,16 @@ The `BulkSynchronize` and `BulkSynchronizeAync` methods let you synchronize a la
 bulk.AutoMapKeyExpression = customer => customer.Code;
 bulk.BulkSynchronize(customers);
 ```
-[Try it (Entity)](https://dotnetfiddle.net/rd4Qm2)
+Try it (Entity): [.NET Core](https://dotnetfiddle.net/UQBex7) | [.NET Framework](https://dotnetfiddle.net/rd4Qm2)
 
 ```csharp
 bulk.AutoMapKeyName = "Code";
 bulk.BulkSynchronize(dtCustomers);
 ```
-[Try it (DataTable)](https://dotnetfiddle.net/LMLvFy)
+Try it (DataTable): [.NET Core](https://dotnetfiddle.net/YArxWR) | [.NET Framework](https://dotnetfiddle.net/LMLvFy)
 
 ### Bulk Synchronize with options
-The `options` parameter let you use a lambda expression to customize the way entities are synchronized.
+The `options` parameter lets you use a lambda expression to customize the way entities are synchronized.
 
 ```csharp
 context.BulkSynchronize(customers, options => options.BatchSize = 100);
@@ -71,29 +71,29 @@ context.BulkSynchronize(customers, options => {
     options.ColumnPrimaryKeyExpression = customer => customer.Code;
 });
 ```
-[Try it (Entity)](https://dotnetfiddle.net/P4j6y4)
+Try it (Entity): [.NET Core](https://dotnetfiddle.net/KIWMJk) | [.NET Framework](https://dotnetfiddle.net/P4j6y4)
 
-[Try it (DataTable)](https://dotnetfiddle.net/Z3QmQH) 
+Try it (DataTable): [.NET Core](https://dotnetfiddle.net/RIkSIh) | [.NET Framework](https://dotnetfiddle.net/Z3QmQH) 
 
-## Real Life Scenarios
+## Real-Life Scenarios
 
 ### Synchronize and keep identity value
-Your entity has an identity property, but you want to force to insert a specific value instead. The `SynchronizeKeepIdentity` option allows you to keep the identity value of your entity.
+Your entity has an identity property, but you want to force it to insert a specific value instead. The `SynchronizeKeepIdentity` option allows you to keep the identity value of your entity.
 
 ```csharp
 bulk.SynchronizeKeepidentity = true;
 bulk.BulkSynchronize(customers);
 ```
-[Try it (Entity)](https://dotnetfiddle.net/P6txGi)
+Try it (Entity): [.NET Core](https://dotnetfiddle.net/Le84Fc) | [.NET Framework](https://dotnetfiddle.net/P6txGi)
 
-[Try it (DataTable)](https://dotnetfiddle.net/U8ARaT)
+Try it (DataTable): [.NET Core](https://dotnetfiddle.net/nqJGGu) | [.NET Framework](https://dotnetfiddle.net/U8ARaT)
 
 ### Synchronize and include/exclude properties
 You want to synchronize your entities but only for specific properties.
 
-- `ColumnInputExpression`: This option let you choose which properties to map.
-- `IgnoreOnSynchronizeInsertExpression`: This option let you ignore when inserting properties that are auto-mapped.
-- `IgnoreOnSynchronizeUpdateExpression`: This option let you ignore when updating properties that are auto-mapped.
+- `ColumnInputExpression`: This option lets you choose which properties to map.
+- `IgnoreOnSynchronizeInsertExpression`: This option lets you ignore when inserting properties that are auto-mapped.
+- `IgnoreOnSynchronizeUpdateExpression`: This option lets you ignore when updating properties that are auto-mapped.
 
 ```csharp
 bulk.IgnoreOnSynchronizeInsertExpression = c => c.UpdatedDate;
@@ -101,7 +101,7 @@ bulk.IgnoreOnSynchronizeUpdateExpression = c => c.CreatedDate;
 bulk.AutoMapKeyExpression = customer => customer.Code;
 bulk.BulkSynchronize(customizeToSynchronize);
 ```
-[Try it (Entity)](https://dotnetfiddle.net/4u3Mxf)
+Try it (Entity): [.NET Core](https://dotnetfiddle.net/6DBVe5) | [.NET Framework](https://dotnetfiddle.net/4u3Mxf)
 
 ```csharp
 var columnMapping1 = new ColumnMapping("UpdatedDate");
@@ -119,22 +119,22 @@ bulk.ColumnMappings.Add("LastName");
 
 bulk.BulkSynchronize(dtCustomers);
 ```
-[Try it (DataTable)](https://dotnetfiddle.net/bAq5hA)  
+Try it (DataTable): [.NET Core](https://dotnetfiddle.net/TsXcKu) | [.NET Framework](https://dotnetfiddle.net/bAq5hA)  
 
 ### Synchronize with custom key
-You want to synchronize entities, but you don't have the primary key. The `ColumnPrimaryKeyExpression` let you use as a key any property or combination of properties.
+You want to synchronize entities, but you don't have the primary key. The `ColumnPrimaryKeyExpression` lets you use as a key any property or combination of properties.
 
 ```csharp
 bulk.AutoMapKeyExpression = customer => customer.Code;
 bulk.BulkSynchronize(customers);   
 ```
-[Try it (Entity)](https://dotnetfiddle.net/oEShFh)
+Try it (Entity): [.NET Core](https://dotnetfiddle.net/AL3HNq) | [.NET Framework](https://dotnetfiddle.net/oEShFh)
 
 ```csharp
 bulk.AutoMapKeyName = "Code";
 bulk.BulkSynchronize(dtCustomers);
 ```
-[Try it (DataTable)](https://dotnetfiddle.net/SGkrot)  
+Try it (DataTable): [.NET Core](https://dotnetfiddle.net/QDn8HG) | [.NET Framework](https://dotnetfiddle.net/SGkrot)  
 
 ### More scenarios
 Hundred of scenarios has been solved and are now supported.
@@ -150,7 +150,7 @@ info@zzzprojects.com
 
 | Name | Description | Example (DataTable) | Example (Entity) |
 | :--- | :---------- | :------ | :------ |
-| `BulkSynchronize<T>(items)` | Bulk synchronize entities in your database. | [Try it](https://dotnetfiddle.net/DM5xFj) | [Try it](https://dotnetfiddle.net/LwkmNL) |
+| `BulkSynchronize<T>(items)` | Bulk synchronize entities in your database. | [.NET Core](https://dotnetfiddle.net/sfq6uc) / [.NET Framework](https://dotnetfiddle.net/DM5xFj) | [.NET Core](https://dotnetfiddle.net/IsPi0j) / [.NET Framework](https://dotnetfiddle.net/LwkmNL) |
 | `BulkSynchronizeAsync<T>(items)` | Bulk synchronize entities asynchronously in your database. | |
 | `BulkSynchronizeAsync<T>(items, cancellationToken)` | Bulk synchronize entities asynchronously in your database. | |
 

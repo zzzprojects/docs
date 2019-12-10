@@ -1,7 +1,7 @@
 # Bulk Synchronize
 
 ## Description
-The **EF Bulk Synchronize** feature let you synchronize the database with the source.
+The **EF Bulk Synchronize** feature lets you synchronize the database with the source.
 
 A synchronize is a mirror operation from the data source to the database. All rows that match the entity key are `UPDATED`, non-matching rows that exist from the source are `INSERTED`, non-matching rows that exist in the database are `DELETED`.
 
@@ -17,7 +17,7 @@ ctx.BulkSynchronize(list);
 context.BulkSynchronize(customers, options => options.ColumnPrimaryKeyExpression = customer => customer.Code);
 ```
 
-Try it: [NET Framework](https://dotnetfiddle.net/4KVPJn) | [NET Core](https://dotnetfiddle.net/PMxuNO)
+Try it: [NET Core](https://dotnetfiddle.net/PMxuNO) | [NET Framework](https://dotnetfiddle.net/4KVPJn)
 
 ## Documentation
 
@@ -27,11 +27,11 @@ Try it: [NET Framework](https://dotnetfiddle.net/4KVPJn) | [NET Core](https://do
 
 | Name | Description | Example |
 | :--- | :---------- | :------ |
-| `BulkSynchronize<T>(items)` | Bulk synchronize entities in your database. | [NET Framework](https://dotnetfiddle.net/edgXau) | [NET Core](https://dotnetfiddle.net/I1uQOq) |
-| `BulkSynchronize<T>(items, options)` | Bulk synchronize entities in your database.  | [NET Framework](https://dotnetfiddle.net/ERqbU6) | [NET Core](https://dotnetfiddle.net/NMwuRW)|
-| `BulkSynchronizeAsync<T>(items)` | Bulk synchronize entities asynchronously in your database. | [NET Framework](https://dotnetfiddle.net/NgkYF0) | [NET Core](https://dotnetfiddle.net/upgLxQ) |
-| `BulkSynchronizeAsync<T>(items, cancellationToken)` | Bulk synchronize entities asynchronously in your database. | [NET Framework](https://dotnetfiddle.net/tTyCiK) | [NET Core](https://dotnetfiddle.net/MnaGIn) |
-| `BulkSynchronizeAsync<T>(items, options, cancellationToken)` | Bulk synchronize entities asynchronously in your database. | [NET Framework](https://dotnetfiddle.net/nDbfGU) | [NET Core](https://dotnetfiddle.net/Vg468C) |
+| `BulkSynchronize<T>(items)` | Bulk synchronize entities in your database. | [NET Core](https://dotnetfiddle.net/I1uQOq) / [NET Framework](https://dotnetfiddle.net/edgXau) |
+| `BulkSynchronize<T>(items, options)` | Bulk synchronize entities in your database.  | [NET Core](https://dotnetfiddle.net/NMwuRW) / [NET Framework](https://dotnetfiddle.net/ERqbU6) |
+| `BulkSynchronizeAsync<T>(items)` | Bulk synchronize entities asynchronously in your database. | [NET Core](https://dotnetfiddle.net/upgLxQ) / [NET Framework](https://dotnetfiddle.net/NgkYF0) |
+| `BulkSynchronizeAsync<T>(items, cancellationToken)` | Bulk synchronize entities asynchronously in your database. | [NET Core](https://dotnetfiddle.net/MnaGIn) / [NET Framework](https://dotnetfiddle.net/tTyCiK) |
+| `BulkSynchronizeAsync<T>(items, options, cancellationToken)` | Bulk synchronize entities asynchronously in your database. |  [NET Core](https://dotnetfiddle.net/Vg468C) / [NET Framework](https://dotnetfiddle.net/nDbfGU) | 
 
 ## Learn more
 
