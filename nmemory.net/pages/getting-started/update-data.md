@@ -1,6 +1,6 @@
 # Update Data
 
-## Introduction
+## Description
 
 **Table.Update** updates the properties of the specified entity contained in the table. It takes the following arguments by using different overloads.
 
