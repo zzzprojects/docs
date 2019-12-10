@@ -1,6 +1,7 @@
 # Bulk Merge
 
-## Definition
+## Description
+
 `MERGE` all entities from the database.
 
 A merge is an `UPSERT` operation. All rows that match the entity key are considered as existing and are `UPDATED`, other rows are considered as new rows and are `INSERTED` in the database. 
