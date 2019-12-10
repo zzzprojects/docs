@@ -2,11 +2,10 @@
 
 ## Description
 
-The `BulkOperation.UseLogDump` property sets if all log related to database events should be stored in a `LogDump` property or not.
+When the `UseLogDump` property is `true`, the [LogDump](log-dump.md) property stores all messages of type "Information".
 
 ```csharp
-/// <summary>Gets or sets a value indicating whether this object use log dump.</summary>
-/// <value>true if use log dump, false if not.</value>
+/// <summary>Gets or sets the `UseLogDump` property. When the `UseLogDump` property is `true`, the [LogDump](log-dump.md) property stores all messages of type "Information".</summary>
 public bool UseLogDump { get; set; }
 ```
 
@@ -25,17 +24,10 @@ We will use the following BulkOptions:
 ### Code
 
 ```csharp
-// Execute
-var sb = new StringBuilder();
-connection.UseBulkOptions(options => 
-{ 
-    options.UseLogDump = true;
-    options.LogDump = sb;
-})
-.BulkMerge(list); 
+[TBD]
 ```
 
-Try it: [.NET Core](https://dotnetfiddle.net/j3x8uw) | [.NET Framework](https://dotnetfiddle.net/22kwZP)
+Try it: [.NET Core](https://dotnetfiddle.net/j3x8uw) | [.NET Framework]([TBD])
 
 ### Result
 
