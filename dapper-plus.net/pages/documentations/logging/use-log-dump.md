@@ -24,7 +24,17 @@ We will use the following BulkOptions:
 ### Code
 
 ```csharp
-[TBD]
+// Execute
+var sb = new StringBuilder();
+connection.UseBulkOptions(options => 
+{ 
+    options.UseLogDump = true;
+    options.LogDump = sb;
+})
+.BulkMerge(list); 
+
+// Result
+Console.WriteLine(sb.ToString());
 ```
 
 Try it: [.NET Core](https://dotnetfiddle.net/j3x8uw) | [.NET Framework](https://dotnetfiddle.net/22kwZP)
