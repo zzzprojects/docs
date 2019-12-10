@@ -30,7 +30,17 @@ To use the `Logging` feature with the LogDump, you need to use the `UseBulkOptio
 
 
 ```csharp
-TBD
+// Execute
+var sb = new StringBuilder();
+connection.UseBulkOptions(options => 
+{ 
+    options.UseLogDump = true;
+    options.LogDump = sb;
+})
+.BulkMerge(list); 
+
+// Result
+Console.WriteLine(sb.ToString());
 ```
 
 ## Scenarios
