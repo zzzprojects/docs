@@ -1,6 +1,7 @@
 # ColumnPrimaryKeyExpression
 
-## Definition
+## Description
+
 Gets or sets columns to use as the `key` for the operation.
 
 
