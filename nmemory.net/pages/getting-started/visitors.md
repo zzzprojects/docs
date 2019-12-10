@@ -1,6 +1,6 @@
 # Visitors
 
-## Introduction
+## Description
 
 NMemory library provides a class **EntityTypeSearchVisitor** which is inherited from **ExpressionVisitor** to create a more specialized class which requires traversing, examining or copying an expression tree.
 
