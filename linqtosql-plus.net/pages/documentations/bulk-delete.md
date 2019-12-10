@@ -1,6 +1,7 @@
 # Bulk Delete
 
-## Definition
+## Description
+
 `DELETE` all entities from the database.
 
 All rows that match the entity key are `DELETED` from the database.
