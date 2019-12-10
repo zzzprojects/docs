@@ -1,6 +1,7 @@
 # RetryInterval
 
-## Definition
+## Description
+
 Gets or sets the interval to wait before retrying an operation when a transient error occurs.
 
 
