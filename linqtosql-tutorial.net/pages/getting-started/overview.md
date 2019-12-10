@@ -1,6 +1,6 @@
 # Overview
 
-## Introduction
+## Description
 
 LINQ to SQL is a component of .NET Framework that provides a run-time infrastructure for managing relational data as objects. In LINQ to SQL, you can access SQL databases just like accessing an in-memory collection by using the LINQ technology.
 
