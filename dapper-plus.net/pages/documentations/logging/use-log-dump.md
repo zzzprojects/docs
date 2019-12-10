@@ -27,7 +27,7 @@ We will use the following BulkOptions:
 [TBD]
 ```
 
-Try it: [.NET Core](https://dotnetfiddle.net/j3x8uw) | [.NET Framework]([TBD])
+Try it: [.NET Core](https://dotnetfiddle.net/j3x8uw) | [.NET Framework](https://dotnetfiddle.net/22kwZP)
 
 ### Result
 
