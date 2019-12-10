@@ -1,6 +1,7 @@
 # AuditEntries
 
-## Definition
+## Description
+
 Get `INSERTED` and `DELETED` data when `UseAudit` option is enabled.
 
 
