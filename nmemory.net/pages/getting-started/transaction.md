@@ -1,6 +1,6 @@
 # Transaction
 
-## Introduction
+## Description
 
 **Transaction** is a unit of work that is performed against a database. 
 
