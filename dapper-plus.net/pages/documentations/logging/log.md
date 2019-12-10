@@ -23,7 +23,16 @@ We will use the following BulkOptions:
 ### Code
 
 ```csharp
-[TBD]
+// Execute
+var sb = new StringBuilder();
+connection.UseBulkOptions(options => 
+{ 
+    options.Log = s => sb.AppendLine(s);
+})
+.BulkMerge(list); 
+
+// Result
+Console.WriteLine(sb.ToString());
 ```
 
 Try it: [.NET Core](https://dotnetfiddle.net/o1SQgv) | [.NET Framework](https://dotnetfiddle.net/e0EKfI)
