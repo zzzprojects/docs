@@ -1,6 +1,7 @@
 # IgnoreOnMergeUpdateExpression
 
-## Definition
+## Description
+
 Gets or sets columns to ignore when the `BulkMerge` method executes the `update` statement.
 
 
