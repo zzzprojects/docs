@@ -31,14 +31,16 @@ To use the `Logging` feature with the LogDump, you need to use the `UseBulkOptio
 ```csharp
 // Execute
 var sb = new StringBuilder();
-connection.UseBulkOptions(options => 
-{ 
-    options.UseLogDump = true;
-    options.LogDump = sb;
-})
-.BulkMerge(list); 
+using (var bulk = new BulkOperation(connection))
+{
+    bulk.DestinationTableName = "Customer";
+    bulk.UseLogDump = true;
+    
+    bulk.BulkMerge(list);
 
-// Result
+    sb = bulk.LogDump;
+}
+
 Console.WriteLine(sb.ToString());
 ```
 
