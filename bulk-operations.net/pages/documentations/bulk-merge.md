@@ -174,7 +174,7 @@ info@zzzprojects.com
 More options can be found here:
 
 - [Audit](https://bulk-operations.net/audit)
-- [.NET Core]() / [Batch](https://bulk-operations.net/batch)
+- [Batch](https://bulk-operations.net/batch)
 - [Execute Event](https://bulk-operations.net/execute-event)
 - [Log](https://bulk-operations.net/log)
 - [Temporary Table](https://bulk-operations.net/temporary-table)
