@@ -28,11 +28,9 @@ var sb = new StringBuilder();
 using (var bulk = new BulkOperation(connection))
 {
     bulk.DestinationTableName = "Customer";
-    bulk.UseLogDump = true;
-    
+   
+    bulk.Log = s => sb.AppendLine(s);     
     bulk.BulkMerge(list);
-
-    sb = bulk.LogDump;
 }
 
 Console.WriteLine(sb.ToString());
