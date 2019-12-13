@@ -27,14 +27,18 @@ We will use the following BulkOptions:
 
 ```csharp
 // Execute
+// Execute
 var sb = new StringBuilder();
-connection.UseBulkOptions(options => 
-{ 
-    options.UseLogDump = true;
-    options.LogDump = sb;
-})
-.BulkMerge(list); 
+using (var bulk = new BulkOperation(connection))
+{
+    bulk.DestinationTableName = "Customer";
+    bulk.UseLogDump = true;
+                
+    bulk.BulkMerge(list);
 
+    sb = bulk.LogDump;
+}
+            
 // Result
 Console.WriteLine(sb.ToString());
 ```
