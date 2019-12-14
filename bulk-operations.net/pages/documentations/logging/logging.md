@@ -41,6 +41,7 @@ using (var bulk = new BulkOperation(connection))
     sb = bulk.LogDump;
 }
 
+// Result
 Console.WriteLine(sb.ToString());
 ```
 
