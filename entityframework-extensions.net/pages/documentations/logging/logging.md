@@ -2,7 +2,7 @@
 
 ## Description
 
-The Bulk Operations `Logging` feature let you log all messages of type "Information".
+The Entity Framework Extensions `Logging` feature let you log all messages of type "Information".
 
 
 ## Key Features
