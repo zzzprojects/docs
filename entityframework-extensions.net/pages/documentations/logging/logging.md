@@ -53,5 +53,5 @@ Console.WriteLine(sb.ToString());
 | Name                               | Description                                                           |
 |:-----------------------------------|:----------------------------------------------------------------------|
 |[Log](log.md)  | The `Log` property is an action executed when a message of type "Information" happens. |
-|[UseLogDump](log-dump.md)  | When the `UseLogDump` property is `true`, the `LogDump` property stores all messages of type "Information". |
-|[LogDump](use-log-dump.md)  | The `LogDump` property stores all messages of type "Information". This option requires to set the `UseLogDump` property to `true`. |
+|[UseLogDump](use-log-dump.md)  | When the `UseLogDump` property is `true`, the `LogDump` property stores all messages of type "Information". |
+|[LogDump](log-dump.md)  | The `LogDump` property stores all messages of type "Information". This option requires to set the `UseLogDump` property to `true`. |
