@@ -4,7 +4,7 @@ Permalink: query-include-optimized
 
 # Query IncludeOptimized
 
-## Introduction
+## Description
 
 Entity Framework does an amazing job at generating queries, however, they are not always optimized and can end up transferring more data than the query really needs.
 

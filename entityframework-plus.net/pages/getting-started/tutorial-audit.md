@@ -1,6 +1,6 @@
 # Audit
 
-## Audit
+## Description
 
 Allow to easily track changes, exclude/include entity or property and auto save audit entries in the database.
 
@@ -35,7 +35,7 @@ foreach(var entry in entries)
 }
 
 ```
-[Try it in EF6](https://dotnetfiddle.net/89tii1) | [Try it in EF Core](https://dotnetfiddle.net/LPZvLa)
+Try it: [EF Core](https://dotnetfiddle.net/LPZvLa) | [EF6](https://dotnetfiddle.net/89tii1)
 
 AutoSave audit in your database
 
@@ -45,7 +45,7 @@ AuditManager.DefaultConfiguration.AutoSavePreAction = (context, audit) =>
     (context as EntityContext).AuditEntries.AddRange(audit.Entries);
 
 ```
-[Try it in EF6](https://dotnetfiddle.net/rRORzM) | [Try it in EF Core](https://dotnetfiddle.net/DeLrTJ)
+Try it: [EF Core](https://dotnetfiddle.net/DeLrTJ) | [EF6](https://dotnetfiddle.net/rRORzM)
 
 ***Support:** EF5, EF6, EF Core*
 

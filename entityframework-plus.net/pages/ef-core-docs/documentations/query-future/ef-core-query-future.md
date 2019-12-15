@@ -4,7 +4,7 @@ Permalink: ef-core-query-future
 
 # Query Future
 
-## Introduction
+## Description
 
 Every time an immediate method like **ToList** or **FirstOrDefault** is invoked on a query, a database round trip is made to retrieve data. While most applications don't have performance issues with making multiple round trips, batching multiple queries into one can be critical for some heavy traffic applications for scalability. Major ORM like NHibernate had this feature for a long time but, unfortunately for Entity Framework Core users, batching queries is only available through third party libraries.
 

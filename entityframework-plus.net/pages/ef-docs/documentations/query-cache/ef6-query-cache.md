@@ -4,7 +4,7 @@ Permalink: query-cache
 
 # Query Cache
 
-## Introduction
+## Description
 
 Caching entities or query results to improve an application's performance is a very frequent scenario. Major ORM like NHibernate had this feature for a long time but, unfortunately for Entity Framework users, second level caching is only available through third party libraries.
 

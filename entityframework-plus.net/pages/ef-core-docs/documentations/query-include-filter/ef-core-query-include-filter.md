@@ -4,7 +4,7 @@ Permalink: ef-core-query-include-filter
 
 # Query IncludeFilter
 
-## Introduction
+## Description
 
 With Entity Framework, "Include" method is often used to load related entities / child collections. However, the method doesn't let you use LINQ queryable methods like **Where** to filter entities to include which is a major drawback. Excluding soft deleted records or limiting the result is a frequent real-life scenario which the "Include" method doesn't support.
 

@@ -4,7 +4,7 @@ Permalink: query-deferred
 
 # Query Deferred
 
-## Introduction
+## Description
 
 There are two types of IQueryable extension methods:
 
