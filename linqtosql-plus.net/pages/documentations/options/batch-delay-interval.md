@@ -1,6 +1,7 @@
 # BatchDelayInterval
 
-## Definition
+## Description
+
 Gets or sets a delay in milliseconds to wait between batch.
 
 **DO NOT** use this options with transaction.

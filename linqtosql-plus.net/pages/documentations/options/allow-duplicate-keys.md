@@ -1,6 +1,7 @@
 # AllowDuplicateKeys
 
-## Definition
+## Description
+
 Gets or sets if a duplicate key is possible in the source.
 
 

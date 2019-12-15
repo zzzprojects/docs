@@ -1,6 +1,7 @@
 # LogDump
 
-## Definition
+## Description
+
 Gets all `logged` database event when `UseLogDump` is enabled.
 
 

@@ -1,6 +1,7 @@
 # Update from Query
 
-## Definition
+## Description
+
 `UPDATE` all rows from the database using a LINQ Query without loading entities in the context.
 
 An `UPDATE` statement is built using the LINQ expression and directly executed in the database.

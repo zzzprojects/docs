@@ -1,6 +1,7 @@
 # Bulk Update
 
-## Definition
+## Description
+
 `UPDATE` all entities in the database.
 
 All rows that match the entity key are considered as existing and are `UPDATED` in the database.

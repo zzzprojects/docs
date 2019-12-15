@@ -1,8 +1,8 @@
 # UseAudit
 
-## Definition
-Gets or sets if `INSERTED` and `DELETED` data from the database should be returned as `AuditEntries`.
+## Description
 
+Gets or sets if `INSERTED` and `DELETED` data from the database should be returned as `AuditEntries`.
 
 ```csharp
 List<AuditEntry> auditEntries = new List<AuditEntry>();

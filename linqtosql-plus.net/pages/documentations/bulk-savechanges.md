@@ -1,6 +1,6 @@
 # Bulk SaveChanges
 
-## Definition
+## Description
 
 BulkSaveChanges method is the upgraded version of `SaveChanges`.
 
