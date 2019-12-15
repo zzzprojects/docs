@@ -1,6 +1,6 @@
 # Constraints
 
-## Introduction
+## Description
 
 **Constraints** are used to specify rules for the data in a table. Constraints can be specified when the table is created with the **Constraints.Add** method.
 

@@ -1,6 +1,6 @@
 # Create Relation
 
-## Introduction
+## Description
 
 **TableCollection.CreateRelation** method creates a relationship between two tables when you want to associate rows of one table with rows of another table. It takes the following arguments.
 
