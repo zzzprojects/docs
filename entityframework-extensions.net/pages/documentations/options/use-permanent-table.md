@@ -1,6 +1,7 @@
 # UsePermanentTable
 
-## Definition
+## Description
+
 Gets or sets if the library should `create` and `drop` a permanent table instead of using a temporary table.
 
 

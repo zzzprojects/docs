@@ -1,6 +1,6 @@
 # BulkOperationExecuted
 
-## Definition
+## Description
 Gets or sets an action to execute `after` the bulk operation is executed.
 
 

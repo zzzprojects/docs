@@ -1,6 +1,10 @@
 # PreBulkInsert
 
+## Description
+
 The `PreBulkInsert` event is raised as soon as the `BulkInsert` method is called and no configuration or anything else is done before. It allows you to set some global configuration for BulkInsert. 
+
+## Example
 
 The following example sets the `CreatedDate` property of a `Customer`.
 

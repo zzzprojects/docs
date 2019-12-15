@@ -1,5 +1,7 @@
 # Ignore OnUpdateMatched AndCondition Expression
 
+## Description
+
 The `IgnoreOnUpdateMatchedAndConditionExpression` is the inverse of `UpdateMatchedAndConditionExpression`.
 
  -  The `UpdateMatchedAndConditionExpression` allows you to perform the bulk update operation if the specified property value is not equal to the database value.
@@ -34,6 +36,6 @@ using (var context = new EntityContext())
 }
 ```
 
-[Try it in EF6](https://dotnetfiddle.net/XhCAus) | [Try it in EF Core](https://dotnetfiddle.net/PXlcOi)
+Try it: [EF Core](https://dotnetfiddle.net/PXlcOi) | [EF6](https://dotnetfiddle.net/XhCAus)
 
  - It will update all records except for the last record because the `CreatedDate` property is updated.

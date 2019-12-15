@@ -1,5 +1,7 @@
 # SynchronizeKeepIdentity
 
+## Description
+
 The `BulkOperation.SynchronizeKeepIdentity` sets if the source identity value should be preserved on `Synchronize`. When not specified, identity values are assigned by the destination.
 
 In the following example, the `SynchronizeKeepIdentity` is enabled and the specified value for `IdentityInt` column will be stored in the database instead of the database generated values on `Synchronize` operation.
@@ -15,7 +17,7 @@ using (var context = new EntityContext())
     context.BulkMerge(list, options => options.SynchronizeKeepidentity = true);
 }
 ```
-[Try it in EF6](https://dotnetfiddle.net/JBYGfz) | [Try it in EF Core](https://dotnetfiddle.net/z3gbGG)
+Try it: [EF Core](https://dotnetfiddle.net/z3gbGG) | [EF6](https://dotnetfiddle.net/JBYGfz)
 
 ## Purpose
 The `SynchronizeKeepIdentity` option let you keep the source identity value when `synchronizing`.

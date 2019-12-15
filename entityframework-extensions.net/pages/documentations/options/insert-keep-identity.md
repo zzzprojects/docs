@@ -1,6 +1,6 @@
 # InsertKeepIdentity
 
-## Definition
+## Description
 
 The `BulkOperation.InsertKeepIdentity` sets if the source identity value should be preserved on `Insert`. When not specified, identity values are assigned by the destination.
 
@@ -18,7 +18,7 @@ using (var context = new EntityContext())
     context.BulkInsert(list, options => options.InsertKeepIdentity = true);
 }
 ```
-[Try it in EF6](https://dotnetfiddle.net/ZWLodr) | [Try it in EF Core](https://dotnetfiddle.net/klcb9Y)
+Try it: [EF Core](https://dotnetfiddle.net/klcb9Y) | [EF6](https://dotnetfiddle.net/ZWLodr) 
 
 ## Purpose
 The `InsertKeepIdentity` option let you keep the source identity value when `inserting`.

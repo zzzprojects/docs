@@ -1,8 +1,12 @@
 # PostConfiguration
 
+## Description
+
 The `PostConfiguration` event is raised just before a bulk method is called, such as, `BulkInsert`, `BulkUpdate`, `BulkDelete`, `BulkMerge`, `BulkSynchronize` etc. 
 
-The following sets the `Log` property in the `PostConfiguration` event.
+## Example
+
+The following example sets the `Log` property in the `PostConfiguration` event.
  
 ```csharp
 using (var context = new EntityContext())

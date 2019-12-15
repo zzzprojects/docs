@@ -1,5 +1,7 @@
 # Ignore OnMergeMatched AndCondition Expression
 
+## Description
+
 The `IgnoreOnMergeMatchedAndConditionExpression` is the inverse of `MergeMatchedAndConditionExpression`.
 
  -  The `MergeMatchedAndConditionExpression` allows you to perform only the `UPDATE` in the `BulkMerge` if the specified property value is equal to the database value.  
@@ -33,6 +35,6 @@ using (var context = new EntityContext())
 }
 ```
 
-[Try it in EF6](https://dotnetfiddle.net/ooQW8i) | [Try it in EF Core](https://dotnetfiddle.net/67SGs7)
+Try it: [EF Core](https://dotnetfiddle.net/67SGs7) | [EF6](https://dotnetfiddle.net/ooQW8i)
 
  - It will update all records except for the last one because the `CreatedDate` property is updated for the last record.

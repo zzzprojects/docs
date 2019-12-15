@@ -1,6 +1,7 @@
 # MergeKeepIdentity
 
-## Definition
+## Description
+
 The `BulkOperation.InsertKeepIdentity` sets if the source identity value should be preserved on `Merge`. When not specified, identity values are assigned by the destination.
 
 In the following example, the `MergeKeepIdentity` is enabled and the specified value for `IdentityInt` column will be stored in the database instead of the database generated values on `MERGE` operation.
@@ -16,7 +17,7 @@ using (var context = new EntityContext())
     context.BulkMerge(list, options => options.MergeKeepIdentity = true);
 }
 ```
-[Try it in EF6](https://dotnetfiddle.net/I00rLw) | [Try it in EF Core](https://dotnetfiddle.net/MZuywh)
+Try it: [EF Core](https://dotnetfiddle.net/MZuywh) | [EF6](https://dotnetfiddle.net/I00rLw) 
 
  - The `IdentityInt` column for existing records will not be updated, only for the new records, it will preserve the specified value.
 
