@@ -1,6 +1,6 @@
 # SQL Server
 
-## Introduction
+## Description
 
 In LINQ to SQL, you can access SQL Server databases just like accessing an in-memory collection by using the LINQ technology.
 

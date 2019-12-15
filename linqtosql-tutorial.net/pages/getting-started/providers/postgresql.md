@@ -1,6 +1,6 @@
 # PostgreSQL
 
-## Introduction
+## Description
 
 In LINQ to SQL, you can easily interact with regular data structures, XML and SQL Server, but if you want to talk to PostgreSQL, you will need a third-party package to handle the interaction.
 
