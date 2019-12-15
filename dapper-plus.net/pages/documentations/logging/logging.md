@@ -8,7 +8,8 @@ The Dapper Plus `Logging` feature let you log all messages of type "Information"
 ## Key Features
 
 - Allow to see SQL that are executed
-- Allow to see parameter & time...
+- Allow to see parameter name and value
+- Allow to see execution time
 
 ## Getting Started
 
@@ -19,8 +20,18 @@ There is 2 ways to use the logging features
 To use the `Logging` feature with an action, you need to define a delegate to execute.
 
 ```csharp
-TBD
+var sb = new StringBuilder();
+connection.UseBulkOptions(options => 
+{ 
+	options.Log = s => sb.AppendLine(s);
+})
+.BulkMerge(list);
+
+// Result
+Console.WriteLine(sb.ToString());
 ```
+
+Try it: TODO | [.NET Framework](https://dotnetfiddle.net/IqQZxG)
 
 ### Logging with the LogDump
 
@@ -42,6 +53,8 @@ connection.UseBulkOptions(options =>
 // Result
 Console.WriteLine(sb.ToString());
 ```
+
+Try it: [.NET Core](https://dotnetfiddle.net/o0iZOp) | [.NET Framework](https://dotnetfiddle.net/OnvjT6)
 
 ## Scenarios
 

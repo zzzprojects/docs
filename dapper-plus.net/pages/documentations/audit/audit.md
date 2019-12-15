@@ -2,7 +2,7 @@
 
 ## Description
 
-The Dapper Plus audit feature allows you to track changes of all modifications that happened in the database during the Bulk Operations. Also, it lets you create a history of who modified a table, what was an old value and a new value.
+The Dapper Plus audit feature allows you to track changes of all modifications that happened in the database during the Bulk Operations. Also, it lets you create a history of who modified a table, what was the old value and new value.
 
 ## Key Features
 
@@ -13,7 +13,7 @@ The Dapper Plus audit feature allows you to track changes of all modifications t
 
 ## Getting Started
 
-To use the audit feature, you need to enable it and provide a list of the AuditEntry that will be populated during the operations.
+To use the audit feature, you need to enable it and provide a list of `AuditEntry` that will be populated during the operations.
 
 ```csharp
 List<AuditEntry> auditEntries = new List<AuditEntry>(); 

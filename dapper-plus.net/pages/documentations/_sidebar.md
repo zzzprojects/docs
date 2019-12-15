@@ -13,8 +13,6 @@
    - [Then Bulk Update](actions/then-bulk-update.md)
    - [Then Bulk Delete](actions/then-bulk-delete.md)
    - [Then Bulk Merge](actions/then-bulk-merge.md)
-- Audit
-   - [Audit](audit/audit.md)
 - Other Actions
    - [Include Action](actions/include-actions.md)
    - [Transaction](actions/transaction.md)
@@ -30,7 +28,5 @@
    - [Entity](relationship/relationship.md)
 - Manager
    - [Mapper Factory](manager/mapper-factory.md)
-- C# Eval Expression
-   - [LINQ Dynamic](eval-expressions/linq-dynamic.md)
-   - [Eval.Compile](eval-expressions/eval-compile.md)
-   - [Eval.Execute](eval-expressions/eval-execute.md)
+- [Auditing](audit/audit.md)
+- [Logging](logging/logging.md)

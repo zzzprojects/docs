@@ -27,8 +27,7 @@ We will use the following BulkOptions:
 var sb = new StringBuilder();
 connection.UseBulkOptions(options => 
 { 
-	options.UseLogDump = true;
-	options.LogDump = sb;
+	options.Log = s => sb.AppendLine(s);
 })
 .BulkMerge(list); 
 
