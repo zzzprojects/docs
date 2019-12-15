@@ -41,4 +41,6 @@ Try it: [.NET Core](https://dotnetfiddle.net/j3x8uw) | [.NET Framework](https://
 
 ### Result
 
+
 We outputted the `StringBuilder` text which contains all SQL statements executed in the database.
+
