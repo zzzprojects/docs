@@ -9,7 +9,7 @@ For example, you want to load your customers and their invoices, but only relate
 ```csharp
 var customers = context.Customers.IncludeFilter(x => x.Invoices.Where(y => !y.IsSoftDeleted)).ToList();
 ```
-Try it: [NET Framework](https://dotnetfiddle.net/pesV1x) | [NET Core](https://dotnetfiddle.net/WcfASx)
+Try it: [NET Core](https://dotnetfiddle.net/WcfASx) | [NET Framework](https://dotnetfiddle.net/pesV1x)
 
 This feature allows you to handle various scenarios such as:
 - [Exclude soft deleted entities](#exclude-soft-deleted-entities)
@@ -33,7 +33,7 @@ var context = new EntityContext()
 // LOAD customers and related active invoices.
 var customers = context.Customers.IncludeFilter(x => x.Invoices.Where(y => !y.IsSoftDeleted)).ToList();
 ```
-Try it: [NET Framework](https://dotnetfiddle.net/H85eO9) | [NET Core](https://dotnetfiddle.net/RAjpIj)
+Try it: [NET Core](https://dotnetfiddle.net/RAjpIj) | [NET Framework](https://dotnetfiddle.net/H85eO9)
 
 ### Include multiple levels
 To filter multiple levels, you need to use the `IncludeFilter` on every level, not only the last one, unlike the `Include` method.
@@ -51,7 +51,7 @@ var customers = context.Customers.IncludeFilter(x => x.Invoices.Where(y => !y.Is
 							   		.Where(z => !z.IsSoftDeleted)))
                      .ToList();
 ```
-Try it: [NET Framework](https://dotnetfiddle.net/v6AgLP) | [NET Core](https://dotnetfiddle.net/Ltp75I)
+Try it: [NET Core](https://dotnetfiddle.net/Ltp75I) | [NET Framework](https://dotnetfiddle.net/v6AgLP)
 
 > The limitations to include every level will be removed when the feature will be integrated into **Entity Framework Classic**.
 
@@ -71,7 +71,7 @@ var customers = context.Customers.IncludeFilter(x => x.Invoices.Where(y => !y.Is
 							   		.Where(z => !z.IsSoftDeleted)))
                      .ToList();
 ```
-Try it: [NET Framework](https://dotnetfiddle.net/C4qVc1) | [NET Core](https://dotnetfiddle.net/4lf3Mi)
+Try it: [NET Core](https://dotnetfiddle.net/4lf3Mi) | [NET Framework](https://dotnetfiddle.net/C4qVc1)
 
 > The limitation to chain only with `IncludeFilter` method will be removed when the feature will be integrated into **Entity Framework Classic**.
 
@@ -91,7 +91,7 @@ var customers = context.Customers.IncludeFilter(x => x.Invoices.Where(y => !y.Is
 							   		.Where(z => !z.IsSoftDeleted)))
                      .ToList();
 ```
-Try it: [NET Framework](https://dotnetfiddle.net/AmqKb0) | [NET Core](https://dotnetfiddle.net/a5b9FM)
+Try it: [NET Core](https://dotnetfiddle.net/a5b9FM) | [NET Framework](https://dotnetfiddle.net/AmqKb0)
 
 ### Include with security access
 You need to load a post and include related comments, but only related comments the current role have access.
@@ -116,7 +116,7 @@ var context = new EntityContext()
 
 context.Invoices.IncludeFilter(x => x.InvoiceItems.Take(10));
 ```
-Try it: [NET Framework](https://dotnetfiddle.net/wFBdRt) | [NET Core](https://dotnetfiddle.net/iYKloB)
+Try it: [NET Core](https://dotnetfiddle.net/iYKloB) | [NET Framework](https://dotnetfiddle.net/wFBdRt)
 
 ## Documentation
 
@@ -125,8 +125,8 @@ Try it: [NET Framework](https://dotnetfiddle.net/wFBdRt) | [NET Core](https://do
 ###### Methods
 | Name | Description | Example |
 | :--- | :---------- | :------ |
-| `IncludeFilter<TEntityType, TRelatedEntity>(this IQueryable<TEntityType> query, Expression<Func<TEntityType, IEnumerable<TRelatedEntity>>> filter)` | An `IQueryable<TEntityType>` extension method that includes and filter a collection of related entities. | [NET Framework](https://dotnetfiddle.net/72nPzP) / [NET Core](https://dotnetfiddle.net/deYDiM) |
-| `IncludeFilter<TEntityType, TRelatedEntity>(this IQueryable<TEntityType> query, Expression<Func<TEntityType, TRelatedEntity>> filter)` | An `IQueryable<TEntityType>` extension method that includes and filter a single related entities. | [NET Framework](https://dotnetfiddle.net/BpUD4q) / [NET Core](https://dotnetfiddle.net/rv3yeQ) |
+| `IncludeFilter<TEntityType, TRelatedEntity>(this IQueryable<TEntityType> query, Expression<Func<TEntityType, IEnumerable<TRelatedEntity>>> filter)` | An `IQueryable<TEntityType>` extension method that includes and filter a collection of related entities. | [NET Core](https://dotnetfiddle.net/deYDiM) / [NET Framework](https://dotnetfiddle.net/72nPzP) |
+| `IncludeFilter<TEntityType, TRelatedEntity>(this IQueryable<TEntityType> query, Expression<Func<TEntityType, TRelatedEntity>> filter)` | An `IQueryable<TEntityType>` extension method that includes and filter a single related entities. | [NET Core](https://dotnetfiddle.net/rv3yeQ) / [NET Framework](https://dotnetfiddle.net/BpUD4q) |
 
 ## Limitations
 
@@ -155,6 +155,6 @@ context.InvoiceItems.ToList();
 context.Invoices.IncludeFilter(x => x.InvoiceItems.Take(1)).ToList();
 ```
 
-Try it: [NET Framework](https://dotnetfiddle.net/t2FLxe) | [NET Core](https://dotnetfiddle.net/LwC9GH)
+Try it: [NET Core](https://dotnetfiddle.net/LwC9GH) | [NET Framework](https://dotnetfiddle.net/t2FLxe)
 
 In this case, we recommend to create and load entities from a new `DbContext`.

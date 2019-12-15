@@ -20,7 +20,7 @@ var countries1 = context.Countries.Cache().ToList();
 var countries2 = context.Countries.Cache().ToList();
 ```
 
-Try it: [NET Framework](https://dotnetfiddle.net/lXIiex) | [NET Core](https://dotnetfiddle.net/7BX0pc)
+Try it: [NET Core](https://dotnetfiddle.net/7BX0pc) | [NET Framework](https://dotnetfiddle.net/lXIiex)
 
 ## Query Cache Async
 
@@ -36,7 +36,7 @@ var countries1 = await context.Countries.CacheAsync().ConfigureAwait(false);
 var countries2 = await context.Countries.CacheAsync().ConfigureAwait(false);
 ```
 
-Try it: [NET Framework](https://dotnetfiddle.net/r7JqVE) | [NET Core](https://dotnetfiddle.net/ZDHgex)
+Try it: [NET Core](https://dotnetfiddle.net/ZDHgex) | [NET Framework](https://dotnetfiddle.net/r7JqVE)
 
 ## Query Cache Query Deferred
 
@@ -58,7 +58,7 @@ var count = context.Countries.DeferredCount().Cache();
 
 Console.WriteLine("Countries Count: " + count);
 ```
-Try it: [NET Framework](https://dotnetfiddle.net/ouZ2wI) | [NET Core](https://dotnetfiddle.net/3n1pRZ)
+Try it: [NET Core](https://dotnetfiddle.net/3n1pRZ) | [NET Framework](https://dotnetfiddle.net/ouZ2wI)
 
 Query Deferred supports all Queryable extension methods and overloads.
 
@@ -79,7 +79,7 @@ Console.WriteLine("Countries Count: " + count);
 // Expire all cache entries using the "countries" tag
 QueryCacheManager.ExpireTag("countries");
 ```
-Try it: [NET Framework](https://dotnetfiddle.net/bCEdyg) | [NET Core](https://dotnetfiddle.net/H44EaR)
+Try it: [NET Core](https://dotnetfiddle.net/H44EaR) | [NET Framework](https://dotnetfiddle.net/bCEdyg)
 
 ## Query Cache Expiration
 
@@ -89,10 +89,10 @@ All common caching features like absolute expiration, sliding expiration, remove
 // Make the query expire after 2 hours of inactivity
 var options = new CacheItemPolicy() { SlidingExpiration = TimeSpan.FromHours(2)};
 
-var countries = context.Countries.Cache(options).ToList();			
+var countries = context.Countries.Cache(options).ToList();            
 FiddleHelper.WriteTable(countries);
 ```
-Try it: [NET Framework](https://dotnetfiddle.net/i2VOeg) | [NET Core](https://dotnetfiddle.net/D4d0pv)
+Try it: [NET Core](https://dotnetfiddle.net/D4d0pv) | [NET Framework](https://dotnetfiddle.net/i2VOeg)
 
 ## Query Cache Control
 
@@ -105,13 +105,13 @@ You can use your own cache:
 QueryCacheManager.Cache = MemoryCache.Default;
 ```
 
-You can set default policy
+You can set the default policy
 
 ```csharp
 // The query is cached for 2 hours of inactivity
 QueryCacheManager.CacheItemPolicyFactory = () => new CacheItemPolicy() { SlidingExpiration = TimeSpan.FromHours(2) };
 ```
-Try it: [NET Framework](https://dotnetfiddle.net/rKmdXl) | [NET Core](https://dotnetfiddle.net/x3hVfR)
+Try it: [NET Core](https://dotnetfiddle.net/x3hVfR) | [NET Framework](https://dotnetfiddle.net/rKmdXl)
 
 ## Redis Cache (Beta)
 This feature is currently in beta, you can try it but be aware that some code such as parameter order might change when it is officially released.

@@ -5,7 +5,7 @@
 
 A `DELETE` statement is built using the LINQ expression and directly executed in the database.
 
-This feature is provided by [Z.EntityFramework.Extensions](http://entityframework-extensions.net/) that's used by more than 2000 customers all over the world.
+This feature is provided by [Z.EntityFramework.Extensions](http://entityframework-extensions.net/) that are used by more than 2000 customers all over the world.
 
 ```csharp
 // DELETE all customers that are inactive
@@ -15,10 +15,10 @@ context.Customers.Where(x => !x.IsActive).DeleteFromQuery();
 context.Customers.Where(x => x.ID == userId).DeleteFromQuery();
 ```
 
-Try it: [NET Framework](https://dotnetfiddle.net/msiYwA) | [NET Core](https://dotnetfiddle.net/9ZlWiG)
+Try it: [NET Core](https://dotnetfiddle.net/9ZlWiG) | [NET Framework](https://dotnetfiddle.net/msiYwA)
 
 ## Purpose
-`Deleting` entities using `SaveChanges` normally requires to load them first in the `ChangeTracker`. These additional round-trips are often not necessary.
+`Deleting` entities using `SaveChanges` normally require to load them first in the `ChangeTracker`. These additional round-trips are often not necessary.
 
 `DeleteFromQuery` gives you access to directly execute a `DELETE` statement in the database and provide a **HUGE** performance improvement.
 
