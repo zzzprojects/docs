@@ -1,6 +1,6 @@
 # Active/Inactive
 
-## Active/Inactive
+## Description
 
 Practically every database based application has to deal with "active/inactive" records. 
 

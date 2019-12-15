@@ -1,6 +1,6 @@
 # PreventAllDisabledFilterConditions
 
-## Definition
+## Description
 
 Prevent the inclusion of conditions in the sql query used to enable/disable filters. This will completely prevent the ability to enable & disable filters globally throughout the application.
 

@@ -1,6 +1,6 @@
 # Filter
 
-## Definition
+## Description
 
 Filter add a filter to a single entity. You can filter the query with a predicate to exclude certain data. Filter values can be provided in the following different ways:
 

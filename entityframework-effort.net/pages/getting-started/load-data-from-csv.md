@@ -1,6 +1,6 @@
 # Load Data from Csv Files
 
-## Introduction
+## Description
 
 Effort makes it possible to fill your fake database with data gathered from CSV files. Here is a sample CSV file that can be consumed by the Effort provider to fill the Products table.
 

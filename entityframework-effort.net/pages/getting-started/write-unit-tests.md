@@ -1,6 +1,6 @@
 # Write Unit Tests
 
-## Introduction
+## Description
 
 This tutorial shows a fundamental approach to unit testing, and we are going to test a very simple data component.
 
