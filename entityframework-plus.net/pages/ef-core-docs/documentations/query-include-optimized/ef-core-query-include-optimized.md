@@ -1,5 +1,5 @@
 ---
-Permalink: query-include-optimized
+Permalink: ef-core-query-include-optimized
 ---
 
 # Query IncludeOptimized
@@ -64,11 +64,11 @@ var ctx = new EntitiesContext();
 var orders = ctx.Orders.IncludeOptimized(x => x.Items);
 
 ```
-[Try it](https://dotnetfiddle.net/d8P4FS) 
+[Try it](https://dotnetfiddle.net/2VWuTK) 
 
 ## Options
 
- - [IncludeOptimized Filter](options/ef6-query-include-optimized-filter.md)
+ - [IncludeOptimized Filter](options/ef-core-query-include-optimized-filter.md)
 
 ## Real Life Scenarios
 
@@ -90,13 +90,10 @@ When an immediate method is invoked to resolve the query, multiple queries are c
 ## Limitations
 
  - **DO NOT** work with **AsNoTracking**
+ - Entity Framework Core 2x is not supported due to client-side resolution
  - Cannot be mixed with projection
  - Cannot be mixed with Include (Include doesn't support projection)
  - Cannot be mixed with IncludeFilter
- - Many to Many relation:
-   - Not supported yet
- - Relationship:
-   - Entities will contain all previously loaded related entities even if the Query does not return them. It's a limitation due to how Entity Framework relation work.
 
 {% include template-example.html %} 
 ```csharp
