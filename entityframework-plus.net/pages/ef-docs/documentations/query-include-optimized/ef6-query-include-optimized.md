@@ -46,8 +46,8 @@ var orders = ctx.Orders
 
 // return 1 row * 20 columns = 20 cells
 // return 20 rows * 10 columns = 200 cells
-// return 10 rows * 10 columns = 10 cells
-// total: 20 + 200 + 10 = 230 cells transferred
+// return 10 rows * 10 columns = 100 cells
+// total: 20 + 200 + 100 = 320 cells transferred
 
 ```
 
