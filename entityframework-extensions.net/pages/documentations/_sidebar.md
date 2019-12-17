@@ -55,6 +55,7 @@
    - [SQL Server](options-summary/sql-server.md)
 - Batch Operations
    - [Delete from Query](delete-from-query.md)
+   - [Insert from Query](insert-from-query.md)
    - [Update from Query](update-from-query.md)
 - Events
    - [Bulk Operation Executed](events/bulk-operation-executed.md)
