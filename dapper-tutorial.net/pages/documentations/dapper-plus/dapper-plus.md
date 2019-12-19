@@ -70,4 +70,4 @@ using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlSer
     connection.BulkDelete(suppliers.SelectMany(x => x.Products)).BulkDelete(suppliers);
 }
 ```
-Try it: [.NET Core](https://dotnetfiddle.net/FTB4ih) | [.NET Framework](https://dotnetfiddle.net/dbMVfr)
+Try it: [.NET Core](https://dotnetfiddle.net/CPzM2X) | [.NET Framework](https://dotnetfiddle.net/dbMVfr)
