@@ -10,8 +10,8 @@ This feature is available for free in the EF Classic Community.
 All LINQ predicate methods are supported.
 
 ```csharp
-var list = context.Customers.Where(x => "x.IsActive").ToList();
-var list2 = context.Customers.Where(x => "x.IsActive == IsActive", new { IsActive = false }).ToList();
+var list = context.Customers.WhereDynamic(x => "x.IsActive").ToList();
+var list2 = context.Customers.WhereDynamic(x => "x.IsActive == IsActive", new { IsActive = false }).ToList();
 ```
 Try it: [NET Core](https://dotnetfiddle.net/Exa0zS) | [NET Framework](https://dotnetfiddle.net/GTttpq)
 
