@@ -1,7 +1,7 @@
 ---
-PermaID: 1000237
-Name: LINQ Dynamic
-Tags: query
+permaid: 1000237
+name: LINQ Dynamic
+tags: query
 ---
 
 # LINQ Dynamic

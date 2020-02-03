@@ -1,6 +1,7 @@
 ---
-PermaID: 1000222
-Name: NuGet Download
+permaid: 1000222
+name: NuGet Download
+tags: getting-started nuget download
 ---
 
 # Nuget Download

@@ -1,7 +1,7 @@
 ---
-PermaID: 1000227
-Name: Oracle
-Tags: provider
+permaid: 1000227
+name: Oracle
+tags: provider connection
 ---
 
 # Oracle

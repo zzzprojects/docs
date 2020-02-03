@@ -1,6 +1,7 @@
 ---
-PermaID: 1000234
-Name: Global Filter
+permaid: 1000234
+name: Global Filter
+tags: query filter
 ---
 
 # Global Filter

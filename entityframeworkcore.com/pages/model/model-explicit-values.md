@@ -1,6 +1,7 @@
 ---
-PermaID: 1000218
-Name: Explicit Values
+permaid: 1000218
+name: Explicit Values
+tags: code-first fluent-mapping model
 ---
 
 # Explicit Values

@@ -1,6 +1,7 @@
 ---
-PermaID: 1000242
-Name: Stored Procedure
+permaid: 1000242
+name: Stored Procedure
+tags: query stored-procedure sql
 ---
 
 # Stored Procedure

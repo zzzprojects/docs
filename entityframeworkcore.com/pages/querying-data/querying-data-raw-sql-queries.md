@@ -1,6 +1,7 @@
 ---
-PermaID: 1000241
-Name: Raw SQL Queries
+permaid: 1000241
+name: Raw SQL Queries
+tags: query sql
 ---
 
 # Raw SQL Queries

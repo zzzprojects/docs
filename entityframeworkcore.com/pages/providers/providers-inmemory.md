@@ -1,6 +1,7 @@
 ---
-PermaID: 1000224
-Name: InMemory
+permaid: 1000224
+name: InMemory
+tags: provider connection
 ---
 
 # InMemory

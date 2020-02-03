@@ -1,6 +1,7 @@
 ---
-PermaID: 1000244
-Name: Cascade Delete
+permaid: 1000244
+name: Cascade Delete
+tags: save delete
 ---
 
 # Cascade Delete

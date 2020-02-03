@@ -1,7 +1,7 @@
 ---
-PermaID: 1000217
-Name: Data Annotations
-Tags: data-annotation code-first
+permaid: 1000217
+name: Data Annotations
+tags: code-first data-annotation fluent-mapping
 ---
 
 # Data Annotations

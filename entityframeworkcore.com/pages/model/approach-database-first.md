@@ -1,7 +1,7 @@
 ---
-PermaID: 1000215
-Name: Database First
-Tags: database-first model
+permaid: 1000215
+name: Database First
+tags: database-first model approach
 ---
 
 # Database First

@@ -1,6 +1,7 @@
 ---
-PermaID: 1000248
-Name: Entity Graph
+permaid: 1000248
+name: Entity Graph
+tags: saveg graph
 ---
 
 # Entity Graph

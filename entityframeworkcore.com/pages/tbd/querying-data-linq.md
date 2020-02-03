@@ -1,7 +1,7 @@
 ---
-PermaID: 1000238
-Name: LINQ
-Tags: query
+permaid: 1000238
+name: LINQ
+tags: query
 ---
 
 # LINQ

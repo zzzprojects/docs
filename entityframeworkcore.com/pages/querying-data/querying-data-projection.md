@@ -1,7 +1,7 @@
 ---
-PermaID: 1000240
-Name: Projection
-Tags: query
+permaid: 1000240
+name: Projection
+tags: query projection
 ---
 
 # Projection

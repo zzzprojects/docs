@@ -1,6 +1,7 @@
 ---
-PermaID: 1000233
-Name: Evaluation (Client & Server)
+permaid: 1000233
+name: Evaluation (Client & Server)
+tags: query client-side
 ---
 
 # Evaluation (Client & Server)

@@ -1,6 +1,7 @@
 ---
-PermaID: 1000243
-Name: Bulk Insert
+permaid: 1000243
+name: Bulk Insert
+tags: save insert bulk-insert
 ---
 
 # Bulk Insert

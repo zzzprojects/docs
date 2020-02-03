@@ -1,6 +1,7 @@
 ---
-PermaID: 1000239
-Name: Loading (Eager & Lazy)
+permaid: 1000239
+name: Loading (Eager & Lazy)
+tags: query loading
 ---
 
 # Loading (Eager & Lazy)

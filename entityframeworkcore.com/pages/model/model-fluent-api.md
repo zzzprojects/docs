@@ -1,6 +1,7 @@
 ---
-PermaID: 1000219
-Name: Fluent API
+permaid: 1000219
+name: Fluent API
+tags: code-first fluent-mapping model
 ---
 
 # Fluent API

@@ -1,6 +1,7 @@
 ---
-PermaID: 1000247
-Name: Entity Disconnected
+permaid: 1000247
+name: Entity Disconnected
+tags: save change-tracker disconnected
 ---
 
 # Entity Disconnected

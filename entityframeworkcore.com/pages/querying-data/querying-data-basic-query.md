@@ -1,7 +1,7 @@
 ---
-PermaID: 1000232
-Name: Basic Query
-Tags: query
+permaid: 1000232
+name: Basic Query
+tags: query getting-started
 ---
 
 # Basic Query

@@ -1,6 +1,7 @@
 ---
-PermaID: 1000254
-Name: Tutorial & Learn
+permaid: 1000254
+name: Tutorial & Learn
+tags: getting-started tutorial
 ---
 
 # Tutorial & Learn

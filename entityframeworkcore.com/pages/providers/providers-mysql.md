@@ -1,7 +1,7 @@
 ---
-PermaID: 1000226
-Name: MySQL
-Tags: provider
+permaid: 1000226
+name: MySQL
+tags: provider connection
 ---
 
 # MySQL

@@ -1,7 +1,7 @@
 ---
-PermaID: 1000214
-Name: Code First
-Tags: code-first model
+permaid: 1000214
+name: Code First
+tags: code-first model approach migration command-line
 ---
 
 # Code First

@@ -1,6 +1,7 @@
 ---
-PermaID: 1000221
-Name: Relationships
+permaid: 1000221
+name: Relationships
+tags: code-first relationship fluent-mapping
 ---
 
 # Relationships

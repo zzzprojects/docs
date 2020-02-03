@@ -1,7 +1,7 @@
 ---
-PermaID: 1000228
-Name: PostgreSQL
-Tags: provider
+permaid: 1000228
+name: PostgreSQL
+tags: provider connection
 ---
 
 # PostgreSQL
