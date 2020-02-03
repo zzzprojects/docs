@@ -1,6 +1,7 @@
 ---
 PermaID: 1000215
 Name: Database First
+Tags: database-first model
 ---
 
 # Database First

@@ -1,6 +1,7 @@
 ---
 PermaID: 1000216
 Name: Migrations
+Tags: migration database-first
 ---
 
 # Migrations

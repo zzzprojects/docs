@@ -1,6 +1,7 @@
 ---
 PermaID: 1000229
 Name: SQL Server
+Tags: provider
 ---
 
 # SQL Server

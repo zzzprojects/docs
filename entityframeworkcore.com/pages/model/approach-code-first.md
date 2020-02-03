@@ -1,6 +1,7 @@
 ---
 PermaID: 1000214
 Name: Code First
+Tags: code-first model
 ---
 
 # Code First

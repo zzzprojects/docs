@@ -1,6 +1,7 @@
 ---
 PermaID: 1000228
 Name: PostgreSQL
+Tags: provider
 ---
 
 # PostgreSQL

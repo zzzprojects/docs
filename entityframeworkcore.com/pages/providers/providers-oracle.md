@@ -1,6 +1,7 @@
 ---
 PermaID: 1000227
 Name: Oracle
+Tags: provider
 ---
 
 # Oracle

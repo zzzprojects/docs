@@ -1,6 +1,7 @@
 ---
 PermaID: 1000217
 Name: Data Annotations
+Tags: data-annotation code-first
 ---
 
 # Data Annotations

@@ -1,6 +1,7 @@
 ---
 PermaID: 1000231
 Name: AsNoTracking
+Tags: change-tracker
 ---
 
 # AsNoTracking

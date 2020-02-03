@@ -1,6 +1,7 @@
 ---
 PermaID: 1000226
 Name: MySQL
+Tags: provider
 ---
 
 # MySQL

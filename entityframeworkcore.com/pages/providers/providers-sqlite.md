@@ -1,6 +1,7 @@
 ---
 PermaID: 1000230
 Name: SQLite
+Tags: provider
 ---
 
 # SQLite
