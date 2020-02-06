@@ -1,6 +1,7 @@
 ---
 PermaID: 1000001
 Name: EF Classic
+Tags: third-party-library
 ---
 
 # EF Classic

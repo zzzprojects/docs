@@ -1,6 +1,7 @@
 ---
 PermaID: 1000038
 Name: Stored Procedure
+Tags: saving
 ---
 
 # Stored Procedure

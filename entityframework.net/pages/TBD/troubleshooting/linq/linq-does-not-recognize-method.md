@@ -1,6 +1,7 @@
 ---
 PermaID: 1000159
 Name: LINQ does not recognize method
+Tags: query
 ---
 
 # LINQ Does Not Recognize Method

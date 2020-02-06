@@ -1,6 +1,7 @@
 ---
 PermaID: 1000135
 Name: Telerik  Blog
+Tags: blogs
 ---
 
 # Telerik's Blog

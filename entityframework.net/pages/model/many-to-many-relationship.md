@@ -1,6 +1,7 @@
 ---
 PermaID: 1000056
 Name: Many to Many
+Tags: model
 ---
 
 # Many-to-Many Relationships

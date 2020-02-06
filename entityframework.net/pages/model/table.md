@@ -1,6 +1,7 @@
 ---
 PermaID: 1000115
 Name: Table
+Tags: model
 ---
 
 # Table

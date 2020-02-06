@@ -1,6 +1,7 @@
 ---
 PermaID: 1000128
 Name: Column
+Tags: model
 ---
 
 # Column

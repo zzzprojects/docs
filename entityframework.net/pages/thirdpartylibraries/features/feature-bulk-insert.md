@@ -1,6 +1,7 @@
 ---
 PermaID: 1000024
 Name: Bulk Insert
+Tags: third-party-feature
 ---
 
 # Bulk Insert

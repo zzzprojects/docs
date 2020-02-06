@@ -1,6 +1,7 @@
 ---
 PermaID: 1000105
 Name: Database First
+Tags: model
 ---
 
 # EF Database First

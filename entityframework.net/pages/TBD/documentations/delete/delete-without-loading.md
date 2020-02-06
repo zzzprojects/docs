@@ -1,6 +1,7 @@
 ---
 PermaID: 1000109
 Name: Delete without Loading
+Tags: save
 ---
 
 # Delete Without Loading

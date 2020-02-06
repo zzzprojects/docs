@@ -1,6 +1,7 @@
 ---
 PermaID: 1000026
 Name: Batch Update
+Tags: third-party-feature
 ---
 
 # Batch Update

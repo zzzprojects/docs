@@ -1,6 +1,7 @@
 ---
 PermaID: 1000108
 Name: FAQ
+Tags: faq
 ---
 
 # Entity Framework - FAQ

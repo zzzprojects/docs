@@ -1,6 +1,7 @@
 ---
 PermaID: 1000094
 Name: What's Entity Framework
+Tags: getting-started
 ---
 
 # What is Entity Framework?

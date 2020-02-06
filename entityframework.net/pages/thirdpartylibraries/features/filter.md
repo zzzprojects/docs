@@ -1,6 +1,7 @@
 ---
 PermaID: 1000017
 Name: Filter
+Tags: third-party-feature
 ---
 
 # Filter

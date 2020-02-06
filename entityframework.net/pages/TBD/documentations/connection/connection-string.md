@@ -1,6 +1,7 @@
 ---
 PermaID: 1000129
 Name: Connection String
+Tags: connection-string
 ---
 
 # Connection String

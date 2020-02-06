@@ -1,6 +1,7 @@
 ---
 PermaID: 1000068
 Name: Save Changes Performance
+Tags: saving
 ---
 
 # Improve EF SaveChanges Performance

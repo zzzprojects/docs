@@ -1,6 +1,7 @@
 ---
 PermaID: 1000000
 Name: EF Extensions
+Tags: third-party-library
 ---
 
 # Entity Framework Extensions

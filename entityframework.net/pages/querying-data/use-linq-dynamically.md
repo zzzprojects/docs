@@ -1,6 +1,7 @@
 ---
 PermaID: 1000077
 Name: LINQ Dynamic
+Tags: query
 ---
 
 # Use LINQ Dynamically

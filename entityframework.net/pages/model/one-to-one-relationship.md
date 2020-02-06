@@ -1,6 +1,7 @@
 ---
 PermaID: 1000054
 Name: One to One
+Tags: model
 ---
 
 # One-to-One Relationships

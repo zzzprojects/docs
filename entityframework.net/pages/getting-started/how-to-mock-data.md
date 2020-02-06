@@ -1,6 +1,7 @@
 ---
 PermaID: 1000074
 Name: How to Mock Data
+Tags: getting-started
 ---
 
 # How to Mock Data

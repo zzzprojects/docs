@@ -1,6 +1,7 @@
 ---
 PermaID: 1000150
 Name: Videos
+Tags: videos
 ---
 
 # Videos

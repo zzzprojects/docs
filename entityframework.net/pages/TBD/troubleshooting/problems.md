@@ -1,6 +1,7 @@
 ---
 PermaID: 1000154
 Name: Problems
+Tags: faq
 ---
 
 # Entity Framework - Problems

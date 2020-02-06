@@ -1,6 +1,7 @@
 ---
 PermaID: 1000149
 Name: YouTube Videos
+Tags: videos
 ---
 
 # YouTube Videos

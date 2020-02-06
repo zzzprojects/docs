@@ -1,6 +1,7 @@
 ---
 PermaID: 1000147
 Name: Blogs
+Tags: blogs
 ---
 
 # Blogs

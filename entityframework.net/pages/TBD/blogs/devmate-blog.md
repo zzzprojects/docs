@@ -1,6 +1,7 @@
 ---
 PermaID: 1000145
 Name: Devmate Blog
+Tags: blogs
 ---
 
 # Blogs

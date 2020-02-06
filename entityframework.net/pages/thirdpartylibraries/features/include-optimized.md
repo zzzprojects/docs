@@ -1,6 +1,7 @@
 ---
 PermaID: 1000014
 Name: Include Optimized
+Tags: third-party-feature
 ---
 
 # Include Optimized

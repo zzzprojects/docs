@@ -1,6 +1,7 @@
 ---
 PermaID: 1000018
 Name: Dynamic Query
+Tags: third-party-feature
 ---
 
 # Dynamic Query

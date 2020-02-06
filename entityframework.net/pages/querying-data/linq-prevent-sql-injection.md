@@ -1,6 +1,7 @@
 ---
 PermaID: 1000080
 Name: LINQ & SQL Injection
+Tags: query
 ---
 
 # LINQ Prevent SQL Injection

@@ -1,6 +1,7 @@
 ---
 PermaID: 1000114
 Name: Timestamp
+Tags: model
 ---
 
 # Timestamp

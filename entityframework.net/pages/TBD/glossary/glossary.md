@@ -1,6 +1,7 @@
 ---
 PermaID: 1000029
 Name: Glossary
+Tags: glossary
 ---
 
 # Glossary

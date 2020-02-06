@@ -1,6 +1,7 @@
 ---
 PermaID: 1000091
 Name: Include with Where Clause
+Tags: query
 ---
 
 # Include With Where Clause

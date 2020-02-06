@@ -1,6 +1,7 @@
 ---
 PermaID: 1000107
 Name: Code First vs Database First
+Tags: model
 ---
 
 # Code First vs Database First

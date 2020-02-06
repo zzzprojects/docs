@@ -1,6 +1,7 @@
 ---
 PermaID: 1000095
 Name: Database Provider Supported
+Tags: provider
 ---
 
 # Supported Database Providers

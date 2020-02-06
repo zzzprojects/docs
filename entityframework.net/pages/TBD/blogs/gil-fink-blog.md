@@ -1,6 +1,7 @@
 ---
 PermaID: 1000140
 Name: Gil Fink Blog
+Tags: blogs
 ---
 
 # Gil Fink's Blog

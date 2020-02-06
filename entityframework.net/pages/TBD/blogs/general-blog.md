@@ -1,6 +1,7 @@
 ---
 PermaID: 1000141
 Name: General Blog
+Tags: blogs
 ---
 
 # General's Blog

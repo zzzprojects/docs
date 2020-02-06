@@ -1,6 +1,7 @@
 ---
 PermaID: 1000144
 Name: Dixin Blog
+Tags: blogs
 ---
 
 # Dixin's Blog

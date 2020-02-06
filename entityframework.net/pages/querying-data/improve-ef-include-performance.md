@@ -1,6 +1,7 @@
 ---
 PermaID: 1000070
 Name: Include Performance
+Tags: query
 ---
 
 # Improve EF Include Performance

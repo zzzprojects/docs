@@ -1,6 +1,7 @@
 ---
 PermaID: 1000122
 Name: Inverse Property
+Tags: model
 ---
 
 # InverseProperty

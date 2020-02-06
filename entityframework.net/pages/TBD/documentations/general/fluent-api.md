@@ -1,6 +1,7 @@
 ---
 PermaID: 1000100
 Name: Fluent API
+Tags: model
 ---
 
 # Fluent API

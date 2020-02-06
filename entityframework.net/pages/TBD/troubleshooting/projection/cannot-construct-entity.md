@@ -1,6 +1,7 @@
 ---
 PermaID: 1000153
 Name: Cannot construct entity
+Tags: projection
 ---
 
 # Cannot Construct Entity

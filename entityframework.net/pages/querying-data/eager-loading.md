@@ -1,6 +1,7 @@
 ---
 PermaID: 1000063
 Name: Eager Loading
+Tags: query
 ---
 
 # Eager Loading

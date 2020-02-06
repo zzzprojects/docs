@@ -1,6 +1,7 @@
 ---
 PermaID: 1000009
 Name: EF Extended
+Tags: third-party-library
 ---
 
 # Extended

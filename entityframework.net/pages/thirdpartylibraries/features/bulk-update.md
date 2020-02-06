@@ -1,6 +1,7 @@
 ---
 PermaID: 1000021
 Name: Bulk Update
+Tags: third-party-feature
 ---
 
 # Bulk Update

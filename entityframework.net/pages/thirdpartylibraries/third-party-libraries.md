@@ -1,6 +1,7 @@
 ---
 PermaID: 1000002
 Name: Third Party Libraries
+Tags: third-party-feature third-party-library
 ---
 
 # Third Party Libraries

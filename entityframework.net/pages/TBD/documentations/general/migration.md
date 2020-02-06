@@ -1,6 +1,7 @@
 ---
 PermaID: 1000098
 Name: Migration
+Tags: model
 ---
 
 # Migration

@@ -1,6 +1,7 @@
 ---
 PermaID: 1000057
 Name: Stored Procedure
+Tags: query
 ---
 
 # Stored Procedure

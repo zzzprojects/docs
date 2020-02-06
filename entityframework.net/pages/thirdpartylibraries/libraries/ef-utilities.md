@@ -1,6 +1,7 @@
 ---
 PermaID: 1000006
 Name: EF Utilities
+Tags: third-party-library
 ---
 
 # Utilities

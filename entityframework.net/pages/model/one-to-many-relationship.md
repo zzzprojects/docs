@@ -1,6 +1,7 @@
 ---
 PermaID: 1000055
 Name: One to Many
+Tags: model
 ---
 
 # One-to-Many Relationships

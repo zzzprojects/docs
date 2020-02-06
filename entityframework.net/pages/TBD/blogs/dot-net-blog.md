@@ -1,6 +1,7 @@
 ---
 PermaID: 1000143
 Name: Dot Net Blog
+Tags: blogs
 ---
 
 # .NET Blog

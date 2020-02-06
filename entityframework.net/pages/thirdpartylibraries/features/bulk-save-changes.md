@@ -1,6 +1,7 @@
 ---
 PermaID: 1000022
 Name: Bulk Save Changes
+Tags: third-party-feature
 ---
 
 # BulkSaveChanges

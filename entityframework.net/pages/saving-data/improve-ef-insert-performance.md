@@ -1,6 +1,7 @@
 ---
 PermaID: 1000069
 Name: Insert Performance
+Tags: saving
 ---
 
 # Improve EF Insert Performance

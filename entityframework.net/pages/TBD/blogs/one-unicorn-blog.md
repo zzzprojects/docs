@@ -1,6 +1,7 @@
 ---
 PermaID: 1000137
 Name: One Unicorn Blog
+Tags: blogs
 ---
 
 # OneUnicorn's Blog

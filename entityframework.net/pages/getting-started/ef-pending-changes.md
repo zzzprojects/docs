@@ -1,6 +1,7 @@
 ---
 PermaID: 1000131
 Name: EF Pending Changes
+Tags: getting-started
 ---
 
 # EF Pending Changes

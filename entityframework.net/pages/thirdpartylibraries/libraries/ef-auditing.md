@@ -1,6 +1,7 @@
 ---
 PermaID: 1000164
 Name: EF Auditing
+Tags: third-party-library
 ---
 
 # Auditing

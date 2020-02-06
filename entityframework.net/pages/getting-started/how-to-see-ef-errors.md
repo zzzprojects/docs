@@ -1,6 +1,7 @@
 ---
 PermaID: 1000033
 Name: How to see EF Erros
+Tags: getting-started
 ---
 
 # How to see Entity Framework Errors

@@ -1,6 +1,7 @@
 ---
 PermaID: 1000061
 Name: Joining
+Tags: query
 ---
 
 # Joining

@@ -1,6 +1,7 @@
 ---
 PermaID: 1000012
 Name: Audit.NET
+Tags: third-party-library
 ---
 
 # Audit.NET

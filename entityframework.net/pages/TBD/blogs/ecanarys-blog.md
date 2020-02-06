@@ -1,6 +1,7 @@
 ---
 PermaID: 1000142
 Name: Ecanarys Blog
+Tags: blogs
 ---
 
 # eCanarys's Blog
