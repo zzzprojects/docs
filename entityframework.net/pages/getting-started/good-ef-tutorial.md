@@ -1,6 +1,7 @@
 ---
 PermaID: 1000099
 Name: EF Tutorial
+Tags: getting-started
 ---
 
 # Good EF Tutorial

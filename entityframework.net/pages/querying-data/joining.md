@@ -1,7 +1,6 @@
 ---
 PermaID: 1000061
 Name: Joining
-IsUpdated: 1
 ---
 
 # Joining

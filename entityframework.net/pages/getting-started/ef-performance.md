@@ -7,12 +7,12 @@ Name: EF Performance
 
 ## Improve Entity Framework Performance
 
- - Is Entity Framework as slow as some people report it?  Yes and no.
+ - Is Entity Framework as slow as some people report it? Yes and no.
  - Entity Framework offers great advantages over other ORM, and it's in fact pretty fast.
 
 ### Problem
 
- - It's too easy to fall into a Entity Framework performance pitfall. 
+ - It's too easy to fall into a Entity Framework performance pitfall.
  - Sooner or later, many developers make some mistakes which may impact the application performance severely.
 
 ### Performance Cheat Sheet
