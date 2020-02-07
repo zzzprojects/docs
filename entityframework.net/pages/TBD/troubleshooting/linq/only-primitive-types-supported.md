@@ -1,7 +1,7 @@
 ---
 PermaID: 1000158
 Name: Only primitive types supported
-Tags: query
+Tags: troubleshooting
 ---
 
 # Only Primitive Types Supported

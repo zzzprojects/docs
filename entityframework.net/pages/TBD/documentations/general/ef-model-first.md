@@ -1,7 +1,7 @@
 ---
 PermaID: 1000103
 Name: Model First
-Tags: model
+Tags: model mode-first
 ---
 
 # EF Model First

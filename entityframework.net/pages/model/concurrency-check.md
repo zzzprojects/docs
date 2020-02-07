@@ -1,7 +1,7 @@
 ---
 PermaID: 1000126
 Name: Concurrency Check
-Tags: model
+Tags: code-first fluent-api data-annotations
 ---
 
 # ConcurrencyCheck

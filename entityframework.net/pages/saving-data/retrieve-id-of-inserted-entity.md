@@ -1,7 +1,7 @@
 ---
 PermaID: 1000083
 Name: Retrieve ID of Inserted Entity
-Tags: saving
+Tags: saving identity
 ---
 
 # Retrieve Id of Inserted Entity

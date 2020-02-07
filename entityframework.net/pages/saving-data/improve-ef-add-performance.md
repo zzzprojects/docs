@@ -1,7 +1,7 @@
 ---
 PermaID: 1000072
 Name: Add Performance
-Tags: saving
+Tags: saving performance
 ---
 
 # Improve EF Add Performance

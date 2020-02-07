@@ -1,7 +1,7 @@
 ---
 PermaID: 1000116
 Name: String Length
-Tags: model
+Tags: code-first fluent-api data-annotations
 ---
 
 # StringLength

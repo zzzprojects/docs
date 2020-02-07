@@ -1,7 +1,7 @@
 ---
 PermaID: 1000034
 Name: Update without loading
-Tags: save
+Tags: save update batch-update
 ---
 
 # Update Without Loading

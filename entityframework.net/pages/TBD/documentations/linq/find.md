@@ -1,7 +1,7 @@
 ---
 PermaID: 1000081
 Name: Find
-Tags: query
+Tags: query find
 ---
 
 # Find

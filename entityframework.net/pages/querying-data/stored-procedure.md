@@ -1,7 +1,7 @@
 ---
 PermaID: 1000057
 Name: Stored Procedure
-Tags: query
+Tags: query stored-procedure raw-sql
 ---
 
 # Stored Procedure

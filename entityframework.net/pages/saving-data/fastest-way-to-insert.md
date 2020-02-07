@@ -1,7 +1,7 @@
 ---
 PermaID: 1000086
 Name: Fastest Way to Insert
-Tags: saving
+Tags: saving insert bulk-insert
 ---
 
 # Fastest Way To Insert

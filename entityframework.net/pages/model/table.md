@@ -1,7 +1,7 @@
 ---
 PermaID: 1000115
 Name: Table
-Tags: model
+Tags: code-first fluent-api data-annotations
 ---
 
 # Table

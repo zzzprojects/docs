@@ -1,7 +1,7 @@
 ---
 PermaID: 1000044
 Name: Entity Disconnected
-Tags: saving
+Tags: saving disconnected
 ---
 
 # Entity Disconnected

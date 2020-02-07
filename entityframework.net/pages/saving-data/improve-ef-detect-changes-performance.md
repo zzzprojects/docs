@@ -1,7 +1,7 @@
 ---
 PermaID: 1000071
 Name: Detect Changes Performance
-Tags: saving
+Tags: saving performance
 ---
 
 # Improve EF DetectChanges Performance

@@ -1,7 +1,7 @@
 ---
 PermaID: 1000156
 Name: Specified type not supported
-Tags: query
+Tags: troubleshooting
 ---
 
 # Specified Type Not Supported

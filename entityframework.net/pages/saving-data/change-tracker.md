@@ -1,7 +1,7 @@
 ---
 PermaID: 1000046
 Name: Change Tracker
-Tags: saving
+Tags: saving change-tracking
 ---
 
 # Change Tracker

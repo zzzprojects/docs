@@ -1,7 +1,7 @@
 ---
 PermaID: 1000102
 Name: EF Power Tools
-Tags: model
+Tags: model power-tools
 ---
 
 # Power Tools

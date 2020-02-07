@@ -1,7 +1,7 @@
 ---
 PermaID: 1000073
 Name: EF Performance
-Tags: getting-started
+Tags: getting-started performance
 ---
 
 # Improve Entity Framework Performance

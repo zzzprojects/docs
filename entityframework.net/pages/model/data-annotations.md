@@ -1,7 +1,7 @@
 ---
 PermaID: 1000125
 Name: Data Annotations
-Tags: model
+Tags: code-first fluent-api data-annotations
 ---
 
 # Data Annotations

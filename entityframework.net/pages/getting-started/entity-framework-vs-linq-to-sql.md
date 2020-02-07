@@ -1,7 +1,7 @@
 ---
 PermaID: 1000030
 Name: Entity Framework vs LINQ2SQL
-Tags: getting-started
+Tags: getting-started linq-to-sql
 ---
 
 # Entity Framework vs LINQ to SQL

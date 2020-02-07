@@ -1,7 +1,7 @@
 ---
 PermaID: 1000067
 Name: Why Detect Changes is Slow
-Tags: saving
+Tags: saving performance
 ---
 
 # Why DetectChanges is slow?

@@ -1,7 +1,7 @@
 ---
 PermaID: 1000032
 Name: Entity Framework vs Dapper
-Tags: getting-started
+Tags: getting-started dapper
 ---
 
 # Entity Framework vs Dapper

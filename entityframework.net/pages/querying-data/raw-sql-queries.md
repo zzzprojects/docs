@@ -1,7 +1,7 @@
 ---
 PermaID: 1000058
 Name: Raw SQL Queries
-Tags: query
+Tags: query raw-sql
 ---
 
 # Raw SQL Queries

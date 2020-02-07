@@ -1,7 +1,7 @@
 ---
 PermaID: 1000106
 Name: Code First
-Tags: model
+Tags: code-first model
 ---
 
 # EF Code First

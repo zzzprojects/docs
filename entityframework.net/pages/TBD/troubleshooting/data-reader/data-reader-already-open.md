@@ -1,7 +1,7 @@
 ---
 PermaID: 1000161
 Name: DataReader already open
-Tags: query
+Tags: troubleshooting data-reader
 ---
 
 # DataReader already Open

@@ -1,7 +1,7 @@
 ---
 PermaID: 1000040
 Name: Save Data using Stored Procedure
-Tags: saving
+Tags: saving stored procedure
 ---
 
 # Save Data Using Stored Procedure

@@ -1,7 +1,7 @@
 ---
 PermaID: 1000043
 Name: Entity Graph
-Tags: saving
+Tags: saving graph
 ---
 
 # Entity Graph

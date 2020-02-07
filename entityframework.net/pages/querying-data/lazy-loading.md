@@ -1,7 +1,7 @@
 ---
 PermaID: 1000060
 Name: Lazy Loading
-Tags: query
+Tags: query lazy-loading
 ---
 
 # Lazy Loading

@@ -1,7 +1,7 @@
 ---
 PermaID: 1000128
 Name: Column
-Tags: model
+Tags: code-first fluent-api data-annotations
 ---
 
 # Column

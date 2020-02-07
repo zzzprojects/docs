@@ -1,7 +1,7 @@
 ---
 PermaID: 1000114
 Name: Timestamp
-Tags: model
+Tags: code-first fluent-api data-annotations
 ---
 
 # Timestamp

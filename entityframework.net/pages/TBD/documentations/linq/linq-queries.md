@@ -1,7 +1,7 @@
 ---
 PermaID: 1000079
 Name: LINQ Queries
-Tags: query
+Tags: query linq
 ---
 
 # LINQ Queries

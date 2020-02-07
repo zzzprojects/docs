@@ -1,7 +1,7 @@
 ---
 PermaID: 1000123
 Name: Foreign Key
-Tags: model
+Tags: code-first fluent-api data-annotations
 ---
 
 # ForeignKey

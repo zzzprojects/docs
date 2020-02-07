@@ -1,7 +1,7 @@
 ---
 PermaID: 1000132
 Name: Why Async method are slow
-Tags: query
+Tags: query performance
 ---
 
 # Why EF Async Methods are Slow

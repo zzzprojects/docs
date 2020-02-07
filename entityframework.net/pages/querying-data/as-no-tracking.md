@@ -1,7 +1,7 @@
 ---
 PermaID: 1000065
 Name: AsNoTracking
-Tags: query
+Tags: query as-no-tracking
 ---
 
 # AsNoTracking

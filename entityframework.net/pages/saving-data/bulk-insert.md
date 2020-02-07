@@ -1,7 +1,7 @@
 ---
 PermaID: 1000048
 Name: Bulk Insert
-Tags: saving
+Tags: saving insert bulk-insert
 ---
 
 # BulkInsert

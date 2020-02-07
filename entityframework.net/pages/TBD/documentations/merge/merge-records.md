@@ -1,7 +1,7 @@
 ---
 PermaID: 1000075
 Name: Merge Records
-Tags: save
+Tags: save merge bulk-merge
 ---
 
 # Merge Records

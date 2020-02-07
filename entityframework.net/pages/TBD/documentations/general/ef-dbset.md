@@ -1,7 +1,7 @@
 ---
 PermaID: 1000104
 Name: DbSet
-Tags: model
+Tags: model dbset
 ---
 
 # DbSet
