@@ -11,7 +11,7 @@ Dapper Plus support:
 
 ## Extension Methods
 
-When the library is added to your projects, the following extension methods are now automatically available from to your `IDbConnection` and `IDbTransaction` interface
+When the library is added to your projects, the following extension methods are now automatically available from your `IDbConnection` and `IDbTransaction` interface:
 
 - BulkInsert
 - BulkUpdate

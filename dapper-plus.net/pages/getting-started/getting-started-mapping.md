@@ -12,7 +12,7 @@ There is 3 different way to use the DapperPlusContext:
 - Inheritance Context Mapping
 - Instance Context Mapping
 
-They have all pros and cons; choosing the right one will depend on what you need to do. Generally, the Global Context Mapping is recommended.
+They have all pros and cons; choosing the right one will depend on what you need to do. Generally, the Global Context Mapping is is recommended.
 
 ## Global Context Mapping
 
@@ -23,12 +23,8 @@ This mapping will be used whenever no specific context mapping is provided.
 You can either use methods directly from the `DapperPlusManager` or on the `DapperPlusManager.DefaultContext` (both techniques exist for backward compatibility)
 
 ```csharp
-DapperPlusManager.Entity<Invoice>().Identity(x => x.ID);
-connection.BulkInsert(invoices);
+DapperPlusManager.Entity<Invoice>().Identity(x => x.InvoiceID, true);
 
-// or
-
-DapperPlusManager.DefaultContext.Entity<Invoice>().Identity(x => x.ID);
 connection.BulkInsert(invoices);
 ```
 
@@ -44,9 +40,19 @@ The inheritance mapping allows you to map your entities for the scope of the con
 It can be very useful whenever you want different mapping that depends on parameters passed in your constructors.
 
 ```csharp
-var context = new DapperPlusContext(connection);
-context.Entity<Invoice>().Identity(x => x.ID);
-context.BulkInsert(invoices);
+public class InvoiceContext : DapperPlusContext
+{
+	public InvoiceContext() : base(new SqlConnection(FiddleHelper.GetConnectionStringSqlServer()))
+	{
+		this.Entity<Invoice>().Identity(x => x.InvoiceID, true);
+		this.Entity<InvoiceItem>().Identity(x => x.InvoiceItemID, true);
+	}
+}
+
+var context = new InvoiceContext();
+context.BulkInsert(context, invoices);
+
+// connection.BulkInsert(context, invoices); // also available
 ```
 
 [Try it](https://dotnetfiddle.net/BbBQ2F)
@@ -60,20 +66,9 @@ It can be very useful if you need dynamic mapping that always changes.
 ```csharp
 var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServer());
 
-{
-	// Use Bulk Operations from Context
-	var context = new DapperPlusContext(connection);
-	SetMapping(context);
-	context.BulkInsert(invoices);
-}
-
-{
-	// Use Bulk Operations from Connection
-	var context = new DapperPlusContext();
-	SetMapping(context);
-	connection.BulkInsert(context, invoices);
-}
-
+var context = new DapperPlusContext(connection);
+SetMapping(context);
+context.BulkInsert(invoices);
 		
 public static void SetMapping(DapperPlusContext context)
 {
@@ -90,6 +85,9 @@ Using a mapper key allow you to map multiple time the same entity type but with 
 When you call a bulk operations method, you need to pass this mapping key.
 
 ```csharp
-DapperPlusManager.Entity<Invoice>("customMapperKey").Identity(x => x.ID);
-connection.BulkInsert("customMapperKey", invoices);
+DapperPlusManager.Entity<Invoice>("CustomKey").Table("Invoice2").Identity(x => x.InvoiceID, true);
+
+connection.BulkInsert("CustomKey", invoices);
 ```
+
+[Try it](https://dotnetfiddle.net/TmiG4r)

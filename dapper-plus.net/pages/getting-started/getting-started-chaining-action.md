@@ -8,11 +8,13 @@ All Bulk Operations start with one of the following actions:
 - [BulkDelete](/bulk-delete)
 - [BulkMerge](/bulk-merge)
 
-After, you can chain your action with `Also[Action]` and `Then[Action]` methods.
+You can include list directly in the method or you can chain your action with `Also[Action]` and `Then[Action]` methods.
 
 ```csharp
-Connection.BulkInsert(Invoices)
+connection.BulkInsert(invoices, x => x.InvoiceMeta, x => x.InvoiceItems, x=> x.InvoiceItems.Select(y => y.InvoiceItemMeta));
 ```
+
+[Try it](https://dotnetfiddle.net/cmY12C)
 
 ## Also Action
 
@@ -23,8 +25,12 @@ For example, if you `BulkInsert` an invoice, and use `AlsoBulkInsert` on your In
 So, the next Bulk Operations will be related to the Invoice, in this example, the InvoiceMeta.
 
 ```csharp
-Connection.BulkInsert(Invoices).AlsoBulkInsert(x => x. InvoiceItems).AlsoBulkInsert(x => x.InvoiceMeta)
+connection.BulkInsert(invoices)
+		  .AlsoBulkInsert(invoice => invoice.InvoiceMeta)
+		  .AlsoBulkInsert(invoice => invoice.InvoiceItems, invoiceItem => invoiceItem.InvoiceMeta);
 ```
+
+[Try it](https://dotnetfiddle.net/EDpO3F)
 
 Method:
 - [AlsoBulkInsert](/also-bulk-insert)
@@ -41,8 +47,13 @@ For example, if you `BulkInsert` an invoice, and use `ThenBulkInsert` on your In
 So, the next Bulk Operations will be related to the InvoiceItem, in this example, the InvoiceItemMeta.
 
 ```csharp
-Connection.BulkInsert(Invoices).ThenBulkInsert(x => x.InvoiceItems).ThenBulkInsert(x => x.InvoiceItemMeta) + A third level
+connection.BulkInsert(invoices)
+		  .AlsoBulkInsert(invoice => invoice.InvoiceMeta)
+		  .ThenBulkInsert(invoice => invoice.InvoiceItems)
+		  .ThenBulkInsert(invoiceItem => invoiceItem.InvoiceItemMeta);
 ```
+
+[Try it](https://dotnetfiddle.net/AvlpRS)
 
 Method:
 - [ThenBulkInsert](/then-bulk-insert)

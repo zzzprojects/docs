@@ -5,8 +5,10 @@
 To perform a bulk operation asynchronously, you need to use the BulkActionAsync method then in the expression, use non-asynchronous methods:
 
 ```csharp
-connection.BulkActionAsync(x => x.BulkInsert(list));
+var task = connection.BulkActionAsync(x => x.BulkInsert(invoices));
 ```
+
+[Try it](https://dotnetfiddle.net/KR3qaX)
 
 ## Roadmap Async
 
