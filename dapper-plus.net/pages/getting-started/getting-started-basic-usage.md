@@ -13,10 +13,10 @@ Dapper Plus support:
 
 When the library is added to your projects, the following extension methods are now automatically available from your `IDbConnection` and `IDbTransaction` interface:
 
-- BulkInsert
-- BulkUpdate
-- BulkDelete
-- BulkMerge
+- [BulkInsert](/bulk-insert)
+- [BulkUpdate](/bulk-update)
+- [BulkDelete](/bulk-delete)
+- [BulkMerge](/bulk-merge)
 - BulkSynchronize
 - And more
 
