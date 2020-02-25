@@ -1,6 +1,7 @@
 ---
 PermaID: 1000119
 Name: Min Length
+Tags: code-first fluent-api data-annotations
 ---
 
 # MinLength

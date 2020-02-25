@@ -1,6 +1,6 @@
 # Insert Data
 
-## Introduction
+## Description
 
 **Table.Insert** inserts the specified entity into the table. It takes the following arguments by using different overloads.
 

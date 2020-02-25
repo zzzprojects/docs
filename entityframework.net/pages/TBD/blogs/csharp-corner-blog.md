@@ -1,6 +1,7 @@
 ---
 PermaID: 1000146
 Name: Csharp Corner Blog
+Tags: blogs
 ---
 
 # CSharpCorner's Blog

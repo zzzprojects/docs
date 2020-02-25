@@ -12,7 +12,7 @@ context.BulkInsert(list);
 // Easy to customize
 context.BulkInsert(list, options => options.BatchSize = 100);
 ```
-Try it: [NET Framework](https://dotnetfiddle.net/7PnUvq) | [NET Core](https://dotnetfiddle.net/Ws2dgA)
+Try it: [NET Core](https://dotnetfiddle.net/Ws2dgA) | [NET Framework](https://dotnetfiddle.net/7PnUvq)
 
 ## Performance Comparison
 
@@ -21,7 +21,7 @@ Try it: [NET Framework](https://dotnetfiddle.net/7PnUvq) | [NET Core](https://do
 | SaveChanges     | 1,200 ms       | 2,400 ms       | 6,000 ms       |
 | BulkInsert      | 50 ms          | 55 ms          | 75 ms          |
 
-Try it: [NET Framework](https://dotnetfiddle.net/hfbiys) | [NET Core](https://dotnetfiddle.net/KHmNWf)
+Try it: [NET Core](https://dotnetfiddle.net/KHmNWf) | [NET Framework](https://dotnetfiddle.net/hfbiys)
 
 > HINT: Performance may differ from a database to another. A lot of factors might affect the benchmark time such as index, column type, latency, throttling, etc.
 
@@ -40,7 +40,7 @@ You need to insert a list of `Invoice` and include related `InvoiceItem`. By def
 ```csharp
 context.BulkInsert(invoices, options => options.IncludeGraph = true);
 ```
-Try it: [NET Framework](https://dotnetfiddle.net/DGkPHC) | [NET Core](https://dotnetfiddle.net/mlFNqB)
+Try it: [NET Core](https://dotnetfiddle.net/mlFNqB) | [NET Framework](https://dotnetfiddle.net/DGkPHC)
 
 ### Bulk Insert customers that don't already exist
 You need to insert a list of `Customer`, but only the ones that doesn't already exists using the customer codes as the key.
@@ -54,7 +54,7 @@ context.BulkInsert(customers, options => {
     options.ColumnPrimaryKeyExpression = x => new { x.Code };
 });
 ```
-Try it: [NET Framework](https://dotnetfiddle.net/CtwBQw) | [NET Core](https://dotnetfiddle.net/THtLSm)
+Try it: [NET Core](https://dotnetfiddle.net/THtLSm) | [NET Framework](https://dotnetfiddle.net/CtwBQw)
 
 ### Bulk Insert specific columns
 You need to insert a list of `Customer` but only insert some specific column. The [ColumnInputExpression](https://entityframework-extensions.net/column#column-input) option let you choose a column to insert.
@@ -64,7 +64,7 @@ context.BulkInsert(customers, options => {
     options.ColumnInputExpression = x => new { x.Code, x.CreatedDate };
 });
 ```
-Try it: [NET Framework](https://dotnetfiddle.net/x5qTfp) | [NET Core](https://dotnetfiddle.net/XBpAvg)
+Try it: [NET Core](https://dotnetfiddle.net/XBpAvg) | [NET Framework](https://dotnetfiddle.net/x5qTfp)
 
 ## Documentation
 
@@ -74,12 +74,12 @@ Try it: [NET Framework](https://dotnetfiddle.net/x5qTfp) | [NET Core](https://do
 
 | Name | Description | Example |
 | :--- | :---------- | :------ |
-| `BulkInsert<T>(items)` | Bulk insert entities in your database. | [NET Framework](https://dotnetfiddle.net/hThOZA) / [NET Core](https://dotnetfiddle.net/78icWN)|
-| `BulkInsert<T>(items, options)` | Bulk insert entities in your database.  | [NET Framework](https://dotnetfiddle.net/JCoqCP) / [NET Core](https://dotnetfiddle.net/ygSotx)|
-| `BulkInsertAsync<T>(items)` | Bulk insert entities asynchronously in your database. | [NET Framework](https://dotnetfiddle.net/p8c3Z3) / [NET Core](https://dotnetfiddle.net/URNBzO)|
-| `BulkInsertAsync<T>(items, options)` | Bulk insert entities asynchronously in your database.  | [NET Framework](https://dotnetfiddle.net/pJuoy0) / [NET Core](https://dotnetfiddle.net/YE7dkP)|
-| `BulkInsertAsync<T>(items, cancellationToken)` | Bulk insert entities asynchronously in your database. | [NET Framework](https://dotnetfiddle.net/Ke5B5e) / [NET Core](https://dotnetfiddle.net/nNLf9I) |
-| `BulkInsertAsync<T>(items, options, cancellationToken)` | Bulk insert entities asynchronously in your database. | [NET Framework](https://dotnetfiddle.net/TKxYDS) / [NET Core](https://dotnetfiddle.net/ZvRUNj)|
+| `BulkInsert<T>(items)` | Bulk insert entities in your database. | [NET Core](https://dotnetfiddle.net/78icWN) / [NET Framework](https://dotnetfiddle.net/hThOZA)|
+| `BulkInsert<T>(items, options)` | Bulk insert entities in your database.  | [NET Core](https://dotnetfiddle.net/ygSotx) / [NET Framework](https://dotnetfiddle.net/JCoqCP) |
+| `BulkInsertAsync<T>(items)` | Bulk insert entities asynchronously in your database. | [NET Core](https://dotnetfiddle.net/URNBzO) / [NET Framework](https://dotnetfiddle.net/p8c3Z3) |
+| `BulkInsertAsync<T>(items, options)` | Bulk insert entities asynchronously in your database.  | [NET Core](https://dotnetfiddle.net/YE7dkP) / [NET Framework](https://dotnetfiddle.net/pJuoy0) |
+| `BulkInsertAsync<T>(items, cancellationToken)` | Bulk insert entities asynchronously in your database. | [NET Core](https://dotnetfiddle.net/nNLf9I) / [NET Framework](https://dotnetfiddle.net/Ke5B5e) |
+| `BulkInsertAsync<T>(items, options, cancellationToken)` | Bulk insert entities asynchronously in your database. | [NET Core](https://dotnetfiddle.net/ZvRUNj) / [NET Framework](https://dotnetfiddle.net/TKxYDS)|
 
 ## Learn more
 

@@ -1,6 +1,7 @@
 ---
 PermaID: 1000120
 Name: Max Length
+Tags: code-first fluent-api data-annotations
 ---
 
 # MaxLength

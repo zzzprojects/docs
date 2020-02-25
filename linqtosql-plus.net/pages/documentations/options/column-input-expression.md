@@ -1,5 +1,7 @@
 # ColumnInputExpression
-## Definition
+
+## Description
+
 Gets or sets columns to map with the direction `Input`.
 
 The key is required for operations such as `BulkUpdate` and `BulkMerge`.

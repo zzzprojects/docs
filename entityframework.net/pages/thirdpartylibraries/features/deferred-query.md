@@ -1,6 +1,7 @@
 ---
 PermaID: 1000019
 Name: Deferred Query
+Tags: third-party-feature
 ---
 
 # Deferred Query

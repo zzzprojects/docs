@@ -1,8 +1,8 @@
 # RetryCount
 
-## Definition
-Gets or sets the maximum number of operations retry when a transient error occurs.
+## Description
 
+Gets or sets the maximum number of operations retry when a transient error occurs.
 
 ```csharp
 context.BulkSaveChanges(options => {

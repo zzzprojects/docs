@@ -2,15 +2,15 @@
 
 ## Description
 
-The `AuditActionType` is an enum used for the `Action` property in the [AuditEntry](audit-entry.md) class.
+The `AuditActionType` enum represents the action that has been performed (Delete, Insert or Update).
 
-It represents the SQL operation executed in the database.
+The action is used in the [AuditEntry](audit-entry.md) class.
 
 ```csharp
-// The https://bulk-operations.net/ library is used under the hood.
+// The namespace is different because the https://bulk-operations.net/ library is used under the hood.
 namespace Z.BulkOperations
 {
-    /// <summary>The enum that represents the SQL operation executed in the database.</summary>
+    /// <summary>The `AuditActionType` enum represents the action that has been performed (Delete, Insert or Update). The action is used in the [AuditEntry](audit-entry.md) class.</summary>
     public enum AuditActionType
     {
         /// <summary>The name/value that represents the DELETE operation.</summary>
@@ -27,7 +27,7 @@ namespace Z.BulkOperations
 
 ## Example
 
-We will demonstrate how to get `AuditEntries` by `AuditActionType` value.
+We will demonstrate how to retrieve `AuditEntries` by the `AuditActionType` value.
 
 ### Execute
 
@@ -36,15 +36,12 @@ We will execute a `BulkMerge` on a list that contains **1** new customer and **2
 ### Code
 
 ```csharp
-// Mapping
-DapperPlusManager.Entity<Customer>().Table("Customer");
-
 // Execute
 List<AuditEntry> auditEntries = new List<AuditEntry>(); 
-connection.UseBulkOptions(x => 
+connection.UseBulkOptions(options => 
 { 
-    x.AuditEntries = auditEntries; 
-    x.UseAudit = true;
+    options.UseAudit = true;
+    options.AuditEntries = auditEntries; 
 })
 .BulkMerge(list);
 
@@ -57,7 +54,7 @@ Try it: [.NET Core](https://dotnetfiddle.net/7WJZTe) | [.NET Framework](https://
 
 ### Result
 
-We will split the `AuditEntries` list by their `AuditActionType` value:
+We outputted `AuditEntries` by the `AuditActionType` value:
 
 - `AuditActionType.Insert`: Will display the **1** new customer
 - `AuditActionType.Update`: Will display the **2** existing customers

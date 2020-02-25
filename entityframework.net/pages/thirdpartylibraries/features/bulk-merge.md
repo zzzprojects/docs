@@ -1,6 +1,7 @@
 ---
 PermaID: 1000023
 Name: Bulk Merge
+Tags: third-party-feature
 ---
 
 # Bulk Merge

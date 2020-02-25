@@ -1,6 +1,10 @@
 # BulkOperationExecuting
 
+## Description
+
 The `BulkOperationExecuting` event is executed before the action in the BulkOperations library is called. 
+
+## Example
 
 The following example updates the `Description` and `IsActive` properties before data is saved to the database in the `BulkSaveChanges` method.
 

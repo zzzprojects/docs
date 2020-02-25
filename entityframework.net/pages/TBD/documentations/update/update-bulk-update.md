@@ -1,6 +1,7 @@
 ---
 PermaID: 1000036
 Name: Bulk Update
+Tags: save update bulk-update
 ---
 
 # Bulk Update

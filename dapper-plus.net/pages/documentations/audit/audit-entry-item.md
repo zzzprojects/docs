@@ -2,78 +2,56 @@
 
 ## Description
 
-The `AuditEntryItem` is a property of the `AuditEntry` class.
+The `AuditEntryItem` class represents the auditing value metadata of a row that has been modified.
 
-It represents metadata about a specific column:
-- ColumnName
-- NewValue
-- OldValue
+The entry item is used in the [AuditEntry](audit-entry.md) class.
 
 ```csharp
+// The namespace is different because the https://bulk-operations.net/ library is used under the hood.
 namespace Z.BulkOperations
 {
-    /// <summary>An audit entry item.</summary>
+    /// <summary>The `AuditEntryItem` class represents the auditing value metadata of a row that has been modified. The entry item is used in the [AuditEntry](audit-entry.md) class.</summary>
     public class AuditEntryItem
     {
-        /// <summary>Gets or sets the name of the column.</summary>
-        /// <value>The name of the column.</value>
+        /// <summary>Gets or sets the `ColumnName` property.</summary>
         public string ColumnName { get; set; }
 
-        /// <summary>Gets or sets the new value.</summary>
-        /// <value>The new value.</value>
+        /// <summary>Gets or sets the `NewValue` property. The `NewValue` is the actual value after an insert or an update operation is executed.</summary>
         public object NewValue { get; set; }
 
-        /// <summary>Gets or sets the old value.</summary>
-        /// <value>The old value.</value>
+        /// <summary>Gets or sets the `OldValue` property. The `OldValue` is the previous value before an update or a delete operation is executed.</summary>
         public object OldValue { get; set; }
     }
 }
 ```
 
-> HINT: The `AuditEntryItem` is in Z.BulkOperations namespace since the library is used under the hood.
-
 ## Example
 
-In this example,
+We will demonstrate how to retrieve `AuditEntryItem`.
 
-We will execute a `BulkMerge` on a list that contains **1** new customers and **2** existing customers.
+### Execute
 
-As a result, we will display all created `AuditEntry` and their `AuditEntryItem`.
+We will execute a `BulkMerge` on a list that contains **1** new customer and **2** existing customers.
 
+### Code
 
 ```csharp
-// Mapping
-DapperPlusManager.Entity<Customer>().Table("Customer");
-
-// Connection
-var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServer());
-        
 // Execute
 List<AuditEntry> auditEntries = new List<AuditEntry>(); 
-connection.UseBulkOptions(x => 
+connection.UseBulkOptions(options => 
 { 
-    x.AuditEntries = auditEntries; 
-    x.UseAudit = true;
+    options.UseAudit = true;
+    options.AuditEntries = auditEntries; 
 })
 .BulkMerge(list); 
 
 // Result
-foreach(var audit in auditEntries.Where(a => a.Action == AuditActionType.Insert))
-{
-    FiddleHelper.WriteTable(audit.Action.ToString(), audit.Values);
-}
-
-foreach(var audit in auditEntries.Where(a => a.Action == AuditActionType.Update))
-{
-    FiddleHelper.WriteTable(audit.Action.ToString(), audit.Values);
-}
+FiddleHelper.WriteTable("1 - AuditEntry", auditEntries);
+FiddleHelper.WriteTable("2 - AuditEntryItem", auditEntries.SelectMany(x => x.Values));
 ```
 
 Try it: [.NET Core](https://dotnetfiddle.net/uMWFra) | [.NET Framework](https://dotnetfiddle.net/IVhoAb)
 
 ### Result
 
-We will split the `AuditEntries` list by their `AuditActionType` value:
-
-- `AuditActionType.Insert`: Will display the **1** new customer
-- `AuditActionType.Update`: Will display the **2** existing customers
+We outputted all `AuditEntry` and `AuditEntryItem` auditing metadata.

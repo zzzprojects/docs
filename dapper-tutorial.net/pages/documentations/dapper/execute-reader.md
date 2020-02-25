@@ -21,7 +21,7 @@ using(var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServ
 }
 ```
 
-[Try it](https://dotnetfiddle.net/YekzFv)
+Try it: [.NET Core](https://dotnetfiddle.net/BFGIVL) | [.NET Framework](https://dotnetfiddle.net/YekzFv)
 
 ### Parameters
 The following table shows the different parameters of an `ExecuteReader` method.
@@ -50,4 +50,4 @@ using(var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServ
 }
 ```
 
-[Try it online](https://dotnetfiddle.net/7TnXxm)
+Try it: [.NET Core](https://dotnetfiddle.net/c22ZGl) | [.NET Framework](https://dotnetfiddle.net/7TnXxm)

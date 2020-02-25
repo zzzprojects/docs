@@ -1,6 +1,7 @@
 ---
 PermaID: 1000097
 Name: MySQL Provider
+Tags: provider mysql
 ---
 
 # MySQL

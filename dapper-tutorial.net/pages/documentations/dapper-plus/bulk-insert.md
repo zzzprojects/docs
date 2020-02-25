@@ -7,7 +7,7 @@ Name: Bulk Insert
 
 ## Description
 
-INSERT entities using Bulk Operation.
+INSERT entities using the Bulk Operation.
 
 - [Insert single](#example---insert-single)
 - [Insert many](#example---insert-many)
@@ -23,10 +23,10 @@ DapperPlusManager.Entity<Customer>().Table("Customers");
 
 using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServerW3Schools()))
 {
-	connection.BulkInsert(new List<Customer>() { new Customer() { CustomerName = "ExampleBulkInsert", ContactName = "Example Name :" +  1}});
-}		
+    connection.BulkInsert(new List<Customer>() { new Customer() { CustomerName = "ExampleBulkInsert", ContactName = "Example Name :" +  1}});
+}        
 ```
-[Try it](https://dotnetfiddle.net/swvvDb)
+Try it: [.NET Core](https://dotnetfiddle.net/jPJxKl) | [.NET Framework](https://dotnetfiddle.net/swvvDb)
 
 ## Example - Insert Many
 INSERT many entities with Bulk Operation.
@@ -36,57 +36,57 @@ DapperPlusManager.Entity<Customer>().Table("Customers");
 
 using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServerW3Schools()))
 {
-	connection.BulkInsert(customers);
+    connection.BulkInsert(customers);
 }
 ```
-[Try it](https://dotnetfiddle.net/3Z4SzH)
+Try it: [.NET Core](https://dotnetfiddle.net/jPY8xy) | [.NET Framework](https://dotnetfiddle.net/3Z4SzH)
 
 ## Example - Insert with relation (One to One)
 INSERT entities with a one to one relation with Bulk Operation.
 
-```csharp	
+```csharp    
 DapperPlusManager.Entity<Supplier>().Table("Suppliers").Identity(x => x.SupplierID);
 DapperPlusManager.Entity<Product>().Table("Products").Identity(x => x.ProductID);
 
 using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServerW3Schools()))
-{	
-	connection.BulkInsert(suppliers).ThenForEach(x => x.Product.SupplierID = x.SupplierID).ThenBulkInsert(x => x.Product);
-}	
+{    
+    connection.BulkInsert(suppliers).ThenForEach(x => x.Product.SupplierID = x.SupplierID).ThenBulkInsert(x => x.Product);
+}    
 ```
-[Try it](https://dotnetfiddle.net/tEZywR)
+Try it: [.NET Core](https://dotnetfiddle.net/9EwA7g) | [.NET Framework](https://dotnetfiddle.net/tEZywR)
 
 ## Example - Insert with relation (One to Many)
-INSERT entities with a one to many relation with Bulk Operation.
+INSERT entities with a one to many relations with Bulk Operation.
 
-```csharp	
+```csharp    
 DapperPlusManager.Entity<Supplier>().Table("Suppliers").Identity(x => x.SupplierID); 
-DapperPlusManager.Entity<Product>().Table("Products").Identity(x => x.ProductID); 	
+DapperPlusManager.Entity<Product>().Table("Products").Identity(x => x.ProductID);     
 
 using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServerW3Schools()))
-{	
-	connection.BulkInsert(suppliers).ThenForEach(x => x.Products.ForEach(y => y.SupplierID =  x.SupplierID)).ThenBulkInsert(x => x.Products);
+{    
+    connection.BulkInsert(suppliers).ThenForEach(x => x.Products.ForEach(y => y.SupplierID =  x.SupplierID)).ThenBulkInsert(x => x.Products);
 }
 ```
-[Try it](https://dotnetfiddle.net/NbCYoZ)
+Try it: [.NET Core](https://dotnetfiddle.net/4EG5mH) | [.NET Framework](https://dotnetfiddle.net/NbCYoZ)
 
-## Real Life Scenarios
+## Real-Life Scenarios
 
 ### Insert and keep identity value
 
-Your entity has an identity property, but you want to force to insert a specific value instead. The `InsertKeepIdentity` option allows you to keep the identity value of your entity.
+Your entity has an identity property, but you want to force it to insert a specific value instead. The `InsertKeepIdentity` option allows you to keep the identity value of your entity.
 
 ```csharp
 DapperPlusManager.Entity<Customer>().Table("Customers"); 
-		
+        
 using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServerW3Schools()))
 {
     connection.UseBulkOptions(options => options.InsertKeepIdentity = true).BulkInsert(customers);
-}	
+}    
 ```
 
-[Try it](https://dotnetfiddle.net/9YcUe8)
+Try it: [.NET Core](https://dotnetfiddle.net/SxF6Eb) | [.NET Framework](https://dotnetfiddle.net/9YcUe8)
 
-### Insert without returning identity value
+### Insert without returning the identity value
 
 By default, the `BulkInsert` method already returns the identity when inserting.
 
@@ -96,13 +96,13 @@ You can improve your performance by turning off the AutoMapOutput option.
 
 ```csharp
 DapperPlusManager.Entity<Customer>().Table("Customers"); 
-		
+        
 using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServerW3Schools()))
 {
     connection.UseBulkOptions(options => options.AutoMapOutputDirection = false).BulkInsert(customers);
-			
+            
     FiddleHelper.WriteTable("1 - Customers (from list)", customers);
 }
 ```
 
-[Try it](https://dotnetfiddle.net/Zbf1Qk)
+Try it: [.NET Core](https://dotnetfiddle.net/lDwDOS) | [.NET Framework](https://dotnetfiddle.net/Zbf1Qk)

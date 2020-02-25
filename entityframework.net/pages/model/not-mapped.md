@@ -1,6 +1,7 @@
 ---
 PermaID: 1000118
 Name: Not Mapped
+Tags: code-first fluent-api data-annotations
 ---
 
 # NotMapped

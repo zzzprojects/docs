@@ -1,6 +1,7 @@
 # RetryCount
 
-## Definition
+## Description
+
 Gets or sets the maximum number of operations retry when a transient error occurs.
 
 

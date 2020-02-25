@@ -2,75 +2,62 @@
 
 ## Description
 
-The `AuditEntry` represents a row that has been modified.
+The `AuditEntry` class represents the auditing row metadata that has been modified.
 
-It represents metadata about a specific row:
-- Which tale affected...
-- What action has been performance
-- When the action has been performed
+The auditing value metadata is a list of [AuditEntryItem](audit-entry-item.md) class.
 
 ```csharp
+// The namespace is different because the https://bulk-operations.net/ library is used under the hood.
 namespace Z.BulkOperations
 {
-    /// <summary>An audit entry.</summary>
+    /// <summary>The `AuditEntry` class represents the auditing row metadata that has been modified. The auditing value metadata is a list of [AuditEntryItem](audit-entry-item.md) class.</summary>
     public class AuditEntry
     {
-        /// <summary>Gets or sets the action.</summary>
-        /// <value>The action.</value>
+        /// <summary>Gets or sets the `Action` property.</summary>
         public AuditActionType Action { get; set; }
         
-        /// <summary>Gets or sets the Date/Time of the date.</summary>
-        /// <value>The date.</value>
+        /// <summary>Gets or sets the `Date` property.</summary>
         public DateTime Date { get; set; }
 
-        /// <summary>Gets or sets the metas.</summary>
-        /// <value>The metas.</value>
+        /// <summary>Gets or sets the `Metas` property.</summary>
         public Dictionary<object, object> Metas { get; set; }
 
-        /// <summary>Gets or sets the name of the table.</summary>
-        /// <value>The name of the table.</value>
+        /// <summary>Gets or sets the `TableName` property..</summary>
         public string TableName { get; set; }
 
-        /// <summary>Gets or sets the values.</summary>
-        /// <value>The values.</value>
+        /// <summary>Gets or sets the `Values` property.</summary>
         public List<AuditEntryItem> Values { get; set; }
     }
 }
 ```
 
-> HINT: The `AuditEntry` is in Z.BulkOperations namespace since the library is used under the hood.
-
 ## Example
 
-In this example,
+We will demonstrate how to retrieve `AuditEntry`.
 
-We will execute a `BulkMerge` on a list that contains **1** new customers and **2** existing customers.
+### Execute
 
-As a result, we will display all created `AuditEntry`.
+We will execute a `BulkMerge` on a list that contains **1** new customer and **2** existing customers.
+
+### Code
 
 ```csharp
-// Mapping
-DapperPlusManager.Entity<Customer>().Table("Customer");
-
 // Execute
 List<AuditEntry> auditEntries = new List<AuditEntry>(); 
-connection.UseBulkOptions(x => 
+connection.UseBulkOptions(options => 
 { 
-    x.AuditEntries = auditEntries; 
-    x.UseAudit = true;
+    options.UseAudit = true;
+    options.AuditEntries = auditEntries; 
 })
-.BulkMerge(list);
+.BulkMerge(list); 
 
 // Result
-FiddleHelper.WriteTable("1 - Inserted Customers", auditEntries.Where(x => x.Action == AuditActionType.Insert));
-FiddleHelper.WriteTable("2 - Updated Customers", auditEntries.Where(x => x.Action == AuditActionType.Update));
+FiddleHelper.WriteTable("1 - AuditEntry", auditEntries);
+FiddleHelper.WriteTable("2 - AuditEntryItem", auditEntries.SelectMany(x => x.Values));
 ```
 
 Try it: [.NET Core](https://dotnetfiddle.net/Zz2EcH) | [.NET Framework](https://dotnetfiddle.net/UJg7Cr)
 
 ### Result
 
-We will split the `AuditEntries` list by their `AuditActionType` value:
-
-- `AuditActionType.Insert`: Will display the **1** new customer
-- `AuditActionType.Update`: Will display the **2** existing customers
+We outputted all `AuditEntry` and `AuditEntryItem` auditing metadata.

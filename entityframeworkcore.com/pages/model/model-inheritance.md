@@ -1,6 +1,7 @@
 ---
-PermaID: 1000220
-Name: Inheritance
+permaid: 1000220
+name: Inheritance
+tags: code-first inheritance fluent-mapping
 ---
 
 # Inheritance

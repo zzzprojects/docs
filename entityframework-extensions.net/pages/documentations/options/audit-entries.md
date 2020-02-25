@@ -1,35 +1,46 @@
 # AuditEntries
 
-## Definition
+## Description
 
-The `BulkOperation.AuditEntries` property which is of type `List<AuditEntry>` gets `UPDATED`, `INSERTED` and `DELETED` data from the database when `UseAudit` is enabled.
+The `AuditEntries` property stores auditing metadata about `INSERTED`, `UPDATED`, and `DELETED` rows and values.
 
-The following example sets `UseAudit` to `true` and assigns the list of `AuditEntries` to populate.
+This option requires to set the [UseAudit](use-audit.md) property to `true`.
 
 ```csharp
-List<AuditEntry> auditEntries = new List<AuditEntry>();
+/// <summary>Gets or sets the `AuditEntries` property. The `AuditEntries` property stores auditing metadata about `INSERTED`, `UPDATED`, and `DELETED` rows and values. This option requires to set the [UseAudit](use-audit.md) property to `true`.</summary>
+public bool AuditEntries { get; set; }
+```
 
-context.BulkSaveChanges(options =>
+## Example
+
+We will demonstrate how to use the `UseAudit` and `AuditEntries` properties.
+
+### Execute
+
+We will execute a `BulkMerge` on a list that contains **1** new customer, and **2** existing customers.
+
+We will use the following BulkOptions:
+- UseAudit: To enable the auditing feature.
+- AuditEntries: To retrieve auditing metadata.
+
+### Code
+
+```csharp
+// Execute
+List<AuditEntry> auditEntries = new List<AuditEntry>();
+context.BulkMerge(list, options =>
 {
     options.UseAudit = true;
     options.AuditEntries = auditEntries;
 });
 
-foreach (var entry in auditEntries)
-{
-    foreach (var value in entry.Values)
-    {
-        var oldValue = value.OldValue;
-        var newValue = value.NewValue;
-    }
-}
+// Result
+FiddleHelper.WriteTable("1 - AuditEntry", auditEntries);
+FiddleHelper.WriteTable("2 - AuditEntryItem", auditEntries.SelectMany(x => x.Values));
 ```
-[Try it in EF6](https://dotnetfiddle.net/WwQ7oZ) | [Try it in EF Core](https://dotnetfiddle.net/Nvt1c3)
 
-## Purpose
-Logging old and new values is often useful to keep a history of changes in the database or file.
+Try it: [.NET Core](https://dotnetfiddle.net/) | [.NET Framework](https://dotnetfiddle.net/)
 
-## FAQ
+### Result
 
-### Why enabling this option decreases the performance?
-Enabling this option will require additional data to be returned from the database.
+We outputted all `AuditEntry` and `AuditEntryItem` auditing metadata.

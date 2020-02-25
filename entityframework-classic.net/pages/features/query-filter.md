@@ -18,7 +18,7 @@ public class EntityContext : DbContext
 // SELECT * FROM Customers WHERE IsDeleted = 0
 var list = context.Customers.ToList();
 ```
-Try it: [NET Framework](https://dotnetfiddle.net/aDsTWW) | [NET Core](https://dotnetfiddle.net/g1XRz1)
+Try it: [NET Core](https://dotnetfiddle.net/g1XRz1) | [NET Framework](https://dotnetfiddle.net/aDsTWW)
 
 The filter is applied in the database and application side:
 - **Database side**: Whenever possible, the filter is applied in the SQL query.
@@ -65,7 +65,7 @@ public class EntityContext : DbContext
 // SELECT * FROM Customers WHERE IsDeleted = 0
 var list = context.Customers.ToList();
 ```
-Try it: [NET Framework](https://dotnetfiddle.net/7cKY2x) | [NET Core](https://dotnetfiddle.net/cgSy5d)
+Try it: [NET Core](https://dotnetfiddle.net/cgSy5d) | [NET Framework](https://dotnetfiddle.net/7cKY2x)
 
 ### Instance Query Filter
 You can create an **Instance Query Filter** after a context instance has been created. This filter will be specific to this context instance. If your context instance already has query filter both filters will be enabled.
@@ -82,7 +82,7 @@ using (var context = new EntityContext())
 	FiddleHelper.WriteTable("Customers", list);			
 }
 ```
-Try it: [NET Framework](https://dotnetfiddle.net/qjRFbZ) | [NET Core](https://dotnetfiddle.net/S2tCDX)
+Try it: [NET Core](https://dotnetfiddle.net/S2tCDX) | [NET Framework](https://dotnetfiddle.net/qjRFbZ)
 
 ### Enable/Disable Query Filter
 You can enable/disable your **Query Filter** with the `Enable()`, `Disable()`, `EnableFilter(id)`, and `DisableFilder(id)` methods.
@@ -135,7 +135,7 @@ using (var context = new EntityContext())
 	}
 }
 ```
-Try it: [NET Framework](https://dotnetfiddle.net/tctGi0) | [NET Core](https://dotnetfiddle.net/hxOZQz)
+Try it: [NET Core](https://dotnetfiddle.net/hxOZQz) | [NET Framework](https://dotnetfiddle.net/tctGi0)
 
 > DANGER: DO NOT disable `Global Query Filter` unless you want to disable the filter for all your context instances.
 
@@ -163,7 +163,7 @@ public class EntityContext : DbContext
 // SELECT * FROM Customers WHERE IsDeleted = 0
 var list = context.Customers.ToList();
 ```
-Try it: [NET Framework](https://dotnetfiddle.net/b1kwHs) | [NET Core](https://dotnetfiddle.net/dVOBXI)
+Try it: [NET Core](https://dotnetfiddle.net/dVOBXI) | [NET Framework](https://dotnetfiddle.net/b1kwHs)
 
 > HINT: The filter is usually applied to an interface named `ISoftDelete` inherited by all entity types that use Soft Delete. 
 
@@ -189,7 +189,7 @@ public class EntityContext : DbContext
 // SELECT * FROM Customers WHERE TenantID = 1
 var list = context.Customers.ToList();
 ```
-Try it: [NET Framework](https://dotnetfiddle.net/WuWGCy) | [NET Core](https://dotnetfiddle.net/9WAJRN)
+Try it: [NET Core](https://dotnetfiddle.net/9WAJRN) | [NET Framework](https://dotnetfiddle.net/WuWGCy)
 
 > HINT: The filter is usually applied to an interface named `ITenant` inherited by all entity types that use multi-tenancy.
 
@@ -222,7 +222,7 @@ public class EntityContext : DbContext
 	public DbSet<Customer> Customers { get; set; }
 }
 ```
-Try it: [NET Framework](https://dotnetfiddle.net/HP9Fbe) | [NET Core](https://dotnetfiddle.net/YU8JLJ)
+Try it: [NET Core](https://dotnetfiddle.net/YU8JLJ) | [NET Framework](https://dotnetfiddle.net/HP9Fbe)
 
 ## Documentation
 
@@ -232,16 +232,16 @@ Try it: [NET Framework](https://dotnetfiddle.net/HP9Fbe) | [NET Core](https://do
 
 | Name | Description | Example |
 | :--- | :---------- | :------ |
-| `ID` | Gets the `QueryFilter` ID. | [NET Framework](https://dotnetfiddle.net/8z8spq) / [NET Core](https://dotnetfiddle.net/5Y5heH) |
-| `EntityType` | Gets the `QueryFilter` entity type on which the filter is applied. | [NET Framework](https://dotnetfiddle.net/DP6Del) / [NET Core](https://dotnetfiddle.net/qDSiY3) |
-| `IsEnabled` | Gets if the `QueryFilter` is enabled. Use `Enable()` and `Disable()` method to change the state. Always return false if the `QueryFilter` feature is disabled. | [NET Framework](https://dotnetfiddle.net/28AdvH) / [NET Core](https://dotnetfiddle.net/BvMqCw) |
+| `ID` | Gets the `QueryFilter` ID. | [NET Core](https://dotnetfiddle.net/5Y5heH) / [NET Framework](https://dotnetfiddle.net/8z8spq) |
+| `EntityType` | Gets the `QueryFilter` entity type on which the filter is applied. | [NET Core](https://dotnetfiddle.net/qDSiY3) / [NET Framework](https://dotnetfiddle.net/DP6Del) |
+| `IsEnabled` | Gets if the `QueryFilter` is enabled. Use `Enable()` and `Disable()` method to change the state. Always return false if the `QueryFilter` feature is disabled. | [NET Core](https://dotnetfiddle.net/BvMqCw) / [NET Framework](https://dotnetfiddle.net/28AdvH) |
 
 ###### Methods
 
 | Name | Description | Example |
 | :--- | :---------- | :------ |
-| `Enable()` | Enable the `QueryFilter`. | [NET Framework](https://dotnetfiddle.net/H7cqIU) / [NET Core](https://dotnetfiddle.net/6BeUbX) |
-| `Disable()` | Disable the `QueryFilter`. | [NET Framework](https://dotnetfiddle.net/ArFGJh) / [NET Core](https://dotnetfiddle.net/AIYH9v) |
+| `Enable()` | Enable the `QueryFilter`. | [NET Core](https://dotnetfiddle.net/6BeUbX) / [NET Framework](https://dotnetfiddle.net/H7cqIU) |
+| `Disable()` | Disable the `QueryFilter`. | [NET Core](https://dotnetfiddle.net/AIYH9v) / [NET Framework](https://dotnetfiddle.net/ArFGJh) |
 
 ### QueryFilterManager
 
@@ -249,17 +249,17 @@ Try it: [NET Framework](https://dotnetfiddle.net/HP9Fbe) | [NET Core](https://do
 
 | Name | Description | Example |
 | :--- | :---------- | :------ |
-| `IsEnabled` | Gets or sets if the `QueryFilter` feature is enabled. | [NET Framework](https://dotnetfiddle.net/ykhwxO) / [NET Core](https://dotnetfiddle.net/jAM0rJ) |
+| `IsEnabled` | Gets or sets if the `QueryFilter` feature is enabled. | [NET Core](https://dotnetfiddle.net/jAM0rJ) / [NET Framework](https://dotnetfiddle.net/ykhwxO) |
 
 ###### Methods
 
 | Name | Description | Example |
 | :--- | :---------- | :------ |
-| `Filter<T>(Expression<Func<T, bool>> filter)` | Filter an entity type using a predicate. | [NET Framework](https://dotnetfiddle.net/lqfF8b) / [NET Core](https://dotnetfiddle.net/fIcXBz) |
-| `Filter<T>(string id, Expression<Func<T, bool>> filter)` | Filter an entity type using a predicate. The `QueryFilter` will be created with the specified ID. | [NET Framework](https://dotnetfiddle.net/dBOdw2) / [NET Core](https://dotnetfiddle.net/z4Ls0g) |
-| `EnableFilter(string id)` | Enable the `QueryFilter` with the specified id.  | [NET Framework](https://dotnetfiddle.net/q7T7nl) / [NET Core](https://dotnetfiddle.net/beR6We)  |
-| `DisableFilter(string id)` | Disable the `QueryFilter` with the specified id. | [NET Framework](https://dotnetfiddle.net/Zoric3) / [NET Core](https://dotnetfiddle.net/x981TW)  |
-| `GetFilter(string id)` | Get the `QueryFilter` with the specified id. | [NET Framework](https://dotnetfiddle.net/2IBfGq) / [NET Core](https://dotnetfiddle.net/CkHI8j) |
+| `Filter<T>(Expression<Func<T, bool>> filter)` | Filter an entity type using a predicate. | [NET Core](https://dotnetfiddle.net/fIcXBz) / [NET Framework](https://dotnetfiddle.net/lqfF8b) |
+| `Filter<T>(string id, Expression<Func<T, bool>> filter)` | Filter an entity type using a predicate. The `QueryFilter` will be created with the specified ID. | [NET Core](https://dotnetfiddle.net/z4Ls0g) / [NET Framework](https://dotnetfiddle.net/dBOdw2) |
+| `EnableFilter(string id)` | Enable the `QueryFilter` with the specified id.  | [NET Core](https://dotnetfiddle.net/beR6We) / [NET Framework](https://dotnetfiddle.net/q7T7nl) |
+| `DisableFilter(string id)` | Disable the `QueryFilter` with the specified id. | [NET Core](https://dotnetfiddle.net/x981TW) / [NET Framework](https://dotnetfiddle.net/Zoric3)  |
+| `GetFilter(string id)` | Get the `QueryFilter` with the specified id. | [NET Core](https://dotnetfiddle.net/CkHI8j) / [NET Framework](https://dotnetfiddle.net/2IBfGq) |
 
 ## Limitations
 
@@ -272,38 +272,4 @@ For example:
 3. You load the same customer with all his invoices
 4. The customer invoices have not been filtered
 
-That is because both loaded customers are the same object instance. You can use `AsNoTracking` or use a new context instance if you need the customer with his invoice filtered.
-
-That is not a bug, that's how the `ChangeTracker` works.
-
-```csharp
-using (var context = new EntityContext())
-{
-	// 1. You load a customer with all his invoices
-	var customerA = context.Customers.Include(x => x.Invoices).FirstOrDefault();
-	FiddleHelper.WriteTable(customerA.Invoices);
-	
-	// 2. You add a filter to the invoice entity type
-	var filter = context.Configuration.QueryFilter.Filter<ISoftDelete>(customer => !customer.IsDeleted);
-	
-	// 3. You load the same customer with all his invoices
-	var customerB = context.Customers.Include(x => x.Invoices).FirstOrDefault();
-	
-	// 4. The customer invoices have not been filtered
-	FiddleHelper.WriteTable(customerB.Invoices);
-	
-	// Cause: That is because both loaded customers are the same object instance
-	Console.WriteLine("Object reference equals: " + object.ReferenceEquals(customerA, customerB));				
-}
-```
-Try it: [NET Framework](https://dotnetfiddle.net/oPE2ve) | [NET Core](https://dotnetfiddle.net/OZ1Jvj)
-
-## FAQ
-
-<details>
-<summary>Why should I use `Query Filter` over `Query ResultFilter`?</summary>
-
-The **Query Filter** in most cases filters on the database side, so less rows are returned which leads to better performance.
-
-The **Query ResultFilter** should only be used when the predicate cannot be interpreted as a query expression.
-</details>
+T

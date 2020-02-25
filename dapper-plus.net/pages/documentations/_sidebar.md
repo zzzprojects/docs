@@ -28,7 +28,5 @@
    - [Entity](relationship/relationship.md)
 - Manager
    - [Mapper Factory](manager/mapper-factory.md)
-- C# Eval Expression
-   - [LINQ Dynamic](eval-expressions/linq-dynamic.md)
-   - [Eval.Compile](eval-expressions/eval-compile.md)
-   - [Eval.Execute](eval-expressions/eval-execute.md)
+- [Auditing](audit/audit.md)
+- [Logging](logging/logging.md)

@@ -1,6 +1,7 @@
 ---
 PermaID: 1000127
 Name: Complex Type
+Tags: code-first fluent-api data-annotations
 ---
 
 # ComplexType

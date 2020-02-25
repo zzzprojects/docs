@@ -1,6 +1,7 @@
 ---
 PermaID: 1000088
 Name: Table per Hierarchy
+Tags: model inheritance tph
 ---
 
 # Table Per Hierarchy

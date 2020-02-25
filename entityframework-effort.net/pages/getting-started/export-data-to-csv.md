@@ -1,8 +1,8 @@
 # Export Data to Csv Files
 
-## Introduction
+## Description
 
-Creating a CSV file could be tiresome, **Effort** provides an easy-to-use program, called [**Effort.CsvTool**](https://github.com/zzzprojects/effort/tree/develop/Main/Source/Effort.CsvTool) that export the current state of your entire database into CSV files that Effort can consume. 
+Creating a CSV file could be tiresome, **Effort** provides an easy-to-use program, called [**Effort.CsvTool**](https://github.com/zzzprojects/EntityFramework-Effort/tree/master/Main/Source/misc/Effort.CsvTool) that export the current state of your entire database into CSV files that Effort can consume. 
 
 It is a GUI based tool.
 

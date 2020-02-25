@@ -1,6 +1,7 @@
 # AllowDuplicateKeys
 
-## Definition
+## Description
+
 The `BulkOperation.AuditEntries` property gets or sets if a duplicate key is possible in the source.
 
 The following example chooses a `Name` property as a key to perform the `BulkMerge` operations and also allows a duplicate key.
@@ -20,7 +21,7 @@ using (var context = new EntityContext())
     });
 }
 ```
-[Try it in EF6](https://dotnetfiddle.net/tvZXih) | [Try it in EF Core](https://dotnetfiddle.net/DoD5hE)
+Try it: [EF Core](https://dotnetfiddle.net/DoD5hE) | [EF6](https://dotnetfiddle.net/tvZXih)
 
  - It will update the record of "Customer_A" because it already exists in the database.
  - The data for "Customer_B" is inserted to the database as a new record.

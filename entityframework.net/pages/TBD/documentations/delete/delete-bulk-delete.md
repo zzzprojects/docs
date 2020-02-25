@@ -1,6 +1,7 @@
 ---
 PermaID: 1000112
 Name: Bulk Delete
+Tags: save delete bulk-delete
 ---
 
 # Bulk Delete

@@ -4,7 +4,7 @@ Permalink: ef-core-query-filter
 
 # Query Filter
 
-## Introduction
+## Description
 
 In almost every application, there are some tables which contains inactive or soft deleted data. This kind of data should not be shown to the client or used anymore every time we query these tables, we must remove them with a WHERE clause. Major ORM like NHibernate have a filter feature to select records based on a predefined filter but, unfortunately for Entity Framework users, Query Filter is only available through third party library.
 

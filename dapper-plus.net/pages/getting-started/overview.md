@@ -1,35 +1,54 @@
-# Overview
+# Getting Started
 
-## Definition
+## What is Dapper Plus?
 
-**Dapper Plus** is a library that dramatically improves dapper performances by using high efficient Bulk Actions Helpers (Insert, Update, Delete, and Merge).
+Dapper Plus is a <a href="https://www.nuget.org/packages/Z.Dapper.Plus/">NuGet library</a> that will extend your `IDbConnection` and `IDbTransaction` interface with high-performance bulk operation extension methods:
+- [BulkInsert](/bulk-insert)
+- [BulkUpdate](/bulk-update)
+- [BulkDelete](/bulk-delete)
+- [BulkMerge](/bulk-merge)
+- BulkSynchronize
+- And more
 
-People using this library often report performance enhancement by **50x times** and more!
+Those methods are also accessible from the `DapperPlusContext`.
 
-The library is installed through <a href="/download">NuGet</a>. Extension methods are added automatically to your IDbConnection interface.
+**.NET Core** and **.NET Framework** are supported
 
-It can be used with or without Dapper, and it's compatible with all others Dapper packages.
-
-
+### Example
 
 ```csharp
-// CONFIGURE & MAP entity
-DapperPlusManager.Entity<Order>().Table("Orders").Identity(x => x.ID);
+DapperPlusManager.Entity<Invoice>().Identity(x => x.InvoiceID, true);
+		
+var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServer());
+		
+// Easy to use
+connection.BulkInsert(invoices);
 
-// CHAIN & SAVE entity
-connection.BulkInsert(orders)
-          .AlsoInsert(order => order.Items);
-          .Include(order => order.ThenMerge(order => order.Invoice)
-                                 .AlsoMerge(invoice => invoice.Items))
-          .AlsoMerge(order => order.ShippingAddress);
+// Easy to customize
+connection.UseBulkOptions(options => options.InsertIfNotExists = true)
+          .BulkInsert(invoices);
 ```
 
-## Installing
-Download the <a href="/download">NuGet Package</a>
+[Try it](https://dotnetfiddle.net/nI4D4E)
 
-## Requirements
 
-### Database Provider
+## Who is it for?
+
+If you need to make massive importation, have a multi-editing grid, need to synchronize data or just want an easy to use solution to save your entities than Dapper Plus is for you.
+
+Easy to use, easy to customize!
+
+## Why should you use it?
+
+Querying your data is very easy with Dapper.
+
+However, how do you save back your entities? You need to either use the execute method or a third-party library like **Dapper Plus** for an easy to use solution.
+
+Saving your data as fast as possible is very important to make your application **responsive**, and that's exactly what our library offer.
+
+Oh, we also offer **outstanding customer** support and hundred of [Online Examples](/online-examples) to help you to get started.
+
+## Database Provider Supported
 
 - SQL Server 2008+
 - SQL Azure
@@ -38,80 +57,3 @@ Download the <a href="/download">NuGet Package</a>
 - MySQL
 - PostgreSQL
 - SQLite
-
-## Mapper
-
-**Dapper Plus Mapper** allows to map the conceptual model (Entity) with the storage model (Database) and configure options to perform Bulk Actions.
-
-### Mapper Examples
-
-```csharp
-DapperPlusManager.Entity<Order>().Table("Orders")
-                                 .Identity(x => x.ID)
-                                 .BatchSize(200);
-```
-
-## Bulk Actions
-
-**Bulk Actions** allows to perform a bulk insert, update, delete or merge and include related child items.
-
-Bulk Actions Available:
-
-- [BulkInsert](/bulk-insert)
-- [BulkUpdate](/bulk-update)
-- [BulkDelete](/bulk-delete)
-- [BulkMerge](/bulk-merge) (UPSERT operation)
-
-### Bulk Actions Examples
-```csharp
-connection.BulkInsert(orders, order => order.Items)
-          .BulkInsert(invoices, invoice => invoice.Items)
-          .BulkMerge(shippingAddresses);
-
-```
-
-### Performance Comparisons
-
-| Operations      | 1,000 Rows     | 10,000 Rows    | 100,000 Rows   | 1,000,000 Rows | 
-| :-------------- | -------------: | -------------: | -------------: | -------------: |
-| Insert          | 9 ms           | 25 ms          | 200 ms         | 2,000 ms       |
-| Update          | 50 ms          | 80 ms          | 575 ms         | 6,500 ms       |
-| Delete          | 45 ms          | 70 ms          | 625 ms         | 6,800 ms       |
-| Merge           | 65 ms          | 160 ms         | 1,200 ms       | 12,000 ms      |
-
-## Also Bulk Actions
-
-**Also Bulk Actions** allows to perform bulk action with a lambda expression using entities from the last Bulk[Action] or ThenBulk[Action] used.
-
-### Also Bulk Actions Examples
-```csharp
-connection.BulkInsert(orders)
-          .AlsoInsert(order => order.Items)
-          .AlsoInsert(order => order.Invoice)
-          .AlsoInsert(order => order.Invoice.Items);
-```
-
-## Then Bulk Actions
-
-**Then Bulk Actions** is similar to Also Bulk Actions but modify entities used for the next bulk action using a lambda expression.
-
-### Then Bulk Actions Examples
-```csharp
-connection.BulkInsert(orders)
-          .AlsoInsert(order => order.Items)
-          .ThenInsert(order => order.Invoice)
-          .ThenInsert(invoice => invoice.Items);
-```
-
-## Include Actions
-
-The Dapper Plus **Include** method allows resolving issues with multiple "ThenBulk[Action]" method.
-
-### Include Actions Examples
-```csharp
-connection.BulkInsert(orders)
-          .Include(x => x.ThenInsert(order => order.Items)
-                         .ThenInsert(orderItem => orderItem.Metas))
-          .Include(x => x.ThenInsert(order => order.Invoice)
-                         .ThenInsert(Invoice => invoice.Items));
-```

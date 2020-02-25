@@ -1,6 +1,7 @@
 ---
 PermaID: 1000016
 Name: Future
+Tags: third-party-feature
 ---
 
 # Future

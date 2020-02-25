@@ -1,6 +1,7 @@
 ---
-PermaID: 1000235
-Name: Include & ThenInclude
+permaid: 1000235
+name: Include & ThenInclude
+tags: query include
 ---
 
 # Include & ThenInclude

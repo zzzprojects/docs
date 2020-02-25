@@ -1,6 +1,7 @@
 ---
 PermaID: 1000064
 Name: Basic Query
+Tags: query
 ---
 
 # Basic Query

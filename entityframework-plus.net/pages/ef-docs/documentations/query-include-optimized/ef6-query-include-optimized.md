@@ -4,7 +4,7 @@ Permalink: query-include-optimized
 
 # Query IncludeOptimized
 
-## Introduction
+## Description
 
 Entity Framework does an amazing job at generating queries, however, they are not always optimized and can end up transferring more data than the query really needs.
 
@@ -46,8 +46,8 @@ var orders = ctx.Orders
 
 // return 1 row * 20 columns = 20 cells
 // return 20 rows * 10 columns = 200 cells
-// return 10 rows * 10 columns = 10 cells
-// total: 20 + 200 + 10 = 230 cells transferred
+// return 10 rows * 10 columns = 100 cells
+// total: 20 + 200 + 100 = 320 cells transferred
 
 ```
 
@@ -90,8 +90,6 @@ When an immediate method is invoked to resolve the query, multiple queries are c
 ## Limitations
 
  - **DO NOT** work with **AsNoTracking**
- - Entity Framework Core:
-  - Not supported yet.
  - Cannot be mixed with projection
  - Cannot be mixed with Include (Include doesn't support projection)
  - Cannot be mixed with IncludeFilter

@@ -1,6 +1,7 @@
 ---
-PermaID: 1000230
-Name: SQLite
+permaid: 1000230
+name: SQLite
+tags: provider connection
 ---
 
 # SQLite

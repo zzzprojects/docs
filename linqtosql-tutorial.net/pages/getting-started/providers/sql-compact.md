@@ -1,6 +1,6 @@
 # SQL Server Compact
 
-## Introduction
+## Description
 
 In LINQ to SQL, you can also access SQL Server Compact databases.
 

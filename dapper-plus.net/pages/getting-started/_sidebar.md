@@ -1,8 +1,7 @@
-- Getting Started
-   - [Overview](overview.md)
-   - [Licensing](licensing.md)
-- Tutorials
-   - [Dapper Plus Actions](dapper-plus-actions.md)
-   - [Dapper Plus Mapper](dapper-plus-mapper.md)
-   - [Dapper Plus Relationship](dapper-plus-relationship.md)
-   - [Dapper Plus Manager](dapper-plus-manager.md)
+- [Overview](overview.md)
+- [Basic Usage](getting-started-basic-usage.md)
+- [Identity Propagation](getting-started-identity-propagation.md)
+- [Mapping](getting-started-mapping.md)
+- [Async Action](getting-started-async-action.md)
+- [Chaining Action](getting-started-chaining-action.md)
+- [Licensing](licensing.md)

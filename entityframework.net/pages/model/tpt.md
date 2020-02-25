@@ -1,6 +1,7 @@
 ---
 PermaID: 1000087
 Name: Table per Type
+Tags: model inheritance tpt
 ---
 
 # Table Per Type

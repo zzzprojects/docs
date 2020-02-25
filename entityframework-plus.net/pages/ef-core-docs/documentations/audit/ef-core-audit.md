@@ -3,7 +3,7 @@ Permalink: ef-core-audit
 ---
 # Audit
 
-## Introduction
+## Description
 
 Entity Framework Core saves entities in a database but doesn't let you easily track changes, for example, a history of all modifications and their author in an audit table.
 

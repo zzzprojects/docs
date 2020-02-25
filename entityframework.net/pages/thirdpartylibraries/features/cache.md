@@ -1,6 +1,7 @@
 ---
 PermaID: 1000020
 Name: Cache
+Tags: third-party-feature
 ---
 
 # Cache

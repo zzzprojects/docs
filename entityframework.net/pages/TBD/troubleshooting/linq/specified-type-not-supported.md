@@ -1,6 +1,7 @@
 ---
 PermaID: 1000156
 Name: Specified type not supported
+Tags: troubleshooting
 ---
 
 # Specified Type Not Supported

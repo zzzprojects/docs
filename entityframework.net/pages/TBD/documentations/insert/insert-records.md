@@ -1,6 +1,7 @@
 ---
 PermaID: 1000084
 Name: Insert Records
+Tags: save insert bulk-insert
 ---
 
 # Insert Records

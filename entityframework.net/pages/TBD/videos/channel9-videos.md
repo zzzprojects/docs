@@ -1,6 +1,7 @@
 ---
 PermaID: 1000152
 Name: Channel9 Videos
+Tags: videos
 ---
 
 # Channel9 Videos

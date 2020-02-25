@@ -2,7 +2,7 @@
 permalink: detach-single-entity
 ---
 
-## Definition
+## Description
 
 GraphDiff merges an entire graph of detached entities into the database using **DbContext.UpdateGraph()**.
 

@@ -1,5 +1,7 @@
 # Ignore OnInsert Expression
 
+## Description
+
 The `IgnoreOnInsertExpression` allows you to ignore some columns when the `BulkInsert` method is executed.
 
 The following example ignores the `ModifiedDate` property when bulk insert operation is performed.
@@ -20,6 +22,6 @@ using (var context = new EntityContext())
 }
 ```
 
-[Try it in EF6](https://dotnetfiddle.net/RljtrO) | [Try it in EF Core](https://dotnetfiddle.net/JfhEKv)
+Try it: [EF Core](https://dotnetfiddle.net/JfhEKv) | [EF6](https://dotnetfiddle.net/RljtrO)
 
  - It will insert data in all the columns except for the `ModifiedDate` column because `ModifiedDate` property is specified in `IgnoreOnInsertExpression`. 

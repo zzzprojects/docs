@@ -1,6 +1,7 @@
 ---
 PermaID: 1000138
 Name: Mitchel Sellers Blog
+Tags: blogs
 ---
 
 # MitchelSellers's Blog

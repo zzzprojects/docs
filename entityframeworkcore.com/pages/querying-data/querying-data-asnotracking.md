@@ -1,6 +1,7 @@
 ---
-PermaID: 1000231
-Name: AsNoTracking
+permaid: 1000231
+name: AsNoTracking
+tags: query change-tracker disconnected
 ---
 
 # AsNoTracking

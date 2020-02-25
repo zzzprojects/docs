@@ -2,7 +2,7 @@
 permalink: detach-aggregated-entity
 ---
 
-## Definition
+## Description
 
 GraphDiff is capable of mapping changes from an aggregate root to the database. The aggregate root is a bunch of models which are handled by one unit when updating/adding/deleting.
 

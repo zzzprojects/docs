@@ -43,7 +43,7 @@ Query method can execute a query and map the result to a strongly typed list wit
 string sql = "SELECT TOP 10 * FROM Orders AS A INNER JOIN OrderDetails AS B ON A.OrderID = B.OrderID;";
 
 using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServerW3Schools()))
-{			
+{            
     var orderDictionary = new Dictionary<int, Order>();
 
 
@@ -74,4 +74,4 @@ using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlSer
 }
 ```
 
-{% include component-try-it.html href='https://dotnetfiddle.net/DPiy2b' %}
+Try it: [.NET Core](https://dotnetfiddle.net/HClmCa) | [.NET Framework](https://dotnetfiddle.net/DPiy2b)

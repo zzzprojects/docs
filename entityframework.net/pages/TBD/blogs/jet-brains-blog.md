@@ -1,6 +1,7 @@
 ---
 PermaID: 1000139
 Name: Jet Brains Blog
+Tags: blogs
 ---
 
 # JetBrains Blog

@@ -1,6 +1,7 @@
 ---
 PermaID: 1000027
 Name: Batch Delete
+Tags: third-party-feature
 ---
 
 # Batch Delete

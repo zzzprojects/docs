@@ -1,6 +1,7 @@
 ---
 PermaID: 1000089
 Name: Table per Concrete
+Tags: model inheritance tpc
 ---
 
 # Table Per Concrete

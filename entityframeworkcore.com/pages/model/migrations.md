@@ -1,6 +1,7 @@
 ---
-PermaID: 1000216
-Name: Migrations
+permaid: 1000216
+name: Migrations
+tags: code-first migration command-line
 ---
 
 # Migrations

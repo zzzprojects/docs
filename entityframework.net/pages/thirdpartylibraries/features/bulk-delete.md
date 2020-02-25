@@ -1,6 +1,7 @@
 ---
 PermaID: 1000025
 Name: Bulk Delete
+Tags: third-party-feature
 ---
 
 # Bulk Delete

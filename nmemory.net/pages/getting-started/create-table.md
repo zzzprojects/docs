@@ -1,6 +1,6 @@
 # Create Table
 
-## Introduction
+## Description
  
 **NMemory** provides a class **TableCollection** which represents a collection of the tables in a database. **TableCollection.Create** method initializes a database table and it takes two arguments.
 

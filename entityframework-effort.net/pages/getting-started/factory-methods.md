@@ -1,6 +1,6 @@
 # Factory Methods
 
-## Factory Methods
+## Description
 
 All the factory classes provide two kinds of factory methods.
 

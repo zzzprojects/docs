@@ -1,6 +1,7 @@
 ---
 PermaID: 1000155
 Name: Entity Type has not key defined
+Tags: troubleshooting
 ---
 
 # EntityType Has No Key Defined

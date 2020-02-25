@@ -1,6 +1,6 @@
 # Batch-size
 
-## Definition
+## Description
 
 Batch size is the number of records in each batch. The rows in a batch are sent to the server at the end of each batch.
 
@@ -9,7 +9,7 @@ The `BatchSize` property gets or sets the number of records to use in a batch. T
 ```csharp
 context.BulkSaveChanges(options => options.BatchSize = 1000);
 ```
-[Try it in EF6](https://dotnetfiddle.net/BThvHs) | [Try it in EF Core](https://dotnetfiddle.net/qonEbL)
+Try it: [EF Core](https://dotnetfiddle.net/qonEbL) | [EF6](https://dotnetfiddle.net/BThvHs)
 
  - A batch is complete when `BatchSize` rows have been processed or there are no more rows to send to the destination data source.
  - The default value is zero which indicates that each operation is a single batch.

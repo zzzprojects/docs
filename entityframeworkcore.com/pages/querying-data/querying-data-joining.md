@@ -1,6 +1,7 @@
 ---
-PermaID: 1000236
-Name: Joining
+permaid: 1000236
+name: Joining
+tags: query join
 ---
 
 # Joining

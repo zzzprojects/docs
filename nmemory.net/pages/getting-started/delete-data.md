@@ -1,6 +1,6 @@
 # Delete Data
 
-## Introduction
+## Description
 
 **Table.Delete** deletes an entity from the table. It takes the following arguments by using different overloads.
 

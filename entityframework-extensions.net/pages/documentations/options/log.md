@@ -1,5 +1,7 @@
 # Log
 
+## Description
+
 The `BulkOperation.Log` property can be set to a delegate for any method that takes a string to `log` all database events as soon as they happen. 
 
  - Most commonly, it is used with any `TextWriter` by setting it to the `Write` method of that `TextWriter`. 
@@ -14,7 +16,7 @@ context.BulkSaveChanges(options =>
     options.Log += s => Console.WriteLine(s);
 });
 ```
-[Try it in EF6](https://dotnetfiddle.net/wXUAxN) | [Try it in EF Core](https://dotnetfiddle.net/MsB5QE)
+Try it: [EF Core](https://dotnetfiddle.net/MsB5QE) | [EF6](https://dotnetfiddle.net/wXUAxN)
 
 Notice that `BulkOperation.Log` is set to `Console.WriteLine`. This is all that is needed to log database events to the console. 
 
@@ -28,4 +30,4 @@ context.BulkSaveChanges(options =>StringBuilder
     options.Log += s => logger.AppendLine(s);
 });
 ```
-[Try it in EF6](https://dotnetfiddle.net/NY0Hu2) | [Try it in EF Core](https://dotnetfiddle.net/vyjM3a)
+Try it: [EF Core](https://dotnetfiddle.net/vyjM3a) | [EF6](https://dotnetfiddle.net/NY0Hu2)

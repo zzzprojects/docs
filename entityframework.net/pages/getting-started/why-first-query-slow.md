@@ -1,6 +1,7 @@
 ---
 PermaID: 1000066
 Name: Why First Query is Slow
+Tags: getting-started performance
 ---
 
 # Why First Query is slow?

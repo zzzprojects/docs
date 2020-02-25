@@ -1,6 +1,6 @@
 # Query Data
 
-## Introduction
+## Description
 
 To retrieve using LINQ query, the first step is to specify the data source and a variable must be declared before it can be used.
 

@@ -1,6 +1,7 @@
 ---
 PermaID: 1000010
 Name: EF Dynamic Filters
+Tags: third-party-library
 ---
 
 # Dynamic Filters

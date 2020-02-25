@@ -2,7 +2,7 @@
 permalink: detach-owned-entity
 ---
 
-## Definition
+## Description
 
 An owned entity can be described as **being a part of**, when updating a graph then GraphDiff also changes owned entities with its owner.
 

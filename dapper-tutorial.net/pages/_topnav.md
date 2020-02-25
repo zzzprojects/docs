@@ -1,3 +1,4 @@
+- [Getting Started](getting-started/step-by-step-tutorial.md)
 - [Documentation](documentations/dapper/dapper.md)
 - [3<sup>rd</sup> Party Libraries](third-party-libraries/dapper-plus-third-party-library.md)
 - [Knowledge Base](/knowledge-base)

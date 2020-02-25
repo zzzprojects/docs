@@ -1,6 +1,7 @@
 ---
 PermaID: 1000085
 Name: Insert Multiple Entities
+Tags: save insert bulk-insert
 ---
 
 # Insert Multiple Entities

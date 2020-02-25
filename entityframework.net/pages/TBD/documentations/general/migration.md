@@ -1,6 +1,7 @@
 ---
 PermaID: 1000098
 Name: Migration
+Tags: code-first migration
 ---
 
 # Migration
@@ -100,7 +101,7 @@ Now If you rerun your application, you would get an `InvalidOperationException`.
 
 > The model backing the 'BlogContext' context has changed since the database was created. Consider using Code First Migrations to update the database ( http://go.microsoft.com/fwlink/?LinkId=238269).
 
-It�s time to start using Code First Migrations. There are two kinds of Migration;
+It's time to start using Code First Migrations. There are two kinds of Migration;
 
  - Automated Migration
  - Code-based Migration
@@ -110,7 +111,7 @@ It�s time to start using Code First Migrations. There are two kinds of Migrati
 To use Automated Migration, run the following command in the Package Manager Console.
 
 ```csharp
-enable-migrations �EnableAutomaticMigration:$true
+enable-migrations EnableAutomaticMigration:$true
 ```
 
 Once the command runs successfully, it creates an internal sealed Configuration class derived from `DbMigrationConfiguration` in the Migration folder in your project.
@@ -208,7 +209,7 @@ namespace EFDemo.Migrations
 }
 ```
 
-We could now edit or add to this migration, but everything looks pretty good. Let�s use Update-Database to apply this migration to the database.
+We could now edit or add to this migration, but everything looks pretty good. Let's use Update-Database to apply this migration to the database.
 
 Run the `Update-Database` command in Package Manager Console.
 

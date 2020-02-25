@@ -29,7 +29,7 @@ using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlSer
 	}
 }
 ```
-{% include component-try-it.html href='https://dotnetfiddle.net/RlZRFz' %}
+Try it: [.NET Core](https://dotnetfiddle.net/C5koRx) | [.NET Framework](https://dotnetfiddle.net/RlZRFz)
 
 ## TransactionScope
 

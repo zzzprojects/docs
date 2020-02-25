@@ -4,7 +4,7 @@ Permalink: batch-delete
 
 # Batch Delete
 
-## Introduction
+## Description
 
 Deleting using Entity Framework can be very slow if you need to delete hundreds or thousands of entities. Entities are first loaded in the context before being deleted which is very bad for the performance and then, they are deleted one by one which makes the delete operation even worse.
 

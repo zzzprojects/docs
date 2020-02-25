@@ -1,6 +1,7 @@
 ---
 PermaID: 1000011
 Name: Auto History
+Tags: third-party-library
 ---
 
 # AutoHistory

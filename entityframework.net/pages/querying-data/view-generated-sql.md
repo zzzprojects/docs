@@ -1,6 +1,7 @@
 ---
 PermaID: 1000076
 Name: View Generated SQL
+Tags: query
 ---
 
 # View Generated SQL

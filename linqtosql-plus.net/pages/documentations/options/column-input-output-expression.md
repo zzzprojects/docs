@@ -1,6 +1,7 @@
 # ColumnInputOutputExpression
 
-## Definition
+## Description
+
 Gets or sets columns to map with the direction `InputOutput`.
 
 The key is required for operations such as `BulkUpdate` and `BulkMerge`.

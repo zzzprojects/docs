@@ -1,6 +1,7 @@
 ---
 PermaID: 1000117
 Name: Required
+Tags: code-first fluent-api data-annotations
 ---
 
 # Required

@@ -1,6 +1,7 @@
 ---
 PermaID: 1000121
 Name: Key
+Tags: code-first fluent-api data-annotations
 ---
 
 # Key

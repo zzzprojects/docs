@@ -11,41 +11,35 @@ You can download it here: [Download](http://eval-expression.net/download)
 You can use any LINQ method that support predicate with a dynamic C# expression:
 
 - Deferred
-   - SkipWhile
-   - TakeWhile
-   - Where
+   - OrderByDescendingDynamic
+   - OrderByDynamic
+   - SelectDynamic
+   - SelectMany
+   - SkipWhileDynamic
+   - TakeWhileDynamic
+   - ThenByDescendingDynamic
+   - ThenByDynamic
+   - WhereDynamic
 - Immediate
-   - All
-   - Any
-   - Count
-   - First
-   - FirstOrDefault
-   - Last
-   - LastOrDefault
-   - LongCount
-   - Single
-   - SingleOrDefault
+   - AllDynamic
+   - AnyDynamic
+   - CountDynamic
+   - FirstDynamic
+   - FirstOrDefaultDynamic
+   - LastDynamic
+   - LastOrDefaultDynamic
+   - LongCountDynamic
+   - SingleDynamic
+   - SingleOrDefaultDynamic
 
 ### Example
 ```csharp
 var list = new List<int>() { 1, 2, 3, 4, 5 };
 
-var list2 = list.Where(x => "x > 2");
-var list3 = list.Where(x => "x > X", new { X = 2 }); // with parameter
+var list2 = list.WhereDynamic(x => "x > 2");
+var list3 = list.WhereDynamic(x => "x > X", new { X = 2 }); // with parameter
 ```
 {% include component-try-it.html href='https://dotnetfiddle.net/S42mkU' %}
-
-## LINQ Dynamic - Ordering and Selecting
-You can use any ordering and selecting method with a dynamic C# expression: 
-
- - OrderByDescendingDynamic
- - OrderByDynamic
- - SelectDynamic
- - SelectMany
- - ThenByDescendingDynamic
- - ThenByDynamic
-
-> The **"Dynamic"** suffix is required to not override the default behavior (ordering or selecting by a string is valid).
 
 ### Example
 ```csharp

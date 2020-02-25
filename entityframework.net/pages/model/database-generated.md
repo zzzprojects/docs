@@ -1,6 +1,7 @@
 ---
 PermaID: 1000124
 Name: Database Generated
+Tags: code-first fluent-api data-annotations
 ---
 
 # DatabaseGenerated

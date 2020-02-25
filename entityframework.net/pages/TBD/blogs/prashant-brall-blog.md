@@ -1,6 +1,7 @@
 ---
 PermaID: 1000136
 Name: Prashant Brall Blog
+Tags: blogs
 ---
 
 # Prashant Brall's Blog

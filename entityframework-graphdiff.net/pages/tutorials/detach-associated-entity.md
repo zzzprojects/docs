@@ -2,7 +2,7 @@
 permalink: detach-associated-entity
 ---
 
-## Definition
+## Description
 
 GraphDiff can handle associated entities, when updating an entity graph then associated entities are not changed by GraphDiff.
 

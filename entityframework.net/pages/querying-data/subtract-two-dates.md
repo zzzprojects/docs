@@ -1,6 +1,7 @@
 ---
 PermaID: 1000078
 Name: Substract Two Dates
+Tags: query
 ---
 
 # Subtract Two Dates

@@ -1,6 +1,7 @@
 ---
 PermaID: 1000113
 Name: What is a DbContext
+Tags: getting-started dbcontext
 ---
 
 # What is DbContext

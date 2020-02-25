@@ -1,6 +1,7 @@
 # AllowUpdatePrimaryKeys
 
-## Definition
+## Description
+
 Gets or sets if the key must also be included in columns to `UPDATE`.
 
 

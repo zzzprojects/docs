@@ -1,6 +1,10 @@
 # PreBulkMerge
 
+## Description
+
 The `PreBulkMerge` event is raised as soon as the `BulkMerge` method is called and no configuration or anything else is done before. It allows you to set some global configuration for `BulkMerge`. 
+
+## Example
 
 The following example sets the `CreatedDate` for new customers and `ModifiedDate` property for existing customers.
 

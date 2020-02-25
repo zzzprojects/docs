@@ -1,6 +1,7 @@
 ---
-PermaID: 1000229
-Name: SQL Server
+permaid: 1000229
+name: SQL Server
+tags: provider connection
 ---
 
 # SQL Server

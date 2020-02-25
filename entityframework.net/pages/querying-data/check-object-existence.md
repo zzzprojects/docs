@@ -1,6 +1,7 @@
 ---
 PermaID: 1000082
 Name: Check Object Existence
+Tags: query
 ---
 
 # Check Object Existence

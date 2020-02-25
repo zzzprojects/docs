@@ -1,6 +1,10 @@
 # PreBatchSaveChanges
 
+## Description
+
 The `PreBatchSaveChanges` event is raised as soon as the `BatchSaveChanges` method is called and no configuration or anything else is done before. It allows you to set some global configuration for `BatchSaveChanges`. 
+
+## Example
 
 The following example sets the `CreatedDate` for new customers and `ModifiedDate` property for existing customers.
 
@@ -28,6 +32,6 @@ EntityFrameworkManager.PreBatchSaveChanges = ctx =>
 };
 ```
 
-{% include component-try-it.html href='https://dotnetfiddle.net/UtcHa2 ' %}
+{% include component-try-it.html href='https://dotnetfiddle.net/UtcHa2' %}
 
 In the `PreBatchSaveChanges` event, the `CreatedDate` for new customers and `ModifiedDate` property for existing customers is set to `DateTime.Now` before the data is saved to the database.

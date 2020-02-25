@@ -1,6 +1,7 @@
 ---
 PermaID: 1000115
 Name: Table
+Tags: code-first fluent-api data-annotations
 ---
 
 # Table

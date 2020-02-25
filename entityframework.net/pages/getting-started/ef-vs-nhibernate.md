@@ -1,6 +1,7 @@
 ---
 PermaID: 1000031
 Name: Entity Framework vs Nhibernate
+Tags: getting-started nhibernate
 ---
 
 # Entity Framework vs NHibernate

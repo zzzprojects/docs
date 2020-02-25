@@ -1,6 +1,7 @@
 ---
-PermaID: 1000225
-Name: More...
+permaid: 1000225
+name: More...
+tags: provider connection
 ---
 
 # More Providers...

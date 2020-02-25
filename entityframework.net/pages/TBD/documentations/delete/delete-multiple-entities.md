@@ -1,6 +1,7 @@
 ---
 PermaID: 1000111
 Name: Delete Multiple Entities
+Tags: save delete bulk-delete
 ---
 
 # Delete Multiple Entities

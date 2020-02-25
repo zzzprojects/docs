@@ -2,58 +2,67 @@
 
 ## Description
 
-The `AuditActionType` is a property of the `ColumnMapping` class. 
+The `ColumnMappingAuditModeType` enum represents if a specific property should be included or excluded from the auditing. The default value is `ColumnMappingAuditModeType.Inherit`.
 
-The default value is `Inherit`.
-
-Inherit: Inherit from the AuditMode from the `BulkOperation` class. When IncludeAll, this column is included; When ExcludeAll, this column is excluded.
-Include: The column is always included in the audit.
-Exclude: The column is always excluded from the audit.
+You can include or exclude all properties with the `Inherit` value using the [AuditModeType](audit-mode-type.md) enum.
 
 ```csharp
+// The namespace is different because the https://bulk-operations.net/ library is used under the hood.
 namespace Z.BulkOperations
 {
-    /// <summary>Values that represent ColumnMappingAuditModeType.</summary>
+    /// <summary>The `ColumnMappingAuditModeType` enum represents if a specific property should be included or excluded from the auditing. The default value is `ColumnMappingAuditModeType.Inherit`.</summary>
     public enum ColumnMappingAuditModeType
     {
-        /// <summary>An enum constant representing the inherit option.</summary>
+        /// <summary>The name/value that represents if a specific property inherit from the AuditModeType (Default Value).</summary>
         Inherit,
 
-        /// <summary>An enum constant representing the include option.</summary>
+        /// <summary>The name/value that represents if a specific property is included.</summary>
         Include,
 
-        /// <summary>An enum constant representing the exclude option.</summary>
+        /// <summary>The name/value that represents if a specific property is excluded.</summary>
         Exclude
     }
 }
 ```
 
-> HINT: The `ColumnMappingAuditModeType` is in Z.BulkOperations namespace since the library is used under the hood.
-
 ## Example
 
-In this example, 
+We will demonstrate how to exclude all properties to include only specific properties.
 
-A BulkMerge will be performed. All columns are included by default but we explicit exclude an image column.
+### Mapping
 
+We will use the following mapping:
+
+- `AuditMode(AuditModeType.ExcludeAll)`: To exclude all properties.
+- `AuditMode(x => new { x.CustomerID, x.Name }, ColumnMappingAuditModeType.Include)`: To include specific properties.
+
+### Execute
+
+We will execute a `BulkMerge` on a list that contains **1** new customer and **2** existing customers.
+
+### Code
 
 ```csharp
 // Mapping
 DapperPlusManager.Entity<Customer>().Table("Customer")
-    .AuditMode(AuditModeType.ExcludeAll)
-    .AuditMode(x => new { x.CustomerID, x.Name }, ColumnMappingAuditModeType.Include);
-    
+	.AuditMode(AuditModeType.ExcludeAll)
+	.AuditMode(x => new { x.CustomerID, x.Name }, ColumnMappingAuditModeType.Include);
+	
 // Execute
 List<AuditEntry> auditEntries = new List<AuditEntry>(); 
-connection.UseBulkOptions(x => 
+connection.UseBulkOptions(options => 
 { 
-    x.AuditEntries = auditEntries; 
-    x.UseAudit = true;
+    options.UseAudit = true;
+    options.AuditEntries = auditEntries; 
 })
-.BulkMerge(list);
+.BulkMerge(list); 
 
 // Result
 FiddleHelper.WriteTable(auditEntries.SelectMany(x => x.Values));
 ```
 
 Try it: [.NET Core](https://dotnetfiddle.net/AmxN6Z) | [.NET Framework](https://dotnetfiddle.net/ANSXt4)
+
+### Result
+
+We outputted all `AuditEntryItem` auditing metadata. The only information that appears is about the `CustomerID` and `Name` property.
