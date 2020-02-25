@@ -28,7 +28,7 @@ However, some restriction applies. The identity must have either one of the thos
 
 ## AfterAction
 
-The `AfterAction` method allow you during the mapping to specify a custom action to perform after an operations has been made.
+The `AfterAction` method allows you during the mapping to specify a custom action to perform after an operation has been made.
 
 ```csharp
 DapperPlusManager.Entity<Invoice>().Identity(x => x.InvoiceID)
@@ -52,7 +52,7 @@ DapperPlusManager.Entity<Invoice>().Identity(x => x.InvoiceID)
 
 ## ThenForEach
 
-The `ThenForEach` method allow you to make a custom action after a bulk-operation has been made.
+The `ThenForEach` method allows you to make a custom action after a bulk-operation has been made.
 
 ```csharp
 connection.BulkInsert(invoices)
