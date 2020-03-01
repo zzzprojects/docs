@@ -54,7 +54,7 @@ See that we are adding a context with the option "UseInMemoryDataBase ()"
 
 To use this method, you will need the following Entity packages:
 
-```nuget
+```csharp
 Microsoft.EntityFrameworkCore
 Microsoft.EntityFrameworkCore.InMemory
 ```
@@ -87,7 +87,7 @@ Okay, we have a lot of things going on here, and I will explain:
 
 In the controller constructor we are receiving some objects by injection:
 
-- `ILogger logger` - ASP.NET Core log AplicacaoContext
+- `ILogger logger` = ASP.NET Core log AplicacaoContext
 - `db` = our Entity Framework context
 - `IHttpContextAccessor httpContextAccessor` = HttpContext of the application
 
