@@ -10,7 +10,7 @@ A Table-Valued Parameters (TVP) is a SQL Server feature that lets you pass an en
 
 TVP lets you pass a table to allow you to perform "IN" clause, massive insert, and a lot of more.
 
-Here is an example that will seed initial customer to our Database:
+Here is an example that will seed customers to our Database:
 
 ### Step 1
 
@@ -40,7 +40,6 @@ Then create the TVP type.
 connection.Execute(@"
     CREATE TYPE TVP_Customer AS TABLE
     (
-        [CustomerID] [INT] NULL,
         [Code] [VARCHAR](20) NULL,
         [Name] [VARCHAR](20) NULL
     )
@@ -72,12 +71,11 @@ In your parameter list, use the `AsTableValuedParameter` with the TVP type name 
 
 ```csharp
 var dt = new DataTable();
-dt.Columns.Add("CustomerID");
 dt.Columns.Add("Code");
 dt.Columns.Add("Name");
 
 for(int i = 0; i < 5; i++) {
-    dt.Rows.Add(DBNull.Value, "Code_" + i, "Name_" + i);
+    dt.Rows.Add("Code_" + i, "Name_" + i);
 }
         
 connection.Execute("Customer_Seed", new { Customers = dt.AsTableValuedParameter("TVP_Customer") }, commandType: CommandType.StoredProcedure);

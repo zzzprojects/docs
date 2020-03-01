@@ -16,6 +16,7 @@
    - [Dynamic](dapper/parameter-dynamic.md)
    - [List](dapper/parameter-list.md)
    - [String](dapper/parameter-string.md)
+   - [Table-Valued Parameter](dapper/parameter-table-valued-parameter.md)
 - Result
    - [Anonymous](dapper/result-anonymous.md)
    - [Strongly Typed](dapper/result-strongly-typed.md)
