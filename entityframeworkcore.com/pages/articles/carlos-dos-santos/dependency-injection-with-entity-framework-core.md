@@ -5,7 +5,7 @@ tags: article dependency-injection carlos-dos-santos
 OriginalLink: http://carloscds.net/2020/02/injecao-de-depenencia-em-c-bonus/
 CreatedDate: 2020-02-27
 CreatedUserName: Carlos dos Santos
-CreatedUserLink: http://carloscds.net/about/
+CreatedUserLink: http://carloscds.net/
 ---
 
 # Dependency Injection with EF Core

@@ -5,7 +5,7 @@ tags: article logging carlos-dos-santos
 OriginalLink: http://carloscds.net/2013/09/entity-framework-6gerando-log-dos-comandos-sql/
 CreatedDate: 2020-09-02
 CreatedUserName: Carlos dos Santos
-CreatedUserLink: http://carloscds.net/about/
+CreatedUserLink: http://carloscds.net/
 ---
 
 # Entity Framework 6 - Logging SQL Commands
