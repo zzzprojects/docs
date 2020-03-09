@@ -2,7 +2,7 @@
 
 ## Download
 
-First, you need to download the library on [NuGet](https://www.nuget.org/packages/Z.Dapper.Plus/)
+First, you need to download the library on [NuGet](https://www.nuget.org/packages/Z.Dapper.Plus/).
 
 Dapper Plus support:
 
@@ -22,7 +22,7 @@ When the library is added to your projects, the following extension methods are 
 
 ## Connection
 
-To perform a Bulk Operations on your IDbConnection:
+To perform a Bulk Operation on your IDbConnection:
 
 1. Create your connection
 2. Call the bulk operation from the connection
@@ -65,6 +65,6 @@ transaction.Commit();
 
 ## Online Example
 
-Whenever you want to check how an option work, make sure to search it in our [Online Examples](/online-examples) section.
+Whenever you want to check how an option works, make sure to search it in our [Online Examples](/online-examples) section.
 
 Hundreds of examples are available to get you started!

@@ -8,7 +8,7 @@ All Bulk Operations start with one of the following actions:
 - [BulkDelete](/bulk-delete)
 - [BulkMerge](/bulk-merge)
 
-You can include list directly in the method or you can chain your action with `Also[Action]` and `Then[Action]` methods.
+You can include lists directly in the method or you can chain your action with `Also[Action]` and `Then[Action]` methods.
 
 ```csharp
 connection.BulkInsert(invoices, x => x.InvoiceMeta, x => x.InvoiceItems, x=> x.InvoiceItems.Select(y => y.InvoiceItemMeta));

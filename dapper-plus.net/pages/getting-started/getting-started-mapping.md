@@ -12,7 +12,7 @@ There is 3 different way to use the DapperPlusContext:
 - Inheritance Context Mapping
 - Instance Context Mapping
 
-They have all pros and cons; choosing the right one will depend on what you need to do. Generally, the Global Context Mapping is is recommended.
+They all have pros and cons; choosing the right one will depend on what you need to do. Generally, the Global Context Mapping is recommended.
 
 ## Global Context Mapping
 
@@ -32,7 +32,7 @@ connection.BulkInsert(invoices);
 
 ## Inheritance Context Mapping
 
-The inheritance mapping allows you to map your entities for the scope of the context instance that inherit from the `DapperPlusContext`
+The inheritance mapping allows you to map your entities for the scope of the context instance that inherit from the `DapperPlusContext`.
 
 1.	Create a class that inherits from the DapperPlusContext
 2.	Add the mapping in the constructor
@@ -80,7 +80,7 @@ public static void SetMapping(DapperPlusContext context)
 
 ## Mapper Key
 
-Using a mapper key allow you to map multiple time the same entity type but with a different mapping.
+Using a mapper key allow you to map multiple times the same entity type but with a different mapping.
 
 When you call a bulk operations method, you need to pass this mapping key.
 
