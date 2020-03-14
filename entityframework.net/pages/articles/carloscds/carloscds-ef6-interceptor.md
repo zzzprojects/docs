@@ -8,7 +8,7 @@ CreatedUserName: Carlos dos Santos
 CreatedUserLink: http://carloscds.net/
 ---
 
-# Entity Framework – Interceptor Configuration
+# Entity Framework - Interceptor Configuration
 
 One of the new features of Entity Framework 6 is the possibility of configuring our model using code instead of the traditional configuration files (`app.config` / `web.config`). Also, we now have many other configurations that can be modified using the DbConfiguration class.
 

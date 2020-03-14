@@ -8,7 +8,7 @@ CreatedUserName: Carlos dos Santos
 CreatedUserLink: http://carloscds.net/
 ---
 
-# Entity Framework 6 – Working with Nightly Builds
+# Entity Framework 6 - Working with Nightly Builds
 
 Now returning to write more about the Entity Framework, we are waiting for the new version 6 (still with no definitive date to be released) that will bring very significant improvements, and we will explore some of them in the next articles.
 
@@ -21,7 +21,7 @@ PM> InstallPackage EntityFramework
 But it will install EF 5, which is the latest production version, released alongside Visual Studio 2012 and .Net 4.5. But if you want to install EF 6 in a project, you will have to use the following command:
 
 ```package-manager
-PM> InstallPackage EntityFramework –Pre
+PM> InstallPackage EntityFramework -Pre
 ```
 
 That will install the latest published version of EF 6, which is currently Alpha 1. Cool, this allows you to work with EF 6 and explore some very interesting features, but we don't want this, we want the cool things not yet published.

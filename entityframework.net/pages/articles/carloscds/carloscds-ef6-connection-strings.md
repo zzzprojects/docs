@@ -8,7 +8,7 @@ CreatedUserName: Carlos dos Santos
 CreatedUserLink: http://carloscds.net/
 ---
 
-# EF CodeFirst – Managing Connection Strings
+# EF CodeFirst - Managing Connection Strings
 
 Today we're going to talk a little bit about managing connection strings in Entity Framework Code First, a very simple and quick way to create a relational object mapping in C # with Visual Studio 2010.
 

@@ -8,6 +8,8 @@ CreatedUserName: Carlos dos Santos
 CreatedUserLink: http://carloscds.net/
 ---
 
+# EFProfiler - Entity Framework Profiler
+
 If you are working with EF4, you have probably wondered if the generated SQL commands are really optimized, or maybe when you have a performance problem. To answer that, several analysis tools or profilers exist, and one of these is the `EFProfiler`.
 
 The tool is quite simple. You download an executable from the website [EF Profiler](https://hibernatingrhinos.com/products/EFProf) and follow the instructions contained in the file "How to use.txt".
