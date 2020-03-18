@@ -34,7 +34,7 @@ Although EF 6 is entirely open source, only Microsoft releases the official vers
 
 To access Nightly Builds, you need to configure Visual Studio to access the address where they are published daily. We will do this by accessing the NuGet configuration in Tools / Library Package Manager / Package Manager Settings and then in Package Source:
 
-_Broken Image_
+<img src="https://www.carloscds.net/wp-content/uploads/2013/08/SNAGHTMLc0f2ab2_thumb2.png" width="679" height="425">
 
 Click on the "+" button and then fill in the fields:
 
@@ -45,13 +45,13 @@ Save by clicking `OK`. Now that we have set it up, let's create a Console type p
 
 With the project created, right-click on the name of your solution and then choose Manage Nuget Packages and you will see the image below:
 
-_Broken Image_
+<img src="https://www.carloscds.net/wp-content/uploads/2013/08/SNAGHTMLc1440a3_thumb2.png" width="628" height="420">
 
 See that we already have the Nightly Builds in our window, but first, we still need to indicate that we want the "Pre Releases", which are the unofficial versions. You can do this by clicking on the “Stable Only” option and changing to "Include Prerelease".
 
 With this done, we will click on "Nightly Builds", and in the search window we will type “Entity” and see that you will see the latest version published, in my case on 2013-08-18:
 
-_Broken Image_
+<img src="https://www.carloscds.net/wp-content/uploads/2013/08/SNAGHTMLc172099_thumb2.png" width="669" height="448">
 
 Now just click on "Install" to install the latest version.
 

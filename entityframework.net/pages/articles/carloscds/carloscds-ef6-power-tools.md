@@ -41,3 +41,5 @@ Now we need to compress everything again. Let's do this and naming it `EFPowerTo
 To finish, rename the `.ZIP` file to `.VSIX` and click to install!
 
 There, now you have the Entity Framework Power Tools working on your Visual Studio 2015!
+
+If you don't want to perform the steps above, click [here](https://github.com/carloscds/Palestras/blob/master/Tools/EFPowerToolsVS2015.zip) and download the VSIX file ready!

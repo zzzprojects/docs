@@ -24,4 +24,4 @@ C: My Project> ngen install EntityFramework.dll
 
 After that you will see a screen that looks like this:
 
-_Broken Image_
+<img src="https://www.carloscds.net/wp-content/uploads/2013/11/image_thumb2.png" width="597" height="150">

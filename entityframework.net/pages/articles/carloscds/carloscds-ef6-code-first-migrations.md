@@ -29,10 +29,11 @@ Before we start, let's create our sample project. I'm using Visual Studio 2012, 
 
 Let's start by creating a console type project, using the .NET Framework 4:
 
-_Broken Image_
+<img src="https://www.carloscds.net/wp-content/uploads/2012/07/image_thumb13.png" width="712" height="494">
 
 Right after creating the project, we will add the Entity Framework Code First using [NuGet](https://nuget-tutorial.net/). To do this, open the NuGet manager in Tools -> Library Package Manager -> `Package Manager Console` and type:
-_Broken Image_
+
+<img src="https://www.carloscds.net/wp-content/uploads/2012/07/image_thumb14.png" width="712" height="107">
 
 After that, we will have EF Code First installed in our project. We will now create a Context and a class so that we can work with Migrations.
 
@@ -72,11 +73,11 @@ Now that we have our classes and the configuration file, let's play with Migrati
 
 We will initially add Migrations to our project. Regardless of the method: manual or automatic, we need to add it to our project. We will do this using the Nuget window again using the `Enable-Migrations` command:
 
-_Broken Image_
+<img src="https://www.carloscds.net/wp-content/uploads/2012/07/image_thumb22.png" width="712" height="178">
 
 After this command, a new class will be added to our project, let name it `Configurations`:
 
-_Broken Image_
+<img src="https://www.carloscds.net/wp-content/uploads/2012/07/image_thumb32.png" width="712" height="240">
 
 As we will work with the manual process, we will leave this class as it is and we will start with the Migrations commands, which must be executed in the NuGet window:
 
@@ -103,7 +104,7 @@ Update-DataBase
 
 See that when running Add-Migrations, a new file was added to the project, containing the Migrations commands for the database:
 
-_Broken Image_
+<img src="https://www.carloscds.net/wp-content/uploads/2012/07/image_thumb42.png" width="417" height="350">
 
 ```csharp
 public partial class CreateDatabase : DbMigration
@@ -130,7 +131,7 @@ public partial class CreateDatabase : DbMigration
 
 As our database did not yet exist, it was created after the Update-DataBase command:
 
-_Broken Image_
+<img src="https://www.carloscds.net/wp-content/uploads/2012/07/image_thumb52.png" width="712" height="237">
 
 To make our example more interesting, I will add some records to the database using the code below, but if you prefer, insert the data directly into SQL:
 
@@ -212,7 +213,7 @@ INSERT INTO [__MigrationHistory] ([MigrationId], [CreatedOn], [Model], [ProductV
 Just run this file inside SQL, and the field will be created and updated, or if you prefer, run `Update-DataBase` again and, it will be done automatically.
 This script feature can be useful if you need to update your application's environment and production as well.
 
-_Broken Image_
+<img src="https://www.carloscds.net/wp-content/uploads/2012/07/image_thumb62.png" width="425" height="264">
 
 Note: The `__MigrationHistory` table is used by Migrations to manage version history within the database.
 
@@ -234,7 +235,7 @@ Now that you know how to keep your database up to date by generating versions of
 
 For this example, let's create a project with the same data as the previous example: create a console type project:
 
-_Broken Image_
+<img src="https://www.carloscds.net/wp-content/uploads/2012/07/image_thumb72.png" width="712" height="494">
 
 Add EF Code First through the NuGet console and then add the context, the `client` class, and the `app.config` file, but in this file, we will change the database name to ExampleMigrationsAutomatic:
 
@@ -264,11 +265,11 @@ public class Client
 
 Once this is done we will add the migrations, the same way as before, but now modifying the necessary parameters so that everything is automatic, then open the NuGet console and execute the command `Enable-Migrations`:
 
-_Broken Image_
+<img src="https://www.carloscds.net/wp-content/uploads/2012/07/image_thumb82.png" width="712" height="178">
 
 Now that the differences begin. In the previous example, we did not modify anything in the configurations class, but in this case, we will make some adjustments:
 
-_Broken Image_
+<img src="https://www.carloscds.net/wp-content/uploads/2012/07/image_thumb92.png" width="712" height="163">
 
 First, let's change the class to "public class", as we will need to reference it later. Then we will activate the automatic migration property, and finally, we will check the option that data can be lost during the migration. This last option is up to you because if you do not enable the option and Migrations is unable to update the database. You will receive an error.
 
@@ -315,7 +316,7 @@ public class Client
 
 After running the program and querying SQL:
 
-_Broken Image_
+<img src="https://www.carloscds.net/wp-content/uploads/2012/07/image_thumb102.png" width="519" height="337">
 
 Conclusion:
 
