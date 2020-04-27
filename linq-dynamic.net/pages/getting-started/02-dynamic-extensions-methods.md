@@ -5,7 +5,7 @@ Name: Dynamic Extensions Methods
 
 # Dynamic Extensions Methods
 
-The DynamicQueryableExtensions class implements extension methods for dynamically querying objects that implement the IQueryable<T> interface. These methods correspond to their System.Linq.Queryable counterparts, except that they operate on IQueryable instead of IQueryable<T> and use strings instead of lambda expressions to express predicates, selectors, and orderings.
+The `DynamicQueryableExtensions` class implements extension methods for dynamically querying objects that implement the `IQueryable<T>` interface. These methods correspond to their `System.Linq.Queryable` counterparts, except that they operate on `IQueryable` instead of `IQueryable<T>` and use strings instead of lambda expressions to express predicates, selectors, and orderings.
 
 ```csharp
 using (var context = new EntityContext())
