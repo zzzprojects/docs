@@ -24,7 +24,7 @@ To install Dynamic LINQ (**System.Linq.Dynamic.Core**) library, right-click on y
 
  - System.Linq.Dynamic.Core 
 
-You can also install this library using the **Package Manager Console** window by executing the following commad.
+You can also install this library using the **Package Manager Console** window by executing the following command.
 
 `PM> Install-Package System.Linq.Dynamic.Core`
 
