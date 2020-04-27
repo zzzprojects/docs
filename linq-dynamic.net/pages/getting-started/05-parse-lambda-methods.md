@@ -16,7 +16,7 @@ The first `ParseLambda` overload parses a lambda expression with the given param
 ```csharp
 ParameterExpression x = Expression.Parameter(typeof(int), "x");
 ParameterExpression y = Expression.Parameter(typeof(int), "y");
-LambdaExpression e = System.Linq.Dynamic.DynamicExpression
+LambdaExpression e = System.Linq.Dynamic.Core.DynamicExpressionParser
     .ParseLambda(new ParameterExpression[] { x, y }, null, "(x + y) * 2");
 ```
 
@@ -25,7 +25,7 @@ The above example creates and assigns an `Expression<Func<int, int, int>>` insta
 If the 2nd parameter resultType is non-null it specifies the required result type for the expression. 
 
 ```csharp
-LambdaExpression e = System.Linq.Dynamic.DynamicExpression
+LambdaExpression e = System.Linq.Dynamic.Core.DynamicExpressionParser
     .ParseLambda(new ParameterExpression[] { x, y }, typeof(double), "(x + y) * 2");
 ```
 
@@ -38,7 +38,7 @@ The second ParseLambda overload parses a lambda expression with a single unnamed
 ```csharp
 using (var context = new EntityContext())
 {
-    LambdaExpression e = System.Linq.Dynamic.DynamicExpression.ParseLambda(
+    LambdaExpression e = System.Linq.Dynamic.Core.DynamicExpressionParser.ParseLambda(
         typeof(Customer), typeof(bool),
         "City = @0 and Orders.Count >= @1",
         "London", 10);
