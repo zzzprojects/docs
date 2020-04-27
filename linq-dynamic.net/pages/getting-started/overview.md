@@ -20,7 +20,12 @@ Using a dynamic LINQ library, we can do the following,
 
 ## Install Dynamic LINQ Library 
 
-To install Dynamic LINQ (**System.Linq.Dynamic.Core**) library, right-click on your project in Solution Explorer, and select **Manage NuGet Packages…**, and install the following packages.
+To install Dynamic LINQ (**System.Linq.Dynamic.Core**) library, right-click on your project in Solution Explorer, and select **Manage NuGet Packages…**, and install the following package.
+
  - System.Linq.Dynamic.Core 
+
+You can also install this library using the **Package Manager Console** window by executing the following commad.
+
+`PM> Install-Package System.Linq.Dynamic.Core`
 
 You are ready to start writing some code using the dynamic LINQ.
