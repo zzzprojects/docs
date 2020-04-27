@@ -10,3 +10,4 @@
    - [Dapper.Rainbow](third-party-libraries/dapper-rainbow.md)
    - [Dapper.SimpleCRUD](third-party-libraries/dapper-simplecrud.md)
    - [Dapper.SimpleSave](third-party-libraries/dapper-simplesave.md)
+   - [Dapper Transaction](third-party-libraries/dapper-transaction-third-party-library.md)
