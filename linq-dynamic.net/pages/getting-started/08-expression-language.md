@@ -120,8 +120,8 @@ In the below table, `x`, `y`, and `z` denote expressions, `T` denotes a type, an
 |Relational     |x > y            |Greater than. Supported for all primitive types except Boolean, Object, and Guid.|
 |Relational     |x <= y          |Less than or equal. Supported for all primitive types except Boolean, Object, and Guid.|
 |Relational     |x >= y          |Greater than or equal. Supported for all primitive types except Boolean, Object, and Guid.|
-|Logical AND |x && y <br> x and y    |Logical AND. Operands must be of type Boolean.|
-|Logical OR     |x || y <br> x or y    |Logical OR. Operands must be of type Boolean.|
+|Logical AND    |x && y <br> x and y    |Logical AND. Operands must be of type Boolean.|
+|Logical OR     |x \|| y <br> x or y    |Logical OR. Operands must be of type Boolean.|
 |Conditional    |x ? y : z    |Evaluates y if x is true, evaluates z if x is false.|
 
 ## Calling Method and Constructor 
