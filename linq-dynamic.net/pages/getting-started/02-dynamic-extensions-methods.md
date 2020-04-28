@@ -45,3 +45,5 @@ You can use string expressions in any of the following methods while creating a 
  - Sum
  - ThenBy
  - Where
+
+[Try it](https://dotnetfiddle.net/CXfG4d)
