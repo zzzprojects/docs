@@ -14,7 +14,7 @@ In Dynamic Expression API, the expression language provides a simple and conveni
 
 The expression language defines the following constants:
 
- - The true and false denotes the values of the type Boolean.
+ - The `true` and `false` denotes the values of the type `Boolean`.
  - The `null` denotes a null reference, the `null` constant is of type `Object`, but is also implicitly convertible to any reference type.
 
 ## Types
