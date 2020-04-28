@@ -46,4 +46,11 @@ You can use string expressions in any of the following methods while creating a 
  - ThenBy
  - Where
 
+## Example
+
+```csharp
+var list = customers.AsQueryable()
+    .Where("Name.Contains(@0)","Bradley")
+    .ToList();
+```
 [Try it](https://dotnetfiddle.net/CXfG4d)
