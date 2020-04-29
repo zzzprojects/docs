@@ -10,10 +10,10 @@ The `DynamicQueryableExtensions` class implements extension methods for dynamica
 ```csharp
 using (var context = new EntityContext())
 {
-    var query =  context.Customers.
-        Where("Orders.Count >= @0", 5).
-        OrderBy("Orders.Count").
-        Select("new (Name, Phone)");
+    var query =  context.Customers
+        .Where("Orders.Count >= @0", 5)
+        .OrderBy("Orders.Count")
+        .ToList();
 }
 ```
 
