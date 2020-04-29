@@ -18,6 +18,7 @@ using (var context = new EntityContext())
 ```
 
 [Try it online](https://dotnetfiddle.net/qvhkUd)
+
 You can see that string expressions are used in the query and that could have been dynamically constructed at run-time.
 
 ## Supported Methods
