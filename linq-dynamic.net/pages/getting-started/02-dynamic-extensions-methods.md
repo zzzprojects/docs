@@ -17,6 +17,7 @@ using (var context = new EntityContext())
 }
 ```
 
+[Try it online](https://dotnetfiddle.net/qvhkUd)
 You can see that string expressions are used in the query and that could have been dynamically constructed at run-time.
 
 ## Supported Methods
@@ -53,4 +54,4 @@ var list = customers.AsQueryable()
     .Where("Name.Contains(@0)","Bradley")
     .ToList();
 ```
-[Try it](https://dotnetfiddle.net/CXfG4d)
+[Try it online](https://dotnetfiddle.net/CXfG4d)
