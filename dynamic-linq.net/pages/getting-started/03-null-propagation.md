@@ -35,7 +35,7 @@ using (var context = new EntityContext())
 
 [Try it online](https://dotnetfiddle.net/JNNsve)
 
-The `System.Linq.Dynamic.Core` library provides a function known as np() which can be used as an alternate.
+The `System.Linq.Dynamic.Core` library provides a function known as `np()` which can be used as an alternate.
 
 ```csharp
 using (var context = new EntityContext()) 
