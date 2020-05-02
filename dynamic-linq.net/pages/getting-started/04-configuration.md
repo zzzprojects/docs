@@ -70,6 +70,22 @@ It provides support for enumeration-types from the System namespace in “mscorl
 
 It uses Parameterized Names in generated dynamic SQL query. The default value is false. 
 
+```csharp
+// Create a config object
+var config = new ParsingConfig
+{
+    UseParameterizedNamesInDynamicQuery = true
+};
+
+// Pass the config object as first parameter in the IQueryable extension methods, in this example Where(...)
+using (var context = new EntityContext())
+{    
+    var query = context.Customers.Where(config, "City = @0", "Paris");
+};
+```
+
+[Try it online](https://dotnetfiddle.net/CF6AQ8)
+
 ### RenameEmptyParameterExpressionNames 
 
 It prevents any System.Linq.Expressions.ParameterExpression.Name value from being empty by substituting a random 16 character word. The default value is false.
