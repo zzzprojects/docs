@@ -6,7 +6,6 @@ Name: Parse Method
 # Parse Method
 
 The `Parse` method is used for parsing and creating expression tree fragments that are defined in `System.Linq.Dynamic.Core.Parser.ExpressionParser` class. It uses the TextParser to parse the string into the specified result type.. 
- - If the `resultType` parameter is non-null it specifies the required result type of the expression. 
 
 ```csharp
 ParameterExpression x = Expression.Parameter(typeof(int), "x");
