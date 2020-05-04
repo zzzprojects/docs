@@ -1,4 +1,4 @@
 - [Home](/)
-- [Articles](/articles)
-- [Knowledge Base](/knowledge-base)
+- [Getting Started](/getting-started/01-overview.md)
 - [Online Examples](/online-examples)
+- [GitHub](https://github.com/zzzprojects/System.Linq.Dynamic.Core)
