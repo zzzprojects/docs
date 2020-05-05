@@ -124,6 +124,50 @@ In the below table, `x`, `y`, and `z` denote expressions, `T` denotes a type, an
 |Logical OR     |x \|\| y <br> x or y    |Logical OR. Operands must be of type Boolean.|
 |Conditional    |x ? y : z    |Evaluates y if x is true, evaluates z if x is false.|
 
+### it - Example
+
+```csharp
+var baseQuery = new int[] { 1, 2, 3, 4, 5 }.AsQueryable();
+
+var result1 = baseQuery.Select("it * $");
+
+var result2 = baseQuery.Where("it % 2 = 0");
+```
+
+[Try it online](https://dotnetfiddle.net/3SlAvq)
+
+### in - Example
+
+```csharp
+var rangeOfNumbers = Enumerable.Range(1, 100).ToArray();
+var result1 = rangeOfNumbers.AsQueryable().Where("it in (1,3,5,7, 101)").ToArray();
+
+var values = new int[] { 2, 4, 6, 8, 102};
+var result2 = rangeOfNumbers.AsQueryable().Where("it in @0", values).ToArray();
+```
+
+[Try it online](https://dotnetfiddle.net/uhHUEO)
+
+### Conditional Operator - Example
+
+```csharp
+var baseQuery = new int[] { 1, 2, 3, 4, 5 }.AsQueryable();
+
+var result = baseQuery.Select("it % 2 == 0 ? true : false");
+```
+
+[Try it online](https://dotnetfiddle.net/uaGRMJ)
+
+### iif - Example
+
+```csharp
+var baseQuery = new int[] { 1, 2, 3, 4, 5 }.AsQueryable();
+
+var result = baseQuery.Select("iif(it % 2 = 0, true, false)");
+
+```
+[Try it online](https://dotnetfiddle.net/nCiBQQ)
+
 ## Calling Method and Constructor 
 
 The expression language can call only those methods and constructors that are declared public in the accessible types. This restriction protects the unintended side effects of calling arbitrary methods.
@@ -140,6 +184,8 @@ using (var context = new EntityContext())
 }
 ```
 
+[Try it online](https://dotnetfiddle.net/mUoyQh)
+
 The above example creates a DateTime instance for a specific year, month, and day by calling a constructor.
 
 ## Data Object Initializers
@@ -153,6 +199,8 @@ using (var context = new EntityContext())
         .Select("new (Name, CompanyName as Company, Phone)"); 
 }
 ```
+
+[Try it online](https://dotnetfiddle.net/5QHCHB)
 
 The above example creates a data class with three properties, `Name`, `Company`, and `Phone`, and returns a sequence of instances of that data class initialized from the `Name`, `CompanyName`, and `Phone` properties of each customer.
 
@@ -169,7 +217,7 @@ using (var context = new EntityContext())
 }
 ```
 
-The equivalent of the above example using the “it” keyword.
+The equivalent of the above example using the `it` keyword.
 
 ```csharp
 using (var context = new EntityContext())
@@ -177,6 +225,8 @@ using (var context = new EntityContext())
     var list = context.Customers.Where("it.City = @0", "Paris").ToList();
 }
 ```
+
+[Try it online](https://dotnetfiddle.net/ihDmxs)
 
 The IQueryable extension methods all parse their expression arguments as lambda expressions with a single unnamed parameter.
 
@@ -195,7 +245,7 @@ A subset of the Standard Query Operators is supported for objects that implement
  - seq.Sum(selector)
  - seq.Average(selector)
 
-In the predicate and selector expressions, the members of the current instance for that sequence operator are automatically in scope, and the instance itself can be referenced using the keyword “it”. 
+In the predicate and selector expressions, the members of the current instance for that sequence operator are automatically in scope, and the instance itself can be referenced using the keyword `it`. 
 
 ```csharp
 using (var context = new EntityContext())
@@ -214,3 +264,5 @@ using (var context = new EntityContext())
     var list = context.Customers.Where("OrderDate.DayOfWeek = @0", DayOfWeek.Monday); 
 }
 ```
+
+[Try it online](https://dotnetfiddle.net/UsJYc1)
