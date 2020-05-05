@@ -11,7 +11,7 @@ The following example loads an Html from the WebBrowser and waits until the text
 ```csharp
 using System.Windows.Forms;
 
-string url = "http://html-agility-pack/from-browser";
+string url = "https://html-agility-pack.net/from-browser";
 
 var web1 = new HtmlWeb();
 var doc1 = web1.LoadFromBrowser(url, o =>
