@@ -53,7 +53,7 @@ The accessible types are the only types that can be explicitly referenced in exp
 
 ### Nullable
 
-The nullable form of a value type is referenced by writing a “?” after the type name. For example, `Int32?` denotes the nullable form of `Int32`.
+The nullable form of a value type is referenced by writing a `?` after the type name. For example, `Int32?` denotes the nullable form of `Int32`.
 
 ### Integral Types
 
