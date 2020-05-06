@@ -1,5 +1,5 @@
 ---
-PermaID: 101007
+Permalink: expression-language
 Name: Expression Language
 ---
 
@@ -94,35 +94,35 @@ The expression language supported the following operators in order of precedence
 
 In the below table, `x`, `y`, and `z` denote expressions, `T` denotes a type, and `m` denotes a member.
 
-|Category      |Expression        |Description                                                                                 |
-|:----------|:--------------|:-------------------------------------------------------------------------------------------|
-|Primary      |x.m              |Instance field or instance property access. Any public field or property can be accessed.   |
-|Primary      |x.m(...)          |Instance method invocation. The method must be public and must be declared in an accessible type.|
-|Primary      |x[...]            |Array or indexer access. Multi-dimensional arrays are not supported.|
-|Primary      |T.m              |Static field or static property access. Any public field or property can be accessed.|
-|Primary      |T.m(...)          |Static method invocation. The method must be public and must be declared in an accessible type.|
-|Primary      |T(...)            |Explicit conversion or constructor invocation. Note that new is not required in front of a constructor invocation.|
-|Primary      |new(...)          |Data object initializer. This construct can be used to perform dynamic projections.|
-|Primary      |it                |Current instance. In contexts where members of a current object are implicitly in scope, it is used to refer to the entire object itself.|
-|Primary      |x(...)            |Dynamic lambda invocation. Used to reference another dynamic lambda expression.
-|Primary      |iif(x, y, z)      |Conditional expression. The alternate syntax for x ? y : z.
-|Unary        |-x                |Negation. Supported types are Int32, Int64, Decimal, Single, and Double.|
-|Unary        |!x <br> not x    |Logical negation. The Operand must be of type Boolean.|
-|Multiplicative    |x * y        |Multiplication. Supported types are Int32, UInt32, Int64, UInt64, Decimal, Single, and Double.|
-|Multiplicative    |x / y        |Division. Supported types are Int32, UInt32, Int64, UInt64, Decimal, Single, and Double.|
-|Multiplicative    |x % y <br> x mod y    |Remainder. Supported types are Int32, UInt32, Int64, UInt64, Decimal, Single, and Double.|
-|Additive       |x + y            |Addition or string concatenation. Performs string concatenation if either operand is of type String. Otherwise, performs addition for the supported types Int32, UInt32, Int64, UInt64, Decimal, Single, Double, DateTime, and TimeSpan.|
-|Additive       |x – y            |Subtraction. Supported types are Int32, UInt32, Int64, UInt64, Decimal, Single, Double, DateTime, and TimeSpan.|
-|Additive       |x & y            |String concatenation. Operands may be of any type.|
-|Relational     |x = y <br> x == y     |Equal. Supported for reference types and the primitive types. The assignment is not supported. Comparison with null:x == null is supported, but x is null is not supported.|
-|Relational     |x != y <br> x <> y    |Not equal. Supported for reference types and the primitive types.|
-|Relational     |x < y            |Less than. Supported for all primitive types except Boolean, Object, and Guid.|
-|Relational     |x > y            |Greater than. Supported for all primitive types except Boolean, Object, and Guid.|
-|Relational     |x <= y          |Less than or equal. Supported for all primitive types except Boolean, Object, and Guid.|
-|Relational     |x >= y          |Greater than or equal. Supported for all primitive types except Boolean, Object, and Guid.|
-|Logical AND    |x && y <br> x and y    |Logical AND. Operands must be of type Boolean.|
-|Logical OR     |x \|\| y <br> x or y    |Logical OR. Operands must be of type Boolean.|
-|Conditional    |x ? y : z    |Evaluates y if x is true, evaluates z if x is false.|
+| Category 			| Expression        	| Description |
+| :---------------- | :-------------------- | :--------------------------------------------------------------------------------------------	|
+| Primary 			| `x.m`             	| Instance field or instance property access. Any public field or property can be accessed. |
+| Primary 			| `x.m(...)`          	| Instance method invocation. The method must be public and must be declared in an accessible type. |
+| Primary 			| `x[...]`            	| Array or indexer access. Multi-dimensional arrays are not supported. |
+| Primary 			| `T.m`              	| Static field or static property access. Any public field or property can be accessed. |
+| Primary 			| `T.m(...)`          	| Static method invocation. The method must be public and must be declared in an accessible type. |
+| Primary 			| `T(...)`            	| Explicit conversion or constructor invocation. Note that new is not required in front of a constructor invocation. |
+| Primary 			| `new(...)`          	| Data object initializer. This construct can be used to perform dynamic projections. |
+| Primary 			| `it`                	| Current instance. In contexts where members of a current object are implicitly in scope, it is used to refer to the entire object itself. |
+| Primary 			| `x(...)`            	| Dynamic lambda invocation. Used to reference another dynamic lambda expression. |
+| Primary 			| `iif(x, y, z)`      	| Conditional expression. The alternate syntax for `x ? y : z`. |
+| Unary 			| `-x`                	| Negation. Supported types are Int32, Int64, Decimal, Single, and Double. |
+| Unary 			| `!x` or `not x`    	| Logical negation. The Operand must be of type Boolean. |
+| Multiplicative 	| `x * y`        		| Multiplication. Supported types are Int32, UInt32, Int64, UInt64, Decimal, Single, and Double. |
+| Multiplicative 	| `x / y`        		| Division. Supported types are Int32, UInt32, Int64, UInt64, Decimal, Single, and Double. |
+| Multiplicative 	| `x % y` or `x mod y`	| Remainder. Supported types are Int32, UInt32, Int64, UInt64, Decimal, Single, and Double. |
+| Additive       	| `x + y`            	| Addition or string concatenation. Performs string concatenation if either operand is of type String. Otherwise, performs addition for the supported types Int32, UInt32, Int64, UInt64, Decimal, Single, Double, DateTime, and TimeSpan. |
+| Additive       	| `x - y`            	| Subtraction. Supported types are Int32, UInt32, Int64, UInt64, Decimal, Single, Double, DateTime, and TimeSpan. |
+| Additive       	| `x & y`            	| String concatenation. Operands may be of any type. |
+| Relational     	| `x = y` or `x == y`   | Equal. Supported for reference types and the primitive types. The assignment is not supported. Comparison with null:x == null is supported, but x is null is not supported. |
+| Relational     	| `x != y` or `x <> y`  | Not equal. Supported for reference types and the primitive types. |
+| Relational     	| `x < y`            	| Less than. Supported for all primitive types except Boolean, Object, and Guid. |
+| Relational     	| `x > y`            	| Greater than. Supported for all primitive types except Boolean, Object, and Guid. |
+| Relational     	| `x <= y`         		| Less than or equal. Supported for all primitive types except Boolean, Object, and Guid. |
+| Relational     	| `x >= y`         		| Greater than or equal. Supported for all primitive types except Boolean, Object, and Guid. |
+| Logical AND    	| `x && y` or `x and y`	| Logical AND. Operands must be of type Boolean. |
+| Logical OR     	| `x || y` or `x or y`	| Logical OR. Operands must be of type Boolean. |
+| Conditional    	| `x ? y : z`    		| Evaluates y if x is true, evaluates z if x is false. |
 
 ### it - Example
 

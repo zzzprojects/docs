@@ -1,11 +1,11 @@
 ---
-PermaID: 101004
-Name: ParseLambda Methods
+Permalink: parse-lambda-method
+Name: ParseLambda Method
 ---
 
 # ParseLambda Methods
 
-The `System.Linq.Dynamic.Core.DynamicExpressionParser` class defines the `ParseLambda` methods for dynamically parsing and creating lambda expressions.
+The `System.Linq.Dynamic.Core.DynamicExpressionParser` class defines the `ParseLambda` method for dynamically parsing and creating lambda expressions.
 
 There are various overloads of `ParseLambda` which can be used as per your requirement.
 

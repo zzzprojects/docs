@@ -1,8 +1,8 @@
 ---
-PermaID: 101006
+Permalink: create-data-class-dynamically
 Name: Create Data Classes Dynamically
 ---
-# Create Data Classes Dynamically
+# Create Data Class Dynamically
 
 A data class is a class that contains only data members. The `System.Linq.Dynamic.DynamicExpression` class defines the following methods for dynamically creating data classes.
 

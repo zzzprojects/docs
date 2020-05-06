@@ -1,5 +1,5 @@
 ---
-PermaID: 101003
+Permalink: configuration
 Name: Configuration
 ---
 

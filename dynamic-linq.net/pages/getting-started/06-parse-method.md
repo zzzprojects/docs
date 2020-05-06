@@ -1,5 +1,5 @@
 ---
-PermaID: 101005
+Permalink: parse-method
 Name: Parse Method
 ---
 
