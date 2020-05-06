@@ -8,7 +8,7 @@ Name: Expression Language
 In Dynamic Expression API, the expression language provides a simple and convenient way of writing expressions that can be parsed into LINQ expression trees. 
 
  - The language supports most of the constructs of expression trees, but it is not a complete query or programming language. 
- - It is designed to be familiar to C#, VB, and SQL users, that’s why some operators are present in multiple forms, such as `&&` and `and`.
+ - It is designed to be familiar to C#, VB, and SQL users, that's why some operators are present in multiple forms, such as `&&` and `and`.
 
 ## Constants
 
