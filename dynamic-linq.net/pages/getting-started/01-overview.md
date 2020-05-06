@@ -15,7 +15,7 @@ Database applications often rely on Dynamic SQL queries that are constructed at 
 Using a dynamic LINQ library, we can do the following,
 
  - Dynamic parsing of strings to produce expression trees such as `ParseLambda` and `Parse` methods
- - Dynamic creation of “Data Classes” using the `CreateClass` method.
+ - Dynamic creation of **Data Classes** using the `CreateClass` method.
  - Dynamic string-based querying through LINQ providers.
 
 ## Install Dynamic LINQ Library 
