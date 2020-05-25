@@ -1,5 +1,5 @@
 ---
-Permalink: advanced-create-dynamic class
+Permalink: advanced-create-dynamic-class
 Name: Create Dynamic Class
 ---
 

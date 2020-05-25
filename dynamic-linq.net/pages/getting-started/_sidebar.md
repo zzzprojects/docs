@@ -1,10 +1,11 @@
-- [Overview](overview/overview.md)
+- Overview
+  - [Overview](overview/overview.md)
 
 - Basic Usage
   - [Simple Querying](basic/simple-query.md)
   - [Query Operators](basic/query-operators.md)
 
-- [Expression Language](advanced/expression-language)
+- [Expression Language](advanced/expression-language.md)
 
 - Advanced Usage
   - [Configuration](advanced/configuration.md)
