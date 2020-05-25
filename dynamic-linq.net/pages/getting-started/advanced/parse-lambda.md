@@ -1,33 +1,37 @@
 ---
-Permalink: parse-lambda-method
-Name: ParseLambda Method
+Permalink: advanced-parse-lambda
+Name: ParseLambda
 ---
 
-# ParseLambda Methods
+# DynamicExpressionParser
 
-The `System.Linq.Dynamic.Core.DynamicExpressionParser` class defines the `ParseLambda` method for dynamically parsing and creating lambda expressions.
+## ParseLambda Methods
+
+The `System.Linq.Dynamic.Core.DynamicExpressionParser` class defines the static `ParseLambda` method for dynamically parsing and creating lambda expressions.
+
+Internally, this static method uses the `ExpressionParser` class to parse the expression. For an example, see [Try it online](https://dotnetfiddle.net/c8wsu2).
 
 There are various overloads of `ParseLambda` which can be used as per your requirement.
 
 ## Expression Parameter
 
-The first `ParseLambda` overload parses a lambda expression with the given parameters and expression body and it will return an expression instance representing the result. 
+The first `ParseLambda` overload parses a lambda expression with the given parameters and expression body and it will return an expression instance representing the result.
 
 ```csharp
 ParameterExpression x = Expression.Parameter(typeof(int), "x");
 ParameterExpression y = Expression.Parameter(typeof(int), "y");
-LambdaExpression e = System.Linq.Dynamic.Core.DynamicExpressionParser
-    .ParseLambda(new ParameterExpression[] { x, y }, null, "(x + y) * 2");
+LambdaExpression e = DynamicExpressionParser.ParseLambda(new ParameterExpression[] { x, y }, null, "(x + y) * 2");
+
 ```
 
 [Try it online](https://dotnetfiddle.net/22vgqJ)
 
-The above example creates and assigns an `Expression<Func<int, int, int>>` instance to e representing the expression `(x + y) * 2`.
+The above example creates and assigns an `Expression<Func<int, int, int>>` instance to `e` representing the expression `(x + y) * 2`.
 
-If the 2nd parameter resultType is non-null it specifies the required result type for the expression. 
+If the 2nd parameter resultType is non-null it specifies the required result type for the expression.
 
 ```csharp
-LambdaExpression e = System.Linq.Dynamic.Core.DynamicExpressionParser
+LambdaExpression e = DynamicExpressionParser
     .ParseLambda(new ParameterExpression[] { x, y }, typeof(double), "(x + y) * 2");
 ```
 
@@ -40,7 +44,7 @@ The second ParseLambda overload parses a lambda expression with a single unnamed
 ```csharp
 using (var context = new EntityContext())
 {
-    LambdaExpression e = System.Linq.Dynamic.Core.DynamicExpressionParser.ParseLambda(
+    LambdaExpression e = DynamicExpressionParser.ParseLambda(
         typeof(Customer), typeof(bool),
         "City = @0 and Orders.Count >= @1",
         "London", 10);
@@ -53,7 +57,7 @@ The above example creates and assigns an `Expression` instance to `e`. The **Cit
 
 ## Dynamic Lambda
 
-An expression can reference other dynamic lambda expressions through dynamic lambda invocations. A dynamic lambda invocation consists of a substitution variable identifier that references an instance of `System.Linq.Dynamic.Core.DynamicExpressionParser`, followed by an argument list. 
+An expression can reference other dynamic lambda expressions through dynamic lambda invocations. A dynamic lambda invocation consists of a substitution variable identifier that references an instance of `DynamicExpressionParser`, followed by an argument list. 
 
 The arguments supplied must be compatible with the parameter list of the given dynamic lambda expression.
 
@@ -62,13 +66,14 @@ using (var context = new EntityContext())
 {
     Expression<Func<Customer, bool>> e1 = DynamicExpressionParser
         .ParseLambda<Customer, bool>(new ParsingConfig(), true, "City = @0", "London");
-			
+
     Expression<Func<Customer, bool>> e2 = DynamicExpressionParser
         .ParseLambda<Customer, bool>(new ParsingConfig(), true, "Orders.Count >= 3");
 
     var customers = context.Customers.Where("@0(it) and @1(it)", e1, e2).ToList();
 }
 ```
+
 [Try it online](https://dotnetfiddle.net/9hcBuL)
 
 The above example parses two separate dynamic lambda expressions and then combines them in a predicate expression through dynamic lambda invocations.
@@ -76,12 +81,10 @@ The above example parses two separate dynamic lambda expressions and then combin
 You can also combine static and dynamic lambda expressions as shown below.
 
 ```csharp
-using (var context = new EntityContext())
-{
-    Expression<Func<Customer, bool>> e1 = c => c.City == "Paris";
-    Expression<Func<Customer, bool>> e2 = System.Linq.Dynamic.DynamicExpression
-        .ParseLambda<Customer, bool>("Orders.Count >= 3");
+Expression<Func<Customer, bool>> e1 = c => c.City == "Paris";
+var e2 = DynamicExpressionParser.ParseLambda<Customer, bool>(new ParsingConfig(), true, "c => c.CompanyName != \"test\"");
 
-    var customers = context.Customers.Where("@0(it) and @1(it)", e1, e2).ToList();
-}
+var customers = context.Customers.ToList().AsQueryable().Where("@0(it) and @1(it)", e1, e2);
 ```
+
+[Try it online](https://dotnetfiddle.net/gLBpU1)
