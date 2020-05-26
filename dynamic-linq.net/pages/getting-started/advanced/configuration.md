@@ -7,7 +7,7 @@ Name: Configuration
 
 The `System.Linq.Dynamic.Core` library offers more functionalities and settings that are made optional via configuration.
 
-``` cs
+```csharp
 // Create a config object
 var config = new ParsingConfig
 {
@@ -65,19 +65,19 @@ It renames the (Typed) ParameterExpression empty Name to the correct supplied na
 
 So this string-expression:
 
-``` cs
+```csharp
 string predicate = "c => c.CompanyName == \"ABC\" && c.Location.Name == \"test\"";
 ```
 
 By default, the generated expression will be translated into something like this (the `c` is lost and replaced by `Param_0`):
 
-``` cs
+```csharp
 Param_0 => ((Param_0.CompanyName == "ABC") AndAlso (Param_0.Location.Name == "test"))
 ```
 
 When this configuration value is set to **true**, the expression will have this (the original `c` is preserved):
 
-``` cs
+```csharp
 c => ((c.CompanyName == "ABC") AndAlso (c.Location.Name == "test"))
 ```
 
@@ -99,7 +99,7 @@ It provides support for enumeration-types from the System namespace in "mscorlib
 
 It uses Parameterized Names in generated dynamic SQL query. The default value is false.
 
-``` cs
+```csharp
 // Create a config object
 var config = new ParsingConfig
 {
@@ -127,7 +127,7 @@ The `CustomTypeProvider` allows you to implement your own types so that you can 
 
 For example, if you want to use **XElement** and **XAttribute** in your dynamic LINQ Query, create a custom type provider to add **XElement** and **XAttribute** to the accessible types.
 
-``` cs
+```csharp
 public class MyCustomTypeProvider : DefaultDynamicLinqCustomTypeProvider
 {
     public override HashSet<Type> GetCustomTypes() =>
@@ -137,7 +137,7 @@ public class MyCustomTypeProvider : DefaultDynamicLinqCustomTypeProvider
 
 Now, you can assign your custom provider to the configuration and call your query as shown below.
 
-``` cs
+```csharp
 // Create a config object and pass the custom TypeProvider
 var config = new ParsingConfig
 {

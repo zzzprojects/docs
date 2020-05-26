@@ -9,7 +9,7 @@ One of the features that most developers like is the null conditional operator a
 
 ## Using Null Propagation in strongly typed LINQ-SQL
 
-``` cs
+```csharp
 using (var context = new EntityContext())
 {
     var customers = context.Customers
@@ -25,7 +25,7 @@ It throws the following exception:
 
 Here is the solution for normal strongly typed LINQ query:
 
-``` cs
+```csharp
 using (var context = new EntityContext())
 {
     var customers = context.Customers
@@ -45,7 +45,7 @@ The `System.Linq.Dynamic.Core` library provides a function known as `np()` which
 
 In the example below, we specified the `np()` method to do a where-clause on the customers and return only the customers who have the Location defined, and the Name from that Location should be equal to "test".
 
-``` cs
+```csharp
 using (var context = new EntityContext())
 {
     var customers = context.Customers
@@ -63,7 +63,7 @@ If you want to supply a default value in case the value is null, you can provide
 
 It's also possible to use the `np()`-method in all expressions. As an example, you can also use it in a `Select`:
 
-``` cs
+```csharp
 using (var context = new EntityContext())
 {
     var customers = context.Customers

@@ -51,7 +51,7 @@ You can use Sum, Average, Min or Max here.
 
 Dynamic LINQ examples:
 
-``` cs
+```csharp
 var averagePrice = context.Orders.Aggregate("Average", "Price");
 var maxAmount = context.Orders.Aggregate("Max", "Amount");
 var minAmount = context.Orders.Aggregate("Min", "Amount");
@@ -64,7 +64,7 @@ var totalAmount = context.Orders.Aggregate("Sum", "Amount");
 
 Dynamic LINQ example to check if all orders have a price &gt; 2:
 
-``` cs
+```csharp
 bool allHavePriceGreaterThan2 = context.Orders.All("Price > 2");
 ```
 
@@ -72,7 +72,7 @@ bool allHavePriceGreaterThan2 = context.Orders.All("Price > 2");
 
 It's also possible to use the All method inside a dynamic query.
 
-``` cs
+```csharp
 var search = "e";
 var stronglyTypedResult = context.Users.Where(u => u.Roles.All(r => r.Name.Contains(search)));
 var dynamicResult = context.Users.Where("Roles.All(Name.Contains(@0))", search);
@@ -84,7 +84,7 @@ var dynamicResult = context.Users.Where("Roles.All(Name.Contains(@0))", search);
 
 Dynamic LINQ example to check if any orders have a price &gt; 7:
 
-``` cs
+```csharp
 bool anyHavePriceGreaterThan7 = context.Orders.Any("Price > 7");
 ```
 
@@ -92,7 +92,7 @@ bool anyHavePriceGreaterThan7 = context.Orders.Any("Price > 7");
 
 It's also possible to use the Any method inside a dynamic query.
 
-``` cs
+```csharp
 var search = "e";
 var stronglyTypedResult = context.Users.Where(u => u.Roles.Any(r => r.Name.Contains(search)));
 var dynamicResult = context.Users.Where("Roles.Any(Name.Contains(@0))", search);
@@ -104,7 +104,7 @@ var dynamicResult = context.Users.Where("Roles.Any(Name.Contains(@0))", search);
 
 Dynamic LINQ example to get the average price from all orders:
 
-``` cs
+```csharp
 var averagePriceExample1 = context.Orders.Select("Price").Average();
 var averagePriceExample2 = context.Orders.Average("Price");
 ```
@@ -115,7 +115,7 @@ var averagePriceExample2 = context.Orders.Average("Price");
 
 Just return a dynamic enumerable:
 
-``` cs
+```csharp
 var dynamicEnumerable = context.Orders.Select("Amount").AsEnumerable();
 ```
 
@@ -125,7 +125,7 @@ var dynamicEnumerable = context.Orders.Select("Amount").AsEnumerable();
 
 The `OfType` can be used with a Type or a fully qualified Type-name:
 
-``` cs
+```csharp
 var oftypeWorker = context.Employees.OfType(typeof(Worker));
 
 // or
@@ -136,14 +136,14 @@ var oftypeBoss = context.Employees.OfType(boss);
 
 The `Is` can be used to determine if the entity has a specific type. In the example below, the number of bosses is counted:
 
-``` cs
+```csharp
 string boss = typeof(Boss).FullName;
 int numberOfBosses = context.Employees.Count("is(@0)", boss);
 ```
 
 With `As`, you can check if casting a class to a type is valid, or returns null.
 
-``` cs
+```csharp
 // Normal usage
 var boss = entity as Boss;
 
@@ -153,7 +153,7 @@ int useAsToCheckIftheTypeIsABoss = context.Employees.Count("As(@0) != null", bos
 
 The `Cast`-operator can be used to case a base-class to the real class. Note that this can only work if the cast is valid. Example:
 
-``` cs
+```csharp
 var allWorkers = context.Employees.OfType(typeof(Worker));
 var castToWorkers = allWorkers.Cast(typeof(Worker));
 ```
@@ -164,7 +164,7 @@ var castToWorkers = allWorkers.Cast(typeof(Worker));
 
 Here is an example of Dynamic LINQ for Count:
 
-``` cs
+```csharp
 int numberOfOrdersWhichHavePriceGreaterThan2 = context.Orders.Count("Price > 2");
 var usersWhoHaveTwoRoles = context.Users.Where("u => u.Roles.Count() == 2");
 ```
@@ -175,13 +175,13 @@ var usersWhoHaveTwoRoles = context.Users.Where("u => u.Roles.Count() == 2");
 
 Here is an example of Dynamic LINQ for DefaultIfEmpty:
 
-``` cs
+```csharp
 var defaultIfEmpty = context.Customers.Where("Name == \"not-found\"").DefaultIfEmpty();
 ```
 
 Or you can use this inside a Dynamic LINQ query:
 
-``` cs
+```csharp
 var users = context.Users.Select("Roles.Where(r => r.Name == \"Admin\").DefaultIfEmpty().FirstOrDefault()");
 ```
 
@@ -191,14 +191,14 @@ var users = context.Users.Select("Roles.Where(r => r.Name == \"Admin\").DefaultI
 
 Here is an example of Dynamic LINQ example for Distinct:
 
-``` cs
+```csharp
 IQueryable queryable = new[] { 1, 2, 2, 3 }.AsQueryable();
 var distinctIntegerValues = queryable.Distinct();
 ```
 
 Or you can use this inside a Dynamic LINQ query:
 
-``` cs
+```csharp
 var items = context.Customers
     .Include(c => c.Orders)
     .Select("new (Name as CustomerName, Orders.Distinct() as UniqueOrders)");
@@ -211,7 +211,7 @@ var items = context.Customers
 
 The First and FirstOrDefault methods can be used directly on a `IQueryable` or `IQueryable<T>` like this:
 
-``` cs
+```csharp
 var first = context.Customers.First("c => c.City == \"Paris\"");
 
 var firstOrDefault = context.Customers.FirstOrDefault("c => c.City == \"Otherworld\"");
@@ -219,7 +219,7 @@ var firstOrDefault = context.Customers.FirstOrDefault("c => c.City == \"Otherwor
 
 Or you can use this inside a Dynamic LINQ query:
 
-``` cs
+```csharp
 var items = context.Users
     .Include(u => u.Roles)
     .Select("new (Name as userName, Roles.FirstOrDefault().Name as roleName)")
@@ -234,37 +234,37 @@ The Dynamic LINQ GroupBy functionality works the same as the normal, strongly ty
 
 #### GroupBy by a single Key
 
-``` cs
+```csharp
 var result = context.Posts.GroupBy("BlogId");
 ```
 
 #### GroupBy by a composite Key
 
-``` cs
+```csharp
 var result = context.Posts.GroupBy("new (BlogId, PostDate)").OrderBy("Key.PostDate");
 ```
 
 #### GroupBy by a single Key and with a single result
 
-``` cs
+```csharp
 var result = context.Posts.GroupBy("PostDate", "Title");
 ```
 
 #### GroupBy by a single Key and a complex object result
 
-``` cs
+```csharp
 var result = context.Posts.GroupBy("PostDate", "new (Title, Content)");
 ```
 
 #### GroupBy by a single Key and do a count()
 
-``` cs
+```csharp
 var result = context.Posts.GroupBy("BlogId").Select("new(Key, Count() AS Count)");
 ```
 
 #### GroupBy by a single Key and do a sum()
 
-``` cs
+```csharp
 var result = context.Posts.GroupBy("BlogId").Select("new(Key, Sum(NumberOfReads) AS TotalReads)");
 ```
 
@@ -276,13 +276,13 @@ The GroupByMany extension method can only operate on a IEnumerable&lt;TElement&g
 
 #### GroupByMany strongly typed extension
 
-``` cs
+```csharp
 var sel = lst.AsQueryable().GroupByMany(x => x.Item1, x => x.Item2).ToList();
 ```
 
 #### GroupByMany as a Dynamic LINQ string expression
 
-``` cs
+```csharp
 var sel = lst.AsQueryable().GroupByMany("Item1", "Item2").ToList();
 ```
 
@@ -298,7 +298,7 @@ For more examples, see this [link](https://dotnetfiddle.net/sqkxpI).
 
 Here is an example of a strongly typed Join:
 
-``` cs
+```csharp
 var realQuery = persons.Join(
     pets,
     person => person,
@@ -309,7 +309,7 @@ var realQuery = persons.Join(
 
 Here is the Dynamic LINQ counterpart for this Join:
 
-``` cs 
+```csharp
 var dynamicQuery = persons.AsQueryable().Join(
     pets,
     "it",
@@ -325,7 +325,7 @@ var dynamicQuery = persons.AsQueryable().Join(
 [Maybe not supported in all scenarios](https://msdn.microsoft.com/library/bb738550.aspx)
 The Last and LastOrDefault methods can be used directly on a `IQueryable` or `IQueryable<T>` like this:
 
-``` cs
+```csharp
 var last = context.Customers.First("c => c.City == \"Paris\"");
 
 var firstOrDefault = context.Customers.LastOrDefault("c => c.City == \"Otherworld\"");
@@ -333,7 +333,7 @@ var firstOrDefault = context.Customers.LastOrDefault("c => c.City == \"Otherworl
 
 Or you can use these inside a Dynamic LINQ query:
 
-``` cs
+```csharp
 var items = context.Users
     .Include(u => u.Roles)
     .Select("new (Name as userName, Roles.LastOrDefault().Name as roleName)")
@@ -346,19 +346,19 @@ var items = context.Users
 
 If you want to get a list of sorted entities from a dynamic query you can use Page:
 
-``` cs
+```csharp
 var pagedCustomers = context.Customers.OrderBy("Name").Page(page, pageSize);
 ```
 
 Or, if you want a PagedResult, which is useful for paging in grids, use this code:
 
-``` cs
+```csharp
 var result = context.Customers.OrderBy("Name").PageResult(page, pageSize);
 ```
 
 Here is the PagedResult object:
 
-``` cs
+```csharp
 // The IQueryable version
 public class PagedResult
 {
@@ -384,7 +384,7 @@ Note that in both cases you need to sort the queryable, else you will get an Exc
 
 Dynamic LINQ Example:
 
-``` cs
+```csharp
 var reversed = ((IQueryable) persons.AsQueryable()).Reverse();
 ```
 
@@ -396,25 +396,25 @@ Here is how you can use SelectMany as extension method:
 
 #### Use SelectMany as ExtensionMethod
 
-``` cs
+```csharp
 var result = context.Users.SelectMany("u => u.Roles.Select(r => r.Name)").ToDynamicArray();
 ```
 
 #### Use SelectMany inside a Dynamic LINQ string and return a list of strings
 
-``` cs
+```csharp
 var result = context.Users.SelectMany("Roles.SelectMany(Permissions)").Select("Name");
 ```
 
 #### Use SelectMany on Generic Type
 
-``` cs
+```csharp
 var result = context.Users.SelectMany<Permission>("Roles.SelectMany(Permissions)")
 ```
 
 #### Use SelectMany with a Type
 
-``` cs
+```csharp
 var result = context.Users.SelectMany(typeof(Permission), "Roles.SelectMany(Permissions)")
 ```
 
@@ -424,13 +424,13 @@ var result = context.Users.SelectMany(typeof(Permission), "Roles.SelectMany(Perm
 
 Dynamic LINQ example to skip the first entity:
 
-``` cs
+```csharp
 var skipFirstCustomer = context.Customers.OrderBy("CustomerID").Skip(1);
 ```
 
 Also, it is possible to use SkipWhile, to skip entities as long as the predicate does match:
 
-``` cs
+```csharp
 var skipped = context.Customers.ToList().AsQueryable().SkipWhile("CompanyName != \"ZZZ\"");
 ```
 
@@ -442,7 +442,7 @@ var skipped = context.Customers.ToList().AsQueryable().SkipWhile("CompanyName !=
 
 here is an example of Dynamic LINQ on how to get the total price from all orders:
 
-``` cs
+```csharp
 var totalPriceExample1 = context.Orders.Select("Price * Amount").Sum();
 var var totalPriceExample2 = context.Orders.Sum("Price * Amount");
 ```
@@ -453,13 +453,13 @@ var var totalPriceExample2 = context.Orders.Sum("Price * Amount");
 
 Dynamic LINQ example to take some entities:
 
-``` cs
+```csharp
 var takeTwoCustomers = context.Customers.OrderBy("CustomerID").Take(2);
 ```
 
 It's also possible to use TakeWhile, to take entities as long as the predicate does match:
 
-``` cs
+```csharp
 var takeWhile = context.Customers.ToList().AsQueryable().TakeWhile("CompanyName != \"ZZZ\"");
 ```
 
