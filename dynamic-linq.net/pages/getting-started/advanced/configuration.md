@@ -5,7 +5,7 @@ Name: Configuration
 
 # Configuration
 
-The `System.Linq.Dynamic.Core` library offers more functionality and settings which is made optional via configuration.
+The `System.Linq.Dynamic.Core` library offers more functionalities and settings that are made optional via configuration.
 
 ``` cs
 // Create a config object
@@ -21,11 +21,11 @@ using (var context = new EntityContext())
 };
 ```
 
-Note that in order to use the ParsingConfig, you **need** to pass this config object as the **first** parameter.
+In order to use the ParsingConfig, you will **need** to pass this config object as the **first** parameter.
 
 ## ParsingConfig
 
-It is the configuration class in System.Linq.Dynamic.Core library and provides the following settings.
+It is the configuration class in System.Linq.Dynamic.Core library and it provides the following settings.
 
 ### AllowNewToEvaluateAnyType
 
@@ -35,7 +35,7 @@ It allows the new keyword to evaluate any available Type. The default value is f
 
 It determines if the context keywords (like it, parent, and root) are valid and usable inside a Dynamic LINQ string expression.
 
-- At the same time, it does not affect the usability of the equivalent context symbols ($, ^, and ~).
+- All together, it does not affect the usability of the equivalent context symbols ($, ^, and ~).
 - The default value is true.
 
 ### DateTimeIsParsedAsUTC
@@ -55,9 +55,9 @@ It gets or sets a value indicating whether the Entity Framework version supports
 
 ### NumberParseCulture
 
-Set this if you want to use a another number parsing culture. Default value is InvariantCulture.
+Set this if you want to use another number of parsing culture. The default value is InvariantCulture.
 
-For example if you set this to `CultureInfo.CreateSpecificCulture("de-DE")` and if you use a value like `3,21`, this is parsed to the decimal value `3.21`.
+For example, if you set this to `CultureInfo.CreateSpecificCulture("de-DE")` and if you use a value like `3,21`, this is parsed to the decimal value `3.21`.
 
 ### RenameParameterExpression
 
@@ -69,7 +69,7 @@ So this string-expression:
 string predicate = "c => c.CompanyName == \"ABC\" && c.Location.Name == \"test\"";
 ```
 
-By default the generated Expression  will be translated into something like this (the `c` is lost and replaced by `Param_0`):
+By default, the generated expression will be translated into something like this (the `c` is lost and replaced by `Param_0`):
 
 ``` cs
 Param_0 => ((Param_0.CompanyName == "ABC") AndAlso (Param_0.Location.Name == "test"))
@@ -88,7 +88,7 @@ See this [Try it online](https://dotnetfiddle.net/PeZbtN).
 By default, finding types by a simple name is not supported.
 
 - Use this flag to use the CustomTypeProvider to resolve types by a simple name like "Employee" instead of "MyDatabase.Entities.Employee".
-- The first matching type is returned, and this functionality needs to scan all types from all assemblies, so use with caution.
+- Since the first matching type is returned, and this functionality needs to scan all types from all assemblies, it must be used with caution.
 - The default value is false.
 
 ### SupportEnumerationsFromSystemNamespace
@@ -135,7 +135,7 @@ public class MyCustomTypeProvider : DefaultDynamicLinqCustomTypeProvider
 }
 ```
 
-Now you can assign your custom provider to the configuration and call your query as shown below.
+Now, you can assign your custom provider to the configuration and call your query as shown below.
 
 ``` cs
 // Create a config object and pass the custom TypeProvider

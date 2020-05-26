@@ -19,11 +19,11 @@ using (var context = new EntityContext())
 }
 ```
 
-It throws the following exception.
+It throws the following exception:
 
 `Error CS8072: An expression tree lambda may not contain a null propagating operator.`
 
-The solution for normal strongly typed LINQ query is like:
+Here is the solution for normal strongly typed LINQ query:
 
 ``` cs
 using (var context = new EntityContext())
@@ -43,7 +43,7 @@ using (var context = new EntityContext())
 
 The `System.Linq.Dynamic.Core` library provides a function known as `np()` which can be used as a short-hand alternative.
 
-In the example below, we just specify the `np()` method to do a where-clause on the customers and return only the customers who have the Location defined, and the Name from that Location should be equal to "test".
+In the example below, we specified the `np()` method to do a where-clause on the customers and return only the customers who have the Location defined, and the Name from that Location should be equal to "test".
 
 ``` cs
 using (var context = new EntityContext())
@@ -59,9 +59,9 @@ using (var context = new EntityContext())
 
 ### Supply default value
 
-In case you want to supply a default value in case the value is null, you can provide the default value as second parameter to the `np()`-method:
+If you want to supply a default value in case the value is null, you can provide the default value as second parameter to the `np()`-method:
 
-It's also possible to use the `np()`-method in all expressions, as an example, you can also use it in a `Select`:
+It's also possible to use the `np()`-method in all expressions. As an example, you can also use it in a `Select`:
 
 ``` cs
 using (var context = new EntityContext())

@@ -8,14 +8,14 @@ Name: Expression Language
 The Dynamic LINQ expression language provides a simple and convenient way of writing expressions that can be parsed into LINQ expression trees.
 
 - The language supports most of the constructs of expression trees, but it is not a complete query or programming language.
-- It is designed to be familiar to C#, VB, and SQL users, that's why some operators are present in multiple forms, such as `&&` and `and`.
+- It is designed to be familiar to C#, VB, and SQL users; it explains why some operators are present in multiple forms, such as `&&` and `and`.
 
 ## Constants
 
 The expression language defines the following constants:
 
-- The `true` and `false` denotes the values of the type `bool`.
-- The `null` denotes a null reference, the `null` constant is of type `Object`, but is also implicitly convertible to any reference type.
+- The `true` and `false` denote the values of the type `bool`.
+- The `null` denotes a null reference, and the `null` constant is of type `Object`, who is also implicitly convertible to any reference type.
 
 ## Types
 
@@ -45,7 +45,7 @@ The expression language defines the following primitive types:
 
 ### Accessible Types
 
-The expression language also defines a set of accessible types consisting of the primitive types and the following types from the `System` namespace.
+The expression language also defines a set of accessible types consisting of the primitive types, and the following types from the `System` namespace.
 
 - Math
 - Convert
@@ -82,7 +82,7 @@ The following conversions are implicitly performed by the expression language:
 
 ### Explicit Conversion
 
-The expression language permits explicit conversions using the syntax type `(_expr_)`, where type is a type name optionally followed by `?` and `_expr_` is an expression. This syntax may be used to perform the following conversions:
+The expression language allows explicit conversions using the syntax type `(_expr_)`, where type is a type name optionally followed by `?` and `_expr_` is an expression. This syntax may be used to perform the following conversions:
 
 - Between two types provided `Type.IsAssignableFrom` is true in one or both directions.
 - Between two types provided one or both are interface types.
@@ -174,12 +174,12 @@ var result = baseQuery.Select("iif(it % 2 = 0, true, false)");
 
 ## Calling Method and Constructor
 
-The expression language can call only those methods and constructors that are declared public in the accessible types. This restriction protects the unintended side effects of calling arbitrary methods.
+The expression language can only call those methods and constructors that are declared public in the accessible types. This restriction protects the unintended side effects of calling arbitrary methods.
 
 - The expression language permits only getting the value of any public field, property, or indexer.
 - Overload resolution for methods, constructors, and indexers uses rules like C#.
 - In informal terms, overload resolution will pick the best matching method, constructor, or indexer, or report an ambiguity error if no single best match can be identified.
-- When you want to call a constructor there is no need for the new keyword.
+- When you want to call a constructor, there is no need for the new keyword.
 
 ```csharp
 using (var context = new EntityContext())
@@ -190,7 +190,7 @@ using (var context = new EntityContext())
 
 [Try it online](https://dotnetfiddle.net/BWGuvY)
 
-The above example creates a DateTime instance for a specific year, month, and day by calling a constructor.
+The example above creates a DateTime instance for a specific year, month, and day by calling a constructor.
 
 ## Data Object Initializers
 
@@ -206,7 +206,7 @@ using (var context = new EntityContext())
 
 [Try it online](https://dotnetfiddle.net/5QHCHB)
 
-The above example creates a data class with three properties, `Name`, `Company`, and `Phone`, and returns a sequence of instances of that data class initialized from the `Name`, `CompanyName`, and `Phone` properties of each customer.
+The example above creates a data class with three properties, `Name`, `Company`, and `Phone`, and returns a sequence of instances of that data class initialized from the `Name`, `CompanyName`, and `Phone` properties of each customer.
 
 ## Current Instance
 

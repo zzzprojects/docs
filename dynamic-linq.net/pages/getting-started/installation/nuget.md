@@ -19,9 +19,9 @@ You are ready to start writing some code using the Dynamic LINQ.
 
 This library can be used for
 
-- LINQ to Objects
-- Entity Framework with SQL
-- Any LINQ Provider which implements LINQ Expressions
+- LINQ to Objects;
+- Entity Framework with SQL;
+- Any LINQ Provider which implements LINQ Expressions;
 
 ## Install EntityFramework versions from the Dynamic LINQ Library
 

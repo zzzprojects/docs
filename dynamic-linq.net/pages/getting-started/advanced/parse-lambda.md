@@ -15,7 +15,7 @@ There are various overloads of `ParseLambda` which can be used as per your requi
 
 ## Expression Parameter
 
-The first `ParseLambda` overload parses a lambda expression with the given parameters and expression body and it will return an expression instance representing the result.
+The first `ParseLambda` overload parses a lambda expression with the given parameters and expression body, and it will return an expression instance representing the result.
 
 ```csharp
 ParameterExpression x = Expression.Parameter(typeof(int), "x");
@@ -26,16 +26,16 @@ LambdaExpression e = DynamicExpressionParser.ParseLambda(new ParameterExpression
 
 [Try it online](https://dotnetfiddle.net/22vgqJ)
 
-The above example creates and assigns an `Expression<Func<int, int, int>>` instance to `e` representing the expression `(x + y) * 2`.
+The example above creates and assigns an `Expression<Func<int, int, int>>` instance to `e` representing the expression `(x + y) * 2`.
 
-If the 2nd parameter resultType is non-null it specifies the required result type for the expression.
+If the 2nd parameter resultType is non-null, it specifies the required result type for the expression.
 
 ```csharp
 LambdaExpression e = DynamicExpressionParser
     .ParseLambda(new ParameterExpression[] { x, y }, typeof(double), "(x + y) * 2");
 ```
 
-The parsing operation will include an implicit conversion to the given result type, in this case yielding an Expression instance.
+The parsing operation will include an implicit conversion to the given result type, in this case yielding an expression instance.
 
 ## Unnamed Parameter
 
@@ -53,7 +53,7 @@ using (var context = new EntityContext())
 
 [Try it online](https://dotnetfiddle.net/y1i7V0)
 
-The above example creates and assigns an `Expression` instance to `e`. The **City** and **Orders** are members of `Customer` that are automatically in scope.
+The example above creates and assigns an `Expression` instance to `e`. The **City** and **Orders** are members of `Customer` that are automatically in scope.
 
 ## Dynamic Lambda
 
@@ -76,7 +76,7 @@ using (var context = new EntityContext())
 
 [Try it online](https://dotnetfiddle.net/9hcBuL)
 
-The above example parses two separate dynamic lambda expressions and then combines them in a predicate expression through dynamic lambda invocations.
+The example above parses two separate dynamic lambda expressions and then combines them in a predicate expression through dynamic lambda invocations.
 
 You can also combine static and dynamic lambda expressions as shown below.
 

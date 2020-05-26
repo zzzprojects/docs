@@ -5,7 +5,7 @@ Name: Localization
 
 # Localization
 
-There are currently two configuration settings in the ParsingConfig which are related to localization.
+Currently, there are two configuration settings in the ParsingConfig related to localization.
 
 ## DateTime parsing
 
@@ -15,6 +15,6 @@ If you want to parse all DateTimes as UTC, see [ParsingConfig : DateTimeIsParsed
 
 ## Number Parsing
 
-By default all numbers (float and double) are parsed using InvariantCulture.
+By default, all numbers (float and double) are parsed using InvariantCulture.
 
 If you want to parse a number using a different Culture, see [ParsingConfig : DateTimeIsParsedAsUTC](configuration.md#NumberParseCulture).

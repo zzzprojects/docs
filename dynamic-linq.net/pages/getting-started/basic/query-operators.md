@@ -6,7 +6,7 @@ Name:Query Operators
 
 ## Standard Query Operators
 
-The following table lists all Dynamic Query Operators which are supported on a `IQueryable` or `IQueryable<T>`.
+The following table lists of all Dynamic Query Operators are supported on a `IQueryable` or `IQueryable<T>`.
 
 Query Operator | Return Type | Info
 :--| :- | :-
@@ -134,7 +134,7 @@ string boss = typeof(Boss).FullName;
 var oftypeBoss = context.Employees.OfType(boss);
 ```
 
-The `Is` can be used to determine if the entity has a specific type, in the example below, the number of bosses is counted:
+The `Is` can be used to determine if the entity has a specific type. In the example below, the number of bosses is counted:
 
 ``` cs
 string boss = typeof(Boss).FullName;
@@ -162,7 +162,7 @@ var castToWorkers = allWorkers.Cast(typeof(Worker));
 
 ### Count
 
-Dynamic LINQ examples for Count look like:
+Here is an example of Dynamic LINQ for Count:
 
 ``` cs
 int numberOfOrdersWhichHavePriceGreaterThan2 = context.Orders.Count("Price > 2");
@@ -173,7 +173,7 @@ var usersWhoHaveTwoRoles = context.Users.Where("u => u.Roles.Count() == 2");
 
 ### DefaultIfEmpty
 
-Dynamic LINQ example for DefaultIfEmpty looks like:
+Here is an example of Dynamic LINQ for DefaultIfEmpty:
 
 ``` cs
 var defaultIfEmpty = context.Customers.Where("Name == \"not-found\"").DefaultIfEmpty();
@@ -189,7 +189,7 @@ var users = context.Users.Select("Roles.Where(r => r.Name == \"Admin\").DefaultI
 
 ### Distinct
 
-Dynamic LINQ example for Distinct looks like:
+Here is an example of Dynamic LINQ example for Distinct:
 
 ``` cs
 IQueryable queryable = new[] { 1, 2, 2, 3 }.AsQueryable();
@@ -230,7 +230,7 @@ var items = context.Users
 
 ### GroupBy
 
-The Dynamic LINQ GroupBy functionality works the same as the normal stronly typed GroupBy. Below are some examples in Dynamic LINQ.
+The Dynamic LINQ GroupBy functionality works the same as the normal, strongly typed GroupBy. Below are some examples in Dynamic LINQ.
 
 #### GroupBy by a single Key
 
@@ -290,13 +290,13 @@ For more examples, see [Try it online](https://dotnetfiddle.net/eLVc3b).
 
 ### GroupJoin
 
-The Dynamic LINQ version from GroupJoin works the same as the normal stronly typed version of GroupJoin. It supports also joining on nullable keys (for both 'Left' and 'Right').
+The Dynamic LINQ version from GroupJoin works the same as the normal strongly typed version of GroupJoin. Also, it supports joining on nullable keys (for both 'Left' and 'Right').
 
 For more examples, see this [link](https://dotnetfiddle.net/sqkxpI).
 
 ### Join
 
-A strongly typed Join example can look like this:
+Here is an example of a strongly typed Join:
 
 ``` cs
 var realQuery = persons.Join(
@@ -307,7 +307,7 @@ var realQuery = persons.Join(
 );
 ```
 
-The Dynamic LINQ counterpart for this Join looks like:
+Here is the Dynamic LINQ counterpart for this Join:
 
 ``` cs 
 var dynamicQuery = persons.AsQueryable().Join(
@@ -350,13 +350,13 @@ If you want to get a list of sorted entities from a dynamic query you can use Pa
 var pagedCustomers = context.Customers.OrderBy("Name").Page(page, pageSize);
 ```
 
-Or you want a PagedResult, which is useful for paging in grids, use this code:
+Or, if you want a PagedResult, which is useful for paging in grids, use this code:
 
 ``` cs
 var result = context.Customers.OrderBy("Name").PageResult(page, pageSize);
 ```
 
-The PagedResult object looks like:
+Here is the PagedResult object:
 
 ``` cs
 // The IQueryable version
@@ -376,7 +376,7 @@ public class PagedResult<TSource> : PagedResult
 }
 ```
 
-Note that in both cases you need to sort the queryable, else you get an Exception.
+Note that in both cases you need to sort the queryable, else you will get an Exception.
 
 [Try it online](https://dotnetfiddle.net/b464OO)
 
@@ -392,7 +392,7 @@ var reversed = ((IQueryable) persons.AsQueryable()).Reverse();
 
 ### SelectMany
 
-You can use SelectMany as extension method like this:
+Here is how you can use SelectMany as extension method:
 
 #### Use SelectMany as ExtensionMethod
 
@@ -428,7 +428,7 @@ Dynamic LINQ example to skip the first entity:
 var skipFirstCustomer = context.Customers.OrderBy("CustomerID").Skip(1);
 ```
 
-It's also possible to use SkipWhile, to skip entities as long as the predicate does match:
+Also, it is possible to use SkipWhile, to skip entities as long as the predicate does match:
 
 ``` cs
 var skipped = context.Customers.ToList().AsQueryable().SkipWhile("CompanyName != \"ZZZ\"");
@@ -440,7 +440,7 @@ var skipped = context.Customers.ToList().AsQueryable().SkipWhile("CompanyName !=
 
 ### Sum
 
-Dynamic LINQ example to get the total price from all orders:
+here is an example of Dynamic LINQ on how to get the total price from all orders:
 
 ``` cs
 var totalPriceExample1 = context.Orders.Select("Price * Amount").Sum();
@@ -488,4 +488,4 @@ SumAsync | Task&lt;dynamic&gt; | Asynchronously computes the sum of a sequence o
 
 ### Notes
 
-To use these extension methods, you need to install another NuGet package which depends on **EntityFramework**, **Microsoft.EntityFrameworkCore** or **Z.EntityFramework.Classic**. See [Installation - NuGet](installation/nuget.md) for more details.
+To use these extensions methods, you need to install another NuGet package which depends on **EntityFramework**, **Microsoft.EntityFrameworkCore** or **Z.EntityFramework.Classic**. See [Installation - NuGet](installation/nuget.md) for more details.
