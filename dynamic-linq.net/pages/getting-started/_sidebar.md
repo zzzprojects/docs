@@ -1,8 +1,18 @@
-- [Overview](01-overview.md)
-- [Dynamic Extension Methods](02-dynamic-extension-methods.md)
-- [Null Propagation](03-null-propagation.md)
-- [Configuration](04-configuration.md)
-- [Parse Lambda Method](05-parse-lambda-method.md)
-- [Parse Method](06-parse-method.md)
-- [Create Data Class Dynamically](07-create-data-class-dynamically.md)
-- [Expression Language](08-expression-language.md)
+- Overview
+  - [Overview](overview/overview.md)
+
+- Basic Usage
+  - [Simple Querying](basic/simple-query.md)
+  - [Query Operators](basic/query-operators.md)
+
+- [Expression Language](advanced/expression-language.md)
+
+- Advanced Usage
+  - [Configuration](advanced/configuration.md)
+  - [Localization](advanced/localization.md)
+  - [Null Propagating](advanced/null-propagation.md)
+  - [Parse Lambda](advanced/parse-lambda.md)
+  - [Create Dynamic Class](advanced/create-dynamic-class.md)
+
+- Installation
+  - [NuGet](installation/nuget.md)
