@@ -19,7 +19,15 @@ There is 2 ways to use the logging features
 To use the `Logging` feature with an action, you need to define a delegate to execute.
 
 ```csharp
-TBD
+// Execute
+var sb = new StringBuilder();
+context.BulkMerge(list, options =>
+{
+    options.Log = s => sb.AppendLine(s);
+});
+
+// Result
+Console.WriteLine(sb.ToString());
 ```
 
 ### Logging with the LogDump
