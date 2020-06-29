@@ -47,11 +47,13 @@ And of course, it's not required to specify the value as a hard-coded value. So 
 4:             .ToList();
 ```
 
-Here are further chapters on this page that describe some basic query examples.
+[View all above examples here](https://dotnetfiddle.net/cs6MRX)
+
+See chapters below for more basic query examples.
 
 ## More `Where` examples
 
-Note that it's also possible to query data using multiple criterias: 
+Note that it's also possible to query data using multiple predicates:
 
 ```csharp
 1: var result = context.Customers
@@ -79,9 +81,11 @@ You can also mimic the strongly typed `Where`-predicate using the [=> operator](
 
 ```csharp
 1: var resultDynamic = context.Customers
-2:             .Where("c => c.City == \"Paris\"")
+2:             .Where("c => c.City == \"Paris\" && c.Age > 50")
 3:             .ToList();
 ```
+
+[View all above examples here](https://dotnetfiddle.net/4yOUhM)
 
 ## Selecting entities and properties
 
@@ -109,6 +113,8 @@ When we break down these two examples:
 2. The `Select`-method for Dynamic Linq is written as a string, where the same properties are used (City and CompanyName).
 3. For Dynamic LINQ we need to use the `ToDynamicList()` method, because the return from the `Select` is an `IQueryable`. The result from both the strongly typed and dynamic example is the same: a list from a dynamic-generated class with two properties (City and CompanyName).
 
+[View all above examples here](https://dotnetfiddle.net/ZN3FSo)
+
 ## Ordering results
 
 Sorting the result based on a property or multiple properties is another feature from LINQ. Observe the differences.
@@ -134,7 +140,7 @@ When we break down these two examples:
 1. The context.Customers in this case is a `DbSet<Customer>`, which implements `IQueryable<T>`. This is the same starting point for both examples.
 2. In the strongly typed LINQ example, you need to call the `OrderBy`-method, followed by the `ThenBy`-method to sort the result; first on the City and then on the CompanyName.
 For Dynamic Linq you only need to use the `OrderBy`-method, and provide the two sort properties as a comma separated string.
-3. The `ToList()` method for both examples will sreturn a strongly typed list: `List<Customer>`.
+3. The `ToList()` method for both examples will return a strongly typed list: `List<Customer>`.
 
 ## Ordering results (combining ascending and descending)
 
@@ -155,3 +161,5 @@ Or
 ```
 
 The examples above will perform the sorting on the City property *Ascending* (= default) and then the sorting will be on the CompanyName in a *Descending* way.
+
+[View all above examples here](https://dotnetfiddle.net/GdxsMG)

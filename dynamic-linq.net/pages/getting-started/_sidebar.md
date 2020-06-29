@@ -11,6 +11,8 @@
   - [Configuration](advanced/configuration.md)
   - [Localization](advanced/localization.md)
   - [Null Propagating](advanced/null-propagation.md)
+  - [Entity Framework](advanced/entity-framework.md)
+  - [Extending](advanced/extending.md)
   - [Parse Lambda](advanced/parse-lambda.md)
   - [Create Dynamic Class](advanced/create-dynamic-class.md)
 
