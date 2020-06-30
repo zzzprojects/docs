@@ -467,7 +467,6 @@ var takeWhile = context.Customers.ToList().AsQueryable().TakeWhile("CompanyName 
 
 [TakeWhile is not supported in all scenarios](https://msdn.microsoft.com/library/bb738550.aspx)
 
-
 ## Async Query Operators
 
 The following table lists all Dynamic **Async** Query Operators which are supported on a `IQueryable` or `IQueryable<T>`.

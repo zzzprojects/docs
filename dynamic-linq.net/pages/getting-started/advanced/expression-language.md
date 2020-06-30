@@ -246,3 +246,57 @@ using (var context = new EntityContext())
 ```
 
 [Try it online](https://dotnetfiddle.net/UsJYc1)
+
+## Sequence operators
+
+A subset of the Standard Query Operators is supported for objects that implement IEnumerable&lt;T&gt; or IQueryable&lt;T&gt;. Specifically, the following constructs are permitted, where **seq** is an IEnumerable&lt;T&gt; or IQueryable&lt;T&gt; instance, **predicate** is a boolean expression and **selector** is an expression of any type.
+
+- seq.All(predicate)
+- seq.Any()
+- seq.Any(predicate)
+- seq.Average(selector)
+- seq.Cast(string type)
+- seq.Contains(selector)
+- seq.ContainsKey(selector)
+- seq.Count()
+- seq.Count(predicate)
+- seq.DefaultIfEmpty()
+- seq.DefaultIfEmpty(defaultValue)
+- seq.Distinct()
+- seq.First()
+- seq.First(predicate)
+- seq.FirstOrDefault()
+- seq.FirstOrDefault(predicate)
+- seq.GroupBy(keySelector)
+- seq.GroupBy(keySelector,  elementSelector)
+- seq.Last()
+- seq.Last(predicate)
+- seq.LastOrDefault()
+- seq.LastOrDefault(predicate)
+- seq.LongCount()
+- seq.LongCount(predicate)
+- seq.Max(selector)
+- seq.Min(selector)
+- seq.OfType(string type)
+- seq.OrderBy(selector)
+- seq.OrderByDescending(selector)
+- seq.Select(selector)
+- seq.SelectMany(selector)
+- seq.Single()
+- seq.Single(predicate)
+- seq.SingleOrDefault()
+- seq.SingleOrDefault(predicate)
+- seq.Skip(count)
+- seq.SkipWhile(predicate)
+- seq.Sum(selector)
+- seq.Take(count)
+- seq.TakeWhile(predicate)
+- seq.ThenBy(selector)
+- seq.ThenByDescending(selector)
+- seq.Where(predicate)
+
+In the predicate and selector expressions, the members of the current instance for that sequence operator are automatically in scope, and the instance itself can be referenced using the keyword **it**. For example:
+
+``` csharp
+customers.Where("Orders.Any(Total >= 1000)");
+```
