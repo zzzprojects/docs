@@ -5,7 +5,8 @@
   - [Simple Querying](basic/simple-query.md)
   - [Query Operators](basic/query-operators.md)
 
-- [Expression Language](advanced/expression-language.md)
+- Expression Language
+  - [Expression Language](advanced/expression-language.md)
 
 - Advanced Usage
   - [Configuration](advanced/configuration.md)
