@@ -64,17 +64,14 @@ The arguments supplied must be compatible with the parameter list of the given d
 ```csharp
 using (var context = new EntityContext())
 {
-    Expression<Func<Customer, bool>> e1 = DynamicExpressionParser
-        .ParseLambda<Customer, bool>(new ParsingConfig(), true, "City = @0", "London");
+    var e1 = DynamicExpressionParser.ParseLambda<Customer, bool>(new ParsingConfig(), true, "City = @0", "London");
+    var e2 = DynamicExpressionParser.ParseLambda<Customer, bool>(new ParsingConfig(), true, "c => c.CompanyName != \"test\"");
 
-    Expression<Func<Customer, bool>> e2 = DynamicExpressionParser
-        .ParseLambda<Customer, bool>(new ParsingConfig(), true, "Orders.Count >= 3");
-
-    var customers = context.Customers.Where("@0(it) and @1(it)", e1, e2).ToList();
+    var customers = context.Customers.ToList().AsQueryable().Where("@0(it) and @1(it)", e1, e2);
 }
 ```
 
-[Try it online](https://dotnetfiddle.net/9hcBuL)
+[Try it online](https://dotnetfiddle.net/PF9Htk)
 
 The example above parses two separate dynamic lambda expressions and then combines them in a predicate expression through dynamic lambda invocations.
 

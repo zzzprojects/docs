@@ -32,10 +32,10 @@ Download the <a href="/download">NuGet Package</a>
 
 ### Entity Framework Version
 
-
-
-- Entity Framework Core 2.x
-- Entity Framework 6.x
+- Entity Framework Core 5
+- Entity Framework Core 3
+- Entity Framework Core 2
+- Entity Framework 6
 - Entity Framework 5
 - Entity Framework 4
 
