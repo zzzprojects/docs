@@ -15,7 +15,7 @@ It's possible to extend the parsing functionality from Dynamic LINQ by defining 
 - The methods in this class need also to be public and static
 - The class itself needs to be annotated with the `[DynamicLinqType]` attribute
 
-### Example
+### Examples
 
 Create the following utility class.
 
@@ -32,10 +32,19 @@ public static class Utils
 
         return int.Parse(value);
     }
+
+    public static int IncrementMe(this int values)
+    {
+        return values + 1;
+    }
 }
 ```
 
-This class has simple logic to return a integer value of 0 when the input string is null, else parse the string to an integer.
+This class has two simple methods:
+
+- return a integer value of 0 when the input string is null, else parse the string to an integer
+- increment an integer value by using an extension method
+
 
 ### Usage
 
@@ -46,7 +55,14 @@ var query = new [] { new { Value = (string) null }, new { Value = "100" } }.AsQu
 var result = query.Select("Utils.ParseAsInt(Value)");
 ```
 
-[Try it online](https://dotnetfiddle.net/kkKdWi)
+Extension methods are also supported:
+
+``` csharp
+var query = new [] { new { Number = 5 }, new { Number = 7 } }.AsQueryable();
+var result = query.Select("Number.IncrementMe()");
+```
+
+[Try it online](https://dotnetfiddle.net/rbVk2w)
 
 ### Notes
 
