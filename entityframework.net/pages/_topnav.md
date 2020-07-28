@@ -1,5 +1,5 @@
 - [Home](/)
-- [EF Core 5](https://learnentityframeworkcore5.com/whats-new-in-ef-core-5)
+- [EF Core 5](https://www.learnentityframeworkcore5.com/whats-new-in-ef-core-5)
 - [Articles](/articles)
 - [Knowledge Base](/knowledge-base)
 - [Online Examples](/online-examples)
