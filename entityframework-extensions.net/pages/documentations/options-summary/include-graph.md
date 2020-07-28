@@ -38,8 +38,9 @@ using (var context = new EntityContext())
  - It will insert a list of invoices including all the invoices items for each invoice.
 
 ## IncludeGraphOperationBuilder
-The IncludeGraphOperationBuilder let you customize the bulk operations by entity type. Options are not copied when using `IncludeGraph`.
+The `IncludeGraphOperationBuilder` let you customize the bulk operations by entity type.
 
+While some options such as `BatchSize` are copied through the graph, all operations related to columns need to be specified in the `IncludeGraphOperationBuilder` since it depends from a type to another.
 
 The following example uses `Name` property as a key for both `User` and `Role` entities using `IncludeGraphOperationBuilder` to perform `BulkMerge`.
 
@@ -84,6 +85,9 @@ ctx.BulkMerge(users, options =>
 });
 ```
 [Try it in EF6](https://dotnetfiddle.net/UgwDDk) | [Try it in EF Core](https://dotnetfiddle.net/LQnvGP)
+
+
+### Invalid 
 
 
 {% include section-faq-begin.html %}
