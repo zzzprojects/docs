@@ -30,7 +30,7 @@ Try it: [.NET Core](https://dotnetfiddle.net/) | [.NET Framework](https://dotnet
 
 ## Scenarios
 
-- [Saving audit history in a database](/scenarios/save-audit-history-in-a-database.md)
+- [Saving audit history in a database](../options/save-audit-history-in-a-database.md)
 - Saving the audit history in a log file
 
 ## Options
