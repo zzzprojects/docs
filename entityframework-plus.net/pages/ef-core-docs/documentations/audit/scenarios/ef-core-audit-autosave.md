@@ -152,11 +152,6 @@ public class EntityContext : DbContext
 		return rowAffecteds;
 	}
 
-	public override Task<int> SaveChangesAsync()
-	{
-		return SaveChangesAsync(CancellationToken.None);
-	}
-
 	public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken)
 	{
 		var audit = new Audit();
