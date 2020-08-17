@@ -1,7 +1,3 @@
----
-permalink: detach-associated-entity
----
-
 ## Description
 
 GraphDiff can handle associated entities, when updating an entity graph then associated entities are not changed by GraphDiff.
@@ -14,8 +10,7 @@ GraphDiff can handle associated entities, when updating an entity graph then ass
 
 GraphDiff adds the relation of an associated entity to the parent entity when entity graph is updated.
 
-{% include template-example.html %} 
-{% highlight csharp %}
+```csharp
 var node = new TestNode { Title = "Parent Node" };
 
 using (var context = new TestDbContext())
@@ -34,13 +29,11 @@ using (var context = new TestDbContext())
 
     context.SaveChanges();
 }
-
-{% endhighlight %}
+```
 
 Similarly, the relation of a collection of associated entities can also be added to the parent entity by using the **AssociatedCollection()** method.
 
-{% include template-example.html %} 
-{% highlight csharp %}
+```csharp
 var node = new TestNode { Title = "Parent Node" };
 
 using (var context = new TestDbContext())
@@ -64,15 +57,13 @@ using (var context = new TestDbContext())
 
     context.SaveChanges();
 }
-
-{% endhighlight %}
+```
 
 ## Change Associated Entity
 
 Any change in an associated entity will not be saved with parent's navigation property. 
 
-{% include template-example.html %} 
-{% highlight csharp %}
+```csharp
 var node = new TestNode
 {
     Title = "Parent Node",
@@ -97,7 +88,6 @@ using (var context = new TestDbContext())
 
     context.SaveChanges();
 }
-
-{% endhighlight %}
+```
 
 In the above example, the Title of associated entity is updated, but **GraphDiff** will not save the updated Title when entity graph is updated.

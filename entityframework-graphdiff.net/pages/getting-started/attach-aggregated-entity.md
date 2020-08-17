@@ -1,15 +1,10 @@
----
-permalink: detach-aggregated-entity
----
-
 ## Description
 
 GraphDiff is capable of mapping changes from an aggregate root to the database. The aggregate root is a bunch of models which are handled by one unit when updating/adding/deleting.
 
 For example, to add different associated and owned entities simultaneously to the parent entity.
 
-{% include template-example.html %} 
-{% highlight csharp %}
+```csharp
 var associated = new OneToOneAssociatedModel { Title = "Associated Entity" };
 var manyAssociated = new OneToManyAssociatedModel { Title = "Associated Collection Item 1" };
 var node = new TestNode
@@ -47,7 +42,5 @@ using (var context = new TestDbContext())
 
     context.SaveChanges();
 }
-
-{% endhighlight %}
-
+```
 

@@ -1,7 +1,3 @@
----
-permalink: detach-single-entity
----
-
 ## Description
 
 GraphDiff merges an entire graph of detached entities into the database using **DbContext.UpdateGraph()**.
@@ -10,8 +6,7 @@ GraphDiff merges an entire graph of detached entities into the database using **
 
 Add a single detach entity to the database using DbContext.UpdateGraph method. This entity will be considered as a root entity.
 
-{% include template-example.html %} 
-{% highlight csharp %}
+```csharp
 var node = new TestNode
 {
     Title = "Hello"
@@ -22,15 +17,13 @@ using (var context = new TestDbContext())
     node = context.UpdateGraph(node);
     context.SaveChanges();
 }
-
-{% endhighlight %}
+```
 
 ### Update Entity
 
 Update a single detach entity to the database using DbContext.UpdateGraph method. The change is merged in another context by updating the entity graph.
 
-{% include template-example.html %} 
-{% highlight csharp %}
+```csharp
 var node = new TestNode
 {
     Title = "Hello"
@@ -49,5 +42,4 @@ using (var context = new TestDbContext())
     context.UpdateGraph(node);
     context.SaveChanges();
 }
-
-{% endhighlight %}
+```

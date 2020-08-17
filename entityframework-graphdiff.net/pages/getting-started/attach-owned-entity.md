@@ -1,7 +1,3 @@
----
-permalink: detach-owned-entity
----
-
 ## Description
 
 An owned entity can be described as **being a part of**, when updating a graph then GraphDiff also changes owned entities with its owner.
@@ -13,8 +9,7 @@ An owned entity can be described as **being a part of**, when updating a graph t
 
 GraphDiff adds the owned entity to the parent entity when entity graph is updated.
 
-{% include template-example.html %} 
-{% highlight csharp %}
+```csharp
 var node = new TestNode { Title = "Parent Node" };
 
 using (var context = new TestDbContext())
@@ -33,13 +28,11 @@ using (var context = new TestDbContext())
 
     context.SaveChanges();
 }
-
-{% endhighlight %}
+```
 
 Similarly, a collection of owned entities can also be added to the parent entity by using the **OwnedCollection()** method.
 
-{% include template-example.html %} 
-{% highlight csharp %}
+```csharp
 var node = new TestNode { Title = "Parent Node" };
 
 using (var context = new TestDbContext())
@@ -63,16 +56,14 @@ using (var context = new TestDbContext())
 
     context.SaveChanges();
 }
-
-{% endhighlight %}
+```
  
 
 ## Update Owned Entity
 
 GraphDiff updates the owned entity with the parent entity when entity graph is updated.
 
-{% include template-example.html %} 
-{% highlight csharp %}
+```csharp
 var node = new TestNode
 {
     Title = "Parent Node",
@@ -98,15 +89,13 @@ using (var context = new TestDbContext())
 
     context.SaveChanges();
 }
-
-{% endhighlight %}
+```
 
 ## Remove Owned Entity
 
 GraphDiff removes the owned entity from parent entity as well as from the database itself when entity graph is updated.
 
-{% include template-example.html %} 
-{% highlight csharp %}
+```csharp
 var node = new TestNode
 {
     Title = "Parent Node",
@@ -132,14 +121,13 @@ using (var context = new TestDbContext())
 
     context.SaveChanges();
 }
-{% endhighlight %}
+```
 
 ## Nested Owned Entity
 
 GraphDiff can also handle nested owned entity by specifying it with nested **OwnedEntity** method.
 
-{% include template-example.html %} 
-{% highlight csharp %}
+```csharp
 var node = new TestNode { Title = "Parent Node" };
 
 using (var context = new TestDbContext())
@@ -166,5 +154,4 @@ using (var context = new TestDbContext())
 
     context.SaveChanges();
 }
-
-{% endhighlight %}
+```
