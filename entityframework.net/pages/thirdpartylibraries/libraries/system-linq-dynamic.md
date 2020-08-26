@@ -32,4 +32,4 @@ Note that expressions in the query are strings that could have been dynamically 
 
  - All versions are supported.
 
-[Learn more](http://blog.vavstech.com/2014/08/systemlinqdynamic-documentation.html)
+[Learn more](https://dynamic-linq.net/)
