@@ -49,6 +49,7 @@
       - [Log](options/log.md)
       - [LogDump](options/log-dump.md)
       - [UseLogDump](options/use-log-dump.md)      
+   - [Rows Affected](options-summary/rows-affected.md)
    - [Temporary Table](options-summary/temporary-table.md)
    - [Transaction](options-summary/transaction.md)
    - [Transient Error](options-summary/transient-error.md)
