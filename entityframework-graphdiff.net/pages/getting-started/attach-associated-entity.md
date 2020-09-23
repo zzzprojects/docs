@@ -59,6 +59,23 @@ using (var context = new TestDbContext())
 }
 ```
 
+If the associated collection has many navigation properties with the same parent entity, such as:
+
+```csharp
+public class Child
+{
+  public Parent A { get; set; }
+  public Parent B { get; set; }
+  public Parent Inverse { get; set; }
+}
+```
+
+You can choose which navigation to use; otherwise, the first one found will be used (in this case `A`).
+
+```csharp
+context.UpdateGraph(entity, map => map.AssociatedCollection(c => c.Children, x => x.B)
+```
+
 ## Change Associated Entity
 
 Any change in an associated entity will not be saved with parent's navigation property. 
