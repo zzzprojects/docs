@@ -23,7 +23,7 @@ VALUES  ( 'info@zzzprojects.com' ),
         ( 'sales@zzzprojects.com' )
 
 -- "Regex" is optional, you can directly use IsMatch
-DECLARE @valid_email SQLNET = SQLNET::New('Regex.IsMatch(email, pattern')
+DECLARE @valid_email SQLNET = SQLNET::New('Regex.IsMatch(email, pattern)')
                                      .ValueString('pattern', @regex).Root()
 
 -- SELECT 'invalid.com'
