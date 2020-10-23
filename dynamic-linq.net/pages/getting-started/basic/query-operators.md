@@ -24,7 +24,7 @@ Query Operator | Return Type | Info
 [GroupBy](#groupby) | IQueryable | Groups the elements of a sequence according to a specified key string function and creates a result value from each group and its key.
 [GroupByMany](#groupbymany) | IEnumerable&lt;GroupResult&gt; | Groups the elements of a sequence according to multiple specified key string functions and creates a result value from each group (and subgroups) and its key.
 [GroupJoin](#groupjoin) | IQueryable | Correlates the elements of two sequences based on equality of keys and groups the results. The default equality comparer is used to compare keys.
-[Join](#join]) | IQueryable or IQueryable&lt;T&gt; | Correlates the elements of two sequences based on matching keys. The default equality comparer is used to compare keys.
+[Join](#join) | IQueryable or IQueryable&lt;T&gt; | Correlates the elements of two sequences based on matching keys. The default equality comparer is used to compare keys.
 [Last](#last-lastordefault) | dynamic | Returns the last element of a sequence. [Maybe not supported in all scenarios](https://msdn.microsoft.com/library/bb738550.aspx)
 [LastOrDefault](#last-lastordefault) | dynamic | Returns the last element of a sequence, or a default value if the sequence contains no elements. [Maybe not supported in all scenarios](https://msdn.microsoft.com/library/bb738550.aspx)
 [LongCount](#count) | long | Returns the number of elements in a sequence as a long.
