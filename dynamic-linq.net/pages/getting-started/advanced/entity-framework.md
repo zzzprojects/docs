@@ -32,7 +32,7 @@ example2.Dump();
 
 The generated SQL will be:
 
-```csharp
+```sql
 SELECT [c].[Key], [c].[Brand], [c].[Color], [c].[Vin], [c].[Year]
 FROM [Cars] AS [c]
 WHERE [c].[Brand] LIKE N'%t%'
