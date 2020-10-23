@@ -100,10 +100,10 @@ In the below table, `x`, `y`, and `z` denote expressions, `T` denotes a type, an
 | Category | Expression | Description |
 | :--- | :--- | :--- |
 | Primary | `x.m` | Instance field or instance field or property access. Any public field or property can be accessed. |
-| Primary | `x.m(...)` | Instance [method invocation](#Constructor_and_Method). The method must be public and must be declared in an [accessible type](#_Predefined_types). |
+| Primary | `x.m(...)` | Instance [method invocation](#Constructor_and_Method). The method must be public and must be declared in an [accessible type](#primitive-types). |
 | Primary | `x[...]` | Array or indexer access. Multi-dimensional arrays are not supported. |
 | Primary | `T.m` | Static field or static property access. Any public field or property can be accessed. |
-| Primary | `T.m(...)` | Static [method invocation](#_Anonymous_Object_Creation). The method must be public and must be declared in an [accessible type](#_Predefined_types). |
+| Primary | `T.m(...)` | Static [method invocation](#_Anonymous_Object_Creation). The method must be public and must be declared in an [accessible type](#primitive-types). |
 | Primary | `T(...)` | [Explicit conversion](#_Conversions) or [constructor invocation](#_Anonymous_Object_Creation). Note that `new` is not required in front of a constructor invocation. |
 | Primary | `new(...)` | [Data object initializer](#_Data_Object_Initializer). This construct can be used to perform dynamic projections. |
 | Primary | `it` | [Current instance](#_Current_Instance). In contexts where members of a current object are implicitly in scope, `it` is used to refer to the entire object itself. |
@@ -119,12 +119,12 @@ In the below table, `x`, `y`, and `z` denote expressions, `T` denotes a type, an
 | Additive | `x + y` | Addition or string concatenation. Performs string concatenation if either operand is of type `String`. Otherwise, performs addition for the supported types `Int32`, `UInt32`, `Int64`, `UInt64`, `Decimal`, `Single`, `Double`, `DateTime`, and `TimeSpan`. |
 | Additive | `x – y` | Subtraction. Supported types are `Int32`, `UInt32`, `Int64`, `UInt64`, `Decimal`, `Single`, `Double`, `DateTime`, and `TimeSpan`. |
 | Additive | `x & y` | String concatenation. Operands may be of any type. |
-| Relational | `x = y` <br/> `x == y` <br/> `x eq y` <br/> `x equal y` | Equal. Supported for reference types and the [primitive types](#_Predefined_types). Assignment is not supported. Comparison with null: `x == null` is supported, but `x is null` is not supported. |
-| Relational | `x != y` <br/> `x <> y` <br/> `x ne y` <br/> `x neq y` <br/> `x notequal y`| Not equal. Supported for reference types and the [primitive types](#_Predefined_types). |
-| Relational | `x < y` <br/> `x lt y` <br/> `x LessThan y` | Less than. Supported for all [primitive types](#_Predefined_types) except `Boolean`, `Object` and `Guid`. |
-| Relational | `x > y` <br/> `x gt y` <br/> `x GreaterThan y` | Greater than. Supported for all [primitive types](#_Predefined_types) except `Boolean`, `Object` and `Guid`. |
-| Relational | `x <= y` <br/> `x le y` <br/> `x LessThanEqual y` | Less than or equal. Supported for all [primitive types](#_Predefined_types) except `Boolean`, `Object` and `Guid`. |
-| Relational | `x >= y` <br/> `x ge y` <br/> `x GreaterThanEqual y` | Greater than or equal. Supported for all [primitive types](#_Predefined_types) except `Boolean`, `Object` and `Guid`. |
+| Relational | `x = y` <br/> `x == y` <br/> `x eq y` <br/> `x equal y` | Equal. Supported for reference types and the [primitive types](#primitive-types). Assignment is not supported. Comparison with null: `x == null` is supported, but `x is null` is not supported. |
+| Relational | `x != y` <br/> `x <> y` <br/> `x ne y` <br/> `x neq y` <br/> `x notequal y`| Not equal. Supported for reference types and the [primitive types](#primitive-types). |
+| Relational | `x < y` <br/> `x lt y` <br/> `x LessThan y` | Less than. Supported for all [primitive types](#primitive-types) except `Boolean`, `Object` and `Guid`. |
+| Relational | `x > y` <br/> `x gt y` <br/> `x GreaterThan y` | Greater than. Supported for all [primitive types](#primitive-types) except `Boolean`, `Object` and `Guid`. |
+| Relational | `x <= y` <br/> `x le y` <br/> `x LessThanEqual y` | Less than or equal. Supported for all [primitive types](#primitive-types) except `Boolean`, `Object` and `Guid`. |
+| Relational | `x >= y` <br/> `x ge y` <br/> `x GreaterThanEqual y` | Greater than or equal. Supported for all [primitive types](#primitive-types) except `Boolean`, `Object` and `Guid`. |
 | Logical AND | `x && y` <br/> `x and y`<br/> `x AndAlso y` | Logical AND. Operands must be of type `Boolean`. |
 | Logical OR | `x || y` <br/> `x or y` <br/> `x OrElse y` | Logical OR. Operands must be of type `Boolean`. |
 | Conditional | `x ? y : z` | Evaluates `y` if `x` is `true`, evaluates `z` if `x` is `false`. |
