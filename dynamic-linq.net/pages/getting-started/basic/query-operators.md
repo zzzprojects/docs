@@ -207,7 +207,7 @@ var items = context.Customers
 [Try it online](https://dotnetfiddle.net/j6lsQX)
 
 
-### First/FirstOrDefault
+### First, FirstOrDefault
 
 The First and FirstOrDefault methods can be used directly on a `IQueryable` or `IQueryable<T>` like this:
 
@@ -320,7 +320,7 @@ var dynamicQuery = persons.AsQueryable().Join(
 
 [Try it online](https://dotnetfiddle.net/UlvbD8)
 
-### Last/LastOrDefault
+### Last, LastOrDefault
 
 [Maybe not supported in all scenarios](https://msdn.microsoft.com/library/bb738550.aspx)
 The Last and LastOrDefault methods can be used directly on a `IQueryable` or `IQueryable<T>` like this:
@@ -342,7 +342,7 @@ var items = context.Users
 
 [Try it online](https://dotnetfiddle.net/Lq0MUv)
 
-### Page/PageResult
+### Page, PageResult
 
 If you want to get a list of sorted entities from a dynamic query you can use Page:
 
@@ -420,7 +420,7 @@ var result = context.Users.SelectMany(typeof(Permission), "Roles.SelectMany(Perm
 
 [Try it online](https://dotnetfiddle.net/E76mjd)
 
-### Skip/SkipWhile
+### Skip, SkipWhile
 
 Dynamic LINQ example to skip the first entity:
 
@@ -449,7 +449,7 @@ var var totalPriceExample2 = context.Orders.Sum("Price * Amount");
 
 [Try it online](https://dotnetfiddle.net/DaE85i)
 
-### Take/TakeWhile
+### Take, TakeWhile
 
 Dynamic LINQ example to take some entities:
 
