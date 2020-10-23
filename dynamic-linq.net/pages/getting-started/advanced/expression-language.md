@@ -107,7 +107,7 @@ In the below table, `x`, `y`, and `z` denote expressions, `T` denotes a type, an
 | Primary | `T(...)` | [Explicit conversion](#explicit-conversion) or [constructor invocation](#calling-method-and-constructor). Note that `new` is not required in front of a constructor invocation. |
 | Primary | `new(...)` | [Data object initializer](#data-object-initializers). This construct can be used to perform dynamic projections. |
 | Primary | `it` | [Current instance](#current-instance). In contexts where members of a current object are implicitly in scope, `it` is used to refer to the entire object itself. |
-| Primary | `x(...)` | [Dynamic lambda invocation](#_Dynamic_Expression_Invocation). Used to reference another dynamic lambda expression. |
+| Primary | `x(...)` | Dynamic lambda invocation used to reference another dynamic lambda expression. |
 | Primary | `np(x)` | Null Propagating expression. Will expand `it.Rel.Id` to `it != null && it.Rel != null ? it.Rel.Id : null`. |
 | Primary | `np(x, y)` | Null Propagating expression with default value specified. Will expand `it.Rel.Id` to `it != null && it.Rel != null ? it.Rel.Id : y`. |
 | Primary | `iif(x, y, z)` | Conditional expression. Alternate syntax for `x ? y : z`. |
