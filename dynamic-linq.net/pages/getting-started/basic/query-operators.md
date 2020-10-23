@@ -10,40 +10,40 @@ The following table lists of all Dynamic Query Operators are supported on a `IQu
 
 Query Operator | Return Type | Info
 :--| :- | :-
-[Aggregate](#Aggregate) | dynamic | Dynamically runs an aggregate function.
-[All](#All) | bool | Determines whether all the elements of a sequence satisfy a condition.
-[Any](#Any) | bool | Determines whether a sequence contains any elements.
-[Average](#Average) | Single numeric value | Computes the average of a sequence of numeric values.
-[AsEnumerable](#AsEnumerable) | IQueryable&lt;dynamic&gt; | Returns the input typed as IEnumerable&lt;dynamic&gt;.
-[Cast](#Is,As,Cast,OfType) | IQueryable | Converts the elements of the specified type.
-[Count](#Count) | int | Returns the number of elements in a sequence.
-[DefaultIfEmpty](#DefaultIfEmpty) | IQueryable | Returns the elements of the specified sequence or the type parameter's default value in a singleton collection if the sequence is empty.
-[Distinct](#Distinct) | IQueryable | Returns distinct elements from a sequence by using the default equality comparer to compare values.
-[First](#First-/-FirstOrDefault) | dynamic | Returns the first element of a sequence.
-[FirstOrDefault](#First-/-FirstOrDefault) | dynamic | Returns the first element of a sequence, or a default value if the sequence contains no elements.
-[GroupBy](#GroupBy) | IQueryable | Groups the elements of a sequence according to a specified key string function and creates a result value from each group and its key.
-[GroupByMany](#GroupByMany) | IEnumerable&lt;GroupResult&gt; | Groups the elements of a sequence according to multiple specified key string functions and creates a result value from each group (and subgroups) and its key.
-[GroupJoin](#GroupJoin) | IQueryable | Correlates the elements of two sequences based on equality of keys and groups the results. The default equality comparer is used to compare keys.
+[Aggregate](#aggregate) | dynamic | Dynamically runs an aggregate function.
+[All](#all) | bool | Determines whether all the elements of a sequence satisfy a condition.
+[Any](#any) | bool | Determines whether a sequence contains any elements.
+[Average](#average) | Single numeric value | Computes the average of a sequence of numeric values.
+[AsEnumerable](#asenumerable) | IQueryable&lt;dynamic&gt; | Returns the input typed as IEnumerable&lt;dynamic&gt;.
+[Cast](#isascastoftype) | IQueryable | Converts the elements of the specified type.
+[Count](#count) | int | Returns the number of elements in a sequence.
+[DefaultIfEmpty](#defaultifempty) | IQueryable | Returns the elements of the specified sequence or the type parameter's default value in a singleton collection if the sequence is empty.
+[Distinct](#distinct) | IQueryable | Returns distinct elements from a sequence by using the default equality comparer to compare values.
+[First](#first-firstordefault) | dynamic | Returns the first element of a sequence.
+[FirstOrDefault](#first-firstordefault) | dynamic | Returns the first element of a sequence, or a default value if the sequence contains no elements.
+[GroupBy](#groupby) | IQueryable | Groups the elements of a sequence according to a specified key string function and creates a result value from each group and its key.
+[GroupByMany](#groupbymany) | IEnumerable&lt;GroupResult&gt; | Groups the elements of a sequence according to multiple specified key string functions and creates a result value from each group (and subgroups) and its key.
+[GroupJoin](#groupjoin) | IQueryable | Correlates the elements of two sequences based on equality of keys and groups the results. The default equality comparer is used to compare keys.
 [Join](#join]) | IQueryable or IQueryable&lt;T&gt; | Correlates the elements of two sequences based on matching keys. The default equality comparer is used to compare keys.
-[Last](#Last-/-LastOrDefault) | dynamic | Returns the last element of a sequence. [Maybe not supported in all scenarios](https://msdn.microsoft.com/library/bb738550.aspx)
-[LastOrDefault](#Last-/-LastOrDefault) | dynamic | Returns the last element of a sequence, or a default value if the sequence contains no elements. [Maybe not supported in all scenarios](https://msdn.microsoft.com/library/bb738550.aspx)
-[LongCount](#Count) | long | Returns the number of elements in a sequence as a long.
-[OfType](#Is,As,Cast,OfType) | IQueryable | Filters the elements based on a specified type.
-[OrderBy](#simple-query.md#ordering-results) | IOrderedQueryable or IOrderedQueryable&lt;T&gt; | Sorts the elements of a sequence in ascending or descending order according to a key.
-[Page](#Page-/-PageResult) | IQueryable or IQueryable&lt;T&gt; | Returns the elements as paged.
-[PageResult](#Page-/-PageResult) | PagedResult or PagedResult&lt;T&gt; | Returns the elements as paged and include the CurrentPage, PageCount, PageSize and RowCount.
-[Reverse](#Reverse) | IQueryable | Inverts the order of the elements in a sequence. [Maybe not supported in all scenarios](https://msdn.microsoft.com/library/bb738550.aspx)
-[Select](simple-query.md#strongly-typed-linq-versus-dynamic-linq) | IQueryable or IQueryable&lt;T&gt; | Projects each element of a sequence into a new form.
-[SelectMany](#SelectMany) | IQueryable or IQueryable&lt;T&gt; | Projects each element of a sequence and combines the resulting sequences into one sequence.
-[Single](#Single) | dynamic | Returns the only element of a sequence, and throws an exception if there is not exactly one element in the sequence.
-[SingleOrDefault](#Single) | dynamic | Returns the only element of a sequence, or a default value if the sequence is empty; this method throws an exception if there is more than one element in the sequence.
-[Skip](#Skip-/-SkipWhile) | IQueryable | Bypasses a specified number of elements in a sequence and then returns the remaining elements.
-[SkipWhile](#Skip-/-SkipWhile) | IQueryable | Bypasses elements in a sequence as long as a specified condition is true and then returns the remaining elements. [Maybe not supported in all scenarios](https://msdn.microsoft.com/library/bb738550.aspx)
+[Last](#last-lastordefault) | dynamic | Returns the last element of a sequence. [Maybe not supported in all scenarios](https://msdn.microsoft.com/library/bb738550.aspx)
+[LastOrDefault](#last-lastordefault) | dynamic | Returns the last element of a sequence, or a default value if the sequence contains no elements. [Maybe not supported in all scenarios](https://msdn.microsoft.com/library/bb738550.aspx)
+[LongCount](#count) | long | Returns the number of elements in a sequence as a long.
+[OfType](#isascastoftype) | IQueryable | Filters the elements based on a specified type.
+OrderBy | IOrderedQueryable or IOrderedQueryable&lt;T&gt; | Sorts the elements of a sequence in ascending or descending order according to a key.
+[Page](#page-pageresult) | IQueryable or IQueryable&lt;T&gt; | Returns the elements as paged.
+[PageResult](#page-pageresult) | PagedResult or PagedResult&lt;T&gt; | Returns the elements as paged and include the CurrentPage, PageCount, PageSize and RowCount.
+[Reverse](#reverse) | IQueryable | Inverts the order of the elements in a sequence. [Maybe not supported in all scenarios](https://msdn.microsoft.com/library/bb738550.aspx)
+Select | IQueryable or IQueryable&lt;T&gt; | Projects each element of a sequence into a new form.
+[SelectMany](#selectmany) | IQueryable or IQueryable&lt;T&gt; | Projects each element of a sequence and combines the resulting sequences into one sequence.
+Single | dynamic | Returns the only element of a sequence, and throws an exception if there is not exactly one element in the sequence.
+SingleOrDefault | dynamic | Returns the only element of a sequence, or a default value if the sequence is empty; this method throws an exception if there is more than one element in the sequence.
+[Skip](#skip-skipwhile) | IQueryable | Bypasses a specified number of elements in a sequence and then returns the remaining elements.
+[SkipWhile](#skip-skipwhile) | IQueryable | Bypasses elements in a sequence as long as a specified condition is true and then returns the remaining elements. [Maybe not supported in all scenarios](https://msdn.microsoft.com/library/bb738550.aspx)
 [Sum](#sum) | Single numeric value | Computes the sum of a sequence of numeric values.
-[Take](#Take-/-TakeWhile) | IQueryable | Returns a specified number of contiguous elements from the start of a sequence.
-[TakeWhile](#Take-/-TakeWhile) | IQueryable&lt;T&gt; | Returns elements from a sequence as long as a specified condition is true. [Maybe not supported in all scenarios](https://msdn.microsoft.com/library/bb738550.aspx)
-[ThenBy](#simple-query.md#ordering-results) | IOrderedQueryable or IOrderedQueryable&lt;T&gt; | Performs a subsequent ordering of the elements in a sequence in ascending order according to a key.
-[Where](simple-query.md#strongly-typed-linq-versus-dynamic-linq) | IQueryable or IQueryable&lt;T&gt; | Filters a sequence of values based on a predicate.
+[Take](#take-takewhile) | IQueryable | Returns a specified number of contiguous elements from the start of a sequence.
+[TakeWhile](#take-takewhile) | IQueryable&lt;T&gt; | Returns elements from a sequence as long as a specified condition is true. [Maybe not supported in all scenarios](https://msdn.microsoft.com/library/bb738550.aspx)
+ThenBy | IOrderedQueryable or IOrderedQueryable&lt;T&gt; | Performs a subsequent ordering of the elements in a sequence in ascending order according to a key.
+Where | IQueryable or IQueryable&lt;T&gt; | Filters a sequence of values based on a predicate.
 
 ### Aggregate
 
