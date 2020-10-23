@@ -21,7 +21,7 @@ When using strongly typed LINQ, you can use the `Microsoft.EntityFrameworkCore.E
 
 And you can also use this in Dynamic LINQ, if the [ResolveTypesBySimpleName](advanced/configuration.md#ResolveTypesBySimpleName) is set to true.
 
-``` csharp
+```csharp
 var example1 = Cars.Where(c => EF.Functions.Like(c.Brand, "%t%"));
 example1.Dump();
 
@@ -32,7 +32,7 @@ example2.Dump();
 
 The generated SQL will be:
 
-``` SQL
+```csharp
 SELECT [c].[Key], [c].[Brand], [c].[Color], [c].[Vin], [c].[Year]
 FROM [Cars] AS [c]
 WHERE [c].[Brand] LIKE N'%t%'
