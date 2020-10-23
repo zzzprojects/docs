@@ -19,6 +19,8 @@ The expression language defines the following constants:
 
 ## Types
 
+### Primitive Types
+
 The primitive types correspond to the similarly named types in the System namespace of the .NET Framework Base Class Library.
 
 The expression language defines the following primitive types:
