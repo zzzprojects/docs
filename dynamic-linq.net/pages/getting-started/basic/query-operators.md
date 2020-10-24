@@ -29,11 +29,11 @@ Query Operator | Return Type | Info
 [LastOrDefault](#last-lastordefault) | dynamic | Returns the last element of a sequence, or a default value if the sequence contains no elements. [Maybe not supported in all scenarios](https://msdn.microsoft.com/library/bb738550.aspx)
 [LongCount](#count) | long | Returns the number of elements in a sequence as a long.
 [OfType](#isascastoftype) | IQueryable | Filters the elements based on a specified type.
-OrderBy | IOrderedQueryable or IOrderedQueryable&lt;T&gt; | Sorts the elements of a sequence in ascending or descending order according to a key.
+[OrderBy](basic-simple-query.md?#ordering-results) | IOrderedQueryable or IOrderedQueryable&lt;T&gt; | Sorts the elements of a sequence in ascending or descending order according to a key.
 [Page](#page-pageresult) | IQueryable or IQueryable&lt;T&gt; | Returns the elements as paged.
 [PageResult](#page-pageresult) | PagedResult or PagedResult&lt;T&gt; | Returns the elements as paged and include the CurrentPage, PageCount, PageSize and RowCount.
 [Reverse](#reverse) | IQueryable | Inverts the order of the elements in a sequence. [Maybe not supported in all scenarios](https://msdn.microsoft.com/library/bb738550.aspx)
-Select | IQueryable or IQueryable&lt;T&gt; | Projects each element of a sequence into a new form.
+[Select](basic-simple-query.md?#selecting-entities-and-properties) | IQueryable or IQueryable&lt;T&gt; | Projects each element of a sequence into a new form.
 [SelectMany](#selectmany) | IQueryable or IQueryable&lt;T&gt; | Projects each element of a sequence and combines the resulting sequences into one sequence.
 Single | dynamic | Returns the only element of a sequence, and throws an exception if there is not exactly one element in the sequence.
 SingleOrDefault | dynamic | Returns the only element of a sequence, or a default value if the sequence is empty; this method throws an exception if there is more than one element in the sequence.
