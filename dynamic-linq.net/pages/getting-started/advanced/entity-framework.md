@@ -13,13 +13,13 @@ Prior to version 3.0, Entity Framework Core supported client evaluation anywhere
 
 So when using Dynamic LINQ with Entity Framework Core, the same logic applies. See this [help-page](https://docs.microsoft.com/en-us/ef/core/querying/client-eval) from Microsoft for more details.
 
-When using the Entity Framework specific [NuGet](installation/nuget.md#Install-EntityFramework-versions-from-the-Dynamic-LINQ-Library), some more functionality can be used.
+When using the Entity Framework specific [NuGet](installation-nuget#install-entityframework-versions-from-the-dynamic-linq-library), some more functionality can be used.
 
 ## Like-operator
 
 When using strongly typed LINQ, you can use the `Microsoft.EntityFrameworkCore.EF.Functions` which contains the [Like](https://docs.microsoft.com/en-us/dotnet/api/microsoft.entityframeworkcore.dbfunctionsextensions.like?view=efcore-3.1) method.
 
-And you can also use this in Dynamic LINQ, if the [ResolveTypesBySimpleName](advanced/configuration.md#ResolveTypesBySimpleName) is set to true.
+And you can also use this in Dynamic LINQ, if the [ResolveTypesBySimpleName](advanced-configuration#resolvetypesbysimplename) is set to true.
 
 ```csharp
 var example1 = Cars.Where(c => EF.Functions.Like(c.Brand, "%t%"));
@@ -42,4 +42,4 @@ GO
 ## Async Query Operators
 
 When using **EntityFramework**, **Microsoft.EntityFrameworkCore** or **Z.EntityFramework.Classic** it's possible to use some additional **Async** query operators.
-See [this page](basic/query-operators#Async-Query-Operators) for the list.
+See [this page](basic-query-operators#async-query-operators) for the list.
