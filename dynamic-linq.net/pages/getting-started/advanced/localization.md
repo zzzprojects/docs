@@ -11,10 +11,10 @@ Currently, there are two configuration settings in the ParsingConfig related to 
 
 By default, DateTime (like `Fri, 10 May 2019 11:03:17 GMT`) is parsed as local time.
 
-If you want to parse all DateTimes as UTC, see [ParsingConfig : DateTimeIsParsedAsUTC](configuration.md#DateTimeIsParsedAsUTC).
+If you want to parse all DateTimes as UTC, see [ParsingConfig : DateTimeIsParsedAsUTC](configuration#DateTimeIsParsedAsUTC).
 
 ## Number Parsing
 
 By default, all numbers (float and double) are parsed using InvariantCulture.
 
-If you want to parse a number using a different Culture, see [ParsingConfig : DateTimeIsParsedAsUTC](configuration.md#NumberParseCulture).
+If you want to parse a number using a different Culture, see [ParsingConfig : DateTimeIsParsedAsUTC](configuration#NumberParseCulture).
