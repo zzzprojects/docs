@@ -44,7 +44,7 @@ The `BulkSynchronize` method is **fast** but also **flexible** to let you handle
 ## Getting Started
 
 ### Bulk Synchronize
-The `BulkSynchronize` and `BulkSynchronizeAync` methods extend your `DbContext` to let you synchronize a large number of entities in your database.
+The `BulkSynchronize` and `BulkSynchronizeAsync` methods extend your `DbContext` to let you synchronize a large number of entities in your database.
 
 ```csharp
 context.BulkSynchronize(customers);
