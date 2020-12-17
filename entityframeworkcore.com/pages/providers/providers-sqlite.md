@@ -6,9 +6,16 @@ tags: provider connection
 
 # SQLite
 
+2 major NuGet packages support SQLite:
+
+- [Microsoft.EntityFrameworkCore.Sqlite](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Sqlite/)
+- [Devart.Data.SQLite.EFCore](https://www.nuget.org/packages/Devart.Data.SQLite.EFCore/)
+
+## Microsoft.EntityFrameworkCore.Sqlite
+
 `Microsoft.EntityFrameworkCore.Sqlite` database provider allows Entity Framework Core to be used with to be used with SQLite. The provider is maintained as part of the [Entity Framework Core](https://github.com/aspnet/EntityFrameworkCore) Project.
 
-#### How to Use SQLite Provider
+### How to Use Microsoft.EntityFrameworkCore.Sqlite Provider
 
 To use SQLite database provider, the first step is to install [Microsoft.EntityFrameworkCore.Sqlite](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Sqlite/) NuGet package. Let's consider a simple model which contains three entities.
 
@@ -58,8 +65,7 @@ public class MyContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder
-            .UseSqlite(@"Data Source=CustomerDB.db;");
+        optionsBuilder.UseSqlite("Data Source=CustomerDB.db;");
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -102,7 +108,7 @@ using (var context = new MyContext())
 }
 ```
 
-## Limitations
+### Limitations
 
 The SQLite provider has some migrations limitations, and mostly these limitations are not EF Core specific but underlying SQLite database engine.
 
@@ -117,3 +123,21 @@ The SQLite provider has some migrations limitations, and mostly these limitation
    - DropPrimaryKey
    - DropUniqueConstrain
    - RenameColumn
+   
+## Devart.Data.SQLite.EFCore
+
+`Devart.Data.SQLite.EFCore` is an Entity Framework Core provider created by Devart.
+
+### How to Use Devart.Data.SQLite.EFCore Provider
+
+To use `Devart.Data.SQLite.EFCore` provider, the first step is to install the [Devart.Data.SQLite.EFCore](https://www.nuget.org/packages/Devart.Data.SQLite.EFCore/) NuGet package. 
+
+Now to use Entity Framework Core with SQLite database, override the OnConfiguring method in the context class and set the SQLite data provider using `UseSQLite` method. 
+
+
+```csharp
+protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+{
+	optionsBuilder.UseSQLite("Data Source=CustomerDB.db;");
+}
+```
