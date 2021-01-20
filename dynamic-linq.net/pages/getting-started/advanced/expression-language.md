@@ -33,17 +33,17 @@ The expression language defines the following primitive types:
 - Decimal
 - Double
 - Guid
-- Int16
-- Int32
-- Int64
+- Int16 (short)
+- Int32 (int)
+- Int64 (long)
 - Object
 - SByte
 - Single
 - String
 - TimeSpan
-- UInt16
-- UInt32
-- UInt64
+- UInt16 (ushort)
+- UInt32 (uint)
+- UInt64 (ulong)
 
 ### Accessible Types
 
@@ -111,6 +111,8 @@ In the below table, `x`, `y`, and `z` denote expressions, `T` denotes a type, an
 | Primary | `np(x)` | Null Propagating expression. Will expand `it.Rel.Id` to `it != null && it.Rel != null ? it.Rel.Id : null`. |
 | Primary | `np(x, y)` | Null Propagating expression with default value specified. Will expand `it.Rel.Id` to `it != null && it.Rel != null ? it.Rel.Id : y`. |
 | Primary | `iif(x, y, z)` | Conditional expression. Alternate syntax for `x ? y : z`. |
+| Primary | `As(x)` | With [As](#is-and-as-examples), you can check if casting a class to a type is valid, or returns null. |
+| Primary | `Is(x)` | The [Is](#is-and-as-examples) function can be used to determine if the entity has a specific type. |
 | Unary | `-x` | Negation. Supported types are `Int32`, `Int64`, `Decimal`, `Single`, and `Double`. |
 | Unary | `!x` <br/> `not x` | Logical negation. Operand must be of type `Boolean`. |
 | Multiplicative | `x * y` | Multiplication. Supported types are `Int32`, `UInt32`, `Int64`, `UInt64`, `Decimal`, `Single`, and `Double`. |
@@ -171,8 +173,26 @@ var baseQuery = new int[] { 1, 2, 3, 4, 5 }.AsQueryable();
 
 var result = baseQuery.Select("iif(it % 2 = 0, true, false)");
 ```
-
 [Try it online](https://dotnetfiddle.net/nCiBQQ)
+### Is and As Examples
+The `Is` can be used to determine if the entity has a specific type. In the example below, the number of bosses is counted:
+
+```csharp
+string boss = typeof(Boss).FullName;
+int numberOfBosses = context.Employees.Count("is(@0)", boss);
+```
+
+With `As`, you can check if casting a class to a type is valid, or returns null.
+
+```csharp
+// Normal usage
+var boss = entity as Boss;
+
+// Dynamic usage
+int useAsToCheckIftheTypeIsABoss = context.Employees.Count("As(@0) != null", boss);
+```
+
+[Try it online](https://dotnetfiddle.net/o2ydqi)
 
 ## Calling Method and Constructor
 

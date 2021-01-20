@@ -15,7 +15,7 @@ Query Operator | Return Type | Info
 [Any](#any) | bool | Determines whether a sequence contains any elements.
 [Average](#average) | Single numeric value | Computes the average of a sequence of numeric values.
 [AsEnumerable](#asenumerable) | IQueryable&lt;dynamic&gt; | Returns the input typed as IEnumerable&lt;dynamic&gt;.
-[Cast](#isascastoftype) | IQueryable | Converts the elements of the specified type.
+[Cast](#cast-and-oftype) | IQueryable | Converts the elements of the specified type.
 [Count](#count) | int | Returns the number of elements in a sequence.
 [DefaultIfEmpty](#defaultifempty) | IQueryable | Returns the elements of the specified sequence or the type parameter's default value in a singleton collection if the sequence is empty.
 [Distinct](#distinct) | IQueryable | Returns distinct elements from a sequence by using the default equality comparer to compare values.
@@ -28,7 +28,7 @@ Query Operator | Return Type | Info
 [Last](#last-lastordefault) | dynamic | Returns the last element of a sequence. [Maybe not supported in all scenarios](https://msdn.microsoft.com/library/bb738550.aspx)
 [LastOrDefault](#last-lastordefault) | dynamic | Returns the last element of a sequence, or a default value if the sequence contains no elements. [Maybe not supported in all scenarios](https://msdn.microsoft.com/library/bb738550.aspx)
 [LongCount](#count) | long | Returns the number of elements in a sequence as a long.
-[OfType](#isascastoftype) | IQueryable | Filters the elements based on a specified type.
+[OfType](#cast_and_oftype) | IQueryable | Filters the elements based on a specified type.
 [OrderBy](basic-simple-query#ordering-results) | IOrderedQueryable or IOrderedQueryable&lt;T&gt; | Sorts the elements of a sequence in ascending or descending order according to a key.
 [Page](#page-pageresult) | IQueryable or IQueryable&lt;T&gt; | Returns the elements as paged.
 [PageResult](#page-pageresult) | PagedResult or PagedResult&lt;T&gt; | Returns the elements as paged and include the CurrentPage, PageCount, PageSize and RowCount.
@@ -121,34 +121,18 @@ var dynamicEnumerable = context.Orders.Select("Amount").AsEnumerable();
 
 [Try it online](https://dotnetfiddle.net/eqyunf)
 
-### Is,As,Cast,OfType
+### Cast and OfType
 
 The `OfType` can be used with a Type or a fully qualified Type-name:
 
 ```csharp
-var oftypeWorker = context.Employees.OfType(typeof(Worker));
+var ofTypeWorker = context.Employees.OfType(typeof(Worker));
 
 // or
 
 string boss = typeof(Boss).FullName;
-var oftypeBoss = context.Employees.OfType(boss);
-```
-
-The `Is` can be used to determine if the entity has a specific type. In the example below, the number of bosses is counted:
-
-```csharp
-string boss = typeof(Boss).FullName;
-int numberOfBosses = context.Employees.Count("is(@0)", boss);
-```
-
-With `As`, you can check if casting a class to a type is valid, or returns null.
-
-```csharp
-// Normal usage
-var boss = entity as Boss;
-
-// Dynamic usage
-int useAsToCheckIftheTypeIsABoss = context.Employees.Count("As(@0) != null", boss);
+var ofTypeBossA = context.Employees.OfType(boss);
+var ofTypeBossB = context.Employees.OfType("Test.Models.Boss");
 ```
 
 The `Cast`-operator can be used to case a base-class to the real class. Note that this can only work if the cast is valid. Example:
