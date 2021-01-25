@@ -4,6 +4,5 @@
 - EF Core Docs
 	- [Documentation](documentations/batch-delete/ef-core-batch-delete.md)
 	- [Release Notes](https://github.com/zzzprojects/EntityFramework-Plus/releases)
-- [Knowledge Base](/knowledge-base)
 - [Online Examples](/online-examples)
 - [GitHub](https://github.com/zzzprojects/EntityFramework-Plus)
