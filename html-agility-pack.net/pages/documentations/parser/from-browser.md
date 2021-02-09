@@ -41,3 +41,9 @@ Console.WriteLine("Text 2: " + t2);
 <script>
 setTimeout(function(){ document.getElementById("uiDynamicText").innerHTML = "Dynamic Text for Example"; }, 1000);
 </script>
+
+### Note
+
+This method is not available for .NET Core.
+
+We recommend using [Selenium WebDriver](https://riptutorial.com/selenium-webdriver/learn/100000/overview)
