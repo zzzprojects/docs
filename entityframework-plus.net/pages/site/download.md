@@ -25,7 +25,7 @@
                         <div class="download-count wow lightSpeedIn">
                             <a href="https://www.nuget.org/packages/Z.EntityFramework.Plus.EF6/" target="_blank"
                                onclick="ga('send', 'event', { eventAction: 'download-ef6'});">
-                                <img src="https://zzzprojects.github.io/images/nuget/ef6-full-version-big-d.svg">
+                                <img src="https://zzzprojects.github.io/images/nuget/ef6-full-version-big-d.svg" alt="EF6 full version big d.svq">
                             </a>
                         </div>
                     </div>
@@ -51,7 +51,7 @@
                         <div class="download-count wow lightSpeedIn">
                             <a href="https://www.nuget.org/packages/Z.EntityFramework.Plus.EFCore/" target="_blank"
                                onclick="ga('send', 'event', { eventAction: 'download-efcore'});">
-                                <img src="https://zzzprojects.github.io/images/nuget/efcore-full-version-big-d.svg">
+                                <img src="https://zzzprojects.github.io/images/nuget/efcore-full-version-big-d.svg" alt="EFcore full version big d.svg">
                             </a>
                         </div>
                     </div>
@@ -79,7 +79,7 @@
                         <div class="download-count wow lightSpeedIn">
                             <a href="https://www.nuget.org/packages/Z.EntityFramework.Plus.EF5/" target="_blank"
                                onclick="ga('send', 'event', { eventAction: 'download-ef5'});">
-                                <img src="https://zzzprojects.github.io/images/nuget/ef5-full-version-big-d.svg">
+                                <img src="https://zzzprojects.github.io/images/nuget/ef5-full-version-big-d.svg" alt="EF5 full version big d.svg">
                             </a>
                         </div>
                     </div>

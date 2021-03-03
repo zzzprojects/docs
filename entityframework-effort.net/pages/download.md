@@ -23,7 +23,7 @@
 						<div class="download-count wow lightSpeedIn">
 							<a href="https://www.nuget.org/packages/Effort.EF6/" target="_blank"
 									onclick="ga('send', 'event', { eventAction: 'download-ef6'});">
-								<img src="https://zzzprojects.github.io/images/nuget/entity-framework-effort-ef6-big-d.svg">
+								<img src="https://zzzprojects.github.io/images/nuget/entity-framework-effort-ef6-big-d.svg" alt="Entity Framework Effort EF6 big d">
 							</a>
 						</div>
 					</div>
@@ -49,7 +49,7 @@
 						<div class="download-count wow lightSpeedIn">
 							<a href="https://www.nuget.org/packages/Effort" target="_blank"
 									onclick="ga('send', 'event', { eventAction: 'download-efcore'});">
-								<img src="https://zzzprojects.github.io/images/nuget/effort-big-d.svg">
+								<img src="https://zzzprojects.github.io/images/nuget/effort-big-d.svg" alt="Effort big d">
 							</a>
 						</div>
 					</div>

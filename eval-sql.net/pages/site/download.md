@@ -23,7 +23,7 @@
 						<div class="download-count wow lightSpeedIn">
 							<a href="{{ site.github.url }}/downloads/Eval-SQL.NET-Install.sql"
 									onclick="ga('send', 'event', { eventAction: 'download'});">
-								<img src="https://zzzprojects.github.io/images/nuget/eval-sql-net-big-d.svg">
+								<img src="https://zzzprojects.github.io/images/nuget/eval-sql-net-big-d.svg" alt="Eval SQL net big d">
 							</a>
 						</div>
 					</div>

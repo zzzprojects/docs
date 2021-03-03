@@ -32,4 +32,4 @@ In the following sample, it changes the application's state using a timer.
 
 It will start the count down when you click on Start Countdown button.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/Blazor-Tutotrial/master/docs/images/refresh-ui-manually.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/Blazor-Tutotrial/master/docs/images/refresh-ui-manually.png" alt="Refresh UI manually">

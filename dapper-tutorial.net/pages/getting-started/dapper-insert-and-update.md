@@ -52,7 +52,7 @@ public ActionResult Create(Customer customer)
 
 Let's create a view by right-clicking on the `Create` action method in `CustomerController` and select **Add View**. On Add Scaffold dialog, choose **MVC 5 View** and click on the Add button.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/docs/master/dapper-tutorial.net/images/create-view-4.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/docs/master/dapper-tutorial.net/images/create-view-4.png" alt="Create view-4">
 
  - On the Add View dialog, the View name will appear by default. 
  - Select the template from the Template dropdown list for which you want to create a view, e.g. Create.
@@ -171,7 +171,7 @@ public ActionResult Edit(int id, Customer customer)
 
 Let's create a view by right-clicking on the `Edit` action method in `CustomerController` and select **Add View**. On Add Scaffold dialog, choose **MVC 5 View** and click on the Add button.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/docs/master/dapper-tutorial.net/images/create-view-5.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/docs/master/dapper-tutorial.net/images/create-view-5.png" alt="Create view-5">
 
  - On the Add View dialog, the View name will appear by default. 
  - Select the template from the Template dropdown list for which you want to create a view, e.g. Edit.
@@ -289,7 +289,7 @@ public ActionResult Delete(int id, FormCollection collection)
 
 Let's create a view by right-clicking on the `Delete` action method in `CustomerController` and select **Add View**. On Add Scaffold dialog, choose **MVC 5 View** and click on the Add button.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/docs/master/dapper-tutorial.net/images/create-view-6.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/docs/master/dapper-tutorial.net/images/create-view-6.png" alt="Create view-6">
 
  - On the Add View dialog, the View name will appear by default. 
  - Select the template from the Template dropdown list for which you want to create a view, e.g. Delete.
@@ -352,14 +352,14 @@ Click the Add button and it will add the following code for you.
 
 Let's run your application and you will see all the customers.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/docs/master/dapper-tutorial.net/images/display-all-customers.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/docs/master/dapper-tutorial.net/images/display-all-customers.png" alt="Display all customers">
 
 Now click on Create link and you will see a Create page.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/docs/master/dapper-tutorial.net/images/create-customer.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/docs/master/dapper-tutorial.net/images/create-customer.png" alt="Create customer">
 
 Enter data in all the fields and press Create button, you will the index view.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/docs/master/dapper-tutorial.net/images/display-all-customers-1.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/docs/master/dapper-tutorial.net/images/display-all-customers-1.png" alt="Create customer-1">
 
 Similarly, you can try the Edit link as well to update any customer data.

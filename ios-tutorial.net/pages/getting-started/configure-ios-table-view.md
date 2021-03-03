@@ -4,7 +4,7 @@ The table view is the most common way to show a structured, scrollable list of i
 
 In our FirstApp, we have added separate labels and set their explicit values directly in the storyboard. 
 
-<img src="https://raw.githubusercontent.com/zzzprojects/iOS-Tutorial/master/docs/images/configure-tabe-view1.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/iOS-Tutorial/master/docs/images/configure-tabe-view1.png" alt="Configure tabe-view1">
 
  - If we had wanted these to be all dynamic content that we could change from Swift by connecting each label as a separate outlet.
  - But it can be a tedious task if we had dozens, hundreds, or perhaps even an unpredictable amount of items.
@@ -24,7 +24,7 @@ The idea of a table is defined by a certain number of rows and columns. In iOS, 
  - You can break the rows into different sections if you need to make some kind of visual distinction between one set of rows and another set of rows.  
  - The easiest way to understand this is just to look at the iOS Settings application, where you'll see groupings of rows with gray gaps between them. 
 
-<img src="https://raw.githubusercontent.com/zzzprojects/iOS-Tutorial/master/docs/images/configure-tabe-view2.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/iOS-Tutorial/master/docs/images/configure-tabe-view2.png" alt="configure tabe-view2">
 
 The gray gaps distinguish sections in a table view, sometimes it is just a gap between the sections, but you can also provide headings or footers to explain what the sections are. 
 

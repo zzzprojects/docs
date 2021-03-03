@@ -16,7 +16,7 @@ In Visual Studio 2017, NuGet and the NuGet Package Manager are automatically ins
 
 By default, console commands operate against a specific package source and project as set in the control at the top of the window.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/nuget-tutorial/master/docs/images/package-manager-console.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/nuget-tutorial/master/docs/images/package-manager-console.png" alt="Package manager console">
 
 ## Install Package
 

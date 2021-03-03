@@ -17,7 +17,7 @@ Triggers and procedures have a lot of similarities, or you can say that Triggers
 
 The easiest way to create a CLR trigger, select **Project > Add New Item** menu option.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/sqlclr-tutorial/master/docs/images/clr-triggers1.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/sqlclr-tutorial/master/docs/images/clr-triggers1.png" alt="clr triggers-1">
 
 Select the **SQL CLR C#** from the list on the left pane, and choose **SQL CLR C# Trigger** in the middle pane. Let's the following method which will be invoked when user insert data to the `Authors` table.
 
@@ -56,4 +56,4 @@ INSERT Authors (Name) values ('Andy')
 
 You can see that trigger is invoked and the message that we had written in the trigger is displayed.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/sqlclr-tutorial/master/docs/images/clr-triggers2.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/sqlclr-tutorial/master/docs/images/clr-triggers2.png" alt="clr triggers-2">

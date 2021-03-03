@@ -120,4 +120,4 @@ Add two buttons to the `JSInterop.cshtml` file will call the `CallJSMethod` and 
 
 Click on the buttons to call the JavaScript functions and C# method.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/Blazor-Tutotrial/master/docs/images/js-interop.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/Blazor-Tutotrial/master/docs/images/js-interop.png" alt="JS interop">

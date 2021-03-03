@@ -56,7 +56,7 @@ public class Category
 ```
 Entity Framework will create `Books`, `Categories` and also the joining table `CategoryBooks` in the database. The `CategoryBooks` table will include the PK (Primary Key) of both tables `Book_BookId` & `Category_CategoryId`.
 
-<img src="https://github.com/zzzprojects/EntityFramework-FAQ/blob/master/docs2/images/many-to-many-relationship.png">
+<img src="https://github.com/zzzprojects/EntityFramework-FAQ/blob/master/docs2/images/many-to-many-relationship.png" alt="many to many relationship">
 
 ### Using Data Annotations
 

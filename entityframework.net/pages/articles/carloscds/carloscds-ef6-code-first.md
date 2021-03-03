@@ -20,11 +20,11 @@ The Entity Framework bridges the gap between the POCO classes and the database u
 
 Before we start writing the classes, we need to install the Entity Framework Code First, which is basically included in the `EntityFramework.dll`. We will do this with [NuGet](https://nuget-tutorial.net/), which is a package installer for Visual Studio. If you don't already have it, go to the Visual Studio Extension Manager (Tools -> Extension Manager) and install:
 
-<img src="http://carloscds.net/wp-content/uploads/2012/01/SNAGHTMLa23ac4a_thumb1_thumb_thumb7.png" width="576" height="352">
+<img src="http://carloscds.net/wp-content/uploads/2012/01/SNAGHTMLa23ac4a_thumb1_thumb_thumb7.png" width="576" height="352" alt="Entity Framework Code first-1">
 
 After `NuGet` is installed, go to Tools -> Library Package Manager -> `Package Manager Console`. This will open the NuGet manager:
 
-<img src="http://carloscds.net/wp-content/uploads/2012/01/image_thumb1_thumb_thumb7.png" width="621" height="115">
+<img src="http://carloscds.net/wp-content/uploads/2012/01/image_thumb1_thumb_thumb7.png" width="621" height="115" alt="Entity Framework Code first-2">
 
 Now type the command: `Install-Package EntityFramework` inside the console, this will install EF Code First and its dependencies.
 
@@ -164,7 +164,7 @@ The code above creates our database in SQL if it does not exist (line 14). After
 
 So at the end of the code, we have the database created and the data inserted. See how the database looked in Management Studio:
 
-<img src="http://carloscds.net/wp-content/uploads/2012/01/image_thumb3_thumb1_thumb6.png" width="266" height="219">
+<img src="http://carloscds.net/wp-content/uploads/2012/01/image_thumb3_thumb1_thumb6.png" width="266" height="219" alt="Entity Framework Code first-3">
 
 See that the name of the database is the name of the application plus the name of the Context, but we can solve this by adding an `App.Config` file and informing the database name, so let's add a configuration file to our example and put the following line:
 
@@ -187,11 +187,11 @@ But what if you want to see how your model is looking if you are using only code
 
 After installing PowerTools, right-click on the `Context.cs` class in your project, an EntityFramework context menu will appear, with several options:
 
-<img src="http://carloscds.net/wp-content/uploads/2012/01/image_thumb5_thumb1_thumb6.png" width="516" height="240">
+<img src="http://carloscds.net/wp-content/uploads/2012/01/image_thumb5_thumb1_thumb6.png" width="516" height="240" alt="Entity Framework Code first-4">
 
 The first option is precisely the one that shows the graphic model, let's see it then:
 
-<img src="http://carloscds.net/wp-content/uploads/2012/01/image_thumb31_thumb6.png" width="235" height="257">
+<img src="http://carloscds.net/wp-content/uploads/2012/01/image_thumb31_thumb6.png" width="235" height="257" alt="Entity Framework Code first-5">
 
 ## I already have a database, and I want to use Code First
 
@@ -199,11 +199,11 @@ I already have a database, and I want to use Code First:
 
 If you already have a database, EF Power Tools allows you to reverse engineer and generate the context and classes, to do this right-click on your Solution in Visual Studio and choose Entity Framework from the menu:
 
-<img src="http://carloscds.net/wp-content/uploads/2012/01/image_thumb9_thumb1_thumb6.png" width="442" height="202">
+<img src="http://carloscds.net/wp-content/uploads/2012/01/image_thumb9_thumb1_thumb6.png" width="442" height="202" alt="Entity Framework Code first-6">
 
 This option generates all classes and relationships of your model, just inform which database and server in the window below.
 
-<img src="http://carloscds.net/wp-content/uploads/2012/01/SNAGHTMLa560840_thumb1_thumb1_thumb6.png" width="240" height="349">
+<img src="http://carloscds.net/wp-content/uploads/2012/01/SNAGHTMLa560840_thumb1_thumb1_thumb6.png" width="240" height="349" alt="Entity Framework Code first-7">
 
 Don't forget to add Entity Framework Code First with NuGet before doing reverse engineering.
 

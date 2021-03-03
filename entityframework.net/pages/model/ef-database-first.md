@@ -32,19 +32,19 @@ We will use of Entity Framework Designer, which is included as part of Visual St
 
 Right click on the project in Solution Explorer and choose `Add > New Item...` option.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/EntityFramework-FAQ/master/docs2/images/database-first1.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/EntityFramework-FAQ/master/docs2/images/database-first1.png" alt="Database-first-1">
 
 Select Data from the left menu and then `ADO.NET Entity Data Model`.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/EntityFramework-FAQ/master/docs2/images/database-first2.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/EntityFramework-FAQ/master/docs2/images/database-first2.png" alt="Database-first-2">
 
 Enter **BookStore** as the name and click **Add**. This launches the Entity Data Model Wizard. Select **EF Designer from Database** and click **Next**.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/EntityFramework-FAQ/master/docs2/images/database-first3.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/EntityFramework-FAQ/master/docs2/images/database-first3.png" alt="Database-first-3">
 
 Select the connection to the database you created in the [Code First](/ef-code-first), enter BookContext as the name of the connection string and click **Next**.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/EntityFramework-FAQ/master/docs2/images/database-first4.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/EntityFramework-FAQ/master/docs2/images/database-first4.png" alt="Database-first-4">
 
 Click the checkbox next to Tables you want to import and click **Finish**.
 
@@ -105,19 +105,19 @@ You can also update your model when the Database changes. Let's add `AuthorName`
 
 To update model from the database, right-click the .edmx file and select Update Model from Database. 
 
-<img src="https://raw.githubusercontent.com/zzzprojects/EntityFramework-FAQ/master/docs2/images/database-first5.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/EntityFramework-FAQ/master/docs2/images/database-first5.png" alt="Database-first-5">
 
 Expand the Tables, Views, and Stored Procedures nodes, and check the objects you want to add to the .edmx file.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/EntityFramework-FAQ/master/docs2/images/database-first6.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/EntityFramework-FAQ/master/docs2/images/database-first6.png" alt="Database-first-6">
 
 Click **Finish** to update the .edmx file with the database changes.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/EntityFramework-FAQ/master/docs2/images/database-first7.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/EntityFramework-FAQ/master/docs2/images/database-first7.png" alt="Database-first-7">
 
 You can see that `AuthorName` property is added to the model, now we need to update the `Book` class as well. 
 
-<img src="https://raw.githubusercontent.com/zzzprojects/EntityFramework-FAQ/master/docs2/images/database-first8.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/EntityFramework-FAQ/master/docs2/images/database-first8.png" alt="Database-first-8">
 
 To update the table field changes in the BookStore.tt file, right on BookStore.tt file and choose **Run Custom Tool**.
 

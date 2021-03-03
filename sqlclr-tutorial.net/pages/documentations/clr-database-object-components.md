@@ -11,7 +11,7 @@ To create .NET database objects, you write managed code in any one of the .NET l
  - Once the .NET DLL has been created, you need to register that DLL with SQL Server, creating a new SQL Server database object called an assembly.  
  - Then you can create a new database object such as a stored procedure or a trigger that points to the SQL Server assembly.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/sqlclr-tutorial/master/docs/images/clr-database-object-components.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/sqlclr-tutorial/master/docs/images/clr-database-object-components.png" alt="CLR database object components">
 
 After the coding for the CLR object has been completed, you can use the T-SQL to create a SQL Server assembly
 

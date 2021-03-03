@@ -18,17 +18,17 @@ FROM Employees
 ```
 Add the test script that you want to debug. To make this script a default one, let's go to the project properties.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/sqlclr-tutorial/master/docs/images/clr-debugging1.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/sqlclr-tutorial/master/docs/images/clr-debugging1.png" alt="clr debugging-1">
 
 On the Debug page, choose the Startup Scrip and browse to the Test.sql file. In the **Debug** menu, select **Start Debugging** to compile, and test the project. 
 
 The test script in Test.sql will be invoked.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/sqlclr-tutorial/master/docs/images/clr-debugging2.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/sqlclr-tutorial/master/docs/images/clr-debugging2.png" alt="clr debugging-2">
 
 Now press ***F10*** button and it will call the `Init` method.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/sqlclr-tutorial/master/docs/images/clr-debugging3.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/sqlclr-tutorial/master/docs/images/clr-debugging3.png" alt="clr debugging-3">
 
 ## Note 
 

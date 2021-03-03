@@ -57,7 +57,7 @@ The `GetBlog` stored procedure take `BlogId` as a parameter and will return the 
 
 Execute the SQL command, and you will see a stored procedure **"GetBlog"** is added to your database. Execute the query and refresh your database
 
-<img src="https://raw.githubusercontent.com/zzzprojects/EntityFramework-FAQ/master/docs/images/stored-procedure-in-db.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/EntityFramework-FAQ/master/docs/images/stored-procedure-in-db.png" alt="Stored procedure">
 
 Let's add create a new project and add new item select ADO.NET Entity Data Model. Use EF Designer from database and EF will generate all the required classes for you. You can simply call the GetBlog stored procedure using context.
 

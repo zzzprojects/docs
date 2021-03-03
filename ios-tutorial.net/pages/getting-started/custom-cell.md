@@ -49,13 +49,13 @@ Now we need one minor thing by creating the identifier of "simpleCell" which we 
 
 So Let's open the Main.storyboard, search for Table View Cell in Object Library and drag it to the storyboard.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/iOS-Tutorial/master/docs/images/custom-cell1.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/iOS-Tutorial/master/docs/images/custom-cell1.png" alt="Custom cell-1">
 
  - If you look at the Document Outline, the view hierarchy should be like the basic view, within that is a Table View, and within that is a Table View Cell. 
  - Select the Table View Cell and open the Attribute Inspector and you will see an option for Identifier. 
  - Let's enter "simpleCell" in the Identifier field and make sure that this identifier matches whatever you called it in your code.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/iOS-Tutorial/master/docs/images/custom-cell2.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/iOS-Tutorial/master/docs/images/custom-cell2.png" alt="Custom cell-2">
 
 Now when you run your application, you will see the same result, but you get smoother scrolling and much more efficient use of memory.
 
@@ -68,7 +68,7 @@ You can use different styling for your table view cells than just having a singl
  - Left Detail
  - Subtitle
 
-<img src="https://raw.githubusercontent.com/zzzprojects/iOS-Tutorial/master/docs/images/custom-cell3.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/iOS-Tutorial/master/docs/images/custom-cell3.png" alt="Custom cell-3">
 
 You can define your custom cells and their contents using Xcode to design them and dragging on controls from the Object library. 
 
@@ -100,7 +100,7 @@ Now let's use these properties like images, detailTextLabel and accessory types 
 
 At the bottom of Document Outline, you will see a plus button to add a new asset to this file. 
 
-<img src="https://raw.githubusercontent.com/zzzprojects/iOS-Tutorial/master/docs/images/custom-cell4.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/iOS-Tutorial/master/docs/images/custom-cell4.png" alt="Custom cell-4">
 
 Select a New Image Set, call it a clock and drag an image you want to show in the imageView. Go back to the controller class and add the following code to add imageView, detailTextLabel, and accessoryType. 
 
@@ -119,4 +119,4 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
 
 Now let's run your application.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/iOS-Tutorial/master/docs/images/custom-cell5.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/iOS-Tutorial/master/docs/images/custom-cell5.png" alt="Custom cell-5">

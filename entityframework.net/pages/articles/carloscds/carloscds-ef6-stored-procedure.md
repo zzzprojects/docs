@@ -18,7 +18,7 @@ In our example, we will demonstrate how to access a stored procedure from the [N
 
 So let's create our console project in Visual Studio 2010 and add the references for EF Code First.
 
-<img src="http://carloscds.net/wp-content/uploads/2011/08/image_thumb.png" width="242" height="244">
+<img src="http://carloscds.net/wp-content/uploads/2011/08/image_thumb.png" width="242" height="244" alt="Solution EF Stored Procedures">
 
 To get the stored procedure return, let's create a class that will contain the returned fields:
 

@@ -19,7 +19,7 @@ A tool for any modern development platform and is a mechanism through which deve
  - Package consumers obtain those packages from suitable hosts, add them to their projects, and then call a package's functionality in their project code. 
  - NuGet itself then handles all of the intermediate details.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/nuget-tutorial/master/docs/images/workflow.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/nuget-tutorial/master/docs/images/workflow.png" alt="Workflow">
 
  - A host serves as the point of connection between package creators and package consumers. 
  - Creators build useful NuGet packages and publish them to a host. 

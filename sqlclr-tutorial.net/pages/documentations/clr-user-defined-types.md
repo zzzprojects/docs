@@ -9,7 +9,7 @@ The CLR User-Defined Types (UDTs) extend the scalar type system and enabling sto
 
 To create a CLR user-defined type, select **Project > Add New Item** menu option.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/sqlclr-tutorial/master/docs/images/clr-udt1.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/sqlclr-tutorial/master/docs/images/clr-udt1.png" alt="clr udt-1">
 
 Select the **SQL CLR C#** from the list on the left pane, and choose **SQL CLR C# User-Defined Type** in the middle pane. It will add the following code for you.
 
@@ -183,4 +183,4 @@ PRINT @point.DistanceFromXYZ(10,10,0);
 
 It will produre the following output.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/sqlclr-tutorial/master/docs/images/clr-udt2.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/sqlclr-tutorial/master/docs/images/clr-udt2.png" alt="clr udt-2">

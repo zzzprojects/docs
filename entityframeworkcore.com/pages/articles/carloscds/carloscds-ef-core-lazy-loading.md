@@ -56,7 +56,7 @@ Well, so far nothing different, right? So let's list the data:
 
 And the result of the execution:
 
-<img src="http://carloscds.net/wp-content/uploads/2018/07/2018-07-02_13-02-17-300x225.png" width="401" height="301" />
+<img src="http://carloscds.net/wp-content/uploads/2018/07/2018-07-02_13-02-17-300x225.png" width="401" height="301" alt="LazyLoading-1"/>
 
 See that all customers have ZERO Orders. That is because LazyLoading is still disabled!
 
@@ -84,11 +84,11 @@ Our class will look like this:
 
 Okay, now we will execute it again and we will have the Orders:
 
-<img src="http://carloscds.net/wp-content/uploads/2018/07/2018-07-02_13-14-39-300x233.png" width="433" height="336" />
+<img src="http://carloscds.net/wp-content/uploads/2018/07/2018-07-02_13-14-39-300x233.png" width="433" height="336" alt="LazyLoading-2"/>
 
 If we compare it to EntityFramework 6, it was a little different, as we only have options for `Lazy Loading` and `Proxy`, which I don't find particularly interesting, since the resulting object comes with the proxy, see:
 
-<img src="http://carloscds.net/wp-content/uploads/2018/07/2018-07-02_13-18-15-300x130.png" width="598" height="259" />
+<img src="http://carloscds.net/wp-content/uploads/2018/07/2018-07-02_13-18-15-300x130.png" width="598" height="259" alt="LazyLoading-3"/>
 
 That is because Microsoft used Castle Proxy to implement `Lazy Loading`, something that will be improved in later versions.
 

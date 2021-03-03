@@ -18,7 +18,7 @@ Among the various configuration options we have through `DbConfiguration`, there
 
 To start, let's create a Console project using Visual Studio 2013, and then we'll add the Entity Framework through [NuGet](https://www.nuget.org/):
 
-<img src="https://www.carloscds.net/wp-content/uploads/2013/12/image_thumb2.png" width="787" height="523">
+<img src="https://www.carloscds.net/wp-content/uploads/2013/12/image_thumb2.png" width="787" height="523" alt="create a Console project using Visual Studio 2013">
 
 ## Adding the Entity Framework Code First:
 
@@ -32,11 +32,11 @@ In this example, I am also using the [Entity Framework Power Tools](https://mark
 
 To reverse engineer, right-click on the name of your solution and in the context menu choose: Entity Framework / Reverse Engineer Code First, as shown in the figure below:
 
-<img src="https://www.carloscds.net/wp-content/uploads/2013/12/image_thumb13.png" width="859" height="271">
+<img src="https://www.carloscds.net/wp-content/uploads/2013/12/image_thumb13.png" width="859" height="271" alt="Reverse Engineer">
 
 This command will open a window requesting information from the database. Complete with your information, in my case, the screen is as follows:
 
-<img src="https://www.carloscds.net/wp-content/uploads/2013/12/SNAGHTML5372fbd_thumb2.png" width="477" height="737">
+<img src="https://www.carloscds.net/wp-content/uploads/2013/12/SNAGHTML5372fbd_thumb2.png" width="477" height="737" alt="Connection Properties">
 
 ## Starting the Interception implementation
 

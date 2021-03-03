@@ -42,7 +42,7 @@ Aggregate classes must have the following four methods:
 
 To create a CLR user-defined type, select **Project > Add New Item** menu option.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/sqlclr-tutorial/master/docs/images/clr-aggregates1.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/sqlclr-tutorial/master/docs/images/clr-aggregates1.png" alt="clr aggregates-1">
 
 Select the **SQL CLR C#** from the list on the left pane, and choose **SQL CLR C# Aggregate** in the middle pane. It will add the default code for you, let's add the following code.
 
@@ -123,7 +123,7 @@ GO
 
 To test the custom aggregate function, we have an `Employees` table which contains the following data.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/sqlclr-tutorial/master/docs/images/clr-aggregates2.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/sqlclr-tutorial/master/docs/images/clr-aggregates2.png" alt="clr aggregates-2">
 
 Now use the `MaxVariance` aggregate in the following T-SQL.
 
@@ -134,4 +134,4 @@ FROM Employees
 
 The result of this statement will show the difference between the high and low values found in the `Salary` column of `Employees` table.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/sqlclr-tutorial/master/docs/images/clr-aggregates3.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/sqlclr-tutorial/master/docs/images/clr-aggregates3.png" alt="clr aggregates-3">

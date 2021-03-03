@@ -23,7 +23,7 @@
 						<div class="download-count wow lightSpeedIn">
 							<a href="https://www.nuget.org/packages/Z.Dapper.Plus/" target="_blank"
 									onclick="ga('send', 'event', { eventAction: 'download'});">
-								<img src="https://zzzprojects.github.io/images/nuget/dapper-plus-big-d.svg">
+								<img src="https://zzzprojects.github.io/images/nuget/dapper-plus-big-d.svg" alt="Dapper Plus big d">
 							</a>
 						</div>
 					</div>

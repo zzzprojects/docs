@@ -10,7 +10,7 @@ Subview is childview which is added on any view. In iOS, UIView class is an obje
 
 To access the subviews, we need to change the behaviour a little bit. In our FirstApp, when  you click on a **Change Background** button, it only change the background colour of our top-level view to light gray. 
 
-<img src="https://raw.githubusercontent.com/zzzprojects/iOS-Tutorial/master/docs/images/access-subviews1.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/iOS-Tutorial/master/docs/images/access-subviews1.png" alt="access subViews-1">
  
  - Now let's say we also want to change the text colour of all the label to a lighter colour to add some contrast on the dark background.
  - If you are from programming backgrounds, you might think that when you drag and drop a label or a button or anything else onto a storyboard in Xcode. 
@@ -65,4 +65,4 @@ currentLabel.textColor = UIColor.white`
 
 Let's run your application and click on the **Change Background** button, and you will see that with background the colour of label text also changed when the button is clicked.
  
-<img src="https://raw.githubusercontent.com/zzzprojects/iOS-Tutorial/master/docs/images/access-subviews2.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/iOS-Tutorial/master/docs/images/access-subviews2.png" alt="access subViews-2">

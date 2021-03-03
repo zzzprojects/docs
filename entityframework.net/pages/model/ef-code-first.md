@@ -24,7 +24,7 @@ Code-First APIs will create the database on the fly based on your entity classes
 
 Create a new application and install the EntityFramework NuGet package.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/EntityFramework-FAQ/master/docs2/images/migration.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/EntityFramework-FAQ/master/docs2/images/migration.png" alt="Migration">
 
 Once the package is installed, add the following classes.
 
@@ -93,7 +93,7 @@ namespace EFDemo
 
 Let's run your application, and you will see that the database is created automatically.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/EntityFramework-FAQ/master/docs2/images/migration1.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/EntityFramework-FAQ/master/docs2/images/migration1.png" alt="Migration1">
 
 ### Related links
 

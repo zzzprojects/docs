@@ -18,7 +18,7 @@ Migrations provide a set of tools that allow:
 
 Create a new application and install the EntityFramework NuGet package.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/EntityFramework-FAQ/master/docs2/images/migration.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/EntityFramework-FAQ/master/docs2/images/migration.png" alt="Migration-1">
 
 Once the package is installed, add the following classes.
 
@@ -87,7 +87,7 @@ namespace EFDemo
 
 Let's run your application, and you will see that the database is created automatically.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/EntityFramework-FAQ/master/docs2/images/migration1.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/EntityFramework-FAQ/master/docs2/images/migration1.png" alt="Migration-2">
 
 ## Update Database
 
@@ -164,7 +164,7 @@ public class BookContext : DbContext
 
 Now EF will automatically take care of the migration when you change the domain classes.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/EntityFramework-FAQ/master/docs2/images/migration2.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/EntityFramework-FAQ/master/docs2/images/migration2.png" alt="Migration-3">
 
 ### Code-based Migration
 
@@ -213,6 +213,6 @@ We could now edit or add to this migration, but everything looks pretty good. Le
 
 Run the `Update-Database` command in Package Manager Console.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/EntityFramework-FAQ/master/docs2/images/migration3.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/EntityFramework-FAQ/master/docs2/images/migration3.png" alt="Migration-4">
 
 You can see that the database is now up to date by adding the `Publisher` column in the `Books` table.

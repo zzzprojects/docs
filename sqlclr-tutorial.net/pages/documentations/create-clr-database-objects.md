@@ -9,11 +9,11 @@ The most productive way of creating CLR database objects is to use Visual Studio
 
 To create a CLR database objects in Visual Studio, first select the **File > New > Project...** menu option and then select the **SQL Server Database Project** template.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/sqlclr-tutorial/master/docs/images/create-clr-objects1.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/sqlclr-tutorial/master/docs/images/create-clr-objects1.png" alt="Create clr objects-1">
 
 Once the project is created, you can add a CLR entity to your project from the **Add New Item** dialog box. Select **Project > Add New Item** menu option.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/sqlclr-tutorial/master/docs/images/create-clr-objects2.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/sqlclr-tutorial/master/docs/images/create-clr-objects2.png" alt="Create clr objects-2">
 
 Select the **SQL CLR C#** from the list on the left pane, and choose **SQL CLR C# Stored Procedure** in the middle pane. 
 
@@ -41,17 +41,17 @@ In Visual Studio, you can simply select the Deploy option, which takes care of b
 
 To do so, let's build the application and then right click on project in Solution Explorer and select the **Publish...** option.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/sqlclr-tutorial/master/docs/images/create-clr-objects3.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/sqlclr-tutorial/master/docs/images/create-clr-objects3.png" alt="Create clr objects-3">
 
 Specify the target connection string and click **Publish** button and you will see the logs on **Data Tools Operations** pane.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/sqlclr-tutorial/master/docs/images/create-clr-objects4.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/sqlclr-tutorial/master/docs/images/create-clr-objects4.png" alt="Create clr objects-4">
 
 Once the project is succsefully published you can see the script which has created the assembly and stored procedure by clicking on the **View Script** inside **Data Tools Operations** pane.
 
 You can also view it in **SQL Server Object Explorer**.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/sqlclr-tutorial/master/docs/images/create-clr-objects5.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/sqlclr-tutorial/master/docs/images/create-clr-objects5.png" alt="Create clr objects-5">
 
 ## Manual Create CLR Database Objects
 
@@ -83,4 +83,4 @@ EXEC PrintText
 
 when you execute this statement, you will see a text message which is specified in `PrintText` method.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/sqlclr-tutorial/master/docs/images/create-clr-objects6.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/sqlclr-tutorial/master/docs/images/create-clr-objects6.png" alt="Create clr objects-6">
