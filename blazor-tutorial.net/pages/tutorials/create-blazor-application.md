@@ -4,15 +4,15 @@ Blazor is an experimental .NET web framework using C#/Razor and HTML that runs i
 
 Once the environment is set up, you can create the Blazor application from **File > New** menu and choose **Project...** menu item.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/Blazor-Tutotrial/master/docs/images/create-first-app1.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/Blazor-Tutotrial/master/docs/images/create-first-app1.png" alt="Create first app-1">
 
 In the New Project dialog, select **Web** in the left pane and then choose **ASP.NET Core Web Application** in the middle pane. Specify the project name in the Name field and click OK.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/Blazor-Tutotrial/master/docs/images/create-first-app2.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/Blazor-Tutotrial/master/docs/images/create-first-app2.png" alt="Create first app-2">
 
 On the **New ASP.NET Core Web Application** dialog, choose the Blazor template and select OK. Once the project is created, build and run the application.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/Blazor-Tutotrial/master/docs/images/create-first-app3.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/Blazor-Tutotrial/master/docs/images/create-first-app3.png" alt="Create first app-3">
 
  - The Blazor application runs in the browser, and it has three pages: **Home**, **Counter**, and **Fetch data**. 
  - These pages are implemented by the three Razor files in the Pages folder.
@@ -37,7 +37,7 @@ Welcome to your new app.
 
 Counter page has one button, and each time the button is selected, the counter is incremented without a page refresh. 
 
-<img src="https://raw.githubusercontent.com/zzzprojects/Blazor-Tutotrial/master/docs/images/create-first-app3.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/Blazor-Tutotrial/master/docs/images/create-first-app3.png" alt="Create first app-4">
 
 Counter page implementation is in Counter.cshtml file.
 

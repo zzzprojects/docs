@@ -24,4 +24,4 @@ Welcome to your new app.
 
 Now you can see the counter component on home page.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/Blazor-Tutotrial/master/docs/images/component-reusability.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/Blazor-Tutotrial/master/docs/images/component-reusability.png" alt="component reusability">

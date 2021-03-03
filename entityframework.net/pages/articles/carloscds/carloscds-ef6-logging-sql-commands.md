@@ -22,7 +22,7 @@ In the case of our example, we will execute a method for each LINQ operation tha
 
 Creating a new Console Application project:
 
-<img src="https://www.carloscds.net/wp-content/uploads/2013/09/SNAGHTML476eb602_thumb2.png" width="532" height="369">
+<img src="https://www.carloscds.net/wp-content/uploads/2013/09/SNAGHTML476eb602_thumb2.png" width="532" height="369" alt="Create console application project">
 
 After creating our project, we will add the Entity Framework through the [Nuget](https://nuget-tutorial.net/) window, which is in Tools -> Library Packager Manager -> `Packager Manager Console` and inside it, we will execute the command below:
 
@@ -96,6 +96,6 @@ The `CommandLog()` method is assigned to the `Log` property of the `Context.Data
 
 When running the program, you will see something like the image below:
 
-<img src="https://www.carloscds.net/wp-content/uploads/2013/09/SNAGHTML47817c48_thumb2.png" width="676" height="443">
+<img src="https://www.carloscds.net/wp-content/uploads/2013/09/SNAGHTML47817c48_thumb2.png" width="676" height="443" alt="CommandLog">
 
 That is a very simple implementation of the Command Log implementation available now in version 6, but you can certainly use it in a much more elaborate way in your projects.

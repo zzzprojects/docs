@@ -14,15 +14,15 @@ Microsoft provides NuGet.Server package that can host a package feed on any serv
 
 The first step is to create an empty ASP.NET Web application in Visual Studio.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/nuget-tutorial/master/docs/images/host-nuget-packages3.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/nuget-tutorial/master/docs/images/host-nuget-packages3.png" alt="Host NuGet packages-3">
 
 Select the **ASP.NET Web Application (.NET Framework)** and enter the name for your server in the **Name** field and then select **OK**.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/nuget-tutorial/master/docs/images/host-nuget-packages4.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/nuget-tutorial/master/docs/images/host-nuget-packages4.png" alt="Host NuGet packages-4">
 
 Select the Empty template, then click **OK**. Now add the **NuGet.Server** package to your project using **NuGet Package Manager**.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/nuget-tutorial/master/docs/images/host-nuget-packages5.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/nuget-tutorial/master/docs/images/host-nuget-packages5.png" alt="Host NuGet packages-5">
 
 It converts the empty Web application into a package source. 
 
@@ -41,7 +41,7 @@ It can be a virtual or physical path. -->
 
 Run your application, and you will have a NuGet Server.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/nuget-tutorial/master/docs/images/host-nuget-packages6.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/nuget-tutorial/master/docs/images/host-nuget-packages6.png" alt="Host NuGet packages-6">
 
  - The home page provides the package feed URLs. 
  - If you see errors, carefully inspect your `web.config` for duplicate elements.

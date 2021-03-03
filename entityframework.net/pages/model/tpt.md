@@ -96,7 +96,7 @@ using (var context = new EntityContext())
 
 As you can see, the base class and subclasses have its own table. The table for subclasses contains columns only for each noninherited property along with a primary key that is also a foreign key of the base class table. 
 
-<img src="https://raw.githubusercontent.com/zzzprojects/EntityFramework-FAQ/master/docs/images/tpt-db-schema.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/EntityFramework-FAQ/master/docs/images/tpt-db-schema.png" alt="tpt db schema">
 
 #### View Generated SQL
 

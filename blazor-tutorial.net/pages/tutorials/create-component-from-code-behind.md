@@ -39,6 +39,6 @@ The Counter.cshtml file will use the properties and methods from the code behind
 
 Blazor compiler generates class for all the view pages with the same class name as the page name, so here, a specified base class cannot have the same name as Razor View, otherwise, it would cause a compile-time error.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/Blazor-Tutotrial/master/docs/images/create-component-from-code-behind.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/Blazor-Tutotrial/master/docs/images/create-component-from-code-behind.png" alt="Create component from code behind">
 
 Now when the **Click me** button is pressed, the counter is incremented by 5. 

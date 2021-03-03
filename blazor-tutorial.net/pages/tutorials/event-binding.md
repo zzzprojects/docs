@@ -19,4 +19,5 @@ Event binding is quite limited in Blazor. Currently, only `onclick` and `onchang
 }
 ```
 
-<img src="https://raw.githubusercontent.com/zzzprojects/Blazor-Tutotrial/master/docs/images/event-binding.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/Blazor-Tutotrial/master/docs/images/event-binding.png" alt="Event binding">
+

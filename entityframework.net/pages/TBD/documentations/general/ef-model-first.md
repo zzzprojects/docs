@@ -21,11 +21,11 @@ We will use of Entity Framework Designer, which is included as part of Visual St
 
 Right click on the project in Solution Explorer and choose `Add > New Item...` option.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/EntityFramework-FAQ/master/docs2/images/model-first1.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/EntityFramework-FAQ/master/docs2/images/model-first1.png" alt="Model first-1">
 
 Select Data from the left menu and then `ADO.NET Entity Data Model`.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/EntityFramework-FAQ/master/docs2/images/model-first2.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/EntityFramework-FAQ/master/docs2/images/model-first2.png" alt="Model first-2">
 
 Enter **BookStore** as the name and click **Add**. This launches the Entity Data Model Wizard. Select **Empty FF Designer model** and click **Finish**.
 
@@ -33,27 +33,27 @@ The Entity Framework Designer is opened with a blank model. Now we can start add
 
 Right-click on the design surface and select **Add New > Entity...**
 
-<img src="https://raw.githubusercontent.com/zzzprojects/EntityFramework-FAQ/master/docs2/images/model-first3.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/EntityFramework-FAQ/master/docs2/images/model-first3.png" alt="Model first-3">
 
 Enter `Book` as the entity name and `BlogId` as the key name and click `OK`.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/EntityFramework-FAQ/master/docs2/images/model-first4.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/EntityFramework-FAQ/master/docs2/images/model-first4.png" alt="Model first-4">
 
 Right-click on the new entity on the design surface and select **Add New > Scalar Property**, enter Title as the name of the property.
 
 Similarly, add an `Author` entity with an `AuthorId` key and `FirstName` and `LastName` properties using the above-mentioned steps.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/EntityFramework-FAQ/master/docs2/images/model-first5.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/EntityFramework-FAQ/master/docs2/images/model-first5.png" alt="Model first-5">
 
 Right-click on the design surface and select **Add New > Association...**
 
 Make one end of the relationship point to `Author` with a multiplicity of **One** and the other endpoint to `Books` with a multiplicity of **Many**. 
 
-<img src="https://raw.githubusercontent.com/zzzprojects/EntityFramework-FAQ/master/docs2/images/model-first6.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/EntityFramework-FAQ/master/docs2/images/model-first6.png" alt="Model first-6">
 
 It means that an `Author` has many `Books` and a `Book` belongs to one `Author`. Make sure to check the **Add foreign key properties to 'Book' Entity** box is checked and click `OK`.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/EntityFramework-FAQ/master/docs2/images/model-first7.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/EntityFramework-FAQ/master/docs2/images/model-first7.png" alt="Model first-7">
 
 We now have a simple model that we can generate a database from and use to read and write data.
 
@@ -63,19 +63,19 @@ Entity Framework can calculate a database schema that will allow us to store and
 
 Right-click on the design surface and select **Generate Database from Model...**. Click **New Connection...** and specify the Server and database name and click `OK`.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/EntityFramework-FAQ/master/docs2/images/model-first8.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/EntityFramework-FAQ/master/docs2/images/model-first8.png" alt="Model first-8">
 
 You will be asked if you want to create a new database, select **Yes**.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/EntityFramework-FAQ/master/docs2/images/model-first9.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/EntityFramework-FAQ/master/docs2/images/model-first9.png" alt="Model first-9">
 
 Select **Next* and the **Entity Framework Designer** will calculate a script to create the database schema.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/EntityFramework-FAQ/master/docs2/images/model-first10.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/EntityFramework-FAQ/master/docs2/images/model-first10.png" alt="Model first-10">
 
 Once the script is displayed, click **Finish** and the script will be added to your project and opened.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/EntityFramework-FAQ/master/docs2/images/model-first11.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/EntityFramework-FAQ/master/docs2/images/model-first11.png" alt="Model first-11">
 
 Right-click on the script and select **Execute**, you will be prompted to specify the database to connect to.
 

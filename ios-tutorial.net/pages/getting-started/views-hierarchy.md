@@ -14,16 +14,16 @@ Let's back in the code for the FirstApp project. In ViewController.swift file we
  - It is not referring to any of the view objects we have added, because when you create a new Xcode project, and you will also get that first storyboard. 
  - It included the outline of a single screen, and it is simply called view. 
 
-<img src="https://raw.githubusercontent.com/zzzprojects/iOS-Tutorial/master/docs/images/views-hierarchy1.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/iOS-Tutorial/master/docs/images/views-hierarchy1.png" alt="views hierarchy-1">
 
 Now we might describe this as empty, but it is not, because it is a view object configured to draw itself and to fill all available screen size on whatever device it runs on. 
 
 So in our FirstApp project, all these labels, and a button are all independent view objects. 
 
-<img src="https://raw.githubusercontent.com/zzzprojects/iOS-Tutorial/master/docs/images/views-hierarchy2.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/iOS-Tutorial/master/docs/images/views-hierarchy2.png" "views hierarchy-2">
 
 They are currently all nested inside this larger generic view object, and you can see them in Document Outline.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/iOS-Tutorial/master/docs/images/views-hierarchy3.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/iOS-Tutorial/master/docs/images/views-hierarchy3.png" "views hierarchy-3">
  
 So as this is our top-level view object, all these labels and this button are inside it, so they are all subviews of the top-level view. This idea of views with subviews inside them is useful because in the code we could ask this top-level view to give all of its subviews.

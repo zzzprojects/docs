@@ -16,10 +16,10 @@ Let's back in the code for the FirstApp project. In ViewController.swift file we
 
 Now we might describe this as empty, but it is not, because it is a view object configured to draw itself and to fill all available screen size on whatever device it runs on. 
 
-<img src="https://raw.githubusercontent.com/zzzprojects/iOS-Tutorial/master/docs/images/define-views1.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/iOS-Tutorial/master/docs/images/define-views1.png" alt="Define views1">
  
 So in our FirstApp project, all these labels, and a button are all independent view objects. They are currently all nested inside this larger generic view object, and you can see them in Document Outline.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/iOS-Tutorial/master/docs/images/define-views2.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/iOS-Tutorial/master/docs/images/define-views2.png" alt="Define views2">
 
 So as this is our top-level view object, all these labels and this button are inside it, so they are all subviews of the top-level view. This idea of views with subviews inside them is useful because in the code we could ask this top-level view to give all of its subviews.

@@ -57,6 +57,6 @@ public decimal Salary { get; set; } = (decimal) 2800.5;
 
 ```
 
-<img src="https://raw.githubusercontent.com/zzzprojects/Blazor-Tutotrial/master/docs/images/two-way-data-binding.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/Blazor-Tutotrial/master/docs/images/two-way-data-binding.png" alt="Two way data binding">
 
 You can find more information about two-way binding on [Blazor Github](https://github.com/aspnet/Blazor/issues/409).

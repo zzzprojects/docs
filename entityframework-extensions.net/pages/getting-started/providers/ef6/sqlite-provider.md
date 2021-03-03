@@ -19,7 +19,7 @@ PM> Install-Package Z.EntityFramework.Extensions
 
 You can also install EFE by right-clicking on your project in Solution Explorer and select **Manage Nuget Packages...**. 
 
-<img src="https://raw.githubusercontent.com/zzzprojects/EntityFramework-Extensions/master/docs2/images/sqlite-1.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/EntityFramework-Extensions/master/docs2/images/sqlite-1.png" alt="sqlite-1">
 
 Search for **Z.EntityFramework.Extensions** and install the latest version by pressing the install button. 
 
@@ -91,7 +91,7 @@ CREATE TABLE "Books" (
 );
  ```
  
- <img src="https://raw.githubusercontent.com/zzzprojects/EntityFramework-Extensions/master/docs2/images/sqlite-2.png">
+ <img src="https://raw.githubusercontent.com/zzzprojects/EntityFramework-Extensions/master/docs2/images/sqlite-2.png" alt="sqlite-2">
  
  Click on the highlighted button to create `Authors` and `Books` tables. It is not Code First because we have to create the database ourselves but we want to illustrate how Entity Framework for SQLite works. 
  

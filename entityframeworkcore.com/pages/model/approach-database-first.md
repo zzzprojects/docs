@@ -13,7 +13,7 @@ In the previous article, we have seen the migrations to create a database from a
 
 Let's create a new empty project and add all the required packages for EF core which is explained in the [Code First](/approach-code-first) approach. 
 
-<img src="https://raw.githubusercontent.com/zzzprojects/EntityFrameworkCore/master/docs/images/database-first1.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/EntityFrameworkCore/master/docs/images/database-first1.png" alt="Database firstl">
 
 Now we need to run the `scaffold-dbcontext` command with just the required parameters.
 

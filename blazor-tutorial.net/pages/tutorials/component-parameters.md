@@ -31,11 +31,11 @@ Let's add this markup to the Home (index.cshtml) component.
 
 Welcome to your new app.
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+<SurveyPrompt Title="How is Blazor working for you?"/>
 
 <Counter SubTitle="Subtitle from Index (Home) page"/>
 ```
 
 Now, you can see the subtitle of a counter component on a home page.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/Blazor-Tutotrial/master/docs/images/component-parameters.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/Blazor-Tutotrial/master/docs/images/component-parameters.png" alt="component-parameters">

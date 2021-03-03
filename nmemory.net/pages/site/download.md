@@ -23,7 +23,7 @@
 						<div class="download-count wow lightSpeedIn">
 							<a href="https://www.nuget.org/packages/NMemory" target="_blank"
 									onclick="ga('send', 'event', { eventAction: 'download-ef6'});">
-								<img src="https://zzzprojects.github.io/images/nuget/nmemory-big-d.svg">
+								<img src="https://zzzprojects.github.io/images/nuget/nmemory-big-d.svg" alt="nmemory big d">
 							</a>
 						</div>
 					</div>

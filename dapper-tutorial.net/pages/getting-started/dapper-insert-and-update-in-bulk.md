@@ -109,7 +109,7 @@ Try it: [.NET Core](https://dotnetfiddle.net/KCRMGQ) | [.NET Framework](https://
 
 Inserting thousands of entities for an initial load or a file importation is a typical scenario. Let's assume that we want to import customers' data provided in CSV format, and we have the following customers already in the database.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/docs/master/dapper-tutorial.net/images/display-all-customers.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/docs/master/dapper-tutorial.net/images/display-all-customers.png" alt="Display all customers-1">
 
 The customer's data we want to import provided in CSV format is as follows;
 
@@ -260,9 +260,9 @@ Let's update the menu options by changing the '_layout.cshtml' file, so that the
 
 Now run your application and click on the Import Data menu option.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/docs/master/dapper-tutorial.net/images/import-data-1.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/docs/master/dapper-tutorial.net/images/import-data-1.png" alt="Import data-1">
 
 You can see by default, some more customers data is available in the text area, you can edit that but make sure it remains in CSV format. Once you are done with changes, click on the Save button and you will see that new customers are added to the database.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/docs/master/dapper-tutorial.net/images/display-all-customers-2.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/docs/master/dapper-tutorial.net/images/display-all-customers-2.png" alt="Display all customers-2">
 

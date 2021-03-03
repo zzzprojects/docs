@@ -158,7 +158,7 @@ class ViewController: UIViewController, UITableViewDataSource {
 
 Let's run the application.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/iOS-Tutorial/master/docs/images/section-heading1.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/iOS-Tutorial/master/docs/images/section-heading1.png" alt="Section heading-1">
 
 You can see the right data, but it still looks like one section, they are all just one after the other. Now we want to have headings for each section. So let's go into Xcode and add a new method ` tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String?` and  return a string based on the section number. 
 
@@ -179,10 +179,10 @@ func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -
 
 Let's run your application again
 
-<img src="https://raw.githubusercontent.com/zzzprojects/iOS-Tutorial/master/docs/images/section-heading2.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/iOS-Tutorial/master/docs/images/section-heading2.png" alt="Section heading-2">
 
 You can see headings, but it is useful for some visual separation between sections. So go back into Xcode and open the Main.storyboard. Select Table View and open up the Attribute Inspector in the upper section in the right panel and change the style from Plain to Grouped. 
 
 Run your application and now you will see more separation between our different sections and the rows in those sections. 
 
-<img src="https://raw.githubusercontent.com/zzzprojects/iOS-Tutorial/master/docs/images/section-heading3.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/iOS-Tutorial/master/docs/images/section-heading3.png" alt="Section heading-3">

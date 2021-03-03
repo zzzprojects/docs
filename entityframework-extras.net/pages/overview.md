@@ -26,11 +26,11 @@ EntityFrameworkExtras provides some useful additions to Entity Framework such as
 
 We are going to create a new Console application using Visual Studio 2019. The next step is to go to **File -> New -> Project**. In the **Create a new project** window, select **Console** in the Project type dropdown.
 
-<img src="/images/entityframeworkextras/create-a-new-project.png">
+<img src="/images/entityframeworkextras/create-a-new-project.png" alt="Create a new project">
 
 Select the **Console App (.NET Framework)** template and click the**Next** button.
 
-<img src="/images/entityframeworkextras/configure-your-new-project.png">
+<img src="/images/entityframeworkextras/configure-your-new-project.png" alt="configure your new project">
 
 In the **Configure your new project** window, set the Project name to **EntityFrameworkExtrasDemo**, choose a suitable location for the project and you can also change the solution name, and click the **Create** button.
 
@@ -40,11 +40,11 @@ A Solution called **EntityFrameworkExtrasDemo** is created which contains a Cons
 
 To install **EntityFrameworkExtras**, right-click on the **EntityFrameworkExtrasDemo** project in Solution Explorer, and select **Manage NuGet Packages…**, 
 
-<img src="/images/entityframeworkextras/nuget-package-manager.png">
+<img src="/images/entityframeworkextras/nuget-package-manager.png" alt="NuGet package manager">
 
 Search EntityFrameworkExtras and install EntityFrameworkExtras.EF6 NuGet package.
 
-<img src="/images/entityframeworkextras/preview-changes.png">
+<img src="/images/entityframeworkextras/preview-changes.png" alt="Preview changes">
  
 It will also install the **EntityFramework.6.0.0** NuGet Package.
 
@@ -206,9 +206,9 @@ using (var context = new EntityContext())
 
 Now let’s run your application and you will see the age of the oldest customer.
 
-<img src="/images/entityframeworkextras/console-output.png">
+<img src="/images/entityframeworkextras/console-output.png" alt="Console Output">
  
 Now if you open the Customers table, you will see all the customers are inserted using the stored procedure with user-defined type.
 
-<img src="/images/entityframeworkextras/database-output.png">
+<img src="/images/entityframeworkextras/database-output.png" alt="Database output">
  

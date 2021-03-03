@@ -117,8 +117,8 @@ func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRow
 
 This method will be called automatically when user swipe from right to left on any task. Let's run your application.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/iOS-Tutorial/master/docs/images/swipe-action1.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/iOS-Tutorial/master/docs/images/swipe-action1.png" alt="Swipe action1">
 
 Tap the Complete option on the right side, and it will be marked as completed.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/iOS-Tutorial/master/docs/images/swipe-action2.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/iOS-Tutorial/master/docs/images/swipe-action2.png" alt="Swipe action2">

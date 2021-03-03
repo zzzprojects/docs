@@ -8,11 +8,11 @@ UIViewController can communicate with its UIView directly using Action and Outle
 
 Let's have a look the Action and Outlet in working by creating a new Single View App and call **ActionAndOutletDemo**.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/iOS-Tutorial/master/docs/images/action-outlet1.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/iOS-Tutorial/master/docs/images/action-outlet1.png" alt="Action outlet-1">
 
 Once the project is created, add one label and one button as shown below.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/iOS-Tutorial/master/docs/images/action-outlet2.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/iOS-Tutorial/master/docs/images/action-outlet2.png" alt="Action outlet-2">
 
  - So here we want when you touch the button, it executes some code to change the text of the label. 
  - That means this button needs to be an action to cause something to happen. 
@@ -22,11 +22,11 @@ Let's hide the left and right panels, select the storyboard and then switch to t
 
 Hold the Control key down, then click on the label and drag over to your ViewController class and release the mouse above any existing methods. Now you will see a small pop up where the Connection is set to an outlet. Let's give it a name myLabel and click Connect button.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/iOS-Tutorial/master/docs/images/action-outlet3.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/iOS-Tutorial/master/docs/images/action-outlet3.png" alt="Action outlet-3">
 
 Next, go to the button in the storyboard, hold the control button again, click the button and drag over below where we have created the basicLabel. 
 
-<img src="https://raw.githubusercontent.com/zzzprojects/iOS-Tutorial/master/docs/images/action-outlet4.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/iOS-Tutorial/master/docs/images/action-outlet4.png" alt="Action outlet-4">
 
 This time when the pop-up appears, make sure to change the Connection from an outlet to action. Give it a name changeText. Now our ViewController class have the following additional lines of code. One is the outlet, and the other one is the action.
 
@@ -84,8 +84,8 @@ class ViewController: UIViewController {
 
 Run your application
 
-<img src="https://raw.githubusercontent.com/zzzprojects/iOS-Tutorial/master/docs/images/action-outlet5.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/iOS-Tutorial/master/docs/images/action-outlet5.png" alt="Action outlet-5">
 
 Now when you click the button, it will change the text of the label.
  
-<img src="https://raw.githubusercontent.com/zzzprojects/iOS-Tutorial/master/docs/images/action-outlet6.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/iOS-Tutorial/master/docs/images/action-outlet6.png" alt="Action outlet-6">

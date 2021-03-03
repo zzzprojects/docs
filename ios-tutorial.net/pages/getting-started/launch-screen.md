@@ -2,7 +2,7 @@
 
 A launch screen appears instantly when your app starts up and it is immediately replaced with the first screen of your application, giving the impression that your app is fast and responsive. In XCode, you may have noticed that when you create a project you will have not only the Main.storyboard, but also LaunchScreen.storyboard.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/iOS-Tutorial/master/docs/images/launch-screen1.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/iOS-Tutorial/master/docs/images/launch-screen1.png" alt="launch screen-1">
 
 From the name you can guess that this has something to do with the application launching.
 
@@ -19,18 +19,18 @@ The launch screen is not an opportunity for artistic expression, but It is solel
 
 Let's open the XCode and replicate what you have on your Main.storyboard.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/iOS-Tutorial/master/docs/images/launch-screen2.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/iOS-Tutorial/master/docs/images/launch-screen2.png" alt="launch screen-2">
 
 It has pretty much nothing except the toolbar, because the table view will be empty initially. So go to the LaunchScreen.storyboard and drag a toolbar to the bottom.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/iOS-Tutorial/master/docs/images/launch-screen3.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/iOS-Tutorial/master/docs/images/launch-screen3.png" alt="launch screen-3">
 
 By default, a toolbar contains an Item and on Launch screen we don't need any text or content, so remove that item. 
 
-<img src="https://raw.githubusercontent.com/zzzprojects/iOS-Tutorial/master/docs/images/launch-screen4.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/iOS-Tutorial/master/docs/images/launch-screen4.png" alt="launch screen-4">
 
 Our regular interface has a switch on it, add that and here the initial state of the switch is on so that you can see that actually the LaunchScreen.storyboard is shown for a fraction of seconds when you run your application.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/iOS-Tutorial/master/docs/images/launch-screen5.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/iOS-Tutorial/master/docs/images/launch-screen5.png" alt="launch screen-5">
 
 Now you will not see a blank screen initially but you will see that launch storyboard for a moment.

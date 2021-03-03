@@ -24,7 +24,7 @@ A scalar-valued function (SVF) returns a single value, such as a string, integer
 
 The easiest way to create a CLR scalar-valued function, select **Project > Add New Item** menu option.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/sqlclr-tutorial/master/docs/images/clr-udf1.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/sqlclr-tutorial/master/docs/images/clr-udf1.png" alt="CLR udf-1">
 
 Select the **SQL CLR C#** from the list on the left pane, and choose **SQL CLR C# User Defined Function** in the middle pane. Let's add the following simple function which returns a string message. 
 
@@ -113,15 +113,15 @@ private static void FillRows(object objFileProperties, out string fileName, out 
 
 In Solution Explorer, right click on the project, and select **Properties**.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/sqlclr-tutorial/master/docs/images/clr-udf2.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/sqlclr-tutorial/master/docs/images/clr-udf2.png" alt="CLR udf-2">
 
 On the SQL CLR page set the Permission Level to `EXTERNAL_ACCESS` and then switch to Properties Settings page.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/sqlclr-tutorial/master/docs/images/clr-udf3.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/sqlclr-tutorial/master/docs/images/clr-udf3.png" alt="CLR udf-3">
 
 Click on the **Database Settings...** button and check the Trustworthy option. 
 
-<img src="https://raw.githubusercontent.com/zzzprojects/sqlclr-tutorial/master/docs/images/clr-udf4.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/sqlclr-tutorial/master/docs/images/clr-udf4.png" alt="CLR udf-4">
 
 Let's execute the following SQL.
 

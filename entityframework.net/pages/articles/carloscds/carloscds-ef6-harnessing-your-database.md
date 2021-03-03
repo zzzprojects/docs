@@ -16,21 +16,21 @@ But what about when you already have a database ready? That always generates ano
 
 To get started you need to download Power Tools using Visual Studio extensions management (Tools / Extensions and Updates), and then search for the Entity Framework Power Tools, as shown in the figure below:
 
-<img src="http://carloscds.net/wp-content/uploads/2014/04/SNAGHTML4333684_thumb.png" width="718" height="412">
+<img src="http://carloscds.net/wp-content/uploads/2014/04/SNAGHTML4333684_thumb.png" width="718" height="412" alt="Database with Power Tools-1">
 
 In my case, it is already installed. But, if yours is not already, click the "Install" button and you're done! Now let's create a project to explore the features.
 
 Let's start by creating a Console project and adding EntityFramework through NuGet:
 
-<img src="http://carloscds.net/wp-content/uploads/2014/04/SNAGHTML434d0ea_thumb.png" width="716" height="410">
+<img src="http://carloscds.net/wp-content/uploads/2014/04/SNAGHTML434d0ea_thumb.png" width="716" height="410" alt="Database with Power Tools-2">
 
 Now let's add EF:
 
-<img src="http://carloscds.net/wp-content/uploads/2014/04/image_thumb8.png" width="728" height="182">
+<img src="http://carloscds.net/wp-content/uploads/2014/04/image_thumb8.png" width="728" height="182" alt="Database with Power Tools-3">
 
 Now that we have Entity Framework, let's check in the menu of our solution a new item called Entity Framework (to see this menu, right-click on the name of your project):
 
-<img src="http://carloscds.net/wp-content/uploads/2014/04/image_thumb9.png" width="744" height="143">
+<img src="http://carloscds.net/wp-content/uploads/2014/04/image_thumb9.png" width="744" height="143" alt="Database with Power Tools-4">
 
 See that we have two options:
 
@@ -40,24 +40,24 @@ Customize Reverse Engineer Templates: allows changing the generation format of t
 
 If you choose to customize the templates, you will have the following files added to the project, which can be modified according to your needs:
 
-<img src="http://carloscds.net/wp-content/uploads/2014/04/image_thumb10.png" width="442" height="181">
+<img src="http://carloscds.net/wp-content/uploads/2014/04/image_thumb10.png" width="442" height="181" alt="Database with Power Tools-5">
 
 Choosing to generate the classes with the option "Reverse Engineer Code First" you will have a screen to put the access data to your database, do this and then click OK to start the generation of the classes:
 
-<img src="http://carloscds.net/wp-content/uploads/2014/04/SNAGHTML43ed31c_thumb.png" width="372" height="574">
+<img src="http://carloscds.net/wp-content/uploads/2014/04/SNAGHTML43ed31c_thumb.png" width="372" height="574" alt="Database with Power Tools-6">
 
 Now we have the entire database mapped, and in the current version of the Entity Framework, this includes tables and views. See a part of these classes in our solution:
 
-<img src="http://carloscds.net/wp-content/uploads/2014/04/image_thumb11.png" width="312" height="556">
+<img src="http://carloscds.net/wp-content/uploads/2014/04/image_thumb11.png" width="312" height="556" alt="Database with Power Tools-7">
 Reverse engineering does all the attribute mapping using FluentAPI, and the "Mapping" folder contains these mappings.
 
 Now let's right-click on our context: `NorthwindContext.cs`:
 
-<img src="http://carloscds.net/wp-content/uploads/2014/04/image_thumb12.png" width="633" height="125">
+<img src="http://carloscds.net/wp-content/uploads/2014/04/image_thumb12.png" width="633" height="125" alt="Database with Power Tools-8">
 
 See that we now have other options, which are related to the database that was mapped. As we are working with Code First, we do not have a visual diagram of our database. But with the help of Power Tools, by clicking on the first option: View Entity Data Model (Read-only), you can graphically visualize how your database is doing. , see below:
 
-<img src="http://carloscds.net/wp-content/uploads/2014/04/image_thumb13.png" width="605" height="460">
+<img src="http://carloscds.net/wp-content/uploads/2014/04/image_thumb13.png" width="605" height="460" alt="Database with Power Tools-9">
 
 See that all relationships have been created and are generated through Fluent API in the mapping file. Note that the menu reads "Read-only" and this means that this diagram is for reading only, so there is no point in writing anything in it that will not be reflected in the entities.
 

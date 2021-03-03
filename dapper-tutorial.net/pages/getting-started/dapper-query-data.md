@@ -21,11 +21,11 @@ public class Customer
 
 MVC controllers are responsible for responding to requests made against an ASP.NET MVC website. Let's create a 'CustomerController' by right-clicking on the **Controller** folder in Solution Explorer.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/docs/master/dapper-tutorial.net/images/create-controller.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/docs/master/dapper-tutorial.net/images/create-controller.png" alt="Create controller">
 
 Select **Add > Controller...** option.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/docs/master/dapper-tutorial.net/images/create-controller-1.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/docs/master/dapper-tutorial.net/images/create-controller-1.png" alt="Create controller-1">
 
 On Add Scaffold dialog, choose **MVC 5 Controller with read/write actions**, click on Add button and call it CustomerController.
 
@@ -49,11 +49,11 @@ The above code retrieves all the records from the Customers table, stores them i
 
 Generally, we create View with the same name as an Action method, so let's create an Index view by right-clicking on the `Index` Action method in `CustomerController` and select **Add View**.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/docs/master/dapper-tutorial.net/images/create-view-1.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/docs/master/dapper-tutorial.net/images/create-view-1.png" alt="Create view-1">
 
 On Add Scaffold dialog, choose **MVC 5 View** and click on the Add button.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/docs/master/dapper-tutorial.net/images/create-view-2.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/docs/master/dapper-tutorial.net/images/create-view-2.png" alt="Create view-2">
 
  - On the Add View dialog, the View name will appear by default. 
  - Select the template from the Template dropdown list for which you want to create a view, e.g. List.
@@ -126,7 +126,7 @@ public ActionResult Details(int id)
 
 Again, we will create a Detail view by right-clicking on the `Details` action method in `CustomerController` and select **Add View**. On Add Scaffold dialog, choose **MVC 5 View** and click on the Add button.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/docs/master/dapper-tutorial.net/images/create-view-3.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/docs/master/dapper-tutorial.net/images/create-view-3.png" alt="Create view-3">
 
  - On the Add View dialog, the View name will appear by default. 
  - Select the template from the Template dropdown list for which you want to create a view, e.g. Details.
@@ -181,12 +181,12 @@ Again, we will create a Detail view by right-clicking on the `Details` action me
 
 Let's run your application and you will see all the customers.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/docs/master/dapper-tutorial.net/images/display-all-customers.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/docs/master/dapper-tutorial.net/images/display-all-customers.png" alt="Display all customer">
 
 [Try it online](https://dotnetfiddle.net/oMw3qO)
 
 Now click on Details link of any customer and you will see all the details for that customer.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/docs/master/dapper-tutorial.net/images/display-customer-details.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/docs/master/dapper-tutorial.net/images/display-customer-details.png" alt="Display customer details">
 
 [Try it online](https://dotnetfiddle.net/XYPFlV)

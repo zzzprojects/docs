@@ -35,11 +35,11 @@ namespace SuperLogger
 
 Select the **Project > Properties** menu command, then select the Application tab.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/nuget-tutorial/master/docs/images/create-nuget-package.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/nuget-tutorial/master/docs/images/create-nuget-package.png" alt="Create NuGet package">
 
 In the **Assembly name** field, give your package a unique identifier. Select the **Assembly Information...** button, which brings up a dialog box in which you can enter other properties that carry into the manifest (a `.nuspec` file).
 
-<img src="https://raw.githubusercontent.com/zzzprojects/nuget-tutorial/master/docs/images/create-nuget-package1.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/nuget-tutorial/master/docs/images/create-nuget-package1.png" alt="Create NuGet package-1">
 
 Once all the properties are set, build the project in Release mode.
 
@@ -56,7 +56,7 @@ Open a command prompt and navigate to the project folder containing `*.csproj` f
 nuget spec SuperLogger.csproj
 ```
 
-<img src="https://raw.githubusercontent.com/zzzprojects/nuget-tutorial/master/docs/images/create-nuget-package2.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/nuget-tutorial/master/docs/images/create-nuget-package2.png" alt="Create NuGet package-2">
 
 NuGet creates a manifest that matches the name of the project, in this case, `SuperLogger.nuspec`. It also includes replacement tokens in the manifest.
 
@@ -99,11 +99,11 @@ You can also add any other elements to the manifest at this time, as described o
 
 You can create a package by running `nuget pack` command.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/nuget-tutorial/master/docs/images/create-nuget-package3.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/nuget-tutorial/master/docs/images/create-nuget-package3.png" alt="Create NuGet package-3">
 
 NuGet generates a `identifier-version.nupkg` file in your project folder.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/nuget-tutorial/master/docs/images/create-nuget-package4.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/nuget-tutorial/master/docs/images/create-nuget-package4.png" alt="Create NuGet package-4">
 
 ## Publish Package
 
@@ -112,11 +112,11 @@ Once you have a `.nupkg` file, you publish it to nuget.org using `nuget.exe` wit
  - Sign into your [nuget.org account](https://www.nuget.org/users/account/LogOn?returnUrl=%2F) or create an account if you don't have one already.
  - Click on your username which is on the upper right, and select API Keys and then on webpage click on Create.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/nuget-tutorial/master/docs/images/create-nuget-package5.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/nuget-tutorial/master/docs/images/create-nuget-package5.png" alt="Create NuGet package-5">
 
 Provide a name for your key, and enter `*` for Glob pattern, and then click on the **Create button.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/nuget-tutorial/master/docs/images/create-nuget-package6.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/nuget-tutorial/master/docs/images/create-nuget-package6.png" alt="Create NuGet package-6">
 
 Once the key is created, select Copy to retrieve the access key you need in the CLI.
 
@@ -128,8 +128,8 @@ Run the `nuget push` command to publish your package to nuget.org by specifying 
 nuget push SuperLogger.1.0.0.nupkg oy2edepystx5fzm45guqybyr7vgmnboudmnxr5e2gsy36a -Source https://api.nuget.org/v3/index.json
 ```
 
-<img src="https://raw.githubusercontent.com/zzzprojects/nuget-tutorial/master/docs/images/create-nuget-package7.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/nuget-tutorial/master/docs/images/create-nuget-package7.png" alt="Create NuGet package-7">
 
 The `nuget.exe` displays the results of the publishing process, and you will see a warning because we didn't provide the license information, but that's ok.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/nuget-tutorial/master/docs/images/create-nuget-package8.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/nuget-tutorial/master/docs/images/create-nuget-package8.png" alt="Create NuGet package-8">

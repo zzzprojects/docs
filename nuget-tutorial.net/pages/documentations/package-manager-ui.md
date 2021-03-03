@@ -9,7 +9,7 @@ The NuGet Package Manager UI in Visual Studio allows you to easily install, unin
 
 You can open the NuGet Package Manager UI by right-clicking on either **References** or a project and select **Manage NuGet Packages...**.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/nuget-tutorial/master/docs/images/package-manager-ui.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/nuget-tutorial/master/docs/images/package-manager-ui.png" alt="package manager UI">
 
 ## Install Package
 
@@ -18,7 +18,7 @@ The Browse tab displays packages by popularity from the currently selected sourc
  - You can search for a specific package using the search box on the upper left. 
  - Select a package from the list to display its information, which also enables the Install button along with a version-selection drop-down.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/nuget-tutorial/master/docs/images/package-manager-ui1.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/nuget-tutorial/master/docs/images/package-manager-ui1.png" alt="package manager uil">
 
  - Select the desired version from the drop-down and select Install. 
  - Visual Studio installs the package and its dependencies into the project. 
@@ -29,7 +29,7 @@ The Browse tab displays packages by popularity from the currently selected sourc
 
 You can uninstall a package using Package Manager UI by selecting the package and click on Uninstall button.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/nuget-tutorial/master/docs/images/package-manager-ui2.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/nuget-tutorial/master/docs/images/package-manager-ui2.png" alt="package manager ui2">
 
 The **Include prerelease**, and **Package source** controls do not affect when uninstalling packages.
 
@@ -40,6 +40,6 @@ You can also update a package or packages using Package Manager UI.
  - Select the Updates tab to see packages that have available updates from the selected package sources. 
  - Select Include prerelease to include prerelease packages in the update list.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/nuget-tutorial/master/docs/images/package-manager-ui3.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/nuget-tutorial/master/docs/images/package-manager-ui3.png" alt="package manager ui3">
 
 Select the package to update, select the desired version from the drop-down on the right, and select Update.

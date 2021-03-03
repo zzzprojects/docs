@@ -17,7 +17,7 @@ The data source defines methods to handle the data, and the delegate protocol de
 
 So let's go to the **TableViewDemo** project again open Main.storyboard. Right-click on the Table View and connect the circle beside the delegate to the View Controller.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/iOS-Tutorial/master/docs/images/table-view-delegate1.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/iOS-Tutorial/master/docs/images/table-view-delegate1.png" alt="table view delegate-1">
 
 Now let's go the ViewController.swift file and add a comma followed by UITableViewDelegate.
 
@@ -36,7 +36,7 @@ In Swift, you can only inherit from a single class, we are inheriting from the U
 
 So let's add one of the simpler options is what will happen when a row is selected, and that method is defined in the UITableViewDelegate protocol.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/iOS-Tutorial/master/docs/images/table-view-delegate2.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/iOS-Tutorial/master/docs/images/table-view-delegate2.png" alt="table view delegate-2">
 
 If you provide that method, it will automatically be called, so let's add the implementation for this method ViewController class.
 
@@ -48,6 +48,6 @@ func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
 This method will automatically be called whenever somebody touches a row, and it will also give the section number and the row number. We have added a simple print statement to show that selected row and selected section. Let's run the application. 
 
-<img src="https://raw.githubusercontent.com/zzzprojects/iOS-Tutorial/master/docs/images/table-view-delegate3.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/iOS-Tutorial/master/docs/images/table-view-delegate3.png" alt="table view delegate-3">
 
 If you touch one of these rows to select you should see a message in the console view of Xcode. So we could use this method to prepare to move to another screen and use that selected row to make sure we've passed over any information that we need on that next screen.

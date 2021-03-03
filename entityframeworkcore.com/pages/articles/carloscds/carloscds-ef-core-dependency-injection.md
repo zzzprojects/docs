@@ -119,11 +119,11 @@ And now, let use the email!
 
 Running the application, we will have the following result:
 
-<img src="http://carloscds.net/wp-content/uploads/2020/02/image-6.png">
+<img src="http://carloscds.net/wp-content/uploads/2020/02/image-6.png" alt="RequestServices.GetServicesRequest">
 
 Now calling the email:
 
-<img src="http://carloscds.net/wp-content/uploads/2020/02/image-7.png">
+<img src="http://carloscds.net/wp-content/uploads/2020/02/image-7.png" alt="RequestServices.GetServices<IEnvioEmail>">
 
 ## Conclusion
 

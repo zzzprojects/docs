@@ -24,7 +24,7 @@
 						<div class="download-count wow lightSpeedIn">
 							<a href="https://www.nuget.org/packages/Z.LinqToSql.Plus/" target="_blank"
 									onclick="ga('send', 'event', { eventAction: 'download'});">
-								<img src="https://zzzprojects.github.io/images/nuget/linq-to-sql-plus-big-d.svg">
+								<img src="https://zzzprojects.github.io/images/nuget/linq-to-sql-plus-big-d.svg" alt="linq to sql plus big d">
 							</a>
 						</div>
 					</div>

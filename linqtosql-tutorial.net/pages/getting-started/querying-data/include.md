@@ -29,7 +29,7 @@ using (var db = new CustomerDataContext(@"Data Source=(localdb)\ProjectsV13;Init
 
 The `db.Log = Console.Out;` will print all the generated SQL queries on a screen to see what is happing.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/LinqToSql-Tutorial/master/docs/images/include1.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/LinqToSql-Tutorial/master/docs/images/include1.png" alt="include-1">
 
 
 You can see that the first query will get all the customers and then for every iteration, a new query is executed to fetch invoice data from the database.
@@ -63,6 +63,6 @@ using (var db = new CustomerDataContext(@"Data Source=(localdb)\ProjectsV13;Init
 ```
 In this example, we are telling the context that along Customer entites, load the related Invoices as well.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/LinqToSql-Tutorial/master/docs/images/include2.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/LinqToSql-Tutorial/master/docs/images/include2.png" alt="include-2">
 
 Now you can see that we have only one query and it will load the Customers and the related Invoices data.

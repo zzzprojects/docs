@@ -24,7 +24,7 @@
 						<div class="download-count wow lightSpeedIn">
 							<a href="https://www.nuget.org/packages/Z.EntityFramework.Extensions/" target="_blank"
 									onclick="ga('send', 'event', { eventAction: 'download-ef6'});">
-								<img src="https://zzzprojects.github.io/images/nuget/entity-framework-extensions-big-d.svg">
+								<img src="https://zzzprojects.github.io/images/nuget/entity-framework-extensions-big-d.svg" alt="Entity Framework Extensions big d">
 							</a>
 						</div>
 					</div>
@@ -50,7 +50,7 @@
 						<div class="download-count wow lightSpeedIn">
 							<a href="https://www.nuget.org/packages/Z.EntityFramework.Extensions.EFCore/" target="_blank"
 									onclick="ga('send', 'event', { eventAction: 'download-efcore'});">
-								<img src="https://zzzprojects.github.io/images/nuget/entity-framework-extensions-efcore-big-d.svg">
+								<img src="https://zzzprojects.github.io/images/nuget/entity-framework-extensions-efcore-big-d.svg" alt="EF Extensions EFcore big d">
 							</a>
 						</div>
 					</div>
@@ -78,7 +78,7 @@
 						<div class="download-count wow lightSpeedIn">
 							<a href="https://www.nuget.org/packages/Z.EntityFramework.Extensions.EF5/" target="_blank"
 									onclick="ga('send', 'event', { eventAction: 'download-ef5'});">
-								<img src="https://zzzprojects.github.io/images/nuget/entity-framework-extensions-ef5-big-d.svg">
+								<img src="https://zzzprojects.github.io/images/nuget/entity-framework-extensions-ef5-big-d.svg" alt="Entity Framework Extensions EF5 big d">
 							</a>
 						</div>
 					</div>
@@ -104,7 +104,7 @@
 						<div class="download-count wow lightSpeedIn">
 							<a href="https://www.nuget.org/packages/Z.EntityFramework.Extensions.EF4/" target="_blank"
 									onclick="ga('send', 'event', { eventAction: 'download-ef4'});">
-								<img src="https://zzzprojects.github.io/images/nuget/entity-framework-extensions-ef4-big-d.svg">
+								<img src="https://zzzprojects.github.io/images/nuget/entity-framework-extensions-ef4-big-d.svg" alt="Entity Framework Extensions EF4 big d">
 							</a>
 						</div>
 					</div>

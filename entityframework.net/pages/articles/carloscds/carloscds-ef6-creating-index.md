@@ -16,7 +16,7 @@ To demonstrate this feature, let's create a Console project in Visual Studio and
 
 Creating the Console Project:
 
-<img src="http://carloscds.net/wp-content/uploads/2014/07/SNAGHTML4fb2cd3_thumb.png" width="836" height="479">
+<img src="http://carloscds.net/wp-content/uploads/2014/07/SNAGHTML4fb2cd3_thumb.png" width="836" height="479" alt="Create console project">
 
 Adding the Entity Framework Code First with NuGet Package (Tools / NuGet Package Manager / Package Manager Console) and we will add the package with the command below:
 
@@ -126,7 +126,7 @@ PM> Update-DataBase
 
 There, our database was created with the index we determined. See the Management Studio screen:
 
-<img src="http://carloscds.net/wp-content/uploads/2014/07/image_thumb.png" width="465" height="407">
+<img src="http://carloscds.net/wp-content/uploads/2014/07/image_thumb.png" width="465" height="407" alt="Management Studio screen">
 
 Instead of creating the database directly, you can also add the `–Script` parameter to the `Update-Database` to generate the script for your database.
 
