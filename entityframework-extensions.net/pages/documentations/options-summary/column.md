@@ -1,5 +1,6 @@
 # Column
 
+## Column
 | Name                                                                                                                              | Description                                                                                                                                                                                |
 |:----------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |[ColumnInputExpression](../options/column-input-expression.md)                                                                        | Specifies column that must be inserted/updated.                                                                                                                                            |
@@ -8,7 +9,7 @@
 |[ColumnPrimaryKeyExpression](../options/column-primary-key-expression.md)                                                             | Specifies custom properties to use as the key.                                                                                                                                             |
 |[ColumnSynchronizeDeleteKeySubsetExpression](../options/column-synchronize-delete-key-subset-expression.md)                           | It allows to synchronize (insert/update/delete) only a part of the tables. |
 
-# Ignore On
+## Ignore On
 
 | Name                                                                                                                              | Description                                                                                                                                                                                |
 |:----------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -25,28 +26,28 @@
 |[IgnoreOnUpdateMatchedAndConditionExpression](../options/ignore-on-update-matched-and-condition-expression.md)                        | Inverse of `UpdateMatchedAndConditionExpression` which allows to perform the bulk update operation if the specified property value is not equal to the database value.                 |
 |[IgnoreOnUpdateMatchedAndOneNotConditionExpression](../options/ignore-on-update-matched-and-one-not-condition-expression.md)          | Inverse of `MergeMatchedAndNotConditionExpression` which allows you to perform the bulk update operation if the specified property value is not equal to the database value.           |
 
-# Merge Matched
+## Merge Matched
 
 | Name                                                                                                                              | Description                                                                                                                                                                                |
 |:----------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |[MergeMatchedAndConditionExpression](../options/merge-matched-and-condition-expression.md)                                            | It allows you to perform only the `UPDATE` in the `BulkMerge` if the specified property value is equal to the database value.                                                            |
 |[MergeMatchedAndNotConditionExpression](../options/merge-matched-and-not-condition-expression.md)                                     | It allows you to perform only the `UPDATE` in the `BulkMerge` if the specified property value is not equal to the database value. |
 
-# Synchronize Matched
+## Synchronize Matched
 
 | Name                                                                                                                              | Description                                                                                                                                                                                |
 |:----------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|                                                        
 |[SynchronizeMatchedAndConditionExpression](../options/synchronize-matched-and-condition-expression.md)                                | It allows you to perform the bulk synchronize operation if the specified property value is equal to the database value.                                                                    |
 |[SynchronizeMatchedAndOneNotConditionExpression](../options/synchronize-matched-and-one-not-condition-expression.md)                  | It allows you to perform the bulk update operation if the specified property value is not equal to the database value.                                                                     |
 
-# Update Matched
+## Update Matched
 
 | Name                                                                                                                              | Description                                                                                                                                                                                |
 |:----------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|                                                        
 |[UpdateMatchedAndConditionExpression](../options/update-matched-and-condition-expression.md)                                          | It allows you to perform the bulk update operation if the specified property value is equal to the database value.                                                                         |
 |[UpdateMatchedAndOneNotConditionExpression](../options/update-matched-and-one-not-condition-expression.md)                            | It allows you to perform the bulk update operation if the specified property value is not equal to the database value.                                                                     |
 
-# Coalesce
+## Coalesce
 
 | Name                                                                                                                              | Description                                                                                                                                                                                |
 |:----------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
