@@ -8,10 +8,10 @@ For example, you receive a `DTO` list with the `CustomerID` populated, and you w
 
 The `WhereBulkNotContains` method lets you filter a query to exclude all entities from any list type (basic type, entities, DTO, anonymous, expando) and specify a custom join with one or more properties. The method is powerful because you can use it with an unlimited amount of items.
 
-The `WhereBulkNotContains` method is similar to the `WhereBulkContains` method but filter entities not contained (`exclude`) instead of contained (`include`):
+The `WhereBulkNotContains` method is similar to the `WhereBulkContains` method, but it filters entities not contained (`exclude`) instead of contained (`include`):
 
-- The `WhereBulkContains` method filter entities to include entities from the list (`INNER JOIN` statement) 
-- The `WhereBulkNotContains` method filter entities to exclude entities from the list (`WHERE NOT EXISTS` statement).
+- The `WhereBulkContains` method filters entities to include entities from the list (`INNER JOIN` statement) 
+- The `WhereBulkNotContains` method filters entities to exclude entities from the list (`WHERE NOT EXISTS` statement).
 
 ## FAQ
 
