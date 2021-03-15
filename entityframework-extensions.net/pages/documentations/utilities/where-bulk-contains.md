@@ -13,11 +13,11 @@ var customers = context.Customers.Where(x => customerIds.Contains(x.CustomerID))
 
 However, this solution has many limitations such as:
 
-- support basic types only such as `int` or `guid`
-- the list of `ids` is limited due to SQL limitations
-- and it doesn't support surrogate key or other more complex scenarios
+- It only supports basic types like `int` or `guid`
+- The list of `ids` is limited due to SQL limitations
+- It doesn't support surrogate key or other more complex scenarios
 
-The `WhereBulkContains` method lets you filter a query by including all entities from the list. It's doesn't have any limitation that the `Contains` method has.
+The `WhereBulkContains` method lets you filter a query by including all entities from the list. It's doesn't have any of the `Contains` method limitations.
 
 ## FAQ
 
@@ -31,7 +31,7 @@ The `WhereBulkContains` method lets you filter a query by including all entities
 
 The most basic scenario is passing a `DTO` list to the `WhereBulkContains` method.
 
-The method will filter entities to include those contained in the `DTO` list.
+This method will filter entities to include those contained in the `DTO` list.
 
 ```csharp
 var customers = context.Customers.WhereBulkContains(customersDto).ToList();
@@ -39,7 +39,7 @@ var customers = context.Customers.WhereBulkContains(customersDto).ToList();
 
 ## What kind of list is supported?
 
-The list could be of any type. The only requirement is that your list is a basic type or must contain a property/field with the same name as the key.
+All kinds of lists are supported. The only requirement is that your list is a basic type or must contain a property/field with the same name as the key.
 
 - Basic type such as `List<int>` and `List<Guid>`
 - Entities list such as `List<Customer>`
