@@ -2,9 +2,9 @@
 
 ## Description
 
-Reading entities using an existing list such as a `DTO` (Domain Transfer Object) is a common scenario.
+Reading entities using an existing list is a common scenario.
 
-For example, you receive a `DTO` list with the `CustomerID` and some other properties populated, and you want to retrieve those customers from the database to update them.
+For example, you receive a `DTO` (Domain Transfer Object) list with the `CustomerID` and some other properties populated, and you want to retrieve those customers from the database to update them.
 
 A frequent solution is using the `Contains` method to retrieves those customers such as:
 
@@ -13,7 +13,7 @@ var customerIds = customersDto.Select(x => x.CustomerID).ToList();
 var customers = context.Customers.Where(x => customerIds.Contains(x.CustomerID)).ToList();
 ```
 
-However, this solution has several limitations, as explained  [here](/where-bulk-contains).
+However, this solution has several limitations, as explained [here](/where-bulk-contains).
 
 The `BulkRead` method has many advantages:
  - Allow using any list type (basic type, entity type, anonymous type, expando object)
