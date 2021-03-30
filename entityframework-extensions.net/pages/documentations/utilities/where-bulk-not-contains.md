@@ -4,12 +4,12 @@
 
 Filtering entities by excluding all items from an existing list can sometimes be very useful.
 
-For example, you receive a `DTO` (Domain Transfer Object) list with the `CustomerID` populated, and you want to retrieve customers not contained in this list to deleted them.
+For example, you deserialize a json file into a list of `Customer` with the `CustomerID` populated, and you want to retrieve customers not contained in this list to deleted them.
 
 A frequent solution is using the `!Contains` method to retrieves those customers such as:
 
 ```csharp
-var customerIds = customersDto.Select(x => x.CustomerID).ToList();
+var customerIds = deserializedCustomers.Select(x => x.CustomerID).ToList();
 var customers = context.Customers.Where(x => !customerIds.Contains(x.CustomerID)).ToList();
 ```
 
@@ -32,16 +32,16 @@ The `WhereBulkNotContains` method is similar to the `WhereBulkContains` method, 
 
 ## How to use the method WhereBulkNotContains?
 
-The most basic scenario is passing a `DTO` list to the `WhereBulkNotContains` method.
+The most basic scenario is passing a list to the `WhereBulkNotContains` method.
 
-The method will filter entities to exclude those contained in the `DTO` list.
+The method will filter entities to exclude those contained in the list.
 
 ```csharp
 // Use the entity type key if none is provided (CustomerID)
-var customers = context.Customers.WhereBulkNotContains(customersDto).ToList();
+var customers = context.Customers.WhereBulkNotContains(deserializedCustomers).ToList();
 
 //  Allow specifying a custom join with one or many properties.
-var customers = context.Customers.WhereBulkNotContains(customersDto, x => x.Code).ToList();
+var customers = context.Customers.WhereBulkNotContains(deserializedCustomers, x => x.Code).ToList();
 ```
 
 ## Where can I learn more about the method WhereBulkNotContains?
