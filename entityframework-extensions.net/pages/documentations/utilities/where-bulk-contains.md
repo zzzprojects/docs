@@ -4,12 +4,12 @@
 
 Filtering entities by including items from an existing list is a common scenario.
 
-For example, you want to retrieve customers to update them from a `DTO` (Domain Transfer Object) list with the `CustomerID` and some other properties populated.
+For example, you want to retrieve customers to update properties you retrived for a list of `Customer` that you have previously deserialized from a JSON file.
 
 A frequent solution is using the `Contains` methods such as:
 
 ```csharp
-var customerIds = customersDto.Select(x => x.CustomerID).ToList();
+var customerIds = deserializedCustomers.Select(x => x.CustomerID).ToList();
 var customers = context.Customers.Where(x => customerIds.Contains(x.CustomerID)).ToList();
 ```
 
@@ -42,10 +42,10 @@ This method will filter entities to include those contained in the `DTO` list.
 
 ```csharp
 // Use the entity type key if none is provided (CustomerID)
-var customers = context.Customers.WhereBulkContains(customersDto).ToList();
+var customers = context.Customers.WhereBulkContains(deserializedCustomers).ToList();
 
 //  Allow specifying a custom join with one or many properties.
-var customers = context.Customers.WhereBulkContains(customersDto, x => x.Code).ToList();
+var customers = context.Customers.WhereBulkContains(deserializedCustomers, x => x.Code).ToList();
 ```
 
 ## What kind of list is supported?

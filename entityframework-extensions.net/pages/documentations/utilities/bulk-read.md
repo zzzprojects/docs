@@ -4,7 +4,7 @@
 
 Reading entities using an existing list is a common scenario.
 
-For example, you deserialize a json file into a list of `Customer` with the `CustomerID` and a few other properties populated, and you want to retrieve those customers from the database to update those properties.
+For example, you deserialize a JSON file into a list of `Customer` with the `CustomerID` and a few other properties populated, and you want to retrieve those customers from the database to update those properties.
 
 A frequent solution is using the `Contains` method to retrieves those customers such as:
 

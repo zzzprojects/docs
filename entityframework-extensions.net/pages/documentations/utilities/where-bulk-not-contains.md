@@ -4,7 +4,7 @@
 
 Filtering entities by excluding all items from an existing list can sometimes be very useful.
 
-For example, you deserialize a json file into a list of `Customer` with the `CustomerID` populated, and you want to retrieve customers not contained in this list to deleted them.
+For example, you deserialize a JSON file into a list of `Customer` with the `CustomerID` populated, and you want to retrieve customers not contained in this list to deleted them.
 
 A frequent solution is using the `!Contains` method to retrieves those customers such as:
 
