@@ -45,8 +45,6 @@ For some provider like SQLite, performance improvement can be as high as 10x fas
 - There is too many cross-reference tables, and the library is not able to create a saving strategy. You will receive an error on the first use.
 - An entity uses a temporary generated GUID when adding (not empty), but the GUID is replaced later by the GUID generated in the database. Data will be correctly inserted, but entities may still have the temporary GUID for relation not using navigation property.
 
-> These limitations will be fixed in the next major version.
-
 ## Why turning off Entity Framework Propagation is faster?
 Unfortunately, Entity Framework is very slow at generating commands to be executed. For some providers, it takes more time to generate these queries than executing them!
 
