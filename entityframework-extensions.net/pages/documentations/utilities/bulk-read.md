@@ -47,6 +47,9 @@ var customers = context.Customers.BulkRead(deserializedCustomers);
 //  Allow specifying a custom join with one or many properties.
 var customers = context.Customers.BulkRead(deserializedCustomers, x => x.Code);
 ```
+
+[Try it](https://dotnetfiddle.net/TrBjjM)
+
 ## Where can I learn more about the method BulkRead?
 
 You can learn more by reading the [WhereBulkContains](/where-bulk-contains) documentation.
