@@ -44,8 +44,14 @@ The method will retrieve entities from the database contained in the list.
 // Use the entity type key if none is provided (CustomerID)
 var customers = context.Customers.BulkRead(deserializedCustomers);
 
-//  Allow specifying a custom join with one or many properties.
+//  Allow specifying a custom join with one or many properties from lambda expression
 var customers = context.Customers.BulkRead(deserializedCustomers, x => x.Code);
+
+//  Allow specifying a custom join with one or many properties from `params string[]`
+var customers = context.Customers.BulkRead(deserializedCustomers, "Code");
+
+//  Allow specifying a custom join with one or many properties from `List<string>`
+var customers = context.Customers.BulkRead(deserializedCustomers, new List<string> {"Code"});
 ```
 
 [Try it](https://dotnetfiddle.net/TrBjjM)
