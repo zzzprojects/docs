@@ -17,8 +17,8 @@ This solution works great most of the time. However, in some scenarios, you will
 
 The `BulkRead` method has many advantages:
  - Allow using any list type (basic type, entity type, anonymous type, expando object)
- - Allow using an unlimited amount of items.
- - Allow specifying a custom join with one or many properties.
+ - Allow using an unlimited amount of items
+ - Allow specifying a custom join with one or many properties
 
 ## FAQ
 
@@ -57,10 +57,8 @@ Both methods are part of EF Extensions and are the same minus one difference. Th
 Under the hood, the `BulkRead` method calls the `WhereBulkContains` method followed by the `ToList` or `ToListAsync` method.
 
 ```csharp
-var list1 = context.Customers.BulkRead(deserializedCustomers);
-
-// BulkRead is exactly like doing the following code:
-var list2 = context.Customers.WhereBulkContains(deserializedCustomers).ToList();
+// Using the BulkRead method is exactly like doing the following code:
+var customers = context.Customers.WhereBulkContains(deserializedCustomers).ToList();
 ```
 
 ## Where can I learn more about the method BulkRead?
