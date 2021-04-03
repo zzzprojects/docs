@@ -10,7 +10,7 @@ A frequent solution is using the LINQ `Contains` method to retrieves those custo
 
 ```csharp
 var customerIDs = deserializedCustomers.Select(x => x.CustomerID).ToList();
-var customers = context.Customers.Where(x => customerIds.Contains(x.CustomerID)).ToList();
+var customers = context.Customers.Where(x => customerIDs.Contains(x.CustomerID)).ToList();
 ```
 
 This solution works great most of the time. However, in some scenarios, you will hit one of the `Contains` method limitations, as explained [here](/where-bulk-contains).
