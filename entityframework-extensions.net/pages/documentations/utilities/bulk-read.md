@@ -32,26 +32,26 @@ var list2 = context.Customers.WhereBulkContains(deserializedCustomers).ToList();
 ## FAQ
 
 - [How to use the method BulkRead?](#how-to-use-the-method-bulkread)
-- [Where I can learn more about the method BulkRead?](#where-can-i-learn-more-about-the-method-bulkread)
+- [Where can I learn more about the method BulkRead?](#where-can-i-learn-more-about-the-method-bulkread)
 
 ## How to use the method BulkRead?
 
 The most basic scenario is passing a list to the `BulkRead` method.
 
-The method will retrieve entities from the database contained in the list.
+The `BulkRead` method will retrieve entities from the database contained in the list.
 
 ```csharp
-// Use the entity type key if none is provided (CustomerID)
+// The `JOIN` statement will use the default entity key if none is provided (CustomerID)
 var customers = context.Customers.BulkRead(deserializedCustomers);
 
-//  Allow specifying a custom join with one or many properties from lambda expression
+// You can specify a custom `JOIN` clause with one or many properties using a `Lambda Expression`
 var customers = context.Customers.BulkRead(deserializedCustomers, x => x.Code);
 
-//  Allow specifying a custom join with one or many properties from `params string[]`
-var customers = context.Customers.BulkRead(deserializedCustomers, "Code");
-
-//  Allow specifying a custom join with one or many properties from `List<string>`
+// You can specify a custom `JOIN` clause with one or many properties using a `List<string>`
 var customers = context.Customers.BulkRead(deserializedCustomers, new List<string> {"Code"});
+
+// You can specify a custom `JOIN` clause with one or many properties using a `params string[]`
+var customers = context.Customers.BulkRead(deserializedCustomers, "Code");
 ```
 
 [Try it](https://dotnetfiddle.net/TrBjjM)
