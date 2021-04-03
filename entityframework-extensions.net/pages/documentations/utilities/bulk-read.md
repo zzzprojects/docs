@@ -4,34 +4,26 @@
 
 Reading entities using an existing list is a common scenario.
 
-For example, you deserialize a JSON file into a list of `Customer` with the `CustomerID` and a few other properties populated, and you want to retrieve those customers from the database to update those properties.
+For example, you deserialize a JSON file into a list of `Customer` with the `CustomerID` and a few other properties populated. Then you want to retrieve those customers from the database to update those properties.
 
-A frequent solution is using the `Contains` method to retrieves those customers such as:
+A frequent solution is using the LINQ `Contains` method to retrieves those customers such as:
 
 ```csharp
-var customerIds = deserializedCustomers.Select(x => x.CustomerID).ToList();
+var customerIDs = deserializedCustomers.Select(x => x.CustomerID).ToList();
 var customers = context.Customers.Where(x => customerIds.Contains(x.CustomerID)).ToList();
 ```
 
-However, this solution has several limitations, as explained [here](/where-bulk-contains).
+This solution works great most of the time. However, in some scenarios, you will hit one of the `Contains` method limitations, as explained [here](/where-bulk-contains).
 
 The `BulkRead` method has many advantages:
  - Allow using any list type (basic type, entity type, anonymous type, expando object)
  - Allow using an unlimited amount of items.
  - Allow specifying a custom join with one or many properties.
 
-The `BulkRead` is an immediate method (return a `List<T>`). Under the hood, it calls the `WhereBulkContains` method followed by the `ToList()` method.
-
-```csharp
-var list1 = context.Customers.BulkRead(deserializedCustomers);
-
-// BulkRead is exactly like doing the following code:
-var list2 = context.Customers.WhereBulkContains(deserializedCustomers).ToList();
-```
-
 ## FAQ
 
 - [How to use the method BulkRead?](#how-to-use-the-method-bulkread)
+- [What is the difference between the method BulkRead and WhereBulkContains?](#what-is-the-difference-between-the-method-bulkread-and-wherebulkcontains)
 - [Where can I learn more about the method BulkRead?](#where-can-i-learn-more-about-the-method-bulkread)
 
 ## How to use the method BulkRead?
@@ -56,8 +48,25 @@ var customers = context.Customers.BulkRead(deserializedCustomers, "Code");
 
 [Try it](https://dotnetfiddle.net/TrBjjM)
 
+The `BulkReadAsync` method is also supported.
+
+## What is the difference between the method BulkRead and WhereBulkContains?
+
+Both methods are part of EF Extensions and are the same minus one difference. The `BulkRead` is an immediate method (return a `List<T>`) while the `WhereBulkContains` is a deferred method (return an `IQueryable<T>`).
+
+Under the hood, the `BulkRead` method calls the `WhereBulkContains` method followed by the `ToList` or `ToListAsync` method.
+
+```csharp
+var list1 = context.Customers.BulkRead(deserializedCustomers);
+
+// BulkRead is exactly like doing the following code:
+var list2 = context.Customers.WhereBulkContains(deserializedCustomers).ToList();
+```
+
 ## Where can I learn more about the method BulkRead?
 
 You can learn more by reading the [WhereBulkContains](/where-bulk-contains) documentation.
 
 Both methods have the same features and limitations.
+
+You can also find additional information on our YouTube (Coming soon) video.
