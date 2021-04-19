@@ -1,5 +1,6 @@
 ---
 Permalink: ef6-query-db-set-filter-by-query
+CanonicalLink: https://entityframework-plus.net/ef-core-query-filter-by-query
 ---
 
 # DbSet Filter - Query Filter By Query

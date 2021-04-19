@@ -1,5 +1,6 @@
 ---
 Permalink: ef6-query-filter-by-inheritance-interface
+CanonicalLink: https://entityframework-plus.net/ef-core-query-filter-by-inheritance-interface
 ---
 
 # Query Filter - Filter By Inheritance/Interface

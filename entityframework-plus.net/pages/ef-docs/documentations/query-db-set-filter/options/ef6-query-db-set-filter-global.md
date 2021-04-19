@@ -1,5 +1,6 @@
 ---
 Permalink: ef6-query-db-set-filter-global
+CanonicalLink: https://entityframework-plus.net/ef-core-query-filter-global
 ---
 
 # DbSet Filter - Query Filter Global

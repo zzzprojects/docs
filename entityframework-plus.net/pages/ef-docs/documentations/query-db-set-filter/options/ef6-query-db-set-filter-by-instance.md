@@ -1,5 +1,6 @@
 ---
 Permalink: ef6-query-db-set-filter-by-instance
+CanonicalLink: https://entityframework-plus.net/ef-core-query-filter-by-instance
 ---
 
 # DbSet Filter - Query Filter By Instance

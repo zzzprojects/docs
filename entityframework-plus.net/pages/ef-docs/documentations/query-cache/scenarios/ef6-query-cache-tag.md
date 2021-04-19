@@ -1,5 +1,6 @@
 ---
 Permalink: ef6-query-cache-tag
+CanonicalLink: https://entityframework-plus.net/ef-core-query-cache-tag
 ---
 
 # Query Cache - Tag & ExpireTag

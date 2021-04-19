@@ -1,5 +1,6 @@
 ---
 Permalink: ef6-query-include-filter-load-one-level
+CanonicalLink: https://entityframework-plus.net/ef-core-query-include-filter-load-one-level
 ---
 
 # Query IncludeFilter - Load one level

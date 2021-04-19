@@ -1,5 +1,6 @@
 ---
 Permalink: ef6-query-filter-object-state
+CanonicalLink: https://entityframework-plus.net/ef-core-query-filter-object-state
 ---
 
 # Query Filter - Object State

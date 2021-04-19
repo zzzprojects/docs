@@ -1,5 +1,6 @@
 ---
 Permalink: ef6-query-filter-by-query
+CanonicalLink: https://entityframework-plus.net/ef-core-query-filter-by-query
 ---
 
 # Query Filter - Filter By Query

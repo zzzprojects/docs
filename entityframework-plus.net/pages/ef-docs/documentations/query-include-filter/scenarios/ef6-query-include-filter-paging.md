@@ -1,6 +1,7 @@
 
 ---
 Permalink: ef6-query-include-filter-paging
+CanonicalLink: https://entityframework-plus.net/ef-core-query-include-filter-paging
 ---
 
 # Query IncludeFilter - Paging

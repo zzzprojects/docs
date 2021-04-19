@@ -1,5 +1,6 @@
 ---
 Permalink: ef6-query-deferred-execute
+CanonicalLink: https://entityframework-plus.net/ef-core-query-deferred-execute
 ---
 
 # Query Deferred - Execute

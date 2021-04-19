@@ -1,5 +1,6 @@
 ---
 Permalink: ef6-query-cache-control
+CanonicalLink: https://entityframework-plus.net/ef-core-query-cache-control
 ---
 
 # Query Cache - Cache Control

@@ -1,5 +1,6 @@
 ---
 Permalink: ef6-query-future-paging
+CanonicalLink: https://entityframework-plus.net/ef-core-query-future-paging
 ---
 
 # Query Future - Paging Scenario

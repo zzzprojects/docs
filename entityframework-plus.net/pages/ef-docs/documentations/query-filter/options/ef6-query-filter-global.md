@@ -1,5 +1,6 @@
 ---
 Permalink: ef6-query-filter-global
+CanonicalLink: https://entityframework-plus.net/ef-core-query-filter-global
 ---
 
 # Query Filter - Global

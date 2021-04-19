@@ -1,5 +1,6 @@
 ---
 Permalink: ef6-query-filter-default-ordering
+CanonicalLink: https://entityframework-plus.net/ef-core-query-filter-default-ordering
 ---
 
 # Query Filter - Default Ordering

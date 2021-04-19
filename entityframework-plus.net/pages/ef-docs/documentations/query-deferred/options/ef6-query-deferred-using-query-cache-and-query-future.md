@@ -1,5 +1,6 @@
 ---
 Permalink: ef6-query-deferred-using-query-cache-and-query-future
+CanonicalLink: https://entityframework-plus.net/ef-core-query-deferred-using-query-cache-and-query-future
 ---
 
 #  Query Deferred

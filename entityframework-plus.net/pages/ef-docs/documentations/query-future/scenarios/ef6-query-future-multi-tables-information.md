@@ -1,5 +1,6 @@
 ---
 Permalink: ef6-query-future-multi-tables-information
+CanonicalLink: https://entityframework-plus.net/ef-core-query-future-multi-tables-information
 ---
 
 # Query Future - Multi tables information scenario 

@@ -1,5 +1,6 @@
 ---
 Permalink: ef6-query-include-security-access
+CanonicalLink: https://entityframework-plus.net/ef-core-query-include-security-access
 ---
 
 # Query IncludeFilter - Security Access

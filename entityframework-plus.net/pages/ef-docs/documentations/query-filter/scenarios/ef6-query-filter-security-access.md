@@ -1,5 +1,6 @@
 ---
 Permalink: ef6-query-filter-security-access
+CanonicalLink: https://entityframework-plus.net/ef-core-query-filter-security-access
 ---
 
 # Query Filter - Security Access

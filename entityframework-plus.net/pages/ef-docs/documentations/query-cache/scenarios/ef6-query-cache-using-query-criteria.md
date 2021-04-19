@@ -1,5 +1,6 @@
 ---
 Permalink: ef6-query-cache-using-query-criteria
+CanonicalLink: https://entityframework-plus.net/ef-core-query-cache-using-query-criteria
 ---
 
 # Query Cache

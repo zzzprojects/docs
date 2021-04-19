@@ -1,5 +1,6 @@
 ---
 Permalink: ef6-query-include-optimized-filter
+CanonicalLink: https://entityframework-plus.net/ef-core-query-include-optimized-filter
 ---
 
 # Query IncludeOptimized - Filter

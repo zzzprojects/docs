@@ -1,5 +1,6 @@
 ---
 Permalink: ef6-query-future-value-deferred
+CanonicalLink: https://entityframework-plus.net/ef-core-query-future-value-deferred
 ---
 
 # Query Future - FutureValue Deferred

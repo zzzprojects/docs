@@ -1,5 +1,6 @@
 ---
 Permalink: ef6-query-db-set-filter-by-as-no-db-set-filter
+CanonicalLink: https://entityframework-plus.net/ef-core-query-filter
 ---
 
 # DbSet Filter - Query Filter AsNoDbSetFilter

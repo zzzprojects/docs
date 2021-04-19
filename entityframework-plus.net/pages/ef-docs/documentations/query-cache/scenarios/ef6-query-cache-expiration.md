@@ -1,5 +1,6 @@
 ---
 Permalink: ef6-query-cache-expiration
+CanonicalLink: https://entityframework-plus.net/ef-core-query-cache-expiration
 ---
 
 # Query Cache - Cache Expiration

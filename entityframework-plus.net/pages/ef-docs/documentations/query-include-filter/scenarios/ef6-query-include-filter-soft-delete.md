@@ -1,5 +1,6 @@
 ---
 Permalink: ef6-query-include-filter-soft-delete
+CanonicalLink: https://entityframework-plus.net/ef-core-query-include-filter-soft-delete
 ---
 
 # Query IncludeFilter - Soft Delete

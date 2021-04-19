@@ -1,5 +1,6 @@
 ---
 Permalink: ef6-query-filter-by-as-no-filter
+CanonicalLink: https://entityframework-plus.net/ef-core-query-filter-by-as-no-filter
 ---
 
 # Query Filter - Filter AsNoFilter

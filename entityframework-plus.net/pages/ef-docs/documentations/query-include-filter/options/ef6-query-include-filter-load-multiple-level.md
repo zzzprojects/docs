@@ -1,5 +1,6 @@
 ---
 Permalink: ef6-query-include-filter-load-multiple-level
+CanonicalLink: https://entityframework-plus.net/ef-core-query-include-filter-load-multiple-level
 ---
 
 # Query IncludeFilter - Load multiple levels

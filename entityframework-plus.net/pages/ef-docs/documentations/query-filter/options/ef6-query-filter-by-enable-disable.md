@@ -1,5 +1,6 @@
 ---
 Permalink: ef6-query-filter-by-enable-disable
+CanonicalLink: https://entityframework-plus.net/ef-core-query-filter-by-enable-disable
 ---
 
 # Query Filter - Filter Enable/Disable

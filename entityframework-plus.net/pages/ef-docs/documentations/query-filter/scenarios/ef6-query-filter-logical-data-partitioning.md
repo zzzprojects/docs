@@ -1,5 +1,6 @@
 ---
 Permalink: ef6-query-filter-logical-data-partitioning
+CanonicalLink: https://entityframework-plus.net/ef-core-query-filter-logical-data-partitioning
 ---
 
 # Query Filter - Logical Data Partitioning

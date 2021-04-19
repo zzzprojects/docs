@@ -1,5 +1,6 @@
 ---
 Permalink: ef6-query-future-value
+CanonicalLink: https://entityframework-plus.net/ef-core-query-future-value
 ---
 
 # Query Future - FutureValue

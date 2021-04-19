@@ -1,5 +1,6 @@
 ---
 Permalink: ef6-query-filter-multi-tenancy
+CanonicalLink: https://entityframework-plus.net/ef-core-query-filter-multi-tenancy
 ---
 
 # Query Filter - Multi-Tenancy
