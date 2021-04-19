@@ -1,5 +1,6 @@
 ---
 Permalink: ef6-audit-exclude-include-entity
+CanonicalLink: https://entityframework-plus.net/ef-core-audit-exclude-include-entity
 ---
 
 # Audit - Exclude & Include Entity

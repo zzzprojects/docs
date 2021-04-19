@@ -1,5 +1,6 @@
 ---
 Permalink: ef6-audit-property-unchanged
+CanonicalLink: https://entityframework-plus.net/ef-core-audit-property-unchanged
 ---
 
 # Audit - Property Unchanged

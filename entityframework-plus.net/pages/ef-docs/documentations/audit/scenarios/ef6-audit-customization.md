@@ -1,5 +1,6 @@
 ---
 Permalink: ef6-audit-customization
+CanonicalLink: https://entityframework-plus.net/ef-core-audit-customization
 ---
 
 # Audit - Customization

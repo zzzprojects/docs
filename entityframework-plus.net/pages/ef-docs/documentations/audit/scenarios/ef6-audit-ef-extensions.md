@@ -1,5 +1,6 @@
 ---
 Permalink: ef6-audit-ef-extensions
+CanonicalLink: https://entityframework-plus.net/ef-core-audit-ef-extensions
 ---
 
 # Audit - With Entity Framework Extensions
