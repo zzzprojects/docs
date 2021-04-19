@@ -1,5 +1,6 @@
 ---
 Permalink: query-include-filter
+CanonicalLink: https://entityframework-plus.net/ef-core-query-include-filter
 ---
 
 # Query IncludeFilter

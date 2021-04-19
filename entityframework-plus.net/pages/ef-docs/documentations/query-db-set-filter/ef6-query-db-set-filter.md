@@ -1,5 +1,6 @@
 ---
 Permalink: query-db-set-filter
+CanonicalLink: https://entityframework-plus.net/ef-core-query-filter
 ---
 
 # Query DbSetFilter

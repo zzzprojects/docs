@@ -1,5 +1,6 @@
 ---
 Permalink: batch-update
+CanonicalLink: https://entityframework-plus.net/ef-core-batch-update
 ---
 
 # Batch Update

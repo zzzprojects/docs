@@ -1,5 +1,6 @@
 ---
 Permalink: linq-dynamic
+CanonicalLink: https://entityframework-plus.net/ef-core-linq-dynamic
 ---
 
 # LINQ Dynamic

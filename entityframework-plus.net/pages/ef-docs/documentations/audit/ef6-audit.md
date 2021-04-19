@@ -1,5 +1,6 @@
 ---
 Permalink: audit
+CanonicalLink: https://entityframework-plus.net/ef-core-audit
 ---
 
 # Audit
