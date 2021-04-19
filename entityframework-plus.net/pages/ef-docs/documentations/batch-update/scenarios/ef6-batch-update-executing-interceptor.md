@@ -1,5 +1,6 @@
 ---
 Permalink: ef6-batch-update-executing-interceptor
+CanonicalLink: https://entityframework-plus.net/ef-core-batch-update-executing-interceptor
 ---
 
 # Batch Update - Executing Interceptor

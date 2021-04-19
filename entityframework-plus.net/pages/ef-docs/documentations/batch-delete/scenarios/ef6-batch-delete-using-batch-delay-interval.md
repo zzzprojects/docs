@@ -1,5 +1,6 @@
 ---
 Permalink: ef6-batch-delete-using-batch-delay-interval
+CanonicalLink: https://entityframework-plus.net/ef-core-batch-delete-using-batch-delay-interval
 ---
 
 # Batch Delete - Batch Delay Interval

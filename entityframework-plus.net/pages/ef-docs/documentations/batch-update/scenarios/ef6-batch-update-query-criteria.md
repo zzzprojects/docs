@@ -1,5 +1,6 @@
 ---
 Permalink: ef6-batch-update-query-criteria
+CanonicalLink: https://entityframework-plus.net/ef-core-batch-update-query-criteria
 ---
 
 # Batch Update - Query Criteria

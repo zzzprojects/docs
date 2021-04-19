@@ -1,5 +1,6 @@
 ---
 Permalink: ef6-batch-delete-using-batch-size
+CanonicalLink: https://entityframework-plus.net/ef-core-batch-delete-using-batch-size
 ---
 
 # Batch Delete - Batch Size

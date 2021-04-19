@@ -1,5 +1,6 @@
 ---
 Permalink: ef6-batch-delete-executing-interceptor
+CanonicalLink: https://entityframework-plus.net/ef-core-batch-delete-executing-interceptor
 ---
 
 # Batch Delete - Executing Interceptor

@@ -1,5 +1,6 @@
 ---
 Permalink: ef6-batch-delete-query-criteria
+CanonicalLink: https://entityframework-plus.net/ef-core-batch-delete-query-criteria
 ---
 
 # Batch Delete - using Query Criteria
