@@ -30,10 +30,87 @@ ctx.Users.Where(x => x.LastLoginDate < date)
 
 ## Scenarios
 
- - [Query Criteria](scenarios/ef6-batch-delete-query-criteria.md)
- - [Batch Size](scenarios/ef6-batch-delete-using-batch-size.md)
- - [Batch Delay Interval](scenarios/ef6-batch-delete-using-batch-delay-interval.md)
- - [Executing Interceptor](scenarios/ef6-batch-delete-executing-interceptor.md)
+ - [Query Criteria](#query-criteria)
+ - [Batch Size](#batch-size)
+ - [Batch Delay Interval](#batch-delay-interval)
+ - [Executing Interceptor](#executing-interceptor)
+ 
+### Query Criteria
+
+The **Delete** IQueryable extension methods deletes rows matching the query criteria without loading entities in the context.
+
+{% include template-example.html %} 
+```csharp
+
+// using Z.EntityFramework.Plus; // Don't forget to include this.
+
+// DELETE all users
+ctx.Users.Delete();
+
+// DELETE all users inactive for 2 years
+var date = DateTime.Now.AddYears(-2);
+ctx.Users.Where(x => x.LastLoginDate < date)
+         .Delete();
+
+```
+
+[Try it](https://dotnetfiddle.net/DTWmh1)
+
+[Try it (Async version)](https://dotnetfiddle.net/KUHvru)
+
+### Batch Size
+
+The **BatchSize** property sets the amount of rows to delete in a single batch.
+
+Default Value = 4000
+
+
+{% include template-example.html %} 
+```csharp
+
+// using Z.EntityFramework.Plus; // Don't forget to include this.
+var date = DateTime.Now.AddYears(-2);
+ctx.Users.Where(x => x.LastLoginDate < date)
+         .Delete(x => x.BatchSize = 1000);
+
+```
+[Try it](https://dotnetfiddle.net/c6TLU3)
+
+### Batch Delay Interval
+
+The **BatchDelayInterval** property sets the amount of time (in milliseconds) to wait before starting the next delete batch.
+
+Default Value = 0
+
+{% include template-example.html %} 
+```csharp
+
+// using Z.EntityFramework.Plus; // Don't forget to include this.
+
+// Pause 2 seconds between every batch
+var date = DateTime.Now.AddYears(-2);
+ctx.Users.Where(x => x.LastLoginDate < date)
+         .Delete(x => x.BatchDelayInterval = 2000);
+
+```
+[Try it](https://dotnetfiddle.net/to4sjm)
+
+### Executing Interceptor
+
+The **Executing** property intercepts the DbCommand with an action before being executed.
+
+{% include template-example.html %} 
+```csharp
+
+// using Z.EntityFramework.Plus; // Don't forget to include this.
+
+string commandText
+var date = DateTime.Now.AddYears(-2);
+ctx.Users.Where(x => x.LastLoginDate < date)
+         .Delete(x => { x.Executing = command => commandText = command.CommandText; });
+
+```
+[Try it](https://dotnetfiddle.net/VOEdOD)
  
 ## Limitations
 

@@ -31,11 +31,128 @@ var countries2 = ctx.Countries.FromCache().ToList();
 
 ## Scenarios
 
- - [Query Criteria](scenarios/ef-core-query-cache-using-query-criteria.md)
- - [Query Deferred](scenarios/ef-core-query-cache-query-deferred.md)
- - [Tag & ExpireTag](scenarios/ef-core-query-cache-tag.md)
- - [Expiration](scenarios/ef-core-query-cache-expiration.md)
- - [Query Cache Control](scenarios/ef-core-query-cache-control.md)
+ - [Query Criteria](#query-criteria)
+ - [Query Deferred](#query-deferred)
+ - [Tag & ExpireTag](#tag-expiretag)
+ - [Expiration](#expiration)
+ - [Query Cache Control](#query-cache-control)
+ 
+### Query Criteria
+
+Return the query result from the cache. If the query is not cached yet, it will be materialized and cached before being returned.
+
+{% include template-example.html %} 
+```csharp
+
+// using Z.EntityFramework.Plus; // Don't forget to include this.
+var ctx = new EntitiesContext();
+
+// The query is cached using default QueryCacheManager options
+var countries = ctx.Countries.Where(x => x.IsActive).FromCache();
+
+```
+[Try it](https://dotnetfiddle.net/z5gyPI)
+
+[Try it (Async version)](https://dotnetfiddle.net/U9pU1a)
+
+### Query Deferred
+
+Immediate resolution methods like **Count()** and **FirstOrDefault()** cannot be cached since their expected behavior is to cache the count result or only the first item.
+
+{% include template-example.html %} 
+```csharp
+
+// Oops! The query is already executed, we cannot cache it.
+var count = ctx.Customers.Count();
+
+// Oops! All customers are cached instead of customer count.
+var count = ctx.Customers.FromCache().Count();
+```
+[Try it](https://dotnetfiddle.net/3EXZBt)
+
+**EF+ Query Deferred** has been created to resolve this issue, the resolution is now deferred instead of being immediate which lets us cache the expected result.
+
+{% include template-example.html %} 
+```csharp
+// using Z.EntityFramework.Plus; // Don't forget to include this.
+var ctx = new EntitiesContext();
+
+// The count is deferred, it is now cached.
+var count = ctx.Customers.DeferredCount().FromCache();
+
+```
+[Try it](https://dotnetfiddle.net/V0G6pe)
+
+Query Deferred supports all Queryable extension methods and overloads.
+
+### Tag & ExpireTag
+
+Tagging the cache lets you expire later on all cached entries with a specific tag by calling the **ExpireTag** method.
+
+For example, the daily countries & states importation has been completed and you need to refresh from the database all queries related to the country table. You can now simply expire the tag **countries** to remove all related cached entries.
+
+{% include template-example.html %} 
+```csharp
+
+// using Z.EntityFramework.Plus; // Don't forget to include this.
+var ctx = new EntitiesContext();
+
+// Cache queries with related tags
+var states = ctx.States.FromCache("countries", "states");
+var stateCount = ctx.States.DeferredCount().FromCache("countries", "states", "stats");
+
+// Expire all cache entries using the "countries" tag
+QueryCacheManager.ExpireTag("countries");
+:bulb: Use Enum instead of hard-coding string for tag name.
+
+```
+[Try it](https://dotnetfiddle.net/PUQCCY)
+
+
+### Expiration
+
+All common caching features like absolute expiration, sliding expiration, removed callback are supported.
+
+{% include template-example.html %} 
+```csharp
+
+// using Z.EntityFramework.Plus; // Don't forget to include this.
+var ctx = new EntitiesContext();
+
+// Make the query expire after 2 hours of inactivity
+
+var options = new MemoryCacheEntryOptions() { SlidingExpiration = TimeSpan.FromHours(2)};
+
+var states = ctx.States.FromCache(options);
+
+```
+[Try it](https://dotnetfiddle.net/aKPnTD)
+
+### Query Cache Control
+
+EF+ Cache is very flexible and lets you have full control over the cache.
+
+You can use your own cache:
+
+{% include template-example.html %} 
+```csharp
+QueryCacheManager.Cache = new MemoryCache(new MemoryCacheOptions());
+context.Customers.FromCache().ToList();
+
+```
+[Try it](https://dotnetfiddle.net/6ISVBT)
+
+You can set default policy
+
+{% include template-example.html %} 
+```csharp
+
+var options = new MemoryCacheEntryOptions() { SlidingExpiration = TimeSpan.FromHours(2)};
+QueryCacheManager.DefaultMemoryCacheEntryOptions = options;
+context.Customers.FromCache().ToList();
+
+```
+[Try it](https://dotnetfiddle.net/k1TOWX)
  
 ## Real Life Scenarios
 

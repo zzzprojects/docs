@@ -63,13 +63,118 @@ var states = futureStates.ToList();
 
 ## Options
 
- - [FutureValue](options/ef6-query-future-value.md)
- - [FutureValue Deferred](options/ef6-query-future-value-deferred.md)
+ - [FutureValue](#futurevalue)
+ - [FutureValue Deferred](#futurevalue-deferred)
+ 
+### FutureValue
+
+Query FutureValue delays the execution of the query returning a result.
+
+{% include template-example.html %} 
+```csharp
+
+// using Z.EntityFramework.Plus; // Don't forget to include this.
+var ctx = new EntitiesContext();
+
+// GET the minimum and maximum product prices
+var futureMaxPrice = ctx.Products.DeferredMax(x => x.Prices).FutureValue<int>();
+var futureMinPrice = ctx.Products.DeferredMin(x => x.Prices).FutureValue<int>();
+
+// TRIGGER all pending queries
+int maxPrice = futureMaxPrice.Value;
+
+// The future query is already resolved and contains the result
+int maxPrice = futureMinPrice.Value;
+
+```
+
+[Try it](https://dotnetfiddle.net/4K4Fx2)
+
+### FutureValue Deferred
+
+Immediate resolution methods like **Count()** and **FirstOrDefault()** cannot use future methods since it executes the query immediately.
+
+{% include template-example.html %} 
+```csharp
+
+// Oops! The query is already executed, we cannot delay the execution.
+var count = ctx.Customers.Count();
+
+// Oops! All customers will be retrieved instead of customer count
+var count = ctx.Customers.Future().Count();
+
+```
+[Try it](https://dotnetfiddle.net/lLkiUc)
+
+**EF+ Query Deferred** has been created to resolve this issue. The resolution is now deferred instead of being immediate which lets you use FutureValue and get the expected result.
+
+{% include template-example.html %} 
+```csharp
+
+// using Z.EntityFramework.Plus; // Don't forget to include this.
+var ctx = new EntitiesContext();
+
+// GET the first active customer and the number of active customers
+var futureFirstCustomer = ctx.Customers.DeferredFirstOrDefault().FutureValue();
+var futureCustomerCount = ctx.Customers.DeferredCount().FutureValue();
+
+// TRIGGER all pending queries
+Customer firstCustomer = futureFirstCustomer.Value;
+
+// The future query is already resolved and contains the result
+var count = futureCustomerCount.Value;
+
+```
+
+[Try it](https://dotnetfiddle.net/V2ifb0)
  
 ## Real Life Scenarios
 
- - [Multi Tables Information](scenarios/ef6-query-future-multi-tables-information.md)
- - [Paging](scenarios/ef6-query-future-paging.md)
+ - [Multi Tables Information](#multi-tables-information)
+ - [Paging](#paging)
+
+### Multi Tables Information
+
+Client and all related information (order, invoice, etc.) must be loaded.
+
+{% include template-example.html %} 
+```csharp
+
+// using Z.EntityFramework.Plus; // Don't forget to include this.
+var ctx = new EntitiesContext();
+
+var futureClient = ctx.Clients.DeferredFirst(x => x.ClientID = myClientID)
+                                 .FutureValue();
+var futureOrders = ctx.Orders.Where(x => x.ClientID = myClientID).Future();
+var futureOrderDetails = ctx.OrderDetails.Where(x => x.ClientID = myClientID).Future();
+var futureInvoices = ctx.Invoices.Where(x => x.ClientID = myClientID).Future();
+
+// ONE database round trip is required
+var client = futureClient.Value;
+var orders = futureOrders.ToList();
+
+```
+
+### Paging
+
+The first ten posts must be returned but you also need to know the total numbers of posts
+
+{% include template-example.html %} 
+```csharp
+
+// using Z.EntityFramework.Plus; // Don't forget to include this.
+var ctx = new EntitiesContext();
+
+var futurePost = ctx.Posts.OrderBy(x => x.CreatedDate).Take(10).Future()
+var futurePostCount = ctx.Post.DeferredCount().FutureValue();
+
+// ONE database round trip is required
+var post = futurePost.ToList();
+var postCount = futurePostCount.Value;
+
+```
+
+[Try it](https://dotnetfiddle.net/oA24FP)
 
 ## Behind the code
 

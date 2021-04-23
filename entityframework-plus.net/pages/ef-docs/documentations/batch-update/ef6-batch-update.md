@@ -25,9 +25,47 @@ ctx.Users.Where(x => x.LastLoginDate < date)
 [Try it](https://dotnetfiddle.net/uzsdub)
 
 ## Scenarios
+ 
+ - [Query Criteria](#query-criteria)
+ - [Executing Interceptor](#executing-interceptor)
 
- - [Query Criteria](scenarios/ef6-batch-update-query-criteria.md)
- - [Executing Interceptor](scenarios/ef6-batch-update-executing-interceptor.md)
+### Query Criteria
+
+The **Update** IQueryable extension method updates rows matching the query criteria with an expression without loading entities in the context.
+
+{% include template-example.html %} 
+```csharp
+
+// using Z.EntityFramework.Plus; // Don't forget to include this.
+
+// UPDATE all users inactive for 2 years
+var date = DateTime.Now.AddYears(-2);
+ctx.Users.Where(x => x.LastLoginDate < date)
+         .Update(x => new User() { IsSoftDeleted = 1 });
+
+```
+
+[Try it](https://dotnetfiddle.net/sfMLRj)
+
+[Try it (Async version)](https://dotnetfiddle.net/7fHg1g)
+
+### Executing Interceptor
+
+The **Executing** property intercepts the DbCommand with an action before being executed.
+
+{% include template-example.html %} 
+```csharp
+
+// using Z.EntityFramework.Plus; // Don't forget to include this.
+
+string commandText
+var date = DateTime.Now.AddYears(-2);
+ctx.Users.Where(x => x.LastLoginDate < date)
+         .Update(x => new User() { IsSoftDeleted = 1 },
+                 x => { x.Executing = command => commandText = command.CommandText; });
+
+```
+[Try it](https://dotnetfiddle.net/a6zJUe)
  
 ## Limitations
 

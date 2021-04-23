@@ -63,21 +63,290 @@ var list = ctx.Posts.Filter(MyEnum.EnumValue).ToList();
 
 ## Options
 
- - [Global](options/ef-core-query-filter-global.md)
- - [By Instance](options/ef-core-query-filter-by-instance.md)
- - [By Query](options/ef-core-query-filter-by-query.md)
- - [By Inheritance/Interface](options/ef-core-query-filter-by-inheritance-interface.md)
- - [By Enable/Disable](options/ef-core-query-filter-by-enable-disable.md)
- - [By AsNoFilter](options/ef-core-query-filter-by-as-no-filter.md)
+ - [Global](#global)
+ - [By Instance](#by-instance)
+ - [By Query](#by-query)
+ - [By Inheritance/Interface](#by-inheritanceinterface)
+ - [By Enable/Disable](#by-enabledisable)
+ - [By AsNoFilter](#by-asnofilter)
+
+### Global
+
+Global filter can be used by any context.
+
+Global filter is normally preferred in most scenarios over instance filter since the filter code is centralized in one method over being spread in multiple methods.
+
+{% include template-example.html %} 
+```csharp
+
+// using Z.EntityFramework.Plus; // Don't forget to include this.
+QueryFilterManager.Filter<Customer>(q => q.Where(x => x.IsActive));
+
+var ctx = new EntitiesContext();
+// TIP: You can also add this line in EntitiesContext constructor instead
+QueryFilterManager.InitilizeGlobalFilter(ctx);
+
+// SELECT * FROM Customer WHERE IsActive = true
+var list = ctx.Customers.ToList();
+```
+
+[Try it](https://dotnetfiddle.net/IFndNf)
+
+***Use entities context constructor to initialize global filter by default.***
+
+### By Instance
+
+Instance filter applies filters to the current context only. The filtering logic is added once the context is created.
+
+{% include template-example.html %} 
+```csharp
+
+// using Z.EntityFramework.Plus; // Don't forget to include this.
+var ctx = new EntitiesContext();
+
+ctx.Filter<Customer>(q => q.Where(x => x.IsActive));
+
+// SELECT * FROM Customer WHERE IsActive = true
+var list = ctx.Customers.ToList();
+```
+
+[Try it](https://dotnetfiddle.net/UjIXDH)
+
+***Use entities context constructor to make some filter "global" to all context.***
+
+### By Query
+
+Query filter applies filters to specific queries only. The filtering logic is added globally or by instance but in a disabled state and then it is enabled by these specific queries.
+
+{% include template-example.html %} 
+```csharp
+
+// using Z.EntityFramework.Plus; // Don't forget to include this.
+var ctx = new EntitiesContext();
+
+// CREATE a disabled filter
+ctx.Filter<Customer>(MyEnum.EnumValue, q => q.Where(x => x.IsActive), false);
+
+// SELECT * FROM Customer WHERE IsActive = true
+var list = ctx.Customers.Filter(MyEnum.EnumValue).ToList();
+
+```
+
+[Try it](https://dotnetfiddle.net/diPOAn)
+
+### By Inheritance/Interface
+
+Filter can be enabled and disabled by class inheritance and interface.
+
+{% include template-example.html %} 
+```csharp
+
+// using Z.EntityFramework.Plus; // Don't forget to include this.
+var ctx = new EntitiesContext();
+
+// CREATE filter by inheritance
+ctx.Filter<BaseDog>(q => q.Where(x => !x.IsDangerous));
+
+// CREATE filter by interface
+ctx.Filter<IAnimal>(q => q.Where(x => x.IsDomestic));
+
+// SELECT * FROM Cat WHERE IsDomestic = true
+var cats = ctx.Cats.ToList();
+
+// SELECT * FROM Dog WHERE IsDomestic = true AND IsDangerous = false
+var dogs = ctx.Dogs.ToList();
+
+```
+
+[Try it](https://dotnetfiddle.net/iX5gWN)
+
+### By Enable/Disable
+
+Filters are very flexible, you can enable and disable them at any time and only for a specific inheritance or interface if desired.
+
+{% include template-example.html %} 
+```csharp
+
+// using Z.EntityFramework.Plus; // Don't forget to include this.
+var ctx = new EntitiesContext();
+
+// CREATE filter by interface
+ctx.Filter<IAnimal>(MyEnum.EnumValue, q => q.Where(x => x.IsDomestic));
+
+// DISABLE filter only for class inheriting from BaseDog
+ctx.Filter(MyEnum.EnumValue).Disable();
+
+// SELECT * FROM Dog
+var dogs = ctx.Dogs.ToList();
+
+// ENABLE filter
+ctx.Filter(MyEnum.EnumValue).Enable();
+
+// SELECT * FROM Dog WHERE IsDomestic = true
+var dogs = ctx.Dogs.ToList();
+
+```
+
+[Try it](https://dotnetfiddle.net/JG2gkF)
+
+### By AsNoFilter
+
+You can bypass all filters by using AsNoFilter method in a query if a special scenario doesn't require filtering.
+
+{% include template-example.html %} 
+```csharp
+
+// using Z.EntityFramework.Plus; // Don't forget to include this.
+var ctx = new EntitiesContext();
+
+this.Filter<Customer>(q => q.Where(x => x.IsActive));
+
+// SELECT * FROM Customer WHERE IsActive = true
+var list = ctx.Customers.ToList();
+
+// SELECT * FROM Customer
+var list = ctx.Customers.AsNoFilter().ToList();
+
+```
+
+[Try it](https://dotnetfiddle.net/El05r4)
 
 ## Real Life Scenarios
 
- - [Logical Data Partitioning](scenarios/ef-core-query-filter-logical-data-partitioning.md)
- - [Multi-Tenancy](scenarios/ef-core-query-filter-multi-tenancy.md)
- - [Object State](scenarios/ef-core-query-filter-object-state.md)
- - [Security Access](scenarios/ef-core-query-filter-security-access.md)
- - [Default Ordering](scenarios/ef-core-query-filter-default-ordering.md)
+ - [Logical Data Partitioning](#logical-data-partitioning)
+ - [Multi-Tenancy](#multi-tenancy)
+ - [Object State](#object-state)
+ - [Security Access](#security-access)
+ - [Default Ordering](#default-ordering)
  
+### Logical Data Partitioning
+
+A common scenario is to retrieve products by category or the ones available only for a specific country. All data are stored in the same table but only a specific range should be available.
+
+*In this example, we retrieve only the products available for the selected category.*
+
+**Single category by product**
+
+{% include template-example.html %} 
+```csharp
+
+// myCategoryID = 9
+
+// using Z.EntityFramework.Plus; // Don't forget to include this.
+var ctx = new EntitiesContext();
+ctx.Filter<Product>(q => q.Where(x => x.CategoryID == myCategoryID));
+
+// SELECT * FROM Product WHERE CategoryID = 9
+var list = ctx.Products.ToList();
+
+```
+
+[Try it](https://dotnetfiddle.net/FALmEw)
+
+**Many categories by product**
+
+{% include template-example.html %} 
+```csharp
+
+// myCategoryID = 9
+
+// using Z.EntityFramework.Plus; // Don't forget to include this.
+var ctx = new EntitiesContext();
+ctx.Filter<Product>(x => ctx.ProductByCategory.Any(
+                          y => y.CategoryID == myCategoryID 
+                               && y.ProductID == x.ProductID))
+
+// SELECT * FROM Product AS X WHERE EXISTS
+//   (SELECT 1 FROM ProductByCategory AS Y 
+//        WHERE Y.CategoryID = 9 AND Y.ProductID = X.ProductID)
+var list = ctx.Products.ToList();
+
+```
+
+### Multi-Tenancy
+
+An example of multi-tenancy is an online store for which the same instance of the database is used by multiple independent applications or clients and the data should not be shared between them.
+
+Learn more about [Multi-tenancy](https://en.wikipedia.org/wiki/Multitenancy)
+
+*In this example, the application is a tenant. The customer can only see invoice from the current application.*
+
+{% include template-example.html %} 
+```csharp
+
+// myApplicationID = 9
+// myCustomerID = 6
+
+// using Z.EntityFramework.Plus; // Don't forget to include this.
+var ctx = new EntitiesContext();
+ctx.Filter<IApplication>(q => q.Where(x => x.ApplicationID == myApplicationID));
+
+// SELECT * FROM Invoice WHERE ApplicationID = 9 and CustomerID= 6
+var list = ctx.Invoices.Where(q => q.Where(x => x.CustomerID = myCustomerID)).ToList();
+
+```
+
+[Try it](https://dotnetfiddle.net/uIeV60)
+
+### Object State
+
+Removing inactive or soft deleted records is probably the most common scenario. A soft delete is often useful when related data cannot be deleted. For example, the customer cannot be deleted because related orders cannot be deleted instead, he becomes inactive.
+
+*In this example, we display only active category.*
+
+{% include template-example.html %} 
+```csharp
+
+// using Z.EntityFramework.Plus; // Don't forget to include this.
+var ctx = new EntitiesContext();
+ctx.Filter<ISoftDeleted>(q => q.Where(x => !x.IsSoftDeleted));
+
+// SELECT * FROM Category WHERE IsSoftDeleted = false
+var list = ctx.Categories.ToList();
+
+```
+
+[Try it](https://dotnetfiddle.net/1AcyWB)
+
+### Security Access
+
+Viewing sensible data often requires some permissions. For example, not everyone can see all posts in a forum.
+
+*In this example, some posts are only available by role level.*
+
+{% include template-example.html %} 
+```csharp
+
+// myRoleID = 1; // Administrator
+
+// using Z.EntityFramework.Plus; // Don't forget to include this.
+var ctx = new EntitiesContext();
+ctx.Filter<Post>(x => q => q.Where(x.RoleID >= myRoleID));
+
+// SELECT * FROM Posts WHERE RoleID >= 1
+var list = ctx.Posts.ToList();
+
+```
+
+[Try it](https://dotnetfiddle.net/BknS6x)
+
+### Default Ordering
+
+Default ordering can be often useful for base table like category. No matter the query, you probably want to show categories by alphabetic order.
+
+*In this example, categories are sorted by name*
+
+{% include template-example.html %} 
+```csharp
+
+// using Z.EntityFramework.Plus; // Don't forget to include this.
+var ctx = new EntitiesContext();
+ctx.Filter<Category>(q => q.OrderByDescending(x => x.Name));
+
+// SELECT * FROM Category ORDER BY Name
+var list = ctx.Categories.ToList()
+
+``` 
 ## Limitations
 
  - Entity Framework Core

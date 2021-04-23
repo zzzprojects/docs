@@ -29,14 +29,101 @@ var list = ctx.Orders.IncludeFilter(x => x.Items.Where(y => !y.IsSoftDeleted)
 
 IncludeFilter method works the same as "Include" method but lets you use LINQ Queryable extension methods as part of the query to filter related entities.
 
- - [Load one level](options/ef-core-query-include-filter-load-one-level.md)
- - [Load multiple level](options/ef-core-query-include-filter-load-multiple-level.md)
+ - [Load one level](#load-one-level)
+ - [Load multiple level](#load-multiple-level)
+ 
+### Load one level
+
+{% include template-example.html %} 
+```csharp
+
+// using Z.EntityFramework.Plus; // Don't forget to include this.
+var ctx = new EntitiesContext();
+
+// LOAD blogs and related active posts.
+var blogs = ctx.Blogs.IncludeFilter(x => x.Posts.Where(y => !y.IsSoftDeleted)).ToList();
+
+```
+[Try it](https://dotnetfiddle.net/1unMtl)
+
+### Load multiple level
+
+{% include template-example.html %} 
+```csharp
+
+// using Z.EntityFramework.Plus; // Don't forget to include this.
+var ctx = new EntitiesContext();
+
+// LOAD blogs and related active posts and comments.
+var blogs = ctx.Blogs.IncludeFilter(x => x.Posts.Where(y => !y.IsSoftDeleted))
+                     .IncludeFilter(x => x.Posts.Where(y => !y.IsSoftDeleted)
+                                                .SelectMany(y => y.Comments
+                                                              .Where(z => !z.IsSoftDeleted)))
+                     .ToList();
+
+```
+[Try it](https://dotnetfiddle.net/SK934m)
 
 ## Real Life Scenarios
 
- - [Paging](scenarios/ef-core-query-include-filter-paging.md)
- - [Security Access](scenarios/ef-core-query-include-filter-security-access.md)
- - [Soft Delete](scenarios/ef-core-query-include-filter-soft-delete.md)
+ - [Paging](#paging)
+ - [Security Access](#security-access)
+ - [Soft Delete](#soft-delete)
+ 
+### Paging
+
+Paging (Include a range of related entities)
+
+{% include template-example.html %} 
+```csharp
+
+// using Z.EntityFramework.Plus; // Don't forget to include this.
+var ctx = new EntitiesContext();
+
+// LOAD posts and most threading comments.
+var posts= ctx.Posts.IncludeFilter(x => x.Comments
+                                         .OrderByDescending(y => y.ThreadingScore)
+                                         .Take(10))
+                     .ToList();
+
+```
+[Try it](https://dotnetfiddle.net/IMdizK)
+
+### Security Access
+
+Security Access (Include available related entities)
+
+{% include template-example.html %} 
+```csharp
+
+// myRoleID = 1; // Administrator
+
+// using Z.EntityFramework.Plus; // Don't forget to include this.
+var ctx = new EntitiesContext();
+
+// LOAD posts and available comments for the role level.
+var posts= ctx.Posts.IncludeFilter(x => x.Comments.Where(y => y.RoleID >= myRoleID))
+                    .ToList();
+
+```
+[Try it](https://dotnetfiddle.net/RKvLJU)
+
+### Soft Delete
+
+Soft Deleted Records (Include active related entities)
+
+{% include template-example.html %} 
+```csharp
+
+// using Z.EntityFramework.Plus; // Don't forget to include this.
+var ctx = new EntitiesContext();
+
+// LOAD posts and active comments.
+var posts= ctx.Posts.IncludeFilter (x => x.Comments.Where(y => !y.IsSoftDeleted))
+                    .ToList();
+
+```
+[Try it](https://dotnetfiddle.net/qXHvYM)
 
 ## Behind the code
 
