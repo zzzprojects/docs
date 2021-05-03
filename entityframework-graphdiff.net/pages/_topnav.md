@@ -1,4 +1,6 @@
-- [Getting Started](getting-started/overview.md)
-- [Knowledge Base](/knowledge-base)
+- Getting Started
+	- [Documentation](/getting-started/overview.md)
+	- [Knowledge Base](/knowledge-base)
+	- [GitHub](https://github.com/zzzprojects/GraphDiff)
+	- [Help & Donate](https://www.paypal.com/donate?hosted_button_id=MPBTMRMWZR5AA)
 - [Online Examples](/online-examples)
-- [GitHub](https://github.com/zzzprojects/GraphDiff)

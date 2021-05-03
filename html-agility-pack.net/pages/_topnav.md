@@ -1,7 +1,8 @@
+- [Home](/)
 - Documentation
-   - [Documentation](documentations/documentation.md)
-   - [Release Notes](https://github.com/zzzprojects/html-agility-pack/releases)
-- [3rd Party Libraries](third-party-libraries/third-party-library.md)
-- [Knowledge Base](/knowledge-base)
+	- [Documentation](documentations/documentation.md)
+	- [Release Notes](https://github.com/zzzprojects/html-agility-pack/releases)
+	- [3rd Party Libraries](third-party-libraries/third-party-library.md)
+	- [Knowledge Base](/knowledge-base)
+	- [Help & Donate](https://www.paypal.com/donate?hosted_button_id=MPBTMRMWZR5AA)
 - [Online Examples](/online-examples)
-- [GitHub](https://github.com/zzzprojects/html-agility-pack)

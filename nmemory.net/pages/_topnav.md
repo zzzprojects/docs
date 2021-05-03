@@ -1,6 +1,7 @@
+- [Home](/)
 - Getting Started
 	- [Getting Started](getting-started/overview.md)
 	- [Release Notes](https://github.com/zzzprojects/nmemory/releases)
-- [Knowledge Base](/knowledge-base)
+	- [Knowledge Base](/knowledge-base)
+	- [Help & Donate](https://www.paypal.com/donate?hosted_button_id=MPBTMRMWZR5AA)
 - [Online Examples](/online-examples)
-- [GitHub](https://github.com/zzzprojects/nmemory)
