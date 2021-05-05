@@ -47,7 +47,7 @@ The `SaveChanges` method makes it quite slow/impossible to handle a scenario tha
 
 The `BulkSaveChanges` in counterpart requires the minimum number of database round-trips possible. By using Bulk Operations, fewer commands are executed which lead to better performance.
 
-### Why BulkSaveChanges update all columns by default?
+### Why BulkSaveChanges update all columns by default (EF6 only)?
 The `BulkSaveChanges` try to combine most commands in a single operation. Updating different columns from an action to another will require generating different SQL and being executed in several database round-trips.
 
 That's still possible to have the same behavior of `SaveChanges` by disabling the option `ForceUpdateUnmodifiedValues`:
@@ -55,6 +55,8 @@ That's still possible to have the same behavior of `SaveChanges` by disabling th
 ```csharp
 ctx.BulkSaveChanges(options => options.ForceUpdateUnmodifiedValues = false);
 ```
+
+For `EF Core`, this option is not available. Only columns that have a modification will be saved exactly like `SaveChanges`.
 
 #### When should I use BulkSaveChanges over SaveChanges?
 Whenever you have more than one entity to save. The `BulkSaveChanges` is almost as fast as the `SaveChanges` for one entity, but becomes way faster as the number of entities to save grows.
