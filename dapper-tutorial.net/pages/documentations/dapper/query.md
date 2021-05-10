@@ -24,7 +24,7 @@ The following table shows the different parameters of a Query method.
 | sql         | The query to execute. |
 | param       | The query parameters (default = null). |
 | transaction | The transaction to use (default = null). |
-| buffered    | True to buffer readeing the results of the query (default = true). |
+| buffered    | True to buffer reading the results of the query (default = true). |
 | commandTimeout | The command timeout (default = null) |
 | commandType    | The command type (default = null) |
 
