@@ -10,6 +10,8 @@ Everything `Dapper` support, `Dapper Transaction` support it as well (It's only 
 
 NuGet: https://www.nuget.org/packages/Dapper.Transaction/
 
+NuGet (StrongName): https://www.nuget.org/packages/Dapper.Transaction.StrongName/
+
 GitHub: https://github.com/zzzprojects/Dapper.Transaction
 
 ```csharp
