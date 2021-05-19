@@ -1,2 +1,3 @@
-- [Testimonials](testimonials)
-- [Contact Us](contact-us)
+- [Testimonials](/testimonials)
+- [Knowledge Base](/knowledge-base)
+- [Contact Us](/contact-us)
