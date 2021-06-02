@@ -16,14 +16,17 @@ Query Operator | Return Type | Info
 [Average](#average) | Single numeric value | Computes the average of a sequence of numeric values.
 [AsEnumerable](#asenumerable) | IQueryable&lt;dynamic&gt; | Returns the input typed as IEnumerable&lt;dynamic&gt;.
 [Cast](#cast-and-oftype) | IQueryable | Converts the elements of the specified type.
+[Concat](#concat) | IQueryable | Concatenates two sequences.
 [Count](#count) | int | Returns the number of elements in a sequence.
 [DefaultIfEmpty](#defaultifempty) | IQueryable | Returns the elements of the specified sequence or the type parameter's default value in a singleton collection if the sequence is empty.
 [Distinct](#distinct) | IQueryable | Returns distinct elements from a sequence by using the default equality comparer to compare values.
+[Except](#except) | IQueryable | Produces the set difference of two sequences.
 [First](#first-firstordefault) | dynamic | Returns the first element of a sequence.
 [FirstOrDefault](#first-firstordefault) | dynamic | Returns the first element of a sequence, or a default value if the sequence contains no elements.
 [GroupBy](#groupby) | IQueryable | Groups the elements of a sequence according to a specified key string function and creates a result value from each group and its key.
 [GroupByMany](#groupbymany) | IEnumerable&lt;GroupResult&gt; | Groups the elements of a sequence according to multiple specified key string functions and creates a result value from each group (and subgroups) and its key.
 [GroupJoin](#groupjoin) | IQueryable | Correlates the elements of two sequences based on equality of keys and groups the results. The default equality comparer is used to compare keys.
+[Intersect](#intersect) | IQueryable | Produces the set intersection of two sequences.
 [Join](#join) | IQueryable or IQueryable&lt;T&gt; | Correlates the elements of two sequences based on matching keys. The default equality comparer is used to compare keys.
 [Last](#last-lastordefault) | dynamic | Returns the last element of a sequence. [Maybe not supported in all scenarios](https://msdn.microsoft.com/library/bb738550.aspx)
 [LastOrDefault](#last-lastordefault) | dynamic | Returns the last element of a sequence, or a default value if the sequence contains no elements. [Maybe not supported in all scenarios](https://msdn.microsoft.com/library/bb738550.aspx)
@@ -43,6 +46,7 @@ SingleOrDefault | dynamic | Returns the only element of a sequence, or a default
 [Take](#take-takewhile) | IQueryable | Returns a specified number of contiguous elements from the start of a sequence.
 [TakeWhile](#take-takewhile) | IQueryable&lt;T&gt; | Returns elements from a sequence as long as a specified condition is true. [Maybe not supported in all scenarios](https://msdn.microsoft.com/library/bb738550.aspx)
 ThenBy | IOrderedQueryable or IOrderedQueryable&lt;T&gt; | Performs a subsequent ordering of the elements in a sequence in ascending order according to a key.
+[Union](#union) | IQueryable | Produces the set union of two sequences.
 Where | IQueryable or IQueryable&lt;T&gt; | Filters a sequence of values based on a predicate.
 
 ### Aggregate
@@ -144,6 +148,18 @@ var castToWorkers = allWorkers.Cast(typeof(Worker));
 
 [Try it online](https://dotnetfiddle.net/o2ydqi)
 
+### Concat
+
+Here is an example of Dynamic LINQ for Concat:
+
+```csharp
+var list1 = new List<string> { "User3", "User4" };
+var list2 = new List<string> { "User5", "User6", "User7" };
+var result = queryable.Select("@0.Concat(@1).ToList()", list1, list2);
+```
+
+[Try it online](https://dotnetfiddle.net/Ab1ykK)
+
 ### Count
 
 Here is an example of Dynamic LINQ for Count:
@@ -190,6 +206,17 @@ var items = context.Customers
 
 [Try it online](https://dotnetfiddle.net/j6lsQX)
 
+### Except
+
+Here is an example of Dynamic LINQ for Except:
+
+```csharp
+var list1 = new List<string> { "User3", "User4" };
+var list2 = new List<string> { "User3", "User6", "User7" };
+var result = queryable.Select("@0.Except(@1).ToList()", list1, list2);
+```
+
+[Try it online](https://dotnetfiddle.net/G57dVQ)
 
 ### First, FirstOrDefault
 
@@ -277,6 +304,18 @@ For more examples, see [Try it online](https://dotnetfiddle.net/eLVc3b).
 The Dynamic LINQ version from GroupJoin works the same as the normal strongly typed version of GroupJoin. Also, it supports joining on nullable keys (for both 'Left' and 'Right').
 
 For more examples, see this [link](https://dotnetfiddle.net/sqkxpI).
+
+### Intersect
+
+Here is an example of Dynamic LINQ for Intersect:
+
+```csharp
+var list1 = new List<string> { "User3", "User4" };
+var list2 = new List<string> { "User5", "User6", "User7" };
+var result = queryable.Select("@0.Intersect(@1).ToList()", list1, list2);
+```
+
+[Try it online](https://dotnetfiddle.net/L79kov)
 
 ### Join
 
@@ -450,6 +489,18 @@ var takeWhile = context.Customers.ToList().AsQueryable().TakeWhile("CompanyName 
 [Try it online](https://dotnetfiddle.net/cQVgON)
 
 [TakeWhile is not supported in all scenarios](https://msdn.microsoft.com/library/bb738550.aspx)
+
+### Union
+
+Here is an example of Dynamic LINQ for Union:
+
+```csharp
+var list1 = new List<string> { "User3", "User4" };
+var list2 = new List<string> { "User5", "User6", "User7" };
+var result = queryable.Select("@0.Union(@1).ToList()", list1, list2);
+```
+
+[Try it online](https://dotnetfiddle.net/Sum2dF)
 
 ## Async Query Operators
 
