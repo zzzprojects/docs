@@ -26,16 +26,16 @@ string sql = "INSERT INTO Customers (CustomerName) Values (@CustomerName);";
 
 using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServerW3Schools()))
 {
-    var affectedRows = connection.ExecuteAsync(sql, new {CustomerName = "Mark"}).Result;
+	var affectedRows = await connection.ExecuteAsync(sql, new {CustomerName = "Mark"}).ConfigureAwait(false);
 
-    Console.WriteLine(affectedRows);
-
-    var customer = connection.Query<Customer>("Select * FROM CUSTOMERS WHERE CustomerName = 'Mark'").ToList();
-
-    FiddleHelper.WriteTable(customer);
+	Console.WriteLine(affectedRows);
+	
+	var customers = await connection.QueryAsync<Customer>("Select * FROM CUSTOMERS WHERE CustomerName = 'Mark'").ConfigureAwait(false);
+	
+	FiddleHelper.WriteTable(customers);
 }
 ```
-Try it: [.NET Core](https://dotnetfiddle.net/xnZ8IU) | [.NET Framework](https://dotnetfiddle.net/2rVSi0)
+Try it: [.NET Core](https://dotnetfiddle.net/xnZ8IU)
 
 ## QueryAsync
 
@@ -44,15 +44,15 @@ The `QueryAsync` can execute a query and map the result asynchronously.
 string sql = "SELECT TOP 10 * FROM OrderDetails";
 
 using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServerW3Schools()))
-{
-    var orderDetails = connection.QueryAsync<OrderDetail>(sql).Result.ToList();
+{			
+	var orderDetails = await connection.QueryAsync<OrderDetail>(sql).ConfigureAwait(false);
 
-    Console.WriteLine(orderDetails.Count());
-
-    FiddleHelper.WriteTable(orderDetails);
+	Console.WriteLine(orderDetails.Count());
+	
+	FiddleHelper.WriteTable(orderDetails);
 }
 ```
-Try it: [.NET Core](https://dotnetfiddle.net/hHb3wO) | [.NET Framework](https://dotnetfiddle.net/X79bZI)
+Try it: [.NET Core](https://dotnetfiddle.net/hHb3wO)
 
 ## QueryFirstAsync
 
@@ -63,12 +63,12 @@ string sql = "SELECT * FROM OrderDetails WHERE OrderDetailID = @OrderDetailID;";
 
 using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServerW3Schools()))
 {
-    var orderDetail = connection.QueryFirstAsync<OrderDetail>(sql, new {OrderDetailID = 1}).Result;
-
-    FiddleHelper.WriteTable(new List<OrderDetail>() { orderDetail } );
+	var orderDetail = await connection.QueryFirstAsync<OrderDetail>(sql, new {OrderDetailID = 1}).ConfigureAwait(false);
+	
+	FiddleHelper.WriteTable(new List<OrderDetail>() { orderDetail } );
 }
 ```
-Try it: [.NET Core](https://dotnetfiddle.net/uZlDVp) | [.NET Framework](https://dotnetfiddle.net/7Jbdcg)
+Try it: [.NET Core](https://dotnetfiddle.net/uZlDVp)
 
 ## QueryFirstOrDefaultAsync
 
@@ -78,13 +78,13 @@ The `QueryFirstOrDefaultAsync` can execute a query and map asynchronously the fi
 string sql = "SELECT * FROM OrderDetails WHERE OrderDetailID = @OrderDetailID;";
 
 using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServerW3Schools()))
-{
-    var orderDetail = connection.QueryFirstOrDefaultAsync<OrderDetail>(sql, new {OrderDetailID = 1}).Result;
-
-    FiddleHelper.WriteTable(new List<OrderDetail>() { orderDetail } );
+{			
+	var orderDetail = await connection.QueryFirstOrDefaultAsync<OrderDetail>(sql, new {OrderDetailID = 1}).ConfigureAwait(false);
+	
+	FiddleHelper.WriteTable(new List<OrderDetail>() { orderDetail } );
 }
 ```
-Try it: [.NET Core](https://dotnetfiddle.net/dc8hgc) | [.NET Framework](https://dotnetfiddle.net/26NWaz)
+Try it: [.NET Core](https://dotnetfiddle.net/dc8hgc)
 
 ## QuerySingleAsync
 
@@ -94,13 +94,15 @@ The `QuerySingleAsync` can execute a query and map asynchronously the first resu
 string sql = "SELECT * FROM OrderDetails WHERE OrderDetailID = @OrderDetailID;";
 
 using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServerW3Schools()))
-{            
-    var orderDetail = connection.QuerySingleOrDefaultAsync<OrderDetail>(sql, new {OrderDetailID = 1}).Result;
+{
+	connection.Open();
+	
+	var orderDetail = await connection.QuerySingleAsync<OrderDetail>(sql, new {OrderDetailID = 1}).ConfigureAwait(false);
 
-    FiddleHelper.WriteTable(new List<OrderDetail>() { orderDetail } );
+	FiddleHelper.WriteTable(new List<OrderDetail>() { orderDetail } );
 }
 ```
-Try it: [.NET Core](https://dotnetfiddle.net/q0xyFF) | [.NET Framework](https://dotnetfiddle.net/pmjYFp)
+Try it: [.NET Core](https://dotnetfiddle.net/q0xyFF)
 
 ## QuerySingleOrDefaultAsync
 
@@ -111,33 +113,33 @@ string sql = "SELECT * FROM OrderDetails WHERE OrderDetailID = @OrderDetailID;";
 
 using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServerW3Schools()))
 {
-    var orderDetail = connection.QuerySingleOrDefaultAsync<OrderDetail>(sql, new {OrderDetailID = 1}).Result;
-
-    FiddleHelper.WriteTable(new List<OrderDetail>() { orderDetail } );
+	var orderDetail = await connection.QuerySingleOrDefaultAsync<OrderDetail>(sql, new {OrderDetailID = 1}).ConfigureAwait(false);
+	
+	FiddleHelper.WriteTable(new List<OrderDetail>() { orderDetail } );
 }
 ```
-Try it: [.NET Core](https://dotnetfiddle.net/ZPq3LL) | [.NET Framework](https://dotnetfiddle.net/WvbA02)
+Try it: [.NET Core](https://dotnetfiddle.net/ZPq3LL)
 
 ## QueryMultipleAsync
 
-The `QuerySingleOrDefaultAsync` can execute multiple queries within the same command and map results asynchronously.
+The `QueryMultipleAsync` can execute multiple queries within the same command and map results asynchronously.
 
 ```csharp
 var sql = "SELECT TOP 3 * FROM Orders; SELECT TOP 3 * FROM OrderDetails;";
 
 using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServerW3Schools()))
 {
-    connection.Open();
+	connection.Open();
 
-    using (var multi = connection.QueryMultipleAsync(sql).Result)
-    {
-        var orders = multi.Read<Order>().ToList();
-        var orderDetails = multi.Read<OrderDetail>().ToList();
-                
-        FiddleHelper.WriteTable(orders);
-        FiddleHelper.WriteTable(orderDetails);
-    }
+	using (var multi = await connection.QueryMultipleAsync(sql).ConfigureAwait(false))
+	{
+		var orders = multi.Read<Order>().ToList();
+		var orderDetails = multi.Read<OrderDetail>().ToList();
+		
+		FiddleHelper.WriteTable(orders);
+		FiddleHelper.WriteTable(orderDetails);
+	}
 }
 ```
 
-Try it: [.NET Core](https://dotnetfiddle.net/RiQFaO) | [.NET Framework](https://dotnetfiddle.net/EoRmrF)
+Try it: [.NET Core](https://dotnetfiddle.net/RiQFaO)
