@@ -158,3 +158,49 @@ var query = new[]
 ```
 
 [Try this online](https://dotnetfiddle.net/jjQDSo)
+
+### NullPropagatingUseDefaultValueForNonNullableValueTypes
+
+When using the NullPropagating function np(...), use a "default value" for non-nullable value types instead of "null value". Default value for this option is false.
+
+**Example class**
+
+``` csharp
+public class X
+{
+    public int Number { get; set; }
+}
+```
+
+**When set to false (default)**
+This code:
+``` csharp
+var result = new [] { new X() }.AsQueryable()
+    .Select("np(it.Number)").First();
+```
+
+will "translate" into:
+``` csharp
+var result = new [] { new X() }.AsQueryable()
+    .Select(x => x != null ? (int?) x.Number : null).First();
+```
+Where `result` is a `Nullable<int>` with value `0`.
+
+**When set to true**
+
+This code:
+``` csharp
+var config = new ParsingConfig
+{
+    NullPropagatingUseDefaultValueForNonNullableValueTypes = true
+};
+var result = new [] { new X() }.AsQueryable()
+    .Select(config, "np(it.Number)").First();
+```
+
+Will "translate" into:
+``` csharp
+var result = new [] { new X() }.AsQueryable()
+    .Select(x => x != null ? x.Number : default(int)).First();
+```
+Where `result` is a `int` with value `0`.
