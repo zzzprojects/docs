@@ -2,35 +2,46 @@
 
 ## Description
 
-The `MatchedAndCondition` option lets you perform an update or not, depending on if properties specified in the condition have the same value as the one in the database.
+The `MatchedAndCondition` option lets you perform or skip the update action, depending on if all values from the source and destination are equals for properties specified.
 
-## Scenario ( // or Problem Typical)
+For people using SQL Server, this is the `<Condition_AllColumnsValuesEqual>` of the following MERGE statement:
 
-Our company manages multiple stores, and each store has its own "offline" database in case of a network failure (for example, when the internet is down, the store still needs to work).
+```sql
+MERGE <DestinationTable>
+USING <StagingTable>
+ON <PrimaryKey>
+WHEN MATCHED AND <Condition_AllColumnsValuesEqual> THEN
+	UPDATE SET <UpdateColumnNames>
+WHEN NOT MATCHED THEN
+	INSERT (<InsertColumnNames>)
+	VALUES (<StagingTable.InsertColumnNames>)
+```
+
+## Scenario
+
+A company manages multiple stores, and each store has its own "offline" database in case of a network failure (for example, when the internet is down, the store still needs to be fully operational).
 
 Every night, a job runs to update customers in the centralized database and assign which store owns the customer's latest information.
 
-During the day, all stores push modifications to the centralized database. However, we need to support partial updates and update the customer, but only if he is coming from the same store as the one assigned by the centralized database.
+During the day, all stores push modifications to the centralized database. However, the customer is updated in the centralized database only when the data is coming from the same assigned store.
 
 For example:
 
 - The customer "Jonathan" has store "1" value as the latest store in the centralized database
-- "Jonathan" has been modified and modification push to the centralized database
-- If the modification comes from store "1", we want to update the centralized database
-- If the modification comes from store "999", we want to skip the update (the night job will choose which store contains the latest information at the end of the day)
+- "Jonathan" has been modified and the modification pushed to the centralized database
+- If the modification comes from store "1", the customer "Jonathan" is updated in the centralized database
+- If the modification comes from store "999", we want to skip the update and let the night job choose which store contains the latest information at the end of the day
 
-**Note**: We cannot use the "PrimaryKeyExpression" option since we use the BulkMerge method, and it will make the customer "Jonathan" considered a new customer. We want to be able to perform or not the update depending on a condition, the store in our example.
+**Note**: We cannot use the `PrimaryKey` option in this scenario. Otherwise, when performing a `BulkMerge`, it will consider "Jonathan" as a new customer and insert it.
 
 ## Solution
 
-You are currently looking for the **MatchedAndCondition** option.
+The`MatchedAndCondition` option have 4 solutions to this problem:
 
-We offer 4 solutions to this problem:
-
-- [[Action]MatchedAndConditionExpression](#)
-- [[Action]MatchedAndConditionNames](#)
-- [IgnoreOn[Action]MatchedAndConditionExpression](#)
-- [IgnoreOn[Action]MatchedAndConditionNames](#)
+- [[Action]MatchedAndConditionExpression](#actionmatchedandconditionexpression)
+- [[Action]MatchedAndConditionNames](#actionmatchedandconditionnames)
+- [IgnoreOn[Action]MatchedAndConditionExpression](#ignoreonactionmatchedandconditionexpression)
+- [IgnoreOn[Action]MatchedAndConditionNames](#ignoreonactionmatchedandconditionnames)
 
 ## [Action]MatchedAndConditionExpression
 
@@ -55,7 +66,7 @@ context.BulkMerge(customers, options =>
 
 ## [Action]MatchedAndConditionNames
 
-Use this option if you prefer to specify with a list of properties names you want to include. The value must correspond to the property name or the navigation name.
+Use this option if you prefer to specify a list of properties names you want to include. The value must correspond to the property name or the navigation name.
 
 ```csharp
 context.BulkMerge(customers, options => 
@@ -97,7 +108,7 @@ context.BulkMerge(customers, options =>
 
 ## IgnoreOn[Action]MatchedAndConditionNames
 
-Use this option if you prefer to specify with a list of properties names you want to exclude/ignore. The value must correspond to the property name or the navigation name.
+Use this option if you prefer to specify a list of properties names you want to exclude/ignore. The value must correspond to the property name or the navigation name.
 
 ```csharp
 context.BulkMerge(customers, options => 
@@ -117,6 +128,7 @@ context.BulkMerge(customers, options =>
 | BulkSynchronize | IgnoreOnSynchronizeMatchedAndConditionNames		 | [Fiddle](https://dotnetfiddle.net/ippun6) |
 
 
-# Similar solutions
-- [Matched and one not (Incomming)](#incomming)
-- [MatchedAndFormula (Incomming)](#incomming)
+## Related Solutions
+
+- [Matched and one not (Coming Soon)](#coming-soon)
+- [MatchedAndFormula (Coming Soon)](#coming-soon)
