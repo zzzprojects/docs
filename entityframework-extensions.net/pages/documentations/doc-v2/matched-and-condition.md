@@ -26,7 +26,7 @@ However, there is a particularity. The customer has a column `IsLocked` in the d
 - When `IsLocked = 0`, the customer can be updated
 - When `IsLocked = 1`, the customer is locked and should not be updated
 
-All customers to import have the value `IsLocked = true // 0`, so the update action should only be performed when both `IsLocked` value (source and database) are equals.
+All customers to import have the value `IsLocked = true; // 0`, so the update action should only be performed when both `IsLocked` value (source and destination) are equals.
 
 **Note**: We cannot use the `PrimaryKey` option in this scenario. Otherwise, when performing a `BulkMerge`, it will consider the locked customer as a new customer instead of an existing one.
 
