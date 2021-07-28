@@ -28,7 +28,7 @@ However, there is a particularity. The customer has a column `IsLocked` in the d
 
 All customers to import have the value `IsLocked = true; // 0`, so the update action should only be performed when both `IsLocked` value (source and destination) are equals.
 
-**Note**: We cannot use the `PrimaryKey` option in this scenario. Otherwise, when performing a `BulkMerge`, it will consider the locked customer as a new customer instead of an existing one.
+**Note**: We cannot use the `PrimaryKey` option in this scenario. Otherwise, when performing a `BulkMerge`, it will consider the locked customer as a new customer instead of an existing one and will insert it.
 
 ## Solution
 
@@ -83,7 +83,7 @@ context.BulkMerge(customers, options =>
 
 ## IgnoreOn[Action]MatchedAndConditionExpression
 
-Use this option if you prefer to specify with an expression which properties you want to exclude/ignore.
+Use this option if you prefer to specify with an expression which properties you want to exclude/ignore. All non-specified properties will be included.
 
 ```csharp
 context.BulkMerge(customers, options => 
@@ -104,7 +104,7 @@ context.BulkMerge(customers, options =>
 
 ## IgnoreOn[Action]MatchedAndConditionNames
 
-Use this option if you prefer to specify a list of properties names you want to exclude/ignore. The value must correspond to the property name or the navigation name.
+Use this option if you prefer to specify a list of properties names you want to exclude/ignore. The value must correspond to the property name or the navigation name. All non-specified properties will be included.
 
 ```csharp
 context.BulkMerge(customers, options => 
