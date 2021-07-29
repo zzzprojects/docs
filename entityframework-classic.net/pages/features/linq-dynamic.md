@@ -1,3 +1,7 @@
+---
+CanonicalLink: https://entityframework-extensions.net/linq-dynamic
+---
+
 # LINQ Dynamic
 
 ## Description

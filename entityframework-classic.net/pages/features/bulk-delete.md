@@ -1,3 +1,7 @@
+---
+CanonicalLink: https://entityframework-extensions.net/bulk-delete
+---
+
 # Bulk Delete
 
 ## Description

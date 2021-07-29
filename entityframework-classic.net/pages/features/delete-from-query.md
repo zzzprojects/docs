@@ -1,3 +1,7 @@
+---
+CanonicalLink: https://entityframework-extensions.net/delete-from-query
+---
+
 # Delete from Query
 
 ## Description

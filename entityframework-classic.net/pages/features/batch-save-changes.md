@@ -1,3 +1,7 @@
+---
+CanonicalLink: https://entityframework-extensions.net/batch-savechanges
+---
+
 # Batch SaveChanges
 
 ## Description

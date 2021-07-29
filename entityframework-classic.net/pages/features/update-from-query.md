@@ -1,3 +1,7 @@
+---
+CanonicalLink: https://entityframework-extensions.net/update-from-query
+---
+
 # Update from Query
 
 ## Description

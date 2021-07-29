@@ -1,3 +1,7 @@
+---
+CanonicalLink: https://entityframework-extensions.net/bulk-savechanges
+---
+
 # Bulk SaveChanges
 
 ## Description

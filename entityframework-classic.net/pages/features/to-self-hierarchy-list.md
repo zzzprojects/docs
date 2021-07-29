@@ -1,3 +1,7 @@
+---
+CanonicalLink: https://entityframework-extensions.net/to-self-hierarchy-list
+---
+
 # ToSelfHierarchyList
 
 ## Description
