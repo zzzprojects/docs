@@ -17,6 +17,32 @@ The expression language defines the following constants:
 - The `true` and `false` denote the values of the type `bool`.
 - The `null` denotes a null reference, and the `null` constant is of type `Object`, who is also implicitly convertible to any reference type.
 
+## Identifiers
+
+An Identifier consists of a letter or underscore followed by any number of letters, digits, or underscores. In order to reference an identifier with the same spelling as a keyword, the identifier must be prefixed with a single `@` character.
+Some examples of identifiers: `x`, `Hello`, `m_1`, `@true` and `@String`
+
+Identifiers of the from `@x`, where x is an integral number greater than or equal to zero, are used to denote the substitution values, if any, that were passed to the expression parser. For example:
+
+```csharp
+customers.Where("Country = @0", country);
+```
+
+## Literals
+
+The expression language supports integer, real, string, and character literals.
+
+An integer literal consists of a sequence of digits. The type of an integer literal is defined by one of the integer qualifiers (U - UInt32, L - Int64, UL - UInt64) or type is deduced by first of the types Int32, UInt32, Int64, or UInt64 that can represent the given value. An integer literal implicitly converts to any other numeric type provided the number is in the range of that type. Some examples of integer literals:  `0`, `123`, `10000`, `1L`, `2U` and `3UL`.
+
+A real literal consists of an integral part followed by a fractional part and/or an exponent. The integral part is a sequence of one or more digits. The fractional part is a decimal point followed by one or more digits. The exponent is the letter e or E followed by an optional + or – sign followed by one or more digits. The type of a real literal is Double. A real literal implicitly converts to any other real type provided the number is in the range of that type. 
+Some examples of real literals: `1.0`, `2.25`, `10000.0`, `1e0`, `1e10`, `1.2345E-4`.
+
+A string literal consists of zero or more characters enclosed in double quotes. Inside a string literal, a double quote is written as two consecutive double quotes. The type of a string literal is String.
+Some examples of string literals: `"hello"`, `""`, """quoted"""` and `"'"`.
+
+A character literal consists of a single character enclosed in single quotes. Inside a character literal, a single quote is written as two consecutive single quotes. The type of a character literal is Char. 
+Some examples of character literals: `'A'`, `'1'`, `''''` and `'"'`.
+
 ## Types
 
 ### Primitive Types
@@ -128,7 +154,7 @@ In the below table, `x`, `y`, and `z` denote expressions, `T` denotes a type, an
 | Relational | `x <= y` <br/> `x le y` <br/> `x LessThanEqual y` | Less than or equal. Supported for all [primitive types](#primitive-types) except `Boolean`, `Object` and `Guid`. |
 | Relational | `x >= y` <br/> `x ge y` <br/> `x GreaterThanEqual y` | Greater than or equal. Supported for all [primitive types](#primitive-types) except `Boolean`, `Object` and `Guid`. |
 | Logical AND | `x && y` <br/> `x and y`<br/> `x AndAlso y` | Logical AND. Operands must be of type `Boolean`. |
-| Logical OR | `x || y` <br/> `x or y` <br/> `x OrElse y` | Logical OR. Operands must be of type `Boolean`. |
+| Logical OR | `x \|\| y` <br/> `x or y` <br/> `x OrElse y` | Logical OR. Operands must be of type `Boolean`. |
 | Conditional | `x ? y : z` | Evaluates `y` if `x` is `true`, evaluates `z` if `x` is `false`. |
 | Conditional | `x ?? y` | Evaluates `x` if `x` is not null else evaluates `y`. (Null Coalescing) |
 
