@@ -145,7 +145,7 @@ In the below table, `x`, `y`, and `z` denote expressions, `T` denotes a type, an
 | Multiplicative | `x / y` | Division. Supported types are `Int32`, `UInt32`, `Int64`, `UInt64`, `Decimal`, `Single`, and `Double`. |
 | Multiplicative | `x % y` <br/> `x mod y` | Remainder. Supported types are `Int32`, `UInt32`, `Int64`, `UInt64`, `Decimal`, `Single`, and `Double`. |
 | Additive | `x + y` | Addition or string concatenation. Performs string concatenation if either operand is of type `String`. Otherwise, performs addition for the supported types `Int32`, `UInt32`, `Int64`, `UInt64`, `Decimal`, `Single`, `Double`, `DateTime`, and `TimeSpan`. |
-| Additive | `x – y` | Subtraction. Supported types are `Int32`, `UInt32`, `Int64`, `UInt64`, `Decimal`, `Single`, `Double`, `DateTime`, and `TimeSpan`. |
+| Additive | `x - y` | Subtraction. Supported types are `Int32`, `UInt32`, `Int64`, `UInt64`, `Decimal`, `Single`, `Double`, `DateTime`, and `TimeSpan`. |
 | Additive | `x & y` | String concatenation. Operands may be of any type. |
 | Relational | `x = y` <br/> `x == y` <br/> `x eq y` <br/> `x equal y` | Equal. Supported for reference types and the [primitive types](#primitive-types). Assignment is not supported. Comparison with null: `x == null` is supported, but `x is null` is not supported. |
 | Relational | `x != y` <br/> `x <> y` <br/> `x ne y` <br/> `x neq y` <br/> `x notequal y`| Not equal. Supported for reference types and the [primitive types](#primitive-types). |
