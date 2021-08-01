@@ -154,7 +154,7 @@ In the below table, `x`, `y`, and `z` denote expressions, `T` denotes a type, an
 | Relational | `x <= y` <br/> `x le y` <br/> `x LessThanEqual y` | Less than or equal. Supported for all [primitive types](#primitive-types) except `Boolean`, `Object` and `Guid`. |
 | Relational | `x >= y` <br/> `x ge y` <br/> `x GreaterThanEqual y` | Greater than or equal. Supported for all [primitive types](#primitive-types) except `Boolean`, `Object` and `Guid`. |
 | Logical AND | `x && y` <br/> `x and y`<br/> `x AndAlso y` | Logical AND. Operands must be of type `Boolean`. |
-| Logical OR | `x \|\| y` <br/> `x or y` <br/> `x OrElse y` | Logical OR. Operands must be of type `Boolean`. |
+| Logical OR | `x || y` <br/> `x or y` <br/> `x OrElse y` | Logical OR. Operands must be of type `Boolean`. |
 | Conditional | `x ? y : z` | Evaluates `y` if `x` is `true`, evaluates `z` if `x` is `false`. |
 | Conditional | `x ?? y` | Evaluates `x` if `x` is not null else evaluates `y`. (Null Coalescing) |
 
