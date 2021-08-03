@@ -34,6 +34,7 @@ var countries2 = ctx.Countries.FromCache().ToList();
 
  - [Query Criteria](#query-criteria)
  - [Query Deferred](#query-deferred)
+ - [Query Primitive Value](#query-primitive-value)
  - [Tag & ExpireTag](#tag-expiretag)
  - [Expiration](#expiration)
  - [Query Cache Control](#query-cache-control)
@@ -85,6 +86,18 @@ var count = ctx.Customers.DeferredCount().FromCache();
 [Try it](https://dotnetfiddle.net/V0G6pe)
 
 Query Deferred supports all Queryable extension methods and overloads.
+
+### Query Primitive Value
+
+A primitive value such as `int` and `double` cannot be cached as the method requires a reference type.
+
+To cache a primitive value, you can use an anonymous type such as:
+
+{% include template-example.html %} 
+```csharp
+var customers = context.Customers.Select(x => new { x.CustomerID }).FromCache();
+```
+[Try it](https://dotnetfiddle.net/rYl0Lm)
 
 ### Tag & ExpireTag
 
