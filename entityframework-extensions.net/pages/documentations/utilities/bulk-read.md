@@ -1,6 +1,18 @@
 # How to read entities contained from an existing list with Entity Framework?
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/6rDrB0I5Kyk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ## Description
+
+The `BulkRead` method lets you filter a LINQ query by including all items from an existing list and return the result immediately (`ToList`).
+
+### Example
+
+```csharp
+var customers = context.Customers.BulkRead(deserializedCustomers);
+```
+
+## Scenario
 
 Reading entities using an existing list is a common scenario.
 

@@ -1,6 +1,18 @@
 # How to filter entities not contained from an existing list with Entity Framework?
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ceAiw-fOU_c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ## Description
+
+The `WhereBulkNotContains` method lets you filter a LINQ query by excluding all items from an existing list.
+
+### Example
+
+```csharp
+var customers = context.Customers.WhereBulkNotContains(deserializedCustomers);
+```
+
+## Scenario
 
 Filtering entities by excluding all items from an existing list can sometimes be very useful.
 

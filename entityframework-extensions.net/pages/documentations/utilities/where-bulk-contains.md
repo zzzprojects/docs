@@ -2,6 +2,16 @@
 
 ## Description
 
+The `WhereBulkContains` method lets you filter a LINQ query by including all items from an existing list
+
+### Example
+
+```csharp
+var customers = context.Customers.WhereBulkContains(deserializedCustomers);
+```
+
+## Scenario
+
 Filtering entities by including items from an existing list is a common scenario.
 
 For example, you want to retrieve customers to update properties you retrived for a list of `Customer` that you have previously deserialized from a JSON file.
@@ -29,24 +39,32 @@ The `WhereBulkContains` method lets you filter a query by including all entities
 - [What kind of list is supported?](#what-kind-of-list-is-supported)
 - [Can I use WhereBulkContains method with millions of items?](#can-i-use-wherebulkcontains-method-with-millions-of-items)
 - [How to join different properties than the entity key?](#how-to-join-different-properties-than-the-entity-key)
-- [Can I use WhereBulkContains after a Where](#can-i-use-wherebulkcontains-after-a-where)
+- [Can I use WhereBulkContains after a Where?](#can-i-use-wherebulkcontains-after-a-where)
 - [Can I use WhereBulkContains with UpdateFromQuery and DeleteFromQuery?](#can-i-use-wherebulkcontains-with-updatefromquery-and-deletefromquery)
 - [Do WhereBulkContains faster than Contains method?](#)
 - [What are the limitations?](#what-are-the-limitations)
 
 ## How to use the method WhereBulkContains?
 
-The most basic scenario is passing a `DTO` list to the `WhereBulkContains` method.
+The most basic scenario is passing a list to the `WhereBulkContains` method.
 
-This method will filter entities to include those contained in the `DTO` list.
+The `WhereBulkContains` method will filter entities to include those contained in the list.
 
 ```csharp
-// Use the entity type key if none is provided (CustomerID)
-var customers = context.Customers.WhereBulkContains(deserializedCustomers).ToList();
+// The `JOIN` statement will use the default entity key if none is provided (CustomerID)
+var customers = context.Customers.WhereBulkContains(deserializedCustomers);
 
-//  Allow specifying a custom join with one or many properties.
-var customers = context.Customers.WhereBulkContains(deserializedCustomers, x => x.Code).ToList();
+// You can specify a custom `JOIN` clause with one or many properties using a `Lambda Expression`
+var customers = context.Customers.WhereBulkContains(deserializedCustomers, x => x.Code);
+
+// You can specify a custom `JOIN` clause with one or many properties using a `List<string>`
+var customers = context.Customers.WhereBulkContains(deserializedCustomers, new List<string> { "Code" });
+
+// You can specify a custom `JOIN` clause with one or many properties using a `params string[]`
+var customers = context.Customers.WhereBulkContains(deserializedCustomers, "Code");
 ```
+
+[Try it](https://dotnetfiddle.net/DEDiuR)
 
 ## What kind of list is supported?
 
@@ -58,8 +76,33 @@ All kinds of lists are supported. The only requirement is that your list is a ba
 - Expando Object list
  
 ```csharp
-// example coming soon
+{
+	// - Basic type such as `List<int>` and `List<Guid>`
+	var ids = deserializedCustomers.Select(x => x.CustomerID).ToList();
+	var customers = context.Customers.WhereBulkContains(ids);
+}
+{
+	// - Entity Type such as `List<Customer>`
+	var customers = context.Customers.WhereBulkContains(deserializedCustomers);
+}
+{
+	// - Anonymous Type
+	var anonymousIds = deserializedCustomers.Select(x => new { x.CustomerID }).ToList();
+	var customers = context.Customers.WhereBulkContains(anonymousIds);
+}
+{
+	// Expando Object list
+	var expandos = new List<ExpandoObject>();
+	deserializedCustomers.ForEach(x => {
+		dynamic expando = new ExpandoObject();
+		expando.CustomerID = x.CustomerID;
+		expandos.Add(expando);
+	});
+	var customers = context.Customers.WhereBulkContains(expandos);
+}
 ```
+
+[Try it](https://dotnetfiddle.net/A7X89y)
 
 ## Can I use WhereBulkContains with millions of items?
 
@@ -75,16 +118,27 @@ By default, we create the join using the entity key, but you can choose one or m
 - A list of string
 
 ```csharp
-// example coming soon
+// You can specify a custom `JOIN` clause with one or many properties using a `Lambda Expression`
+var customers = context.Customers.WhereBulkContains(deserializedCustomers, x => x.Code);
+
+// You can specify a custom `JOIN` clause with one or many properties using a `List<string>`
+var customers = context.Customers.WhereBulkContains(deserializedCustomers, new List<string> { "Code" });
+
+// You can specify a custom `JOIN` clause with one or many properties using a `params string[]`
+var customers = context.Customers.WhereBulkContains(deserializedCustomers, "Code");
 ```
 
-## Can I use WhereBulkContains after a Where
+[Try it](https://dotnetfiddle.net/DEDiuR)
+
+## Can I use WhereBulkContains after a Where?
 
 Yes, the `WhereBulkContains` is like any other LINQ method. You can chain any linq method, even a `Where` with a contains method.
 
 ```csharp
-// example coming soon
+var customers = context.Customers.Where(x => x.CustomerID >= 2).WhereBulkContains(deserializedCustomers);
 ```
+
+[Try it](https://dotnetfiddle.net/A7eSmW)
 
 ## Can I use WhereBulkContains with UpdateFromQuery and DeleteFromQuery?
 
@@ -94,8 +148,12 @@ The `WhereBulkContains` method is compatible with some of our other methods such
 - [InsertFromQuery](/insert-from-query)
 
 ```csharp
-// example coming soon
+context.Customers.WhereBulkContains(deserializedCustomers).UpdateFromQuery(x => new { FirstName = "UpdateFromQuery" });
+context.Customers.WhereBulkNotContains(deserializedCustomers).DeleteFromQuery();
+context.Customers.WhereBulkContains(deserializedCustomers).InsertFromQuery(x => new { x.Code, FirstName = "Copied", x.LastName, x.Email });
 ```
+
+[Try it](https://dotnetfiddle.net/B9c0uA)
 
 ## Do WhereBulkContains faster than Contains method?
 
