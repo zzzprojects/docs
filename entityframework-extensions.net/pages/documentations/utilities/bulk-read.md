@@ -4,7 +4,7 @@
 
 ## Description
 
-The `BulkRead` method lets you filter a LINQ query by including all items from an existing list and return the result immediately (`ToList`).
+The `BulkRead` method lets you filter a LINQ query by including all items from an existing list and then return the result immediately (`ToList`).
 
 ### Example
 
@@ -79,4 +79,4 @@ You can learn more by reading the [WhereBulkContains](/where-bulk-contains) docu
 
 Both methods have the same features and limitations.
 
-You can also find additional information on our YouTube (Coming soon) video.
+You can also find additional information on our [YouTube video](https://youtu.be/6rDrB0I5Kyk).
