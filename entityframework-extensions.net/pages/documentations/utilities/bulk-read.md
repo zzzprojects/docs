@@ -80,3 +80,8 @@ You can learn more by reading the [WhereBulkContains](/where-bulk-contains) docu
 Both methods have the same features and limitations.
 
 You can also find additional information on our [YouTube video](https://youtu.be/6rDrB0I5Kyk).
+
+## Related Solutions
+
+- [WhereBulkContains](/where-bulk-contains)
+- [WhereBulkNotContains](/where-bulk-not-contains)

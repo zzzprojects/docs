@@ -69,3 +69,10 @@ var customers = context.Customers.WhereBulkNotContains(deserializedCustomers, "C
 You can learn more by reading the [WhereBulkContains](/where-bulk-contains) documentation.
 
 Both methods have the same features and limitations.
+
+You can also find additional information on our [YouTube video](https://youtu.be/ceAiw-fOU_c).
+
+## Related Solutions
+
+- [WhereBulkContains](/where-bulk-contains)
+- [BulkRead](/bulk-read)

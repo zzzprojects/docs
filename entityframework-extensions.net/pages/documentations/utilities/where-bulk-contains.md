@@ -164,3 +164,8 @@ The `WhereBulkContains` method is also very fast, but the main advantage is his 
 ## What are the limitations?
 
 We currently only support SQL Server.
+
+## Related Solutions
+
+- [WhereBulkNotContains](/where-bulk-not-contains)
+- [BulkRead](/bulk-read)
