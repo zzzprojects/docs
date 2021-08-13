@@ -25,21 +25,17 @@ var customerIds = deserializedCustomers.Select(x => x.CustomerID).ToList();
 var customers = context.Customers.Where(x => !customerIds.Contains(x.CustomerID)).ToList();
 ```
 
-However, this solution has several limitations, as explained [here](/where-bulk-contains).
+However, this solution has several limitations, as explained [here](/where-bulk-contains#what-are-contains-method-limitations).
 
 The `WhereBulkNotContains` method has many advantages:
  - Allow using any list type (basic type, entity type, anonymous type, expando object)
  - Allow using an unlimited amount of items.
  - Allow specifying a custom join with one or many properties.
 
-The `WhereBulkNotContains` method is similar to the `WhereBulkContains` method, but it filters entities not contained (`exclude`) instead of contained (`include`):
-
-- The `WhereBulkContains` method filters entities to include entities from the list (`INNER JOIN` statement) 
-- The `WhereBulkNotContains` method filters entities to exclude entities from the list (`WHERE NOT EXISTS` statement).
-
 ## FAQ
 
 - [How to use the method WhereBulkNotContains?](#how-to-use-the-method-wherebulknotcontains)
+- [What is the difference between the method WhereBulkNotContains and WhereBulkContains?](#what-is-the-difference-between-the-method-wherebulknotcontains-and-wherebulkcontains)
 - [Where can I learn more about the method WhereBulkNotContains?](#where-can-i-learn-more-about-the-method-wherebulknotcontains)
 
 ## How to use the method WhereBulkNotContains?
@@ -63,6 +59,15 @@ var customers = context.Customers.WhereBulkNotContains(deserializedCustomers, "C
 ```
 
 [Try it](https://dotnetfiddle.net/v2oSiJ)
+
+The `WhereBulkNotContainsAsync` method is also supported.
+
+## What is the difference between the method WhereBulkNotContains and WhereBulkContains?
+
+The `WhereBulkNotContains` method is similar to the `WhereBulkContains` method, but it filters entities not contained (`exclude`) instead of contained (`include`):
+
+- The `WhereBulkContains` method filters entities to include entities from the list (`INNER JOIN` statement) 
+- The `WhereBulkNotContains` method filters entities to exclude entities from the list (`WHERE NOT EXISTS` statement).
 
 ## Where can I learn more about the method WhereBulkNotContains?
 

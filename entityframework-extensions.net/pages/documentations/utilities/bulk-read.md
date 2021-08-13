@@ -25,7 +25,7 @@ var customerIDs = deserializedCustomers.Select(x => x.CustomerID).ToList();
 var customers = context.Customers.Where(x => customerIDs.Contains(x.CustomerID)).ToList();
 ```
 
-This solution works great most of the time. However, in some scenarios, you will hit one of the `Contains` method limitations, as explained [here](/where-bulk-contains).
+This solution works great most of the time. However, in some scenarios, you will hit one of the `Contains` method limitations, as explained [here](/where-bulk-contains#what-are-contains-method-limitations).
 
 The `BulkRead` method has many advantages:
  - Allow using any list type (basic type, entity type, anonymous type, expando object)
