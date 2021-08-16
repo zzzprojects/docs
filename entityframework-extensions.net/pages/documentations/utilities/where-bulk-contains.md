@@ -37,7 +37,7 @@ The `WhereBulkContains` method lets you filter a query by including all entities
 
 - [How to use the method WhereBulkContains?](#how-to-use-the-method-wherebulkcontains)
 - [What kind of list is supported?](#what-kind-of-list-is-supported)
-- [Can I use the WhereBulkContains method with millions of items?](#can-i-use-the-wherebulkcontains-method-with-millions-of-items)
+- [Can I use the WhereBulkContains method with millions of items?](#can-i-use-the-wherebulkcontains-with-million-of-items)
 - [How can I use a custom key?](#how-can-i-use-a-custom-key)
 - [Can I use WhereBulkContains after a Where?](#can-i-use-wherebulkcontains-after-a-where)
 - [Can I use WhereBulkContains with Batch Operations?](#can-i-use-wherebulkcontains-with-batch-operations)
@@ -67,6 +67,8 @@ var customers = context.Customers.WhereBulkContains(deserializedCustomers, "Code
 ```
 
 [Try it](https://dotnetfiddle.net/DEDiuR)
+
+The `WhereBulkContainsAsync` method is also supported.
 
 ## What kind of list is supported?
 
@@ -108,7 +110,7 @@ All kinds of lists are supported. The only requirement is that your list is a ba
 
 The `WhereBulkContainsAsync` method is also supported.
 
-## Can I use the WhereBulkContains with millions of items?
+## Can I use the WhereBulkContains with million of items?
 
 Yes, you can use the `WhereBulkContains` method with an unlimited amount of items.
 
@@ -136,7 +138,7 @@ var customers = context.Customers.WhereBulkContains(deserializedCustomers, "Code
 
 ## Can I use WhereBulkContains after a Where?
 
-Yes, the `WhereBulkContains` is an extension method that you chain like any other LINQ method. You can chain it before or after the `Where` or any other LINQ methods.
+Yes, the `WhereBulkContains` is an extension method that you can chain like any other LINQ method. You can chain it before or after the `Where` or any other LINQ methods.
 
 ```csharp
 var customers = context.Customers.Where(x => x.CustomerID >= 2).WhereBulkContains(deserializedCustomers);
@@ -186,14 +188,14 @@ The `WhereBulkNotContains` method is similar to the `WhereBulkContains` method, 
 - The `WhereBulkContains` method filters entities to include entities from the list (`INNER JOIN` statement) 
 - The `WhereBulkNotContains` method filters entities to exclude entities from the list (`WHERE NOT EXISTS` statement).
 
-Under the hood, the `BulkRead` method calls the `WhereBulkContains` method followed by the `ToList` or `ToListAsync` method.
+As for the `BulkRead` method, under the hood calls the `WhereBulkContains` method followed by the `ToList` or `ToListAsync` method.
 
 ```csharp
 // Using the BulkRead method is exactly like doing the following code:
 var customers = context.Customers.WhereBulkContains(deserializedCustomers).ToList();
 ```
 
-So all three methods are very similar but serve a different purpose.
+So all three methods are very similar but serve different purpose.
 
 ## What are the limitations?
 
