@@ -1,5 +1,7 @@
 # Matched and Condition
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/O2k8QZ4RHdw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ## Description
 
 The `MatchedAndCondition` option lets you perform or skip the update action, depending on if all values from the source and destination are equals for properties specified.
@@ -126,5 +128,5 @@ context.BulkMerge(customers, options =>
 
 ## Related Solutions
 
-- [Matched and one not (Coming Soon)](#coming-soon)
-- [MatchedAndFormula (Coming Soon)](#coming-soon)
+- [Matched and one NOT Condition](doc-v2/matched-and-one-not-condition.md)
+- [Matched and formula](doc-v2/matched-and-formula.md)

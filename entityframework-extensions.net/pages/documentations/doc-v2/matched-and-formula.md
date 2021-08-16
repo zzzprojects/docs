@@ -60,5 +60,5 @@ context.BulkMerge(customers, options =>
 
 ## Related Solutions
 
-- [Matched and one not (Coming Soon)](#coming-soon)
-- [MatchedAndFormula (Coming Soon)](#coming-soon)
+- [Matched and Condition](doc-v2/matched-and-condition.md)
+- [Matched and one NOT Condition](doc-v2/matched-and-one-not-condition.md)

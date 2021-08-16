@@ -77,9 +77,9 @@ context.BulkMerge(customers, options =>
 
 | Method 		  | Name                                      | Try it |
 |:----------------|:------------------------------------------|--------|
-| BulkMerge 	  | MergeMatchedAndOneNotConditionNames		  | [Fiddle](#) |
-| BulkUpdate 	  | UpdateMatchedAndOneNotConditionNames  	  | [Fiddle](#) |
-| BulkSynchronize | SynchronizeMatchedAndOneNotConditionNames | [Fiddle](#) |
+| BulkMerge 	  | MergeMatchedAndOneNotConditionNames		  | [Fiddle](https://dotnetfiddle.net/GFjZI3) |
+| BulkUpdate 	  | UpdateMatchedAndOneNotConditionNames  	  | [Fiddle](https://dotnetfiddle.net/lq50C0) |
+| BulkSynchronize | SynchronizeMatchedAndOneNotConditionNames | [Fiddle](https://dotnetfiddle.net/YYN2uZ) |
 
 ## IgnoreOn[Action]MatchedAndConditionExpression
 
@@ -119,12 +119,12 @@ context.BulkMerge(customers, options =>
 
 | Method 		  | Name                                       		  | Try it |
 |:----------------|:--------------------------------------------------|--------|
-| BulkMerge 	  | IgnoreOnMergeMatchedAndOneNotConditionNames		  | [Fiddle](#) |
-| BulkUpdate 	  | IgnoreOnUpdateMatchedAndOneNotConditionNames  	  | [Fiddle](#) |
-| BulkSynchronize | IgnoreOnSynchronizeMatchedAndOneNotConditionNames | [Fiddle](#) |
+| BulkMerge 	  | IgnoreOnMergeMatchedAndOneNotConditionNames		  | [Fiddle](https://dotnetfiddle.net/aSiWOu) |
+| BulkUpdate 	  | IgnoreOnUpdateMatchedAndOneNotConditionNames  	  | [Fiddle](https://dotnetfiddle.net/4FZyj5) |
+| BulkSynchronize | IgnoreOnSynchronizeMatchedAndOneNotConditionNames | [Fiddle](https://dotnetfiddle.net/03ayTe) |
 
 
 ## Related Solutions
 
-- [Matched and one not (Coming Soon)](#coming-soon)
-- [MatchedAndFormula (Coming Soon)](#coming-soon)
+- [Matched and Condition](doc-v2/matched-and-condition.md)
+- [Matched and formula](doc-v2/matched-and-formula.md)

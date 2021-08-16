@@ -85,5 +85,12 @@
    - [Eval.Execute](eval-expressions/eval-execute.md)
 - In Progress
    - [Matched and Condition](doc-v2/matched-and-condition.md)
+   - [Matched and one NOT Condition](doc-v2/matched-and-one-not-condition.md)
+   - [Matched and formula](doc-v2/matched-and-formula.md)
+   - [Delete Matched and Condition](doc-v2/delete-matched-and-condition.md)
+   - [Delete Matched and one NOT Condition](doc-v2/delete-matched-and-one-not-condition.md)
+   - [Delete matched and Formula](doc-v2/delete-matched-and-formula.md)
+   - [Coalesce](doc-v2/coalesce.md)
+   - [Coalesce Destination](doc-v2/coalesce-destination.md)
    
 

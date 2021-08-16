@@ -126,5 +126,4 @@ context.BulkMerge(customers, options =>
 
 ## Related Solutions
 
-- [Matched and one not (Coming Soon)](#coming-soon)
-- [MatchedAndFormula (Coming Soon)](#coming-soon)
+- [Coalesce Destination](doc-v2/coalesce-destination.md)

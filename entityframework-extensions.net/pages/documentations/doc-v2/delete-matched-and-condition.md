@@ -118,5 +118,5 @@ context.BulkMerge(customers, options =>
 
 ## Related Solutions
 
-- [Matched and one not (Coming Soon)](#coming-soon)
-- [MatchedAndFormula (Coming Soon)](#coming-soon)
+- [Delete Matched and one NOT Condition](doc-v2/delete-matched-and-one-not-condition.md)
+- [Delete matched and Formula](doc-v2/delete-matched-and-formula.md)
