@@ -12,8 +12,8 @@ context.BulkMerge(customers, options =>
 	// USE the code as the key expression
 	options.ColumnPrimaryKeyExpression = x => x.Code;
 	
-	// ON UPDATE, modify customers only that has the same `IsLocked` value (always 0 on the source)
-	options.MergeMatchedAndConditionExpression = x => new { x.IsLocked };
+	// ON UPDATE, modify customers only if a values such for the Code or Name has been modified
+	options.MergeMatchedAndOneNotConditionExpression = x => new { x.Code, x.Name };
 });
 ```
 
@@ -49,8 +49,8 @@ context.BulkMerge(customers, options =>
 	// USE the code as the key expression
 	options.ColumnPrimaryKeyExpression = x => x.Code;
 	
-	// ON UPDATE, modify customers only that has the same `IsLocked` value (always 0 on the source)
-	options.MergeMatchedAndConditionExpression = x => new { x.Code, x.Name };
+	// ON UPDATE, modify customers only if a values such for the Code or Name has been modified
+	options.MergeMatchedAndOneNotConditionExpression = x => new { x.Code, x.Name };
 });
 ```
 
@@ -70,8 +70,8 @@ context.BulkMerge(customers, options =>
 	// USE the code as the key expression
 	options.ColumnPrimaryKeyExpression = x => x.Code;
 	
-	// ON UPDATE, modify customers only that has the same `IsLocked` value (always 0 on the source)
-	options.MergeMatchedAndConditionNames = new List<string>() { nameof(Customer.Code), nameof(Customer.Name) };
+	// ON UPDATE, modify customers only if a values such for the Code or Name has been modified
+	options.MergeMatchedAndOneNotConditionNames = new List<string>() { nameof(Customer.Code), nameof(Customer.Name) };
 });
 ```
 
@@ -91,8 +91,8 @@ context.BulkMerge(customers, options =>
 	// USE the code as the key expression
 	options.ColumnPrimaryKeyExpression = x => x.Code;
 	
-	// ON UPDATE, modify customers only that has the same `IsLocked` value by excluding all other properties (always 0 on the source)
-	options.IgnoreOnMergeMatchedAndConditionExpression = x => new { x.Note };
+	// ON UPDATE, modify customers only if a values such for the Code or Name has been modified by excluding all other properties
+	options.IgnoreOnMergeMatchedAndOneNotConditionExpression = x => new { x.Note };
 });
 ```
 
@@ -112,8 +112,8 @@ context.BulkMerge(customers, options =>
 	// USE the code as the key expression
 	options.ColumnPrimaryKeyExpression = x => x.Code;
 	
-	// ON UPDATE, modify customers only that has the same `IsLocked` value by excluding all other properties (always 0 on the source)
-	options.IgnoreOnMergeMatchedAndConditionNames = new List<string>() { nameof(Customer.Note) };
+	// ON UPDATE, modify customers only if a values such for the Code or Name has been modified by excluding all other properties
+	options.IgnoreOnMergeMatchedAndOneNotConditionNames = new List<string>() { nameof(Customer.Note) };
 });
 ```
 
