@@ -13,7 +13,7 @@ Our library is a lightweight expression evaluator that supports nearly everythin
 It supports:
 
 - NET40+
-- NET Standard 1.3
+- NET Standard 2.0+
 
 It's easy to use, and easy to customize.
 
@@ -34,7 +34,7 @@ Download the <a href="/download">NuGet Package</a>
 ### .NET Framework Version
 
 - .NET Framework 4.0 or greater
-- .NET Standard 1.3
+- .NET Standard 2.0+
 
 ### Is it that simple?
 
