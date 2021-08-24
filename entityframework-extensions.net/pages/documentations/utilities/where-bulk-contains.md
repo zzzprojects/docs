@@ -7,7 +7,9 @@ The `WhereBulkContains` method lets you filter a LINQ query by including all ite
 ### Example
 
 ```csharp
-var customers = context.Customers.WhereBulkContains(deserializedCustomers);
+var customers = context.Customers.WhereBulkContains(deserializedCustomers).ToList();
+
+var activeCustomers = context.Customers.Where(x => x.IsActive).WhereBulkContains(deserializedCustomers).ToList();
 ```
 
 ## Scenario
@@ -37,9 +39,9 @@ The `WhereBulkContains` method lets you filter a query by including all entities
 
 - [How to use the method WhereBulkContains?](#how-to-use-the-method-wherebulkcontains)
 - [What kind of list is supported?](#what-kind-of-list-is-supported)
+- [Can I use WhereBulkContains after a Where?](#can-i-use-wherebulkcontains-after-a-where)
 - [Can I use the WhereBulkContains method with millions of items?](#can-i-use-the-wherebulkcontains-with-million-of-items)
 - [How can I use a custom key?](#how-can-i-use-a-custom-key)
-- [Can I use WhereBulkContains after a Where?](#can-i-use-wherebulkcontains-after-a-where)
 - [Can I use WhereBulkContains with Batch Operations?](#can-i-use-wherebulkcontains-with-batch-operations)
 - [What are Contains method limitations?](#what-are-contains-method-limitations)
 - [Do WhereBulkContains faster than Contains method?](#do-wherebulkcontains-faster-than-contains-method)
@@ -110,6 +112,16 @@ All kinds of lists are supported. The only requirement is that your list is a ba
 
 The `WhereBulkContainsAsync` method is also supported.
 
+## Can I use WhereBulkContains after a Where?
+
+Yes, the `WhereBulkContains` is an extension method that you can chain like any other LINQ method. You can chain it before or after the `Where` or any other LINQ methods.
+
+```csharp
+var customers = context.Customers.Where(x => x.CustomerID >= 2).WhereBulkContains(deserializedCustomers);
+```
+
+[Try it](https://dotnetfiddle.net/A7eSmW)
+
 ## Can I use the WhereBulkContains with million of items?
 
 Yes, you can use the `WhereBulkContains` method with an unlimited amount of items.
@@ -135,16 +147,6 @@ var customers = context.Customers.WhereBulkContains(deserializedCustomers, "Code
 ```
 
 [Try it](https://dotnetfiddle.net/DEDiuR)
-
-## Can I use WhereBulkContains after a Where?
-
-Yes, the `WhereBulkContains` is an extension method that you can chain like any other LINQ method. You can chain it before or after the `Where` or any other LINQ methods.
-
-```csharp
-var customers = context.Customers.Where(x => x.CustomerID >= 2).WhereBulkContains(deserializedCustomers);
-```
-
-[Try it](https://dotnetfiddle.net/A7eSmW)
 
 ## Can I use WhereBulkContains with Batch Operations?
 
