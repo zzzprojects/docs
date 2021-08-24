@@ -53,7 +53,7 @@ context.BulkMerge(customers, options =>
 
 | Method 		  | Name                                     | Try it |
 |:----------------|:-----------------------------------------|--------|
-| BulkDelete 	  | DeleteMatchedAndFormula 		 | [Fiddle](https://dotnetfiddle.net/uci5RT) |
+| BulkDelete 	  | DeleteMatchedAndFormula 		 | [Fiddle](https://dotnetfiddle.net/mwjtvN) |
 
 ## Related Solutions
 

@@ -2,7 +2,7 @@
 
 ## Description
 
-The `MatchedAndCondition` option lets you perform or skip the update action, depending on if all values from the source and destination are equals for properties specified.
+The `CoalesceDestination` option let you to update the destination value only if the value is null in the database. This option is equivalent of doing a `ISNULL(DestinationTable.ColumnName, StagingTable.ColumnName)` in SQL Server.
 
 ### Example
 
@@ -12,8 +12,8 @@ context.BulkMerge(customers, options =>
 	// USE the code as the key expression
 	options.ColumnPrimaryKeyExpression = x => x.Code;
 	
-	// ON UPDATE, modify customers only that has the same `IsLocked` value (always 0 on the source)
-	options.MergeMatchedAndConditionExpression = x => new { x.IsLocked };
+	// ON UPDATE, modifiy the "Name" and "Email" column only if the destination value is null 
+	options.CoalesceDestinationOnMergeUpdateExpression = x => new { x.Name, x.Email };
 });
 ```
 
@@ -21,23 +21,17 @@ context.BulkMerge(customers, options =>
 
 A company uses Entity Framework and needs to import customers with the `BulkMerge` method to insert new customers and update existing customers.
 
-However, there is a particularity. The customer has a column `IsLocked` in the database:
+However, there is a particularity. The customer should keep the current `Name` or `Email` values in the database if already specified.
 
-- When `IsLocked = 0`, the customer can be updated
-- When `IsLocked = 1`, the customer is locked and should not be updated
-
-All customers to import have the value `IsLocked = true; // 0`, so the update action should only be performed when both `IsLocked` value (source and destination) are equals.
-
-**Note**: We cannot use the `PrimaryKey` option in this scenario. Otherwise, when performing a `BulkMerge`, it will consider the locked customer as a new customer instead of an existing one and will insert it.
+- When `Destination.Email IS NULL`, the destination value should be updated
+- When `Destination.Email IS NOT NULL`, the destination value should be keep
 
 ## Solution
 
-The`MatchedAndCondition` option have 4 solutions to this problem:
+The`CoalesceDestination` option have 2 solutions to this problem:
 
-- [[Action]MatchedAndConditionExpression](#actionmatchedandconditionexpression)
-- [[Action]MatchedAndConditionNames](#actionmatchedandconditionnames)
-- [IgnoreOn[Action]MatchedAndConditionExpression](#ignoreonactionmatchedandconditionexpression)
-- [IgnoreOn[Action]MatchedAndConditionNames](#ignoreonactionmatchedandconditionnames)
+- [CoalesceDestinationOn[Action]Expression](#coalescedestinationonactionexpression)
+- [CoalesceDestinationOn[Action]Names](#coalescedestinationonactionnames)
 
 ## [Action]MatchedAndConditionExpression
 
@@ -49,16 +43,15 @@ context.BulkMerge(customers, options =>
 	// USE the code as the key expression
 	options.ColumnPrimaryKeyExpression = x => x.Code;
 	
-	// ON UPDATE, modify customers only that has the same `IsLocked` value (always 0 on the source)
-	options.MergeMatchedAndConditionExpression = x => new { x.IsLocked };
+	// ON UPDATE, modifiy the "Name" and "Email" column only if the destination value is null 
+	options.CoalesceDestinationOnMergeUpdateExpression = x => new { x.Name, x.Email };
 });
 ```
 
-| Method 		  | Name                                     | Try it |
-|:----------------|:-----------------------------------------|--------|
-| BulkMerge 	  | MergeMatchedAndConditionExpression 		 | [Fiddle](https://dotnetfiddle.net/uci5RT) |
-| BulkUpdate 	  | UpdateMatchedAndConditionExpression  	 | [Fiddle](https://dotnetfiddle.net/NUwq90) |
-| BulkSynchronize | SynchronizeMatchedAndConditionExpression | [Fiddle](https://dotnetfiddle.net/yFY5tG) |
+| Method 		  | Name                                       | Try it |
+|:----------------|:-------------------------------------------|--------|
+| BulkMerge 	  | CoalesceDestinationOnMergeUpdateExpression | [Fiddle](https://dotnetfiddle.net/fJSdcB) |
+| BulkUpdate 	  | CoalesceDestinationOnUpdateExpression  	   | [Fiddle](https://dotnetfiddle.net/1jfmno) |
 
 ## [Action]MatchedAndConditionNames
 
@@ -70,59 +63,15 @@ context.BulkMerge(customers, options =>
 	// USE the code as the key expression
 	options.ColumnPrimaryKeyExpression = x => x.Code;
 	
-	// ON UPDATE, modify customers only that has the same `IsLocked` value (always 0 on the source)
-	options.MergeMatchedAndConditionNames = new List<string>() { nameof(Customer.IsLocked) };
+	// ON UPDATE, modifiy the "Name" and "Email" column only if the destination value is null 
+	options.CoalesceDestinationOnMergeUpdateNames = new List<string>() { nameof(Customer.Name), nameof(Customer.Email) };
 });
 ```
 
 | Method 		  | Name                                       		 | Try it |
 |:----------------|:-------------------------------------------------|--------|
-| BulkMerge 	  | MergeMatchedAndConditionNames		 		 	 | [Fiddle](https://dotnetfiddle.net/U7t1PU) |
-| BulkUpdate 	  | UpdateMatchedAndConditionNames  		 		 | [Fiddle](https://dotnetfiddle.net/ulHCGM) |
-| BulkSynchronize | SynchronizeMatchedAndConditionNames	 		 	 | [Fiddle](https://dotnetfiddle.net/KiNuqb) |
-
-## IgnoreOn[Action]MatchedAndConditionExpression
-
-Use this option if you prefer to specify with an expression which properties you want to exclude/ignore. All non-specified properties will be included.
-
-```csharp
-context.BulkMerge(customers, options => 
-{
-	// USE the code as the key expression
-	options.ColumnPrimaryKeyExpression = x => x.Code;
-	
-	// ON UPDATE, modify customers only that has the same `IsLocked` value by excluding all other properties (always 0 on the source)
-	options.IgnoreOnMergeMatchedAndConditionExpression = x => new { x.CustomerID, x.Name, x.Description };
-});
-```
-
-| Method 		  | Name                                       		 | Try it |
-|:----------------|:-------------------------------------------------|--------|
-| BulkMerge 	  | IgnoreOnMergeMatchedAndConditionExpression 		 | [Fiddle](https://dotnetfiddle.net/67SGs7) |
-| BulkUpdate 	  | IgnoreOnUpdateMatchedAndConditionExpression  	 | [Fiddle](https://dotnetfiddle.net/PXlcOi) |
-| BulkSynchronize | IgnoreOnSynchronizeMatchedAndConditionExpression | [Fiddle](https://dotnetfiddle.net/Zi6dzI) |
-
-## IgnoreOn[Action]MatchedAndConditionNames
-
-Use this option if you prefer to specify a list of properties names you want to exclude/ignore. The value must correspond to the property name or the navigation name. All non-specified properties will be included.
-
-```csharp
-context.BulkMerge(customers, options => 
-{
-	// USE the code as the key expression
-	options.ColumnPrimaryKeyExpression = x => x.Code;
-	
-	// ON UPDATE, modify customers only that has the same `IsLocked` value by excluding all other properties (always 0 on the source)
-	options.IgnoreOnMergeMatchedAndConditionNames = new List<string>() { nameof(Customer.CustomerID), nameof(Customer.Name), nameof(Customer.Description) };
-});
-```
-
-| Method 		  | Name                                       		 | Try it |
-|:----------------|:-------------------------------------------------|--------|
-| BulkMerge 	  | IgnoreOnMergeMatchedAndConditionNames 			 | [Fiddle](https://dotnetfiddle.net/WdSS7H) |
-| BulkUpdate 	  | IgnoreOnUpdateMatchedAndConditionNames  		 | [Fiddle](https://dotnetfiddle.net/8Y4gis) |
-| BulkSynchronize | IgnoreOnSynchronizeMatchedAndConditionNames		 | [Fiddle](https://dotnetfiddle.net/ippun6) |
-
+| BulkMerge 	  | CoalesceDestinationOnMergeUpdateNames 			 | [Fiddle](https://dotnetfiddle.net/AppZ13) |
+| BulkUpdate 	  | CoalesceDestinationOnUpdateNames	   			 | [Fiddle](https://dotnetfiddle.net/rBhOY1) |
 
 ## Related Solutions
 
