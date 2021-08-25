@@ -2,7 +2,7 @@
 
 ## Description
 
-The `MatchedAndOneNotCondition` option lets you perform or skip the update action, depending on if at least one value for the source is different than the destination for properties specified.
+The `MatchedAndOneNotCondition` option lets you perform or skip the update action, depending on if at least one value from the source is different than the destination for properties specified.
 
 ### Example
 
@@ -21,14 +21,14 @@ context.BulkMerge(customers, options =>
 
 A company uses Entity Framework and needs to import customers with the `BulkMerge` method to insert new customers and update existing customers.
 
-However, there is a particularity. The `Note` column is not really important and should not perform an update action if this is the only value that has been modified.
+However, there is a particularity. The `Note` column is not really important and should not trigger an update action if this is the only value that has been modified.
 
-The update action should only be performed if another values such as the `Code` or `Name` has been modified.
+The update action should only be performed if another values such as the `Name` or `Email` has been modified.
 
 In summary:
 
-- If only the `Note` value is different, we don't want to update the customer.
-- If any value specified in the `MatchedAndOneNotCondition` option is different, we want to update the customer
+- If only the `Note` value is different, the customer should not be updated
+- If another value is different, the customer can be updated
 
 ## Solution
 
@@ -39,7 +39,7 @@ The`MatchedAndOneNotCondition` option have 4 solutions to this problem:
 - [IgnoreOn[Action]MatchedAndOneNotConditionExpression](#ignoreonactionmatchedandonenotconditionexpression)
 - [IgnoreOn[Action]MatchedAndOneNotConditionNames](#ignoreonactionmatchedandonenotconditionnames)
 
-## [Action]MatchedAnd
+## [Action]MatchedAndOneNotConditionExpression
 
 Use this option if you prefer to specify with an expression which properties you want to include.
 
@@ -60,7 +60,7 @@ context.BulkMerge(customers, options =>
 | BulkUpdate 	  | UpdateMatchedAndOneNotConditionExpression	   | [Fiddle](https://dotnetfiddle.net/noelqT) |
 | BulkSynchronize | SynchronizeMatchedAndOneNotConditionExpression | [Fiddle](https://dotnetfiddle.net/F7nbwA) |
 
-## [Action]MatchedAndConditionNames
+## [Action]MatchedAndOneNotConditionNames
 
 Use this option if you prefer to specify a list of properties names you want to include. The value must correspond to the property name or the navigation name.
 
@@ -81,7 +81,7 @@ context.BulkMerge(customers, options =>
 | BulkUpdate 	  | UpdateMatchedAndOneNotConditionNames  	  | [Fiddle](https://dotnetfiddle.net/lq50C0) |
 | BulkSynchronize | SynchronizeMatchedAndOneNotConditionNames | [Fiddle](https://dotnetfiddle.net/YYN2uZ) |
 
-## IgnoreOn[Action]MatchedAndConditionExpression
+## IgnoreOn[Action]MatchedAndOneNotConditionExpression
 
 Use this option if you prefer to specify with an expression which properties you want to exclude/ignore. All non-specified properties will be included.
 
@@ -102,7 +102,7 @@ context.BulkMerge(customers, options =>
 | BulkUpdate 	  | IgnoreOnUpdateMatchedAndOneNotConditionExpression  	   | [Fiddle](https://dotnetfiddle.net/65T8kP) |
 | BulkSynchronize | IgnoreOnSynchronizeMatchedAndOneNotConditionExpression | [Fiddle](https://dotnetfiddle.net/zGSrJR) |
 
-## IgnoreOn[Action]MatchedAndConditionNames
+## IgnoreOn[Action]MatchedAndOneNotConditionNames
 
 Use this option if you prefer to specify a list of properties names you want to exclude/ignore. The value must correspond to the property name or the navigation name. All non-specified properties will be included.
 

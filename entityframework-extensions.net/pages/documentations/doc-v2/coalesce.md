@@ -23,19 +23,41 @@ A company uses Entity Framework and needs to import customers with the `BulkMerg
 
 However, there is a particularity. The customer data to import don't contains all values (some are null). The destination value should be keep if the source value is null.
 
-- When `StagingTable.Email IS NULL`, the destination value should be keep
-- When `StagingTable.Email IS NOT NULL`, the destination value should be updated
+- When the source `Email IS NULL`, the destination value should be keep
+- When the source `Email IS NOT NULL`, the destination value should be updated
 
 ## Solution
 
-The`Coalesce` option have 2 solutions to this problem:
+The`Coalesce` option have 3 solutions to this problem:
 
+- [On[Action]UseCoalesce](#onactionusecoalesce)
 - [CoalesceOn[Action]Expression](#coalesceonactionexpression)
 - [CoalesceOn[Action]Names](#coalesceonactionnames)
 
+## On[Action]UseCoalesce
+
+Use this option if you want all properties to use this feature by default.
+
+```csharp
+context.BulkMerge(customers, options => 
+{
+	// USE the code as the key expression
+	options.ColumnPrimaryKeyExpression = x => x.Code;
+	
+	// ON UPDATE, modifiy the "Name" and "Email" column only if the destination value is null 
+	options.CoalesceDestinationOnMergeUpdateExpression = x => new { x.Name, x.Email };
+});
+```
+
+| Method 		  | Name                                       		 | Try it |
+|:----------------|:-------------------------------------------------|--------|
+| BulkMerge 	  | OnMergeUpdateUseCoalesce 		 				 | [Fiddle](https://dotnetfiddle.net/nPOanO) |
+| BulkUpdate 	  | OnUpdateUseCoalesce  	   		 				 | [Fiddle](https://dotnetfiddle.net/W6Ijmi) |
+| BulkSynchronize | OnSynchronizeUpdateUseCoalesce 					 | [Fiddle](https://dotnetfiddle.net/1jfmno) |
+
 ## CoalesceOn[Action]Expression
 
-Use this option if you prefer to specify with an expression which properties you want to coalesce.
+Use this option if you prefer to specify with an expression which properties you want to include.
 
 ```csharp
 context.BulkMerge(customers, options => 
@@ -48,14 +70,15 @@ context.BulkMerge(customers, options =>
 });
 ```
 
-| Method 		  | Name                             | Try it |
-|:----------------|:---------------------------------|--------|
-| BulkMerge 	  | CoalesceOnMergeUpdateExpression  | [Fiddle](https://dotnetfiddle.net/UyQh2O) |
-| BulkUpdate 	  | CoalesceOnUpdateExpression  	 | [Fiddle](https://dotnetfiddle.net/IZyujj) |
+| Method 		  | Name                             	  | Try it |
+|:----------------|:--------------------------------------|--------|
+| BulkMerge 	  | CoalesceOnMergeUpdateExpression  	  | [Fiddle](https://dotnetfiddle.net/UyQh2O) |
+| BulkUpdate 	  | CoalesceOnUpdateExpression  	 	  | [Fiddle](https://dotnetfiddle.net/IZyujj) |
+| BulkSynchronize | CoalesceOnSynchronizeUpdateExpression | [Fiddle](https://dotnetfiddle.net/IZyujj) |
 
 ## CoalesceOn[Action]Names
 
-Use this option if you prefer to specify a list of properties names you want to coalesce. The value must correspond to the property name or the navigation name.
+Use this option if you prefer to specify a list of properties names you want to include. The value must correspond to the property name or the navigation name.
 
 ```csharp
 context.BulkMerge(customers, options => 
@@ -68,10 +91,11 @@ context.BulkMerge(customers, options =>
 });
 ```
 
-| Method 		  | Name                       | Try it |
-|:----------------|:---------------------------|--------|
-| BulkMerge 	  | CoalesceOnMergeUpdateNames | [Fiddle](https://dotnetfiddle.net/BOxIWU) |
-| BulkUpdate 	  | CoalesceOnUpdateNames	   | [Fiddle](https://dotnetfiddle.net/96yns2) |
+| Method 		  | Name                       		 | Try it |
+|:----------------|:---------------------------------|--------|
+| BulkMerge 	  | CoalesceOnMergeUpdateNames 		 | [Fiddle](https://dotnetfiddle.net/BOxIWU) |
+| BulkUpdate 	  | CoalesceOnUpdateNames	   		 | [Fiddle](https://dotnetfiddle.net/96yns2) |
+| BulkSynchronize | CoalesceOnSynchronizeUpdateNames | [Fiddle](https://dotnetfiddle.net/96yns2) |
 
 ## Related Solutions
 

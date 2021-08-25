@@ -23,7 +23,7 @@ context.BulkMerge(customers, options =>
 
 A company uses Entity Framework and needs to import customers with the `BulkMerge` method to insert new customers and update existing customers.
 
-However, there is a particularity. We only want to update the customer if the `Version` value is higher in the source than in the database. Otherwise, we consider the database value having the latest customer information.
+However, there is a particularity. The customer should only be updated if the `Version` value is higher in the source than in the database. Otherwise, we consider the database value having the latest customer information.
 
 In summary:
 
@@ -40,11 +40,6 @@ The`MatchedAndFormula` have 1 solution to this problem:
 
 Use this option to hardcode an SQL that returns a boolean. If the predicate is true, the update action will be performed.
 
-Alias the formula:
-
-- StagingTable: The staging table contains data from your datasource/entities
-- DestinationTable: The destination table is your table in the database
-
 ```csharp
 context.BulkMerge(customers, options => 
 {
@@ -57,6 +52,11 @@ context.BulkMerge(customers, options =>
 	options.MergeMatchedAndFormula = "StagingTable.Version > DestinationTable.Version";
 });
 ```
+
+Table Alias:
+
+- `DestinationTable`: Alias for the table in the database
+- `StagingTable`: Alias for the table containing value from the source
 
 | Method 		  | Name                                     | Try it |
 |:----------------|:-----------------------------------------|--------|

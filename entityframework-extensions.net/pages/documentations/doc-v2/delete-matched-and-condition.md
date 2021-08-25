@@ -30,12 +30,12 @@ In summary:
 
 ## Solution
 
-The`MatchedAndCondition` option have 4 solutions to this problem:
+The`DeleteMatchedAndCondition` option have 4 solutions to this problem:
 
-- [DeleteMatchedAndConditionExpression](#actionmatchedandconditionexpression)
-- [DeleteMatchedAndConditionNames](#actionmatchedandconditionnames)
-- [IgnoreOnDeleteMatchedAndConditionExpression](#ignoreonactionmatchedandconditionexpression)
-- [IgnoreOnDeleteMatchedAndConditionNames](#ignoreonactionmatchedandconditionnames)
+- [DeleteMatchedAndConditionExpression](#deletematchedandconditionexpression)
+- [DeleteMatchedAndConditionNames](#deletematchedandconditionnames)
+- [IgnoreOnDeleteMatchedAndConditionExpression](#ignoreondeletematchedandconditionexpression)
+- [IgnoreOnDeleteMatchedAndConditionNames](#ignoreondeletematchedandconditionnames)
 
 ## DeleteMatchedAndConditionExpression
 
@@ -56,7 +56,7 @@ context.BulkDelete(customers, options =>
 |:----------------|:-----------------------------------------|--------|
 | BulkDelete 	  | DeleteMatchedAndConditionExpression 	 | [Fiddle](https://dotnetfiddle.net/kEVym8) |
 
-## [Action]MatchedAndConditionNames
+## DeleteMatchedAndConditionNames
 
 Use this option if you prefer to specify a list of properties names you want to include. The value must correspond to the property name or the navigation name.
 
@@ -92,7 +92,7 @@ context.BulkMerge(customers, options =>
 
 | Method 		  | Name                                       		 | Try it |
 |:----------------|:-------------------------------------------------|--------|
-| BulkDelete 	  | IgnoreOnDeleteMatchedAndConditionExpression 		 | [Fiddle](https://dotnetfiddle.net/67SGs7) |
+| BulkDelete 	  | IgnoreOnDeleteMatchedAndConditionExpression 	 | [Fiddle](https://dotnetfiddle.net/67SGs7) |
 
 ## IgnoreOnDeleteMatchedAndConditionNames
 

@@ -2,7 +2,7 @@
 
 ## Description
 
-The `DeleteMatchedAndFormula` option lets you perform or skip the update action, depending on the hardcoded SQL specified.
+The `DeleteMatchedAndFormula` option lets you perform or skip the delete action, depending on the hardcoded SQL specified.
 
 ### Example
 
@@ -19,26 +19,24 @@ context.BulkMerge(customers, options =>
 
 ## Scenario
 
-A company uses Entity Framework and needs to import customers with the `BulkMerge` method to insert new customers and update existing customers.
+A company uses Entity Framework and needs to delete customers with the `BulkDelete` method.
 
-However, there is a particularity. The customer has a column `IsLocked` in the database:
+However, there is a particularity. The delete should only happen if the version in the database is the same as the one coming from the importation.
 
-- When `IsLocked = 0`, the customer can be updated
-- When `IsLocked = 1`, the customer is locked and should not be updated
+In summary:
 
-All customers to import have the value `IsLocked = true; // 0`, so the update action should only be performed when both `IsLocked` value (source and destination) are equals.
-
-**Note**: We cannot use the `PrimaryKey` option in this scenario. Otherwise, when performing a `BulkMerge`, it will consider the locked customer as a new customer instead of an existing one and will insert it.
+- If the `Version` value is the same, the customer can be deleted
+- If the `Version` value is different, the customer cannot be deleted
 
 ## Solution
 
-The`MatchedAndCondition` option have 4 solutions to this problem:
+The`DeleteMatchedAndFormula` option have 1 solutions to this problem:
 
-- [DeleteMatchedAndFormula](#actionmatchedandconditionexpression)
+- [DeleteMatchedAndFormula](#deletematchedandformula)
 
 ## DeleteMatchedAndFormula
 
-Use this option if you prefer to specify with an expression which properties you want to include.
+Use this option to hardcode an SQL that returns a boolean. If the predicate is true, the delete action will be performed.
 
 ```csharp
 context.BulkMerge(customers, options => 
@@ -50,6 +48,11 @@ context.BulkMerge(customers, options =>
 	options.MergeMatchedAndConditionExpression = x => new { x.IsLocked };
 });
 ```
+
+Table Alias:
+
+- `DestinationTable`: Alias for the table in the database
+- `StagingTable`: Alias for the table containing value from the source
 
 | Method 		  | Name                                     | Try it |
 |:----------------|:-----------------------------------------|--------|

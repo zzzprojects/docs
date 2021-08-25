@@ -2,7 +2,7 @@
 
 ## Description
 
-The `DeleteMatchedAndOneNotCondition` option lets you perform or skip the update action, depending on if at least one value for the source is different than the destination for properties specified.
+The `DeleteMatchedAndOneNotCondition` option lets you perform or skip the delete action, depending on if at least one value from the source is different than the destination for properties specified.
 
 ### Example
 
@@ -19,27 +19,25 @@ context.BulkMerge(customers, options =>
 
 ## Scenario
 
-A company uses Entity Framework and needs to import customers with the `BulkMerge` method to insert new customers and update existing customers.
+A company uses Entity Framework and needs to delete customers from an history table with the `BulkDelete` method.
 
-However, there is a particularity. The customer has a column `IsLocked` in the database:
+However, there is a particularity. The delete should only happen if the history table is not the latest version.
 
-- When `IsLocked = 0`, the customer can be updated
-- When `IsLocked = 1`, the customer is locked and should not be updated
+In summary:
 
-All customers to import have the value `IsLocked = true; // 0`, so the update action should only be performed when both `IsLocked` value (source and destination) are equals.
-
-**Note**: We cannot use the `PrimaryKey` option in this scenario. Otherwise, when performing a `BulkMerge`, it will consider the locked customer as a new customer instead of an existing one and will insert it.
+- If the `Version` value is the same, the customer cannot be deleted from the history table
+- If the `Version` value is different, the customer can be deleted from the history table
 
 ## Solution
 
-The`MatchedAndCondition` option have 4 solutions to this problem:
+The`DeleteMatchedAndOneNotCondition` option have 4 solutions to this problem:
 
-- [DeleteMatchedAndConditionExpression](#actionmatchedandconditionexpression)
-- [DeleteMatchedAndConditionNames](#actionmatchedandconditionnames)
-- [IgnoreOnDeleteMatchedAndConditionExpression](#ignoreonactionmatchedandconditionexpression)
-- [IgnoreOnDeleteMatchedAndConditionNames](#ignoreonactionmatchedandconditionnames)
+- [DeleteMatchedAndOneNotConditionExpression](#deletematchedandonenotconditionexpression)
+- [DeleteMatchedAndOneNotConditionNames](#deletematchedandonenotconditionnames)
+- [IgnoreOnDeleteMatchedAndOneNotConditionExpression](#ignoreondeletematchedandonenotconditionexpression)
+- [IgnoreOnDeleteMatchedAndOneNotConditionNames](#ignoreondeletematchedandonenotconditionnames)
 
-## [Action]MatchedAndConditionExpression
+## DeleteMatchedAndOneNotConditionExpression
 
 Use this option if you prefer to specify with an expression which properties you want to include.
 
@@ -56,9 +54,9 @@ context.BulkMerge(customers, options =>
 
 | Method 		  | Name                                     | Try it |
 |:----------------|:-----------------------------------------|--------|
-| BulkDelete	  | DeleteMatchedAndConditionExpression 		 | [Fiddle](https://dotnetfiddle.net/uci5RT) |
+| BulkDelete	  | DeleteMatchedAndOneNotConditionExpression| [Fiddle](https://dotnetfiddle.net/uci5RT) |
 
-## [Action]MatchedAndConditionNames
+## DeleteMatchedAndOneNotConditionNames
 
 Use this option if you prefer to specify a list of properties names you want to include. The value must correspond to the property name or the navigation name.
 
@@ -75,9 +73,9 @@ context.BulkMerge(customers, options =>
 
 | Method 		  | Name                                       		 | Try it |
 |:----------------|:-------------------------------------------------|--------|
-| BulkDelete 	  | DeleteMatchedAndConditionNames		 		 	 | [Fiddle](https://dotnetfiddle.net/U7t1PU) |
+| BulkDelete 	  | DeleteMatchedAndOneNotConditionNames		  	 | [Fiddle](https://dotnetfiddle.net/U7t1PU) |
 
-## IgnoreOn[Action]MatchedAndConditionExpression
+## IgnoreOnDeleteMatchedAndOneNotConditionExpression
 
 Use this option if you prefer to specify with an expression which properties you want to exclude/ignore. All non-specified properties will be included.
 
@@ -94,9 +92,9 @@ context.BulkMerge(customers, options =>
 
 | Method 		  | Name                                       		 | Try it |
 |:----------------|:-------------------------------------------------|--------|
-| BulkDelete 	  | IgnoreOnDeleteMatchedAndConditionExpression 		 | [Fiddle](https://dotnetfiddle.net/67SGs7) |
+| BulkDelete 	  | IgnoreOnDeleteMatchedAndOneNotConditionExpression| [Fiddle](https://dotnetfiddle.net/67SGs7) |
 
-## IgnoreOn[Action]MatchedAndConditionNames
+## IgnoreOnDeleteMatchedAndOneNotConditionNames
 
 Use this option if you prefer to specify a list of properties names you want to exclude/ignore. The value must correspond to the property name or the navigation name. All non-specified properties will be included.
 
@@ -113,7 +111,7 @@ context.BulkMerge(customers, options =>
 
 | Method 		  | Name                                       		 | Try it |
 |:----------------|:-------------------------------------------------|--------|
-| BulkDelete 	  | IgnoreOnDeleteMatchedAndConditionNames 			 | [Fiddle](https://dotnetfiddle.net/WdSS7H) |
+| BulkDelete 	  | IgnoreOnDeleteMatchedAndOneNotConditionNames 	 | [Fiddle](https://dotnetfiddle.net/WdSS7H) |
 
 
 ## Related Solutions
