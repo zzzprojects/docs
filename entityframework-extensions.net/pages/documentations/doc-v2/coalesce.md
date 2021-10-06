@@ -2,29 +2,28 @@
 
 ## Description
 
-The `Coalesce` option let you keep the destination value if the source value is null. This option is equivalent of doing a `ISNULL(StagingTable.ColumnName, DestinationTable.ColumnName)` in SQL Server.
+The `Coalesce` option lets you keep the destination value if the source value is null. This option is equivalent of doing a `ISNULL(StagingTable.ColumnName, DestinationTable.ColumnName)` in SQL Server.
 
 ### Example
 
 ```csharp
 context.BulkMerge(customers, options => 
 {
-	// USE the code as the key expression
-	options.ColumnPrimaryKeyExpression = x => x.Code;
-	
-	// ON UPDATE, modifiy the "Name" and "Email" column only if the source value is not null 
+	// ON UPDATE, modify the "Name" and "Email" column value only if the source value is not null 
 	options.CoalesceOnMergeUpdateExpression = x => new { x.Name, x.Email };
 });
 ```
 
 ## Scenario
 
-A company uses Entity Framework and needs to import customers with the `BulkMerge` method to insert new customers and update existing customers.
+A company uses Entity Framework and imports customers with the `BulkMerge` method to insert new customers and update existing customers.
 
-However, there is a particularity. The customer data to import don't contains all values (some are null). The destination value should be keep if the source value is null.
+However, there is a particularity. The customer data to import doesn't contain all values (some are null).  For some columns, we want to keep the destination value if the source value is null.
 
-- When the source `Email IS NULL`, the destination value should be keep
-- When the source `Email IS NOT NULL`, the destination value should be updated
+In summary:
+
+- When the source `Email IS NULL`, the destination value is keep
+- When the source `Email IS NOT NULL`, the destination value is updated
 
 ## Solution
 
@@ -41,11 +40,8 @@ Use this option if you want all properties to use this feature by default.
 ```csharp
 context.BulkMerge(customers, options => 
 {
-	// USE the code as the key expression
-	options.ColumnPrimaryKeyExpression = x => x.Code;
-	
-	// ON UPDATE, modifiy the "Name" and "Email" column only if the destination value is null 
-	options.CoalesceDestinationOnMergeUpdateExpression = x => new { x.Name, x.Email };
+	// ON UPDATE, modify a column value only if the source value is not null 
+	options.OnMergeUpdateUseCoalesce = true;
 });
 ```
 
@@ -53,7 +49,7 @@ context.BulkMerge(customers, options =>
 |:----------------|:-------------------------------------------------|--------|
 | BulkMerge 	  | OnMergeUpdateUseCoalesce 		 				 | [Fiddle](https://dotnetfiddle.net/nPOanO) |
 | BulkUpdate 	  | OnUpdateUseCoalesce  	   		 				 | [Fiddle](https://dotnetfiddle.net/W6Ijmi) |
-| BulkSynchronize | OnSynchronizeUpdateUseCoalesce 					 | [Fiddle](https://dotnetfiddle.net/1jfmno) |
+| BulkSynchronize | OnSynchronizeUpdateUseCoalesce 					 | [Fiddle](https://dotnetfiddle.net/pfbBXy) |
 
 ## CoalesceOn[Action]Expression
 
@@ -62,10 +58,7 @@ Use this option if you prefer to specify with an expression which properties you
 ```csharp
 context.BulkMerge(customers, options => 
 {
-	// USE the code as the key expression
-	options.ColumnPrimaryKeyExpression = x => x.Code;
-	
-	// ON UPDATE, modifiy the "Name" and "Email" column only if the source value is not null 
+	// ON UPDATE, modify the "Name" and "Email" column value only if the source value is not null 
 	options.CoalesceOnMergeUpdateExpression = x => new { x.Name, x.Email };
 });
 ```
@@ -74,7 +67,7 @@ context.BulkMerge(customers, options =>
 |:----------------|:--------------------------------------|--------|
 | BulkMerge 	  | CoalesceOnMergeUpdateExpression  	  | [Fiddle](https://dotnetfiddle.net/UyQh2O) |
 | BulkUpdate 	  | CoalesceOnUpdateExpression  	 	  | [Fiddle](https://dotnetfiddle.net/IZyujj) |
-| BulkSynchronize | CoalesceOnSynchronizeUpdateExpression | [Fiddle](https://dotnetfiddle.net/IZyujj) |
+| BulkSynchronize | CoalesceOnSynchronizeUpdateExpression | [Fiddle](https://dotnetfiddle.net/mQtTtg) |
 
 ## CoalesceOn[Action]Names
 
@@ -83,10 +76,7 @@ Use this option if you prefer to specify a list of properties names you want to 
 ```csharp
 context.BulkMerge(customers, options => 
 {
-	// USE the code as the key expression
-	options.ColumnPrimaryKeyExpression = x => x.Code;
-	
-	// ON UPDATE, modifiy the "Name" and "Email" column only if the source value is not null 
+	// ON UPDATE, modify the "Name" and "Email" column value only if the source value is not null
 	options.CoalesceOnMergeUpdateNames = new List<string>() { nameof(Customer.Name), nameof(Customer.Email) };
 });
 ```
@@ -95,7 +85,7 @@ context.BulkMerge(customers, options =>
 |:----------------|:---------------------------------|--------|
 | BulkMerge 	  | CoalesceOnMergeUpdateNames 		 | [Fiddle](https://dotnetfiddle.net/BOxIWU) |
 | BulkUpdate 	  | CoalesceOnUpdateNames	   		 | [Fiddle](https://dotnetfiddle.net/96yns2) |
-| BulkSynchronize | CoalesceOnSynchronizeUpdateNames | [Fiddle](https://dotnetfiddle.net/96yns2) |
+| BulkSynchronize | CoalesceOnSynchronizeUpdateNames | [Fiddle](https://dotnetfiddle.net/mmx8xY) |
 
 ## Related Solutions
 
