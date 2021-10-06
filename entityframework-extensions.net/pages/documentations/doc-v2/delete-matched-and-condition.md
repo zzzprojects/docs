@@ -9,10 +9,7 @@ The `DeleteMatchedAndCondition` option lets you perform or skip the delete actio
 ```csharp
 context.BulkDelete(customers, options => 
 {
-	// USE the code as the key expression
-	options.ColumnPrimaryKeyExpression = x => x.Code;
-	
-	// ON DELETE, remove customer that has the same version only
+	// ON DELETE, remove customer where the version is equal
 	options.DeleteMatchedAndConditionExpression = x => new { x.Version };
 });
 ```
@@ -21,12 +18,12 @@ context.BulkDelete(customers, options =>
 
 A company uses Entity Framework and needs to delete customers with the `BulkDelete` method.
 
-However, there is a particularity. The delete should only happen if the version in the database is the same as the one coming from the importation.
+However, there is a particularity. The delete should only happen if the version in the database is equal as the one coming from the importation.
 
 In summary:
 
-- If the `Version` value is the same, the customer can be deleted
-- If the `Version` value is different, the customer cannot be deleted
+- If the `Version` value are equal, the customer can be deleted
+- If the `Version` value are not equal, the customer cannot be deleted
 
 ## Solution
 
@@ -44,10 +41,7 @@ Use this option if you prefer to specify with an expression which properties you
 ```csharp
 context.BulkDelete(customers, options => 
 {
-	// USE the code as the key expression
-	options.ColumnPrimaryKeyExpression = x => x.Code;
-	
-	// ON DELETE, remove customer that has the same version only
+	// ON DELETE, remove customer where the version is equal
 	options.DeleteMatchedAndConditionExpression = x => new { x.Version };
 });
 ```
@@ -63,11 +57,8 @@ Use this option if you prefer to specify a list of properties names you want to 
 ```csharp
 context.BulkDelete(customers, options => 
 {
-	// USE the code as the key expression
-	options.ColumnPrimaryKeyExpression = x => x.Code;
-	
-	// ON DELETE, remove customer that has the same version only
-	options.DeleteMatchedAndConditionNames = new List<string>() { nameof(Customer.Name) };
+	// ON DELETE, remove customer where the version is equal
+	options.DeleteMatchedAndConditionNames = new List<string>() { nameof(Customer.Version) };
 });
 ```
 
@@ -80,38 +71,32 @@ context.BulkDelete(customers, options =>
 Use this option if you prefer to specify with an expression which properties you want to exclude/ignore. All non-specified properties will be included.
 
 ```csharp
-context.BulkMerge(customers, options => 
+context.BulkDelete(customers, options => 
 {
-	// USE the code as the key expression
-	options.ColumnPrimaryKeyExpression = x => x.Code;
-	
-	// ON UPDATE, modify customers only that has the same `IsLocked` value by excluding all other properties (always 0 on the source)
-	options.IgnoreOnMergeMatchedAndConditionExpression = x => new { x.CustomerID, x.Name, x.Description };
+	// ON DELETE, remove customer where the version is equal (by excluding other properties)
+	options.IgnoreOnDeleteMatchedAndConditionExpression  = x => new { x.CustomerID, x.Name, x.Email, x.Note };
 });
 ```
 
 | Method 		  | Name                                       		 | Try it |
 |:----------------|:-------------------------------------------------|--------|
-| BulkDelete 	  | IgnoreOnDeleteMatchedAndConditionExpression 	 | [Fiddle](https://dotnetfiddle.net/67SGs7) |
+| BulkDelete 	  | IgnoreOnDeleteMatchedAndConditionExpression 	 | [Fiddle](https://dotnetfiddle.net/b3oNfG) |
 
 ## IgnoreOnDeleteMatchedAndConditionNames
 
 Use this option if you prefer to specify a list of properties names you want to exclude/ignore. The value must correspond to the property name or the navigation name. All non-specified properties will be included.
 
 ```csharp
-context.BulkMerge(customers, options => 
+context.BulkDelete(customers, options => 
 {
-	// USE the code as the key expression
-	options.ColumnPrimaryKeyExpression = x => x.Code;
-	
-	// ON UPDATE, modify customers only that has the same `IsLocked` value by excluding all other properties (always 0 on the source)
-	options.IgnoreOnMergeMatchedAndConditionNames = new List<string>() { nameof(Customer.CustomerID), nameof(Customer.Name), nameof(Customer.Description) };
+	// ON DELETE, remove customer where the version is equal (by excluding other properties)
+	options.IgnoreOnDeleteMatchedAndConditionNames = new List<string>() { nameof(Customer.CustomerID), nameof(Customer.Name), nameof(Customer.Email), nameof(Customer.Note) };
 });
 ```
 
 | Method 		  | Name                                       		 | Try it |
 |:----------------|:-------------------------------------------------|--------|
-| BulkDelete 	  | IgnoreOnDeleteMatchedAndConditionNames 			 | [Fiddle](https://dotnetfiddle.net/WdSS7H) |
+| BulkDelete 	  | IgnoreOnDeleteMatchedAndConditionNames 			 | [Fiddle](https://dotnetfiddle.net/D2BciE) |
 
 
 ## Related Solutions
