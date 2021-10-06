@@ -52,7 +52,7 @@ context.BulkDelete(customers, options =>
 
 ## DeleteMatchedAndConditionNames
 
-Use this option if you prefer to specify a list of properties names you want to include. The value must correspond to the property name or the navigation name.
+Use this option if you prefer to specify a list of property names you want to include. The value must correspond to the property name or the navigation name.
 
 ```csharp
 context.BulkDelete(customers, options => 
@@ -84,7 +84,7 @@ context.BulkDelete(customers, options =>
 
 ## IgnoreOnDeleteMatchedAndConditionNames
 
-Use this option if you prefer to specify a list of properties names you want to exclude/ignore. The value must correspond to the property name or the navigation name. All non-specified properties will be included.
+Use this option if you prefer to specify a list of property names you want to exclude/ignore. The value must correspond to the property name or the navigation name. All non-specified properties will be included.
 
 ```csharp
 context.BulkDelete(customers, options => 

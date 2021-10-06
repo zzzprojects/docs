@@ -9,10 +9,7 @@ The `MatchedAndFormula` option lets you perform or skip the update action, depen
 ```csharp
 context.BulkMerge(customers, options => 
 {
-	// USE the code as the key expression
-	options.ColumnPrimaryKeyExpression = x => x.Code;
-	
-	// ON UPDATE, modify customers that have a lower version in the database than in the source
+	// ON UPDATE, modify customers where the version is equal or lower than the one coming from the importation
 	// StagingTable = source
 	// DestinationTable = database/destination
 	options.MergeMatchedAndFormula = "StagingTable.Version > DestinationTable.Version";
@@ -27,8 +24,8 @@ However, there is a particularity. The customer should only be updated if the `V
 
 In summary:
 
-- If the `Version` value of the source is greater than the value in the database, the customer can be updated
-- If the `Version` value of the source is lower or equal then the value in the database, the customer should not be updated
+- If the source `Version` value is higher, the customer can be updated
+- If the source `Version` value is equal or lower, the customer cannot be updated
 
 ## Solution
 
@@ -43,10 +40,7 @@ Use this option to hardcode an SQL that returns a boolean. If the predicate is t
 ```csharp
 context.BulkMerge(customers, options => 
 {
-	// USE the code as the key expression
-	options.ColumnPrimaryKeyExpression = x => x.Code;
-	
-	// ON UPDATE, modify customers that have a lower version in the database than in the source
+	// ON UPDATE, modify customers where the version is equal or lower than the one coming from the importation
 	// StagingTable = source
 	// DestinationTable = database/destination
 	options.MergeMatchedAndFormula = "StagingTable.Version > DestinationTable.Version";

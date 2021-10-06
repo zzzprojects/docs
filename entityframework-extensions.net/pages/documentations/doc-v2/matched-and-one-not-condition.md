@@ -9,12 +9,10 @@ The `MatchedAndOneNotCondition` option lets you perform or skip the update actio
 ```csharp
 context.BulkMerge(customers, options => 
 {
-	// USE the code as the key expression
-	options.ColumnPrimaryKeyExpression = x => x.Code;
-	
-	// ON UPDATE, modify customers only if a values such for the Code or Name has been modified
-	options.MergeMatchedAndOneNotConditionExpression = x => new { x.Code, x.Name };
+	// ON UPDATE, modify the customer if a values for "Name" or "Email" is different
+	options.MergeMatchedAndOneNotConditionExpression = x => new { x.Name, x.Email };
 });
+
 ```
 
 ## Scenario
@@ -27,8 +25,8 @@ The update action should only be performed if another values such as the `Name` 
 
 In summary:
 
-- If only the `Note` value is different, the customer should not be updated
-- If another value is different, the customer can be updated
+- If the `Name` or `Email` value is different to the database, the customer can be updated
+- If the `Name` or `Email` value is equal to the database, the customer cannot be updated
 
 ## Solution
 
@@ -46,11 +44,8 @@ Use this option if you prefer to specify with an expression which properties you
 ```csharp
 context.BulkMerge(customers, options => 
 {
-	// USE the code as the key expression
-	options.ColumnPrimaryKeyExpression = x => x.Code;
-	
-	// ON UPDATE, modify customers only if a values such for the Code or Name has been modified
-	options.MergeMatchedAndOneNotConditionExpression = x => new { x.Code, x.Name };
+	// ON UPDATE, modify the customer if a values for "Name" or "Email" is different
+	options.MergeMatchedAndOneNotConditionExpression = x => new { x.Name, x.Email };
 });
 ```
 
@@ -62,16 +57,13 @@ context.BulkMerge(customers, options =>
 
 ## [Action]MatchedAndOneNotConditionNames
 
-Use this option if you prefer to specify a list of properties names you want to include. The value must correspond to the property name or the navigation name.
+Use this option if you prefer to specify a list of property names you want to include. The value must correspond to the property name or the navigation name.
 
 ```csharp
 context.BulkMerge(customers, options => 
 {
-	// USE the code as the key expression
-	options.ColumnPrimaryKeyExpression = x => x.Code;
-	
-	// ON UPDATE, modify customers only if a values such for the Code or Name has been modified
-	options.MergeMatchedAndOneNotConditionNames = new List<string>() { nameof(Customer.Code), nameof(Customer.Name) };
+	// ON UPDATE, modify the customer if a values for "Name" or "Email" is different
+	options.MergeMatchedAndOneNotConditionNames = new List<string>() { nameof(Customer.Name), nameof(Customer.Email) };
 });
 ```
 
@@ -88,10 +80,7 @@ Use this option if you prefer to specify with an expression which properties you
 ```csharp
 context.BulkMerge(customers, options => 
 {
-	// USE the code as the key expression
-	options.ColumnPrimaryKeyExpression = x => x.Code;
-	
-	// ON UPDATE, modify customers only if a values such for the Code or Name has been modified by excluding all other properties
+	// ON UPDATE, modify the customer if a values for "Name" or "Email" is different (by excluding other properties)
 	options.IgnoreOnMergeMatchedAndOneNotConditionExpression = x => new { x.Note };
 });
 ```
@@ -104,15 +93,12 @@ context.BulkMerge(customers, options =>
 
 ## IgnoreOn[Action]MatchedAndOneNotConditionNames
 
-Use this option if you prefer to specify a list of properties names you want to exclude/ignore. The value must correspond to the property name or the navigation name. All non-specified properties will be included.
+Use this option if you prefer to specify a list of property names you want to exclude/ignore. The value must correspond to the property name or the navigation name. All non-specified properties will be included.
 
 ```csharp
 context.BulkMerge(customers, options => 
 {
-	// USE the code as the key expression
-	options.ColumnPrimaryKeyExpression = x => x.Code;
-	
-	// ON UPDATE, modify customers only if a values such for the Code or Name has been modified by excluding all other properties
+	// ON UPDATE, modify the customer if a values for "Name" or "Email" is different (by excluding other properties)
 	options.IgnoreOnMergeMatchedAndOneNotConditionNames = new List<string>() { nameof(Customer.Note) };
 });
 ```
