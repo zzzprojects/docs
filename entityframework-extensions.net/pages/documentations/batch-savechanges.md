@@ -36,8 +36,6 @@ _On average, people report a performance improvement of 500%._
 - Entity Framework 6
 - SQL Server/Azure
 
-_EF Core and more provider support is under development_
-
 ## Getting Started
 
 ### Replace SaveChanges
