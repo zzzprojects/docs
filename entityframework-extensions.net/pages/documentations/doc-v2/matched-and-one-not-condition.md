@@ -1,4 +1,4 @@
-# Matched and one not Condition
+# Matched and one NOT Condition
 
 ## Description
 

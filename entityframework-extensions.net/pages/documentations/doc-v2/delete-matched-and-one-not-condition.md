@@ -1,4 +1,4 @@
-# Delete Matched and One Not Condition
+# Delete Matched and one NOT Condition
 
 ## Description
 
