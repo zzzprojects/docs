@@ -1,5 +1,7 @@
 # Matched and Formula
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/HiujI5LpEtE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ## Description
 
 The `MatchedAndFormula` option lets you perform or skip the update action, depending on the hardcoded SQL specified.

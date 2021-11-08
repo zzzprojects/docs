@@ -1,5 +1,7 @@
 # How to filter entities contained from an existing list with Entity Framework?
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/9xVaL63LOsY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ## Description
 
 The `WhereBulkContains` method lets you filter a LINQ query by including all items from an existing list.
