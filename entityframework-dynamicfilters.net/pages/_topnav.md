@@ -2,5 +2,5 @@
 - Documentation
 	- [Documentation](documentations/filters/filter.md)
 	- [Release Notes](https://github.com/zzzprojects/EntityFramework.DynamicFilters/releases)
-	- [Help & Donate](https://www.paypal.com/donate?hosted_button_id=MPBTMRMWZR5AA)
+	- [Help & Donate](https://zzzprojects.com/contribute)
 - [Online Examples](/online-examples)
