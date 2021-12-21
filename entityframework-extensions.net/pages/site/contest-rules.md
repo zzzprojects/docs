@@ -26,9 +26,7 @@ See below for full contest details. Participation in this contest constitutes yo
 ### DRAW AND WINNER SELECTION 
 5. On the 15th of each month until the end of the contest (undefined), one (1) eligible entrant will be selected by random draw from all eligible entries received during the Contest Period.  The odds of winning depend on the number of entries received.  
  
-6. Before being declared a winner: The selected winner will be contacted by email and notified that they won.  The selected winner must reply by private message within 30 business days of notification. 
-If a selected winner cannot be contacted by email within 30 calendar days of selection or there is a return of any prior notification as undeliverable, he/she will be disqualified and will forfeit the prize, ZZZ Projects would draw another winner the same way.    
-Winners names and website URLs will be posted on this page and on our social media pages. 
+6. Before being declared a winner: The selected winner will be contacted by email and notified that they won. Winners names, feedback, company names and website URLs will be posted on this page, on our social media pages and newsletter.
  
 ### PRIZES 
 7. Grand Prize: There will be one (1) grand prize per month available to be won, consisting of a Free License between participating libraries including Support & updates for a year until the end of the contest. 
