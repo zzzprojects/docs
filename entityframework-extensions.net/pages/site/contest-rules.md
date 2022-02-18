@@ -5,7 +5,7 @@ This contest is open to anyone who downloaded the trial of our participating lib
 See below for full contest details. Participation in this contest constitutes your fill and unconditional acceptance of, and agreement to be legally bound by these contest rules.
  
 ### CONTEST PERIOD 
-1. Users can participate to this contest at anytime. On the 15th of each month, until the end of this contest (undefined), one (1) winner between all participating librairies will be drawn.
+1. Users can participate in this contest every 6 months. On the 15th of each month, until the end of this contest (undefined), one (1) winner between all participating librairies will be drawn.
  
 ### ELIGIBILITY 
 2. The Contest is open to people who have reached the age of majority in their province or territory of residence at the time of entry, except employees and its affiliated companies or agents. 
@@ -19,7 +19,7 @@ See below for full contest details. Participation in this contest constitutes yo
    
    - c.	Answer an email sent from info@zzzprojects.com asking for your feedback. 
    
-4. You will receive one (1) Entry in the Contest when you give us feedback as described in Section 3 in accordance with these Rules.  LIMIT (1) ENTRY PER PERSON/COMPANY DURING THE CONTEST PERIOD, your participation will be entered automatically every month following your first entry until the end of the contest or until you win. You can only win once, if you win a license your name is withdrawn from the other contestants for the following monthly draws. 
+4. You will receive one (1) Entry in the Contest when you give us feedback as described in Section 3 in accordance with these Rules. LIMIT (1) ENTRY PER PERSON/COMPANY DURING THE CONTEST PERIOD, your participation will be entered automatically for 6 months month following your first entry or until the end of the contest. You can only win once, if you win a license your name is withdrawn from the other contestants for the following monthly draws. 
  If it is discovered that you attempted to enter more than once during the Contest Period, then all your Entries will be void.  Use of any automated system to submit Entries is prohibited and will result in disqualification.  
 
 
