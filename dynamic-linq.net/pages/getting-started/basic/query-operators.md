@@ -31,7 +31,7 @@ Query Operator | Return Type | Info
 [Last](#last-lastordefault) | dynamic | Returns the last element of a sequence. [Maybe not supported in all scenarios](https://msdn.microsoft.com/library/bb738550.aspx)
 [LastOrDefault](#last-lastordefault) | dynamic | Returns the last element of a sequence, or a default value if the sequence contains no elements. [Maybe not supported in all scenarios](https://msdn.microsoft.com/library/bb738550.aspx)
 [LongCount](#count) | long | Returns the number of elements in a sequence as a long.
-[OfType](#cast_and_oftype) | IQueryable | Filters the elements based on a specified type.
+[OfType](#cast-and-oftype) | IQueryable | Filters the elements based on a specified type.
 [OrderBy](basic-simple-query#ordering-results) | IOrderedQueryable or IOrderedQueryable&lt;T&gt; | Sorts the elements of a sequence in ascending or descending order according to a key.
 [Page](#page-pageresult) | IQueryable or IQueryable&lt;T&gt; | Returns the elements as paged.
 [PageResult](#page-pageresult) | PagedResult or PagedResult&lt;T&gt; | Returns the elements as paged and include the CurrentPage, PageCount, PageSize and RowCount.

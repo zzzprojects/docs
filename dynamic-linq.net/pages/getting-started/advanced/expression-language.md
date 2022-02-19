@@ -136,9 +136,10 @@ In the below table, `x`, `y`, and `z` denote expressions, `T` denotes a type, an
 | Primary | `x(...)` | Dynamic lambda invocation used to reference another dynamic lambda expression. |
 | Primary | `np(x)` | Null Propagating expression. Will expand `it.Rel.Id` to `it != null && it.Rel != null ? it.Rel.Id : null`. |
 | Primary | `np(x, y)` | Null Propagating expression with default value specified. Will expand `it.Rel.Id` to `it != null && it.Rel != null ? it.Rel.Id : y`. |
-| Primary | `iif(x, y, z)` | Conditional expression. Alternate syntax for `x ? y : z`. |
-| Primary | `As(x)` | With [As](#is-and-as-examples), you can check if casting a class to a type is valid, or returns null. |
-| Primary | `Is(x)` | The [Is](#is-and-as-examples) function can be used to determine if the entity has a specific type. |
+| Primary | `iif(x, y, z)` | [Conditional expression](#iif-example). Alternate syntax for `x ? y : z`. |
+| Primary | `As(type)`<br>`As(x, type)` | With [As](#as-example), you can check if casting a class to a type is valid, or returns null. |
+| Primary | `Is(type)`<br>`Is(x, type)` | The [Is](#is-example) function can be used to determine if the entity has a specific type. |
+| Primary | `Cast(type)`<br>`Cast(x, type)` | The [Cast](#cast-example) function can be used to cast to a specific type. |
 | Unary | `-x` | Negation. Supported types are `Int32`, `Int64`, `Decimal`, `Single`, and `Double`. |
 | Unary | `!x` <br/> `not x` | Logical negation. Operand must be of type `Boolean`. |
 | Multiplicative | `x * y` | Multiplication. Supported types are `Int32`, `UInt32`, `Int64`, `UInt64`, `Decimal`, `Single`, and `Double`. |
@@ -158,7 +159,7 @@ In the below table, `x`, `y`, and `z` denote expressions, `T` denotes a type, an
 | Conditional | `x ? y : z` | Evaluates `y` if `x` is `true`, evaluates `z` if `x` is `false`. |
 | Conditional | `x ?? y` | Evaluates `x` if `x` is not null else evaluates `y`. (Null Coalescing) |
 
-### it- Example
+### it Example
 
 ```csharp
 var baseQuery = new int[] { 1, 2, 3, 4, 5 }.AsQueryable();
@@ -170,7 +171,7 @@ var result2 = baseQuery.Where("it % 2 = 0");
 
 [Try it online](https://dotnetfiddle.net/3SlAvq)
 
-### in- Example
+### in Example
 
 ```csharp
 var rangeOfNumbers = Enumerable.Range(1, 100).ToArray();
@@ -182,7 +183,7 @@ var result2 = rangeOfNumbers.AsQueryable().Where("it in @0", values).ToArray();
 
 [Try it online](https://dotnetfiddle.net/uhHUEO)
 
-### Conditional Operator- Example
+### Conditional Operator Example
 
 ```csharp
 var baseQuery = new int[] { 1, 2, 3, 4, 5 }.AsQueryable();
@@ -192,7 +193,7 @@ var result = baseQuery.Select("it % 2 == 0 ? true : false");
 
 [Try it online](https://dotnetfiddle.net/uaGRMJ)
 
-### iif- Example
+### iif Example
 
 ```csharp
 var baseQuery = new int[] { 1, 2, 3, 4, 5 }.AsQueryable();
@@ -200,25 +201,56 @@ var baseQuery = new int[] { 1, 2, 3, 4, 5 }.AsQueryable();
 var result = baseQuery.Select("iif(it % 2 = 0, true, false)");
 ```
 [Try it online](https://dotnetfiddle.net/nCiBQQ)
-### Is and As Examples
-The `Is` can be used to determine if the entity has a specific type. In the example below, the number of bosses is counted:
+### Is Example
+The `Is` can be used to determine if the entity has a specific type. In the example below, the number of employees who are a boss are counted:
 
 ```csharp
-string boss = typeof(Boss).FullName;
-int numberOfBosses = context.Employees.Count("is(@0)", boss);
+// Normal usage
+int count = context.Employees.Count(b => b is Boss);
+
+// Dynamic usage
+int count = context.Employees.Count("Is(\"Boss\")");
 ```
 
+In case you want to check if property has a specific type, use this code:
+``` csharp
+int count = context.Companies.Count("Is(Employee, \"Boss\")");
+```
+
+### As Example
 With `As`, you can check if casting a class to a type is valid, or returns null.
 
 ```csharp
 // Normal usage
-var boss = entity as Boss;
+int count = context.Employees.Count(b => b as Boss != null);
 
 // Dynamic usage
-int useAsToCheckIftheTypeIsABoss = context.Employees.Count("As(@0) != null", boss);
+int count = context.Employees.Count("As(\"Boss\") != null");
 ```
 
-[Try it online](https://dotnetfiddle.net/o2ydqi)
+In case you want to check if casting a property to a type is valid, or returns null, use this code:
+``` csharp
+int count = context.Companies.Count("As(Employee, \"Boss\") != null");
+```
+
+### Cast Example
+With `Cast`, you can cast the object to a specific type.
+
+```csharp
+// Normal usage
+var bosses = context.Employees.Select(e => (Boss) e);
+
+// Dynamic usage
+var bosses = context.Employees.Count("Cast(\"Boss\")");
+```
+
+In case you want to cast a property to a type, use this code:
+``` csharp
+int count = context.Companies.Count("Cast(Employee, \"Boss\")");
+```
+
+### Is, As and Cast Examples
+More examples can be found here: [Try it online](https://dotnetfiddle.net/o2ydqi)
 
 ## Calling Method and Constructor
 
