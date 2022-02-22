@@ -1,9 +1,9 @@
 ---
 PermaID: 1000212
-Name: SimpleSave
+Name: Dapper SimpleSave Library
 ---
 
-# Dapper.SimpleSave
+# Dapper.SimpleSave Library
 
 ## Overview
 Dapper.SimpleSave is a small library package which adds basic CRUD operations to Dapper. Dapper easily retrieve data from the database when a single object is involved, but when you are dealing with complex hierarchies, then dapper is not very helpfull. 
@@ -34,7 +34,7 @@ public class Invoice
 }
 ```
 
-## Installation
+## NuGet Installation
 Dapper.SimpleSave is only available through NuGet: <a href="https://www.nuget.org/packages/Dapper.SimpleSave/" target="_blank">https://www.nuget.org/packages/Dapper.SimpleSave/</a>
 
 You can easily install this library by running the following command:

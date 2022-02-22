@@ -1,6 +1,6 @@
 ---
 PermaID: 1000197
-Name: Update
+Name: Update in Dapper Contrib
 ---
 
 # Dapper Contrib - Update

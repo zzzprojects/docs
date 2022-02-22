@@ -1,6 +1,6 @@
 ---
 PermaID: 1000204
-Name: dapper-insert-and-update
+Name: Insert and Update
 ---
 
 # Dapper - Insert and Update

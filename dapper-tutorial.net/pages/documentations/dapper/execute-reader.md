@@ -1,9 +1,9 @@
 ---
 PermaID: 1000206
-Name: Execute Reader
+Name: Execute Reader Method
 ---
 
-# Dapper - Execute Reader
+# Dapper - Execute Reader Method
 
 ## Description
 

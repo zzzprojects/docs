@@ -1,8 +1,8 @@
 ---
-Name: Parameter TVP
+Name: Table-Valued Parameter
 ---
 
-# Dapper - Parameter TVP
+# Dapper - Table-Valued Parameter
 
 ## Description
 

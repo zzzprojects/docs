@@ -1,4 +1,8 @@
-# Dapper Transaction
+---
+Name: Dapper Transaction Library
+---
+
+# Dapper Transaction Library
 
 ## What's Dapper Transaction?
 
@@ -7,8 +11,6 @@
 It's a simple library to make it easier to work with a transaction.
 
 Everything `Dapper` support, `Dapper Transaction` support it as well (It's only new extension method calling Dapper)
-
-NuGet: https://www.nuget.org/packages/Dapper.Transaction/
 
 GitHub: https://github.com/zzzprojects/Dapper.Transaction
 
@@ -28,6 +30,15 @@ using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlSer
 		transaction.Commit();
 	}
 }
+```
+
+## NuGet Installation
+Dapper.Transaction is only available through NuGet: <a href="https://www.nuget.org/packages/Dapper.Transaction/" target="_blank">https://www.nuget.org/packages/Dapper.Transaction/</a>
+
+You can easily install this library by running the following command:
+
+```csharp
+PM> Install-Package Dapper-Transaction 
 ```
 
 ## Method Supported

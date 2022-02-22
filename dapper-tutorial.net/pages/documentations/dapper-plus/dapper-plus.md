@@ -1,6 +1,6 @@
 ---
 PermaID: 1000202
-Name: Plus
+Name: Getting Started with Dapper Plus
 ---
 
 # Dapper Plus

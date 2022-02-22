@@ -1,9 +1,9 @@
 ---
 PermaID: 1000177
-Name: QuerySingle
+Name: QuerySingle Method
 ---
 
-# Dapper - QuerySingle 
+# Dapper - QuerySingle Method 
 
 ## Description
 QuerySingle method is an extension method that can be called from any object of type IDbConnection. It can execute a query and map the first result and throws an exception if there is not exactly one element in the sequence.

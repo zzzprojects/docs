@@ -1,9 +1,9 @@
 ---
 PermaID: 1000168
-Name: Execute
+Name: Execute Method
 ---
 
-# Dapper - Execute 
+# Dapper - Execute Method
 
 ## Description
 Execute is an extension method that can be called from any object of type IDbConnection. It can execute a command one or multiple times and return the number of affected rows. This method is usually used to execute:

@@ -1,9 +1,9 @@
 ---
 PermaID: 1000200
-Name: step-by-step-tutorial
+Name: Step by Step Dapper Tutorial
 ---
 
-# Step by Step Tutorial 
+# Dapper - Step by Step Tutorial 
 
 ## What is Dapper?
 

@@ -1,14 +1,14 @@
 ---
 PermaID: 1000205
-Name: Extensions
+Name: Dapper Extensions Library
 ---
 
-# DapperExtensions
+# DapperExtensions Library
 
 ## Overview
 DapperExtensions is a small library package which adds basic CRUD operations to Dapper. It also provides a predicate system for more advanced querying scenarios. DapperExtensions will keep your domain classes pure without any attributes or base class inheritance.
 
-## Installation
+## NuGet Installation
 DapperExtensions is only available through NuGet: <a href="http://nuget.org/List/Packages/DapperExtensions" target="_blank">http://nuget.org/List/Packages/DapperExtensions</a>
 
 You can easily install this library by running the following command:

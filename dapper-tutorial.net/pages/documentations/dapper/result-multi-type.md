@@ -1,9 +1,9 @@
 ---
 PermaID: 1000182
-Name: Result Multi Type
+Name: Multi Type Result
 ---
 
-# Dapper - Result Multi-Type 
+# Dapper - Multi-Type Result
 
 ## Description
 ExecuteReader method is an extension method which can be called from any object of type IDbConnection. It can execute a query and map the result to a list of different types.

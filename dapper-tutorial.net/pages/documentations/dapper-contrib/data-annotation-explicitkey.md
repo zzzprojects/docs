@@ -1,6 +1,6 @@
 ---
 PermaID: 1000188
-Name: Data annotation ExplicitKey
+Name: Data annotation ExplicitKey in Dapper Contrib
 ---
 
 # Dapper Contrib - Data Annotation - ExplicitKey

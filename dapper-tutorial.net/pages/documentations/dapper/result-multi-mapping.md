@@ -1,9 +1,9 @@
 ---
 PermaID: 1000180
-Name: Result Multi Mapping
+Name: Multi Mapping Result
 ---
 
-# Dapper - Result Multi-Mapping 
+# Dapper - Multi-Mapping Result
 
 ## Description
 Extension methods can be used to execute a query and map the result to a strongly typed list with relations.

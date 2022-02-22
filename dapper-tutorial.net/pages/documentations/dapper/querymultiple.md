@@ -1,9 +1,9 @@
 ---
 PermaID: 1000176
-Name: QueryMultiple
+Name: QueryMultiple Method
 ---
 
-# Dapper - QueryMultiple 
+# Dapper - QueryMultiple Method
 
 ## Description
 QueryMultiple method is an extension method which can be called from any object of type IDbConnection. It can execute multiple queries within the same command and map results.

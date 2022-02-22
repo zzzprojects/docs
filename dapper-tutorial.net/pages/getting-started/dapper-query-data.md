@@ -1,6 +1,6 @@
 ---
 PermaID: 1000203
-Name: dapper-query-data
+Name: Query Data 
 ---
 
 # Dapper - Query Data 

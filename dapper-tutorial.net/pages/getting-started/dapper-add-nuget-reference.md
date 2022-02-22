@@ -1,6 +1,6 @@
 ---
 PermaID: 1000202
-Name: dapper-add-nuget-reference
+Name: Add Dapper NuGet Reference
 ---
 
 # Dapper - Add NuGet Reference

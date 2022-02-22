@@ -1,9 +1,9 @@
 ---
 PermaID: 1000179
-Name: Result Anonymous
+Name: Anonymous Result
 ---
 
-# Dapper - Result Anonymous 
+# Dapper - Anonymous Result
 
 ## Description
 Extension methods can be used to execute a query and map the result using dynamic.

@@ -1,9 +1,9 @@
 ---
 PermaID: 1000209
-Name: Plus Third Party Library
+Name: Dapper Plus Library
 ---
 
-# Dapper.Plus
+# Dapper.Plus Library
 
 ## Overview
 Dapper.Plus is a small library that you can add to your project which will extend your IDbConnection and IDbTransaction interfaces with high efficient Bulk operations methods.
@@ -15,7 +15,7 @@ Dapper.Plus is a small library that you can add to your project which will exten
 
 Using this library, you can perform saving operations in the **fastest way**. It can be used with or without Dapper, and it is also compatible with all others Dapper packages.
 
-## Installation
+## NuGet Installation
 Dapper.Plus is only available through NuGet: <a href="https://www.nuget.org/packages/Z.Dapper.Plus/" target="_blank">https://www.nuget.org/packages/Z.Dapper.Plus/</a>
 
 You can easily install this library by running the following command:

@@ -1,9 +1,9 @@
 ---
 PermaID: 1000211
-Name: SimpleCrud
+Name: Dapper SimpleCrud Library
 ---
 
-# Dapper.SimpleCRUD
+# Dapper.SimpleCRUD Library
 
 ## Overview
 Dapper.SimpleCRUD is a small library package which adds basic CRUD operations to Dapper. Dapper.SimpleCRUD uses smart defaults without using attributes is your classes, but it can also be overridden as needed.
@@ -12,7 +12,7 @@ Dapper.SimpleCRUD is a small library package which adds basic CRUD operations to
 - By default, queries expect that table name is matching the class name, but you can override it with an attribute.
 - Similarly, queries expect that column name is matching the property name, but you can also override it with an attribute.
 
-## Installation
+## NuGet Installation
 Dapper Extensions is only available through NuGet: <a href="https://www.nuget.org/packages/Dapper.SimpleCRUD/" target="_blank">https://www.nuget.org/packages/Dapper.SimpleCRUD/</a>
 
 You can easily install this library by running the following command:

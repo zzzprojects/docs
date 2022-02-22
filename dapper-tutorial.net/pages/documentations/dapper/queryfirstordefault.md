@@ -1,9 +1,9 @@
 ---
 PermaID: 1000175
-Name: QueryFirstOrDefault
+Name: QueryFirstOrDefault Method
 ---
 
-# Dapper - QueryFirstOrDefault
+# Dapper - QueryFirstOrDefault Method
 
 ## Description
 QueryFirstOrDefault method is an extension method that can be called from any object of type IDbConnection. It can execute a query and map the first result, or a default value if the sequence contains no elements.

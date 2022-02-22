@@ -1,9 +1,9 @@
 ---
 PermaID: 1000172
-Name: Parameter String
+Name: String Parameter
 ---
 
-# Dapper - Parameter String 
+# Dapper - String Parameter 
 
 ## Description
 

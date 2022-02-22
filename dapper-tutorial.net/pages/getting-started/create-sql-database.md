@@ -1,9 +1,9 @@
 ---
 PermaID: 1000199
-Name: create-sql-database
+Name: Create a SQL Database
 ---
 
-# Create SQL Database
+# Dapper - Create a SQL Database
 
 To perform CRUD operations in the database, we must establish a connection with the database using a database connection. 
 

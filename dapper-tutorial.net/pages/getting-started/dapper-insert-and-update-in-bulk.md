@@ -1,6 +1,6 @@
 ---
 PermaID: 1000205
-Name: dapper-insert-and-update-in-bulk
+Name: Insert and Update in Bulk
 ---
 
 # Dapper - Insert and Update in Bulk

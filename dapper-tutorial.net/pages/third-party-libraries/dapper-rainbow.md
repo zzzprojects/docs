@@ -1,9 +1,9 @@
 ---
 PermaID: 1000210
-Name: Rainbow
+Name: Dapper Rainbow Library
 ---
 
-# Dapper.Rainbow
+# Dapper.Rainbow Library
 
 ## Overview
 Dapper.Rainbow is a small library which contains an abstract class that you can add to your project and use as a base class for your Dapper classes to provide CRUD operations, such as inserting, deleting, updating and getting records.
@@ -16,7 +16,7 @@ Dapper.Rainbow is a small library which contains an abstract class that you can 
 
 Dapper.Rainbow is a wrapper for database interactions and will create SQL based on property names and type constraints.
 
-## Installation
+## NuGet Installation
 Dapper.Rainbow is available through NuGet: <a href="https://www.nuget.org/packages/Dapper.Rainbow/" target="_blank">https://www.nuget.org/packages/Dapper.Rainbow/</a>
 
 You can easily install this library by running the following command:

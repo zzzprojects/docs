@@ -1,6 +1,6 @@
 ---
 PermaID: 1000201
-Name: Bulk Update
+Name: Bulk Update in Dapper Plus
 ---
 
 # Dapper Plus - Bulk Update

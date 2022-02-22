@@ -1,9 +1,9 @@
 ---
 PermaID: 1000169
-Name: Parameter Anonymous
+Name: Anonymous Parameter
 ---
 
-# Dapper - Parameter Anonymous 
+# Dapper - Anonymous Parameter
 
 ## Description
 Dapper make it simple & safe (SQL Injection) to use parameter by supporting anonymous type.

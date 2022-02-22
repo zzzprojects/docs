@@ -1,6 +1,6 @@
 ---
 PermaID: 1000186
-Name: Contrib
+Name: Getting Started with Dapper Contrib
 ---
 
 # Dapper Contrib

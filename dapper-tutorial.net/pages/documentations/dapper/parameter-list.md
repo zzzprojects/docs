@@ -1,9 +1,9 @@
 ---
 PermaID: 1000171
-Name: Parameter List
+Name: List Parameter
 ---
 
-# Dapper - Parameter List 
+# Dapper - List Parameter
 
 ## Description
 Dapper allow you to specify multiple parameter on a IN clause by using a list.

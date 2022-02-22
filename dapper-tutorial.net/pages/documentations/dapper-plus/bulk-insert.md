@@ -1,6 +1,6 @@
 ---
 PermaID: 1000199
-Name: Bulk Insert
+Name: Bulk Insert in Dapper Plus
 ---
 
 # Dapper Plus - Bulk Insert

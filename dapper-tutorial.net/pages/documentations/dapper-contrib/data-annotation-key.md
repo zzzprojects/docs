@@ -1,6 +1,6 @@
 ---
 PermaID: 1000189
-Name: Data Annotation Key
+Name: Data Annotation Key in Dapper Contrib
 ---
 
 # Dapper Contrib - Data Annotation - Key

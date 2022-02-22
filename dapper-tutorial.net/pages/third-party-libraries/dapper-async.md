@@ -1,16 +1,16 @@
 ---
 PermaID: 1000203
-Name: Async
+Name: Dapper Async Library
 ---
 
-# Dapper-Async
+# Dapper-Async Library
 
 ## Overview
 Dapper-Async is a small library package which extends the IDbConnection interface with Async (asynchronous) methods. With asynchronous programming, you can enhance the overall responsiveness of your application and also avoid performance bottlenecks. 
 
 To allow asynchronous database queries, dapper has also added a set of QueryAsync methods using .NET Framework 4.5's Task-Based Asynchronous Pattern.
 
-## Installation
+## NuGet Installation
 Dapper-Async is only available through NuGet: <a href="https://www.nuget.org/packages/Dapper-Async/" target="_blank">https://www.nuget.org/packages/Dapper-Async/</a>
 
 You can easily install this library by running the following command:

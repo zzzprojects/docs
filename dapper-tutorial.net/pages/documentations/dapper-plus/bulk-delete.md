@@ -1,6 +1,6 @@
 ---
 PermaID: 1000198
-Name: Bulk Delete
+Name: Bulk Delete in Dapper Plus
 ---
 
 # Dapper Plus - Bulk Delete

@@ -1,9 +1,9 @@
 ---
 PermaID: 1000170
-Name: Parameter Dynamic
+Name: Dynamic Parameter
 ---
 
-# Dapper - Parameter Dynamic
+# Dapper - Dynamic Parameter
 
 ## Description
 Create and use a parameter in a Dapper method.

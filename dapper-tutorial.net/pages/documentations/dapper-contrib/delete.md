@@ -1,6 +1,6 @@
 ---
 PermaID: 1000192
-Name: Delete
+Name: Delete in Dapper Contrib
 ---
 
 # Dapper Contrib - Delete

@@ -1,9 +1,9 @@
 ---
 PermaID: 1000204
-Name: Contrib Third Party Library
+Name: Dapper Contrib Library
 ---
 
-# Dapper.Contrib
+# Dapper.Contrib Library
 
 ## Overview
 Dapper.Contrib is a small library that you can add to your project which will extend IDbConnection interface with additional helper methods for CRUD operations, such as inserting, deleting, updating and getting records.
@@ -12,7 +12,7 @@ Dapper.Contrib has the ability to track your entities and identify if changes ha
 
 If there is any change and you call the Update method, then it will generate the SQL and update only those properties that have been changed.
 
-## Installation
+## NuGet Installation
 Dapper.Contrib is available through NuGet: <a href="https://www.nuget.org/packages/Dapper.Contrib/" target="_blank">https://www.nuget.org/packages/Dapper.Contrib/</a>
 
 You can easily install this library by running the following command:

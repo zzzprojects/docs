@@ -1,6 +1,6 @@
 ---
 PermaID: 1000200
-Name: Bulk Merge
+Name: Bulk Merge in Dapper Plus
 ---
 
 # Dapper Plus - Bulk Merge

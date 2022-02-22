@@ -1,9 +1,9 @@
 ---
 PermaID: 1000183
-Name: Result Strongly Typed
+Name: Strongly Typed Result
 ---
 
-# Dapper - Result Strongly Typed 
+# Dapper - Strongly Typed Result
 
 ## Description
 Extension methods can be used to execute a query and map the result using strongly typed.

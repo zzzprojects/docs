@@ -1,14 +1,14 @@
 ---
 PermaID: 1000208
-Name: Mapper
+Name: Dapper Mapper Library
 ---
 
-# Dapper.Mapper
+# Dapper.Mapper Library
 
 ## Overview
 Dapper.Mapper is a small library which extends Dapper multi-mapping functionality. It allows you to map a single row to multiple objects. This library automatically figures out the relationships between the returned objects and automatically assigns them.
 
-## Installation
+## NuGet Installation
 Dapper.Mapper is available through NuGet: <a href="https://www.nuget.org/packages/Dapper.Mapper/" target="_blank">https://www.nuget.org/packages/Dapper.Mapper/</a>
 
 You can easily install this library by running the following command:

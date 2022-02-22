@@ -1,9 +1,9 @@
 ---
 PermaID: 1000178
-Name: QuerySingleOrDefault
+Name: QuerySingleOrDefault Method
 ---
 
-# Dapper - QuerySingleOrDefault
+# Dapper - QuerySingleOrDefault Method
 
 ## Description
 QuerySingleOrDefault method is an extension method that can be called from any object of type IDbConnection. It can execute a query and map the first result, or a default value if the sequence is empty; this method throws an exception if there is more than one element in the sequence.

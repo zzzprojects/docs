@@ -1,6 +1,6 @@
 ---
 PermaID: 1000194
-Name: Get
+Name: Get in Dapper Contrib
 ---
 
 # Dapper Contrib - Get

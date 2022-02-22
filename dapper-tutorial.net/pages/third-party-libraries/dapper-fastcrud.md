@@ -1,16 +1,16 @@
 ---
 PermaID: 1000206
-Name: FastCrud
+Name: Dapper FastCrud Library
 ---
 
-# Dapper.FastCrud
+# Dapper.FastCrud Library
 
 ## Overview
 Dapper.FastCrud is an extension for Dapper and is based on C# 6 and VB 14 essential features that have finally raised the simplicity of raw SQL constructs to acceptable maintenance levels. 
 
 It is recommended to use Visual Studio 2015 or an equivalent build environment when using features like string interpolation.
 
-## Installation
+## NuGet Installation
 Dapper.FastCrud is available through NuGet: <a href="https://www.nuget.org/packages/Dapper.FastCrud" target="_blank">https://www.nuget.org/packages/Dapper.FastCrud</a>
 
 You can easily install this library by running the following command:

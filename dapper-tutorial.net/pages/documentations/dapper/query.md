@@ -1,9 +1,9 @@
 ---
 PermaID: 1000173
-Name: Query
+Name: Query Method
 ---
 
-# Dapper - Query 
+# Dapper - Query  Method
 
 ## Description
 Query method is an extension method that can be called from any object of type IDbConnection. It can execute a query and map the result.

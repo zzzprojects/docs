@@ -1,6 +1,6 @@
 ---
 PermaID: 1000187
-Name: Data Annotation Computed
+Name: Data Annotation Computed in Dapper Contrib
 ---
 
 # Dapper Contrib - Data Annotation - Computed
