@@ -1,10 +1,9 @@
 ---
 PermaID: 1000174
-Name: QueryFirst
-IsUpdated: 1
+Name: QueryFirst Method
 ---
 
-# Dapper - QueryFirst 
+# Dapper - QueryFirst Method
 
 ## Description
 QueryFirst method is an extension method that can be called from any object of type IDbConnection. It can execute a query and map the first result.
