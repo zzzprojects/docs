@@ -1,3 +1,7 @@
+---
+Name: String_IndexOf
+---
+
 # String_IndexOf
 
 `String_IndexOf` returns the zero-based index of the first occurrence of a `searchValue` Unicode character or string within the `source` string.

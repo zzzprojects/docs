@@ -1,3 +1,7 @@
+---
+Name: DateTime_ToUniversalTime
+---
+
 # DateTime_ToUniversalTime
 
 `DateTime_ToUniversalTime` converts the value of the `currDate` DateTime object to Coordinated Universal Time (UTC) time.

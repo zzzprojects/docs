@@ -1,3 +1,7 @@
+---
+Name: String_PadLeft
+---
+
 # String_PadLeft
 
 `String_PadLeft` returns a new string that right-aligns the characters in the `source` string by padding them on the left with a specified `paddingChar` Unicode character, for a specified total length.

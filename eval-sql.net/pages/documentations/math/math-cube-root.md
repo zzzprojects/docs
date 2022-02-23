@@ -1,3 +1,7 @@
+---
+Name: Math_CubeRoot
+---
+
 # Math_CubeRoot
 
 `Math_CubeRoot` returns the cube root of a specified number.

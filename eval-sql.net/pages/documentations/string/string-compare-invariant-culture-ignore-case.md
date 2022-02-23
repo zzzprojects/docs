@@ -1,3 +1,7 @@
+---
+Name: String_CompareInvariantCultureIgnoreCase
+---
+
 # String_CompareInvariantCultureIgnoreCase
 
 `String_CompareInvariantCultureIgnoreCase` compares two specified String objects using culture-sensitive sort rules, the invariant culture, and ignoring the case of the strings, and returns an integer that indicates their relative position in the sort order.

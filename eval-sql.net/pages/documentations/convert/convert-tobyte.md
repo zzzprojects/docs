@@ -1,3 +1,7 @@
+---
+Name: Convert_ToByte
+---
+
 # Convert_ToByte
 
 `Convert_ToByte` converts the specified string representation of a number to an equivalent 8-bit unsigned integer.

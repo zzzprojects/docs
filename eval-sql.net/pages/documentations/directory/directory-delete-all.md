@@ -1,3 +1,7 @@
+---
+Name: Directory_DeleteAll
+---
+
 # Directory_DeleteAll
 
 `Directory_DeleteAll` deletes a directory from a specified path including subdirectories, and files.

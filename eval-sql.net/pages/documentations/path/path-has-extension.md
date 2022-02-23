@@ -1,3 +1,7 @@
+---
+Name: Path_HasExtension
+---
+
 # Path_HasExtension
 
 `Path_HasExtension` determines whether a path includes a file name extension.

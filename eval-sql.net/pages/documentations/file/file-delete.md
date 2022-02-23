@@ -1,3 +1,7 @@
+---
+Name: File_Delete
+---
+
 # File_Delete
 
 `File_Delete` deletes the specified file.

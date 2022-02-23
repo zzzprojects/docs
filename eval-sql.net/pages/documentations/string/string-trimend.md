@@ -1,3 +1,7 @@
+---
+Name: String_TrimEnd
+---
+
 # String_TrimEnd
 
 `String_TrimEnd` removes all trailing occurrences of a set of characters specified in `charsToTrimStr` string from the the `source` string.

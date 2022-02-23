@@ -1,3 +1,7 @@
+---
+Name: Path_GetExtension
+---
+
 # Path_GetExtension
 
 `Path_GetExtension` returns the extension of the specified path string.

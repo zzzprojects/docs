@@ -1,3 +1,7 @@
+---
+Name: Directory_GetAllFileSystemEntries
+---
+
 # Directory_GetAllFileSystemEntries
 
 `Directory_GetAllFileSystemEntries` returns the names of all files and subdirectories in a specified path.

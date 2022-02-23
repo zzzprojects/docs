@@ -1,3 +1,7 @@
+---
+Name: String_Length
+---
+
 # String_Length
 
 `String_Length` returns the number of characters in the `source` string.

@@ -1,3 +1,7 @@
+---
+Name: Directory_Exists
+---
+
 # Directory_Exists
 
 `Directory_Exists` determines whether the given path refers to an existing directory on disk.

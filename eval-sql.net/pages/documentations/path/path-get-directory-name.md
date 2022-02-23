@@ -1,3 +1,7 @@
+---
+Name: Path_GetDirectoryName
+---
+
 # Path_GetDirectoryName
 
 `Path_GetDirectoryName` returns the directory information for the specified path string.

@@ -1,3 +1,7 @@
+---
+Name: String_IndexOfOrdinal
+---
+
 # String_IndexOfOrdinal
 
 `String_IndexOfOrdinal` returns the zero-based index of the first occurrence of a `searchValue` Unicode character or string within the `source` string using ordinal (binary) sort rules.

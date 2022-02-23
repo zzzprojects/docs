@@ -1,3 +1,7 @@
+---
+Name: File_IsExists
+---
+
 # File_IsExists
 
 `File_IsExists` determines whether the specified file exists.

@@ -1,3 +1,7 @@
+---
+Name: Math_BigMul
+---
+
 # Math_BigMul
 
 `Math_BigMul` produces the full product of two 32-bit numbers.

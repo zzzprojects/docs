@@ -1,3 +1,7 @@
+---
+Name: File_AppendAllText
+---
+
 # File_AppendAllText
 
 `File_AppendAllText` opens a file, appends the specified string to the file, and then closes the file. If the file does not exist, it creates a file, writes the specified string to the file, then closes the file.

@@ -1,3 +1,7 @@
+---
+Name: DateTime_DayOfYear
+---
+
 # DateTime_DayOfYear
 
 `DateTime_DayOfYear` returns day of the year, expressed as a value between 1 and 366 represented by `currDate`.

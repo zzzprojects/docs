@@ -1,3 +1,7 @@
+---
+Name: String_StartsWith
+---
+
 # String_StartsWith
 
 `String_StartsWith` determines whether the beginning of the `source` string instance matches the specified `target` string.

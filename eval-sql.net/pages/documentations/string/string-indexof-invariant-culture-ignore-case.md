@@ -1,3 +1,7 @@
+---
+Name: String_IndexOfInvariantCultureIgnoreCase
+---
+
 # String_IndexOfInvariantCultureIgnoreCase
 
 `String_IndexOfInvariantCultureIgnoreCase` returns the zero-based index of the first occurrence of a `searchValue` Unicode character or string within the `source` string using culture-sensitive sort rules, the invariant culture, and ignoring the case of the strings.

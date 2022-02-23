@@ -1,3 +1,7 @@
+---
+Name: File_GetLastAccessTimeUtc
+---
+
 # File_GetLastAccessTimeUtc
 
 `File_GetLastAccessTimeUtc` returns the date and time, in coordinated universal time (UTC), that the specified file or directory was last accessed.

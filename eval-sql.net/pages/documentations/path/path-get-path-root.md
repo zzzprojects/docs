@@ -1,3 +1,7 @@
+---
+Name: Path_GetPathRoot
+---
+
 # Path_GetPathRoot
 
 `Path_GetPathRoot` returns the root directory information of the specified path.

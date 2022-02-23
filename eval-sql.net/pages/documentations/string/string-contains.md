@@ -1,3 +1,7 @@
+---
+Name: String_Contains
+---
+
 # String_Contains
 
 `String_Contains` returns a value indicating whether a specified substring occurs within this string.

@@ -1,3 +1,7 @@
+---
+Name: File_Replace
+---
+
 # File_Replace
 
 `File_Replace` replaces the contents of a specified file with the contents of another file, deleting the original file, and creating a backup of the replaced file and optionally ignores merge errors.

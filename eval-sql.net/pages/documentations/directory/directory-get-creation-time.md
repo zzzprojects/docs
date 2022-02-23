@@ -1,3 +1,7 @@
+---
+Name: Directory_GetCreationTime
+---
+
 # Directory_GetCreationTime
 
 `Directory_GetCreationTime` returns the creation date and time of a directory.

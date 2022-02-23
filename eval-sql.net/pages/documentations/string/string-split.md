@@ -1,3 +1,7 @@
+---
+Name: String_Split
+---
+
 # String_Split
 
 `String_Split` returns a string array that contains the substrings in the `source` string that are delimited by elements of a specified `delimStr` string.

@@ -1,3 +1,7 @@
+---
+Name: Regex_Escape
+---
+
 # Regex_Escape
 
 `Regex_Escape` escapes a minimal set of characters (\, *, +, ?, |, {, [, (,), ^, $, ., #, and white space) by replacing them with their escape codes. This instructs the regular expression engine to interpret these characters literally rather than as metacharacters.

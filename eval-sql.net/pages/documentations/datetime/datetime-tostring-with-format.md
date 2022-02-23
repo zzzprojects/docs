@@ -1,3 +1,7 @@
+---
+Name: DateTime_ToStringWithFormat
+---
+
 # DateTime_ToStringWithFormat
 
 `DateTime_ToStringWithFormat` converts the value of the current DateTime object to its equivalent string representation using the specified format and the formatting conventions of the current culture.

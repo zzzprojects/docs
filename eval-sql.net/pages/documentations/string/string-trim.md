@@ -1,3 +1,7 @@
+---
+Name: String_Trim
+---
+
 # String_Trim
 
 `String_Trim` removes all leading and trailing white-space characters from the `source` string.

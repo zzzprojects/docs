@@ -1,3 +1,7 @@
+---
+Name: DateTime_ToString
+---
+
 # DateTime_ToString
 
 `DateTime_ToString` converts the value of the current DateTime object to its equivalent string representation.

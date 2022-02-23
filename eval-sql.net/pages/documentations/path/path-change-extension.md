@@ -1,3 +1,7 @@
+---
+Name: Path_ChangeExtension
+---
+
 # Path_ChangeExtension
 
 `Path_ChangeExtension` returns a new string in which all occurrences of a specified `oldValye` Unicode character or String in the `source` string are replaced with another specified `newValue` Unicode character or String.

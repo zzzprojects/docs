@@ -1,3 +1,7 @@
+---
+Name: String_Replace
+---
+
 # String_Replace
 
 `String_Replace` returns a new string in which all occurrences of a specified `oldValye` Unicode character or String in the `source` string are replaced with another specified `newValue` Unicode character or String.

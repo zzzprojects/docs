@@ -1,3 +1,7 @@
+---
+Name: Download
+---
+
 # Download
 
 <div class="page-download-nuget">

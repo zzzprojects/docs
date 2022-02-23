@@ -1,3 +1,7 @@
+---
+Name: String
+---
+
 # String
 
 Represents text as a sequence of UTF-16 code units.

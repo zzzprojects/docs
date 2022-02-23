@@ -1,3 +1,7 @@
+---
+Name: String_CompareOrdinalIgnoreCase
+---
+
 # String_CompareOrdinalIgnoreCase
 
 `String_CompareOrdinalIgnoreCase` compares two specified String objects using ordinal (binary) sort rules and ignoring the case of the strings, and returns an integer that indicates their relative position in the sort order.

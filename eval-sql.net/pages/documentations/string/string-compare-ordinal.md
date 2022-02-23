@@ -1,3 +1,7 @@
+---
+Name: String_CompareOrdinal
+---
+
 # String_CompareOrdinal
 
 `String_CompareOrdinal` compares two specified String objects using ordinal (binary) sort rules, and returns an integer that indicates their relative position in the sort order.

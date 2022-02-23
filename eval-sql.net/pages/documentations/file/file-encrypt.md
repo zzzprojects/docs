@@ -1,3 +1,7 @@
+---
+Name: File_Encrypt
+---
+
 # File_Encrypt
 
 `File_Encrypt` encrypts a file so that only the account used to encrypt the file can decrypt it.

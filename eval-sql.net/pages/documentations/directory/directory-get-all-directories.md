@@ -1,3 +1,7 @@
+---
+Name: Directory_GetAllDirectories
+---
+
 # Directory_GetAllDirectories
 
 `Directory_GetAllDirectories` returns the names of subdirectories (including their paths) in the specified directory.

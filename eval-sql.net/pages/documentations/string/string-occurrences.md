@@ -1,3 +1,7 @@
+---
+Name: String_Occurrences
+---
+
 # String_Occurrences
 
 `String_Occurrences` returns the number of occurrences of `searchValue` in the `source` string.

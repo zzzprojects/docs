@@ -1,3 +1,7 @@
+---
+Name: String_ToUpperInvariant
+---
+
 # String_ToUpperInvariant
 
 `String_ToUpperInvariant` returns a copy of the `source` string converted to uppercase using the casing rules of the invariant culture.

@@ -1,3 +1,7 @@
+---
+Name: String_LastIndexOfOrdinalIgnoreCase
+---
+
 # String_LastIndexOfOrdinalIgnoreCase
 
 `String_LastIndexOfOrdinalIgnoreCase` returns the zero-based index of the last occurrence of a `searchValue` Unicode character or string within the `source` string using ordinal (binary) sort rules and ignoring the case of the strings.

@@ -1,3 +1,7 @@
+---
+Name: Regex
+---
+
 # Regex
 
 Represents an immutable regular expression.

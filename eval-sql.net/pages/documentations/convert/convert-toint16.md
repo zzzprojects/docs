@@ -1,3 +1,7 @@
+---
+Name: Convert_ToInt16
+---
+
 # Convert_ToInt16
 
 `Convert_ToInt16` converts the string representation of a number in a specified base to an equivalent 16-bit signed integer.

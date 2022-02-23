@@ -1,3 +1,7 @@
+---
+Name: String_RemoveNumOfChars
+---
+
 # String_RemoveNumOfChars
 
 `String_RemoveNumOfChars` returns a new string in which a specified number of characters in the `source` beginning at a specified position have been deleted.

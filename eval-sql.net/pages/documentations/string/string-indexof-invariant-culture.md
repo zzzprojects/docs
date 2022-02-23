@@ -1,3 +1,7 @@
+---
+Name: String_IndexOfInvariantCulture
+---
+
 # String_IndexOfInvariantCulture
 
 `String_IndexOfInvariantCulture` returns the zero-based index of the first occurrence of a `searchValue` Unicode character or string within the `source` string using culture-sensitive sort rules and the invariant culture.

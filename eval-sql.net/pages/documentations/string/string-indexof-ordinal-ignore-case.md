@@ -1,3 +1,7 @@
+---
+Name: String_IndexOfOrdinalIgnoreCase
+---
+
 # String_IndexOfOrdinalIgnoreCase
 
 `String_IndexOfOrdinalIgnoreCase` returns the zero-based index of the first occurrence of a `searchValue` Unicode character or string within the `source` string using ordinal (binary) sort rules and ignoring the case of the strings.

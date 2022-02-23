@@ -1,3 +1,7 @@
+---
+Name: String_ToTitleCase
+---
+
 # String_ToTitleCase
 
 `String_ToTitleCase` returns a converted string to title case (except for words that are entirely in uppercase, which are considered to be acronyms).

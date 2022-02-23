@@ -1,3 +1,7 @@
+---
+Name: String_Insert
+---
+
 # String_Insert
 
 `String_Insert` returns a new string in which a `value` string is inserted at a specified index position in the `source` string.

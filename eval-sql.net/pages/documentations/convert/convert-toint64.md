@@ -1,3 +1,7 @@
+---
+Name: Convert_ToInt64
+---
+
 # Convert_ToInt64
 
 `Convert_ToInt64` converts the specified string representation of a number to an equivalent 64-bit signed integer.

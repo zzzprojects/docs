@@ -1,3 +1,7 @@
+---
+Name: Path_GetTempFileName
+---
+
 # Path_GetTempFileName
 
 `Path_GetTempFileName` creates a uniquely named, zero-byte temporary file on disk and returns the full path of that file.

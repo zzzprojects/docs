@@ -1,3 +1,7 @@
+---
+Name: String_Substring
+---
+
 # String_Substring
 
 `String_Substring` returns a substring from this instance. The substring starts at a specified character position and has a specified length.

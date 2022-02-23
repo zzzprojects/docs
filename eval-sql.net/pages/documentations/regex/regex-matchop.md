@@ -1,3 +1,7 @@
+---
+Name: Regex_MatchOp
+---
+
 # Regex_MatchOp
 
 `Regex_MatchOp` searches an input string for a substring that matches a regular expression pattern and returns the first occurrence of that string using the specified matching options.

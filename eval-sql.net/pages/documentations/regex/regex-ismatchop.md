@@ -1,3 +1,7 @@
+---
+Name: Regex_IsMatchOp
+---
+
 # Regex_IsMatchOp
 
 `Regex_IsMatchOp` indicates whether the specified regular expression finds a match in the specified input string using the specified matching options.

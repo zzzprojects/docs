@@ -1,3 +1,7 @@
+---
+Name: Path
+---
+
 # Path
 
 Performs operations on string instances that contain file or directory path information. These operations are performed in a cross-platform manner.

@@ -1,3 +1,7 @@
+---
+Name: Convert_ToDecimal
+---
+
 # Convert_ToDecimal
 
 `Convert_ToDecimal` converts the specified string representation of a number to an equivalent decimal number.

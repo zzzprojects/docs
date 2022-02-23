@@ -1,3 +1,7 @@
+---
+Name: Path_GetFullPath
+---
+
 # Path_GetFullPath
 
 `Path_GetFullPath` returns the absolute path for the specified path string.

@@ -1,3 +1,7 @@
+---
+Name: Getting Started with Arithmetic Expressions
+---
+
 # Arithmetic Expressions
 
 ## Definition

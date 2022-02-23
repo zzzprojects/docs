@@ -1,3 +1,7 @@
+---
+Name: Math_Sinh
+---
+
 # Math_Sinh
 
 `Math_Sinh` returns the hyperbolic sine of the specified angle.

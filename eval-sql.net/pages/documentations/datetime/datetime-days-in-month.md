@@ -1,3 +1,7 @@
+---
+Name: DateTime_DaysInMonth
+---
+
 # DateTime_DaysInMonth
 
 `DateTime_DaysInMonth` returns day of the year, expressed as a value between 1 and 366 represented by `currDate`.

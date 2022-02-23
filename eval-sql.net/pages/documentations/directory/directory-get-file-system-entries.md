@@ -1,3 +1,7 @@
+---
+Name: Directory_GetFileSystemEntries
+---
+
 # Directory_GetFileSystemEntries
 
 `Directory_GetFileSystemEntries` returns a list of all the file names and directory names that match a search pattern in a specified path, and optionally searches subdirectories.

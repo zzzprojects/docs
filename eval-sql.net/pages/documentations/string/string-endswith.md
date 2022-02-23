@@ -1,3 +1,7 @@
+---
+Name: String_EndsWith
+---
+
 # String_EndsWith
 
 `String_EndsWith` determines whether the end of the source string instance matches a target string.

@@ -1,3 +1,7 @@
+---
+Name: Regex_Index
+---
+
 # Regex_Index
 
 `Regex_Index` returns the position in the original string where the first character of the captured substring is found.

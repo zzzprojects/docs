@@ -1,3 +1,7 @@
+---
+Name: Directory_GetFiles
+---
+
 # Directory_GetFiles
 
 `Directory_GetFiles` returns the names of files (including their paths) that match the specified search pattern in the specified directory, using a value to determine whether to search subdirectories.

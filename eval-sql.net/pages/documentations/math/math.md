@@ -1,3 +1,7 @@
+---
+Name: Math
+---
+
 # Math
 
 Provides methods for trigonometric, and other common mathematical functions.

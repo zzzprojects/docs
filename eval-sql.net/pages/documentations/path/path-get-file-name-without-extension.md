@@ -1,3 +1,7 @@
+---
+Name: Path_GetFileNameWithoutExtension
+---
+
 # Path_GetFileNameWithoutExtension
 
 `Path_GetFileNameWithoutExtension` returns the file name and extension of the specified path string without the extension.

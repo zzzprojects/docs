@@ -1,3 +1,7 @@
+---
+Name: DateTime_ToOADate
+---
+
 # DateTime_ToOADate
 
 `DateTime_ToOADate` converts the value of this instance to the equivalent OLE Automation date.

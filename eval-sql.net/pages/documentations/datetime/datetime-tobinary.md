@@ -1,3 +1,7 @@
+---
+Name: DateTime_ToBinary
+---
+
 # DateTime_ToBinary
 
 `DateTime_ToBinary` serializes the `currDate` object to a 64-bit binary value that subsequently can be used to recreate the DateTime object.

@@ -1,3 +1,7 @@
+---
+Name: File_Decrypt
+---
+
 # File_Decrypt
 
 `File_Decrypt` decrypts a file that was encrypted by the current account using the [File_Encrypt](/file_encrypt) procedure.

@@ -1,3 +1,7 @@
+---
+Name: Regex_Match
+---
+
 # Regex_Match
 
 `Regex_Match` searches an input string for a substring that matches a regular expression pattern and returns the first occurrence of that string.

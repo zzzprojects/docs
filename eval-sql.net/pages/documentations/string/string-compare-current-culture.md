@@ -1,3 +1,7 @@
+---
+Name: String_CompareCurrentCulture
+---
+
 # String_CompareCurrentCulture
 
 `String_CompareCurrentCulture` compares two specified String objects using culture-sensitive sort rules and the current culture, and returns an integer that indicates their relative position in the sort order.

@@ -1,3 +1,7 @@
+---
+Name: Directory_GetCreationTimeUtc
+---
+
 # Directory_GetCreationTimeUtc
 
 `Directory_GetCreationTimeUtc` returns the creation date and time, in Coordinated Universal Time (UTC) format, of a directory.

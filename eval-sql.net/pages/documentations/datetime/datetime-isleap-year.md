@@ -1,3 +1,7 @@
+---
+Name: DateTime_IsLeapYear
+---
+
 # DateTime_IsLeapYear
 
 `DateTime_IsLeapYear` returns an indication whether the specified year is a leap year.

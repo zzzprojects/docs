@@ -1,3 +1,7 @@
+---
+Name: File
+---
+
 # File
 
 Provides methods for the creation, copying, deletion, moving, and opening of a single file.

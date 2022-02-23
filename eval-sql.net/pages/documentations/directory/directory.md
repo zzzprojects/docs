@@ -1,3 +1,7 @@
+---
+Name: Directory
+---
+
 # Directory
 
 Provides methods for creating, moving, and enumerating through directories and subdirectories.

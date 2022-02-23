@@ -1,3 +1,7 @@
+---
+Name: DateTime_AddMonths
+---
+
 # DateTime_AddMonths
 
 `DateTime_AddMonths` returns a new DateTime that adds the specified number of months to the value of `currDate`.

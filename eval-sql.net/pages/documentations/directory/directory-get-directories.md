@@ -1,3 +1,7 @@
+---
+Name: Directory_GetDirectories
+---
+
 # Directory_GetDirectories
 
 `Directory_GetDirectories` returns the names of the subdirectories (including their paths) that match the specified search pattern in the specified directory, and optionally searches subdirectories.

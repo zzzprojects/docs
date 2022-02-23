@@ -1,3 +1,7 @@
+---
+Name: String_LastIndexOf
+---
+
 # String_LastIndexOf
 
 `String_LastIndexOf` returns the zero-based index of the last occurrence of a `searchValue` Unicode character or string within the `source` string.

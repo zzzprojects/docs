@@ -1,3 +1,7 @@
+---
+Name: Path_GetRandomFileName
+---
+
 # Path_GetRandomFileName
 
 `Path_GetRandomFileName` returns a random folder name or file name.

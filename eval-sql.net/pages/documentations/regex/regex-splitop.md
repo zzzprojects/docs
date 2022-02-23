@@ -1,3 +1,7 @@
+---
+Name: Regex_SplitOp
+---
+
 # Regex_SplitOp
 
 `Regex_SplitOp` splits an input string into an array of substrings at the positions defined by a regular expression pattern using the specified matching options.

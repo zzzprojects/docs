@@ -1,3 +1,7 @@
+---
+Name: Convert_ToBoolean
+---
+
 # Convert_ToBoolean
 
 `Convert_ToBoolean` converts the specified string representation of a logical value to its Boolean equivalent.

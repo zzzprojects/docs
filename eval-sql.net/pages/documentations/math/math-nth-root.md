@@ -1,3 +1,7 @@
+---
+Name: Math_NthRoot
+---
+
 # Math_NthRoot
 
 `Math_NthRoot` returns the nth root of a specified number.

@@ -1,3 +1,7 @@
+---
+Name: String_TrimStart
+---
+
 # String_TrimStart
 
 `String_TrimStart` removes all leading occurrences of a set of characters specified in `charsToTrimStr` from the the `source` string.

@@ -1,3 +1,7 @@
+---
+Name: Path_Combine
+---
+
 # Path_Combine
 
 `Path_Combine` combines two strings into a path.

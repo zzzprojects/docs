@@ -1,3 +1,7 @@
+---
+Name: String_SplitRemoveEmptyEntries
+---
+
 # String_SplitRemoveEmptyEntries
 
 `String_SplitRemoveEmptyEntries` returns a string array that contains the substrings in the `source` string that are delimited by elements of a specified `delimStr` string. The return value does not include array elements that contain an empty string.

@@ -1,3 +1,7 @@
+---
+Name: String_LastIndexOfOrdinal
+---
+
 # String_LastIndexOfOrdinal
 
 `String_LastIndexOfOrdinal` returns the zero-based index of the last occurrence of a `searchValue` Unicode character or string within the `source` string using ordinal (binary) sort rules.

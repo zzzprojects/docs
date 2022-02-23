@@ -1,3 +1,7 @@
+---
+Name: Path_IsPathRooted
+---
+
 # Path_IsPathRooted
 
 `Path_IsPathRooted` gets a value indicating whether the specified path string contains a root.

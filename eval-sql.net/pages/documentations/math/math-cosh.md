@@ -1,3 +1,7 @@
+---
+Name: Math_Cosh
+---
+
 # Math_Cosh
 
 `Math_Cosh` returns the hyperbolic cosine of the specified angle.

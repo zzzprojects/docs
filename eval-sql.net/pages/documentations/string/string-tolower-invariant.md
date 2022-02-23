@@ -1,3 +1,7 @@
+---
+Name: String_ToLowerInvariant
+---
+
 # String_ToLowerInvariant
 
 `String_ToLowerInvariant` returns a copy of the `source` string converted to lowercase using the casing rules of the invariant culture.

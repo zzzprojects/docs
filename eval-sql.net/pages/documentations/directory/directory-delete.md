@@ -1,3 +1,7 @@
+---
+Name: Directory_Delete
+---
+
 # Directory_Delete
 
 `Directory_Delete` deletes an empty directory from a specified path.

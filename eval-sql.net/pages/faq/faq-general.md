@@ -1,3 +1,7 @@
+---
+Name: FAQ - General
+---
+
 # FAQ - General
 
 ## Which Payment method do you support?

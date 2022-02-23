@@ -1,3 +1,7 @@
+---
+Name: DateTime_ToLocalTime
+---
+
 # DateTime_ToLocalTime
 
 `DateTime_ToLocalTime` converts the value of the `currDate` DateTime object to local time.

@@ -1,3 +1,7 @@
+---
+Name: Regex_Replace
+---
+
 # Regex_Replace
 
 `Regex_Replace` replaces all strings that match a specified regular expression with a specified replacement string. 

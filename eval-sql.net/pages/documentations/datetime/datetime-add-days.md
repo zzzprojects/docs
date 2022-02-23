@@ -1,3 +1,7 @@
+---
+Name: DateTime_AddDays
+---
+
 # DateTime_AddDays
 
 `DateTime_AddDays` returns a new DateTime that adds the specified number of days to the value of `currDate`.

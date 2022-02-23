@@ -1,3 +1,7 @@
+---
+Name: Convert_ToDouble
+---
+
 # Convert_ToDouble
 
 `Convert_ToDouble` converts the specified string representation of a number to an equivalent double-precision floating-point number.

@@ -1,3 +1,7 @@
+---
+Name: Math_RemainderInt32
+---
+
 # Math_RemainderInt32
 
 `Math_RemainderInt32` returns the remainder of two 32-bit signed integers.

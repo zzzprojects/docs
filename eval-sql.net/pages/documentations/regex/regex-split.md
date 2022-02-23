@@ -1,3 +1,7 @@
+---
+Name: Regex_Split
+---
+
 # Regex_Split
 
 `Regex_Split` splits an input string into an array of substrings at the positions defined by a regular expression pattern.

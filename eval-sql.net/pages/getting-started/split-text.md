@@ -1,3 +1,7 @@
+---
+Name: Getting Started with Split Text
+---
+
 # Split Text
 
 ## Definition

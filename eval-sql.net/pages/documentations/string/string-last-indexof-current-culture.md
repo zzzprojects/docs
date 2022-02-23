@@ -1,3 +1,7 @@
+---
+Name: String_LastIndexOfCurrentCulture
+---
+
 # String_LastIndexOfCurrentCulture
 
 `String_LastIndexOfCurrentCulture` returns the zero-based index of the last occurrence of a `searchValue` Unicode character or string within the `source` string using culture-sensitive sort rules and the current culture.

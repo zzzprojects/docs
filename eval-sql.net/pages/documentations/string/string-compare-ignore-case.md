@@ -1,3 +1,7 @@
+---
+Name: String_CompareIgnoreCase
+---
+
 # String_CompareIgnoreCase
 
 `String_CompareIgnoreCase` compares two specified String objects, ignoring or honoring their case, and returns an integer that indicates their relative position in the sort order.

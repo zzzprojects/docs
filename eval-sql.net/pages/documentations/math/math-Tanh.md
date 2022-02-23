@@ -1,3 +1,7 @@
+---
+Name: Math_Tanh
+---
+
 # Math_Tanh
 
 `Math_Tanh` returns the hyperbolic tangent of the specified angle.

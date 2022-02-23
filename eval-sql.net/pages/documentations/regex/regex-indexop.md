@@ -1,3 +1,7 @@
+---
+Name: Regex_IndexOp
+---
+
 # Regex_IndexOp
 
 `Regex_IndexOp` returns the position in the original string where the first character of the captured substring is found using the specified matching options.

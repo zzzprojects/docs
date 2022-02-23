@@ -1,3 +1,7 @@
+---
+Name: File_WriteAllText
+---
+
 # File_WriteAllText
 
 `File_WriteAllText` Creates a new file, write the contents to the file, and then closes the file. If the target file already exists, it is overwritten.

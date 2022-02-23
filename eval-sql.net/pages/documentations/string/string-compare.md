@@ -1,3 +1,7 @@
+---
+Name: String_Compare
+---
+
 # String_Compare
 
 `String_Compare` compares two specified String objects and returns an integer that indicates their relative position in the sort order.

@@ -1,3 +1,7 @@
+---
+Name: String_TrimChars
+---
+
 # String_TrimChars
 
 `String_TrimChars` removes all leading and trailing occurrences of a set of characters specified in `charsToTrimStr` from the the `source` string.

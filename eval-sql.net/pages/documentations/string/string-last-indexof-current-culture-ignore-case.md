@@ -1,3 +1,7 @@
+---
+Name: String_LastIndexOfCurrentCultureIgnoreCase
+---
+
 # String_LastIndexOfCurrentCultureIgnoreCase
 
 `String_LastIndexOfCurrentCultureIgnoreCase` returns the zero-based index of the last occurrence of a `searchValue` Unicode character or string within the `source` string using culture-sensitive sort rules, the current culture, and ignoring the case of the strings.

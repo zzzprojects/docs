@@ -1,3 +1,7 @@
+---
+Name: DateTime_FromBinary
+---
+
 # DateTime_FromBinary
 
 `DateTime_FromBinary` deserializes a 64-bit binary value and recreates an original serialized DateTime object.

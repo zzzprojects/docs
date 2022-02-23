@@ -1,3 +1,7 @@
+---
+Name: DateTime_ToShortTimeString
+---
+
 # DateTime_ToShortTimeString
 
 `DateTime_ToShortTimeString` converts the value of the current DateTime object to its equivalent short time string representation.

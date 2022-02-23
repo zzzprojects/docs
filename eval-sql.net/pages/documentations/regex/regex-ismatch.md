@@ -1,3 +1,7 @@
+---
+Name: Regex_IsMatch
+---
+
 # Regex_IsMatch
 
 `Regex_IsMatch` indicates whether the specified regular expression finds a match in the specified input string.

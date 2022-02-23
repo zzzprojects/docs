@@ -1,3 +1,7 @@
+---
+Name: String_Remove
+---
+
 # String_Remove
 
 `String_Remove` returns a new string in which all the characters in the `source` string, beginning at a specified position are deleted till the end of the `source` string.

@@ -1,3 +1,7 @@
+---
+Name: String_CompareInvariantCulture
+---
+
 # String_CompareInvariantCulture
 
 `String_CompareInvariantCulture` compares two specified String objects using culture-sensitive sort rules and the invariant culture, and returns an integer that indicates their relative position in the sort order.

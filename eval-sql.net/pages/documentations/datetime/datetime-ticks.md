@@ -1,3 +1,7 @@
+---
+Name: DateTime_Ticks
+---
+
 # DateTime_Ticks
 
 `DateTime_Ticks` returns the number of ticks that represent the date and time of the `currDate` instance.

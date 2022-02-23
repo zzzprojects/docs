@@ -1,3 +1,7 @@
+---
+Name: String_ToLower
+---
+
 # String_ToLower
 
 `String_ToLower` returns a copy of the `source` string converted to lowercase.

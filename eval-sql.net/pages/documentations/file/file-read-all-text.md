@@ -1,3 +1,7 @@
+---
+Name: File_ReadAllText
+---
+
 # File_ReadAllText
 
 `File_ReadAllText` 0pens a text file, reads and returns all the text in the file, and then closes the file.

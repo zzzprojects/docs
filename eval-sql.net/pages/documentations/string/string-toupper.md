@@ -1,3 +1,7 @@
+---
+Name: String_ToUpper
+---
+
 # String_ToUpper
 
 `String_ToUpper` returns a copy of the `source` string converted to uppercase.

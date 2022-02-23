@@ -1,3 +1,7 @@
+---
+Name: DateTime_DayOfWeek
+---
+
 # DateTime_DayOfWeek
 
 `DateTime_DayOfWeek` returns the day of the week represented by `currDate`.

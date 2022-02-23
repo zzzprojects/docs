@@ -1,3 +1,7 @@
+---
+Name: DateTime_IsDaylightSavingTime
+---
+
 # DateTime_IsDaylightSavingTime
 
 `DateTime_IsDaylightSavingTime` indicates whether `currDate` instance of DateTime is within the daylight saving time range for the current time zone.

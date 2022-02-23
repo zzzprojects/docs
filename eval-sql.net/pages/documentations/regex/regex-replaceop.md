@@ -1,3 +1,7 @@
+---
+Name: Regex_ReplaceOp
+---
+
 # Regex_ReplaceOp
 
 `Regex_ReplaceOp` replaces all strings that match a specified regular expression with a specified replacement string using the specified matching options.

@@ -1,3 +1,7 @@
+---
+Name: Convert_ToInt32
+---
+
 # Convert_ToInt32
 
 `Convert_ToInt32` converts the specified string representation of a number to an equivalent 32-bit signed integer.

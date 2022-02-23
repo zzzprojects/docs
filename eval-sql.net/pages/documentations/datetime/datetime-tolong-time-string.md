@@ -1,3 +1,7 @@
+---
+Name: DateTime_ToLongTimeString
+---
+
 # DateTime_ToLongTimeString
 
 `DateTime_ToLongTimeString` converts the value of the current DateTime object to its equivalent long time string representation.
