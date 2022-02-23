@@ -1,3 +1,7 @@
+---
+Name: Getting Started with Dapper Plus
+---
+
 # Getting Started
 
 ## What is Dapper Plus?

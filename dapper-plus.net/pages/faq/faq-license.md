@@ -1,3 +1,7 @@
+---
+Name: FAQ - License
+---
+
 # FAQ - License
 
 ## Developer Seat

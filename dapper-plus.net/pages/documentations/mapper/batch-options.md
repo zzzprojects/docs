@@ -1,3 +1,7 @@
+---
+Name: Batch Options
+---
+
 # Batch Options
 
 ## Description

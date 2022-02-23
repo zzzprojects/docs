@@ -1,3 +1,7 @@
+---
+Name: Also Bulk Delete
+---
+
 # Also Bulk Delete
 
 ## Description

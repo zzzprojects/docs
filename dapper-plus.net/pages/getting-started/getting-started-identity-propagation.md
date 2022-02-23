@@ -1,3 +1,7 @@
+---
+Name: Getting Started with Identity Propagation
+---
+
 # Identity Propagation
 
 ## Description

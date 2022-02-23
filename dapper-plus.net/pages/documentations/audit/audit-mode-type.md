@@ -1,3 +1,7 @@
+---
+Name: AuditModeType
+---
+
 # AuditModeType
 
 ## Description

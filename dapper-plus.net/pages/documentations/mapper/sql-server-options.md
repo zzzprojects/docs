@@ -1,3 +1,7 @@
+---
+Name: SQL Server Options
+---
+
 # SQL Server Options
 
 ## Description

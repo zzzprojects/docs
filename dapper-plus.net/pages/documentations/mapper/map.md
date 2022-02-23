@@ -1,3 +1,7 @@
+---
+Name: Map
+---
+
 # Map
 
 ## Description

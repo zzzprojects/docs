@@ -1,3 +1,7 @@
+---
+Name: Entity
+---
+
 # Entity
 
 ## Description

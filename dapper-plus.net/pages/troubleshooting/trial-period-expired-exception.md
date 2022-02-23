@@ -1,3 +1,7 @@
+---
+Name: Trial Period Expired Exception Troubleshoothing
+---
+
 # Trial Period Expired Exception
 
 ## Problem
