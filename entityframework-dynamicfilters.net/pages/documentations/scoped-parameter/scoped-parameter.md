@@ -1,3 +1,7 @@
+---
+Name: Scoped Parameter
+---
+
 # Scoped Parameter
 
 <h2>Scoped Parameter</h2>

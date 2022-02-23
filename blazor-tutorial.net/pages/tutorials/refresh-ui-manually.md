@@ -1,3 +1,7 @@
+---
+Name: Refresh UI Manually
+---
+
 # Refresh UI Manually
 
 By default, Blazor detects a necessary UI refresh automatically in many scenarios like button click etc. However, there are situations in which you want to trigger a UI refresh manually by using the `BlazorComponent.StateHasChanged` method. 

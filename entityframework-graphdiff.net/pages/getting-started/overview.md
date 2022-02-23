@@ -1,3 +1,7 @@
+---
+Name: Getting Started
+---
+
 ## Description
 
 **GraphDiff** is a library that allows the automatic update of a detached graph using Entity Framework code first.

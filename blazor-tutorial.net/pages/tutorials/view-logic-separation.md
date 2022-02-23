@@ -1,3 +1,7 @@
+---
+Name: View Logic Separation
+---
+
 # View Logic Separation
 
 By default, Blazor templates generate view logic code inside the Razor template using `@functions`. 

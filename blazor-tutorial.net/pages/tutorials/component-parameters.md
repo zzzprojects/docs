@@ -1,3 +1,7 @@
+---
+Name: Component Parameters
+---
+
 # Component Parameters
 
 In Blazor, you can add parameters to any component which are defined using non-public properties on the component class by decorating that property with `[Parameter]` attribute. 

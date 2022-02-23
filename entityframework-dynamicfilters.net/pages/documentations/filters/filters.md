@@ -1,3 +1,7 @@
+---
+Name: Filters
+---
+
 # Filters
 
 <h2>Filters</h2>

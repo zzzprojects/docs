@@ -1,3 +1,7 @@
+---
+Name: Blazor Components
+---
+
 # Blazor Components
 
 ## What is a Component

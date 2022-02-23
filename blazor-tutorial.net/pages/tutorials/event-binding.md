@@ -1,3 +1,7 @@
+---
+Name: Event Binding
+---
+
 # Event Binding
 
 Event binding is quite limited in Blazor. Currently, only `onclick` and `onchange` are supported. You can find more details in the [Blazor GitHub](https://github.com/aspnet/Blazor/issues/503).

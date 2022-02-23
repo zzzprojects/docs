@@ -1,3 +1,7 @@
+---
+Name: SetFilterGlobalParameterValue
+---
+
 # SetFilterGlobalParameterValue
 
 ## Description

@@ -1,4 +1,8 @@
-﻿# Invoke JavaScript Functions
+﻿---
+Name: Invoke JavaScript Functions
+---
+
+# Invoke JavaScript Functions
 
 Blazor is a frontend framework, but it has no direct access to the browser’s DOM API. 
   

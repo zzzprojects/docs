@@ -1,3 +1,7 @@
+---
+Name: Layout
+---
+
 # Layout
 
 Typically, modern web applications contain more than one page with certain layout elements such as menus, logos, copyright messages, etc. which are present on all pages. 

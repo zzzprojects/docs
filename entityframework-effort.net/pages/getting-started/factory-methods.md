@@ -1,3 +1,7 @@
+---
+Name: Factory Methods
+---
+
 # Factory Methods
 
 ## Description

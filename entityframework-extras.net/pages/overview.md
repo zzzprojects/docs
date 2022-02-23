@@ -1,3 +1,7 @@
+---
+Name: Getting Started
+---
+
 # Getting Started Entity Framework Extras
 
 ## Introduction

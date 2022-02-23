@@ -1,3 +1,7 @@
+---
+Name: Data Binding
+---
+
 # Data Binding
 
 In Blazor, you can bind data to both components and DOM elements using the `bind` attribute. 

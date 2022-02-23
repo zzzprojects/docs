@@ -1,3 +1,7 @@
+---
+Name: Dependency Injection
+---
+
 # Dependency Injection
 
 Dependency Injection (DI) is a technique for achieving Inversion of Control (IoC) between classes and their dependencies. In other words, it is a technique for accessing services configured in a central location.

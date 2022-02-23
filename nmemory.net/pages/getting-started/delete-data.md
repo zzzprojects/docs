@@ -1,3 +1,7 @@
+---
+Name: Delete Data
+---
+
 # Delete Data
 
 ## Description

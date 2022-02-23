@@ -1,3 +1,7 @@
+---
+Name: Attach Single Entity
+---
+
 ## Description
 
 GraphDiff merges an entire graph of detached entities into the database using **DbContext.UpdateGraph()**.

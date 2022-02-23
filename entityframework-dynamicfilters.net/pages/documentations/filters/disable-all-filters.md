@@ -1,3 +1,7 @@
+---
+Name: DisableAllFilters
+---
+
 # DisableAllFilters
 
 ## Description

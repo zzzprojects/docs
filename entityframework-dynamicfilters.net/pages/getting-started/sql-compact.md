@@ -1,3 +1,7 @@
+---
+Name: SQL Compact
+---
+
 # SQL Compact
 
 ## SQL Server CE Support

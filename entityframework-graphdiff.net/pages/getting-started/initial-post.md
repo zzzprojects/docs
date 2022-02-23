@@ -1,3 +1,7 @@
+---
+Name: Initial Post
+---
+
 ## Description
 
 Source: https://refactorthis.wordpress.com/2012/12/11/introducing-graphdiff-for-entity-framework-code-first-allowing-automated-updates-of-a-graph-of-detached-entities/

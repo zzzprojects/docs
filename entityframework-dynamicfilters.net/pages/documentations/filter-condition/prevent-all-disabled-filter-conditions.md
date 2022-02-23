@@ -1,3 +1,7 @@
+---
+Name: PreventAllDisabledFilterConditions
+---
+
 # PreventAllDisabledFilterConditions
 
 ## Description
