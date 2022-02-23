@@ -1,3 +1,7 @@
+---
+Name: Query Include Optimized
+---
+
 # Query Include Optimized
 
 ## Description

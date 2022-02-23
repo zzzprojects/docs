@@ -1,4 +1,5 @@
 ---
+Name: Delete from Query
 CanonicalLink: https://entityframework-extensions.net/delete-from-query
 ---
 

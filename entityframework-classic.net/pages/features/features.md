@@ -1,3 +1,7 @@
+---
+Name: Features
+---
+
 # Features
 
 EF Classic is an `EF6` fork that supports both frameworks:

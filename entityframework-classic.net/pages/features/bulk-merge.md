@@ -1,4 +1,5 @@
 ---
+Name: Bulk Merge
 CanonicalLink: https://entityframework-extensions.net/bulk-merge
 ---
 

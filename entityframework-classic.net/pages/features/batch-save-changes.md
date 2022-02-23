@@ -1,4 +1,5 @@
 ---
+Name: Batch SaveChanges
 CanonicalLink: https://entityframework-extensions.net/batch-savechanges
 ---
 

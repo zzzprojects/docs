@@ -1,3 +1,7 @@
+---
+Name: Trial Troubleshooting
+---
+
 # Trial
 
 Oops! Your trial has expired.

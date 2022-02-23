@@ -1,4 +1,5 @@
 ---
+Name: LINQ Dynamic
 CanonicalLink: https://entityframework-extensions.net/linq-dynamic
 ---
 

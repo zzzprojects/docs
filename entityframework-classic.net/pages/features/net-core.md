@@ -1,3 +1,7 @@
+---
+Name: .NET Core Support
+---
+
 # .NET Core Support
 
 ## Description

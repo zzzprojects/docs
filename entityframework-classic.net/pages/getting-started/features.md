@@ -1,3 +1,7 @@
+---
+Name: Getting Started with Features
+---
+
 # Features
 
 EF Classic has been released on 2018-07-01. The current beta version doesn't have any new features yet, but we are planning to integrate or support features from all our third-party libraries and more:

@@ -1,4 +1,5 @@
 ---
+Name: Bulk Delete
 CanonicalLink: https://entityframework-extensions.net/bulk-delete
 ---
 

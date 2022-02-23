@@ -1,4 +1,5 @@
 ---
+Name: Bulk Synchronize
 CanonicalLink: https://entityframework-extensions.net/bulk-synchronize
 ---
 

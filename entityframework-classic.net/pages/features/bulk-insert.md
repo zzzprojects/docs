@@ -1,4 +1,5 @@
 ---
+Name: Bulk Insert
 CanonicalLink: https://entityframework-extensions.net/bulk-insert
 ---
 

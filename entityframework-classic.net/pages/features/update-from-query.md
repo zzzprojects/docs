@@ -1,4 +1,5 @@
 ---
+Name: Update from Query
 CanonicalLink: https://entityframework-extensions.net/update-from-query
 ---
 

@@ -1,3 +1,7 @@
+---
+Name: Misc
+---
+
 # Misc
 
 ## SQL Server && DateTime2

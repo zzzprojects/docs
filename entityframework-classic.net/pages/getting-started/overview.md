@@ -1,3 +1,7 @@
+---
+Name: Getting Started with EF Classic
+---
+
 # Overview
 
 ## Description

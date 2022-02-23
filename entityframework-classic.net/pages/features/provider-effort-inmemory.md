@@ -1,3 +1,7 @@
+---
+Name: Effort (In Memory) Provider
+---
+
 # Effort (In Memory) Provider
 
 ## Description

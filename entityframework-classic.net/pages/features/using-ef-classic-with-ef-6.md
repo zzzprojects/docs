@@ -1,3 +1,7 @@
+---
+Name: Using EF Classic with EF 6
+---
+
 # Using EF Classic with EF 6
 
 ## Description

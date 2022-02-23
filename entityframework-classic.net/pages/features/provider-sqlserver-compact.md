@@ -1,3 +1,7 @@
+---
+Name: SqlServer Compact Provider
+---
+
 # SqlServer Compact Provider
 
 ## Description

@@ -1,4 +1,5 @@
 ---
+Name: Bulk Update
 CanonicalLink: https://entityframework-extensions.net/bulk-update
 ---
 

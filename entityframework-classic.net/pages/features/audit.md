@@ -1,4 +1,5 @@
 ---
+Name: Audit
 CanonicalLink: https://entityframework-extensions.net/audit
 ---
 
