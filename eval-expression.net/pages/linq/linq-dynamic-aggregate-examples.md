@@ -1,3 +1,7 @@
+---
+Name: LINQ Dynamic - Aggregate
+---
+
 # LINQ Dynamic - Aggregate
 
 ## LINQ Dynamic Aggregate Examples

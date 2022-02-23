@@ -1,3 +1,7 @@
+---
+Name: LINQ Dynamic - Where
+---
+
 # LINQ Dynamic - Where
 
 ## LINQ Dynamic Where Examples

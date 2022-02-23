@@ -1,3 +1,7 @@
+---
+Name: Examples
+---
+
 # Examples
 
 ### C# Eval Expression - Examples

@@ -1,4 +1,8 @@
-# Eval.Compile
+---
+Name: Eval.Compile Method
+---
+
+# Eval.Compile Method
 
 ## Description
 Compile a C# expression and return a delegate.

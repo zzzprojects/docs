@@ -1,3 +1,7 @@
+---
+Name: LINQ Dynamic - Union
+---
+
 # LINQ Dynamic - Union
 
 ## LINQ Dynamic Union Examples

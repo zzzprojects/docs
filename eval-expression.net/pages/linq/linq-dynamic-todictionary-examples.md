@@ -1,3 +1,7 @@
+---
+Name: LINQ Dynamic - ToDictionary
+---
+
 # LINQ Dynamic - ToDictionary
 
 ## LINQ Dynamic ToDictionary Examples

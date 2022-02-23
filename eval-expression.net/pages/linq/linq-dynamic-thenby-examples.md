@@ -1,3 +1,7 @@
+---
+Name: LINQ Dynamic - ThenBy
+---
+
 # LINQ Dynamic - ThenBy
 
 ## LINQ Dynamic ThenBy Examples

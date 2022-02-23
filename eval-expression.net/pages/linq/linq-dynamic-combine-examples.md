@@ -1,3 +1,7 @@
+---
+Name: LINQ Dynamic - Combine
+---
+
 # LINQ Dynamic - Combine
 
 ## LINQ Dynamic Combine Examples

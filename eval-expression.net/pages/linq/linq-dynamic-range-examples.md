@@ -1,3 +1,7 @@
+---
+Name: LINQ Dynamic - Range
+---
+
 # LINQ Dynamic - Range
 
 ## LINQ Dynamic Range Examples

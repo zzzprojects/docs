@@ -1,3 +1,7 @@
+---
+Name: LINQ Dynamic - Repeat
+---
+
 # LINQ Dynamic - Repeat
 
 ## LINQ Dynamic Repeat Examples

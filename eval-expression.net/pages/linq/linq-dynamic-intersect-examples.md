@@ -1,3 +1,7 @@
+---
+Name: LINQ Dynamic - Intersect
+---
+
 # LINQ Dynamic - Intersect
 
 ## LINQ Dynamic Intersect Examples

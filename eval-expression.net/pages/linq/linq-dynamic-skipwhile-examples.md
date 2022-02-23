@@ -1,3 +1,7 @@
+---
+Name: LINQ Dynamic - SkipWhile
+---
+
 # LINQ Dynamic - SkipWhile
 
 ## LINQ Dynamic SkipWhile Examples

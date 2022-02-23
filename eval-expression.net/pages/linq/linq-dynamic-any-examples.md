@@ -1,3 +1,7 @@
+---
+Name: LINQ Dynamic - Any
+---
+
 # LINQ Dynamic - Any
 
 ## LINQ Dynamic Any Examples

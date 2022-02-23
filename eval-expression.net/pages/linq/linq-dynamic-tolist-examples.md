@@ -1,3 +1,7 @@
+---
+Name: LINQ Dynamic - ToList
+---
+
 # LINQ Dynamic - ToList
 
 ## LINQ Dynamic ToList Examples

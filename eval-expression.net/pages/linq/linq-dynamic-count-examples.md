@@ -1,3 +1,7 @@
+---
+Name: LINQ Dynamic - Count
+---
+
 # LINQ Dynamic - Count
 
 ## LINQ Dynamic Count Examples

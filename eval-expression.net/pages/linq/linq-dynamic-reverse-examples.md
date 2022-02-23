@@ -1,3 +1,7 @@
+---
+Name: LINQ Dynamic - Reverse
+---
+
 # LINQ Dynamic - Reverse
 
 ## LINQ Dynamic Reverse Examples

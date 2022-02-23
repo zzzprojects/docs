@@ -1,3 +1,7 @@
+---
+Name: LINQ Dynamic - Select
+---
+
 # LINQ Dynamic - Select
 
 ## LINQ Dynamic Select Examples

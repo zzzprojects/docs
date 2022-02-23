@@ -1,3 +1,7 @@
+---
+Name: LINQ Dynamic - Except
+---
+
 # LINQ Dynamic - Except
 
 ## LINQ Dynamic Except Examples

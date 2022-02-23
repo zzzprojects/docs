@@ -1,3 +1,7 @@
+---
+Name: LINQ Dynamic - Sum
+---
+
 # LINQ Dynamic - Sum
 
 ## LINQ Dynamic Sum Examples

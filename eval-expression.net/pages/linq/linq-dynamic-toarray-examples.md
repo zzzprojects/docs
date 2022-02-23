@@ -1,3 +1,7 @@
+---
+Name: LINQ Dynamic - ToArray
+---
+
 # LINQ Dynamic - ToArray
 
 ## LINQ Dynamic ToArray Examples

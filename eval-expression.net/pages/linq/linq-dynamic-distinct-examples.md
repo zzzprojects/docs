@@ -1,3 +1,7 @@
+---
+Name: LINQ Dynamic - Distinct
+---
+
 # LINQ Dynamic - Distinct
 
 ## LINQ Dynamic Distinct Examples

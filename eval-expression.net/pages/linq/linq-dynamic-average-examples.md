@@ -1,3 +1,7 @@
+---
+Name: LINQ Dynamic - Average
+---
+
 # LINQ Dynamic - Average
 
 ## LINQ Dynamic Average Examples

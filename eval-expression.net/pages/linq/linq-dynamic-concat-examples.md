@@ -1,3 +1,7 @@
+---
+Name: LINQ Dynamic - Concat
+---
+
 # LINQ Dynamic - Concat
 
 ## LINQ Dynamic Concat Examples

@@ -1,3 +1,7 @@
+---
+Name: LINQ Dynamic - Max
+---
+
 # LINQ Dynamic - Max
 
 ## LINQ Dynamic Max Examples

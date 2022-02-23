@@ -1,3 +1,7 @@
+---
+Name: LINQ Dynamic - First
+---
+
 # LINQ Dynamic - First
 
 ## LINQ Dynamic First Examples

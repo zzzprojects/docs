@@ -1,4 +1,8 @@
-# Compile & Execute
+---
+Name: Compile & Execute Methods
+---
+
+# Compile & Execute Methods
 
 ## Description
 Compile and execute a C# expression at runtime.

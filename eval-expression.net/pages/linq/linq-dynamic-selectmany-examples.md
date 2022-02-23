@@ -1,3 +1,7 @@
+---
+Name: LINQ Dynamic - SelectMany
+---
+
 # LINQ Dynamic - SelectMany
 
 ## LINQ Dynamic SelectMany Examples

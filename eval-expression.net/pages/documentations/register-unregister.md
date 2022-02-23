@@ -1,4 +1,8 @@
-# Register & Unregister
+---
+Name: Register & Unregister Methods
+---
+
+# Register & Unregister Methods
 
 ## Description
 Register and unregister assembly, constant, method, type, and more.

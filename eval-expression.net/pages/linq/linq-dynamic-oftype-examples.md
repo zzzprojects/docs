@@ -1,3 +1,7 @@
+---
+Name: LINQ Dynamic - OfType
+---
+
 # LINQ Dynamic - OfType
 
 ## LINQ Dynamic OfType Examples

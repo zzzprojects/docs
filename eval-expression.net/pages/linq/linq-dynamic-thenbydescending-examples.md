@@ -1,3 +1,7 @@
+---
+Name: LINQ Dynamic - ThenByDescending
+---
+
 # LINQ Dynamic - ThenByDescending
 
 ## LINQ Dynamic ThenByDescending Examples

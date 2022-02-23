@@ -1,3 +1,7 @@
+---
+Name: LINQ Dynamic - TakeWhile
+---
+
 # LINQ Dynamic - TakeWhile
 
 ## LINQ Dynamic TakeWhile Examples

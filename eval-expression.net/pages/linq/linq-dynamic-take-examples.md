@@ -1,3 +1,7 @@
+---
+Name: LINQ Dynamic - Take
+---
+
 # LINQ Dynamic - Take
 
 ## LINQ Dynamic Take Examples

@@ -1,3 +1,7 @@
+---
+Name: LINQ Dynamic - GroupBy
+---
+
 # LINQ Dynamic - GroupBy
 
 ## LINQ Dynamic GroupBy Examples

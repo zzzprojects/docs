@@ -1,4 +1,8 @@
-# String Extensions
+---
+Name: String Extensions Methods
+---
+
+# String Extensions Methods
 
 ## Description
 Extend the String class with methods to Execute & Compile C# expression.

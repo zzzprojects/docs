@@ -1,3 +1,7 @@
+---
+Name: LINQ Dynamic - Min
+---
+
 # LINQ Dynamic - Min
 
 ## LINQ Dynamic Min Examples

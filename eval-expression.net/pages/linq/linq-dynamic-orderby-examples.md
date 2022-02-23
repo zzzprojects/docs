@@ -1,3 +1,7 @@
+---
+Name: LINQ Dynamic - OrderBy
+---
+
 # LINQ Dynamic - OrderBy
 
 ## LINQ Dynamic OrderBy Examples

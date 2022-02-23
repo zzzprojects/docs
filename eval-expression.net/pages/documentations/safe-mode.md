@@ -1,4 +1,8 @@
-# Safe Mode
+---
+Name: Safe Mode Option
+---
+
+# Safe Mode Option
 
 ### Problem
 You want to allow your users to create and evaluate some generic expression. However, you need to limit access on what user can do!

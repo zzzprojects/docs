@@ -1,3 +1,7 @@
+---
+Name: LINQ Dynamic - OrderByDescending
+---
+
 # LINQ Dynamic - OrderByDescending
 
 ## LINQ Dynamic OrderByDescending Examples

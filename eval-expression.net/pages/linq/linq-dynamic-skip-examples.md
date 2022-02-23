@@ -1,3 +1,7 @@
+---
+Name: LINQ Dynamic - Skip
+---
+
 # LINQ Dynamic - Skip
 
 ## LINQ Dynamic Skip Examples

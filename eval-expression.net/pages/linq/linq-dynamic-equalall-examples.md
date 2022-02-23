@@ -1,3 +1,7 @@
+---
+Name: LINQ Dynamic - EqualAll
+---
+
 # LINQ Dynamic - EqualAll
 
 ## LINQ Dynamic EqualAll Examples
