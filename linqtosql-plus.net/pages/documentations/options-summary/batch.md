@@ -1,3 +1,7 @@
+---
+Name: Batch
+---
+
 # Batch
 
 ### BatchSize

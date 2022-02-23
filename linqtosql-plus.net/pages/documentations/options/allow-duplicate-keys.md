@@ -1,3 +1,7 @@
+---
+Name: AllowDuplicateKeys
+---
+
 # AllowDuplicateKeys
 
 ## Description

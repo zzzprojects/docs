@@ -1,3 +1,7 @@
+---
+Name: Logging
+---
+
 # Logging
 
 ## Log

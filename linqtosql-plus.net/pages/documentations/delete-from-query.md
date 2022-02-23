@@ -1,3 +1,7 @@
+---
+Name: Delete from Query
+---
+
 # Delete from Query
 
 ## Description

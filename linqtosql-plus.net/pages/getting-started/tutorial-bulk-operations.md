@@ -1,3 +1,7 @@
+---
+Name: Getting started with Bulk Operations
+---
+
 # Batch Operations
 
 ## Definition

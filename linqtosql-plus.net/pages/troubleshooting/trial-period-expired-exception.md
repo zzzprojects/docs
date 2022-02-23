@@ -1,3 +1,7 @@
+---
+Name: Trial Expired Troubleshooting
+---
+
 # Trial Expired
 
 ## Problem

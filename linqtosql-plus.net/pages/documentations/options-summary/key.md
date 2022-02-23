@@ -1,3 +1,7 @@
+---
+Name: Key
+---
+
 # Key
 
 ## AllowDuplicateKeys

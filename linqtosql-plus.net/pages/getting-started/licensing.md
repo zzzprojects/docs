@@ -1,3 +1,7 @@
+---
+Name: Getting started with Licensing
+---
+
 # Licensing
 
 ## Evaluation Period

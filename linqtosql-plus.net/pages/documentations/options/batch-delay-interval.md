@@ -1,3 +1,7 @@
+---
+Name: BatchDelayInterval
+---
+
 # BatchDelayInterval
 
 ## Description

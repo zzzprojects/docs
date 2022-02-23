@@ -1,3 +1,7 @@
+---
+Name: Pricing
+---
+
 # Purchase
 
 <!-- validation !-->
