@@ -1,3 +1,7 @@
+---
+Name: Insert from Query
+---
+
 # Insert from Query
 
 ## Definition

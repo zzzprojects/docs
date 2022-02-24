@@ -1,3 +1,7 @@
+---
+Name: Contact us
+---
+
 # Contact us
 
 ## I have a question! What should I do?

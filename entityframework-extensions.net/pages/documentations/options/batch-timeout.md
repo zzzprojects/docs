@@ -1,4 +1,8 @@
-# BatchTimeout
+---
+Name: Batch Timeout
+---
+
+# Batch Timeout
 
 ## Description
 

@@ -1,4 +1,8 @@
-# Batch-size
+---
+Name: Batch Size
+---
+
+# Batch Size
 
 ## Description
 

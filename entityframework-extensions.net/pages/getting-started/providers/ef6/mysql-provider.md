@@ -1,4 +1,8 @@
-# MySql Provider
+---
+Name: EF6 - MySql Provider
+---
+
+# EF6 - MySql Provider
 
 MySQL is an open-source relational database management system (RDBMS) and it is known for its quick processing, proven reliability, ease and flexibility of use.
 

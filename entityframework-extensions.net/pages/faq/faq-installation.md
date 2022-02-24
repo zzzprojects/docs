@@ -1,3 +1,7 @@
+---
+Name: FAQ - Installation
+---
+
 # FAQ - Installation
 
 ## How to install your product?

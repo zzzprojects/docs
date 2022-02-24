@@ -1,4 +1,8 @@
-# SQL Server Provider
+---
+Name: EF Core - SQL Server Provider
+---
+
+# EF Core - SQL Server Provider
 
 Microsoft SQL Server is a relational database management system (RDBMS) that supports a wide variety of transaction processing, business intelligence and analytic applications in corporate IT environments.
 

@@ -1,4 +1,8 @@
-# SQL Server Provider
+---
+Name: EF6 - SQL Server Provider
+---
+
+# EF6 - SQL Server Provider
 
 Microsoft SQL Server is a relational database management system (RDBMS) that supports a wide variety of transaction processing, business intelligence and analytic applications in corporate IT environments.
 

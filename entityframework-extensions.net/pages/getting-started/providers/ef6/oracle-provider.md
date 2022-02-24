@@ -1,4 +1,8 @@
-# Oracle Provider
+---
+Name: EF6 - Oracle Provider
+---
+
+# EF6 - Oracle Provider
 
 Oracle Database is the first database designed for enterprise grid computing, the most flexible and cost-effective way to manage information and applications.
 

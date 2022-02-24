@@ -1,3 +1,7 @@
+---
+Name: PreBulkSynchronize
+---
+
 # PreBulkSynchronize
 
 ## Description

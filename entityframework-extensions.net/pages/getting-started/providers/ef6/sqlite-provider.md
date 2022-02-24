@@ -1,4 +1,8 @@
-# SQLite Provider
+---
+Name: EF6 - SQLite Provider
+---
+
+# EF6 - SQLite Provider
 
 SQLite is a software library that implements a self-contained, serverless, zero-configuration, transactional SQL database engine.
 

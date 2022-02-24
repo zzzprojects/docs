@@ -1,4 +1,8 @@
-# Effort Provider
+---
+Name: EF6 - Effort Provider
+---
+
+# EF6 - Effort Provider
 
 Effort (Entity Framework Fake ObjectContext Realization Tool) is the official In-Memory provider for Entity Framework Classic. 
 

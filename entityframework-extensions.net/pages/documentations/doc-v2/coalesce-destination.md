@@ -1,3 +1,7 @@
+---
+Name: Coalesce Destination
+---
+
 # Coalesce Destination
 
 ## Description

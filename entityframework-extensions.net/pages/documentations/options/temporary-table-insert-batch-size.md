@@ -1,3 +1,7 @@
+---
+Name: TemporaryTableInsertBatchSize
+---
+
 # TemporaryTableInsertBatchSize
 
 ## Description

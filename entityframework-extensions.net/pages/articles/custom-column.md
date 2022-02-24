@@ -1,3 +1,7 @@
+---
+Name: Use Custom Column
+---
+
 # Use Custom Column
 
 ## Problem

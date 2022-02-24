@@ -1,3 +1,7 @@
+---
+Name: Context Factory
+---
+
 # Context Factory
 
 The context factory is required to provide a working context to the EFE library. For example, this context will be used to retrieve some information by attaching/detaching entities without impacting the current context.

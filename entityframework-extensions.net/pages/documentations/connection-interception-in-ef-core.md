@@ -1,5 +1,6 @@
 ---
 Permalink: connection-interception-in-ef-core
+Name: Connection Interception
 ---
 
 # Connection Interception

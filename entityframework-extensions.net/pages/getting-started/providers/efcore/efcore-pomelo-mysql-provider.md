@@ -1,4 +1,8 @@
-# Pomelo.EntityFrameworkCore.MySql Provider
+---
+Name: EF Core - Pomelo.EntityFrameworkCore.MySql Provider
+---
+
+# EF Core - Pomelo.EntityFrameworkCore.MySql Provider
 
 `Pomelo.EntityFrameworkCore.MySql` is an Entity Framework Core provider built on top of [MySqlConnector](https://github.com/mysql-net/MySqlConnector) that enables the use of the Entity Framework Core ORM with MySQL.
 

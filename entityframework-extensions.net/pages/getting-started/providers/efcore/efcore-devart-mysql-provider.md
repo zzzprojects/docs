@@ -1,4 +1,8 @@
-# DevArt MySQL Provider
+---
+Name: EF Core - DevArt MySQL Provider
+---
+
+# EF Core - DevArt MySQL Provider
 
 The dotConnect for MySQL is an enhanced ORM-enabled data provider for MySQL that builds on the ADO.NET technology to present a complete solution for developing MySQL-based database applications. 
 

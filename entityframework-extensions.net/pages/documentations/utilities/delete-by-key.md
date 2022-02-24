@@ -1,3 +1,7 @@
+---
+Name: Delete By Key
+---
+
 # Delete By Key
 
 The `DeleteByKey` is a `DbSet<TEntity>` extension method that deletes an entity by using the value from an existing entity or directly key values. 

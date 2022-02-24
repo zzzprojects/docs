@@ -1,3 +1,7 @@
+---
+Name: BulkInsert vs BulkSaveChanges
+---
+
 # BulkInsert vs BulkSaveChanges
 
 ## What's the difference between BulkInsert and BulkSaveChanges?

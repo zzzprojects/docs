@@ -1,4 +1,8 @@
-# Entity Framework Profiler
+---
+Name: EF6 - Entity Framework Profiler
+---
+
+# EF6 - Entity Framework Profiler
 
 Entity Framework Profiler is a real-time visual debugger which allows you to gain valuable insight and perspective of your Entity Framework usage.
 

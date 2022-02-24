@@ -1,3 +1,7 @@
+---
+Name: Type not Supported Troubleshooting
+---
+
 # Type not Supported
 
 ## Problem

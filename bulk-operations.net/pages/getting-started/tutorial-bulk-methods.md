@@ -1,3 +1,7 @@
+---
+Name: Getting Started with Bulk Methods
+---
+
 # Bulk Methods
 
 ## Description

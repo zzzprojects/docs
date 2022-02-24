@@ -1,3 +1,7 @@
+---
+Name: Contact us
+---
+
 # Contact us
 
 <div class="container " style="margin-top: 60px;">

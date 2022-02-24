@@ -1,3 +1,7 @@
+---
+Name: Installation
+---
+
 # Installation
 
 ## How to I Install your product?

@@ -1,3 +1,7 @@
+---
+Name: Log
+---
+
 # Log
 
 ## Log Options

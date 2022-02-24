@@ -1,3 +1,7 @@
+---
+Name: Delete Range By Key
+---
+
 # Delete Range By Key
 
 The `DeleteRangeByKey` is a `DbSet<TEntity>` extension method that deletes multiple entities by using the value from existing entities. 

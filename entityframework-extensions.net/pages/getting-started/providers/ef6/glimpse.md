@@ -1,4 +1,8 @@
-# Glimpse
+---
+Name: EF6 - Glimpse
+---
+
+# EF6 - Glimpse
 
 Glimpse is a web debugging and diagnostics tool used to gain a better understanding of what's happening inside of your ASP.NET web application.
 

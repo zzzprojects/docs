@@ -1,4 +1,8 @@
-# SQL Server Compact Provider
+---
+Name: EF6 - SQL Server Compact Provider
+---
+
+# EF6 - SQL Server Compact Provider
 
 Microsoft SQL Server Compact (SQL CE) is a compact relational database produced by Microsoft for applications that run on mobile devices and desktops.
 

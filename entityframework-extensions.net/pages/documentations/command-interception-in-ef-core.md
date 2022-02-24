@@ -1,5 +1,6 @@
 ---
 Permalink: command-interception-in-ef-core
+Name: What is Command Interception
 ---
 
 # What is Command Interception

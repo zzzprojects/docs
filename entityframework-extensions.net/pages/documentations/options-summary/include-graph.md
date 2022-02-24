@@ -1,3 +1,7 @@
+---
+Name: Include Graph
+---
+
 # Include Graph
 
 The `BulkOperation.IncludeGraph` option allow you to `INSERT/UPDATE/MERGE` entities by including the child entities graph. 

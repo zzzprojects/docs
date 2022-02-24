@@ -1,4 +1,8 @@
-# MySql Provider
+---
+Name: EF Core - MySql Provider
+---
+
+# EF Core - MySql Provider
 
 MySQL is an open-source relational database management system (RDBMS) and it is known for its quick processing, proven reliability, ease and flexibility of use.
 

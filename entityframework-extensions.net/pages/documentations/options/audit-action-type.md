@@ -1,3 +1,7 @@
+---
+Name: AuditActionType
+---
+
 # AuditActionType
 
 ## Description

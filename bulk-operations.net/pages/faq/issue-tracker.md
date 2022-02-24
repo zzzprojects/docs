@@ -1,3 +1,7 @@
+---
+Name: Issue Tracker
+---
+
 # Issue Tracker
 
 ## Where is your Issue Tracker?

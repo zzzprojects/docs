@@ -1,3 +1,7 @@
+---
+Name: PostConfiguration
+---
+
 # PostConfiguration
 
 ## Description

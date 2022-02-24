@@ -1,3 +1,7 @@
+---
+Name: UsePermanentTable
+---
+
 # UsePermanentTable
 
 ## Description

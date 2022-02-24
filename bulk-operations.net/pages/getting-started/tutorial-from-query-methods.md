@@ -1,3 +1,7 @@
+---
+Name: Getting Started with From Query Methods
+---
+
 # From Query Methods
 
 ## Description

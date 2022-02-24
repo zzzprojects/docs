@@ -1,4 +1,8 @@
-# InMemory Provider
+---
+Name: EF Core - InMemory Provider
+---
+
+# EF Core - InMemory Provider
 
 InMemory is designed to be a general-purpose database for testing and is not designed to mimic a relational database.
 

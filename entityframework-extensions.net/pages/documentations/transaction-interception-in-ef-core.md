@@ -1,5 +1,6 @@
 ---
 Permalink: transaction-interception-in-ef-core
+Name: Transaction Interception
 ---
 
 # Transaction Interception

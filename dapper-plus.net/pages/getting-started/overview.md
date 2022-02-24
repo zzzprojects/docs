@@ -1,5 +1,5 @@
 ---
-Name: Getting Started with Dapper Plus
+Name: Getting Started
 ---
 
 # Getting Started

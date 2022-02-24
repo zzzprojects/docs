@@ -1,3 +1,7 @@
+---
+Name: Temporary Table
+---
+
 # Temporary Table
 
 Customize how and when to use a temporary table instead of inline SQL.

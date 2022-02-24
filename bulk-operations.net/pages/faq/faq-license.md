@@ -1,3 +1,7 @@
+---
+Name: License
+---
+
 # License
 
 ## Developer Seat

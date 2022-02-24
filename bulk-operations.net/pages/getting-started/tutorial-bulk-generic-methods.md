@@ -1,3 +1,7 @@
+---
+Name: Getting Started with Bulk Generic Methods
+---
+
 # Bulk Generic Methods
 
 ## Description

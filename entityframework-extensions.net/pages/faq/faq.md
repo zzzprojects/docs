@@ -1,3 +1,7 @@
+---
+Name: FAQ
+---
+
 # FAQ
 
 - [General](faq-general)

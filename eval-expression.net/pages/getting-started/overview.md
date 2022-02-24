@@ -1,5 +1,5 @@
 ---
-Name: Getting Started with C# Eval Expression
+Name: Getting Started
 ---
 
 # Overview

@@ -1,4 +1,8 @@
-# PostgreSQL Provider
+---
+Name: EF6 - PostgreSQL Provider
+---
+
+# EF6 - PostgreSQL Provider
 
 PostgreSQL is a general-purpose and object-relational database management system, the most advanced open-source database system. 
 

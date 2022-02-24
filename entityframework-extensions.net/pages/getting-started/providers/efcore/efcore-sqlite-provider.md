@@ -1,4 +1,8 @@
-# SQLite Provider
+---
+Name: EF Core - SQLite Provider
+---
+
+# EF Core - SQLite Provider
 
 SQLite is a software library that implements a self-contained, serverless, zero-configuration, transactional SQL database engine.
 

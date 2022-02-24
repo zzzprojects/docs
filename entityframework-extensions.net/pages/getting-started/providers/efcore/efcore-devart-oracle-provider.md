@@ -1,4 +1,8 @@
-# DevArt Oracle Provider
+---
+Name: EF Core - DevArt Oracle Provider
+---
+
+# EF Core - DevArt Oracle Provider
 
 The dotConnect for Oracle is a high-performance ORM enabled data provider for Oracle that builds on ADO.NET technology to present a complete solution for developing Oracle-based database applications. 
 

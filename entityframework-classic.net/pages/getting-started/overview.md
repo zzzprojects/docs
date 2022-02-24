@@ -1,5 +1,5 @@
 ---
-Name: Getting Started with EF Classic
+Name: Getting Started
 ---
 
 # Overview

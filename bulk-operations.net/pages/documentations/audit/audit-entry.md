@@ -1,3 +1,7 @@
+---
+Name: AuditEntry
+---
+
 # AuditEntry
 
 ## Description

@@ -1,3 +1,7 @@
+---
+Name: Soft Delete
+---
+
 # Soft Delete
 
 ## Problem

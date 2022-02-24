@@ -1,5 +1,5 @@
 ---
-Name: Getting Started with Eval-SQL.NET
+Name: Getting Started
 ---
 
 # Overview

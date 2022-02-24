@@ -1,3 +1,7 @@
+---
+Name: BulkOperationExecuted
+---
+
 # BulkOperationExecuted
 
 ## Description
