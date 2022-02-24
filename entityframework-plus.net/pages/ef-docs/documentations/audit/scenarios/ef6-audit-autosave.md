@@ -1,6 +1,7 @@
 ---
 Permalink: ef6-audit-autosave
 CanonicalLink: https://entityframework-plus.net/ef-core-audit-autosave
+Name: Audit - AutoSave
 ---
 
 # Audit - AutoSave

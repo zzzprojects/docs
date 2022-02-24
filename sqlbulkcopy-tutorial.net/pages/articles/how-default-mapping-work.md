@@ -1,3 +1,7 @@
+---
+Name: How the default mapping work
+---
+
 # SqlBulkCopy - How the default mapping work
 
 ## Description

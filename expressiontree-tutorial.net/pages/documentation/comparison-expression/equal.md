@@ -1,4 +1,8 @@
-# Equal
+---
+Name: Equal Expression
+---
+
+# Equal Expression
 
 You can build an expression tree which contains an equality comparison using `Expression.Equal` method. For example, you have the following code.
 

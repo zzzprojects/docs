@@ -1,3 +1,7 @@
+---
+Name: Insert
+---
+
 # Insert
 
 In LINQ to SQL, you can easily insert data into a database by adding objects to `Table<TEntity>` collection and then call `SubmitChanges()` method. LINQ to SQL will translate your changes into the appropriate SQL `INSERT` commands.

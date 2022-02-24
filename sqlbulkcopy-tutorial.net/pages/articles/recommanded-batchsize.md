@@ -1,3 +1,7 @@
+---
+Name: Recommended BatchSize
+---
+
 # SqlBulkCopy - Recommended BatchSize
 
 ## Question

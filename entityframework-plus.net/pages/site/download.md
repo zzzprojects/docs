@@ -1,3 +1,7 @@
+---
+Name: Download
+---
+
 # Download
 @{
     ViewBag.MarkdownEnabled = false;

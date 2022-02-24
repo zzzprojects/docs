@@ -1,3 +1,7 @@
+---
+Name: View ChangeSet
+---
+
 # View ChangeSet
 
 In LINQ to SQL, DataContext object keeps track of all the items that are updated, deleted or inserted into the database.

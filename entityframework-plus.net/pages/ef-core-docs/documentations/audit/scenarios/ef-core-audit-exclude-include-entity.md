@@ -1,5 +1,6 @@
 ---
 Permalink: ef-core-audit-exclude-include-entity
+Name: Audit - Exclude & Include Entity
 ---
 
 # Audit - Exclude & Include Entity

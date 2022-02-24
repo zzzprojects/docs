@@ -1,3 +1,7 @@
+---
+Name: Transaction
+---
+
 # Transaction
 
 Transactions allow several database operations to be processed atomically.

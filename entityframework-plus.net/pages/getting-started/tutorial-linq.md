@@ -1,3 +1,7 @@
+---
+Name: Getting Started with LINQ Dynamic
+---
+
 # LINQ
 
 ## LINQ Dynamic

@@ -1,3 +1,7 @@
+---
+Name: InnerHtml Property
+---
+
 # InnerHtml
 
 ## public virtual string InnerHtml { get; set; }

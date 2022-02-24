@@ -1,3 +1,7 @@
+---
+Name: Remove Method
+---
+
 # Remove
 
 ## public void Remove() 

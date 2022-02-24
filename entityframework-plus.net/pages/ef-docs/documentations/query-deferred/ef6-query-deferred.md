@@ -1,6 +1,7 @@
 ---
 Permalink: query-deferred
 CanonicalLink: https://entityframework-plus.net/ef-core-query-deferred
+Name: Query Deferred
 ---
 
 # Query Deferred

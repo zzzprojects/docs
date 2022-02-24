@@ -1,4 +1,8 @@
-# Throw
+---
+Name: Throw Expression
+---
+
+# Throw Expression
 
 You can build an expression tree which is throwing an exception by using `Expression.Throw` method. For example, you have the following code.
 

@@ -1,3 +1,7 @@
+---
+Name: AncestorsAndSelf Method
+---
+
 # AncestorsAndSelf
 
 ## public IEnumerable < HtmlNode > AncestorsAndSelf()

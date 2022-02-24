@@ -1,3 +1,7 @@
+---
+Name: Getting Started with Batch Operations
+---
+
 # Batch Operations
 
 ## Batch Delete

@@ -1,3 +1,7 @@
+---
+Name: LastChild Property
+---
+
 # LastChild
 
 ## public HtmlNode LastChild { get; }

@@ -1,5 +1,6 @@
 ---
 Permalink: ef-core-audit-exclude-include-property
+Name: Audit - Exclude & Include Property
 ---
 
 # Audit - Exclude & Include Property

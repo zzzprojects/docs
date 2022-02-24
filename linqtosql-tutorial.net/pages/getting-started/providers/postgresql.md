@@ -1,4 +1,8 @@
-# PostgreSQL
+---
+Name: PostgreSQL Provider
+---
+
+# PostgreSQL Provider
 
 ## Description
 

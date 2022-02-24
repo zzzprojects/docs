@@ -1,3 +1,7 @@
+---
+Name: BatchSize
+---
+
 # SqlBulkCopy - BatchSize
 
 ## Description

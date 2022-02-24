@@ -1,4 +1,8 @@
-# Switch 
+---
+Name: Switch Expression
+---
+
+# Switch Expression
 
 The `Expression.Switch` creates a `SwitchExpression` that represents a switch statement that has a default case. 
 

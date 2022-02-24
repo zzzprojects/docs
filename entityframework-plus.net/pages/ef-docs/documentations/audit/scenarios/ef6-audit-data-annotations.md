@@ -1,6 +1,7 @@
 ---
 Permalink: ef6-audit-data-annotations
 CanonicalLink: https://entityframework-plus.net/ef-core-data-annotations
+Name: Audit - Data Annotations
 ---
 
 # Audit - Data Annotations

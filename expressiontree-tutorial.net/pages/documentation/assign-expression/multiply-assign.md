@@ -1,4 +1,8 @@
-# MultiplyAssign
+---
+Name: MultiplyAssign Expression
+---
+
+# MultiplyAssign Expression
 
 You can build an expression tree which contains a multiplication assignment operation using `Expression.MultiplyAssign` method. For example, you have the following code.
 

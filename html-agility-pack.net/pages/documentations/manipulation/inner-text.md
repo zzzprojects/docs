@@ -1,3 +1,7 @@
+---
+Name: InnerText Property
+---
+
 # InnerText
 
 ## public virtual string InnerText { get; }

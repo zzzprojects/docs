@@ -1,4 +1,8 @@
-# Division
+---
+Name: Division Expression
+---
+
+# Division Expression
 
 You can build an expression tree which contains an arithmetic division operation using `Expression.Divide` method. For example, you have the following code.
 

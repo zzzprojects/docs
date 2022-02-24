@@ -1,4 +1,8 @@
-# TypeAs
+---
+Name: TypeAs Expression
+---
+
+# TypeAs Expression
 
 You can build an expression tree which contains an explicit reference or boxing conversion using `Expression.TypeAs` method. For example, you have the following code.
 

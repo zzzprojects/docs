@@ -1,3 +1,7 @@
+---
+Name: DetectEncoding Method
+---
+
 # DetectEncoding
 
 ## public Encoding DetectEncoding(Stream stream)

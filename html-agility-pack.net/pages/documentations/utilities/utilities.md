@@ -1,3 +1,7 @@
+---
+Name: HTML Utilities
+---
+
 # HTML Utilities
 
 HtmlDocument Utilities

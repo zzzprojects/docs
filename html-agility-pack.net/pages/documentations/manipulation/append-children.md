@@ -1,3 +1,7 @@
+---
+Name: AppendChildren Method
+---
+
 # AppendChildren
 
 ## public void AppendChildren(HtmlNodeCollection newChildren)

@@ -1,3 +1,7 @@
+---
+Name: ColumnMappings
+---
+
 # SqlBulkCopy - ColumnMappings
 
 ## Description

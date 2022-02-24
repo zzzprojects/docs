@@ -1,3 +1,7 @@
+---
+Name: Bulk Operations
+---
+
 # Bulk Operations
 
 When you want to insert, delete or update hundreds, thousands, or millions of entities using LINQ to SQL `SubmitChanges()` method, you will notice that your application performance is INSANELY slow. 

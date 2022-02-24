@@ -1,5 +1,6 @@
 ---
 Permalink: ef-core-audit
+Name: Audit
 ---
 # Audit
 

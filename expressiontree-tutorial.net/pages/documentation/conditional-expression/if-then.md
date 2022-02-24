@@ -1,4 +1,8 @@
-# IfThen
+---
+Name: IfThen Expression
+---
+
+# IfThen Expression
 
 The `Expression.IfThen` method creates a `ConditionalExpression` that represents a conditional block with an if statement. For example, you have the following code.
 

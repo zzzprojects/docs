@@ -1,5 +1,6 @@
 ---
 Permalink: ef-core-linq-dynamic
+Name: LINQ Dynamic
 ---
 
 # LINQ Dynamic

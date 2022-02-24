@@ -1,6 +1,7 @@
 ---
 Permalink: ef6-audit-soft-add-soft-delete
 CanonicalLink: https://entityframework-plus.net/ef-core-audit-soft-add-soft-delete
+Name: Audit - Soft Add & Soft Delete
 ---
 
 # Audit - Soft Add & Soft Delete

@@ -1,3 +1,7 @@
+---
+Name: Append Attribute Method
+---
+
 # Append
 
 ## public HtmlAttribute Append(string name)

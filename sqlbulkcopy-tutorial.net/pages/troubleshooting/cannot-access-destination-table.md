@@ -1,3 +1,7 @@
+---
+Name: Cannot access destination table '[TheInvalidTableName]'
+---
+
 # SqlBulkCopy - Cannot access destination table '[TheInvalidTableName]'.
 
 ## Problem

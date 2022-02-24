@@ -1,4 +1,8 @@
-# TryCatchFinally
+---
+Name: TryCatchFinally Expression
+---
+
+# TryCatchFinally Expression
 
 You can build an expression tree which contains a try-catch and finally blocks by using `Expression.TryCatchFinally` method. It creates a `TryExpression` representing a try block with any number of catch statements and a finally block. 
 

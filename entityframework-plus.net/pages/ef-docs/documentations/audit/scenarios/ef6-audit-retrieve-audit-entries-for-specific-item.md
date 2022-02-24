@@ -1,6 +1,7 @@
 ---
 Permalink: ef6-audit-retrieve-audit-entries-for-specific-item
 CanonicalLink: https://entityframework-plus.net/ef-core-audit-retrieve-audit-entries-for-specific-item
+Name: Audit - Retrieve AuditEntries for specific item
 ---
 
 # Audit - Retrieve AuditEntries for specific item

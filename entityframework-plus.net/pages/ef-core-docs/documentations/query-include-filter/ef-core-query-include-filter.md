@@ -1,5 +1,6 @@
 ---
 Permalink: ef-core-query-include-filter
+Name: Query IncludeFilter
 ---
 
 # Query IncludeFilter

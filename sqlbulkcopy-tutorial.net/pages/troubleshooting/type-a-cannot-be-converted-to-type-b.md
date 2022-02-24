@@ -1,3 +1,7 @@
+---
+Name: The given value of type String from the data source cannot be converted to type int of the specified target column
+---
+
 # SqlBulkCopy - The given value of type String from the data source cannot be converted to type int of the specified target column.
 
 ## Problem

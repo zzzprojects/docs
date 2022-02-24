@@ -1,3 +1,7 @@
+---
+Name: Getting Started with Query
+---
+
 # Query
 
 ## Query Cache

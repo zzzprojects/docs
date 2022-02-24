@@ -1,4 +1,8 @@
-# Remove
+---
+Name: RemoveAll Attributes Method
+---
+
+# RemoveAll
 
 ## public void RemoveAll()
 

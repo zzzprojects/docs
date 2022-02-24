@@ -1,3 +1,7 @@
+---
+Name: Load from File Method
+---
+
 # From File
 
 ## Load Html From File

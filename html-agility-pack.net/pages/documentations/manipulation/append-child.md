@@ -1,3 +1,7 @@
+---
+Name: AppendChild Method
+---
+
 # AppendChild
 
 ## public HtmlNode AppendChild(HtmlNode newChild)

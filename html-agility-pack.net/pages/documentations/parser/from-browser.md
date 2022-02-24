@@ -1,3 +1,7 @@
+---
+Name: Load from Browser Method
+---
+
 # From Browser
 
 ## Load Html From Browser

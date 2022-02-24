@@ -1,3 +1,7 @@
+---
+Name: Getter/Setter Expression
+---
+
 # Getter/Setter Expression
 
 Properties enable a class to expose a public way of getting and setting values, while hiding implementation or verification code.

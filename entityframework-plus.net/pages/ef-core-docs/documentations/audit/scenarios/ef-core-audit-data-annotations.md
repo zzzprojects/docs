@@ -1,5 +1,6 @@
 ---
 Permalink: ef-core-data-annotations
+Name: Audit - Data Annotations
 ---
 
 # Audit - Data Annotations

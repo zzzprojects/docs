@@ -1,5 +1,6 @@
 ---
 Permalink: ef-core-query-include-optimized
+Name: Query IncludeOptimized
 ---
 
 # Query IncludeOptimized

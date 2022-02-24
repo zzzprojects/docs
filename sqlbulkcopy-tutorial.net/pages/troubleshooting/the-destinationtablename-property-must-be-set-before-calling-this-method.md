@@ -1,3 +1,7 @@
+---
+Name: The DestinationTableName property must be set before calling this method
+---
+
 # SqlBulkCopy - The DestinationTableName property must be set before calling this method.
 
 ## Problem

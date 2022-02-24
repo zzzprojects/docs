@@ -1,4 +1,8 @@
-# GreaterThan
+---
+Name: GreaterThan Expression
+---
+
+# GreaterThan Expression
 
 You can build an expression tree which contains a "greater than" numeric comparison using `Expression.GreaterThan` method. For example, you have the following code.
 

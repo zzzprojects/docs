@@ -1,4 +1,8 @@
-# TryCatch
+---
+Name: TryCatch Expression
+---
+
+# TryCatch Expression
 
 You can build an expression tree which contains a try-catch by using `Expression.TryCatch` method. It creates a `TryExpression` representing a try block with any number of catch statements and neither a fault nor finally block. 
 

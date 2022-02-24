@@ -1,3 +1,7 @@
+---
+Name: NextSibling Property
+---
+
 # NextSibling
 
 ## public HtmlNode NextSibling { get; }

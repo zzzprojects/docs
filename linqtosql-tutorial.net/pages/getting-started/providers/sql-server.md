@@ -1,4 +1,8 @@
-# SQL Server
+---
+Name: SQL Server Provider
+---
+
+# SQL Server Provider
 
 ## Description
 

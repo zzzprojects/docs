@@ -1,6 +1,7 @@
 ---
 Permalink: batch-delete
 CanonicalLink: https://entityframework-plus.net/ef-core-batch-delete
+Name: Batch Delete
 ---
 
 # Batch Delete

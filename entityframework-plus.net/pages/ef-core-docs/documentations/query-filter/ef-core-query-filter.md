@@ -1,5 +1,6 @@
 ---
 Permalink: ef-core-query-filter
+Name: Query Filter
 ---
 
 # Query Filter

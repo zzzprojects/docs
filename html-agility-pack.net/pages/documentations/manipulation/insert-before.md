@@ -1,3 +1,7 @@
+---
+Name: InsertBefore Method
+---
+
 # InsertBefore
 
 ## public HtmlNode InsertBefore(HtmlNode newChild, HtmlNode refChild)

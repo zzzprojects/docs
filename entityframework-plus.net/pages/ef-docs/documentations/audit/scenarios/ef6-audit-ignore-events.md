@@ -1,6 +1,7 @@
 ---
 Permalink: ef-core-audit-ignore-events
 CanonicalLink: https://entityframework-plus.net/ef-core-audit-ignore-events
+Name: Audit - Ignore Events
 ---
 
 # Audit - Ignore Events

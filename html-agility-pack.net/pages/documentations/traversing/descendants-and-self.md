@@ -1,3 +1,7 @@
+---
+Name: DescendantsAndSelf Method
+---
+
 # DescendantsAndSelf
 
 ## public IEnumerable < HtmlNode > DescendantsAndSelf()

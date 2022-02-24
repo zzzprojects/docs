@@ -1,3 +1,7 @@
+---
+Name: Raw SQL Queries
+---
+
 # Raw SQL Queries
 
 LINQ to SQL allows you to execute raw SQL queries directly against the database where you cannot use LINQ to represent the query and the generated SQL is not efficient enough. 

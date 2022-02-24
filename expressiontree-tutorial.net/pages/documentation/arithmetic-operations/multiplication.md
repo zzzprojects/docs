@@ -1,4 +1,8 @@
-# Multiplication 
+---
+Name: Multiplication Expression 
+---
+
+# Multiplication Expression 
 
 You can build an expression tree which contains an arithmetic multiplication operation using `Expression.Multiply` method. For example, you have the following code.
 

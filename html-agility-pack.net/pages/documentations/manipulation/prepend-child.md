@@ -1,3 +1,7 @@
+---
+Name: PrependChild Method
+---
+
 # PrependChild
 
 ## public HtmlNode PrependChild(HtmlNode newChild)

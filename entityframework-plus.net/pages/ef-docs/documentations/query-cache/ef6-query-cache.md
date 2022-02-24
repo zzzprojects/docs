@@ -1,6 +1,7 @@
 ---
 Permalink: query-cache
 CanonicalLink: https://entityframework-plus.net/ef-core-query-cache
+Name: Query Cache
 ---
 
 # Query Cache

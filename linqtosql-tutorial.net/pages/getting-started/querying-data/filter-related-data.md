@@ -1,3 +1,7 @@
+---
+Name: Filter Related Data
+---
+
 # Filter Related Data
 
 By default, LINQ to SQL loads the related entities, using Lazy Loading, but you can use eager loading where a query for one type of entity also loads related entities as a part of the query. 

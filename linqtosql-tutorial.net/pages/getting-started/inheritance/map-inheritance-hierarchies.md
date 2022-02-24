@@ -1,3 +1,7 @@
+---
+Name: Map Inheritance Hierarchies
+---
+
 # Map Inheritance Hierarchies
 
 LINQ to SQL supports single-table mapping, and it means a complete inheritance hierarchy is stored in a single database table. 

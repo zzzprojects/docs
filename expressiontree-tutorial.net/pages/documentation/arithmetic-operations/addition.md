@@ -1,4 +1,8 @@
-# Addition
+---
+Name: Addition Expression
+---
+
+# Addition Expression
 
 You can build an expression tree which contains an arithmetic addition operation using `Expression.Add` method. For example, you have the following code.
 

@@ -1,6 +1,7 @@
 ---
 Permalink: ef6-audit-format-value
 CanonicalLink: https://entityframework-plus.net/ef-core-audit-format-value
+Name: Audit - Format Value
 ---
 
 # Audit - Format Value

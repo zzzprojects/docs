@@ -1,3 +1,7 @@
+---
+Name: LINQ Query
+---
+
 # LINQ Query
 
 LINQ (Language Integrated Query) is a structured query syntax in .NET used to save and retrieve data from different sources. 

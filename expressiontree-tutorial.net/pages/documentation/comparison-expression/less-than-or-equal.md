@@ -1,4 +1,8 @@
-# LessThanOrEqual
+---
+Name: LessThanOrEqual Expression
+---
+
+# LessThanOrEqual Expression
 
 You can build an expression tree which contains a "less than" numeric comparison using `Expression.LessThanOrEqual` method. For example, you have the following code.
 

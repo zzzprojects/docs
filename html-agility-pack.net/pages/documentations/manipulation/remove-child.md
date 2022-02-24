@@ -1,3 +1,7 @@
+---
+Name: RemoveChild Method
+---
+
 # RemoveChild
 
 ## public HtmlNode RemoveChild(HtmlNode oldChild) 

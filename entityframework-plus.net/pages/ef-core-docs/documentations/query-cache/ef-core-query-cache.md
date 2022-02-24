@@ -1,5 +1,6 @@
 ---
 Permalink: ef-core-query-cache
+Name: Query Cache
 ---
 
 # Query Cache

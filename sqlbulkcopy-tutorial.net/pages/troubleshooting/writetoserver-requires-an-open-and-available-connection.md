@@ -1,3 +1,7 @@
+---
+Name: WriteToServer requires an open and available Connection. The connection's current state is closed
+---
+
 # SqlBulkCopy - WriteToServer requires an open and available Connection. The connection's current state is closed.
 
 ## Problem

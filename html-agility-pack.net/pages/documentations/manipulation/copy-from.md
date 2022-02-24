@@ -1,3 +1,7 @@
+---
+Name: CopyFrom Method
+---
+
 # CopyFrom
 
 ## public void CopyFrom(HtmlNode node)

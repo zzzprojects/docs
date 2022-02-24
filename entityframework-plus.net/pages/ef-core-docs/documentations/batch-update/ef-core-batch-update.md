@@ -1,5 +1,6 @@
 ---
 Permalink: ef-core-batch-update
+Name: Batch Update
 ---
 
 # Batch Update

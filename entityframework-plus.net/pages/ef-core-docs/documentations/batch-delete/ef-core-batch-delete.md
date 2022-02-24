@@ -1,5 +1,6 @@
 ---
 Permalink: ef-core-batch-delete
+Name: Batch Delete
 ---
 
 # Batch Delete

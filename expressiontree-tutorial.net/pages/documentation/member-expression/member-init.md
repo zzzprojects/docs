@@ -1,4 +1,8 @@
-# MemberInit
+---
+Name: MemberInit Expression
+---
+
+# MemberInit Expression
 
 You can build an expression tree which contains creating of a new object and initializes a property of the object using `Expression.MemberInit` method. For example, you have the following code.
 

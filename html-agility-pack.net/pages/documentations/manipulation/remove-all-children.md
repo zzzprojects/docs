@@ -1,3 +1,7 @@
+---
+Name: RemoveAllChildren Method
+---
+
 # RemoveAllChildren
 
 ## public void RemoveAll() 

@@ -1,3 +1,7 @@
+---
+Name: RemoveAll Method
+---
+
 # RemoveAll
 
 ## public void RemoveAll() 

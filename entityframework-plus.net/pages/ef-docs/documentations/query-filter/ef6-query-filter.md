@@ -1,5 +1,6 @@
 ---
 Permalink: query-filter
+Name: Query Filter
 ---
 
 # Query Filter

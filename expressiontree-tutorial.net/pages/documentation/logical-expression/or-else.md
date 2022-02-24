@@ -1,4 +1,8 @@
-# OrElse
+---
+Name: OrElse Expression
+---
+
+# OrElse Expression
 
 You can build an expression tree using `Expression.OrElse` method which contains a conditional **OR** operation that evaluates the second operand only if the first operand evaluates to **false**. For example, you have the following code.
 

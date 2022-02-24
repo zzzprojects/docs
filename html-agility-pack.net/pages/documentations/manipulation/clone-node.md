@@ -1,3 +1,7 @@
+---
+Name: CloneNode Method
+---
+
 # CloneNode
 
 ## public HtmlNode CloneNode(bool deep)

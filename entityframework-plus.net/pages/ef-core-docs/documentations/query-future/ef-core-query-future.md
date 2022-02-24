@@ -1,5 +1,6 @@
 ---
 Permalink: ef-core-query-future
+Name: Query Future
 ---
 
 # Query Future

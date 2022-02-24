@@ -1,3 +1,7 @@
+---
+Name: DestinationTableName
+---
+
 # SqlBulkCopy - DestinationTableName
 
 ## Description

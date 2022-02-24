@@ -1,5 +1,6 @@
 ---
 Permalink: ef-core-audit-customization
+Name: Audit - Customization
 ---
 
 # Audit - Customization

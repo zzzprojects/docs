@@ -1,3 +1,7 @@
+---
+Name: Database First
+---
+
 # Database First
 
 In LINQ to SQL, it is also possible to reverse engineer an existing database into a DataContext and classes, and it is known as Database First approach. We have a simple database, and it contains one Customer table.

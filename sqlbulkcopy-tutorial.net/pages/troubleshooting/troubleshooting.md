@@ -1,3 +1,7 @@
+---
+Name: Troublshooting
+---
+
 # SqlBulkCopy - Troublshooting
 
 ## Article

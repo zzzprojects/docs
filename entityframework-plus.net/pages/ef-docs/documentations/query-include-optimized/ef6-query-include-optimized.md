@@ -1,6 +1,7 @@
 ---
 Permalink: query-include-optimized
 CanonicalLink: https://entityframework-plus.net/ef-core-query-include-optimized
+Name: Query IncludeOptimized
 ---
 
 # Query IncludeOptimized

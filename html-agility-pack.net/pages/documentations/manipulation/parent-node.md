@@ -1,3 +1,7 @@
+---
+Name: ParentNode Property
+---
+
 # ParentNode
 
 ## public HtmlNode ParentNode { get; }

@@ -1,4 +1,8 @@
-# While
+---
+Name: While Expression
+---
+
+# While Expression
 
 You can build an expression tree to perform a while loop by using `Expression.Loop` method. For example, you have the following code.
 

@@ -1,3 +1,7 @@
+---
+Name: ReplaceChild Method
+---
+
 # ReplaceChild
 
 ## public HtmlNode ReplaceChild(HtmlNode newChild, HtmlNode oldChild)

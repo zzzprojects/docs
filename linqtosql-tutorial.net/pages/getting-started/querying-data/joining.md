@@ -1,3 +1,7 @@
+---
+Name: Joining
+---
+
 # Joining
 
 In SQL, a `JOIN` clause is used to combine rows from two or more tables, based on a related column between them. In LINQ to SQL, you can use the `Join()` and `GroupJoin()` methods to achieve the same results.

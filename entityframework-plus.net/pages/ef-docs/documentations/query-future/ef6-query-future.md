@@ -1,6 +1,7 @@
 ---
 Permalink: query-future
 CanonicalLink: https://entityframework-plus.net/ef-core-query-future
+Name: Query Future
 ---
 
 # Query Future

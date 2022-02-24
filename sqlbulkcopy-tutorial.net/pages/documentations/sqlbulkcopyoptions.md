@@ -1,3 +1,7 @@
+---
+Name: SqlBulkCopyOptions
+---
+
 # SqlBulkCopy - SqlBulkCopyOptions
 
 ## Description

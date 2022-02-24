@@ -1,5 +1,6 @@
 ---
 Permalink: ef-core-audit-format-value
+Name: Audit - Format Value
 ---
 
 # Audit - Format Value

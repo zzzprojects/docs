@@ -1,3 +1,7 @@
+---
+Name: Code First
+---
+
 # Code First
 
 In LINQ to SQL, an object model is mapped to a relational database using attributes or an external mapping file to describe the structure of the relational database. 

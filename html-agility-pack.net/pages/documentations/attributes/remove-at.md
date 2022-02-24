@@ -1,3 +1,7 @@
+---
+Name: RemoveAt Attribute Method
+---
+
 # RemoveAt
 
 ## public void RemoveAt(int index)

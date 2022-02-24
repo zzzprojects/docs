@@ -1,6 +1,7 @@
 ---
 Permalink: ef6-audit-exclude-include-property
 CanonicalLink: https://entityframework-plus.net/ef-core-audit-exclude-include-property
+Name: Audit - Exclude & Include Property
 ---
 
 # Audit - Exclude & Include Property

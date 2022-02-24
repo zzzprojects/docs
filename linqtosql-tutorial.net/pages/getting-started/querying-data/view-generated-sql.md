@@ -1,3 +1,7 @@
+---
+Name: View Generated SQL
+---
+
 # View Generated SQL
 
 LINQ to SQL follows the following three steps.

@@ -1,3 +1,7 @@
+---
+Name: Remove Attribute Method
+---
+
 # Remove
 
 ## public void Remove()

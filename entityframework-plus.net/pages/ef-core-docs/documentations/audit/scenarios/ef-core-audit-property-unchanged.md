@@ -1,5 +1,6 @@
 ---
 Permalink: ef-core-audit-property-unchanged
+Name: Audit - Property Unchanged
 ---
 
 # Audit - Property Unchanged

@@ -1,3 +1,7 @@
+---
+Name: EnableStreaming
+---
+
 # SqlBulkCopy - EnableStreaming
 
 ## Description

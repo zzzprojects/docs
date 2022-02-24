@@ -1,4 +1,8 @@
-# Modulo
+---
+Name: Modulo Expression
+---
+
+# Modulo Expression
 
 You can build an expression tree which contains an arithmetic remainder operation using `Expression.Modulo` method. For example, you have the following code.
 

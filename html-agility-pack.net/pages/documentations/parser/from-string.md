@@ -1,3 +1,7 @@
+---
+Name: Load from String Method
+---
+
 # From String
 
 ## Load Html From String

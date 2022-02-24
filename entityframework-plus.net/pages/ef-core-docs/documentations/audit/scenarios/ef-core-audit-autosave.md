@@ -1,5 +1,6 @@
 ---
 Permalink: ef-core-audit-autosave
+Name: Audit - AutoSave
 ---
 
 # Audit - AutoSave

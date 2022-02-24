@@ -1,3 +1,7 @@
+---
+Name: HTML Parser
+---
+
 # HTML Parser
 
 HTML Parser allow you to parse HTML and return an HtmlDocument.

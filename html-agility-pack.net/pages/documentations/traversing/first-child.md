@@ -1,4 +1,8 @@
-# First Child
+---
+Name: First Child Property
+---
+
+# FirstChild
 
 ## public HtmlNode FirstChild { get; }
 

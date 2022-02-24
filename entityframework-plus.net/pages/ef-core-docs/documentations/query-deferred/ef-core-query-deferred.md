@@ -1,5 +1,6 @@
 ---
 Permalink: ef-core-query-deferred
+Name: Query Deferred
 ---
 
 # Query Deferred

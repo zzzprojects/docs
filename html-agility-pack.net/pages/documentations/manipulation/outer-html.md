@@ -1,3 +1,7 @@
+---
+Name: OuterHtml Property
+---
+
 # OuterHtml
 
 ## public virtual string OuterHtml { get; }

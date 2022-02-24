@@ -1,5 +1,6 @@
 ---
 Permalink: ef-core-audit-ef-extensions
+Name: Audit - With Entity Framework Extensions
 ---
 
 # Audit - With Entity Framework Extensions

@@ -1,4 +1,8 @@
-# Negate
+---
+Name: Negate Expression
+---
+
+# Negate Expression
 
 You can build an expression tree which contains an arithmetic negation operation using `Expression.Negate` method. For example, you have the following code.
 

@@ -1,4 +1,8 @@
-# Subtraction
+---
+Name: Subtraction Expression
+---
+
+# Subtraction Expression
 
 You can build an expression tree which contains an arithmetic subtraction operation using `Expression.Subtract` method. For example, you have the following code.
 

@@ -1,3 +1,7 @@
+---
+Name: DetectEncodingAndLoad Method
+---
+
 # DetectEncodingAndLoad
 
 ## public void DetectEncodingAndLoad(string path)

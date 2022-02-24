@@ -1,4 +1,8 @@
-# SqlBulkCopy
+---
+Name: SqlBulkCopy Class
+---
+
+# SqlBulkCopy Class
 
 ## Description
 SqlBulkCopy is the **FASTEST** way to insert multiples rows from a data source to a SQL Server/Azure.

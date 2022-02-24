@@ -1,3 +1,7 @@
+---
+Name: Load from Web Method
+---
+
 # From Web
 
 ## Load Html From Web

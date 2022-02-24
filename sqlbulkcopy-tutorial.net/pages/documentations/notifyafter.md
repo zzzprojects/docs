@@ -1,3 +1,7 @@
+---
+Name: NotifyAfter
+---
+
 # SqlBulkCopy - NotifyAfter
 
 ## Description

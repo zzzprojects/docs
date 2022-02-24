@@ -1,3 +1,7 @@
+---
+Name: Clone Method
+---
+
 # Clone
 
 ## public HtmlNode Clone()

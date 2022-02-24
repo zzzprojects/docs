@@ -1,3 +1,7 @@
+---
+Name: InsertAfter Method
+---
+
 # InsertAfter
 
 ## public HtmlNode InsertAfter(HtmlNode newChild, HtmlNode refChild)

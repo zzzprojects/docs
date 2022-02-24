@@ -1,4 +1,8 @@
-# SQL Server Compact
+---
+Name: SQL Server Compact Provider
+---
+
+# SQL Server Compact Provider
 
 ## Description
 

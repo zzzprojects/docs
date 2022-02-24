@@ -1,4 +1,8 @@
-# Continue
+---
+Name: Continue Expression
+---
+
+# Continue Expression
 
 You can build an expression tree which contains a continue statement using `Expression.Continue` method. For example, you have the following code.
 

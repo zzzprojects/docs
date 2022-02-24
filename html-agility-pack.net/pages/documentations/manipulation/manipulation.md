@@ -1,3 +1,7 @@
+---
+Name: HTML Manipulation
+---
+
 # HTML Manipulation
 
 Manipulation allow you to manipulate the HTML document.
