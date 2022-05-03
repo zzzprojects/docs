@@ -16,7 +16,7 @@ context.BulkSaveChanges(options => options.BatchSize = 1000);
 Try it: [EF Core](https://dotnetfiddle.net/qonEbL) | [EF6](https://dotnetfiddle.net/BThvHs)
 
  - A batch is complete when `BatchSize` rows have been processed or there are no more rows to send to the destination data source.
- - The default value is zero which indicates that each operation is a single batch.
+ - The default value is zero, which indicates a default by size depending on the provider. For example, 10 000 for SQL Server.
 
 You can also set batch size globally using `EntityFrameworkManager.BulkOperationBuilder`.
 

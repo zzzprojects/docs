@@ -1,11 +1,11 @@
 - Main Features
    - [Bulk SaveChanges](bulk-savechanges.md)
-   - [Batch SaveChanges](batch-savechanges.md)
    - [Bulk Insert](bulk-insert.md)
    - [Bulk Update](bulk-update.md)
    - [Bulk Delete](bulk-delete.md)
    - [Bulk Merge](bulk-merge.md)
    - [Bulk Synchronize](bulk-synchronize.md)
+   - [WhereBulkContains](utilities/where-bulk-contains.md)
 - Bulk Options
    - [Audit](options-summary/audit.md)
    - [Batch](options-summary/batch.md)
@@ -54,6 +54,14 @@
    - [Transaction](options-summary/transaction.md)
    - [Transient Error](options-summary/transient-error.md)
    - [SQL Server](options-summary/sql-server.md)
+   - [Coalesce](doc-v2/coalesce.md)
+   - [Coalesce Destination](doc-v2/coalesce-destination.md)
+   - [Delete Matched and Condition](doc-v2/delete-matched-and-condition.md)
+   - [Delete Matched and one NOT Condition](doc-v2/delete-matched-and-one-not-condition.md)
+   - [Delete Matched and Formula](doc-v2/delete-matched-and-formula.md)
+   - [Matched and Condition](doc-v2/matched-and-condition.md)
+   - [Matched and one NOT Condition](doc-v2/matched-and-one-not-condition.md)
+   - [Matched and Formula](doc-v2/matched-and-formula.md)
 - Batch Operations
    - [Delete from Query](delete-from-query.md)
    - [Insert from Query](insert-from-query.md)
@@ -70,11 +78,11 @@
    - [Pre Bulk SaveSynchronize](events/pre-bulk-save-synchronize.md)
    - [Pre Bulk Update](events/pre-bulk-update.md)
 - Utilities
+   - [Batch SaveChanges](batch-savechanges.md)
    - [Delete ByKey](utilities/delete-by-key.md)
    - [Delete Range ByKey](utilities/delete-range-by-key.md)
    - [ToSelfHierarchyList](utilities/to-self-hierarchy-list.md)
    - [BulkRead](utilities/bulk-read.md)
-   - [WhereBulkContains](utilities/where-bulk-contains.md)
    - [WhereBulkNotContains](utilities/where-bulk-not-contains.md)
    - [EF PostConfigurationCore - DbCommandInterceptor](command-interception-in-ef-core.md)
    - [EF Core - DbConnectionInterceptor](connection-interception-in-ef-core.md)
@@ -82,15 +90,5 @@
 - C# Eval Expression
    - [LINQ Dynamic](eval-expressions/linq-dynamic.md)
    - [Eval.Compile](eval-expressions/eval-compile.md)
-   - [Eval.Execute](eval-expressions/eval-execute.md)
-- Recently Added
-   - [Matched and Condition](doc-v2/matched-and-condition.md)
-   - [Matched and one NOT Condition](doc-v2/matched-and-one-not-condition.md)
-   - [Matched and Formula](doc-v2/matched-and-formula.md)
-   - [Delete Matched and Condition](doc-v2/delete-matched-and-condition.md)
-   - [Delete Matched and one NOT Condition](doc-v2/delete-matched-and-one-not-condition.md)
-   - [Delete Matched and Formula](doc-v2/delete-matched-and-formula.md)
-   - [Coalesce](doc-v2/coalesce.md)
-   - [Coalesce Destination](doc-v2/coalesce-destination.md)
-   
+   - [Eval.Execute](eval-expressions/eval-execute.md)  
 
