@@ -24,7 +24,7 @@ context.BulkMerge(customers, options => options.IncludeGraph = true);
 | SaveChanges     | 4,000 ms       | To long...     | Way way to long... |
 | BulkMerge       | 80 ms          | 110 ms         | 170 ms         |
 
-[Try it](https://dotnetfiddle.net/Erk8R3)
+[Try it in EF6](https://dotnetfiddle.net/Erk8R3) | [Try it in EF Core](https://dotnetfiddle.net/hmDtiI)
 
 > HINT: A lot of factors might affect the benchmark time such as index, column type, latency, throttling, etc.
 ### Scenarios
