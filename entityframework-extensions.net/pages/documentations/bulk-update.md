@@ -61,7 +61,7 @@ The `BulkUpdate` and `BulkUpdateAync` methods extend your `DbContext` to let you
 ```csharp
 context.BulkUpdate(customers);
 
-context.BulUpdateAsync(customers, cancellationToken);
+context.BulkUpdateAsync(customers, cancellationToken);
 ```
 [Try it in EF6](https://dotnetfiddle.net/81oBov) | [Try it in EF Core](https://dotnetfiddle.net/zmsc2T)
 
