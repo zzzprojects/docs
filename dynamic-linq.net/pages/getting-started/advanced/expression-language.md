@@ -200,7 +200,9 @@ var baseQuery = new int[] { 1, 2, 3, 4, 5 }.AsQueryable();
 var result = baseQuery.Select("iif(it % 2 = 0, true, false)");
 ```
 [Try it online](https://dotnetfiddle.net/nCiBQQ)
+
 ### Is and As Examples
+#### Is
 The `Is` can be used to determine if the entity has a specific type. In the example below, the number of bosses is counted:
 
 ```csharp
@@ -208,6 +210,19 @@ string boss = typeof(Boss).FullName;
 int numberOfBosses = context.Employees.Count("is(@0)", boss);
 ```
 
+Note that you also can use the `Is` operator on a property, in that case you need to provide two parameters: the property-name and the type.
+
+Example:
+``` csharp
+int result1 = context.Departments.Count("Is(Employee, @0)", typeof(Boss));
+
+// or
+
+var config = new ParsingConfig { ResolveTypesBySimpleName = true };
+int result2 = context.Departments.Count(config, "Is(Employee, \"Boss\")");
+```
+
+#### As
 With `As`, you can check if casting a class to a type is valid, or returns null.
 
 ```csharp
@@ -218,7 +233,7 @@ int useAsToCheckIfTheTypeIsABoss = context.Employees.Count(e => e as Boss != nul
 int useAsToCheckIfTheTypeIsABoss = context.Employees.Count("As(@0) != null", typeof(Boss));
 ```
 
-Not that you also can use the `As` operator on a property, in that case you need to provide two parameters: the property-name and the type.
+Note that you also can use the `As` operator on a property, in that case you need to provide two parameters: the property-name and the type.
 
 Example:
 ``` csharp
