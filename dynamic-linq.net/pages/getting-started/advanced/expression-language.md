@@ -137,7 +137,7 @@ In the below table, `x`, `y`, and `z` denote expressions, `T` denotes a type, an
 | Primary | `np(x)` | Null Propagating expression. Will expand `it.Rel.Id` to `it != null && it.Rel != null ? it.Rel.Id : null`. |
 | Primary | `np(x, y)` | Null Propagating expression with default value specified. Will expand `it.Rel.Id` to `it != null && it.Rel != null ? it.Rel.Id : y`. |
 | Primary | `iif(x, y, z)` | Conditional expression. Alternate syntax for `x ? y : z`. |
-| Primary | `As(x)` | With [As](#is-and-as-examples), you can check if casting a class to a type is valid, or returns null. |
+| Primary | `As(x)` / `As(x, y)` | With [As](#is-and-as-examples), you can check if casting a class to a type is valid, or returns null. |
 | Primary | `Is(x)` | The [Is](#is-and-as-examples) function can be used to determine if the entity has a specific type. |
 | Unary | `-x` | Negation. Supported types are `Int32`, `Int64`, `Decimal`, `Single`, and `Double`. |
 | Unary | `!x` <br/> `not x` | Logical negation. Operand must be of type `Boolean`. |
@@ -200,7 +200,9 @@ var baseQuery = new int[] { 1, 2, 3, 4, 5 }.AsQueryable();
 var result = baseQuery.Select("iif(it % 2 = 0, true, false)");
 ```
 [Try it online](https://dotnetfiddle.net/nCiBQQ)
+
 ### Is and As Examples
+#### Is
 The `Is` can be used to determine if the entity has a specific type. In the example below, the number of bosses is counted:
 
 ```csharp
@@ -208,14 +210,39 @@ string boss = typeof(Boss).FullName;
 int numberOfBosses = context.Employees.Count("is(@0)", boss);
 ```
 
+Note that you also can use the `Is` operator on a property, in that case you need to provide two parameters: the property-name and the type.
+
+Example:
+``` csharp
+int result1 = context.Departments.Count("Is(Employee, @0)", typeof(Boss));
+
+// or
+
+var config = new ParsingConfig { ResolveTypesBySimpleName = true };
+int result2 = context.Departments.Count(config, "Is(Employee, \"Boss\")");
+```
+
+#### As
 With `As`, you can check if casting a class to a type is valid, or returns null.
 
 ```csharp
 // Normal usage
-var boss = entity as Boss;
+int useAsToCheckIfTheTypeIsABoss = context.Employees.Count(e => e as Boss != null);
 
 // Dynamic usage
-int useAsToCheckIftheTypeIsABoss = context.Employees.Count("As(@0) != null", boss);
+int useAsToCheckIfTheTypeIsABoss = context.Employees.Count("As(@0) != null", typeof(Boss));
+```
+
+Note that you also can use the `As` operator on a property, in that case you need to provide two parameters: the property-name and the type.
+
+Example:
+``` csharp
+int result1 = context.Departments.Count("As(Employee, @0) != null", typeof(Boss));
+
+// or
+
+var config = new ParsingConfig { ResolveTypesBySimpleName = true };
+int result2 = context.Departments.Count(config, "As(Employee, \"Boss\") != null");
 ```
 
 [Try it online](https://dotnetfiddle.net/o2ydqi)
