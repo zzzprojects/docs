@@ -13,26 +13,36 @@ Strongly typed LINQ looks like:
 
 ```csharp
 1: var result = context.Customers
-2:             .Where(c => c.City == "Paris")
-3:             .ToList();
+2:     .Where(c => c.City == "Paris")
+3:     .ToList();
 ```
 
 Dynamic LINQ looks like:
 
 ```csharp
 1: var resultDynamic = context.Customers
-2:             .Where("City == \"Paris\"")
-3:             .ToList();
+2:     .Where("City == \"Paris\"")
+3:     .ToList();
 ```
 
 When we break down these examples:
 
 1. The context.Customers in this case is a `DbSet<Customer>`, which implements `IQueryable<T>`. This is the same starting point for both examples.
+
 2. The `Where`-predicate for Dynamic Linq is written as a string, where the same property is used (City) and the same value (Paris).
-Since the value "Paris" is a string itself, we need to escape the double quotes. So the `"` becomes a `\"`.
+   
+   Since the value "Paris" is a string itself, we need to escape the double quotes with a `\`. So the `"` becomes a `\"`.
+
+   This also is required for the escape character `\` itself, so if you want to query on a string like `"\r\n"`, you need to double escape the escape characters, so it becomes:
+   ```csharp
+   .Where("Text == \"\\r\\n\"")
+   ```
+   
+   For more examples, see this [unit-test](https://github.com/zzzprojects/System.Linq.Dynamic.Core/blob/master/test/System.Linq.Dynamic.Core.Tests/Parser/StringParserTests.cs#L92).
+
 3. The `ToList()` method for both examples will just return a strongly typed list: `List<Customer>`.
 
-Note that instead of using the query value directly in the string like `"City == \"Paris\""` you can also use [composite string formatting](https://docs.microsoft.com/en-us/dotnet/standard/base-types/composite-formatting). But instead of using the format item syntax `{0}`, you need to use `@0`. So line 2 in the example above will become:
+Note that nstead of using the query value directly in the string like `"City == \"Paris\""` you can also use [composite string formatting](https://docs.microsoft.com/en-us/dotnet/standard/base-types/composite-formatting). But instead of using the format item syntax `{n}`, you need to use `@n` (Where `n` is the index). So line 2 in the example above will become:
 
 ```csharp
 .Where("City == @0", "Paris")`
@@ -43,8 +53,8 @@ And of course, it's not required to specify the value as a hard-coded value. So 
 ```csharp
 1: string cityToSearch = "Paris";
 2: var resultDynamic = context.Customers
-3:             .Where("City == @0", cityToSearch)
-4:             .ToList();
+3:     .Where("City == @0", cityToSearch)
+4:     .ToList();
 ```
 
 [View all above examples here](https://dotnetfiddle.net/cs6MRX)
@@ -57,32 +67,32 @@ Note that it's also possible to query data using multiple predicates:
 
 ```csharp
 1: var result = context.Customers
-2:             .Where(c => c.City == "Paris" && c.Age > 50)
-3:             .ToList();
+2:     .Where(c => c.City == "Paris" && c.Age > 50)
+3:     .ToList();
 ```
 
 This code can be used when using Dynamic LINQ:
 
 ```csharp
 1: var resultDynamic = context.Customers
-2:             .Where("City == \"Paris\" && Age > 50")
-3:             .ToList();
+2:     .Where("City == \"Paris\" && Age > 50")
+3:     .ToList();
 ```
 
 Note that instead of the `&&`-operand, you can use `and`. Also in this example you can use composite string formatting. In that case, the Dynamic LINQ will be:
 
 ```csharp
 1: var resultDynamic = context.Customers
-2:             .Where("City == @0 and Age > @1", "Paris", 50)
-3:             .ToList();
+2:     .Where("City == @0 and Age > @1", "Paris", 50)
+3:     .ToList();
 ```
 
 You can also mimic the strongly typed `Where`-predicate using the [=> operator](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/lambda-operator), like this:
 
 ```csharp
 1: var resultDynamic = context.Customers
-2:             .Where("c => c.City == \"Paris\" && c.Age > 50")
-3:             .ToList();
+2:     .Where("c => c.City == \"Paris\" && c.Age > 50")
+3:     .ToList();
 ```
 
 [View all above examples here](https://dotnetfiddle.net/4yOUhM)
@@ -95,16 +105,16 @@ Here is an example of a strongly typed:
 
 ```csharp
 1: var result = context.Customers
-2:             .Select(c => new { c.City, c.CompanyName } )
-3:             .ToList();
+2:     .Select(c => new { c.City, c.CompanyName } )
+3:     .ToList();
 ```
 
 Dynamic LINQ looks like:
 
 ```csharp
 1: var resultDynamic = context.Customers
-2:             .Select("new { City, CompanyName }")
-3:             .ToDynamicList();
+2:     .Select("new { City, CompanyName }")
+3:     .ToDynamicList();
 ```
 
 When we break down these two examples:
@@ -123,16 +133,16 @@ A strongly typed example to sort on City and then on CompanyName would look like
 
 ```csharp
 1: var ordered = context.Customers
-2:             .OrderBy(c => c.City).ThenBy(c => c.CompanyName)
-3:             .ToList();
+2:     .OrderBy(c => c.City).ThenBy(c => c.CompanyName)
+3:     .ToList();
 ```
 
 Dynamic LINQ looks like:
 
 ```csharp
 1: var orderedDynamic = context.Customers
-2:             .OrderBy("City, CompanyName")
-3:             .ToList();
+2:     .OrderBy("City, CompanyName")
+3:     .ToList();
 ```
 
 When we break down these two examples:
@@ -148,16 +158,16 @@ In case you want to sort Descending, or a mixed combination, you can use the fol
 
 ```csharp
 1: var orderedDynamic = context.Customers
-2:             .OrderBy("City").ThenBy("CompanyName desc")
-3:             .ToList();
+2:     .OrderBy("City").ThenBy("CompanyName desc")
+3:     .ToList();
 ```
 
 Or
 
 ```csharp
 1: var orderedDynamic = context.Customers
-2:             .OrderBy("City, CompanyName desc")
-3:             .ToList();
+2:     .OrderBy("City, CompanyName desc")
+3:     .ToList();
 ```
 
 The examples above will perform the sorting on the City property *Ascending* (= default) and then the sorting will be on the CompanyName in a *Descending* way.
