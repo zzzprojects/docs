@@ -42,7 +42,7 @@ When we break down these examples:
 
 3. The `ToList()` method for both examples will just return a strongly typed list: `List<Customer>`.
 
-Note that nstead of using the query value directly in the string like `"City == \"Paris\""` you can also use [composite string formatting](https://docs.microsoft.com/en-us/dotnet/standard/base-types/composite-formatting). But instead of using the format item syntax `{n}`, you need to use `@n` (Where `n` is the index). So line 2 in the example above will become:
+Note that instead of using the query value directly in the string like `"City == \"Paris\""` you can also use [composite string formatting](https://docs.microsoft.com/en-us/dotnet/standard/base-types/composite-formatting). But instead of using the format item syntax `{n}`, you need to use `@n` (Where `n` is the index). So line 2 in the example above will become:
 
 ```csharp
 .Where("City == @0", "Paris")`
