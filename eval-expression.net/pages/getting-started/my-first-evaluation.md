@@ -1,50 +1,81 @@
----
-Name: My First Evaluation
----
-
 # My First Evaluation
 
-C# is a powerful programming language but lacks the "eval" method that some other languages, such as JavaScript, provide.
+C# is a powerful programming language but lacks the **eval** method that some other languages have, such as JavaScript.
 
-In this tutorial, you will learn how to overcome this limitation by being able to evaluate code at runtime using our C# Eval Expression library.
+The C# Eval Expression library is the best solution to overcome this limitation and lets you easily evaluate code at runtime with the minimum code required on your side.
 
-Summary:
-Simple C# Expression
-Simple C# Expression with parameters
-Simple C# Expression with a return type
-Simple C# Expression from a context
-Simple C# Expression from a string
-Advanced C# Expression
+In this tutorial, you will learn how to use our library with a:
 
-## 1. Simple C# Expression
+Evaluate a C# expression
+Evaluate a C# expression with variables
+Evaluate a C# expression with return type
+Evaluate a C# expression from a context
+Evaluate a C# expression from a string
 
-The simplest way to execute a C# expression at runtime is by using the `Eval.Execute` method.
+## Evaluate a C# expression
 
-The code in the first parameter is parsed, compiled, and then executed.
+The simplest way to execute a C# expression at runtime is by using the `Eval.Execute` method. Under the hood, it calls the `Execute` method from the `DefaultContext` that you will learn later in this tutorial.
+
+The `Execute` method takes as the first parameter the code to execute. 
+
+In this example, we will dynamically create a list of `int` and filter it using LINQ to return only items that are greater than 2. 
 
 ```csharp
-// ...code...
+// the final list will contain only the item '3' and '4'
+var list = Eval.Execute(@"
+var list = new List<int>() { 1, 2, 3, 4 };
+return list.Where(x => x > 2).ToList();
+");
 ```
 
-## 2. Simple C# Expression with parameters
+Remember that the C# Eval library supports way more than this basic statement. However, we will keep it very simple in our getting started section.
 
-In addition to the expression, you can also pass parameters to be used later. Multiple different way of passing parameters is supported such as:
+## Evaluate a C# expression with variables
+
+In the last example, we created the list dynamically in the `Execute` method and the value `2`, which we used to filter, but what if those variables already existed?
+
+The `Execute` method takes the second parameter (or all remaining parameters) variables to use in our expression.
+
+There are multiple different ways of passing parameters, such as:
 Anonymous Type
 Class Member
 Dictionary
+Expando Object
 Values
 
-```csharp
-// ...code...
-```
-
-One of the main features of our library is being able to access class members/dictionary values directly
+In this example, we will create a list and a greaterThan variable and show different ways to pass this variable to evaluate the expression.
 
 ```csharp
-// ...code...
+var list = new List<int>() { 1, 2, 3, 4 };
+var greaterThan = 2;
+
+// Anonymous
+listAnonymous = Eval.Execute("list.Where(x => x > greaterThan)", new { list, greaterThan });
+
+// Anonymous + Named Member
+listAnonymousNamedMember = Eval.Execute("listName.Where(x => x > greaterThanName)", new { listName = list, greaterThanName = greaterThan });
+
+// Class Member (when only using 1 parameter, you can directly use member name)
+listAnonymousNamedMember = Eval.Execute("Item1.Where(x => x > Item2)", new Tuple<List<int>, int>(list, greaterThan));
+
+// Dictionary (when only using 1 parameter, you can directly use key name)
+var dictionary = new Dictionary<string, object>();
+dictionary.Add("list", list);
+dictionary.Add("greaterThan", greaterThan);
+listAnonymousNamedMember = Eval.Execute("list.Where(x => x > greaterThan)", dictionary);
+
+// Expando Object (when only using 1 parameter, you can directly use member name)
+dynamic expandoObject = new ExpandoObject();
+var dictionary = new Dictionary<string, object>();
+expandoObject.List = list;
+expandoObject.GreaterThan= greaterThan;
+listAnonymousNamedMember = Eval.Execute("list.Where(x => x > greaterThan)", dictionary);
+
+// Values (since they are not named, you need to use position
+listAnonymousNamedMember = Eval.Execute("{0}.Where(x => x > {1})", list, greaterThan);
 ```
 
-## 3. Simple C# Expression with a return type
+## Evaluate a C# expression with a return type
 
 Now we learned the base of how to specify an expression and parameters, the latest part to see is how to choose a return type.
 
@@ -53,9 +84,9 @@ You can use a generic type from a method to choose a return type. If none is pro
 ```csharp
 ```
 
-## 4. Simple C# Expression from a context
+## Evaluate a C# expression from a context
 
-## 5. Simple C# Expression from a string
+## Evaluate a C# expression from a string
 
 In addition of bing able to execute from a `static context` and `instance context`, you can execute a c# expression directly from a string
 
@@ -65,12 +96,4 @@ In addition of bing able to execute from a `static context` and `instance contex
 
 This method is a syntactic sugar syntax because under the hood, the `EvalManager.DefaultContext.Execute` method is called.
 
-## 6. Advanced C# Expression
-
-We have seen very basic usage in our library, but obviously, our C# Eval Expression library is way more powerful than this.
-
-Pretty much all the C# Language is supported:
-... keywords
-... extension methods
-
-What might be important here is to understand about RegisterType...
+## Conclusion
