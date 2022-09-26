@@ -3,6 +3,7 @@
    - [Bulk Update](actions/bulk-update.md)
    - [Bulk Delete](actions/bulk-delete.md)
    - [Bulk Merge](actions/bulk-merge.md)
+   - [Async Action](actions/async-action.md)
 - Also Bulk Actions
    - [Also Bulk Insert](actions/also-bulk-insert.md)
    - [Also Bulk Update](actions/also-bulk-update.md)

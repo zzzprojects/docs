@@ -8,6 +8,8 @@ Name: Bulk Delete
 
 The Dapper Plus BulkDelete method allows to DELETE entities in a database table or a view.
 
+> NOTE: For async method, see [async action](/async-action)
+
 ## Bulk Delete Entity
 
 The Dapper Plus BulkDelete method allows deleting single or multiple entities of the same type.

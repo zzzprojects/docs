@@ -9,6 +9,8 @@ Name: Bulk Merge
 
 The Dapper Plus BulkMerge method allows to MERGE entities in a database table or a view.
 
+> NOTE: For async method, see [async action](/async-action)
+
 ## Bulk Merge Entity
 
 The Dapper Plus BulkMerge method allows merging a single or multiple entities of the same type.

@@ -9,6 +9,8 @@ Name: Bulk Update
 
 The Dapper Plus BulkUpdate method allows to UPDATE entities in a database table or a view.
 
+> NOTE: For async method, see [async action](/async-action)
+
 ## Bulk Update Entity
 
 The Dapper Plus BulkUpdate method allows updating single or multiple entities of the same type.

@@ -29,6 +29,8 @@ connection.UseBulkOptions(options => options.InsertIfNotExists = true)
 
 > HINT: A lot of factors might affect the benchmark time such as index, column type, latency, throttling, etc.
 
+> NOTE: For async method, see [async action](/async-action)
+
 ## Bulk Insert Entity
 
 The Dapper Plus BulkInsert method allows inserting a single or multiple entities of the same type.
