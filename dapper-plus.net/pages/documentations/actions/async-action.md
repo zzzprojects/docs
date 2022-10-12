@@ -10,6 +10,12 @@ In addition, the dapper plus async method can help you improve the responsivenes
 
 Unfortunately, we don't provide a `BulkInsertAsync` method directly due to our chaining methods such as `AlsoBulkInsert` and `ThenBulkInsert`. Instead, you need to use the `BulkActionAsync` method that will execute your code asynchronously.
 
+In this example, we call the `BulkInsert` method inside the `BulkActionAsync`:
+
+```csharp
+var task = connection.BulkActionAsync(x => x.BulkInsert(invoices));
+```
+
 
 ## BulkActionAsync
 
