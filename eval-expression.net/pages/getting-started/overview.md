@@ -1,5 +1,6 @@
 ---
-Name: Getting Started
+Title: Getting Started with C# Eval Expression | C# Expression Evaluator
+MetaDescription: Learn about what the C# Eval Expression library is and what is an expression evaluator. Learn how to evaluate string code dynamically and why you should do it.
 ---
 
 # Overview
@@ -8,24 +9,36 @@ Name: Getting Started
 
 The C# Eval Expression library is the most powerful expression evaluator. It supports nearly all the C# languages and keeps getting improved every year. The library also has multiple built-in logic to make it easier on your side to work and evaluate dynamic expressions.
 
+Do not worry if that is still unclear because we will explain and cover more about what this library can do in this getting started section. But in a simple example, it allows you to do something like this:
+
+```csharp
+var x = "1+2".Execute<int>(); // return 3
+```
+
+That is sure a straightforward code, but imagine the string instead of being `1+2` to be any C# code. Would it not be awesome? Well, that is what this library exactly allows you to do.
+
 ### Installing
 
-You can find the C# Eval Expression library on NuGet. See our <a href="/download">download</a> page.
+You can download the C# Eval Expression library on NuGet. See our <a href="/download">download</a> page to find the link.
 
-The NuGet package support:
-.NET 5+ (.NET Core 5+)
-.NET Standard 2.0+
-.NET Framework 4.0+
+C# Eval Expression is compatible with .NET Core and .NET Framework:
+
+- .NET 5+
+- .NET Core 2+
+- .NET Framework 4.0+
 
 ## What is an expression evaluator?
 
-An expression evaluator is a tool that allows you to input an expression and get the result. That is especially handy for math expressions but can use for any kind of scenario such as:
+An expression evaluator is a library that allows executing an expression and getting the result. That is especially useful for math expressions, but you can also use the advantage of an expression evaluator in various amount of scenarios, such as:
 
-- Filtering a report dynamically (user input)
+- Applying some validation rules dynamically
+- Filtering a report dynamically (letting your users enter their filtering/ordering logic)
 - Setting different environments by user
-- Or even customizing a discord bot!
+- Or even within a Discord bot!
 
-For example, you can evaluate a straightforward math expression such as
+The possibility of how you could use an expression evaluator is infinite, and the more you understand the library, the more you can find additional ways to use it.
+
+For example, you can evaluate a simple math expression such as
 
 ```csharp
 int result = Eval.Execute<int>("X + Y", new { X = 1, Y = 2});
@@ -33,7 +46,7 @@ int result = Eval.Execute<int>("X + Y", new { X = 1, Y = 2});
 
 But you can also execute way more complex code, such as creating a list dynamically and filtering it using LINQ methods:
 
-```sharp
+```csharp
 int result = Eval.Execute<int>(@"
     var list = new List<int>() { 1, 2, 3, 4, 5 };
     var filter = list.Where(x => x < 4);
@@ -42,7 +55,7 @@ int result = Eval.Execute<int>(@"
 
 ## What does the C# Eval Expression support?
 
-The C# Eval Epxpression library supports nearly everything from basic keywords to more advanced usage of the C# language:
+The C# Eval Expression library supports nearly everything from basic keywords to more advanced usage of the C# language, including:
 
 - Anonymous Type
 - Extension Method
@@ -50,17 +63,21 @@ The C# Eval Epxpression library supports nearly everything from basic keywords t
 - LINQ Methods
 - Method Overloads
 
-The library also has multiple built-in logic, for example calling the `ToList` method automatically when the return type is currently an `IEnumerable,` but a list is expected or some new keywords such as `break all` that will break all loops.
+The library also has multiple built-in logic. For example, the library automatically calls the `ToList` method when the return type is an `IEnumerable,` but the return expected is a list. 
+
+Also, some new useful keywords, such as `break all` has been added. All loops will be `break` instead of only the current loop.
 
 ## Is C# Eval Expression free?
 
-The C# Eval Expression is free for up to 50 characters or any LINQ Dynamic methods.
+Yes and no. The C# Eval Expression is free up to 50 characters or when using any [LINQ Dynamic](/my-first-linq-dynamic) methods.
 
-For commercial usage, we recommend always purchasing a license.
+For commercial usage, we recommend always [purchasing](/pricing) a license.
 
 ## Conclusion
 
-In this overview, we have not seen much but don't worry. Some step-by-step tutorials will help you get started and let you know more about how the C# Eval Expression library could help you in your current project:
+In this getting started, we just learned the base of what is an expression evaluator and how to use it.
+
+For developers that want to know more about our C# Eval Expression library or even those that already understand how to use it, we highly recommend reading and completing all of our getting started sections:
 
 - [My First Evaluation](/my-first-evaluation)
 - [My First Compilation](/my-first-compilation)

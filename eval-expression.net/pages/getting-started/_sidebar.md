@@ -1,7 +1,6 @@
 - [Getting Started](overview.md)
-- [Overview](overview.md)
 - [My First Evaluation](my-first-evaluation.md)
 - [My First Compilation](my-first-compilation.md)
 - [My First LINQ Dynamic](my-first-linq-dynamic.md)
 - [Licensing](licensing.md)
-- [What to read next?](what-o-read-next.md)
+- [What to read next?](what-to-read-next.md)
