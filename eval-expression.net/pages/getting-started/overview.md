@@ -31,10 +31,10 @@ C# Eval Expression is compatible with .NET Core and .NET Framework:
 
 An expression evaluator is a library that allows executing an expression and getting the result. That is especially useful for math expressions, but you can also use the advantage of an expression evaluator in various amount of scenarios, such as:
 
-- Applying some validation rules dynamically
-- Filtering a report dynamically (letting your users enter their filtering/ordering logic)
+- Applying dynamically validation rules 
+- Filtering dynamically a report (users enter their own filtering/ordering logic)
 - Setting different environments by user
-- Or even within a Discord bot!
+- Or even within a Discord bot to let it return a result of an expression
 
 The possibility of how you could use an expression evaluator is infinite, and the more you understand the library, the more you can find additional ways to use it.
 
