@@ -69,7 +69,7 @@ Also, some new useful keywords, such as `break all` has been added. All loops wi
 
 ## Is C# Eval Expression free?
 
-Yes and no. The C# Eval Expression is free up to 50 characters or when using any [LINQ Dynamic](/my-first-linq-dynamic) methods.
+Yes and no. The C# Eval Expression is free up to 50 characters or when using any [LINQ Dynamic](/linq-dynamic) methods.
 
 For commercial usage, we recommend always [purchasing](/pricing) a license.
 
