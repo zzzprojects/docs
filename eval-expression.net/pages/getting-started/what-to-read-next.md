@@ -7,7 +7,7 @@ MetaDescription: Learn what you can do to learn more about the C# Eval Expressio
 
 Congratulation! You completed our getting started section, but as you can expect, there is much more to learn to master this library.
 
-Your journey can continue by looking at the following sections:
+You can continue your journey with:
 
 [Newsletter](#newsletter)
 [Documentation](#documentation)
@@ -19,31 +19,24 @@ Your journey can continue by looking at the following sections:
 
 Registering for our monthly [newsletter](https://mailchi.mp/zzzprojects/eval_expression_newsletter) is the first step to staying updated with the latest documentation and news.
 
-The newsletter will contain the release notes when a new version is released, new articles, and more.
+The newsletter is sent once a month and will contain release notes, articles, documentation, tips, and more.
 
 ## Documentation
 
-Reading all our [https://eval-expression.net/eval-execute](documentation) is very important.
-
-We currently have no articles, but once we complete our documentation, we plan to add some every month.
+Reading all our [documentation](/eval-execute) section is very important to understand more deeply every method and option our library offers.
 
 ## Release Notes
 
-Every time you upgrade to the newest version, read our [release notes](https://github.com/zzzprojects/Eval-Expression.NET/releases) to know what has been added, fixed, or modified.
+Every time you upgrade to the newest version, make sure first to read our [release notes](https://github.com/zzzprojects/Eval-Expression.NET/releases) to know what we added, fixed, or modified.
 
 ## GitHub Issues
 
-If you get an issue, looking at what you 
+If you get an issue, the first thing you should look for is on [GitHub Issues](https://github.com/zzzprojects/Eval-Expression.NET/issues) in case someone else already reports it.
 
-Most people contact us directly when they have an issue (info@zzzprojects.com), but another way is by creating an issue on [GitHub](https://github.com/zzzprojects/Eval-Expression.NET/issues)
-
-When you get a problem, you can also search for existing issues that might have the answer you are looking for.
+If you still have a problem, you can either create a new issue or directly report it to us: info@zzzprojects.com
 
 ## Contact Us
 
-Do you have some specific questions you want to ask, or you are not sure if our library cover your scenario or not?
-
-You can reach us anytime at info@zzzprojects.com
-
+If you still have some questions, find an issue, need a feature, or need help, you can always reach us anytime at info@zzzprojects.com
 
 
