@@ -62,7 +62,7 @@ var greaterThan = 2;
 	var rList = Eval.Execute("list.Where(x => x > greaterThan)", new { list, greaterThan });
 }		
 
-// Passing parameters with an Anonymous Type that have named members
+// Passing parameters with an Anonymous Type using named members
 {
 	var rList = Eval.Execute("listName.Where(x => x > greaterThanName)", new { listName = list, greaterThanName = greaterThan });
 }		
@@ -73,7 +73,7 @@ var greaterThan = 2;
 	var rList = Eval.Execute("Item1.Where(x => x > Item2)", new Tuple<List<int>, int>(list, greaterThan));
 }		
 
-// Passing parameters with a Dictionary and using directionary key
+// Passing parameters with a Dictionary and using key names
 // NOTE: When only using 1 parameter, you can directly use dictionary key names in the expression
 {
 	var dictionary = new Dictionary<string, object>();
@@ -92,7 +92,7 @@ var greaterThan = 2;
 }
 
 // Passing parameters directly with the Values
-// NOTE: Because parameter are not named, you need to use position as our library is not aware of the name "list" and "greaterThan"
+// NOTE: Because parameters are not named, you need to use the position as our library is not aware of the name "list" and "greaterThan"
 {
 	var rList = Eval.Execute("{0}.Where(x => x > {1})", list, greaterThan);
 }
@@ -104,11 +104,11 @@ var greaterThan = 2;
 
 In the last two examples, we learned how to execute code dynamically and use variables in our expressions.
 
-The last remaining part is how to specify a return type. The value will be from type `object` if no return type is specified.
+The last remaining part is how to specify a return type. If no return type is specified, the value is of type `object`.
 
 The `Execute` method takes as the generic type the type to return.
 
-In this example, we will create the `list` and `greaterThan` variables and use our getting started expression but this time, specify the `List<int>` return type.
+In this example, we will continue with our getting started example by using our `list` and `greaterThan` variables but this time, specify the `List<int>` return type.
 
 ```csharp
 var list = new List<int>() { 1, 2, 3, 4 };
@@ -117,48 +117,69 @@ var greaterThan = 2;
 list = Eval.Execute<List<int>>("list.Where(x => x > greaterThan)", new { list, greaterThan });
 ```
 
-Did you spot the error in this example? The expression should return an `IEnumerable<int>` and not a `List<int>`, but our library is smart enough to make logic to make your life easier and automatically call the `ToList` method at your place. That is one of the many advantages of using our library.
+{% include component-try-it.html href='https://dotnetfiddle.net/D5R1Wm' %}  
+
+Did you spot an error in this example? The expression should return an `IEnumerable<int>` and not a `List<int>`! However, our library is smart enough and makes your life easy by automatically calling the `ToList` method to return the right type. That is one of the many advantages of using our library.
 
 ## Evaluate a C# expression from a string
 
-If you have taken the time to read and understand the three first sections of this tutorial, you are probably already all set to begin your journey and learn more about our library.
+If you have taken the time to read and understand the first three sections of this tutorial, the rest should be straightforward to understand.
 
-Our library adds a syntactic sugar execute extension method to extend your string.
+Our library adds a syntactic sugar execute extension method to extend string variables. Passing parameters and return type are similar to what we have previously seen.
 
-In that example, we will execute an expression directly from a string variable instead.
+In that example, we will execute an expression directly from a string.
 
 ```csharp
 var list = new List<int>() { 1, 2, 3, 4 };
 var greaterThan = 2;
-var expressionToExecute = "list.Where(x => x > greaterThan)";
 
+var expressionToExecute = "list.Where(x => x > greaterThan)";
 list = expressionToExecute.Execute<List<int>>(new { list, greaterThan });
+
+// SIMILAR TO: list = Eval.Execute<List<int>>("list.Where(x => x > greaterThan)", new { list, greaterThan }); 
 ```
 
-Under the hood, we call the same method as `Eval.Execute` and set the string as the first parameter.
+{% include component-try-it.html href='https://dotnetfiddle.net/lZXP5O' %}
+
+Under the hood, we call the same method as `Eval.Execute`, but we simply set the string as the first parameter.
 
 ## Evaluate a C# expression from a context
 
-All the `Execute` methods we learned in previous examples use the global `EvalContext` stored in the `EvalManager.DefaultContext`. In other words, using the `Eval.Execute` method is similar to doing `EvalManager.DefaultContext.Execute`.
+All the `Execute` methods we learned in previous examples use the global `EvalContext` stored in the `EvalManager.DefaultContext`. In other words:
 
-So anyway, what exactly is an `EvalContext`? That is a class you instancies to specify some configuration. You can set configuration globally by using `EvalManager.DefaultContext` or storing your context in a static variable you re-use later or by simply creating a context inside a method.
+- using the `Eval.Execute` method is similar to doing `EvalManager.DefaultContext.Execute`.
+- using the `"the_string_expression".Execute` method is similar to doing `EvalManager.DefaultContext.Execute`.
 
-In this example, we will create an instance context and call the `Execute` method. We will also use a method that we will create dynamically.
+So anyway, what exactly is an `EvalContext`? That is a class you instancies to specify some configuration. You can set configuration globally by:
+
+- Using `EvalManager.DefaultContext` context
+- Creating a new context and storing it in a static variable you re-use later
+- Creating a new context for every evaluation, by example inside a method
+
+In this example, we will create an instance context, add a new extension method named `GreaterThan` and use the `Execute` method.
 
 ```
-context...
+var list = new List<int>() { 1, 2, 3, 4 };
+var greaterThan = 2;
 
-AddMethod
+var context = new EvalContext();
 
-Usemethod
+context.AddMethod(@"
+bool GreaterThan(this int x, int y)
+{
+	return x > y;
+}
+");
+
+list = context.Execute<List<int>>("list.Where(x => x.GreaterThan(greaterThan))", new { list, greaterThan }); 
 ```
 
-The method `CustomFilter` only exists for this context. That means the `Eval.Execute` is unaware and cannot use this method.
+{% include component-try-it.html href='https://dotnetfiddle.net/KHRedn' %}
+
+The method `GreaterThan` only exists for this context. That means the `Eval.Execute` is unaware and cannot use this method.
 
 ## Conclusion
 
 In this getting started tutorial, you learned how to use the `Execute` method to dynamically evaluate some code, use parameters, and a return type.
 
 Using the `Execute` method is straightforward, and most developers should already be able to use it without a problem. However, only time will allow you to master this method and exploit all the potential through all options of the `EvalContext` and the possibility that the library offers, so make sure to continue to read other tutorials and articles.
-
-We recommend registering to our [newsletter](https://mailchi.mp/zzzprojects/eval_expression_newsletter) to stay updated with the latest released documentation.
