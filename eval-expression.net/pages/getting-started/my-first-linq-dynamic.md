@@ -30,7 +30,10 @@ In this example, we will filter customers in the database to return only active 
 
 
 ```csharp
+var customers = context.Customers.WhereDynamic(x => "x.Status == Statut && x.LastLogon >= DateTime.Now.AddMonths(-1)").ToList();
 ```
+
+{% include component-try-it.html href='https://dotnetfiddle.net/b5EmTM' %}  
 
 We added the `Dynamic` suffix to every one of our methods to avoid confusion.
 
@@ -53,7 +56,10 @@ Or some variable to make the expression simpler such as:
 In this example, we will use the same filter as the previous example (return only active customers who have logged in since the last month), but this time, with the help of variables:
 
 ```csharp
+var customers = context.Customers.WhereDynamic(x => "x.Status == IsActive && x.LastLogon >= LastMonth", environmentVariables).ToList();
 ```
+
+{% include component-try-it.html href='https://dotnetfiddle.net/LXuoU0' %}  
 
 ## Use LINQ Dynamic with the Execute method
 
@@ -67,6 +73,8 @@ In this example, we will query customers in the database and:
 
 ```csharp
 ```
+
+{% include component-try-it.html href='https://dotnetfiddle.net/yy9Xaz' %}  
 
 ## Use LINQ Dynamic with other methods
 
