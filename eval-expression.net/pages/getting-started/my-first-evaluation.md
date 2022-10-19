@@ -3,21 +3,19 @@ Title: Execute C# Code at Runtime - Get Started with your First Evaluation
 MetaDescription: Learn how to execute a C# expression at runtime with parameter, return type, and from a dynamic string expression.
 ---
 
-_Documentation in progress_
-
 # My First Evaluation
 
 C# is a powerful programming language but lacks the **eval** method that some other languages have, such as JavaScript.
 
-The C# Eval Expression library is the best solution to overcome this limitation and lets you easily evaluate code at runtime with the minimum code required on your side.
+The C# Eval Expression library is the best solution to overcome this limitation and lets you quickly evaluate code at runtime with the minimum code required on your side.
 
 In this tutorial, you will learn how to use our library to:
 
-- [Evaluate a C# expression](#)
-- [Evaluate a C# expression with variables](#)
-- [Evaluate a C# expression with return type](#)
-- [Evaluate a C# expression from a string](#)
-- [Evaluate a C# expression from a context](#)
+- [Evaluate a C# expression](#evaluation-a-csharp-expression)
+- [Evaluate a C# expression with variables](#evaluation-a-csharp-expression-with-variables)
+- [Evaluate a C# expression with return type](#evaluation-a-csharp-expression-with-return-type)
+- [Evaluate a C# expression from a string](#evaluation-a-csharp-expression-from-a-string)
+- [Evaluate a C# expression from a context](#evaluation-a-csharp-expression-from-a-context)
 
 ## Evaluate a C# expression
 
@@ -28,18 +26,20 @@ The `Execute` method takes as the first parameter the code to execute.
 In this example, we will dynamically create a list of `int` and filter it using LINQ to return only items greater than 2. 
 
 ```csharp
-// NOTE: The returned list contains only the item `3` and `4`
+// NOTE: The returned list contains "3" and "4"
 var list = Eval.Execute(@"
 var list = new List<int>() { 1, 2, 3, 4 };
 return list.Where(x => x > 2).ToList();
 ");
 ```
 
+{% include component-try-it.html href='https://dotnetfiddle.net/KdkAbb' %}  
+
 Remember that the C# Eval library supports more than this basic statement. However, we will keep it very simple in our getting started section.
 
 ## Evaluate a C# expression with variables
 
-In the last example, we created the list dynamically in the `Execute` method and hardcoded the value `2`, which we used to filter. However, in most real-life scenarios, those values will be from variables.
+In the last example, we created the list dynamically in the `Execute` method and hardcoded the value `2`, which we used to filter. However, those values will be from existing variables and user input in most real-life scenarios.
 
 The `Execute` method takes the variables to use in our expression (or all remaining parameters) as the second parameter.
 
@@ -51,37 +51,54 @@ There are multiple different ways of passing variables, such as:
 - Expando Object
 - Values
 
-In this example, we will create the `list` and `greaterThan` variables and show different ways to pass those variables to evaluate the expression.
+In this example, we will create the `list` and `greaterThan` variables and show different ways to pass those variables to our expression.
 
 ```csharp
 var list = new List<int>() { 1, 2, 3, 4 };
 var greaterThan = 2;
 
-// Anonymous
-listAnonymous = Eval.Execute("list.Where(x => x > greaterThan)", new { list, greaterThan });
+// Passing parameters with an Anonymous Type
+{
+	var rList = Eval.Execute("list.Where(x => x > greaterThan)", new { list, greaterThan });
+}		
 
-// Anonymous + Named Member
-listAnonymousNamedMember = Eval.Execute("listName.Where(x => x > greaterThanName)", new { listName = list, greaterThanName = greaterThan });
+// Passing parameters with an Anonymous Type that have named members
+{
+	var rList = Eval.Execute("listName.Where(x => x > greaterThanName)", new { listName = list, greaterThanName = greaterThan });
+}		
 
-// Class Member (when only using 1 parameter, you can directly use member name)
-listAnonymousNamedMember = Eval.Execute("Item1.Where(x => x > Item2)", new Tuple<List<int>, int>(list, greaterThan));
+// Passing parameters with a class instance and using class members
+// NOTE: When only using 1 parameter, you can directly use member names, "Item1" and "Item2" in the case of a Tuple<,>
+{
+	var rList = Eval.Execute("Item1.Where(x => x > Item2)", new Tuple<List<int>, int>(list, greaterThan));
+}		
 
-// Dictionary (when only using 1 parameter, you can directly use key name)
-var dictionary = new Dictionary<string, object>();
-dictionary.Add("list", list);
-dictionary.Add("greaterThan", greaterThan);
-listAnonymousNamedMember = Eval.Execute("list.Where(x => x > greaterThan)", dictionary);
+// Passing parameters with a Dictionary and using directionary key
+// NOTE: When only using 1 parameter, you can directly use dictionary key names in the expression
+{
+	var dictionary = new Dictionary<string, object>();
+	dictionary.Add("list", list);
+	dictionary.Add("greaterThan", greaterThan);
+	var rList = Eval.Execute("list.Where(x => x > greaterThan)", dictionary);
+}
 
-// Expando Object (when only using 1 parameter, you can directly use member name)
-dynamic expandoObject = new ExpandoObject();
-var dictionary = new Dictionary<string, object>();
-expandoObject.List = list;
-expandoObject.GreaterThan= greaterThan;
-listAnonymousNamedMember = Eval.Execute("list.Where(x => x > greaterThan)", dictionary);
+// Passing parameters using an Expando Object and using member names
+// NOTE: When only using 1 parameter, you can directly use member names of the Expando Object
+{
+	dynamic expandoObject = new ExpandoObject();
+	expandoObject.list = list;
+	expandoObject.greaterThan= greaterThan;
+	var rList = Eval.Execute("list.Where(x => x > greaterThan)", expandoObject);
+}
 
-// Values (since they are not named, you need to use position
-listAnonymousNamedMember = Eval.Execute("{0}.Where(x => x > {1})", list, greaterThan);
+// Passing parameters directly with the Values
+// NOTE: Because parameter are not named, you need to use position as our library is not aware of the name "list" and "greaterThan"
+{
+	var rList = Eval.Execute("{0}.Where(x => x > {1})", list, greaterThan);
+}
 ```
+
+{% include component-try-it.html href='https://dotnetfiddle.net/t8KHIX' %}  
 
 ## Evaluate a C# expression with a return type
 
