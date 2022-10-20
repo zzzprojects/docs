@@ -9,11 +9,11 @@ Congratulation! You completed our getting started section, but as you can expect
 
 You can continue your journey with:
 
-[Newsletter](#newsletter)
-[Documentation](#documentation)
-[Release Notes](#release-notes)
-[GitHub Issues](#github-issues)
-[Contact Us](#contact-us)
+- [Newsletter](#newsletter)
+- [Documentation](#documentation)
+- [Release Notes](#release-notes)
+- [GitHub Issues](#github-issues)
+- [Contact Us](#contact-us)
 
 ## Newsletter
 

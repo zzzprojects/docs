@@ -11,11 +11,11 @@ The C# Eval Expression library is the best solution to overcome this limitation 
 
 In this tutorial, you will learn how to use our library to:
 
-- [Evaluate a C# expression](#evaluation-a-csharp-expression)
-- [Evaluate a C# expression with variables](#evaluation-a-csharp-expression-with-variables)
-- [Evaluate a C# expression with return type](#evaluation-a-csharp-expression-with-return-type)
-- [Evaluate a C# expression from a string](#evaluation-a-csharp-expression-from-a-string)
-- [Evaluate a C# expression from a context](#evaluation-a-csharp-expression-from-a-context)
+- [Evaluate a C# expression](#evaluate-a-c-expression)
+- [Evaluate a C# expression with variables](#evaluate-a-c-expression-with-variables)
+- [Evaluate a C# expression with return type](#evaluate-a-c-expression-with-return-type)
+- [Evaluate a C# expression from a string](#evaluate-a-c-expression-from-a-string)
+- [Evaluate a C# expression from a context](#evaluate-a-c-expression-from-a-context)
 
 ## Evaluate a C# expression
 
@@ -158,7 +158,7 @@ So anyway, what exactly is an `EvalContext`? That is a class you instancies to s
 
 In this example, we will create an instance context, add a new extension method named `GreaterThan` and use the `Execute` method.
 
-```
+```csharp
 var list = new List<int>() { 1, 2, 3, 4 };
 var greaterThan = 2;
 

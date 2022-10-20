@@ -20,11 +20,11 @@ How much faster? The `Compile` method can be 1000x more quickly than the `Execut
 
 In this tutorial, you will learn how to use our library to:
 
-- [Compile a C# expression](#compile-a-csharp-expression)
-- [Compile a C# expression with return type](#compile-a-csharp-expression-with-return-type)
-- [Compile a C# expression with variable names](#compile-a-csharp-expression-with-variable-names)
-- [Compile a C# expression from a string](#compile-a-csharp-expression-from-a-string)
-- [Compile a C# expression from a context](#compile-a-csharp-expression-from-a-context)
+- [Compile a C# expression](#compile-a-c-expression)
+- [Compile a C# expression with return type](#compile-a-c-expression-with-return-type)
+- [Compile a C# expression with variable names](#compile-a-c-expression-with-variable-names)
+- [Compile a C# expression from a string](#compile-a-c-expression-from-a-string)
+- [Compile a C# expression from a context](#compile-a-c-expression-from-a-context)
 
 ## Compile a C# expression
 
@@ -150,7 +150,7 @@ All the `Compile` methods we learned in previous examples use the global `EvalCo
 
 In this example, we will create an instance context, add a new extension method named `GreaterThan` and use the `Compile` method. Then after we will iterator loop to show only item that are greater then the current loop position.
 
-```
+```csharp
 var list = new List<int>() { 1, 2, 3, 4 };		
 var context = new EvalContext();
 
