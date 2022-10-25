@@ -5,7 +5,11 @@ Name: Insert and Update
 
 # Dapper - Insert and Update
 
-The `Execute()` extension method in Dapper enables you to execute a command one or multiple times and return the number of affected rows. This method is usually used to execute:
+When working with databases, you will often need to insert and update records. When it comes to writing insert or update statements in Dapper, the simple and easy way is to use the `Execute` method, which allows you to execute a raw SQL statement.
+
+The `Execute` extension method in Dapper enables you to execute a command one or multiple times and return the number of affected rows. 
+
+This method is usually used to execute:
 
  - INSERT statement
  - UPDATE statement
@@ -50,15 +54,15 @@ public ActionResult Create(Customer customer)
 }
 ```
 
-Let's create a view by right-clicking on the `Create` action method in `CustomerController` and select **Add View**. On Add Scaffold dialog, choose **MVC 5 View** and click on the Add button.
+Let's create a view by right-clicking on the `Create` action method in `CustomerController` and select the **Add View**. On the **Add Scaffold** dialog, choose **MVC 5 View** and click on the Add button.
 
 <img src="https://raw.githubusercontent.com/zzzprojects/docs/master/dapper-tutorial.net/images/create-view-4.png" alt="Create view-4">
 
- - On the Add View dialog, the View name will appear by default. 
- - Select the template from the Template dropdown list for which you want to create a view, e.g. Create.
- - Choose your model class, e.g. Customer
+ - On the **Add View** dialog, the **View** name will appear by default. 
+ - Select the template from the **Template** dropdown list for which you want to create a view, e.g. `Create`.
+ - Choose your model class, e.g. `Customer`
  
-Click the Add button and it will add the following code for you.
+Click the **Add** button and it will add the following code for you.
 
 ```csharp
 @model DapperDemoApp.Models.Customer
@@ -125,10 +129,10 @@ Click the Add button and it will add the following code for you.
 
 Updating an existing entity is similar to inserting. All we need is a SQL statement containing an `UPDATE` statement that sets the appropriate columns. We also want to make sure we include a `WHERE` clause limiting the update only to the row with the specified `Id`.
 
-To update data to the database, the `CustomerController` contains two `Edit` action methods.
+To update data in the database, the `CustomerController` contains two `Edit` action methods.
 
  - The first method for the `GET` process which will run when we call the method.
- - The second method for the `POST` process which will run when we submit the entry to the server.
+ - The second method for the `POST` process will run when we submit the entry to the server.
  
 In Controller `Edit` actions, let's add the following code to update the existing customer record into the **Customers** table.
 
@@ -173,11 +177,11 @@ Let's create a view by right-clicking on the `Edit` action method in `CustomerCo
 
 <img src="https://raw.githubusercontent.com/zzzprojects/docs/master/dapper-tutorial.net/images/create-view-5.png" alt="Create view-5">
 
- - On the Add View dialog, the View name will appear by default. 
- - Select the template from the Template dropdown list for which you want to create a view, e.g. Edit.
- - Choose your model class, e.g. Customer
+ - On the **Add View** dialog, the **View** name will appear by default. 
+ - Select the template from the **Template** dropdown list for which you want to create a view, e.g. `Edit`.
+ - Choose your model class, e.g. `Customer`
  
-Click the Add button and it will add the following code for you.
+Click the **Add** button and it will add the following code for you.
 
 ```csharp
 @model DapperDemoApp.Models.Customer
@@ -244,7 +248,7 @@ Click the Add button and it will add the following code for you.
 
 ## Delete
 
-Deleting an entity is the easiest of all, because it only requires a unique `Id` to identify the entity being deleted. The SQL statement is a simple `DELETE` with a `WHERE` clause on the `Id` column.
+Deleting an entity is the easiest of all because it only requires a unique `Id` to identify the entity being deleted. The SQL statement is a simple `DELETE` with a `WHERE` clause on the `Id` column.
 
 To delete a record from the database, the `CustomerController` contains two `Delete` action methods.
 
@@ -291,11 +295,11 @@ Let's create a view by right-clicking on the `Delete` action method in `Customer
 
 <img src="https://raw.githubusercontent.com/zzzprojects/docs/master/dapper-tutorial.net/images/create-view-6.png" alt="Create view-6">
 
- - On the Add View dialog, the View name will appear by default. 
- - Select the template from the Template dropdown list for which you want to create a view, e.g. Delete.
- - Choose your model class, e.g. Customer
+ - On the **Add View** dialog, the **View** name will appear by default. 
+ - Select the template from the **Template** dropdown list for which you want to create a view, e.g. `Delete`.
+ - Choose your model class, e.g. `Customer`
  
-Click the Add button and it will add the following code for you.
+Click the **Add** button and it will add the following code for you.
 
 ```csharp
 @model DapperDemoApp.Models.Customer

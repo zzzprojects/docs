@@ -1,12 +1,20 @@
 ---
 PermaID: 1000182
-Name: Multi Type Result
+Name: Multi-Type Result
 ---
 
 # Dapper - Multi-Type Result
 
 ## Description
-ExecuteReader method is an extension method which can be called from any object of type IDbConnection. It can execute a query and map the result to a list of different types.
+
+One of the features of Dapper is its ability to map columns from a query result to properties of a different type and you can call it a "multi-type" result. 
+
+ - You can use the `ExecuteReader` method which can be called from any object of type `IDbConnection`. 
+ - It can execute a query and map the result to a list of different types.
+ - It is useful when you want to combine the data from multiple rows into a single object. 
+ - For example, if you have a query that returns a list of store invoices and web invoices, you can use a multi-type result feature to map each kind of invoice to the `Invoice` object.
+
+The following example shows how to use the `ExecuteReader` method and get the multi-type result.
 
 ```csharp
 string sql = "SELECT * FROM Invoice;";
@@ -43,3 +51,5 @@ using (var connection = My.ConnectionFactory())
     }
 }
 ```
+
+In the above example, both store invoices and web invoices are mapped to the `List<Invoice>`.

@@ -6,7 +6,14 @@ Name: Data Annotation Write in Dapper Contrib
 # Dapper Contrib - Data Annotation - Write
 
 ## Description
-Specifie if the property is writable or not.
+
+The `Write` attribute specifies whether a field is writable or not in the database. 
+
+ - It must be applied to any properties that we do not want a column in a database table. 
+ - For example, you might have a property in your entity class, but it does not need to be stored. 
+ - You can apply the `Write` attribute to a property that you do not want to create a column of in the database.
+
+The following example shows how to use the `Write` attribute on a property in which you don't want to store its value in the database table.
 
 ```csharp
 [Table("Invoice")]

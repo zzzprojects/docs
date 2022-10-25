@@ -6,36 +6,80 @@ Name: Getting Started with Dapper
 # Dapper
 
 ## What's Dapper?
-Dapper is a simple object mapper for .NET and owns the title of **King of Micro ORM** in terms of speed and is virtually as fast as using a raw ADO.NET data reader. An ORM is an Object Relational Mapper, which is responsible for mapping between database and programming language.
 
-Dapper extends the IDbConnection by providing useful extension methods to query your database.
+Dapper is a micro-ORM created by the team behind Stack Overflow. Dapper is a simple object mapper for .NET and owns the title of **King of Micro ORM** in terms of speed and is virtually as fast as using a raw ADO.NET data reader. An ORM is an Object Relational Mapper, which is responsible for mapping between a database and a programming language.
 
-## How Dapper Works?
-It is a three-step process.
-- Create an IDbConnection object.
+  - Dapper is a popular open source Object-Relational Mapping (ORM) Library for .NET.
+  - It makes it easy to work with data in your application by mapping objects to tables in a database. 
+  - Dapper is fast, reliable, and well-tested and has been used in production by some of the world's largest companies for many years.
+  - It is very easy to use and has a lot of features that make it a powerful tool for data access. 
+
+## How does Dapper work?
+
+Dapper provides a simple and concise way to manage your data model without having to write a lot of code. It is also very easy to use, and its code is clean and readable.
+
+Dapper extends the `IDbConnection` interface by providing useful extension methods to query your database. It uses dynamic method generation to enable it to inflate POCOs directly from query results. It allows you to map database columns directly to properties on your POCO.
+
+When using Dapper, all you need is a connection string and a POCO and then it is a three-step process.
+
+- Create an `IDbConnection` object.
 - Write a query to perform CRUD operations.
-- Pass query as a parameter in the Execute method.
+- Pass query as a parameter in the `Execute` method.
 
 ## Installation
-Dapper is installed through NuGet: <a href="https://www.nuget.org/packages/Dapper" target="_blank">https://www.nuget.org/packages/Dapper</a>
+
+It is very easy to install Dapper, you can either download the [Dapper NuGet package](https://www.nuget.org/packages/Dapper/) or clone the [Dapper GitHub repository](https://github.com/DapperLib/Dapper). 
+
+To install the Dapper NuGet Package, run the following command in the Package Manager Console:
 
 ```csharp
 PM> Install-Package Dapper
 ```
 
-## Requirement
-Dapper works with any database provider since there is no DB specific implementation.
+To clone the Dapper GitHub repository, run the following command in a Git Bash window:
+
+
+```csharp
+git clone https://github.com/StackExchange/Dapper.git
+```
+
+## Requirements
+
+Dapper works with any .NET project. This means that it can be used with the following frameworks:
+
+ - .NET Framework 4.6.1 and above
+ - .NET Core 1.0 and above
+ - .NET Standard 2.0 and above
+ - Mono 5.4 and above
+
+Dapper also requires the following NuGet packages:
+
+ - System.Data.SqlClient (for SQL Server)
+ - MySql.Data (for MySQL)
+ - Npgsql (for PostgreSQL)
+ - Oracle.ManagedDataAccess.Core (for Oracle)
+ - Microsoft.Data.Sqlite (for SQLite)
+
+Dapper works with any database provider since there is no database-specific implementation.
+
+Once you have installed the required NuGet packages, you can start using Dapper in your project.
+
 
 ## Methods
-Dapper will extend your IDbConnection interface with multiple methods:
 
-- [Execute](/execute)
-- [Query](/query)
-- [QueryFirst](/queryfirst)
-- [QueryFirstOrDefault](/queryfirstordefault)
-- [QuerySingle](/querysingle)
-- [QuerySingleOrDefault](/querysingleordefault)
-- [QueryMultiple](/querymultiple)
+Dapper extension methods can be used to perform various operations in the database such as fetching data, inserting records, updating records, and deleting records.
+
+Dapper will extend your `IDbConnection` interface with multiple methods and some of the most commonly used dapper extension methods.
+
+- [Execute](/execute): It can execute a command one or multiple times.
+- [Query](/query): Used to fetch data from the database.
+- [QueryFirst](/queryfirst): It can execute a query and map the first result.
+- [QueryFirstOrDefault](/queryfirstordefault): It can execute a query and map the first result, or a default value if the sequence contains no elements.
+- [QuerySingle](/querysingle): It can execute a query and map the first result and throws an exception if there is not exactly one element in the sequence.
+- [QuerySingleOrDefault](/querysingleordefault): It can execute a query and map the first result, or a default value if the sequence is empty; this method throws an exception if there is more than one element in the sequence.
+- [QueryMultiple](/querymultiple): It can execute multiple queries within the same command and map results.
+
+For more information on dapper extension methods, please refer to the official documentation.
 
 ```csharp
 string sqlOrderDetails = "SELECT TOP 5 * FROM OrderDetails;";
@@ -59,12 +103,13 @@ using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlSer
 Try it: [.NET Core](https://dotnetfiddle.net/FghvFq) | [.NET Framework](https://dotnetfiddle.net/vIvUNm)
 
 ## Parameter
-Execute and queries method can use parameters from multiple different ways:
 
-- [Anonymous](/parameter-anonymous)
-- [Dynamic](/parameter-dynamic)
-- [List](/parameter-list)
-- [String](/parameter-string)
+Dapper supports many different parameter types. Execute and queries method can use parameters from multiple different ways:
+
+- [Anonymous](/parameter-anonymous): Useful for simple queries where you don't need to create a separate class to represent your data.
+- [Dynamic](/parameter-dynamic): Useful for when you need to create a dynamic list of parameters, or when you need to dynamically change the value of a parameter.
+- [List](/parameter-list): This allows you to specify multiple parameters on an `IN` clause by using a list.
+- [String](/parameter-string): Useful when working with SQL Server stored procedures that accept varchar input parameters.
 
 ```csharp
 // Anonymous
@@ -92,13 +137,14 @@ connection.Query<Invoice>(sql, new {Code = new DbString {Value = "Invoice_1", Is
 ```
 
 ## Result
-The result returned by queries method can be mapped to multiple types:
 
-- [Anonymous](/result-anonymous)
-- [Strongly Typed](/result-strongly-typed)
-- [Multi-Mapping](/result-multi-mapping)
-- [Multi-Result](/result-multi-result)
-- [Multi-Type](/result-multi-type)
+When using Dapper, you can map your query results to objects in several ways. The result returned by the queries method can be mapped to multiple types:
+
+- [Anonymous](/result-anonymous): Allow you to store the results of a SQL query in an anonymous type.
+- [Strongly Typed](/result-strongly-typed): Allow you to store the results of a SQL query in a strongly typed manner.
+- [Multi-Mapping](/result-multi-mapping): Map the result to a strongly typed list with relations.
+- [Multi-Result](/result-multi-result): Execute multiple queries within the same command and map results.
+- [Multi-Type](/result-multi-type): Execute a query and map the result to a list of different types.
 
 ```csharp
 string sqlOrderDetails = "SELECT TOP 10 * FROM OrderDetails;";
@@ -121,10 +167,12 @@ Try it: [.NET Core](https://dotnetfiddle.net/VPwBKR) | [.NET Framework](https://
 
 ## Utilities
 
-- [Async](async)
-- [Buffered](buffered)
-- [Transaction](transaction)
-- [Stored Procedure](stored-procedure)
+In addition, to the ability to execute multiple statements in a single round trip to the server, Dapper also provides some additional functionalities that can greatly improve performance in some scenarios. 
+
+- [Async](async): Dapper also provides an Async (asynchronous) version of extension methods
+- [Buffered](buffered): A buffered query return the entire reader at once
+- [Transaction](transaction): Support the transaction and TransactionScope
+- [Stored Procedure](stored-procedure): Has built-in support for caching stored procedures.
 
 ```csharp
 // Async

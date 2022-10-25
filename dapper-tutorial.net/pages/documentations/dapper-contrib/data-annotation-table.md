@@ -6,8 +6,14 @@ Name: Data Annotation Table in Dapper Contrib
 # Dapper Contrib - Data Annotation - Table
 
 ## Description
-Specifie the destination table name mapped to the entity.
 
+The `Table` attribute can be used to decorate a data model class to specify the name of the database table that the class represents. It specifies the destination table name mapped to the entity.
+
+ - By default, the pluralized name of the class is used as a table name. 
+ - You can use another table name by specifying the `Table` attribute.
+
+ In the following example, we are using the `Table` attribute to map the `InvoiceContrib` class to the `Invoice` table in the database. 
+ 
 ```csharp
 [Table("Invoice")]
 public class InvoiceContrib

@@ -6,25 +6,29 @@ Name: Dapper Plus Library
 # Dapper.Plus Library
 
 ## Overview
-Dapper.Plus is a small library that you can add to your project which will extend your IDbConnection and IDbTransaction interfaces with high efficient Bulk operations methods.
+
+**Dapper.Plus** is a small library that you can add to your project which will extend your `IDbConnection` and `IDbTransaction` interfaces with highly efficient Bulk operations methods.
 
 - <a href="http://dapper-plus.net/bulk-insert" target="_blank">Bulk Insert</a>
 - <a href="http://dapper-plus.net/bulk-update" target="_blank">Bulk Update</a>
 - <a href="http://dapper-plus.net/bulk-delete" target="_blank">Bulk Delete</a>
 - <a href="http://dapper-plus.net/bulk-merge" target="_blank">Bulk Merge</a>
 
-Using this library, you can perform saving operations in the **fastest way**. It can be used with or without Dapper, and it is also compatible with all others Dapper packages.
+Using this library, you can perform saving operations in the **fastest way**. It can be used with or without Dapper, and it is also compatible with all other Dapper packages.
 
 ## NuGet Installation
-Dapper.Plus is only available through NuGet: <a href="https://www.nuget.org/packages/Z.Dapper.Plus/" target="_blank">https://www.nuget.org/packages/Z.Dapper.Plus/</a>
+
+**Dapper.Plus** is only available through NuGet: <a href="https://www.nuget.org/packages/Z.Dapper.Plus/" target="_blank">https://www.nuget.org/packages/Z.Dapper.Plus/</a>
 
 You can easily install this library by running the following command:
+
 ```csharp
 PM> Install-Package Z.Dapper.Plus
 ```
 
 ## PRO Version
-Every month, a FREE trial of the PRO version is available to let you evaluate all its features without limitations.
+
+Every month, a **FREE** trial of the **PRO** version is available to let you evaluate all its features without limitations.
 
 | Features | PRO |
 | :---------- | :----- |
@@ -42,7 +46,8 @@ Every month, a FREE trial of the PRO version is available to let you evaluate al
 More information can be found at: <a href="http://dapper-plus.net/" target="_blank">http://dapper-plus.net/</a>
 
 ## APIs
-Once you installed this library then the following extension methods will automatically add to DbConnection:
+
+Once you installed this library then the following extension methods will automatically add to `DbConnection`:
 
 - BulkInsert
 - BulkUpdate
@@ -85,7 +90,8 @@ using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlSer
 You can find the detailed documentation here: <a href="http://dapper-plus.net/overview" target="_blank">http://dapper-plus.net/overview</a>
 
 ## DB Provider Supported
-Dapper.Plus is compatible with all major database provider:
+
+**Dapper.Plus** is compatible with all major database providers:
 
 - SQL Server 2008+
 - SQL Azure
@@ -96,5 +102,6 @@ Dapper.Plus is compatible with all major database provider:
 - PostgreSQL
 
 ## Support
-If you have any further queries, contact the outstanding customer support for any request, and you will get your answer within the next business day, hour, or minutes!
+
+If you have any further queries, contact the outstanding customer support for any request, and you will get your answer within the next business day, hour, or minute!
 - <a href="mailto:info@zzzprojects.com">info@zzzprojects.com</a>

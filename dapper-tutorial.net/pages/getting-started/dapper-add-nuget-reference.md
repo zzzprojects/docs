@@ -13,7 +13,7 @@ In the **Package Manager Console** window, enter the following command.
 PM> Install-Package Dapper
 ```
 
-You can also install Dapper by selecting the project in Solution Explorer. 
+To install Dapper using Visual Studio, select the project in **Solution Explorer**. 
 
 <img src="https://raw.githubusercontent.com/zzzprojects/docs/master/dapper-tutorial.net/images/create-mvc-project-3.png" alt="create mvc project">
 

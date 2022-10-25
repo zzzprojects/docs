@@ -1,11 +1,11 @@
 ---
 PermaID: 1000201
-Name: Create a MVC Project
+Name: Create an MVC Project
 ---
 
-# Create a MVC Project 
+# Create an MVC Project 
 
-In this article, we will learn how to create ASP.NET MVC application. The easiest way to create an ASP.NET application is to open Visual Studio and create a C# web project using the ASP.NET Web Application (.NET Framework) template. 
+In this article, we will learn how to create an **ASP.NET MVC** application. The easiest way to create an **ASP.NET** application is to open Visual Studio and create a C# web project using the ASP.NET Web Application (.NET Framework) template. 
 
 <img src="https://raw.githubusercontent.com/zzzprojects/docs/master/dapper-tutorial.net/images/create-mvc-project-1.png" alt="Create mvc project-1">
 

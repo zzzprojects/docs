@@ -6,10 +6,17 @@ Name: Anonymous Parameter
 # Dapper - Anonymous Parameter
 
 ## Description
-Dapper make it simple & safe (SQL Injection) to use parameter by supporting anonymous type.
+
+Dapper make it simple & safe (SQL Injection) to use parameter by supporting anonymous type. 
+
+ - Anonymous parameters are used in cases where you don't want to hardcode the parameter names in your query. 
+ - This can be useful if you want to dynamically build a query, or if you want to avoid SQL injection attacks. 
+
+The raw SQL query can be executed using the `Execute` method with anonymous parameters. These are useful for simple queries where you don't need to create a separate class to represent your data. This can save you a considerable amount of time and effort when working with complex SQL queries.
 
 ### Single
-Execute a single time a SQL Command.
+
+When you need to insert a single record, you can pass the `INSERT` statement directly to the `Execute` method. It also allows you to use parameterized `INSERT` statement as shown in the below example.
 
 ```csharp
 string sql = "INSERT INTO Customers (CustomerName) Values (@CustomerName);";
@@ -26,10 +33,15 @@ using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlSer
 	FiddleHelper.WriteTable(customer);
 }
 ```
+
+In the example above, we use the `Execute` to insert a customer named "Mark". We use an anonymous parameter for the `CustomerName` value. 
+
 Try it: [.NET Core](https://dotnetfiddle.net/wNl0G3) | [.NET Framework](https://dotnetfiddle.net/Z1iRIQ)
 
 ### Many
-Execute many times a SQL Command
+
+If you need to insert multiple records into the database then you can use the `Execute` method with a SQL statement that uses a parameterized insert statement. This will execute the `INSERT` statement for each record in the parameters object. 
+
 
 ```csharp
 string sql = "INSERT INTO Customers (CustomerName) Values (@CustomerName);";
@@ -47,4 +59,23 @@ using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlSer
 	Console.WriteLine(affectedRows);
 )
 ```
+
 Try it: [.NET Core](https://dotnetfiddle.net/df2ZDH) | [.NET Framework](https://dotnetfiddle.net/fvRKsY)
+
+
+You can also use anonymous parameters with the `Query` and `QueryFirst` methods. 
+
+```csharp
+string sql = "SELECT * FROM OrderDetails WHERE OrderDetailID = @OrderDetailID;";
+
+using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServerW3Schools()))
+{
+	var orderDetail = connection.QueryFirst<OrderDetail>(sql, new {OrderDetailID = 10});
+	
+	FiddleHelper.WriteTable(new List<OrderDetail>() { orderDetail } );
+}
+```
+
+In this example, the variable `orderDetail` would be of type `dynamic`. This means that you can access the columns of the result set by their names.
+
+Try it: [.NET Core](https://dotnetfiddle.net/5GFAdJ) | [.NET Framework](https://dotnetfiddle.net/1K2DU4)

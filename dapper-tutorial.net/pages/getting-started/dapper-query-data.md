@@ -5,7 +5,7 @@ Name: Query Data
 
 # Dapper - Query Data 
 
-The `Query()` extension method in Dapper enables you to retrieve data from the database and populate data in your object model. 
+Dapper provides the `Query` extension method that enables you to retrieve data from the database and populate data in your object model. 
 
 The model is a collection of classes to interact with the database. Now let's add an entity class `Customer` in the Model folder.
 
@@ -19,7 +19,7 @@ public class Customer
 }
 ```
 
-MVC controllers are responsible for responding to requests made against an ASP.NET MVC website. Let's create a 'CustomerController' by right-clicking on the **Controller** folder in Solution Explorer.
+MVC controllers are responsible for responding to requests made against an **ASP.NET MVC** website. Let's create a 'CustomerController' by right-clicking on the **Controller** folder in **Solution Explorer**.
 
 <img src="https://raw.githubusercontent.com/zzzprojects/docs/master/dapper-tutorial.net/images/create-controller.png" alt="Create controller">
 
@@ -27,9 +27,9 @@ Select **Add > Controller...** option.
 
 <img src="https://raw.githubusercontent.com/zzzprojects/docs/master/dapper-tutorial.net/images/create-controller-1.png" alt="Create controller-1">
 
-On Add Scaffold dialog, choose **MVC 5 Controller with read/write actions**, click on Add button and call it CustomerController.
+On **Add Scaffold** dialog, choose **MVC 5 Controller with read/write actions**, click on **Add** button and call it `CustomerController`.
 
-In Controller `Index` Action, let's add the following code to retrieve all the data from the Customers table.
+In the Controller `Index` Action, let's add the following code to retrieve all the data from the Customers table.
 
 ```csharp
 // GET: Customer
@@ -45,21 +45,21 @@ public ActionResult Index()
 }
 ```
 
-The above code retrieves all the records from the Customers table, stores them in memory, and returns the collection.
+The above code retrieves all the records from the **Customers** table, stores them in memory, and returns the collection.
 
-Generally, we create View with the same name as an Action method, so let's create an Index view by right-clicking on the `Index` Action method in `CustomerController` and select **Add View**.
+Generally, we create **View** with the same name as an Action method, so let's create an `Index` view by right-clicking on the `Index` Action method in `CustomerController` and select the **Add View**.
 
 <img src="https://raw.githubusercontent.com/zzzprojects/docs/master/dapper-tutorial.net/images/create-view-1.png" alt="Create view-1">
 
-On Add Scaffold dialog, choose **MVC 5 View** and click on the Add button.
+On **Add Scaffold** dialog, choose **MVC 5 View** and click on the **Add** button.
 
 <img src="https://raw.githubusercontent.com/zzzprojects/docs/master/dapper-tutorial.net/images/create-view-2.png" alt="Create view-2">
 
- - On the Add View dialog, the View name will appear by default. 
- - Select the template from the Template dropdown list for which you want to create a view, e.g. List.
- - Choose your model class, e.g. Customer
+ - On the **Add View** dialog, the **View name** will appear by default. 
+ - Select the template from the **Template** dropdown list for which you want to create a view, e.g. List.
+ - Choose your model class, e.g. `Customer`
  
- Click the Add button and it will add the following code for you.
+ Click the **Add** button and it will add the following code for you.
 
 ```csharp
 @model IEnumerable<DapperDemoApp.Models.Customer>
@@ -109,7 +109,7 @@ On Add Scaffold dialog, choose **MVC 5 View** and click on the Add button.
 </table>
 ```
 
-Similarly, you can add the following code in the `Details` action method to retrieve the specific customer from the Customers table.
+Similarly, you can add the following code in the `Details` action method to retrieve the specific customer from the **Customers** table.
 
 ```csharp
 // GET: Customer/Details/5
@@ -124,15 +124,15 @@ public ActionResult Details(int id)
 }
 ```
 
-Again, we will create a Detail view by right-clicking on the `Details` action method in `CustomerController` and select **Add View**. On Add Scaffold dialog, choose **MVC 5 View** and click on the Add button.
+Again, we will create a `Detail` view by right-clicking on the `Details` action method in `CustomerController` and select **Add View**. On **Add Scaffold** dialog, choose **MVC 5 View** and click on the **Add** button.
 
 <img src="https://raw.githubusercontent.com/zzzprojects/docs/master/dapper-tutorial.net/images/create-view-3.png" alt="Create view-3">
 
- - On the Add View dialog, the View name will appear by default. 
- - Select the template from the Template dropdown list for which you want to create a view, e.g. Details.
- - Choose your model class, e.g. Customer
+ - On the **Add View** dialog, the **View name** will appear by default. 
+ - Select the template from the **Template** dropdown list for which you want to create a view, e.g. `Details`.
+ - Choose your model class, e.g. `Customer`
  
- Click the Add button and it will add the following code for you.
+ Click the **Add** button and it will add the following code for you.
  
  ```csharp
  @model DapperDemoApp.Models.Customer
@@ -185,7 +185,7 @@ Let's run your application and you will see all the customers.
 
 [Try it online](https://dotnetfiddle.net/oMw3qO)
 
-Now click on Details link of any customer and you will see all the details for that customer.
+Now click on the **Details** link of any customer and you will see all the details for that customer.
 
 <img src="https://raw.githubusercontent.com/zzzprojects/docs/master/dapper-tutorial.net/images/display-customer-details.png" alt="Display customer details">
 

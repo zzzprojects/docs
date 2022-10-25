@@ -6,7 +6,13 @@ Name: Data Annotation Computed in Dapper Contrib
 # Dapper Contrib - Data Annotation - Computed
 
 ## Description
-Specifie the property should be excluded from update.
+
+The `Computed` attribute specifies that the property should be excluded from the update. 
+
+ - You can use `Computed` columns in the database and decorate your entity with the `Computed` attribute to prevent updating its value to the table.
+ - The `Computed` attribute allows you to specify that a property should be computed based on the values of other properties. 
+
+The following example shows how to use the `Computed` attribute on a property in which you don't want to update its value in the database table.
 
 ```csharp
 [Table("Invoice")]

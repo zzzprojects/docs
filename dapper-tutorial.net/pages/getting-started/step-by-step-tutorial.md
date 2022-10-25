@@ -12,6 +12,7 @@ Dapper is an object-relational mapping (ORM) for the .NET platform. It provides 
  - Dapper provides a mapping between databases and .NET objects. 
  - It owns the title of King of Micro ORM in terms of speed and is as fast as using a raw ADO.NET data reader.
  - It extends the `IDbConnection` by providing useful extension methods to query your database.
+ - Dapper also supports mapping queries to objects with multiple levels of nesting (e.g. results that contain lists of objects).
 
 ## Features
 
@@ -22,11 +23,11 @@ Dapper has the following key features:
  - Easy handling of SQL query
  - Multiple query support
  - Support and easy handling of stored procedures
- - Operating directly on IDbConnection interface
+ - Operating directly on the `IDbConnection` interface
  - Bulk data insert functionality 
  
 ## How to Install Dapper?
- 
+
 To install Dapper using Visual Studio, you can follow these steps:
 
 ### Step 1
@@ -43,7 +44,7 @@ PM> Install-Package Dapper
 
 ## Database Data
 
-For this example, let's assume we have the following customers table in the database.
+For this example, let's assume we have the following **Customers** table in the database.
 
 ```csharp
 CREATE TABLE [dbo].[Customers] (
@@ -76,7 +77,7 @@ public class Customer
 
 MVC controllers are responsible for responding to requests made against an ASP.NET MVC website. Let's create a 'CustomerController' with **MVC 5 Controller with read/write actions**.
 
-In Controller `Index` Action, let's add the following code to retrieve all the data from the Customers table.
+In the Controller `Index` Action, let's add the following code to retrieve all the data from the Customers table.
 
 ```csharp
 // GET: Customer
@@ -95,7 +96,7 @@ public ActionResult Index()
 
 ## Create View
 
-Generally, we create View with the same name as an Action method, so let's create an Index view and add the following code.
+Generally, we create a **View** with the same name as an Action method, so let's create an Index view and add the following code.
 
 ```csharp
 @model IEnumerable<DapperDemo.Models.Customer>

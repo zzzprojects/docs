@@ -6,17 +6,31 @@ Name: Dapper Mapper Library
 # Dapper.Mapper Library
 
 ## Overview
-Dapper.Mapper is a small library which extends Dapper multi-mapping functionality. It allows you to map a single row to multiple objects. This library automatically figures out the relationships between the returned objects and automatically assigns them.
+
+**Dapper.Mapper** is a small library that extends Dapper multi-mapping functionality. It allows you to map a single row to multiple objects. This library automatically figures out the relationships between the returned objects and automatically assigns them.
+
+ - It provides a convenient, fluent API for mapping objects to and from SQL databases.
+ - It is built on top of Dapper, and thus benefits from all of its features, including automatic mapping of columns to properties, and support for multiple database types.
+ - **Dapper.Mapper** also supports the mapping of nested objects, and provides a comprehensive set of built-in mappers for common .NET types.
+
+## Features
+
+ - Supports multiple database platforms including SQLite, MySQL, and PostgreSQL.
+ - Provides a clean, simple API for mapping data to objects.
+ - Generates SQL queries automatically, eliminating the need to write tedious and error-prone SQL by hand.
 
 ## NuGet Installation
-Dapper.Mapper is available through NuGet: <a href="https://www.nuget.org/packages/Dapper.Mapper/" target="_blank">https://www.nuget.org/packages/Dapper.Mapper/</a>
+
+**Dapper.Mapper** is available through NuGet: <a href="https://www.nuget.org/packages/Dapper.Mapper/" target="_blank">https://www.nuget.org/packages/Dapper.Mapper/</a>
 
 You can easily install this library by running the following command:
+
 ```csharp
 PM> Install-Package Dapper.Mapper
 ```
 
 ## APIs
+
 If you have used Dapper, then you will have an idea of writing mapping explicitly as shown below.
 
 ```csharp
@@ -39,7 +53,7 @@ using (var connection = My.ConnectionFactory())
 }
 ```
 
-Instead of writing all these explicitly, Dapper.Mapper will handle the relationships between the returned objects automatically.
+Instead of writing all these explicitly, **Dapper.Mapper** will handle the relationships between the returned objects automatically.
 
 ```csharp
 var sql = "SELECT * FROM Invoices AS A INNER JOIN InvoiceDetails AS B ON A.InvoiceID = B.InvoiceID;";
@@ -55,4 +69,5 @@ using (var connection = My.ConnectionFactory())
 Unfortunately, there is no proper documentation available for this library.
 
 ## Support
+
 Currently, this library is not supported.

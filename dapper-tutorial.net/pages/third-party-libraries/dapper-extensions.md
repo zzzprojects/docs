@@ -6,12 +6,25 @@ Name: Dapper Extensions Library
 # DapperExtensions Library
 
 ## Overview
-DapperExtensions is a small library package which adds basic CRUD operations to Dapper. It also provides a predicate system for more advanced querying scenarios. DapperExtensions will keep your domain classes pure without any attributes or base class inheritance.
+
+**DapperExtensions** is a small library package that adds basic CRUD operations to Dapper. It also provides a predicate system for more advanced querying scenarios. 
+
+ - **DapperExtensions** will keep your domain classes pure without any attributes or base class inheritance.
+ - It provides a set of helper methods for mapping objects to and from database tables, as well as executing common SQL queries.
+
+## Why use DapperExtensions?
+
+If you are using Dapper in your project, then the **DapperExtensions** library can make your life a lot easier. 
+
+ - It provides a set of helper methods that eliminate the need to write boilerplate code when working with Dapper. 
+ - In addition, it can help you avoid common SQL injection attacks by automatically parameterizing all your queries.
 
 ## NuGet Installation
-DapperExtensions is only available through NuGet: <a href="http://nuget.org/List/Packages/DapperExtensions" target="_blank">http://nuget.org/List/Packages/DapperExtensions</a>
+
+**DapperExtensions** is only available through NuGet: <a href="http://nuget.org/List/Packages/DapperExtensions" target="_blank">http://nuget.org/List/Packages/DapperExtensions</a>
 
 You can easily install this library by running the following command:
+
 ```csharp
 PM> Install-Package DapperExtensions 
 ```
@@ -19,7 +32,8 @@ PM> Install-Package DapperExtensions
 More information can be found at: <a href="https://github.com/tmsmith/Dapper-Extensions" target="_blank">https://github.com/tmsmith/Dapper-Extensions</a>
 
 ## APIs
-Once you installed this library then the following extension methods will automatically add to DbConnection:
+
+Once you installed this library then the following extension methods will automatically add to `DbConnection`:
 
 - Get
 - GetList
@@ -50,4 +64,5 @@ var count = connection.Count<Invoice>(predicate);
 Unfortunately, there is no proper documentation available for this library.
 
 ## Support
+
 Currently, this library is not supported.

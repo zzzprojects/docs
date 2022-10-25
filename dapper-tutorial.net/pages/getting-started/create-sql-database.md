@@ -7,7 +7,7 @@ Name: Create a SQL Database
 
 To perform CRUD operations in the database, we must establish a connection with the database using a database connection. 
 
-## Create Database
+## Create a Database
 
 The first step is to create a database using the following script.
 
@@ -24,7 +24,7 @@ This script will add a database named **mydb** if it doesn't exist.
 
 Once the database is created, you can now create a table in the database.
 
-```cshar
+```csharp
 CREATE TABLE [dbo].[Customers] (
     [CustomerID] INT            IDENTITY (1, 1) NOT NULL,
     [FirstName]  NVARCHAR (MAX) NULL,
@@ -34,11 +34,11 @@ CREATE TABLE [dbo].[Customers] (
 );
 ```
 
-It will add an **Customers** table with the specified columns to the database.  
+It will add a **Customers** table with the specified columns to the database.  
 
 ## Create Model Class
 
-Create an entity or model class of `Customer` type, this entity will be mapped to **Customers** table in the database.
+Create an entity or model class of `Customer` type, this entity will be mapped to the **Customers** table in the database.
 
 ```csharp
 public class Customer
@@ -52,7 +52,7 @@ public class Customer
 
 ## Database Operations
 
-Dapper is an ORM library, which extends methods of `IDbConnection` interface. These extension methods have efficient code to perform insert, update delete and select methods.
+Dapper is an ORM library, which extends methods of the `IDbConnection` interface. These extension methods have efficient code to perform insert, update delete, and select methods.
 
 ```csharp
 string sql = "INSERT INTO Customers (FirstName, LastName, Email) Values ('Carson', 'Alexander', 'carson.alexander@example.com');";

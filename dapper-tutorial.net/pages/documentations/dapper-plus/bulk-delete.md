@@ -7,15 +7,20 @@ Name: Bulk Delete in Dapper Plus
 
 ## Description
 
-DELETE entities using Bulk Operation.
+The `BulkDelete` method allows you to delete multiple entities in one database call. It is useful when you want to delete a large number of records from a table. You can use the `BulkDelete` method to delete all records from a table, or you can specify a filter condition to only delete certain records. 
+
+It deletes entities using Bulk Operation. With `BulkDelete`, you can:
 
 - [Delete single](#example---delete-single)
 - [Delete many](#example---delete-many)
 - [Delete with relation (One to One)](#example---delete-with-relation-one-to-one)
 - [Delete with relation (One to Many)](#example---delete-with-relation-one-to-many)
 
+To use the `BulkDelete` method, you simply need to specify the list of entities that you want to delete.
+
 ## Example - Delete Single
-DELETE a single entity with Bulk Operation.
+
+You can use the `BulkDelete` method to delete a single record. The following example deletes a single record from the **Customers** table.
 
 ```csharp    
 DapperPlusManager.Entity<Customer>().Table("Customers").Key("CustomerID");
@@ -28,7 +33,8 @@ using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlSer
 Try it: [.NET Core](https://dotnetfiddle.net/cAcidj) | [.NET Framework](https://dotnetfiddle.net/Eu7Xoj)
 
 ## Example - Delete Many
-DELETE many entities with Bulk Operation.
+
+The `BulkDelete` method can delete multiple records with a single database call which can significantly improve performance by deleting multiple entities with Bulk Operation. The following example deletes a list of customers from the **Customers** table.
 
 ```csharp
 DapperPlusManager.Entity<Customer>().Table("Customers").Key("CustomerID");
@@ -41,7 +47,12 @@ using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlSer
 Try it: [.NET Core](https://dotnetfiddle.net/81AUjA) | [.NET Framework](https://dotnetfiddle.net/qmClqw)
 
 ## Example - Delete with relation (One to One)
-DELETE entities with a one to one relation with Bulk Operation.
+
+`BulkDelete` allows you to delete related entities from the database in one database operation. It is especially useful when deleting a large number of entities that have relationships with each other. 
+
+To use `BulkDelete` when entities have a relationship, simply specify the relationship between the entities when you configure the bulk operation.
+
+The following example shows how to use the `BulkDelete` with a one-to-one relationship between the entities.
 
 ```csharp
 DapperPlusManager.Entity<Supplier>().Table("Suppliers").Identity(x => x.SupplierID);
@@ -55,7 +66,8 @@ using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlSer
 Try it: [.NET Core](https://dotnetfiddle.net/jLDQj3) | [.NET Framework](https://dotnetfiddle.net/U6CGtD)
 
 ## Example - Delete with relation (One to Many)
-DELETE entities with a one to many relations with Bulk Operation.
+
+Dapper Plus also allows you to delete a list of entities with a one-to-many relationship with Bulk Operation as shown in the following example.
 
 ```csharp
 DapperPlusManager.Entity<Supplier>().Table("Suppliers").Identity(x => x.SupplierID);

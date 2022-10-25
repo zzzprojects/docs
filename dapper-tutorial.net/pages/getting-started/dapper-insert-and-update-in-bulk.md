@@ -5,21 +5,32 @@ Name: Insert and Update in Bulk
 
 # Dapper - Insert and Update in Bulk
 
-A bulk operation is a single-target operation that can take a list of objects. A batch operation includes multiple target operations that each can take a list of objects. [Dapper Plus](http://dapper-plus.net/) extends the `IDbConnection` interface with Bulk Operations methods:
+Bulk operations are the fastest way to insert or update a large number of records in a database table. Bulk operations can be used to insert, update, and delete millions of records in a single operation.
 
- - Bulk Insert
- - Bulk Update
- - Bulk Delete
- - Bulk Merge
+ - A bulk operation is a single-target operation that can take a list of objects. 
+ - A batch operation includes multiple target operations that each can take a list of objects. 
+
+[Dapper Plus](http://dapper-plus.net/) extends the `IDbConnection` interface with Bulk Operations methods:
+
+ - BulkInsert
+ - BulkUpdate
+ - BulkDelete
+ - BulkMerge
 
 ## Bulk Insert
 
-The `BulkInsert` method allows you to `INSERT` a large number of entities in your database.
+The `BulkInsert` method allows you to `INSERT` a large number of entities in your database. It inserts multiple rows of data into a database table at once. 
 
 ```csharp
+DapperPlusManager.Entity<Customer>().Table("Customers").Identity(x => x.CustomerID);
+		
+var list = GenerateListCustomer();
+
 using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServer()))
-{        
-    connection.BulkInsert(list); 
+{		
+	connection.BulkInsert(list); 
+	
+	FiddleHelper.WriteTable(connection.Query<Customer>("Select TOP 5 * FROM CUSTOMERS").ToList());
 }
 ```
 
@@ -27,7 +38,7 @@ Try it: [.NET Core](https://dotnetfiddle.net/GjoUpm) | [.NET Framework](https://
 
 ## Bulk Update
 
-The `BulkUpdate` method allows to `UPDATE` larger number of entities in a database table or a view.
+The `BulkUpdate` method allows to `UPDATE` a larger number of entities in a database table or a view. You can use this action to update multiple records at the same time, which can be useful when you need to make changes to a large number of records.
 
 ```csharp
 using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServer()))
@@ -43,7 +54,7 @@ Try it: [.NET Core](https://dotnetfiddle.net/JZfSWN) | [.NET Framework](https://
 
 ## Bulk Delete
 
-The `BulkDelete` method allows to `DELETE` larger number of entities in a database table or a view.
+The `BulkDelete` method allows to `DELETE` a larger number of entities in a database table or a view. It allows you to delete multiple items at the same time. 
 
 ```csharp
 using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServer()))
@@ -58,7 +69,14 @@ Try it: [.NET Core](https://dotnetfiddle.net/jTjPId) | [.NET Framework](https://
 
 ## Bulk Merge
 
-The `BulkMerge` method allows to `MERGE` larger number of entities in a database table or a view.
+The `BulkMerge` method allows to `MERGE` a larger number of entities in a database table or a view. The `BulkMerge` method can be used to merge an object into the database, similar to an `UPSERT` operation. 
+
+
+ - UPSERT refers to operations that update or insert data into a database table. 
+ - If the row already exists in the table, then it is updated. 
+ - If the row does not exist in the table, then it is inserted. 
+
+The UPSERT operation is useful for ensuring that data is synchronized between two systems. 
 
 ```csharp
 using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServer()))
@@ -80,7 +98,7 @@ Try it: [.NET Core](https://dotnetfiddle.net/v7WtOI) | [.NET Framework](https://
 
 ## Mapping
 
-The `DapperPlusMapper` allows you to map the conceptual model (Entity) with the storage model (Database).
+The `DapperPlusMapper` allows you to map the conceptual model (Entity) with the storage model (Database). It is one of the core classes of Dapper Plus that is responsible for mapping database columns to class properties. 
 
 ### Mapper - Table
 
@@ -200,7 +218,7 @@ public class ImportDataController : Controller
 }
 ```
 
-In the POST action, the customer's data is parsed and inserted into the database using `BulkInsert`. Let's create an empty view (ImportCustomers.cshtml) and add the following code.
+In the `POST` action, the customer's data is parsed and inserted into the database using `BulkInsert`. Let's create an empty view (`ImportCustomers.cshtml`) and add the following code.
 
 ```csharp
 @model DapperDemoApp.Models.CustomerData
@@ -246,7 +264,7 @@ In the POST action, the customer's data is parsed and inserted into the database
 
 [Try it online](https://dotnetfiddle.net/LAiJgP)
 
-Let's update the menu options by changing the '_layout.cshtml' file, so that the user can view this data and also make some changes as needed.
+Let's update the menu options by changing the `_layout.cshtml` file so that the user can view this data and also make some changes as needed.
 
 ```csharp
 <div class="navbar-collapse collapse">
@@ -262,7 +280,7 @@ Now run your application and click on the Import Data menu option.
 
 <img src="https://raw.githubusercontent.com/zzzprojects/docs/master/dapper-tutorial.net/images/import-data-1.png" alt="Import data-1">
 
-You can see by default, some more customers data is available in the text area, you can edit that but make sure it remains in CSV format. Once you are done with changes, click on the Save button and you will see that new customers are added to the database.
+You can see by default, some more customer data is available in the text area, you can edit that but make sure it remains in CSV format. Once you are done with changes, click on the **Save** button and you will see that new customers are added to the database.
 
 <img src="https://raw.githubusercontent.com/zzzprojects/docs/master/dapper-tutorial.net/images/display-all-customers-2.png" alt="Display all customers-2">
 

@@ -6,20 +6,24 @@ Name: Async
 # Dapper - Async
 
 ## Description
-Dapper also extend the IDbConnection interface with Async (asynchronous) methods:
-- [ExecuteAsync](#executeasync)
-- [QueryAsync](#queryasync)
-- [QueryFirstAsync](#queryfirstasync)
-- [QueryFirstOrDefaultAsync](#queryfirstordefaultasync)
-- [QuerySingleAsync](#querysingleasync)
-- [QuerySingleOrDefaultAsync](#querysingleordefaultasync)
-- [QueryMultipleAsync](#querymultipleasync)
+
+Dapper has several methods that allow you to execute asynchronous queries. To use the async functionality, you need to pass in a `System.Data.IDbConnection` and call one of the extension methods provided by Dapper.
+
+Dapper extends the `IDbConnection` interface with the following Async (asynchronous) methods.
+
+- [ExecuteAsync](#executeasync): It executes a query asynchronously and returns the number of rows affected.
+- [QueryAsync](#queryasync): It executes a query asynchronously and returns the results of the query as an `IEnumerable<T>`.
+- [QueryFirstAsync](#queryfirstasync): It executes a query asynchronously and returns the first result of the query.
+- [QueryFirstOrDefaultAsync](#queryfirstordefaultasync): It executes a query asynchronously and returns the first result of the query, or the default value for the type T if no result is found.
+- [QuerySingleAsync](#querysingleasync): It executes a query asynchronously and returns a single result of the query.
+- [QuerySingleOrDefaultAsync](#querysingleordefaultasync): It executes a query asynchronously and returns a single result of the query, or the default value for the type T if no result is found.
+- [QueryMultipleAsync](#querymultipleasync): It executes multiple queries asynchronously within the same command and maps the results to strong entities.
 
 > We only added a non-asynchronous version in this tutorial to make it easier to read.
 
 ## ExecuteAsync
 
-The `ExecuteAsync` can execute a command one or multiple times asynchronously and return the number of affected rows. 
+The `ExecuteAsync` method can execute a query one or multiple times asynchronously and return the number of affected rows. The following example shows how to use the `ExecuteAsync` method by inserting a customer 
 
 ```csharp
 string sql = "INSERT INTO Customers (CustomerName) Values (@CustomerName);";
@@ -40,6 +44,7 @@ Try it: [.NET Core](https://dotnetfiddle.net/xnZ8IU)
 ## QueryAsync
 
 The `QueryAsync` can execute a query and map the result asynchronously.
+
 ```csharp
 string sql = "SELECT TOP 10 * FROM OrderDetails";
 

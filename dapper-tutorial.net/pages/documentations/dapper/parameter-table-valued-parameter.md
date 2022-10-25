@@ -6,15 +6,21 @@ Name: Table-Valued Parameter
 
 ## Description
 
-A Table-Valued Parameters (TVP) is a SQL Server feature that lets you pass an entire table as an input parameter for a Stored Procedure or Function.
+A Table-Valued Parameters (TVP) is a SQL Server feature that lets you pass an entire table as an input parameter for a Stored Procedure or Function. One of the best features of Dapper is its support for table-valued parameters. 
 
-TVP lets you pass a table to allow you to perform "IN" clause, massive insert, and a lot of more.
+ - Table-valued parameters are a great way to improve performance when you're working with large amounts of data. 
+ - With table-valued parameters, you can send multiple rows of data to the database in one shot. 
+ - This can significantly reduce the amount of time that it takes to execute a query.
+
+To use table-valued parameters with Dapper, you need to create a custom type that maps to the data that you want to insert. 
+
+TVP lets you pass a table to allow you to perform an "IN" clause, a massive insert, and a lot more.
 
 Here is an example that will seed customers to our Database:
 
 ### Step 1
 
-Let first, create the table.
+Now let's create our first table using Dapper and we will call it `Customer`. This table will have three columns: `CustomerID`, `Name`, and `Code`.
 
 ```csharp
 connection.Execute(@"
@@ -34,7 +40,9 @@ connection.Execute(@"
 
 ### Step 2
 
-Then create the TVP type.
+To create a TVP, you first need to create a user-defined type. A user-defined type (UDT) is a data type that you can define and use in your database. 
+
+After you have created the UDT, you can create a TVP that uses the UDT as its base type. To do this, you use the `CREATE TYPE` statement as shown in the following example.
 
 ```csharp
 connection.Execute(@"
@@ -48,7 +56,7 @@ connection.Execute(@"
 
 ### Step 3
 
-And finally, create the stored procedure that will take the TVP type as a parameter.
+And finally, create the stored procedure that will take the TVP type as a parameter. To use a TVP in a stored procedure, you need to declare a parameter of the UDT type, as the following example shows:
 
 ```csharp
 connection.Execute(@"
@@ -65,9 +73,9 @@ connection.Execute(@"
 
 ### Step 4
 
-To use a TVP parameter, we must first need to create a DataTable with the same definition and populate it.
+To use a TVP parameter, we must first need to create a `DataTable` with the same definition and populate it.
 
-In your parameter list, use the `AsTableValuedParameter` with the TVP type name in parameter to execute the Stored Procedure:
+Now you can execute the stored procedure and pass a TVP as a parameter. The following example creates a TVP that contains five rows of data and passes it to the `Customer_Seed` stored procedure. 
 
 ```csharp
 var dt = new DataTable();
@@ -80,5 +88,7 @@ for(int i = 0; i < 5; i++) {
         
 connection.Execute("Customer_Seed", new { Customers = dt.AsTableValuedParameter("TVP_Customer") }, commandType: CommandType.StoredProcedure);
 ```
+
+In your parameter list, use the `AsTableValuedParameter` with the TVP type name in the parameter to execute the Stored Procedure.
 
 Try it: [.NET Core](https://dotnetfiddle.net/qt2QPN) | [.NET Framework](https://dotnetfiddle.net/RwPLBk)

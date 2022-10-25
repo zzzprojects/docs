@@ -6,14 +6,18 @@ Name: Dapper SimpleCrud Library
 # Dapper.SimpleCRUD Library
 
 ## Overview
-Dapper.SimpleCRUD is a small library package which adds basic CRUD operations to Dapper. Dapper.SimpleCRUD uses smart defaults without using attributes is your classes, but it can also be overridden as needed.
 
-- The id column is used as a primary key by default, but you can override it with an attribute.
-- By default, queries expect that table name is matching the class name, but you can override it with an attribute.
-- Similarly, queries expect that column name is matching the property name, but you can also override it with an attribute.
+**Dapper.SimpleCRUD** is a small library package that adds basic CRUD operations to Dapper. **Dapper.SimpleCRUD** uses smart defaults without using attributes in your classes, but it can also be overridden as needed.
+
+- The `Id` column is used as a primary key by default, but you can override it with an attribute.
+- By default, queries expect that the table name is matching the class name, but you can override it with an attribute.
+- Similarly, queries expect that the column name is matching the property name, but you can also override it with an attribute.
+
+**Dapper.SimpleCRUD** is incredibly easy to use. You can perform all CRUD operations in a matter of minutes. The library takes advantage of dynamic programming to make it simple to work with your data.
 
 ## NuGet Installation
-Dapper Extensions is only available through NuGet: <a href="https://www.nuget.org/packages/Dapper.SimpleCRUD/" target="_blank">https://www.nuget.org/packages/Dapper.SimpleCRUD/</a>
+
+**Dapper.SimpleCRUD** is only available through NuGet: <a href="https://www.nuget.org/packages/Dapper.SimpleCRUD/" target="_blank">https://www.nuget.org/packages/Dapper.SimpleCRUD/</a>
 
 You can easily install this library by running the following command:
 
@@ -24,6 +28,7 @@ PM> Install-Package Dapper.SimpleCRUD
 More information can be found at: <a href="https://github.com/ericdc1/Dapper.SimpleCRUD/" target="_blank">https://github.com/ericdc1/Dapper.SimpleCRUD/</a>
 
 ## APIs
+
 Once you installed this library, the following extension methods will automatically add to DbConnection:
 
 - Get
@@ -63,4 +68,5 @@ var count = connection.RecordCount<Invoice>("where Code like '%Invoice%'");
 You can find more information and documentation here: <a href="https://github.com/ericdc1/Dapper.SimpleCRUD/" target="_blank">https://github.com/ericdc1/Dapper.SimpleCRUD</a>
 
 ## Support
-This library is supported on a regular basis and you will get your answers within next few days. <a href="https://github.com/ericdc1/Dapper.SimpleCRUD/issues/">https://github.com/ericdc1/Dapper.SimpleCRUD/issues</a>
+
+This library is supported regularly and you will get your answers within the next few days. <a href="https://github.com/ericdc1/Dapper.SimpleCRUD/issues/">https://github.com/ericdc1/Dapper.SimpleCRUD/issues</a>

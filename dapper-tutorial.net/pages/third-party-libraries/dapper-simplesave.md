@@ -6,15 +6,30 @@ Name: Dapper SimpleSave Library
 # Dapper.SimpleSave Library
 
 ## Overview
-Dapper.SimpleSave is a small library package which adds basic CRUD operations to Dapper. Dapper easily retrieve data from the database when a single object is involved, but when you are dealing with complex hierarchies, then dapper is not very helpfull. 
 
-This is where Dapper.SimpleSave comes in and save complex objects to the database in a very simple way.
+**Dapper.SimpleSave** is a small library package that adds basic CRUD operations to Dapper. Dapper easily retrieves data from the database when a single object is involved, but when you are dealing with complex hierarchies, then dapper is not very helpful. 
+
+This is where **Dapper.SimpleSave** comes in and saves complex objects to the database in a very simple way.
+
+ - **Dapper.SimpleSave** is intended to support what EF users would call a "database first" scenario. I.e., you already have a database, and you want an easy way to get data in and out of it from a .NET application.
+ - It doesn't do any kind of code or schema generation for you: you should already have a schema, and you'll write simple POCO entities from which **Dapper.SimpleSave** will save data to the database. 
+
+## How Dapper.SimpleSave Works?
+
+**Dapper.SimpleSave** saves data to the database through the following processes:
+
+ - Perform a deep comparison between the current object and the previous version of that object, and build a list of differences.
+ - Use the list of differences to build a list of operations that describe the changes that need to be made to the corresponding database rows to make them match the new version of the object.
+ - Use the list of operations to build a list of commands that will provide the template for the SQL that will be generated - in particular, coalesce updates into a single command for each row.
+ - Use the list of commands to build the minimum number of parameterized SQL batches that will update the database with the required changes.
+ - Execute the SQL batches sequentially as a single database transaction to update the database, resolving any previously unknown primary key values before each batch is executed.
 
 ## Attributes
-Dapper.SimpleSave need to decorate your domain classes with attribute, for example; 
+
+**Dapper.SimpleSave** needs to decorate your domain classes with the attribute, for example; 
 
 - Names of the tables and columns in a database.
-- Which property represent primary key columns. 
+- Which property represents primary key columns. 
 - The cardinality of relationships between tables etc.
 
 ```csharp
@@ -35,7 +50,8 @@ public class Invoice
 ```
 
 ## NuGet Installation
-Dapper.SimpleSave is only available through NuGet: <a href="https://www.nuget.org/packages/Dapper.SimpleSave/" target="_blank">https://www.nuget.org/packages/Dapper.SimpleSave/</a>
+
+**Dapper.SimpleSave** is only available through NuGet: <a href="https://www.nuget.org/packages/Dapper.SimpleSave/" target="_blank">https://www.nuget.org/packages/Dapper.SimpleSave/</a>
 
 You can easily install this library by running the following command:
 
@@ -46,7 +62,8 @@ PM> Install-Package Dapper.SimpleSave
 More information can be found at: <a href="https://github.com/Paymentsense/Dapper.SimpleSave/" target="_blank">https://github.com/Paymentsense/Dapper.SimpleSave/</a>
 
 ## APIs
-Once you installed this library then the following extension methods will automatically add to DbConnection:
+
+Once you installed this library then the following extension methods will automatically add to `DbConnection`:
 
 - Create
 - CreateAll
@@ -73,7 +90,7 @@ You can find the detailed documentation here: <a href="https://github.com/Paymen
 
 ## Limitations
 Current limitations:
-- Convention based mapping are not supported, and you will need to decorate your domain classes with attributes.
+- Convention-based mapping is not supported, and you will need to decorate your domain classes with attributes.
 - Currently, only **integer**, **long**, and **GUID** primary keys are supported.
 - In all your domain classes, a primary key property should be marked with a [PrimaryKey] attribute.
 

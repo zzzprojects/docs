@@ -6,11 +6,11 @@ Name: Dapper Transaction Library
 
 ## What's Dapper Transaction?
 
-`Dapper Transaction` is exactly like `Dapper` but extend the `IDbTransaction` interface instead and use `Dapper` under the hood.
+**Dapper.Transaction** is exactly like `Dapper` but extend the `IDbTransaction` interface instead and use `Dapper` under the hood. It's a simple library to make it easier to work with a transaction.
 
-It's a simple library to make it easier to work with a transaction.
-
-Everything `Dapper` support, `Dapper Transaction` support it as well (It's only new extension method calling Dapper)
+ - **Dapper.Transaction** is a simple and lightweight transaction management tool for Dapper. 
+ - Everything `Dapper` support, `Dapper Transaction` supports it as well (It's only a new extension method calling Dapper)
+ - It was created to provide an easy way to manage transactions within the Dapper micro-ORM.
 
 GitHub: https://github.com/zzzprojects/Dapper.Transaction
 
@@ -33,7 +33,8 @@ using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlSer
 ```
 
 ## NuGet Installation
-Dapper.Transaction is only available through NuGet: <a href="https://www.nuget.org/packages/Dapper.Transaction/" target="_blank">https://www.nuget.org/packages/Dapper.Transaction/</a>
+
+**Dapper.Transaction** is only available through NuGet: <a href="https://www.nuget.org/packages/Dapper.Transaction/" target="_blank">https://www.nuget.org/packages/Dapper.Transaction/</a>
 
 You can easily install this library by running the following command:
 
