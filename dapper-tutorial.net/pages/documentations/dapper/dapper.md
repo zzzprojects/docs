@@ -7,7 +7,7 @@ Name: Getting Started with Dapper
 
 ## What's Dapper?
 
-Dapper is a micro-ORM created by the team behind Stack Overflow. Dapper is a simple object mapper for .NET and owns the title of **King of Micro ORM** in terms of speed and is virtually as fast as using a raw ADO.NET data reader. An ORM is an Object Relational Mapper, which is responsible for mapping between a database and a programming language.
+Dapper is a micro-ORM created by the team behind Stack Overflow. Dapper is a simple object mapper for .NET and owns the title of **King of Micro ORM** in terms of speed and is virtually as fast as using a raw ADO.NET data reader. An ORM is an Object Relational Mapper responsible for mapping between a database and a programming language.
 
   - Dapper is a popular open source Object-Relational Mapping (ORM) Library for .NET.
   - It makes it easy to work with data in your application by mapping objects to tables in a database. 
@@ -18,22 +18,22 @@ Dapper is a micro-ORM created by the team behind Stack Overflow. Dapper is a sim
 
 Dapper provides a simple and concise way to manage your data model without having to write a lot of code. It is also very easy to use, and its code is clean and readable.
 
-Dapper extends the `IDbConnection` interface by providing useful extension methods to query your database. It uses dynamic method generation to enable it to inflate POCOs directly from query results. It allows you to map database columns directly to properties on your POCO.
+Dapper extends the `IDbConnection` interface by providing helpful extension methods to query your database. It uses dynamic method generation to enable it to inflate POCOs directly from query results. In addition, it allows you to map database columns directly to properties on your POCO.
 
-When using Dapper, all you need is a connection string and a POCO and then it is a three-step process.
+When using Dapper, all you need is a connection string and a POCO, and then it is a three-step process.
 
 - Create an `IDbConnection` object.
 - Write a query to perform CRUD operations.
-- Pass query as a parameter in the `Execute` method.
+- Pass the query as a parameter in any `Execute` or `Query` method.
 
 ## Installation
 
-It is very easy to install Dapper, you can either download the [Dapper NuGet package](https://www.nuget.org/packages/Dapper/) or clone the [Dapper GitHub repository](https://github.com/DapperLib/Dapper). 
+It is straightforward to install Dapper, you can either download the [Dapper NuGet package](https://www.nuget.org/packages/Dapper/) or clone the [Dapper GitHub repository](https://github.com/DapperLib/Dapper). 
 
 To install the Dapper NuGet Package, run the following command in the Package Manager Console:
 
 ```csharp
-PM> Install-Package Dapper
+PM> NuGet\Install-Package Dapper 
 ```
 
 To clone the Dapper GitHub repository, run the following command in a Git Bash window:
@@ -47,18 +47,18 @@ git clone https://github.com/StackExchange/Dapper.git
 
 Dapper works with any .NET project. This means that it can be used with the following frameworks:
 
+ - .NET Core 5.0 and above
  - .NET Framework 4.6.1 and above
- - .NET Core 1.0 and above
  - .NET Standard 2.0 and above
- - Mono 5.4 and above
 
-Dapper also requires the following NuGet packages:
+_(Older version is also supported by using older version of Dapper)_
 
- - System.Data.SqlClient (for SQL Server)
- - MySql.Data (for MySQL)
- - Npgsql (for PostgreSQL)
- - Oracle.ManagedDataAccess.Core (for Oracle)
- - Microsoft.Data.Sqlite (for SQLite)
+Dapper also requires to add a provider package such as:
+
+- Microsoft.Data.SqlClient (for SQL Server)
+- System.Data.SqlClient (alternative for SQL Server)
+- Microsoft.Data.Sqlite (for SQLite)
+- Any other provider package!
 
 Dapper works with any database provider since there is no database-specific implementation.
 
@@ -67,19 +67,19 @@ Once you have installed the required NuGet packages, you can start using Dapper 
 
 ## Methods
 
-Dapper extension methods can be used to perform various operations in the database such as fetching data, inserting records, updating records, and deleting records.
+Dapper extension methods can be used to perform various operations in the database, such as fetching data, inserting records, updating records, and deleting records.
 
 Dapper will extend your `IDbConnection` interface with multiple methods and some of the most commonly used dapper extension methods.
 
 - [Execute](/execute): It can execute a command one or multiple times.
+- [ExecuteReader](/execute-reader): It can execute a command and return a reader.
+- [Executescalar](/execute-scalar): It can execute a command and return a scalar value.
 - [Query](/query): Used to fetch data from the database.
 - [QueryFirst](/queryfirst): It can execute a query and map the first result.
 - [QueryFirstOrDefault](/queryfirstordefault): It can execute a query and map the first result, or a default value if the sequence contains no elements.
 - [QuerySingle](/querysingle): It can execute a query and map the first result and throws an exception if there is not exactly one element in the sequence.
 - [QuerySingleOrDefault](/querysingleordefault): It can execute a query and map the first result, or a default value if the sequence is empty; this method throws an exception if there is more than one element in the sequence.
 - [QueryMultiple](/querymultiple): It can execute multiple queries within the same command and map results.
-
-For more information on dapper extension methods, please refer to the official documentation.
 
 ```csharp
 string sqlOrderDetails = "SELECT TOP 5 * FROM OrderDetails;";
