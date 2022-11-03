@@ -7,6 +7,7 @@
    - [Use Custom Column](custom-column.md)
    - [Use Custom Key](custom-key.md)
    - [Soft Delete](soft-delete.md)
-   - [Concurrency](concurrency.md)
+   - [Concurrency (EF Core)](concurrency.md)
+   - [Concurrency (EF 6)](concurrency-ef6.md)
 - Misc
    - [Edmx](edmx.md)
