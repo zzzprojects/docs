@@ -7,8 +7,8 @@ Name: LINQ Dynamic - ThenBy
 ## LINQ Dynamic ThenBy Examples
 C# Dynamic LINQ ThenBy examples using an Expression Evaluator.
 
-- [ThenBy - Simple](#thenby---simple)
-- [ThenBy - Comparer](#thenby---comparer)
+- [ThenBy - Simple](#thenby-simple)
+- [ThenBy - Comparer](#thenby-comparer)
 
 ## ThenBy - Simple
 This C# example uses the LINQ ThenBy method with a dynamic expression to sort a list of digits, first by length of their names, and then alphabetically by the name itself.
@@ -74,9 +74,7 @@ private void uiThenBy_Simple_1_LINQ_Execute_Click(object sender, EventArgs e)
 ```
 
 ### Result
-{% highlight text %}
-LINQ Execute Test
-------------------------------
+```txt
 Sorted digits:
 one
 six
@@ -88,7 +86,6 @@ zero
 eight
 seven
 three
-
 ```
 
 ## ThenBy - Comparer
@@ -145,14 +142,11 @@ private void uiThenBy_Comparer_LINQ_Execute_Click(object sender, EventArgs e)
 ```
 
 ### Result
-{% highlight text %}
-LINQ Execute Test
-------------------------------
+```txt
 aPPLE
 AbAcUs
 bRaNcH
 cHeRry
 ClOvEr
 BlUeBeRrY
-
 ```

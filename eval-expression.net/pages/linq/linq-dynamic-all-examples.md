@@ -7,8 +7,8 @@ Name: LINQ Dynamic - All
 ## LINQ Dynamic All Examples
 C# Dynamic LINQ All examples using an Expression Evaluator.
 
-- [All - Simple](#all---simple)
-- [All - Grouped](#all---grouped)
+- [All - Simple](#all-simple)
+- [All - Grouped](#all-grouped)
 
 ## All - Simple
 This C# example uses the LINQ All method with a dynamic expression to determine whether an array contains only odd numbers.
@@ -44,11 +44,8 @@ Console.WriteLine("The list contains only odd numbers: {0}", onlyOdd);
 {% include component-try-it.html href='https://dotnetfiddle.net/8kTOjI' %}
 
 ### Result
-{% highlight text %}
-LINQ Execute Test
-------------------------------
+```txt
 The list contains only odd numbers: True
-
 ```
 
 ## All - Grouped
@@ -112,9 +109,7 @@ private void uiAll_Grouped_LINQ_Execute_Click(object sender, EventArgs e)
 ```
 
 ### Result
-{% highlight text %}
-LINQ Execute Test
-------------------------------
+```txt
 Category=Beverages      Products=... 
   Products: ProductID=1  ProductName=Chai        Category=Beverages      UnitPrice=18.0000      UnitsInStock=39 
   Products: ProductID=2  ProductName=Chang      Category=Beverages      UnitPrice=19.0000      UnitsInStock=17 
@@ -169,5 +164,4 @@ Category=Grains/Cereals        Products=...
   Products: ProductID=56  ProductName=Gnocchi di nonna Alice      Category=Grains/Cereals        UnitPrice=38.0000      UnitsInStock=21 
   Products: ProductID=57  ProductName=Ravioli Angelo      Category=Grains/Cereals        UnitPrice=19.5000      UnitsInStock=36 
   Products: ProductID=64  ProductName=Wimmers gute SemmelknÃ¶del  Category=Grains/Cereals        UnitPrice=33.2500      UnitsInStock=22
-
 ```

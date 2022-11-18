@@ -9,7 +9,7 @@ C# Dynamic LINQ Reverse examples using an Expression Evaluator.
 
 - [Reverse](#reverse)
 
-## Where - Simple 1
+## Reverse
 This C# example uses the LINQ Where method with a dynamic expression to find all elements of an array less than 5.
 
 ### LINQ
@@ -53,13 +53,10 @@ private void uiReverse_Simple_1_LINQ_Execute_Click(object sender, EventArgs e)
 ```
 
 ### Result
-{% highlight text %}
-LINQ Execute Test
-------------------------------
+```txt
 A backwards list of the digits with a second character of 'i':
 nine
 eight
 six
 five
-
 ```

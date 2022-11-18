@@ -48,9 +48,7 @@ private void uiRange_LINQ_Execute_Click(object sender, EventArgs e)
 ```
 
 ### Result
-{% highlight text %}
-LINQ Execute Test
-------------------------------
+```txt
 The number 100 is even.
 The number 101 is odd.
 The number 102 is even.
@@ -101,5 +99,4 @@ The number 146 is even.
 The number 147 is odd.
 The number 148 is even.
 The number 149 is odd.
-
 ```

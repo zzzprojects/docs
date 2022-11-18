@@ -7,12 +7,12 @@ Name: LINQ Dynamic - SelectMany
 ## LINQ Dynamic SelectMany Examples
 C# Dynamic LINQ SelectMany examples using an Expression Evaluator.
 
-- [SelectMany - Compound from 1](#selectmany---compound-from-1)
-- [SelectMany - Compound from 2](#selectmany---compound-from-2)
-- [SelectMany - Compound from 3](#selectmany---compound-from-3)
-- [SelectMany - from Assignment](#selectmany---from-assignment)
-- [SelectMany - Multiple from](#selectmany---multiple-from)
-- [SelectMany - Indexed](#selectmany---indexed)
+- [SelectMany - Compound from 1](#selectmany-compound-from-1)
+- [SelectMany - Compound from 2](#selectmany-compound-from-2)
+- [SelectMany - Compound from 3](#selectmany-compound-from-3)
+- [SelectMany - from Assignment](#selectmany-from-assignment)
+- [SelectMany - Multiple from](#selectmany-multiple-from)
+- [SelectMany - Indexed](#selectmany-indexed)
 
 ## SelectMany - Compound from 1
 This C# example uses the LINQ SelectMany method to make a query that returns all pairs of numbers from both arrays such that the number from numbersA is less than the number from numbersB.
@@ -60,9 +60,7 @@ private void uiSelectMany_CF_1_LINQ_Execute_Click(object sender, EventArgs e)
 ```
 
 ### Result
-{% highlight text %}
-LINQ Execute Test
-------------------------------
+```txt
 Pairs where a < b:
 0 is less than 1
 0 is less than 3
@@ -80,7 +78,6 @@ Pairs where a < b:
 5 is less than 8
 6 is less than 7
 6 is less than 8
-
 ```
 
 ## SelectMany - Compound from 2
@@ -129,9 +126,7 @@ private void uiSelectMany_CF_2_LINQ_Execute_Click(object sender, EventArgs e)
 ```
 
 ### Result
-{% highlight text %}
-LINQ Execute Test
-------------------------------
+```txt
 CustomerID=ALFKI OrderID=10702 Total=330.00
 CustomerID=ALFKI OrderID=10952 Total=471.20
 CustomerID=ANATR OrderID=10308 Total=88.80
@@ -366,7 +361,6 @@ CustomerID=WOLZA OrderID=10374 Total=459.00
 CustomerID=WOLZA OrderID=10792 Total=399.85
 CustomerID=WOLZA OrderID=10870 Total=160.00
 CustomerID=WOLZA OrderID=10906 Total=427.50
-
 ```
 
 ## SelectMany - Compound from 3
@@ -415,9 +409,7 @@ private void uiSelectMany_CF_3_LINQ_Execute_Click(object sender, EventArgs e)
 ```
 
 ### Result
-{% highlight text %}
-LINQ Execute Test
-------------------------------
+```txt
 CustomerID=ALFKI OrderID=10835 OrderDate=1/15/1998
 CustomerID=ALFKI OrderID=10952 OrderDate=3/16/1998
 CustomerID=ALFKI OrderID=11011 OrderDate=4/9/1998
@@ -688,7 +680,6 @@ CustomerID=WOLZA OrderID=10870 OrderDate=2/4/1998
 CustomerID=WOLZA OrderID=10906 OrderDate=2/25/1998
 CustomerID=WOLZA OrderID=10998 OrderDate=4/3/1998
 CustomerID=WOLZA OrderID=11044 OrderDate=4/23/1998
-
 ```
 
 ## SelectMany - from Assignment
@@ -737,9 +728,7 @@ private void uiSelectMany_From_Assignment_LINQ_Execute_Click(object sender, Even
 ```
 
 ### Result
-{% highlight text %}
-LINQ Execute Test
-------------------------------
+```txt
 CustomerID=ANTON OrderID=10573 Total=2082.00
 CustomerID=AROUT OrderID=10558 Total=2142.90
 CustomerID=AROUT OrderID=10953 Total=4441.25
@@ -925,7 +914,6 @@ CustomerID=WHITC OrderID=10344 Total=2296.00
 CustomerID=WHITC OrderID=10693 Total=2071.20
 CustomerID=WHITC OrderID=10861 Total=3523.40
 CustomerID=WHITC OrderID=11032 Total=8902.50
-
 ```
 
 ## SelectMany - Multiple from
@@ -974,9 +962,7 @@ private void uiSelectMany_Multiple_From_LINQ_Execute_Click(object sender, EventA
 ```
 
 ### Result
-{% highlight text %}
-LINQ Execute Test
-------------------------------
+```txt
 CustomerID=LAZYK OrderID=10482
 CustomerID=LAZYK OrderID=10545
 CustomerID=TRAIH OrderID=10574
@@ -994,7 +980,6 @@ CustomerID=WHITC OrderID=10861
 CustomerID=WHITC OrderID=10904
 CustomerID=WHITC OrderID=11032
 CustomerID=WHITC OrderID=11066
-
 ```
 
 
@@ -1044,9 +1029,7 @@ private void uiSelectMany_Indexed_LINQ_Execute_Click(object sender, EventArgs e)
 ```
 
 ### Result
-{% highlight text %}
-LINQ Execute Test
-------------------------------
+```txt
 Customer #1 has an order with OrderID 10643
 Customer #1 has an order with OrderID 10692
 Customer #1 has an order with OrderID 10702
@@ -1074,5 +1057,4 @@ Customer #91 has an order with OrderID 10870
 Customer #91 has an order with OrderID 10906
 Customer #91 has an order with OrderID 10998
 Customer #91 has an order with OrderID 11044
-
 ```

@@ -53,11 +53,8 @@ private void uiOfType_LINQ_Execute_Click(object sender, EventArgs e)
 ```
 
 ### Result
-{% highlight text %}
-LINQ Execute Test
-------------------------------
+```txt
 Numbers stored as doubles:
 1
 7
-
 ```

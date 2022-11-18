@@ -7,8 +7,8 @@ Name: LINQ Dynamic - Distinct
 ## LINQ Dynamic Distinct Examples
 C# Dynamic LINQ Distinct examples using an Expression Evaluator.
 
-- [Distinct - 1](#distinct---1)
-- [Distinct - 2](#distinct---2)
+- [Distinct - 1](#distinct-1)
+- [Distinct - 2](#distinct-2)
 
 ## Distinct - 1
 This C# example uses the LINQ Distinct method with a dynamic expression to remove duplicate elements in a sequence of factors of 300.
@@ -43,14 +43,11 @@ foreach (var f in uniqueFactors)
 {% include component-try-it.html href='https://dotnetfiddle.net/uMxKIt' %}
 
 ### Result
-{% highlight text %}
-LINQ Execute Test
-------------------------------
+```txt
 Prime factors of 300:
 2
 3
 5
-
 ```
 
 ## Distinct - 2
@@ -85,9 +82,7 @@ foreach (var n in categoryNames)
 {% include component-try-it.html href='https://dotnetfiddle.net/gC6H2M' %}
 
 ### Result
-{% highlight text %}
-LINQ Execute Test
-------------------------------
+```txt
 Category names:
 Beverages
 Condiments
@@ -97,5 +92,4 @@ Seafood
 Dairy Products
 Confections
 Grains/Cereals
-
 ```

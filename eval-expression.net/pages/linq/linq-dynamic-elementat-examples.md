@@ -8,10 +8,6 @@ Name: LINQ Dynamic - ElementAt
 C# Dynamic LINQ ElementAt examples using an Expression Evaluator.
 
 - [ElementAt](#elementat)
-- [Where - Simple 2](#where---simple-2)
-- [Where - Simple 3](#where---simple-3)
-- [Where - Drilldown](#where---drilldown)
-- [Where - Indexed](#where---indexed)
 
 ## ElementAt
 This C# example uses the LINQ ElementAt method with a dynamic expression to retrieve the second number greater than 5 from an array.
@@ -37,9 +33,6 @@ Console.WriteLine("Second number > 5: {0}", fourthLowNum);
 {% include component-try-it.html href='https://dotnetfiddle.net/C77VYn' %}
 
 ### Result
-{% highlight text %}
-LINQ Execute Test
-------------------------------
+```txt
 Second number > 5: 8
-
 ```

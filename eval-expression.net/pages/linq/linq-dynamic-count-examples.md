@@ -7,10 +7,10 @@ Name: LINQ Dynamic - Count
 ## LINQ Dynamic Count Examples
 C# Dynamic LINQ Count examples using an Expression Evaluator.
 
-- [Count - Simple](#count---simple)
-- [Count - Conditional](#count---conditional)
-- [Count - Nested](#count---nested)
-- [Count - Grouped](#count---grouped)
+- [Count - Simple](#count-simple)
+- [Count - Conditional](#count-conditional)
+- [Count - Nested](#count-nested)
+- [Count - Grouped](#count-grouped)
 
 ## Count - Simple
 This C# example uses the LINQ Count method with a dynamic expression to get the number of unique factors of 300.
@@ -36,11 +36,8 @@ Console.WriteLine("There are {0} unique factors of 300.", uniqueFactors);
 {% include component-try-it.html href='https://dotnetfiddle.net/1Xc6yM' %}
 
 ### Result
-{% highlight text %}
-LINQ Execute Test
-------------------------------
+```txt
 There are 3 unique factors of 300.
-
 ```
 
 ## Count - Conditional
@@ -77,11 +74,8 @@ Console.WriteLine("There are {0} odd numbers in the list.", oddNumbers);
 {% include component-try-it.html href='https://dotnetfiddle.net/UY9frV' %}
 
 ### Result
-{% highlight text %}
-LINQ Execute Test
-------------------------------
+```txt
 There are 5 odd numbers in the list.
-
 ```
 
 ## Count - Nested
@@ -120,9 +114,7 @@ private void uiCount_Nested_LINQ_Execute_Click(object sender, EventArgs e)
 ```
 
 ### Result
-{% highlight text %}
-LINQ Execute Test
-------------------------------
+```txt
 CustomerID=ALFKI 
 CustomerID=ANATR 
 CustomerID=ANTON 
@@ -304,7 +296,6 @@ OrderCount=9
 OrderCount=14 
 OrderCount=8 
 OrderCount=7
-
 ```
 
 ## Count - Grouped
@@ -343,9 +334,7 @@ private void uiCount_Grouped_LINQ_Execute_Click(object sender, EventArgs e)
 ```
 
 ### Result
-{% highlight text %}
-LINQ Execute Test
-------------------------------
+```txt
 Category=Beverages 
 Category=Condiments 
 Category=Produce 
@@ -361,5 +350,4 @@ ProductCount=12
 ProductCount=10 
 ProductCount=13 
 ProductCount=7
-
 ```

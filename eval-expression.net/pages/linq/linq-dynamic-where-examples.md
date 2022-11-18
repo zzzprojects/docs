@@ -7,11 +7,11 @@ Name: LINQ Dynamic - Where
 ## LINQ Dynamic Where Examples
 C# Dynamic LINQ Where examples using an Expression Evaluator.
 
-- [Where - Simple 1](#where---simple-1)
-- [Where - Simple 2](#where---simple-2)
-- [Where - Simple 3](#where---simple-3)
-- [Where - Drilldown](#where---drilldown)
-- [Where - Indexed](#where---indexed)
+- [Where - Simple 1](#where-simple-1)
+- [Where - Simple 2](#where-simple-2)
+- [Where - Simple 3](#where-simple-3)
+- [Where - Drilldown](#where-drilldown)
+- [Where - Indexed](#where-indexed)
 
 ## Where - Simple 1
 This C# example uses the LINQ Where method with a dynamic expression to find all elements of an array less than 5.
@@ -78,9 +78,7 @@ private void uiWhere_Simple_1_LINQ_Execute_Click(object sender, EventArgs e)
 ```
 
 ### Result
-{% highlight text %}
-LINQ Execute Test
-------------------------------
+```txt
 Numbers < 5:
 4
 1
@@ -154,16 +152,13 @@ private void uiWhere_Simple_2_LINQ_Execute_Click(object sender, EventArgs e)
 ```
 
 ### Result
-{% highlight text %}
-LINQ Execute Test
-------------------------------
+```txt
 Sold out products: 
 Chef Anton's Gumbo Mix is sold out! 
 Alice Mutton is sold out! 
 ThÃ¼ringer Rostbratwurst is sold out! 
 Gorgonzola Telino is sold out! 
 Perth Pasties is sold out!
-
 ```
 
 ## Where - Simple 3
@@ -230,9 +225,7 @@ private void uiWhere_Simple_3_LINQ_Execute_Click(object sender, EventArgs e)
 ```
 
 ### Result
-{% highlight text %}
-LINQ Execute Test
-------------------------------
+```txt
 In-stock products that cost more than 3.00: 
 Chai is in stock and costs more than 3.00. 
 Chang is in stock and costs more than 3.00. 
@@ -305,7 +298,6 @@ Longlife Tofu is in stock and costs more than 3.00.
 RhÃ¶nbrÃ¤u Klosterbier is in stock and costs more than 3.00. 
 LakkalikÃ¶Ã¶ri is in stock and costs more than 3.00. 
 Original Frankfurter grÃ¼ne SoÃŸe is in stock and costs more than 3.00.
-
 ```
 
 ## Where - Drilldown
@@ -386,9 +378,7 @@ private void uiWhere_DrillDown_LINQ_Execute_Click(object sender, EventArgs e)
 ```
 
 ### Result
-{% highlight text %}
-LINQ Execute Test
-------------------------------
+```txt
 Customers from Washington and their orders: 
 Customer LAZYK: Lazy K Kountry Store
 Order 10482: 3/21/1997 12:00:00 AM
@@ -412,7 +402,6 @@ Order 10861: 1/30/1998 12:00:00 AM
 Order 10904: 2/24/1998 12:00:00 AM
 Order 11032: 4/17/1998 12:00:00 AM
 Order 11066: 5/1/1998 12:00:00 AM
-
 ```
 
 ## Where - Indexed
@@ -479,14 +468,11 @@ private void uiWhere_Indexed_LINQ_Execute_Click(object sender, EventArgs e)
 ```
 
 ### Result
-{% highlight text %}
-LINQ Execute Test
-------------------------------
+```txt
 Short digits: 
 The word five is shorter than its value. 
 The word six is shorter than its value. 
 The word seven is shorter than its value. 
 The word eight is shorter than its value. 
 The word nine is shorter than its value.
-
 ```

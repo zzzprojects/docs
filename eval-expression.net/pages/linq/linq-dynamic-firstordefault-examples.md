@@ -7,8 +7,8 @@ Name: LINQ Dynamic - FirstOrDefault
 ## LINQ Dynamic FirstOrDefault Examples
 C# Dynamic LINQ FirstOrDefault examples using an Expression Evaluator.
 
-- [FirstOrDefault - Simple](#firstordefault---simple)
-- [FirstOrDefault - Condition](#firstordefault---condition)
+- [FirstOrDefault - Simple](#firstordefault-simple)
+- [FirstOrDefault - Condition](#firstordefault-condition)
 
 ## FirstOrDefault - Simple
 This C# example uses the LINQ FirstOrDefault method with a dynamic expression to try to find the first element of the sequence, unless there are no elements, in which case the default value for that type is returned.
@@ -46,11 +46,8 @@ private void uiFirstOrDefault_Simple_LINQ_Execute_Click(object sender, EventArgs
 ```
 
 ### Result
-{% highlight text %}
-LINQ Execute Test
-------------------------------
+```txt
 0
-
 ```
 
 ## FirstOrDefault - Condition
@@ -105,9 +102,6 @@ private void uiFirstOrDefault_Condition_LINQ_Execute_Click(object sender, EventA
 ```
 
 ### Result
-{% highlight text %}
-LINQ Execute Test
-------------------------------
+```txt
 Product 789 exists: False
-
 ```

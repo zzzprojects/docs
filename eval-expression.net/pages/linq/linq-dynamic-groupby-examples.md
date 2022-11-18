@@ -7,12 +7,12 @@ Name: LINQ Dynamic - GroupBy
 ## LINQ Dynamic GroupBy Examples
 C# Dynamic LINQ GroupBy examples using an Expression Evaluator.
 
-- [GroupBy - Simple 1](#groupby---simple-1)
-- [GroupBy - Simple 2](#groupby---simple-2)
-- [GroupBy - Simple 3](#groupby---simple-3)
-- [GroupBy - Nested](#groupby---nested)
-- [GroupBy - Comparer](#groupby---comparer)
-- [GroupBy - Comparer, Mapped](#groupby---comparer--mapped)
+- [GroupBy - Simple 1](#groupby-simple-1)
+- [GroupBy - Simple 2](#groupby-simple-2)
+- [GroupBy - Simple 3](#groupby-simple-3)
+- [GroupBy - Nested](#groupby-nested)
+- [GroupBy - Comparer](#groupby-comparer)
+- [GroupBy - Comparer, Mapped](#groupby-comparer-mapped)
 
 ## GroupBy - Simple 1
 This C# example uses the LINQ GroupBy method with a dynamic expression to partition a list of numbers by their remainder when divided by 5.
@@ -66,9 +66,7 @@ private void uiGroupBy_Simple_1_LINQ_Execute_Click(object sender, EventArgs e)
 ```
 
 ### Result
-{% highlight text %}
-LINQ Execute Test
-------------------------------
+```txt
 Numbers with a remainder of 0 when divided by 5:
 5
 0
@@ -84,7 +82,6 @@ Numbers with a remainder of 3 when divided by 5:
 Numbers with a remainder of 2 when divided by 5:
 7
 2
-
 ```
 
 ## GroupBy - Simple 2
@@ -139,9 +136,7 @@ private void uiGroupBy_Simple_2_LINQ_Execute_Click(object sender, EventArgs e)
 ```
 
 ### Result
-{% highlight text %}
-LINQ Execute Test
-------------------------------
+```txt
 Words that start with the letter 'b':
 blueberry
 banana
@@ -151,7 +146,6 @@ cheese
 Words that start with the letter 'a':
 abacus
 apple
-
 ```
 
 ## GroupBy - Simple 3
@@ -190,9 +184,7 @@ private void uiGroupBy_Simple_3_LINQ_Execute_Click(object sender, EventArgs e)
 ```
 
 ### Result
-{% highlight text %}
-LINQ Execute Test
-------------------------------
+```txt
 Category=Beverages Products=...
 Products: ProductID=1 ProductName=Chai Category=Beverages UnitPrice=18.0000 UnitsInStock=39
 Products: ProductID=2 ProductName=Chang Category=Beverages UnitPrice=19.0000 UnitsInStock=17
@@ -278,7 +270,6 @@ Products: ProductID=52 ProductName=Filo Mix Category=Grains/Cereals UnitPrice=7.
 Products: ProductID=56 ProductName=Gnocchi di nonna Alice Category=Grains/Cereals UnitPrice=38.0000 UnitsInStock=21
 Products: ProductID=57 ProductName=Ravioli Angelo Category=Grains/Cereals UnitPrice=19.5000 UnitsInStock=36
 Products: ProductID=64 ProductName=Wimmers gute SemmelknÃ¶del Category=Grains/Cereals UnitPrice=33.2500 UnitsInStock=22
-
 ```
 
 ## GroupBy - Nested
@@ -347,9 +338,7 @@ private void uiGroupBy_Nested_LINQ_Execute_Click(object sender, EventArgs e)
 ```
 
 ### Result
-{% highlight text %}
-LINQ Execute Test
-------------------------------
+```txt
 CompanyName=Alfreds Futterkiste YearGroups=...
 YearGroups: Year=1997 MonthGroups=...
 MonthGroups: Month=8 Orders=...
@@ -2141,7 +2130,6 @@ Orders: OrderID=10906 OrderDate=2/25/1998 Total=427.50
 MonthGroups: Month=4 Orders=...
 Orders: OrderID=10998 OrderDate=4/3/1998 Total=686.00
 Orders: OrderID=11044 OrderDate=4/23/1998 Total=591.60
-
 ```
 
 ## GroupBy - Comparer
@@ -2182,9 +2170,7 @@ private void uiGroupBy_Comparer_LINQ_Execute_Click(object sender, EventArgs e)
 ```
 
 ### Result
-{% highlight text %}
-LINQ Execute Test
-------------------------------
+```txt
 ...
 from 
 form 
@@ -2194,7 +2180,6 @@ last
 ...
 earn 
 near
-
 ```
 
 ## GroupBy - Comparer, Mapped
@@ -2235,9 +2220,7 @@ private void uiGroupBy_ComparerMapped_LINQ_Execute_Click(object sender, EventArg
 ```
 
 ### Result
-{% highlight text %}
-LINQ Execute Test
-------------------------------
+```txt
 ...
 FROM 
 FORM 
@@ -2247,5 +2230,4 @@ LAST
 ...
 EARN 
 NEAR
-
 ```

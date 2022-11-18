@@ -7,9 +7,9 @@ Name: LINQ Dynamic - Sum
 ## LINQ Dynamic Sum Examples
 C# Dynamic LINQ Sum examples using an Expression Evaluator.
 
-- [Sum - Simple](#sum---simple)
-- [Sum - Projection](#sum---projection)
-- [Sum - Grouped](#sum---grouped)
+- [Sum - Simple](#sum-simple)
+- [Sum - Projection](#sum-projection)
+- [Sum - Grouped](#sum-grouped)
 
 ## Sum - Simple
 This C# example uses the LINQ Sum method with a dynamic expression to get the total of the numbers in an array.
@@ -47,11 +47,8 @@ private void uiSum_Simple_LINQ_Execute_Click(object sender, EventArgs e)
 ```
 
 ### Result
-{% highlight text %}
-LINQ Execute Test
-------------------------------
+```txt
 The sum of the numbers is 45.
-
 ```
 
 ## Sum - Projection
@@ -90,11 +87,8 @@ private void uiSum_Projection_LINQ_Execute_Click(object sender, EventArgs e)
 ```
 
 ### Result
-{% highlight text %}
-LINQ Execute Test
-------------------------------
+```txt
 There are a total of 20 characters in these words.
-
 ```
 
 ## Sum - Grouped
@@ -133,9 +127,7 @@ private void uiSum_Grouped_LINQ_Execute_Click(object sender, EventArgs e)
 ```
 
 ### Result
-{% highlight text %}
-LINQ Execute Test
-------------------------------
+```txt
 Category=Beverages 
 Category=Condiments 
 Category=Produce 
@@ -151,5 +143,4 @@ TotalUnitsInStock=701
 TotalUnitsInStock=393 
 TotalUnitsInStock=386 
 TotalUnitsInStock=308
-
 ```

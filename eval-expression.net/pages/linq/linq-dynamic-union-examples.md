@@ -7,8 +7,8 @@ Name: LINQ Dynamic - Union
 ## LINQ Dynamic Union Examples
 C# Dynamic LINQ Union examples using an Expression Evaluator.
 
-- [Union - 1](#where---1)
-- [Union - 2](#where---2)
+- [Union - 1](#union-1)
+- [Union - 2](#union-2)
 
 ## Union - 1
 This C# example uses the LINQ Union method with a dynamic expression to create one sequence that contains the unique values from both arrays.
@@ -56,9 +56,7 @@ private void uiUnion_1_LINQ_Execute_Click(object sender, EventArgs e)
 ```
 
 ### Result
-{% highlight text %}
-LINQ Execute Test
-------------------------------
+```txt
 Unique numbers from both arrays:
 0
 2
@@ -70,7 +68,6 @@ Unique numbers from both arrays:
 1
 3
 7
-
 ```
 
 ## Union - 2
@@ -125,9 +122,7 @@ private void uiUnion_2_LINQ_Execute_Click(object sender, EventArgs e)
 ```
 
 ### Result
-{% highlight text %}
-LINQ Execute Test
-------------------------------
+```txt
 Unique first letters from Product names and Customer names:
 C
 A
@@ -153,5 +148,4 @@ L
 O
 D
 H
-
 ```

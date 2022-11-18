@@ -28,12 +28,9 @@ This C# example uses the LINQ ToList method with a dynamic expression to immedia
 ```
 
 ### Result
-{% highlight text %}
-LINQ Execute Test
-------------------------------
+```txt
 The sorted word list:
 apple
 blueberry
 cherry
-
 ```

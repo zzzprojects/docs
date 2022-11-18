@@ -7,8 +7,8 @@ Name: LINQ Dynamic - First
 ## LINQ Dynamic First Examples
 C# Dynamic LINQ First examples using an Expression Evaluator.
 
-- [First - Simple](#first---simple)
-- [First - Condition](#first---condition)
+- [First - Simple](#first-simple)
+- [First - Condition](#first-condition)
 
 ## First - Simple
 This C# example uses the LINQ First method with a dynamic expression to find the first matching element as a Product, instead of as a sequence containing a Product.
@@ -34,11 +34,8 @@ Console.WriteLine("ProductID : " + product.ProductID+ " ,ProductName : " + produ
 {% include component-try-it.html href='https://dotnetfiddle.net/BOAG8x' %}
 
 ### Result
-{% highlight text %}
-LINQ Execute Test
-------------------------------
+```txt
 ProductID=12 ProductName=Queso Manchego La Pastora Category=Dairy Products UnitPrice=38.0000 UnitsInStock=86
-
 ```
 
 ## First - Condition
@@ -76,9 +73,6 @@ Console.WriteLine("A string starting with 'o': {0}", startsWithO);
 {% include component-try-it.html href='https://dotnetfiddle.net/pqhtyM' %}
 
 ### Result
-{% highlight text %}
-LINQ Execute Test
-------------------------------
+```txt
 A string starting with 'o': one
-
 ```

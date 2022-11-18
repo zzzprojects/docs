@@ -7,8 +7,8 @@ Name: LINQ Dynamic - EqualAll
 ## LINQ Dynamic EqualAll Examples
 C# Dynamic LINQ EqualAll examples using an Expression Evaluator.
 
-- [EqualAll - 1](#equalall---1)
-- [EqualAll - 2](#equalall---2)
+- [EqualAll - 1](#equalall-1)
+- [EqualAll - 2](#equalall-2)
 
 ## EqualAll - 1
 This C# example uses the LINQ EqualAll method with a dynamic expression to see if two sequences match on all elements in the same order.
@@ -37,11 +37,8 @@ Console.WriteLine("The sequences match: {0}", match);
 {% include component-try-it.html href='https://dotnetfiddle.net/Ahstcy' %}
 
 ### Result
-{% highlight text %}
-LINQ Execute Test
-------------------------------
+```txt
 The sequences match: True
-
 ```
 
 ## EqualAll - 2
@@ -70,9 +67,6 @@ Console.WriteLine("The sequences match: {0}", match);
 {% include component-try-it.html href='https://dotnetfiddle.net/WK4OED' %}
 
 ### Result
-{% highlight text %}
-LINQ Execute Test
-------------------------------
+```txt
 The sequences match: False
-
 ```

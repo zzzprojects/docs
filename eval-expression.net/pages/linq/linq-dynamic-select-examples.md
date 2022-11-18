@@ -7,14 +7,14 @@ Name: LINQ Dynamic - Select
 ## LINQ Dynamic Select Examples
 C# Dynamic LINQ Select examples using an Expression Evaluator.
 
-- [Select - Simple 1](#select---simple-1)
-- [Select - Simple 2](#select---simple-2)
-- [Select - Transformation](#select---transformation)
-- [Select - Anonymous Type 1](#select---anonymous-type-1)
-- [Select - Anonymous Type 2](#select---anonymous-type-2)
-- [Select - Anonymous Type 3](#select---anonymous-type-3)
-- [Select - Indexed](#select---indexed)
-- [Select - Filtered](#select---filtered)
+- [Select - Simple 1](#select-simple-1)
+- [Select - Simple 2](#select-simple-2)
+- [Select - Transformation](#select-transformation)
+- [Select - Anonymous Type 1](#select-anonymous-types-1)
+- [Select - Anonymous Type 2](#select-anonymous-types-2)
+- [Select - Anonymous Type 3](#select-anonymous-types-3)
+- [Select - Indexed](#select-indexed)
+- [Select - Filtered](#select-filtered)
 
 ## Select - Simple 1
 This C# example uses the LINQ Select method with a dynamic expression to produce a sequence of ints one higher than those in an existing array of ints.
@@ -80,9 +80,7 @@ private void uiSelect_Simple_1_LINQ_Execute_Click(object sender, EventArgs e)
 ```
 
 ### Result
-{% highlight text %}
-LINQ Execute Test
-------------------------------
+```txt
 Numbers + 1:
 6
 5
@@ -160,9 +158,7 @@ private void uiSelect_Simple_2_LINQ_Execute_Click(object sender, EventArgs e)
 ```
 
 ### Result
-{% highlight text %}
-LINQ Execute Test
-------------------------------
+```txt
 Product Names:
 Chai
 Chang
@@ -241,7 +237,6 @@ Longlife Tofu
 RhÃ¶nbrÃ¤u Klosterbier
 LakkalikÃ¶Ã¶ri
 Original Frankfurter grÃ¼ne SoÃŸe
-
 ```
 
 ## Select - Transformation
@@ -311,9 +306,7 @@ private void uiSelect_Transformation_LINQ_Execute_Click(object sender, EventArgs
 ```
 
 ### Result
-{% highlight text %}
-LINQ Execute Test
-------------------------------
+```txt
 Number strings:
 five
 four
@@ -325,7 +318,6 @@ six
 seven
 two
 zero
-
 ```
 
 ## Select - Anonymous Types 1
@@ -389,13 +381,10 @@ private void uiSelect_Anonymous_1_LINQ_Execute_Click(object sender, EventArgs e)
 ```
 
 ### Result
-{% highlight text %}
-LINQ Execute Test
-------------------------------
+```txt
 Uppercase: APPLE, Lowercase: apple
 Uppercase: BLUEBERRY, Lowercase: blueberry
 Uppercase: CHERRY, Lowercase: cherry
-
 ```
 
 ## Select - Anonymous Types 2
@@ -462,9 +451,7 @@ private void uiSelect_Anonymous_2_LINQ_Execute_Click(object sender, EventArgs e)
 ```
 
 ### Result
-{% highlight text %}
-LINQ Execute Test
-------------------------------
+```txt
 The digit five is odd.
 The digit four is even.
 The digit one is odd.
@@ -475,7 +462,6 @@ The digit six is even.
 The digit seven is odd.
 The digit two is even.
 The digit zero is even.
-
 ```
 
 ## Select - Anonymous Types 3
@@ -542,9 +528,7 @@ private void uiSelect_Anonymous_3_LINQ_Execute_Click(object sender, EventArgs e)
 ```
 
 ### Result
-{% highlight text %}
-LINQ Execute Test
-------------------------------
+```txt
 Product Info:
 Chai is in the category Beverages and costs 18.0000 per unit.
 Chang is in the category Beverages and costs 19.0000 per unit.
@@ -623,7 +607,6 @@ Longlife Tofu is in the category Produce and costs 10.0000 per unit.
 RhÃ¶nbrÃ¤u Klosterbier is in the category Beverages and costs 7.7500 per unit.
 LakkalikÃ¶Ã¶ri is in the category Beverages and costs 18.0000 per unit.
 Original Frankfurter grÃ¼ne SoÃŸe is in the category Condiments and costs 13.0000 per unit.
-
 ```
 
 ## Select - Indexed
@@ -690,9 +673,7 @@ private void uiSelect_Indexed_LINQ_Execute_Click(object sender, EventArgs e)
 ```
 
 ### Result
-{% highlight text %}
-LINQ Execute Test
-------------------------------
+```txt
 Number: In-place?
 5: False
 4: False
@@ -704,7 +685,6 @@ Number: In-place?
 7: True
 2: False
 0: False
-
 ```
 
 ## Select - Filtered
@@ -774,9 +754,7 @@ private void uiSelect_Filtered_LINQ_Execute_Click(object sender, EventArgs e)
 ```
 
 ### Result
-{% highlight text %}
-LINQ Execute Test
-------------------------------
+```txt
 Numbers < 5:
 four
 one

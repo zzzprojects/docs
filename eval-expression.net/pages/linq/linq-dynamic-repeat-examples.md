@@ -48,9 +48,7 @@ private void uiRepeat_LINQ_Execute_Click(object sender, EventArgs e)
 ```
 
 ### Result
-{% highlight text %}
-LINQ Execute Test
-------------------------------
+```txt
 7
 7
 7
@@ -61,5 +59,4 @@ LINQ Execute Test
 7
 7
 7
-
 ```

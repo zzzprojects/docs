@@ -36,9 +36,6 @@ Console.WriteLine("Dot product: {0}", dotProduct);
 {% include component-try-it.html href='https://dotnetfiddle.net/DR5a6p' %}
 
 ### Result
-{% highlight text %}
-LINQ Execute Test
-------------------------------
+```txt
 Dot product: 109
-
 ```

@@ -7,8 +7,8 @@ Name: LINQ Dynamic - SkipWhile
 ## LINQ Dynamic SkipWhile Examples
 C# Dynamic LINQ SkipWhile examples using an Expression Evaluator.
 
-- [SkipWhile - Simple](#skipwhile---simple)
-- [SkipWhile - Indexed](#skipwhile---indexed)
+- [SkipWhile - Simple](#skipwhile-simple)
+- [SkipWhile - Indexed](#skipwhile-indexed)
 
 ## SkipWhile - Simple
 This C# example uses the LINQ SkipWhile method with a dynamic expression to get the elements of the array starting from the first element divisible by 3.
@@ -74,9 +74,7 @@ private void uiSkipWhile_Simple_LINQ_Execute_Click(object sender, EventArgs e)
 ```
 
 ### Result
-{% highlight text %}
-LINQ Execute Test
-------------------------------
+```txt
 All elements starting from first element divisible by 3:
 3
 9
@@ -85,7 +83,6 @@ All elements starting from first element divisible by 3:
 7
 2
 0
-
 ```
 
 ## SkipWhile - Indexed
@@ -152,9 +149,7 @@ private void uiSkipWhile_Indexed_LINQ_Execute_Click(object sender, EventArgs e)
 ```
 
 ### Result
-{% highlight text %}
-LINQ Execute Test
-------------------------------
+```txt
 All elements starting from first element less than its position:
 1
 3
@@ -164,5 +159,4 @@ All elements starting from first element less than its position:
 7
 2
 0
-
 ```

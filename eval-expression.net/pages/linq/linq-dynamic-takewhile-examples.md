@@ -7,8 +7,8 @@ Name: LINQ Dynamic - TakeWhile
 ## LINQ Dynamic TakeWhile Examples
 C# Dynamic LINQ TakeWhile examples using an Expression Evaluator.
 
-- [TakeWhile - Simple](#takewhile---simple)
-- [TakeWhile - Indexed](#takewhile---indexed)
+- [TakeWhile - Simple](#takewhile-simple)
+- [TakeWhile - Indexed](#takewhile-indexed)
 
 ## TakeWhile - Simple
 This C# example uses the LINQ TakeWhile method with a dynamic expression to return elements starting from the beginning of the array until a number is hit that is not less than 6.
@@ -74,15 +74,12 @@ private void uiTakeWhile_Simple_LINQ_Execute_Click(object sender, EventArgs e)
 ```
 
 ### Result
-{% highlight text %}
-LINQ Execute Test
-------------------------------
+```txt
 First numbers less than 6:
 5
 4
 1
 3
-
 ```
 
 ## TakeWhile - Indexed
@@ -149,11 +146,8 @@ private void uiTakeWhile_Indexed_LINQ_Execute_Click(object sender, EventArgs e)
 ```
 
 ### Result
-{% highlight text %}
-LINQ Execute Test
-------------------------------
+```txt
 First numbers not less than their position: 
 5 
 4
-
 ```

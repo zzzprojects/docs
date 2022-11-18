@@ -7,9 +7,9 @@ Name: LINQ Dynamic - Average
 ## LINQ Dynamic Average Examples
 C# Dynamic LINQ Average examples using an Expression Evaluator.
 
-- [Average - Simple](#average---simple)
-- [Average - Projection](#average---projection)
-- [Average - Grouped](#average---grouped)
+- [Average - Simple](#average-simple)
+- [Average - Projection](#average-projection)
+- [Average - Grouped](#average-grouped)
 
 ## Average - Simple
 This C# example uses the LINQ Average method with a dynamic expression to get the average of all numbers in an array.
@@ -36,11 +36,8 @@ Console.WriteLine("The average number is {0}.", averageNum);
 {% include component-try-it.html href='https://dotnetfiddle.net/0eEHRS' %}
 
 ### Result
-{% highlight text %}
-LINQ Execute Test
-------------------------------
+```txt
 The average number is 4.5.
-
 ```
 
 ## Average - Projection
@@ -67,11 +64,8 @@ Console.WriteLine("The average word length is {0} characters.", averageLength);
 {% include component-try-it.html href='https://dotnetfiddle.net/xmIXWV' %}
 
 ### Result
-{% highlight text %}
-LINQ Execute Test
-------------------------------
+```txt
 The average word length is 6.66666666666667 characters.
-
 ```
 
 ## Average - Grouped
@@ -107,9 +101,7 @@ private void uiAverage_Grouped_LINQ_Execute_Click(object sender, EventArgs e)
 ```
 
 ### Result
-{% highlight text %}
-LINQ Execute Test
-------------------------------
+```txt
 Category=Beverages 
 Category=Condiments 
 Category=Produce 
@@ -125,5 +117,4 @@ AveragePrice=20.6825
 AveragePrice=28.7300 
 AveragePrice=25.1600 
 AveragePrice=20.2500
-
 ```

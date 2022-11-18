@@ -57,12 +57,9 @@ private void uiToArray_LINQ_Execute_Click(object sender, EventArgs e)
 ```
 
 ### Result
-{% highlight text %}
-LINQ Execute Test
-------------------------------
+```txt
 Every other double from highest to lowest:
 4.1
 2.3
 1.7
-
 ```

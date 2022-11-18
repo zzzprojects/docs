@@ -7,8 +7,8 @@ Name: LINQ Dynamic - Concat
 ## LINQ Dynamic Concat Examples
 C# Dynamic LINQ Concat examples using an Expression Evaluator.
 
-- [Concat - 1](#concat---1)
-- [Concat - 2](#concat---2)
+- [Concat - 1](#concat-1)
+- [Concat - 2](#concat-2)
 
 ## Concat - 1
 This C# example uses the LINQ Concat method with a dynamic expression to create one sequence that contains each array's values, one after the other.
@@ -46,9 +46,7 @@ foreach (var n in allNumbers)
 {% include component-try-it.html href='https://dotnetfiddle.net/kIv2qY' %}
 
 ### Result
-{% highlight text %}
-LINQ Execute Test
-------------------------------
+```txt
 All numbers from both arrays: 
 0 
 2 
@@ -62,7 +60,6 @@ All numbers from both arrays:
 5 
 7 
 8
-
 ```
 
 ## Concat - 2
@@ -117,9 +114,7 @@ private void uiConcat_2_LINQ_Execute_Click(object sender, EventArgs e)
 ```
 
 ### Result
-{% highlight text %}
-LINQ Execute Test
-------------------------------
+```txt
 Customer and product names:
 Alfreds Futterkiste
 Ana Trujillo Emparedados y helados
@@ -287,5 +282,4 @@ Longlife Tofu
 RhÃ¶nbrÃ¤u Klosterbier 
 LakkalikÃ¶Ã¶ri 
 Original Frankfurter grÃ¼ne SoÃŸe
-
 ```

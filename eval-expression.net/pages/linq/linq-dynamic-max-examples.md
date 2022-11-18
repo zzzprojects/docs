@@ -7,10 +7,10 @@ Name: LINQ Dynamic - Max
 ## LINQ Dynamic Max Examples
 C# Dynamic LINQ Max examples using an Expression Evaluator.
 
-- [Max - Simple](#max---simple)
-- [Max - Projection](#max---projection)
-- [Max - Grouped](#max---grouped)
-- [Max - Elements](#max---elements)
+- [Max - Simple](#max-simple)
+- [Max - Projection](#max-projection)
+- [Max - Grouped](#max-grouped)
+- [Max - Elements](#max-elements)
 
 ## Max - Simple
 This C# example uses the LINQ Max method with a dynamic expression to get the highest number in an array.
@@ -48,11 +48,8 @@ private void uiMax_Simple_LINQ_Execute_Click(object sender, EventArgs e)
 ```
 
 ### Result
-{% highlight text %}
-LINQ Execute Test
-------------------------------
+```txt
 The maximum number is 9.
-
 ```
 
 ## Max - Projection
@@ -91,11 +88,8 @@ private void uiMax_Projection_LINQ_Execute_Click(object sender, EventArgs e)
 ```
 
 ### Result
-{% highlight text %}
-LINQ Execute Test
-------------------------------
+```txt
 The longest word is 9 characters long.
-
 ```
 
 ## Max - Grouped
@@ -134,9 +128,7 @@ private void uiMax_Grouped_LINQ_Execute_Click(object sender, EventArgs e)
 ```
 
 ### Result
-{% highlight text %}
-LINQ Execute Test
-------------------------------
+```txt
 Category=Beverages 
 Category=Condiments 
 Category=Produce 
@@ -152,7 +144,6 @@ MostExpensivePrice=62.5000
 MostExpensivePrice=55.0000 
 MostExpensivePrice=81.0000 
 MostExpensivePrice=38.0000
-
 ```
 
 ## Max - Elements
@@ -191,9 +182,7 @@ private void uiMax_Elements_LINQ_Execute_Click(object sender, EventArgs e)
 ```
 
 ### Result
-{% highlight text %}
-LINQ Execute Test
-------------------------------
+```txt
 Category=Beverages      MostExpensiveProducts=... 
   MostExpensiveProducts: ProductID=38    ProductName=CÃ´te de Blaye      Category=Beverages      UnitPrice=263.5000      UnitsInStock=17 
 Category=Condiments    MostExpensiveProducts=... 
@@ -210,5 +199,4 @@ Category=Confections    MostExpensiveProducts=...
   MostExpensiveProducts: ProductID=20    ProductName=Sir Rodney's Marmalade      Category=Confections    UnitPrice=81.0000      UnitsInStock=40 
 Category=Grains/Cereals        MostExpensiveProducts=... 
   MostExpensiveProducts: ProductID=56    ProductName=Gnocchi di nonna Alice      Category=Grains/Cereals        UnitPrice=38.0000      UnitsInStock=21
-
 ```

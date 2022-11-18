@@ -7,8 +7,8 @@ Name: LINQ Dynamic - Aggregate
 ## LINQ Dynamic Aggregate Examples
 C# Dynamic LINQ Aggregate examples using an Expression Evaluator.
 
-- [Aggregate - Simple](#aggregate---simple)
-- [Aggregate - Seed](#aggregate---seed)
+- [Aggregate - Simple](#aggregate-simple)
+- [Aggregate - Seed](#aggregate-seed)
 
 ## Aggregate - Simple
 This C# example uses the LINQ Aggregate method with a dynamic expression to create a running product on the array that calculates the total product of all elements.
@@ -34,11 +34,8 @@ Console.WriteLine("Total product of all numbers: {0}", product);
 ```
 
 ### Result
-{% highlight text %}
-LINQ Execute Test
-------------------------------
+```txt
 Total product of all numbers: 88.33081
-
 ```
 
 ## Aggregate - Seed
@@ -70,9 +67,6 @@ Console.WriteLine("Ending balance: {0}", endBalance);
 {% include component-try-it.html href='https://dotnetfiddle.net/p67L8v' %}
 
 ### Result
-{% highlight text %}
-LINQ Execute Test
-------------------------------
+```txt
 Ending balance: 20
-
 ```

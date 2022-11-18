@@ -7,8 +7,8 @@ Name: LINQ Dynamic - Take
 ## LINQ Dynamic Take Examples
 C# Dynamic LINQ Take examples using an Expression Evaluator.
 
-- [Take - Simple](#take---simple)
-- [Take - Nested](#take---nested)
+- [Take - Simple](#take-simple)
+- [Take - Nested](#take-nested)
 
 ## Take - Simple
 This C# example uses the LINQ Take method with a dynamic expression to get only the first 3 elements of the array.
@@ -54,14 +54,11 @@ private void uiTake_Simple_LINQ_Execute_Click(object sender, EventArgs e)
 ```
 
 ### Result
-{% highlight text %}
-LINQ Execute Test
-------------------------------
+```txt
 First 3 numbers: 
 5 
 4 
 1
-
 ```
 
 ## Take - Nested
@@ -83,12 +80,9 @@ This C# example uses the LINQ Take method with a dynamic expression to get the f
 ```
 
 ### Result
-{% highlight text %}
-LINQ Execute Test
-------------------------------
+```txt
 First 3 orders in WA: 
 CustomerID=LAZYK OrderID=10482 OrderDate=3/21/1997 
 CustomerID=LAZYK OrderID=10545 OrderDate=5/22/1997 
 CustomerID=TRAIH OrderID=10574 OrderDate=6/19/1997
-
 ```

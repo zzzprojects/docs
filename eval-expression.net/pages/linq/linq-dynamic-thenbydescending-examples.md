@@ -7,8 +7,8 @@ Name: LINQ Dynamic - ThenByDescending
 ## LINQ Dynamic ThenByDescending Examples
 C# Dynamic LINQ ThenByDescending examples using an Expression Evaluator.
 
-- [ThenByDescending - Simple](#thenbydescending---simple)
-- [ThenByDescending - Comparer](#thenbydescending---comparer)
+- [ThenByDescending - Simple](#thenbydescending-simple)
+- [ThenByDescending - Comparer](#thenbydescending-comparer)
 
 ## ThenByDescending - Simple
 This C# example uses the LINQ ThenByDescending method with a dynamic expression to sort a list of products, first by category, and then by unit price, from highest to lowest.
@@ -62,9 +62,7 @@ private void uiThenByDescending_Simple_1_LINQ_Execute_Click(object sender, Event
 ```
 
 ### Result
-{% highlight text %}
-LINQ Execute Test
-------------------------------
+```txt
 ProductID=38 ProductName=CÃ´te de Blaye Category=Beverages UnitPrice=263.5000 UnitsInStock=17
 ProductID=43 ProductName=Ipoh Coffee Category=Beverages UnitPrice=46.0000 UnitsInStock=17
 ProductID=2 ProductName=Chang Category=Beverages UnitPrice=19.0000 UnitsInStock=17
@@ -142,7 +140,6 @@ ProductID=46 ProductName=Spegesild Category=Seafood UnitPrice=12.0000 UnitsInSto
 ProductID=41 ProductName=Jack's New England Clam Chowder Category=Seafood UnitPrice=9.6500 UnitsInStock=85
 ProductID=45 ProductName=Rogede sild Category=Seafood UnitPrice=9.5000 UnitsInStock=5
 ProductID=13 ProductName=Konbu Category=Seafood UnitPrice=6.0000 UnitsInStock=24
-
 ```
 
 ## ThenByDescending - Comparer
@@ -199,14 +196,11 @@ private void uiThenByDescending_Comparer_LINQ_Execute_Click(object sender, Event
 ```
 
 ### Result
-{% highlight text %}
-LINQ Execute Test
-------------------------------
+```txt
 aPPLE
 ClOvEr
 cHeRry
 bRaNcH
 AbAcUs
 BlUeBeRrY
-
 ```

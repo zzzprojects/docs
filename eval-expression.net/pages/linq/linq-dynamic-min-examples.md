@@ -7,10 +7,10 @@ Name: LINQ Dynamic - Min
 ## LINQ Dynamic Min Examples
 C# Dynamic LINQ Min examples using an Expression Evaluator.
 
-- [Min - Simple](#min---simple)
-- [Min - Projection](#min---projection)
-- [Min - Grouped](#min---grouped)
-- [Min - Elements](#min---elements)
+- [Min - Simple](#min-simple)
+- [Min - Projection](#min-projection)
+- [Min - Grouped](#min-grouped)
+- [Min - Elements](#min-elements)
 
 ## Min - Simple
 This C# example uses the LINQ Min method with a dynamic expression to get the lowest number in an array.
@@ -48,11 +48,8 @@ private void uiMin_Simple_LINQ_Execute_Click(object sender, EventArgs e)
 ```
 
 ### Result
-{% highlight text %}
-LINQ Execute Test
-------------------------------
+```txt
 The minimum number is 0.
-
 ```
 
 ## Min - Projection
@@ -91,11 +88,8 @@ private void uiMin_Projection_LINQ_Execute_Click(object sender, EventArgs e)
 ```
 
 ### Result
-{% highlight text %}
-LINQ Execute Test
-------------------------------
+```txt
 The shortest word is 5 characters long.
-
 ```
 
 ## Min - Grouped
@@ -134,9 +128,7 @@ private void uiMin_Grouped_LINQ_Execute_Click(object sender, EventArgs e)
 ```
 
 ### Result
-{% highlight text %}
-LINQ Execute Test
-------------------------------
+```txt
 Category=Beverages
 Category=Condiments
 Category=Produce
@@ -152,7 +144,6 @@ CheapestPrice=6.0000
 CheapestPrice=2.5000
 CheapestPrice=9.2000
 CheapestPrice=7.0000
-
 ```
 
 ## Min - Elements
@@ -191,9 +182,7 @@ private void uiMin_Elements_LINQ_Execute_Click(object sender, EventArgs e)
 ```
 
 ### Result
-{% highlight text %}
-LINQ Execute Test
-------------------------------
+```txt
 Category=Beverages      CheapestProducts=... 
   CheapestProducts: ProductID=24  ProductName=GuaranÃ¡ FantÃ¡stica  Category=Beverages      UnitPrice=4.5000        UnitsInStock=20 
 Category=Condiments    CheapestProducts=... 
@@ -210,5 +199,4 @@ Category=Confections    CheapestProducts=...
   CheapestProducts: ProductID=19  ProductName=Teatime Chocolate Biscuits  Category=Confections    UnitPrice=9.2000        UnitsInStock=25 
 Category=Grains/Cereals        CheapestProducts=... 
   CheapestProducts: ProductID=52  ProductName=Filo Mix    Category=Grains/Cereals        UnitPrice=7.0000        UnitsInStock=38
-
 ```

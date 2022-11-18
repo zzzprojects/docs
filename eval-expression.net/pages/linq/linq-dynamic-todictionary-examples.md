@@ -54,9 +54,6 @@ private void uiToDictionary_LINQ_Execute_Click(object sender, EventArgs e)
 ```
 
 ### Result
-{% highlight text %}
-LINQ Execute Test
-------------------------------
+```txt
 Bob's score: { Name = Bob, Score = 40 }
-
 ```

@@ -7,8 +7,8 @@ Name: LINQ Dynamic - Skip
 ## LINQ Dynamic Skip Examples
 C# Dynamic LINQ Skip examples using an Expression Evaluator.
 
-- [Skip - Simple](#skip---simple)
-- [Skip - Nested](#skip---nested)
+- [Skip - Simple](#skip-simple)
+- [Skip - Nested](#skip-nested)
 
 ## Skip - Simple
 This C# example uses the LINQ Skip method with a dynamic expression to get all but the first 4 elements of the array.
@@ -54,9 +54,7 @@ private void uiSkip_Simple_LINQ_Execute_Click(object sender, EventArgs e)
 ```
 
 ### Result
-{% highlight text %}
-LINQ Execute Test
-------------------------------
+```txt
 All but first 4 numbers: 
 9 
 8 
@@ -64,7 +62,6 @@ All but first 4 numbers:
 7 
 2 
 0
-
 ```
 
 ## Skip - Nested
@@ -123,9 +120,7 @@ private void uiSkip_Nested_LINQ_Execute_Click(object sender, EventArgs e)
 ```
 
 ### Result
-{% highlight text %}
-LINQ Execute Test
-------------------------------
+```txt
 All but first 2 orders in WA:
 CustomerID=TRAIH OrderID=10574 OrderDate=6/19/1997
 CustomerID=TRAIH OrderID=10577 OrderDate=6/23/1997
@@ -144,5 +139,4 @@ CustomerID=WHITC OrderID=10861 OrderDate=1/30/1998
 CustomerID=WHITC OrderID=10904 OrderDate=2/24/1998
 CustomerID=WHITC OrderID=11032 OrderDate=4/17/1998
 CustomerID=WHITC OrderID=11066 OrderDate=5/1/1998
-
 ```

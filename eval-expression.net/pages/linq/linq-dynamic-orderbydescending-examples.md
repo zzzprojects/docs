@@ -7,9 +7,9 @@ Name: LINQ Dynamic - OrderByDescending
 ## LINQ Dynamic OrderByDescending Examples
 C# Dynamic LINQ OrderByDescending examples using an Expression Evaluator.
 
-- [OrderByDescending - Simple 1](#orderbydescending---simple-1)
-- [OrderByDescending - Simple 2](#orderbydescending---simple-2)
-- [OrderByDescending - Comparer](#orderbydescending---comparer)
+- [OrderByDescending - Simple 1](#orderbydescending-simple-1)
+- [OrderByDescending - Simple 2](#orderbydescending-simple-2)
+- [OrderByDescending - Comparer](#orderbydescending-comparer)
 
 ## OrderByDescending - Simple 1
 This C# example uses the LINQ OrderByDescending method with a dynamic expression to sort a list of doubles from highest to lowest.
@@ -75,16 +75,13 @@ private void uiOrderByDescending_Simple_1_LINQ_Execute_Click(object sender, Even
 ```
 
 ### Result
-{% highlight text %}
-LINQ Execute Test
-------------------------------
+```txt
 The doubles from highest to lowest:
 4.1
 2.9
 2.3
 1.9
 1.7
-
 ```
 
 ## OrderByDescending - Simple 2
@@ -139,9 +136,7 @@ private void uiOrderByDescending_Simple_2_LINQ_Execute_Click(object sender, Even
 ```
 
 ### Result
-{% highlight text %}
-LINQ Execute Test
-------------------------------
+```txt
 ProductID=75 ProductName=RhÃ¶nbrÃ¤u Klosterbier Category=Beverages UnitPrice=7.7500 UnitsInStock=125
 ProductID=40 ProductName=Boston Crab Meat Category=Seafood UnitPrice=18.4000 UnitsInStock=123
 ProductID=6 ProductName=Grandma's Boysenberry Spread Category=Condiments UnitPrice=25.0000 UnitsInStock=120
@@ -219,7 +214,6 @@ ProductID=17 ProductName=Alice Mutton Category=Meat/Poultry UnitPrice=39.0000 Un
 ProductID=29 ProductName=ThÃ¼ringer Rostbratwurst Category=Meat/Poultry UnitPrice=123.7900 UnitsInStock=0
 ProductID=31 ProductName=Gorgonzola Telino Category=Dairy Products UnitPrice=12.5000 UnitsInStock=0
 ProductID=53 ProductName=Perth Pasties Category=Meat/Poultry UnitPrice=32.8000 UnitsInStock=0
-
 ```
 
 ## OrderByDescending - Comparer
@@ -275,14 +269,11 @@ private void uiOrderByDescending_Comparer_LINQ_Execute_Click(object sender, Even
 ```
 
 ### Result
-{% highlight text %}
-LINQ Execute Test
-------------------------------
+```txt
 ClOvEr
 cHeRry
 bRaNcH
 BlUeBeRrY
 aPPLE
 AbAcUs
-
 ```

@@ -7,8 +7,8 @@ Name: LINQ Dynamic - Any
 ## LINQ Dynamic Any Examples
 C# Dynamic LINQ Any examples using an Expression Evaluator.
 
-- [Any - Simple](#any---simple)
-- [Any - Grouped](#any---grouped)
+- [Any - Simple](#any-simple)
+- [Any - Grouped](#any-grouped)
 
 ## Any - Simple
 This C# example uses the LINQ Any method with a dynamic expression to determine if any of the words in the array contain the substring 'ei'.
@@ -44,11 +44,8 @@ Console.WriteLine("There is a word that contains in the list that contains 'ei':
 {% include component-try-it.html href='https://dotnetfiddle.net/PEGWxp' %}
 
 ### Result
-{% highlight text %}
-LINQ Execute Test
-------------------------------
+```txt
 There is a word that contains in the list that contains 'ei': True
-
 ```
 
 ## Any - Grouped
@@ -112,9 +109,7 @@ private void uiAny_Grouped_LINQ_Execute_Click(object sender, EventArgs e)
 ```
 
 ### Result
-{% highlight text %}
-LINQ Execute Test
-------------------------------
+```txt
 Category=Condiments    Products=... 
   Products: ProductID=3  ProductName=Aniseed Syrup      Category=Condiments    UnitPrice=10.0000      UnitsInStock=13 
   Products: ProductID=4  ProductName=Chef Anton's Cajun Seasoning        Category=Condiments    UnitPrice=22.0000      UnitsInStock=53 
@@ -146,5 +141,4 @@ Category=Dairy Products        Products=...
   Products: ProductID=69  ProductName=Gudbrandsdalsost    Category=Dairy Products        UnitPrice=36.0000      UnitsInStock=26 
   Products: ProductID=71  ProductName=Flotemysost        Category=Dairy Products        UnitPrice=21.5000      UnitsInStock=26 
   Products: ProductID=72  ProductName=Mozzarella di Giovanni      Category=Dairy Products        UnitPrice=34.8000      UnitsInStock=14
-
 ```

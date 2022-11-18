@@ -7,10 +7,10 @@ Name: LINQ Dynamic - OrderBy
 ## LINQ Dynamic OrderBy Examples
 C# Dynamic LINQ OrderBy examples using an Expression Evaluator.
 
-- [OrderBy - Simple 1](#orderby---simple-1)
-- [OrderBy - Simple 2](#orderby---simple-2)
-- [OrderBy - Simple 3](#orderby---simple-3)
-- [OrderBy - Comparer](#orderby---comparer)
+- [OrderBy - Simple 1](#orderby-simple-1)
+- [OrderBy - Simple 2](#orderby-simple-2)
+- [OrderBy - Simple 3](#orderby-simple-3)
+- [OrderBy - Comparer](#orderby-comparer)
 
 ## OrderBy - Simple 1
 This C# example uses the LINQ OrderBy method with a dynamic expression to sort a list of words alphabetically.
@@ -76,14 +76,11 @@ private void uiOrderBy_Simple_1_LINQ_Execute_Click(object sender, EventArgs e)
 ```
 
 ### Result
-{% highlight text %}
-LINQ Execute Test
-------------------------------
+```txt
 The sorted list of words:
 apple
 blueberry
 cherry
-
 ```
 
 ## OrderBy - Simple 2
@@ -150,14 +147,11 @@ private void uiOrderBy_Simple_2_LINQ_Execute_Click(object sender, EventArgs e)
 ```
 
 ### Result
-{% highlight text %}
-LINQ Execute Test
-------------------------------
+```txt
 The sorted list of words (by length):
 apple
 cherry
 blueberry
-
 ```
 
 ## OrderBy - Simple 3
@@ -212,9 +206,7 @@ private void uiOrderBy_Simple_3_LINQ_Execute_Click(object sender, EventArgs e)
 ```
 
 ### Result
-{% highlight text %}
-LINQ Execute Test
-------------------------------
+```txt
 ProductID=17 ProductName=Alice Mutton Category=Meat/Poultry UnitPrice=39.0000 UnitsInStock=0
 ProductID=3 ProductName=Aniseed Syrup Category=Condiments UnitPrice=10.0000 UnitsInStock=13
 ProductID=40 ProductName=Boston Crab Meat Category=Seafood UnitPrice=18.4000 UnitsInStock=123
@@ -292,7 +284,6 @@ ProductID=50 ProductName=Valkoinen suklaa Category=Confections UnitPrice=16.2500
 ProductID=63 ProductName=Vegie-spread Category=Condiments UnitPrice=43.9000 UnitsInStock=24
 ProductID=64 ProductName=Wimmers gute SemmelknÃ¶del Category=Grains/Cereals UnitPrice=33.2500 UnitsInStock=22
 ProductID=47 ProductName=Zaanse koeken Category=Confections UnitPrice=9.5000 UnitsInStock=36
-
 ```
 
 ## OrderBy - Comparer
@@ -349,14 +340,11 @@ private void uiOrderBy_Comparer_LINQ_Execute_Click(object sender, EventArgs e)
 ```
 
 ### Result
-{% highlight text %}
-LINQ Execute Test
-------------------------------
+```txt
 AbAcUs
 aPPLE
 BlUeBeRrY
 bRaNcH
 cHeRry
 ClOvEr
-
 ```

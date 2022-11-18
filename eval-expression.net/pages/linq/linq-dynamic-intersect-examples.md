@@ -7,8 +7,8 @@ Name: LINQ Dynamic - Intersect
 ## LINQ Dynamic Intersect Examples
 C# Dynamic LINQ Intersect examples using an Expression Evaluator.
 
-- [Intersect - 1](#intersect---1)
-- [Intersect - 2](#intersect---2)
+- [Intersect - 1](#intersect-1)
+- [Intersect - 2](#intersect-2)
 
 ## Intersect - 1
 This C# example uses the LINQ Intersect method with a dynamic expression to create one sequence that contains the common first letter from both product and customer names.
@@ -55,13 +55,10 @@ private void uiIntersect_1_LINQ_Execute_Click(object sender, EventArgs e)
 ```
 
 ### Result
-{% highlight text %}
-LINQ Execute Test
-------------------------------
+```txt
 Common numbers shared by both arrays:
 5
 8
-
 ```
 
 ## Intersect - 2
@@ -116,9 +113,7 @@ private void uiIntersect_2_LINQ_Execute_Click(object sender, EventArgs e)
 ```
 
 ### Result
-{% highlight text %}
-LINQ Execute Test
-------------------------------
+```txt
 Common first letters from Product names and Customer names:
 C
 A
@@ -139,5 +134,4 @@ E
 W
 L
 O
-
 ```
