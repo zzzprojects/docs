@@ -16,6 +16,7 @@ Dapper Plus Mapper allows mapping the conceptual model (Entity) with the storage
 |Key	  |Sets column(s) to use for Primary Key (update, delete, and merge action).|
 |Map	  |Sets column(s) to input to the destination table.|
 |MapValue |Sets value to map to the destination table.|
+|MapWithOptions	  |Sets column(s) to input to the destination table with options.|
 |Output	  |Sets column(s) to output from the destination table (insert, update, and merge action).|
 |Table	  |Sets the destination table or view name (including schema).|
 
@@ -118,6 +119,23 @@ var constantValue = 2;
 DapperPlusManager.Entity<Order>()
 		 .MapValue(constantValue, "ConstantColumn2");
 ```
+
+## Mapper - MapWithOptions
+Sets column(s) to input to the destination table with options.
+
+Map with options
+
+
+```csharp
+DapperPlusManager.Entity<Order>()
+	.MapWithOptions(x => x.ModifiedDate, options =>
+	{
+		options.FormulaInsert = "GETDATE()";
+		options.FormulaUpdate = "GETDATE()";
+	})
+	.AutoMap();
+```
+
 	
 ## Mapper - Output
 
