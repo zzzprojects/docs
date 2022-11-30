@@ -139,11 +139,18 @@ var ofTypeBossA = context.Employees.OfType(boss);
 var ofTypeBossB = context.Employees.OfType("Test.Models.Boss");
 ```
 
-The `Cast`-operator can be used to case a base-class to the real class. Note that this can only work if the cast is valid. Example:
+The `Cast`-operator can be used to cast a base-class to the real class. Note that this can only work if the cast is valid. 
 
+Example:
 ```csharp
 var allWorkers = context.Employees.OfType(typeof(Worker));
 var castToWorkers = allWorkers.Cast(typeof(Worker));
+```
+
+It is also possible to cast to a nullable type, in the example below the Value proeprty is cast to a nullable int.
+
+``` csharp
+var count = qry.Count("As(Value, \"int?\") != null");
 ```
 
 [Try it online](https://dotnetfiddle.net/o2ydqi)

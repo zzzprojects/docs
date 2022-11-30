@@ -204,3 +204,31 @@ var result = new [] { new X() }.AsQueryable()
     .Select(x => x != null ? x.Number : default(int)).First();
 ```
 Where `result` is a `int` with value `0`.
+
+### SupportCastingToFullyQualifiedTypeAsString
+
+Support casting to a full qualified type using a string (double quoted value). Default value is `true`.
+
+Example:
+``` csharp
+public class Entry
+{
+    public object LastUpdate { get; set; }
+}
+
+var data = new [] { new Entry { LastUpdate = DateTime.Now  } };
+var queryable = data.AsQueryable());
+var result = queryable.Select($"\"System.DateTime\"(LastUpdate)");
+```
+
+It's also possible to case to a nullable type:
+``` csharp
+public class Entry
+{
+    public object? OptionalDate { get; set; }
+}
+
+var data = new [] { new Entry { OptionalDate = DateTime.Now  } };
+var queryable = data.AsQueryable());
+var result = queryable.Select($"\"System.DateTime\"?(OptionalDate)");
+```
