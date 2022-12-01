@@ -2,10 +2,8 @@
    - [Eval.Execute](eval-execute.md)
    - [Eval.Compile](eval-compile.md)
    - [LINQ Dynamic](linq-dynamic.md)
-   - [String Extensions](string-extensions.md)
-- Eval Context
-   - [Compile & Execute](compile-execute.md)
-   - [Register & Unregister](register-unregister.md)
-   - [Options](options.md)
-- Manager
-   - [Eval Manager](eval-manager.md)
+- [Eval Context](eval-context.md)
+- [Eval Manager](eval-manager.md)
+- [Options](options.md)
+- [Register/Unregister](register-unregister.md)
+- [Internal Dictionary](internal-dictionary.md)
