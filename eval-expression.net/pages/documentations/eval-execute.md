@@ -31,9 +31,9 @@ First, let's see all overload methods that allow you to pass C# code to execute 
 
 If we quickly break down those methods, there are three parts to understand:
 
-- The "code"
-- The return type
-- The parameters
+- [The "code"](#the-code)
+- [The return type](#the-return-type)
+- [The parameters](#the-parameters)
 
 ## The "code"
 
