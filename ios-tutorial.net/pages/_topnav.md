@@ -1,1 +1,1 @@
-- [Getting Started](getting-started/overview.md)
+- [Getting Started](https://riptutorial.com/ios/learn/100000/overview)

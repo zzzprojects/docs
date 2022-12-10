@@ -1,1 +1,1 @@
-- [Getting Started](getting-started/overview.md)
+- [Getting Started](https://riptutorial.com/linq-to-sql/learn/100000/getting-started)

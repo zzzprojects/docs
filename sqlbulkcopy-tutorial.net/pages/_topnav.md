@@ -1,4 +1,2 @@
-- Documentation
-   - [Documentation](documentations/overview.md)
-   - [Troubleshooting](troubleshooting/timeout-expired.md)
+- [Documentation](https://riptutorial.com/sqlbulkcopy/learn/100000/getting-started)
 - [Knowledge Base](/knowledge-base)

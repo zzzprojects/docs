@@ -1,1 +1,1 @@
-- [Tutorial](documentations/overview.md)
+- [Tutorial](https://riptutorial.com/sql-clr/learn/100000/overview)

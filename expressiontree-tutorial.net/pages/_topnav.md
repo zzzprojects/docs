@@ -1,3 +1,2 @@
-- [Getting Started](getting-started/overview.md)
-- [Documentation](documentation/arithmetic-operations/addition.md)
+- [Documentation](https://riptutorial.com/expression-tree/learn/100000/getting-started)
 - [Knowledge Base](/knowledge-base)

@@ -1,2 +1,2 @@
-- [Getting Started](overview.md)
+- [Getting Started](https://riptutorial.com/blazor/learn/100000/getting-started)
 - [Knowledge Base](/knowledge-base)
