@@ -7,7 +7,7 @@ MetaDescription: Learn about what the C# Eval Expression library is and what is 
 
 ## What is the C# Eval Expression library?
 
-The C# Eval Expression library is the most powerful expression evaluator. It supports nearly all the C# languages and keeps getting improved every year. The library also has multiple built-in logic to make it easier on your side to work and evaluate dynamic expressions.
+The C# Eval Expression library is the most powerful and flexible expression evaluator you can find. It supports nearly all the C# languages and gets improved every year. The library also has multiple built-in logic to make it easier on your side to work and evaluate C# dynamic expressions.
 
 Do not worry if that is still unclear because we will explain and cover more about what this library can do in this getting started section. But in a simple example, it allows you to do something like this:
 
@@ -15,13 +15,13 @@ Do not worry if that is still unclear because we will explain and cover more abo
 var x = "1+2".Execute<int>(); // return 3
 ```
 
-That is sure a straightforward code, but imagine the string instead of being `1+2` to be any C# code. Would it not be awesome? Well, that is what this library exactly allows you to do.
+That is sure a straightforward code, but imagine the string instead of being 1+2 to be any C# code such as `if`, `foreach`, or even LINQ methods. Would it not be awesome? Well, that is what this library exactly allows you to do.
 
 ### Installing
 
 You can download the C# Eval Expression library on NuGet. See our <a href="/download">download</a> page to find the link.
 
-C# Eval Expression is compatible with .NET Core and .NET Framework:
+C# Eval Expression is compatible with .NET, .NET Core and .NET Framework:
 
 - .NET 5+
 - .NET Core 2+

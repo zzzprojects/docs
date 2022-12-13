@@ -12,9 +12,9 @@ So what is the major difference between executing and compiling a dynamic code?
 - The `Compile` method will compile the expression into a method
 - The `Execute` method call the `Compile` method under the hood and then execute the returned compiled method.
 
-When executing the same expression in the `Execute` method multiple times, it is fast as we retrieve the compiled from the cache. However, retrieving the compiled method from the cache still takes some time, as we need to create a cache key that has a performance cost. So when you need to execute multiple times the same expression, you should store the compiled method in a static or local variable.
+When executing the same expression with the `Execute` method multiple times, it is fast as we retrieve the compiled method from the cache. However, it still takes some time, as we need to create a cache key that has a performance cost. So when you need to execute multiple times the same expression, you should store the compiled method in a local or static variable.
 
-How much faster? The `Compile` method can be 1000x more quickly than the `Execute` method. It doesn't make any difference when looping on ten items, but when looping on millions of items, it makes a massive difference between a few milliseconds and seconds.
+How much faster? Using directly the compiled method returned from the `Compile` can be 1000x more quickly than using the `Execute` method. It surely doesn't make any difference if you are only looping on 10 items, as both ways, it will take nearly 0ms. However, if you need to evaluate millions of items, it makes a massive difference between a few milliseconds and seconds.
 
 {% include component-try-it.html href='https://dotnetfiddle.net/W2qpBX' %}
 
@@ -30,7 +30,7 @@ In this tutorial, you will learn how to use our library to:
 
 Like the `Execute` method, the `Compile` method takes as the first parameter the expression to compile.
 
-In this example, we will dynamically create a list of `int` and filter it using LINQ to return only items greater than 2. The expression will be compiled into a method and then executed. The `Func<List<int>>` return type" will be explained in the next example.
+In this example, we will dynamically create a list of `int` and filter it using LINQ to return only items greater than 2. The expression will be compiled into a method and then executed. The `Func<List<int>>` return type will be explained in the next example.
 
 ```csharp
 // NOTE: The returned list contains "3" and "4"
@@ -46,13 +46,16 @@ var list = compiled();
 
 ## Compile a C# expression with return type
 
-In the last example, we successfully compiled an expression, but what exactly was the `Func<List<int>>`?
+In the last example, we successfully compiled an expression, but what exactly was the `Func<List<int>>` for?
 
-The `Func<List<int>>` means that the `Compile` method should create a method that takes no parameter and returns a `List<int>`. Usually, the `Compile` method takes either an `Action` or `Func`. A `Func` should be used when the compiled method should return a specific type and an `Action` should be used when the method doesn't return any type (like when you create a `void` method).
+The `Func<List<int>>` means that the `Compile` method should create a method that takes no parameter and returns a `List<int>`. Usually, the `Compile` method takes either an `Action` or `Func`.
 
-If you don't know what is an `Action` and `Func` work, you can learn more using Google.
+- An `Action` should be used when the method doesn't return any type (like when you create a `void` method).
+- A `Func` should be used when the compiled method should return a specific type
 
-That is the same example as the previous one. As we will learn how to use parameters in the next topic:
+If you don't know how an `Action` and `Func` work, you can learn more on Google.
+
+We will re-use the same previous example as we now understand how you can specify a return type to the created method.
 
 ```csharp
 // NOTE: The returned list contains "3" and "4"
@@ -70,7 +73,7 @@ var list = compiled();
 
 With the 2 previous topics, you should now be able to compile an expression and understand how to return the type of the compiled method.
 
-However, almost every time, the compiled method would have parameters.
+However, almost every time, the compiled method would also have parameters.
 
 There are multiple ways to pass variable names, such as:
 
@@ -78,7 +81,7 @@ There are multiple ways to pass variable names, such as:
 - Named variables
 - ExpandoObject
 
-In the following example, we will see all the different ways to pass variable names.
+In the following example, we will see all the different ways to pass variable names that will be used in our expression to compile.
 
 ```csharp
 var list = new List<int>() { 1, 2, 3, 4 };
@@ -118,11 +121,11 @@ var greaterThan = 2;
 
 ## Compile a C# expression from a string
 
-Our library added syntactic sugar to extend string variables with the `Execute` method but also with the `Compile` method.
+Our library added syntactic sugar to extend the string type with the `Execute` method. As you can expect, our library also extends the string type with the `Compile` method.
 
-There is no difference here between calling `Eval.Compile` and `"mystring".Compile`. Both call the same method under the hood.
+There is no difference here between calling `Eval.Compile` and `"the_string_expression".Compile`. Both call the same method under the hood.
 
-In this example, we will compile an expression and loop show only items in our list that currently have a higher value than the current position in our loop.
+In this example, we will compile an expression and loop to show only items in our list that currently have a higher value than the current position in our loop.
 
 ```csharp
 var list = new List<int>() { 1, 2, 3, 4 };
@@ -139,16 +142,13 @@ for(int i = 0; i < 4; i++)
 }	
 ```
 
-{% include component-try-it.html href='https://dotnetfiddle.net/https://dotnetfiddle.net/IUgauw' %}
+{% include component-try-it.html href='https://dotnetfiddle.net/IUgauw' %}
 
 ## Compile a C# expression from a context
 
-All the `Compile` methods we learned in previous examples use the global `EvalContext` stored in the `EvalManager.DefaultContext`. In other words:
+All the `Compile` methods we learned in previous examples use the global `EvalContext`. You can learn more about why and when you should use an instance context in the [EvalContext](/eval-context) documentation.
 
-- using the `Eval.Compile` method is similar to doing `EvalManager.DefaultContext.Compile`.
-- using the `"the_string_expression".Compile` method is similar to doing `EvalManager.DefaultContext.Compile`.
-
-In this example, we will create an instance context, add a new extension method named `GreaterThan` and use the `Compile` method. Then after we will iterator loop to show only item that are greater then the current loop position.
+In this example, we will create an instance context, add a new extension method named `GreaterThan` and use the `Compile` method. Then after we will loop to show only item in our list that currently have a higher value than the current position in our loop.
 
 ```csharp
 var list = new List<int>() { 1, 2, 3, 4 };		
@@ -178,4 +178,4 @@ The method `GreaterThan` only exists for this context. That means the `Eval.Comp
 
 In this getting started tutorial, you learned how to use the `Compile` method with an expression to return a compiled method.
 
-Using the `Compile` method is a little bit more complex than the `Execute` method to understand but make sure you take the time to really understand it as this is an essential method to master to make sure you take advantage of the performance benefit this method offers.
+Using the [Compile](/eval-compile) method is a little bit more complex than the [Execute](eval-execute) method to understand. However, make sure you take the time to really learn it, as this is an essential method to master to make sure you take advantage of the performance benefit this method offers.
