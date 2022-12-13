@@ -209,6 +209,8 @@ So all three methods are very similar but serve different purpose.
 
 We currently only support SQL Server.
 
+We do not support inheritance such as `TPC`, `TPH`, and `TPT`
+
 ## Related Solutions
 
 - [WhereBulkNotContains](/where-bulk-not-contains)
