@@ -53,7 +53,7 @@ The `Func<List<int>>` means that the `Compile` method should create a method tha
 - An `Action` should be used when the method doesn't return any type (like when you create a `void` method).
 - A `Func` should be used when the compiled method should return a specific type
 
-If you don't know how an `Action` and `Func` work, you can learn more on Google.
+You can learn more about [Action](https://learn.microsoft.com/en-us/dotnet/api/system.action-1) and [Func](https://learn.microsoft.com/en-us/dotnet/api/system.func-2) on the official Microsoft documentation and Google.
 
 We will re-use the same previous example as we now understand how you can specify a return type to the created method.
 

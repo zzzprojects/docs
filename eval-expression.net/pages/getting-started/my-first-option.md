@@ -3,6 +3,8 @@ Title: Execute LINQ Dynamic Expression with List and EF Core
 MetaDescription: Learn how to use LINQ Dynamic query to execute methods such as Select, OrderBy, or Where clause dynamically.
 ---
 
+_(Documentation in progress)_
+
 # My First Option
 
 In this article, we will see a few options, but our library offer more.

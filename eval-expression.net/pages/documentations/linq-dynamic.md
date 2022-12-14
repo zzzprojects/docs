@@ -188,8 +188,8 @@ In this example, we will select customers and order them dynamically by their fi
 The LINQ ThenByDynamic method performs a subsequent ordering of the element in a sequence in ascending order. You can use a dynamic string expression to specify columns in the sorting.
 
 In this example, we will select customers and order them dynamically by their first names and then by their last names in ascending order.
-`
-``csharp
+
+```csharp
 ```
 
 ## LINQ WhereDynamic Method
