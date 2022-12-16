@@ -163,18 +163,18 @@ var context = new EvalContext();
 
 context.RegisterStaticMethod(typeof(Program));
 
-var r1 = context.Execute("AddMe(1, 2)");
+var r1 = context.Execute<int>("AddMe(1, 2)");
 
 context.UnregisterStaticMethod(typeof(Program));
 
 // Oops! Even if unregistering the `AddMe` method, the expression still succeeds as we take the delegate from the cache
-var r2 = context.Execute("AddMe(1, 2)");
+var r2 = context.Execute<int>("AddMe(1, 2)");
 
 try
 {
 	// By changing the cache key, we somewhat reset the cache so the expression will not compile anymore
 	context.CacheKeyPrefix = "Another Cache Key";
-	var fail = context.Execute("AddMe(1, 2)");
+	var fail = context.Execute<int>("AddMe(1, 2)");
 }
 catch(Exception ex)
 {
@@ -198,39 +198,189 @@ var context = new EvalContext();
 var r1 = 1/2; // return 0
 
 // Let check if C# eval have the same behavior
-var r2 = context.Execute("1/2"); // return 0
+var r2 = context.Execute<double>("1/2"); // return 0
 
 // Let try again with the DefaultNumberType
 context.DefaultNumberType = DefaultNumberType.Double;
-var r3 = context.Execute("1/2"); // return 0.5
+var r3 = context.Execute<double>("1/2"); // return 0.5
 ```
 
 {% include component-try-it.html href='https://dotnetfiddle.net/ZvibpP' %}
 
 ## DisableAutoRegisterEntityFramework
 
+The DisableAutoRegisterEntityFramework option lets you get or set if the auto registration of some method of Entity Framework Core and EF6, such as being able to use `DbFunctions` and `DbFunctionExtensions` with Dynamic LINQ should be disabled. By default, the DisableAutoRegisterEntityFramework value is `false`.
+
+In this example, we will query the customers table by filtering it using the `EF.Functions.DateDiffMonth` method and shows all returned customers. By default, the query will work successfully, but if you uncomment the `DisableAutoRegisterEntityFramework = true` option, the query will no longer work and throw an error.
+
 ```csharp
+// Uncomment to make the next query fail
+// EvalManager.DefaultContext.DisableAutoRegisterEntityFramework = true;
+
+try
+{
+	using (var context = new EntityContext())
+	{
+		
+		var customers = context.Customers.WhereDynamic(x => "EF.Functions.DateDiffMonth(x.CreatedDate, DateTime.Now) == 0").ToList();
+	}
+}
+catch (Exception ex)
+{
+}
 ```
+
+{% include component-try-it.html href='https://dotnetfiddle.net/si58WH' %}
 
 ## DisableAutoReplaceDictionaryKey
 
+The DisableAutoReplaceDictionaryKey option lets you get or sets if the feature that allows using the dictionary keys directly in the expression should be disabled. Only keys that are not valid variable names, such as `!@#` or `123`, are replaced automatically in the text which might cause some impact without disabling that option. This option does not impact valid variable names as we never replaced them in the text since they are valid. By default, the DisableAutoReplaceDictionaryKey value is `false`.
+
+In this example, we will first evaluate an expression with an invalid variable name as a key and get the expected result. Then we will evaluate a simple `1+2` expression and get a weird result return as the `2` has been automatically replaced by `12` since this is an invalid variable name. Finally, we will disable the option and now see that `1+2` is giving the expected result again.
+
 ```csharp
+// Global Context: EvalManager.DefaultContext.DisableAutoReplaceDictionaryKey = true;
+
+var context = new EvalContext();
+context.UseCache = false;
+var dict = new Dictionary<string, object>();
+dict.Add("!@#", 12);
+dict.Add("2", 12);
+
+// Automatically replacing the dictionary keys that are not a valid variable names can be something useful
+var r1 = context.Execute<int>("1 + !@#", dict); // return 13 (1 + 12)
+
+// But it can also sometimes have some weird side impact
+var r2 = context.Execute<int>("1 + 2", dict); // return 13 (1 + 12)
+
+// This option allows avoiding those side impact
+context.DisableAutoReplaceDictionaryKey = true;
+var r3 = context.Execute<int>("1 + 2", dict); // return 3
 ```
+
+{% include component-try-it.html href='https://dotnetfiddle.net/G8UeDH' %}
 
 ## DisableDynamicResolution
 
+The DisableDynamicResolution option lets you get or sets if built-in logic should be disabled when solving expression of type `object`. That built-in logic allows you to compile some C# code that would be invalid. By default, the DisableDynamicResolution value is `false`.
+
+In this example, we will first add two `int` values by casting them as type `object`, which is an invalid C# statement but works in this case due to our built-in logic. Then we will try again by disabling that option which will now correctly throw an error.
+
 ```csharp
+// Global Context: EvalManager.DefaultContext.DisableDynamicResolution = true;
+
+var context = new EvalContext();	
+
+var r1 = context.Execute<int>("(object)1 + (object)2");
+
+try
+{
+	context.DisableDynamicResolution = true;
+	var fail = context.Execute<int>("(object)1 + (object)2");
+}
+catch (Exception ex)
+{
+}
 ```
+
+{% include component-try-it.html href='https://dotnetfiddle.net/00IN7J' %}
+
 
 ## DynamicGetMemberMissingValueFactory
 
+The DynamicGetMemberMissingValueFactory option lets you get or sets a factory to return a value when a member is not found from an entity or ExpandoObject. In other words, it allows specifying a value for a missing member on demand. By default, the DynamicGetMemberMissingValueFactory value is `null`.
+
+In this example, we will first set our DynamicGetMemberMissingValueFactory option, then use it with an entity customer, and after use it again with an ExpandoObject. In both cases, we will try to retrieve the member `FullName`, which doesn't exist but still return a value correctly due to the missing member factory previously set.
+
 ```csharp
+// Global Context: EvalManager.DefaultContext.DynamicGetMemberMissingValueFactory = (obj, propertyOrFieldName) => { };
+
+var context = new EvalContext();
+
+context.DynamicGetMemberMissingValueFactory = (obj, propertyOrFieldName) =>
+{
+	if(obj is Customer customer && propertyOrFieldName == "FullName")			
+	{		
+		// resolution for `Customer`
+		return $"{customer.FirstName} {customer.LastName}";
+	}
+	else
+	{
+		// resolution for `ExpandoObject`
+		dynamic expando = obj;
+		return $"{expando.FirstName} {expando.LastName}";
+	}
+	
+	throw new Exception("Not found");
+};
+
+// Entity
+{
+	var customer = new Customer();
+	customer.FirstName = "C# Eval";
+	customer.LastName = "Expression";
+
+	var r1 = context.Execute("customer.FullName", new { customer });
+	Console.WriteLine("1 - Result: " + r1);
+}
+
+
+// ExpandoObject
+{
+	dynamic customer = new ExpandoObject();
+	customer.FirstName = "ZZZ";
+	customer.LastName = "Projects";
+
+	var r1 = context.Execute("customer.FullName", new { customer });
+	Console.WriteLine("1 - Result: " + r1);
+}
 ```
+
+{% include component-try-it.html href='https://dotnetfiddle.net/7d4YuH' %}
+
 
 ## DynamicMemberNames
 
+The DynamicMemberNames option lets you when compiling or executing an expression using an ExpandoObject as a parameter, retrieve all member names that we assume will be a member of the ExpandoObject. For example, suppose the `CustomerID` is returning from the member names list, in that case, the library expects the ExpandoObject will have a property and a value for this `CustomerID` to be executed correctly. By default, the DynamicMemberNames value is `null`.
+
+In this example, we will first compile an expression and then, by looking at the `context.DynamicMemberNames` see which member names the library expects the `ExpandoObject` contains. In the second example, we will try to execute an expression that fails and check in the catch section which member names were expecting to be provided by the `ExpandoObject`.
+
 ```csharp
+// Global Context: EvalManager.DefaultContext.DynamicGetMemberMissingValueFactory = (obj, propertyOrFieldName) => { };
+
+var context = new EvalContext();
+
+// required to allow to get member from the compile multiple from `Customer` and `ExpandoObject`
+context.IncludeMemberFromAllParameters = true;
+
+// compile example
+{
+	var c1 = context.Compile<Func<Customer, ExpandoObject, bool>>("FirstName == 'C# Eval' && FullName == 'Test' && CreatedDate > #1981-04-13#");	
+	FiddleHelper.WriteTable("1 - Expected ExpandoObject members:", context.DynamicMemberNames);
+}
+
+// execute example
+{
+	try
+	{
+		var customer = new Customer();
+		customer.FirstName = "C# Eval";
+		customer.LastName = "Expression";
+
+		dynamic expando = new ExpandoObject();
+		expando.FullName = "ZZZ Projects";
+
+		var fail = context.Execute<bool>("FirstName == 'C# Eval' && FullName == 'Test' && CreatedDate > #1981-04-13#", customer, expando);
+	}
+	catch(Exception ex)
+	{		
+		Console.WriteLine("2 - Exception: " + ex.Message);
+		FiddleHelper.WriteTable("3 - Expected ExpandoObject members:", context.DynamicMemberNames);
+	}
+}
 ```
+
+{% include component-try-it.html href='https://dotnetfiddle.net/tUEQ69' %}
 
 ## ForceCharAsString
 
