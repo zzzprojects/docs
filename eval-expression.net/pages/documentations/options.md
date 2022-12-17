@@ -346,7 +346,7 @@ The DynamicMemberNames option lets you when compiling or executing an expression
 In this example, we will first compile an expression and then, by looking at the `context.DynamicMemberNames` see which member names the library expects the `ExpandoObject` contains. In the second example, we will try to execute an expression that fails and check in the catch section which member names were expecting to be provided by the `ExpandoObject`.
 
 ```csharp
-// Global Context: EvalManager.DefaultContext.DynamicGetMemberMissingValueFactory = (obj, propertyOrFieldName) => { };
+// Global Context: EvalManager.DefaultContext.DynamicMemberNames
 
 var context = new EvalContext();
 
@@ -384,23 +384,107 @@ context.IncludeMemberFromAllParameters = true;
 
 ## ForceCharAsString
 
+The ForceCharAsString option lets you get or set if a char such as `'z'` must be forced as a string as if you would have specified `"z"`. The library is smart enough to know that the expression `'zzz'` is a string (more than one char) but sometimes cannot know if `'z'` is a string or a char, in particular when a method exists with an overload for a `char` and a `string`. By default, the ForceCharAsString value is`false`.
+
+In this example, we will use a `MethodOverload` method with an overload for both `char` and `string` types. In this first execute resolution, we will see that the method resolution uses the right method by using the overload with the `char` type. In the second resolution, we will force the library by using our option to consider all `char` as a `string` instead and observe that the library now uses the method overload with the `string` type.
+
 ```csharp
+// Global Context: EvalManager.DefaultContext.ForceCharAsString = true;
+
+var context = new EvalContext();
+context.UseCache = false;
+context.RegisterStaticMethod(typeof(Program));
+
+var r1 = context.Execute("MethodOverload('z')"); // return "Method with char z"
+Console.WriteLine(r1);
+
+context.ForceCharAsString = true;
+var r2 = context.Execute("MethodOverload('z')"); // return "Method with string z"
+Console.WriteLine(r2);
+
+public static string MethodOverload(char s)
+{
+	return "Method with char " + s;
+}
+
+public static string MethodOverload(string s)
+{
+	return "Method with string " + s;
+}
 ```
+
+{% include component-try-it.html href='https://dotnetfiddle.net/2dVPsr' %}
 
 ## ForceObjectAsDynamic
 
+TODO
+
 ```csharp
 ```
+
+{% include component-try-it.html href='https://dotnetfiddle.net/jVAl0W' %}
 
 ## IncludeMemberFromAllParameter
 
+The IncludeMemberFromAllParameter option lets you get or set if we should include all members from all parameters, like the default logic, automatically does when only one parameter is specified. So, for example, if you specify a customer and an invoice, you can use the `CustomerID` and `InvoiceID` properties directly. If a member name exists in more than one parameter, such as `ID`, the first member will be used, and all others be ignored. By default, the IncludeMemberFromAllParameter value is `false`.
+
+In this example, we will first try to resolve our expression with the default behavior, which will fail as you cannot use the member name directly when multiple parameters are specified. Then, we will try again, but this time, with the `IncludeMemberFromAllParameters = true` option, which will make our expression execute successfully as we can use member names of all parameters in the expression.
+
 ```csharp
+// Global Context: EvalManager.DefaultContext.IncludeMemberFromAllParameters = true;
+
+var context = new EvalContext();
+context.UseCache = false;
+
+var customer = new Customer() { Name = "C# Eval Expression" };
+var invoice = new Invoice() { TotalQuantity = 13 };
+
+try
+{
+	// 1 - the library include default member name when only 1 parameter is specified but not for multiples parameters
+	var fail = context.Execute("return $'the customer {customer.Name} ordered {invoice.TotalQuantity} items';", new { customer }, new { invoice});
+}
+catch(Exception ex)
+{		
+	Console.WriteLine("1 - Exception: " + ex.Message);
+}
+
+// 2 - however, you can have the behavior to include members of all parameters with the option `IncludeMemberFromAllParameters`
+context.IncludeMemberFromAllParameters = true;
+var r2 = context.Execute("return $'the customer {customer.Name} ordered {invoice.TotalQuantity} items';", new { customer }, new { invoice});
+Console.WriteLine("2 - Result: " + r2);
 ```
+
+{% include component-try-it.html href='https://dotnetfiddle.net/s0x5sW' %}
 
 ## IsCaseSensitive
 
+The IsCaseSensitive option lets you get or set the flags when searching for a member (Property, Field, Method) if the search should be case sensitive. Under the hood, the `IgnoreCase` binding flag is added or removed to the `BindingFlags` options. By default, the IsCaseSensitive value is true or the value assigned to the `BindingFlags` options if already modified.
+
+In this example, we will first evaluate an expression by accessing a property with the wrong casing, which will succeed as the library is case insensitive by default. Then, we will set the `IsCaseSensitive = true;` to force the library to be case sensitive and then try again to access the property value, which will raise an error.
+
 ```csharp
+// Global Context: EvalManager.IsCaseSensitive = true;
+
+var context = new EvalContext();
+var entity = new Entity() { EntityID = 13 };
+
+var entityID = context.Execute("entity.enTItyiD", new { entity });
+Console.WriteLine("1 - EntityID: " + entityID);
+
+try
+{
+	context.IsCaseSensitive = true;
+	
+	var fail = context.Execute("entity.enTItyiD", new { entity });
+}
+catch(Exception ex)
+{
+	Console.WriteLine("2 - Exception: " + ex.Message);
+}
 ```
+
+{% include component-try-it.html href='https://dotnetfiddle.net/5tQI6Q' %}
 
 ## MaxLoopIteration
 
