@@ -484,12 +484,60 @@ catch(Exception ex)
 }
 ```
 
-{% include component-try-it.html href='https://dotnetfiddle.net/5tQI6Q' %}
+
 
 ## MaxLoopIteration
 
+The MaxLoopIteration option lets you get or set the maximum of iteration allowed for a loop (do, while, for, foreach). For example, if you execute an expression from a user input but want to avoid an infinite loop, you can set the option `MaxLoopIteration = 25` to limit it to 25 iterations. By default, the MaxLoopIteration value is `null` (unlimited).
+
+In this example, we will first execute a code in a `while` loop that will iterate 100 times. Then we will set the `MaxLoopIteration = 25` and execute the same code again, but this time will throw as it will reaches the maximum loop allowed in an expression.
+
 ```csharp
+// Global Context: EvalManager.MaxLoopIteration = 25;
+
+var context = new EvalContext();
+
+// without MaxLoopIteration
+{
+	var r1 = context.Execute<int>(@"
+var i = 0;
+
+while (i < 100)
+{
+	i++
+}
+
+return i;");
+		
+	Console.WriteLine("1 - Result: " + r1);
+}
+
+		
+// with MaxLoopIteration
+{
+	context.MaxLoopIteration = 25;
+
+	try
+	{
+		var fail = context.Execute<int>(@"
+var i = 0;
+
+while (i < 100)
+{
+	i++
+}
+
+return i;");
+
+	}
+	catch(Exception ex)
+	{
+		Console.WriteLine("2 - Exception: " + ex.Message);
+	}
+}
 ```
+
+{% include component-try-it.html href='https://dotnetfiddle.net/dtS98k' %}
 
 ## MemoryCacheEntryOptionsFactory
 
