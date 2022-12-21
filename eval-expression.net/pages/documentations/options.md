@@ -417,12 +417,30 @@ public static string MethodOverload(string s)
 
 ## ForceObjectAsDynamic
 
-TODO
+The ForceObjectAsDynamic option lets you get or set if the type `object` should for operator `==` (equals) and `!=` (not equals) compare by reference or value. By default, the ForceObjectAsDynamic value is `false` (compared by reference).
+
+In this example, we will first compare 2 objects with an `int` value by directly using C# statement to show the difference between an equals operator `==` and the `Equals` method. Then we will use our library first directly with the equals operator, then again, but this time, with the `ForceObjectAsDynamic = true` option.
 
 ```csharp
+// Global Context: EvalManager.DefaultContext.ForceObjectAsDynamic = true;
+
+var context = new EvalContext();
+context.UseCache = false;
+
+object x = 1;
+object y = 1;
+
+Console.WriteLine("1 - Result: " + (x == y).ToString()); // false
+Console.WriteLine("2 - Result: " + x.Equals(y)); // true
+
+Console.WriteLine("3 - Result: " + context.Execute("x == y", new { x, y })); // false
+context.ForceObjectAsDynamic = true;
+Console.WriteLine("4 - Result: " + context.Execute("x == y", new { x, y })); // true
 ```
 
 {% include component-try-it.html href='https://dotnetfiddle.net/jVAl0W' %}
+
+> NOTE: The option might be eventually renamed to reflect the purpose better. It was initially created to handle more scenarios we now solve by default.
 
 ## IncludeMemberFromAllParameter
 
@@ -541,23 +559,135 @@ return i;");
 
 ## MemoryCacheEntryOptionsFactory
 
+The MemoryCacheEntryOptionsFactory option lets you get or set for .NET 5+ and .NET Core the cache entry options to use when caching the delegate returned from the compile method. By default, the MemoryCacheEntryOptionsFactory value is `new MemoryCacheEntryOptions() { Size = 1 };`.
+
+In this example, we will set a new MemoryCacheEntryOptionsFactory that will set a `SlidingExpiration` to only cache a compile delegate 5 minutes.
+
 ```csharp
+// Global Context: EvalManager.DefaultContext.MemoryCacheEntryOptionsFactory = () => new MemoryCacheEntryOptions() { Size = 1, SlidingExpiration = TimeSpan.FromMinutes(5) };
+
+var context = new EvalContext();
+context.MemoryCacheEntryOptionsFactory = () => new MemoryCacheEntryOptions() { Size = 1, SlidingExpiration = TimeSpan.FromMinutes(5) };
+
+Console.WriteLine("1 - Result: " + context.Execute("1 + 2"));
 ```
+
+{% include component-try-it.html href='https://dotnetfiddle.net/pJEYDB' %}
 
 ## MissingTypes
 
+The MissingType option lets you get or set the missing types to make an expression valid. The list is automatically populated when the option `AutoAddMissingTypes` or `RetryAndThrowMissingTypes` is used. By default, the MissingType value is `null`.
+
+In this example, we will try to evaluate an expression the first time without the `AutoAddMissingTypes` option, which will fail. Then we will evaluate the expression with the option `AutoAddMissingTypes = true`, which will succeed, and then we will show which missed types we automatically added. Finally, we will try again with the option `RetryAndThrowMissingTypes = true;` and show which types are missing to make the expression work.
+
 ```csharp
+// Global Context: EvalManager.DefaultContext.MissingTypes;
+
+try
+{
+	var context = new EvalContext();
+	var fail = (Entity)context.Execute("return new Entity() { EntityID = 13 }");
+}
+catch(Exception ex)
+{
+	Console.WriteLine("1 - Exception: " + ex.Message);
+}
+
+// Using the `AutoAddMissingTypes`
+{
+	var context = new EvalContext();
+	context.AutoAddMissingTypes = true;
+	var entity = (Entity)context.Execute("return new Entity() { EntityID = 13 }");
+
+	Console.WriteLine("2 - EntityID: " + entity.EntityID);
+	
+	foreach(var missingType in context.MissingTypes)
+	{
+		Console.WriteLine("3 - Missing Types: " + missingType.FullName);
+	}
+}
+
+// Using the `RetryAndThrowMissingTypes`
+{
+	var context = new EvalContext();
+	context.RetryAndThrowMissingTypes = true;
+	
+	try
+	{
+		var entity = (Entity)context.Execute("return new Entity() { EntityID = 13 }");
+	}
+	catch(Exception ex)
+	{
+		Console.WriteLine("4 - Exception: " + ex.Message);
+		
+		foreach(var missingType in context.MissingTypes)
+		{
+			Console.WriteLine("5 - Missing Types: " + missingType.FullName);
+		}
+	}			
+}
 ```
+
+{% include component-try-it.html href='https://dotnetfiddle.net/f8xSIN' %}
 
 ## RetryAndThrowMissingTypes
 
+The RetryAndThrowMissingTypes option lets you get or set if an error should be thrown by trying again to compile the expression and populate the `MissingTypes` list with types missing to make an expression valid. To compile an expression by automatically adding missing types, use the `AutoAddMissingTypes` option instead. By default, the RetryAndThrowMissingTypes is `false`.
+
+In this example, we will set the `RetryAndThrowMissingTypes = true;` option and try to evaluate an expression. First, we will see that an exception is thrown with the message containing all missing types, and then we will show them again through the `MissingTypes` option.
+
 ```csharp
+// Global Context: EvalManager.DefaultContext.RetryAndThrowMissingTypes = true;
+
+var context = new EvalContext();
+context.RetryAndThrowMissingTypes = true;
+
+try
+{
+	var entity = (Entity)context.Execute("return new Entity() { EntityID = 13 }");
+}
+catch(Exception ex)
+{
+	Console.WriteLine("4 - Exception: " + ex.Message);
+
+	foreach(var missingType in context.MissingTypes)
+	{
+		Console.WriteLine("5 - Missing Types: " + missingType.FullName);
+	}
+}
 ```
+
+{% include component-try-it.html href='https://dotnetfiddle.net/gL1l7H' %}
 
 ## SafeMode
 
+The SafeMode option lets you get or set if only members and types registered can be used for the expression. In other words, you can safely execute user input in your environment by restricting him to use only what you allow. Make sure to read the [SafeMode](/safe-mode) documentation if you plan to use this option. By default, the SafeMode value is `false`.
+
 ```csharp
+// Global Context: EvalManager.DefaultContext.SafeMode = true;
+
+var context = new EvalContext();
+
+context.SafeMode = true;
+context.UnregisterAll();
+
+try
+{
+	var fail = context.Execute("Math.Min(1, 2)");
+	Console.WriteLine(fail);
+}
+catch(Exception ex)
+{
+	Console.WriteLine("1 - Exception: " + ex.Message);
+}
+
+// try again by registering "System.Math" member
+context.RegisterMember(typeof(System.Math));
+var r2 = context.Execute("Math.Min(1, 2)");
+Console.WriteLine("2 - Result: " + r2);
 ```
+
+{% include component-try-it.html href='https://dotnetfiddle.net/ljr0y2' %}
 
 ## UseCache
 
