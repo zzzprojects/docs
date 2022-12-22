@@ -691,28 +691,130 @@ Console.WriteLine("2 - Result: " + r2);
 
 ## UseCache
 
+The UseCache option lets you get or set if the cache should be used to retrieve or cache the delegate created from the compile method. By default, the UseCache value is `true`.
+
+In this example, we will evaluate a simple expression and then again by modifying the `DisableAutoReplaceDictionaryKey = true` option. The second `Execute` will return the same result as the first one since the delegate has been taken from the cache. Then we will set our option `UseCache = false` and get this time the correct result we are expecting.
+
 ```csharp
+// Global Context: EvalManager.DefaultContext.UseCache = false;
+
+var context = new EvalContext();
+
+var dict = new Dictionary<string, object>();
+dict.Add("2", 12);
+
+var r1 = context.Execute<int>("1 + 2", dict); // return 13 (1 + 12)
+Console.WriteLine("1 - Result: " + r1); 
+
+context.DisableAutoReplaceDictionaryKey = true;
+
+var r2 = context.Execute<int>("1 + 2", dict); // return 13 (1 + 12) because of caching
+Console.WriteLine("2 - Result: " + r2);
+
+context.UseCache = false;
+var r3 = context.Execute<int>("1 + 2", dict); // return 3
+Console.WriteLine("2 - Result: " + r3);
 ```
+
+{% include component-try-it.html href='https://dotnetfiddle.net/ILSwZx' %}
 
 ## UseCaretForExponent
 
+The UseCaretForExponent option lets you get or set if the caret character `^` should behave as an exponent operator instead of an XOR (logical exclusive OR) operator. For example, you want the following expression, `2^3` to return 8 (2 to the power of 3). The double caret `^^` (`2^^3`) already acts as an exponent operator whether this option is enabled or not. By default, the UseCaretForExponent value is `false`.
+
+In this example, we will use the math expression 2 power 3 by first using a double caret and then by setting our `UseCaretForExponent = true` option and using a single caret. In both cases, the result will be 8.
+
 ```csharp
+// Global Context: EvalManager.DefaultContext.UseCaretForExponent = true;
+
+var context = new EvalContext();
+
+// already work without the UseCaretForExponent option	
+var r1 = context.Execute<int>("2 ^^ 3"); // return 8
+Console.WriteLine("1 - Result: " + r1);
+
+context.UseCaretForExponent = true;
+var r2 = context.Execute<int>("2 ^ 3"); // return 8
+Console.WriteLine("2 - Result: " + r2); 
 ```
+
+{% include component-try-it.html href='https://dotnetfiddle.net/RAFhDq' %}
+
+> NOTE: A new operator '^|' is available for the bitwise exclusive-OR operator.
 
 ## UseEqualsAssignmentAsEqualsOperator
 
+The UseEqualsAssignmentAsEqualsOperator option lets you get or set if the equal assignation `=` should instead act like an equal operator. For example, you evaluate some math formula and would want the expression `2+2=4` instead of trying to make a variable assignment. By default, the UseEqualsAssignmentAsEqualsOperator value is `false`.
+
+In this example, we will use the expression `x = 3` in both cases. In the first `Execute`, the equal operator will be used as an assignment which is the default behavior. In the second `Execute`, we will set the `UseEqualsAssignmentAsEqualsOperator = true;` option and see that the `=` operator behaves like the `==`.
+
 ```csharp
+// Global Context: EvalManager.DefaultContext.UseEqualsAssignmentAsEqualsOperator = true;
+
+var context = new EvalContext();
+context.UseCache = false;
+
+var dict = new Dictionary<string, object>();
+dict["x"] = 1;
+
+var r1 = context.Execute<int>("x = 3", dict); // return 3
+Console.WriteLine("1 - Result: " + r1);
+
+dict["x"] = 1;
+context.UseEqualsAssignmentAsEqualsOperator = true;
+var r2 = context.Execute<bool>("x = 3", dict); // return false
+Console.WriteLine("2 - Result: " + r2); 
 ```
+
+{% include component-try-it.html href='https://dotnetfiddle.net/t65NP4' %}
+
 
 ## UseLocalCache
 
+The UseLocalCache option lets you get or set if the global cache (for all eval context) or a local cache (for this eval context) should be used when we retrieve or cache the delegate created from the compile method. By default, the UseLocalCache value is `false`.
+
+In this example, we will evaluate a simple expression from the global context and then again by using the `DisableAutoReplaceDictionaryKey = true` option. You can comment or uncomment the line `context.UseLocalCache = true;` to see a different result will be returned depending if we take the previously created delegate from the global cache or not.
+
 ```csharp
+// Global Context: EvalManager.DefaultContext.UseLocalCache = true;
+
+var context = new EvalContext();
+
+var dict = new Dictionary<string, object>();
+dict.Add("2", 12);
+
+var r1 = Eval.Execute<int>("1 + 2", dict); // return 13 (1 + 12)
+Console.WriteLine("1 - Result: " + r1); 
+
+context.DisableAutoReplaceDictionaryKey = true;
+
+// comment or uncomment to see the different behavior
+context.UseLocalCache = true;
+
+var r2 = context.Execute<int>("1 + 2", dict); // return 3 if `UseLocalCache = true`; 13 if `UseLocalCache = false`; 
+Console.WriteLine("2 - Result: " + r2);
 ```
+
+{% include component-try-it.html href='https://dotnetfiddle.net/lMIIqT' %}
+
 
 ## UseShortCacheKey
 
+The UseShortCacheKey option lets you get or set if the cache key should be shortened. Enabling that option can increase performance, but ensure to read the full `UseShortCacheKey ` documentation before using it. By default, the UseShortCacheKey value is `false`.
+
+In this example, we will set the `UseShortCacheKey = true` and execute dynamically a very simple arithmetic expression.
+
 ```csharp
+// Global Context: EvalManager.UseShortCacheKey = true;
+
+var context = new EvalContext();
+context.UseShortCacheKey = true;
+
+Console.WriteLine("1 - Result: " + context.Execute("1 + 2"));
 ```
+
+{% include component-try-it.html href='https://dotnetfiddle.net/VEzGOj' %}
+
 
 ## UseSmartExecuteParameterResolution
 
@@ -732,87 +834,4 @@ Console.WriteLine("2 - Result: " + r2);
 ## VariableFactory
 
 ```csharp
-```
-
----
-
-## BindingFlags
-Gets or sets the value of the BindingFlags to use to retrieve member (Constructor, Method, Property, and Field)
-
-### Example
-```csharp
-// using Z.Expressions; // Don't forget to include this.
-var context = new EvalContext();
-
-// Make member case insensitive (Math.pOW = Math.Pow)
-context.BindingFlags = BindingFlags.IgnoreCase | context.BindingFlags
-```
-
-## CacheKeyPrefix
-Gets or sets the cache key prefix to use to cache compiled delegate in the memory.
-
-> We always recommend to use a different cache key prefix if you modify the options.
-
-### Example
-```csharp
-// using Z.Expressions; // Don't forget to include this.
-var context = new EvalContext();
-context.CacheKey = Guid.NewGuid().ToString();
-```
-
-## IncludeMemberFromAllParameters
-Gets or sets if all members should be included from all parameters.
-
-By default, members are only included when one parameter is specified.
-
-> This configuration can be very useful to disable if you execute multiple expressions only once, and you believe they will never be reused.
-
-### Example
-```csharp
-// using Z.Expressions; // Don't forget to include this.
-var context = new EvalContext();
-context.IncludeMemberFromAllParameters = true;
-
-Eval.Execute<bool>("catPropertyName == dogPropertyName", cat, dog);
-```
-
-## UseCache
-Gets or sets if compiled delegate shoud be cached in the memory or not. 
-
-> This configuration can be very useful to disable if you execute multiple expressions only once, and you believe they will never be reused.
-
-### Example
-```csharp
-// using Z.Expressions; // Don't forget to include this.
-var context = new EvalContext();
-context.UseCache = false;
-```
-
-## UseCaretForExponent
-Gets or sets if the default behavior for the XOR operator '^' must act like an exponent operator instead.
-
-> A new operator '^|' is available for the bitwise exclusive-OR operator.
-
-### Example
-```csharp
-// using Z.Expressions; // Don't forget to include this.
-var context = new EvalContext() { UseCache = false };
-
-var exclusiveOrValue = context.Eval("2^3"); // return 1;
-
-context.UseCaretForExponent = true;
-var exponentValue = = context.Eval("2^3"); // return 8;
-
-var newExlusiveOrValue = = context.Eval("2^|3"); // return 1;
-```
-
-## Clone
-Create a new shallow copy of the current EvalContext.
-
-> Cloning the EvalContext can be useful to copy all options including all types already registered to use it to change only what's required for the expression to evaluate.
-
-### Example
-```csharp
-// using Z.Expressions; // Don't forget to include this.
-var context = EvalManager.DefaultContext.Clone();
 ```
