@@ -818,20 +818,134 @@ Console.WriteLine("1 - Result: " + context.Execute("1 + 2"));
 
 ## UseSmartExecuteParameterResolution
 
+The UseSmartExecuteParameterResolution option lets you get or set if the smart resolution should be used when passing multiple values to the execute method, like the default logic, which automatically does when only one parameter is specified. This option is very similar to the option `IncludeMemberFromAllParameter` but is different in the way that we also register value to know the type already. By default, the UseSmartExecuteParameterResolution value is `false`.
+
+In this example, we will first try to resolve our expression with the default behavior, which will fail as you cannot use the member name directly when multiple parameters are specified. Then, we will try again, but this time, with the `UseSmartExecuteParameterResolution= true` option, which will make our expression execute successfully as we can use member names of all parameters in the expression.
+
 ```csharp
+// Global Context: EvalManager.DefaultContext.UseSmartExecuteParameterResolution = true;
+
+var context = new EvalContext();
+context.UseCache = false;
+
+var customer = new Customer() { Name = "C# Eval Expression" };
+var invoice = new Invoice() { TotalQuantity = 13 };
+
+try
+{
+	// 1 - the library include default member name when only 1 parameter is specified but not for multiples parameters
+	var fail = context.Execute("return $'the customer {customer.Name} ordered {invoice.TotalQuantity} items';", new { customer }, new { invoice});
+}
+catch(Exception ex)
+{		
+	Console.WriteLine("1 - Exception: " + ex.Message);
+}
+
+// 2 - however, you can have the behavior to include members of all parameters with the option `UseSmartExecuteParameterResolution`
+context.UseSmartExecuteParameterResolution = true;
+var r2 = context.Execute("return $'the customer {customer.Name} ordered {invoice.TotalQuantity} items';", new { customer }, new { invoice});
+Console.WriteLine("2 - Result: " + r2);
 ```
+
+{% include component-try-it.html href='https://dotnetfiddle.net/nQPsCp' %}
 
 ## UseSmartTypeResolution
 
+The UseSmartTypeResolution option lets you get or set if some type should be found automatically without specifying the `System` namespace. For example, when enabled, you can automatically use `Math.Min`, but when disabled, you need to use`System.Math.Min`. By default, the UseSmartTypeResolution value is `true`.
+
+In this example, we will first create a new instance of `System.Diagnostics.Stopwatch()` but only specify the `Diagnostics.Stopwatch()` part in our expression. As we will see, the `Stopwatch` type was found as the library automatically added the `System` part as no type was initially found. In the second example, we will turn off this option and see now that the library raises an exception since the type was not found.
+
 ```csharp
+// Global Context: EvalManager.DefaultContext.UseSmartTypeResolution = false;
+
+var context = new EvalContext();
+context.UseCache = false;
+
+var r1 = context.Execute("new Diagnostics.Stopwatch();");
+Console.WriteLine("1 - Result: " + r1);
+
+try
+{
+	context.UseSmartTypeResolution = false;
+
+	var fail = context.Execute("new Diagnostics.Stopwatch();");
+}
+catch(Exception ex)
+{		
+	Console.WriteLine("1 - Exception: " + ex.Message);
+}
 ```
+
+{% include component-try-it.html href='https://dotnetfiddle.net/cTt5lB' %}
 
 ## UseTypeBeforeDynamic
 
+The UseTypeBeforeDynamic option lets you get or set if, for some expression, the logic using the type should have priority over the resolution using dynamic. By default, the UseTypeBeforeDynamicvalue is `false`.
+
+In this example, we will register the `Type` program, which contains the member `ValueForTypeOrDynamic` and we will create an `ExpandoObject` which contains a member `Program.ValueForTypeOrDynamic`. In the first expression, the value returned will be the value from the expando, which is the default expected behavior. In the second expression, we will set our `UseTypeBeforeDynamic = true;` option, and this time, the value returned will be the one from our type as we tell our library to use the type before the expando when one is found.
+
 ```csharp
+public class Program
+{
+	public static void Main()
+	{
+		// Global Context: EvalManager.DefaultContext.UseTypeBeforeDynamic = true;
+		
+		var context = new EvalContext();
+		context.UseCache = false;
+		context.RegisterStaticMember(typeof(Program));
+		
+		dynamic expando = new ExpandoObject();
+		expando.Program = new ExpandoObject();
+		expando.Program.ValueForTypeOrDynamic = 99;
+		
+		var r1 = context.Execute("Program.ValueForTypeOrDynamic", expando); // return 99
+		Console.WriteLine("1 - Result: " + r1);
+		
+		context.UseTypeBeforeDynamic = true;
+		var r2 = context.Execute("ValueForTypeOrDynamic", expando); // return 13
+		Console.WriteLine("2 - Result: " + r2);
+	}
+	
+	public static int ValueForTypeOrDynamic = 13;
+}
 ```
+
+{% include component-try-it.html href='https://dotnetfiddle.net/tzlM6B' %}
 
 ## VariableFactory
 
+The VariableFactory option lets you get or sets a factory to return a value when a variable is not found. In other words, it allows specifying a value for a variable on demand. By default, the VariableFactory value is `null`.
+
+In this example, we will first execute a simple expression `X + 2` without specifying any value for `X`, which will fail. Then we will set the `VariableFactory` option to specify how to handle missing variables. In our case, we will set `1` as the value for `X` and specify that the missing variable name has been handled in this case. Finally, we will try our simple `X+2` expression again, and this time, it will return `3` successfully.
+
 ```csharp
+// Global Context: EvalManager.DefaultContext.VariableFactory = arg => { }
+
+var context = new EvalContext();
+context.UseCache = false;
+
+try
+{
+	var fail = context.Execute("X + 2");
+}
+catch(Exception ex)
+{		
+	Console.WriteLine("1 - Exception: " + ex.Message);
+}
+
+context.VariableFactory = arg =>
+	{
+		var name = arg.Name;
+		if (name == "X")
+		{
+			arg.Value = 1;
+			arg.IsHandled = true;
+		}
+	};
+
+var r2 = context.Execute("X + 2");
+Console.WriteLine("1 - Result: " + r2);
 ```
+
+{% include component-try-it.html href='https://dotnetfiddle.net/WA3wIH' %}
