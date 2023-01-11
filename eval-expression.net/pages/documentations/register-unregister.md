@@ -18,7 +18,7 @@ The `Register` methods allow you to add types, methods, properties, fields, valu
 | RegisterDefaultAliasSafe           | The RegisterDefaultAliasSafe method register types, members and extensions methods of all safe types consired safe (Array, Dictionary, List, Tuple, etc.). You can find the complete list here:                                                                                          |
 | RegisterDefaultAliasUnsafe         | The RegisterDefaultAliasUnsafe method register types , members and extension methods of some type that might be considered most unsafe such as (Console, DirectionInfo, FileInfo, etc.). You can find the complete list here:                                                            |
 | RegisterDomainAssemblies           | The RegisterDomainAssemblies method registers all types from all assemblies in loaded in the current domain. This method is only supported in the .NET Framework.                                                                                   |
-| RegisterExtensionMethods           | The RegisterExtensionMethods method registers all extension methods from the types or method list provided.                                                                                                                                                                                                             |
+| RegisterExtensionMethod           | The RegisterExtensionMethod method registers all extension methods from the types or method list provided.                                                                                                                                                                                                             |
 | RegisterGlobalConstant             | The RegisterGlobalConstant method registers a global constant value. The constant value is shared across all evaluations but cannot be modified (not writeable).                                                                                                                                                        |
 | RegisterGlobalVariable             | The RegisterGlobalVariable method registers a global variable value. This variable value is shared across all evaluations and can be modified.                                                                                                                                                                          |
 | RegisterKeyword                    | The RegisterKeyword method registers a keyword for the specified extension methods. For example, if you register the keyword "isin" for the extension method "IsIn", you can now create an expression such as "x isin list".                                                                                            |
@@ -167,7 +167,7 @@ public class Program
 {
 	public static void Main()
 	{
-		// Global Context: EvalManager.RegisterAssembly(typeof(Program).Assembly);
+		// Global Context: EvalManager.DefaultContext.RegisterAssembly(typeof(Program).Assembly);
 		
 		var context = new EvalContext();
 		context.RegisterAssembly(typeof(Program).Assembly);
@@ -182,7 +182,7 @@ public class Program
 		// Unregister the assembly
 		context.UnregisterAssembly(typeof(Program).Assembly);
 		
-		// Check if the assembly is registered has been succesfully unregistered
+		// Check if the assembly has been succesfully unregistered
 		var r3 = context.IsRegisteredAssembly(typeof(Program).Assembly);
 		Console.WriteLine("3 - Result: " + r3);		
 	}
@@ -207,7 +207,7 @@ public class Program
 {
 	public static void Main()
 	{
-		// Global Context: EvalManager.RegisterAutoAddMissingTypeAssembly(typeof(Program).Assembly);
+		// Global Context: EvalManager.DefaultContext.RegisterAutoAddMissingTypeAssembly(typeof(Program).Assembly);
 		
 		var context = new EvalContext();
 		context.RegisterAutoAddMissingTypeAssembly(typeof(Program).Assembly);
@@ -241,37 +241,130 @@ public class Program
 
 The RegisterDefaultAliasSafe method register types, members and extensions methods of all safe types consired safe (Array, Dictionary, List, Tuple, etc.). You can find the complete list here:
 
+In this example, we will unregister all types and then register only types included in the `RegisterDefaultAliasSafe` methods. First, we will create a dictionary that is part of the registered types. Then we will try to create a `DataTable` but it will fail as our library exclude it by default as we flag this object unsafe due to method such as `Load` and `WriteXml`.
+
 ```csharp
+// Global Context: EvalManager.DefaultContext.RegisterDefaultAliasSafe();
+
+var context = new EvalContext();
+context.UnregisterAll();
+context.RegisterDefaultAliasSafe();
+
+// 1 - You can access the Dictionary object since the type has been registered in the RegisterDefaultAliasSafe
+var r1 = context.Execute<int>(@"var dict = new Dictionary<string, object>(); return dict.Count;");
+
+Console.WriteLine("1 - Result: " + r1);
+
+try
+{
+	var fail = context.Execute<int>("var dt = new DataTable(); return dt.Rows.Count;");
+}
+catch(Exception ex)
+{
+	// 2 - However, you cannot access the DataTable because we excluded this type due to methods such as `Load`  and `WriteXml`
+	Console.WriteLine("2 - Exception: " + ex.Message);
+}
 ```
 
-{% include component-try-it.html href='#' %}
+{% include component-try-it.html href='https://dotnetfiddle.net/hGumFP' %}
 
 ## RegisterDefaultAliasUnsafe
 
 The RegisterDefaultAliasUnsafe method register types , members and extension methods of some type that might be considered most unsafe such as (Console, DirectionInfo, FileInfo, etc.). You can find the complete list here:
 
+In this example, we will unregister all types and then register only types included in the `RegisterDefaultAliasUnsafe` methods. In fact, all types from the `RegisterDefaultAliasUnsafe` are already registered by default, but we still do it for demo purposes. First, we will create a dictionary that is part of the registered types. Then we will create a `DataTable`, but unlike when using the method `RegisterDefaultAliasSafe`, this time, the code will successfully work as the `DataTable` is part of the types registered this time.
+
 ```csharp
+// Global Context: EvalManager.DefaultContext.RegisterDefaultAliasSafe();
+
+var context = new EvalContext();
+context.UnregisterAll();
+context.RegisterDefaultAliasUnsafe();
+
+// 1 - You can access the Dictionary object since the type has been registered in the RegisterDefaultAliasSafe
+var r1 = context.Execute<int>(@"var dict = new Dictionary<string, object>(); return dict.Count;");
+
+Console.WriteLine("1 - Result: " + r1);
+
+// 1 - You can access the DataTable object with the method `RegisterDefaultAliasUnsafe` unlike the method `RegisterDefaultAliasSafe`
+var r2 = context.Execute<int>(@"var dt = new DataTable(); return dt.Rows.Count;");
+
+Console.WriteLine("2 - Result: " + r2);
 ```
 
-{% include component-try-it.html href='#' %}
+{% include component-try-it.html href='https://dotnetfiddle.net/9tbo3E' %}
 
 ## RegisterDomainAssemblies
 
 The RegisterDomainAssemblies method registers all types from all assemblies in loaded in the current domain. This method is only supported in the .NET Framework.
 
-```csharp
-```
-
-{% include component-try-it.html href='#' %}
-
-## RegisterExtensionMethods
-
-The RegisterExtensionMethods method registers all extension methods from the types or method list provided.
+In this example, we will register all assemblies found and use our method `Program.AddDemo`. Keep in mind that using this method registers all types from all assemblies found, which for most scenarios is overkill, so we normally recommend only registering types or assemblies that you really need for the compilation.
 
 ```csharp
+public class Program
+{
+	public static void Main()
+	{
+		// Global Context: EvalManager.DefaultContext.RegisterDomainAssemblies();
+		
+		var context = new EvalContext();
+		context.RegisterDomainAssemblies();
+		
+		var r1 = context.Execute<int>("Program.AddDemo(x, y)", new { x = 1, y = 2 });
+		Console.WriteLine("1 - Result: " + r1);
+	}
+	
+	public static int AddDemo(int x, int y)
+	{
+		return x + y;
+	}
+}
 ```
 
-{% include component-try-it.html href='#' %}
+{% include component-try-it.html href='https://dotnetfiddle.net/4fY2GV' %}
+
+## RegisterExtensionMethod
+
+The RegisterExtensionMethod method registers all extension methods from the types or method list provided.
+
+In this example, we will register an extension method and use it. Then we will check if the extension method was registered with the `IsRegisteredExtensionMethod` method, unregister it with the method `UnregisterExtensionMethod` and verify that the method was correctly unregistered.
+
+```csharp
+public class Program
+{
+	public static void Main()
+	{
+		// Global Context: EvalManager.DefaultContext.RegisterExtensionMethods(typeof(Extensions));
+		
+		var context = new EvalContext();
+		context.RegisterExtensionMethod(typeof(Extensions));
+		
+		var r1 = context.Execute<int>("x.AddDemo(y)", new { x = 1, y = 2 });
+		Console.WriteLine("1 - Result: " + r1);
+		
+		// Check if the extension methods is registered
+		var r2 = context.IsRegisteredExtensionMethod(typeof(Extensions));
+		Console.WriteLine("2 - Result: " + r2);
+		
+		// Unregister the extension methods
+		context.UnregisterExtensionMethod(typeof(Extensions));
+		
+		// Check if the extension methods has been succesfully unregistered
+		var r3 = context.IsRegisteredExtensionMethod(typeof(Extensions));
+		Console.WriteLine("3 - Result: " + r3);
+	}
+}
+
+public static class Extensions
+{
+	public static int AddDemo(this int x, int y)
+	{
+		return x + y;
+	}
+}
+```
+
+{% include component-try-it.html href='https://dotnetfiddle.net/w74HZQ' %}
 
 ## RegisterGlobalConstant
 
