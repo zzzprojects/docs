@@ -54,25 +54,7 @@ The `Unregister` methods allows you to remove types, members, and anything else 
 | UnregisterStaticProperty             | The UnregisterStaticProperty method unregisters all static properties from the types or properties list provided.                                                                 |
 | UnregisterType                       | The UnregisterType method unregisters all types provided. The method also unregister extension methods from types                                                                 |
 
-We will not make documentation on the `Unregister` and `IsRegistered` methods as we prefer to focus more on the `Register` methods. We believe once you understand once, you can easily understand the purpose of the 2 others prefix.
-
-TODO:
-
-```csharp
-// using Z.Expressions; // Don't forget to include this.
-var context = new EvalContext();
-context.UnregisterAlias("Math2");
-context.UnregisterAll();
-context.UnregisterAssembly(Assembly.GetEntryAssembly());
-context.UnregisterExtensionMethod(typeof(Enumerable));
-context.UnregisterExtensionMethod(whereMethodInfo, selectMethodInfo)
-context.UnregisterGlobalConstant("sessionMax");
-context.UnregisterGlobalVariables("sessionCount");
-context.UnregisterStaticMember(typeof(Math), typeof(Int));
-context.UnregisterStaticMember(powMemberInfo, RoundMemberInfo);
-context.UnregisterType(typeof (bool), typeof(char);
-```
-
+You will find examples for `Unregister` methods inside their corresponding `Register` methods.
 
 ## IsRegistered Methods
 
@@ -96,24 +78,7 @@ The `IsRegistered` method allows you to check if a type, member, or anything els
 | IsRegisteredStaticProperty             | The IsRegisteredStaticProperty method return true if all static properties from the type or property provided is registered.                                                                     |
 | IsRegisteredType                       | The IsRegisteredType method return true if the type or type name provided is registered.                                                                                                         |
 
-We will not make documentation on the `Unregister` and `IsRegistered` methods as we prefer to focus more on the `Register` methods. We believe once you understand once, you can easily understand the purpose of the 2 others prefix.
-
-TODO: 
-
-```csharp
-// using Z.Expressions; // Don't forget to include this.
-var context = new EvalContext();
-context.UnregisterAlias("Math2");
-context.UnregisterAll();
-context.UnregisterAssembly(Assembly.GetEntryAssembly());
-context.UnregisterExtensionMethod(typeof(Enumerable));
-context.UnregisterExtensionMethod(whereMethodInfo, selectMethodInfo)
-context.UnregisterGlobalConstant("sessionMax");
-context.UnregisterGlobalVariables("sessionCount");
-context.UnregisterStaticMember(typeof(Math), typeof(Int));
-context.UnregisterStaticMember(powMemberInfo, RoundMemberInfo);
-context.UnregisterType(typeof (bool), typeof(char);
-```
+You will find examples for `IsRegistered` methods inside their corresponding `Register` methods.
 
 ## RegisterAlias
 
@@ -370,97 +335,492 @@ public static class Extensions
 
 The RegisterGlobalConstant method registers a global constant value. The constant value is shared across all evaluations but cannot be modified (not writeable).
 
+In this example, we will first register the constant 'x' with the value equal to 1. First, we will execute a simple addition expression that will work. Then, we will try to assign a new value to our constant 'x', which will fail since a constant is not writeable. Finally, we will use the `IsRegisteredGlobalConstant` and `UnregisterGlobalConstant` methods to show the constant was registered and successfully unregistered.
+
 ```csharp
+// Global Context: EvalManager.DefaultContext.RegisterGlobalConstant("x", 1)
+
+var context = new EvalContext();
+context.RegisterGlobalConstant("x", 1);
+
+var r1 = context.Execute<int>("x + y", new { y = 2 });
+Console.WriteLine("1 - Result: " + r1);
+
+try
+{
+	// Try to change the constant value
+	var fail = context.Execute("x = 2; return x;");
+}
+catch(Exception ex)
+{
+	Console.WriteLine("2 - Exception: " + ex.Message);
+}
+
+// Check if the constant "x" is registered
+var r3 = context.IsRegisteredGlobalConstant("x");
+Console.WriteLine("3 - Result: " + r3);
+
+// Unregister the constant "x"
+context.UnregisterGlobalConstant("x");
+
+// Check if the constant "x" has been succesfully unregistered
+var r4 = context.IsRegisteredGlobalConstant("x");
+Console.WriteLine("4 - Result: " + r4);
 ```
 
-{% include component-try-it.html href='#' %}
+{% include component-try-it.html href='https://dotnetfiddle.net/fxz6to' %}
+
+> NOTE: A global constant has the same behavior as creating a constant in the code, such as `public const int x = 1;`. You can use the constant value, but you cannot change the value. However, like a `const` you can still add/remove items from a list or change the property values of an entity but not re-assign a new entity itself.
 
 ## RegisterGlobalVariable
 
 The RegisterGlobalVariable method registers a global variable value. This variable value is shared across all evaluations and can be modified.
 
+In this example, we will register a global variable. In the first expression, we will increment the value of the global variable and return it. In the second expression, we will return the value of the global variable and notice that it's the same value as the previous one since the variable is shared across all expressions. Lastly, we will check using `IsRegisteredGlobalVariable` and `UnregisterGlobalVariable` methods that the global variable was successfully registered and unregistered.
+
 ```csharp
+// Global Context: EvalManager.DefaultContext.RegisterGlobalVariable("x", 1);
+
+var context = new EvalContext();
+context.RegisterGlobalVariable("x", 1);
+
+var r1 = context.Execute<int>("x++; return x"); // return 2
+Console.WriteLine("1 - Result: " + r1);
+
+var r2 = context.Execute<int>("return x"); // return 2
+Console.WriteLine("2 - Result: " + r2);
+
+// Check if the global variable "x" is registered
+var r3 = context.IsRegisteredGlobalVariable("x"); // return true
+Console.WriteLine("3 - Result: " + r3);
+
+// Unregister the global variable "x"
+context.UnregisterGlobalVariable("x");
+
+// Check if the global variable "x" has been succesfully unregistered
+var r4 = context.IsRegisteredGlobalVariable("x"); // return false
+Console.WriteLine("4 - Result: " + r4);
 ```
 
-{% include component-try-it.html href='#' %}
+{% include component-try-it.html href='https://dotnetfiddle.net/7TjwLN' %}
+
+> NOTE: A global variable has the same behavior as creating a static variable in the code, such as `public static int x = 1;`. The variable is readable and writable, so when changing the value, all codes accessing this variable also now have the modified value.
 
 ## RegisterKeyword
 
 The RegisterKeyword method registers a keyword for the specified extension methods. For example, if you register the keyword "isin" for the extension method "IsIn", you can now create an expression such as "x isin list".
 
+In this example, we will first create and register an extension method, then register the keyword "isin" that we can now use to call the `IsIn` extension methods directly. In the first expression, `2 isin list`, we will show an example of how the keyword can be used. Then we will check if the keyword was successfully registered and unregistered with the `IsRegisteredKeyword` and `UnregisterKeyword` methods.
+
 ```csharp
+public class Program
+{
+	public static void Main()
+	{
+		// Global Context: EvalManager.DefaultContext.RegisterKeyword("isin", "IsIn");
+		
+		var context = new EvalContext();
+		context.RegisterExtensionMethod(typeof(CustomExtensions));;
+		context.RegisterKeyword("isin", "IsIn");
+		
+		var list = new List<int>() { 1, 2, 3 };
+		
+		var r1 = context.Execute<bool>("2 isin list", new { list });
+		Console.WriteLine("1 - Result: " + r1);
+		
+		// Check if the keyword "isin" is registered
+		var r2 = context.IsRegisteredKeyword("isin"); // return true
+		Console.WriteLine("2 - Result: " + r2);
+		
+		// Unregister the keyword "isin"
+		context.UnregisterKeyword("isin");
+		
+		// Check if the keyword "isin" has been succesfully unregistered
+		var r3 = context.IsRegisteredKeyword("isin"); // return false
+		Console.WriteLine("3 - Result: " + r3);
+	}
+}
+
+public static class CustomExtensions
+{
+	public static bool IsIn<T>(this T x, List<T> list)
+	{
+		return list.Contains(x);
+	}
+}
 ```
 
-{% include component-try-it.html href='#' %}
+{% include component-try-it.html href='https://dotnetfiddle.net/VvdzH4' %}
 
 ## RegisterLocalVariable
 
 The RegisterLocalVariable method registers a local variable value. This variable value is not shared across all evaluations and can be modified. In other words, the value is only modified for the current evaluation and doesn't impact the other evaluations.
 
+In this example, we will register a global variable. In the first expression, we will increment the value of the global variable and return it. In the second expression, we will return the value of the global variable and notice that the value is still `1`. That's because, unlike the global variable, the local variable value scope is only for the current expression. Lastly, we will check using `IsRegisteredLocalVariable` and `UnregisterLocalVariable` methods that the global variable was successfully registered and unregistered.
+
 ```csharp
+// Global Context: EvalManager.DefaultContext.RegisterLocalVariable("x", 1);
+
+var context = new EvalContext();
+context.RegisterLocalVariable("x", 1);
+
+var r1 = context.Execute<int>("x++; return x"); // return 2
+Console.WriteLine("1 - Result: " + r1);
+
+var r2 = context.Execute<int>("return x"); // return 1
+Console.WriteLine("2 - Result: " + r2);
+
+// Check if the local variable "x" is registered
+var r3 = context.IsRegisteredLocalVariable("x"); // return true
+Console.WriteLine("3 - Result: " + r3);
+
+// Unregister the local variable "x"
+context.UnregisterLocalVariable("x");
+
+// Check if the local variable "x" has been succesfully unregistered
+var r4 = context.IsRegisteredLocalVariable("x"); // return false
+Console.WriteLine("4 - Result: " + r4);
 ```
 
-{% include component-try-it.html href='#' %}
+{% include component-try-it.html href='https://dotnetfiddle.net/L9edtq' %}
+
+> NOTE: A local variable has the same behavior as passing a variable in a parameter to a method. Whenever you change the variable's value in the method, the value used to call the method is not modified. However, if you pass an object such as a `List` and `Add` an item, the list used when calling the method is also modified.
 
 ## RegisterMember
 
 The RegisterMember method registers all instance members from the types or fields list provided. A member is a Property, Field, Method, or Constructor.
 
+In this example, we will first set our context in safe mode with `context.SafeMode = true;` and unregister all current types with `context.UnregisterAll();`. We need to set `SafeMode = true` as; otherwise, members such as methods will be automatically accessible. In the first expression, we will try to access the `GetCustomerID` method, which will fail since we are in `SafeMode`, and then we will register the member and try again, which this time will success. To finish, we will use our methods `IsRegisteredMember` and `UnregisterMember` to unregister all methods from our `Customer` type and make sure it has been successfully unregistered.
+
 ```csharp
+public class Program
+{
+	public static void Main()
+	{
+		// Global Context: EvalManager.DefaultContext.RegisterMember(typeof(Customer));
+		
+		var context = new EvalContext();
+		context.SafeMode = true;
+		context.UnregisterAll();		
+		
+		var customer = new Customer() { CustomerID = 1 };
+		
+		try
+		{
+			var fail = context.Execute<int>("GetCustomerID()", customer);
+		}
+		catch(Exception ex)
+		{
+			Console.WriteLine("1 - Exception: " + ex.Message);
+		}
+		
+		context.RegisterMember(typeof(Customer));		
+		
+		var r2 = context.Execute<int>("GetCustomerID()", customer);
+		Console.WriteLine("2 - Result: " + r2);
+		
+		// Check if all members of the type `Customer` is registered
+		var r3 = context.IsRegisteredMember(typeof(Customer)); // return true
+		Console.WriteLine("3 - Result: " + r3);
+		
+		// Unregister all members of the type `Customer`
+		context.UnregisterMember(typeof(Customer));
+		
+		// Check if all members of the type `Customer` has been succesfully unregistered
+		var r4 = context.IsRegisteredMember(typeof(Customer)); // return false
+		Console.WriteLine("4 - Result: " + r4);
+	}
+	
+	public class Customer
+	{
+		public int CustomerID { get; set; }
+		
+		public int GetCustomerID()
+		{
+			return CustomerID;
+		}
+	}
+}
 ```
 
-{% include component-try-it.html href='#' %}
+{% include component-try-it.html href='https://dotnetfiddle.net/SQXTNA' %}
 
 ## RegisterNamespace
 
 The RegisterNamespace method registers all types in the specified assembly under the specified namespaces.
 
+In this example, we will register all members of the namespace `Z2`. In the first expression, we will try to create a new instance of the `Z1.Customer1`, which will fail since members under the namespace `Z1` has not been registered. In the second expression, we will successfully create a new instance of the `Z2.Customer2` customer, as we initially registered all members under the `Z2` namespace. To complete our example, we will use the methods `IsRegisteredNamespace` and `UnregisterNamespace` to check if all members have been registered and unregister members under this namespace.
+
 ```csharp
+public class Program
+{
+	public static void Main()
+	{
+		// Global Context: EvalManager.DefaultContext.RegisterMember(typeof(Customer));
+		
+		var context = new EvalContext();
+		context.RegisterNamespace(typeof(Program).Assembly, "Z2");	
+		
+		try
+		{
+			var fail = context.Execute<int>("new Customer1();");
+		}
+		catch(Exception ex)
+		{
+			Console.WriteLine("1 - Exception: " + ex.Message);
+		}	
+		
+		var r2 = context.Execute("new Customer2();");
+		Console.WriteLine("2 - Result: " + r2);
+		
+		// Check if all members of the namespace "Z" is registered
+		var r3 = context.IsRegisteredNamespace(typeof(Program).Assembly, "Z2"); // return true
+		Console.WriteLine("3 - Result: " + r3);
+		
+		// Unregister all members of the namespace "Z"
+		context.UnregisterNamespace(typeof(Program).Assembly, "Z2");
+		
+		// Check if all members of the namespace "Z" has been succesfully unregistered
+		var r4 = context.IsRegisteredNamespace(typeof(Program).Assembly, "Z2"); // return false
+		Console.WriteLine("4 - Result: " + r4);
+	}
+}
+
+namespace Z1
+{
+	public class Customer1
+	{
+		public int CustomerID { get; set; }
+	}
+}
+
+namespace Z2
+{	
+	public class Customer2
+	{
+		public int CustomerID { get; set; }
+	}
+}
 ```
 
-{% include component-try-it.html href='#' %}
+{% include component-try-it.html href='https://dotnetfiddle.net/RjxR7Z' %}
 
 ## RegisterStaticField
 
 The RegisterStaticField method registers all static fields from the types or fields list provided.
 
+In this example, we will register all static fields of the type `Program` with the method `RegisterStaticField` and then use it in our expressions. Then we will demonstrate how to use the method `IsRegisteredStaticField` and `UnregisterStaticField` to check if all statics fields are currently registered and to unregister them.
+
 ```csharp
+using System;
+using Z.Expressions;
+
+public class Program
+{
+	public static void Main()
+	{
+		// Global Context: EvalManager.DefaultContext.RegisterStaticField(typeof(Program));
+		
+		var context = new EvalContext();
+		context.RegisterStaticField(typeof(Program));		
+		
+		var r1 = context.Execute<int>("MyStaticField + 100"); // return 101
+		Console.WriteLine("1 - Result: " + r1);
+		
+		// Check if all static fields of the type `Program` is registered
+		var r2 = context.IsRegisteredStaticField(typeof(Program)); // return true
+		Console.WriteLine("2 - Result: " + r2);
+		
+		// Unregister all static fields of the type `Program`
+		context.UnregisterStaticField(typeof(Program));
+		
+		// Check if all static fields of the type `Program` has been succesfully unregistered
+		var r3 = context.IsRegisteredStaticField(typeof(Program)); // return false
+		Console.WriteLine("3 - Result: " + r3);
+	}
+	
+	public static int MyStaticField = 1;
+}
 ```
 
-{% include component-try-it.html href='#' %}
+{% include component-try-it.html href='https://dotnetfiddle.net/mleWka' %}
 
 ## RegisterStaticMember
 
 The RegisterStaticMember method registers all static members from the types or members list provided. A member is a Property, Field or Method.
 
+In this example, we will register all static fields, properties, and methods of the type `Program` with the method `RegisterStaticMember` and then use it in our expressions. Then we will demonstrate how to use the method `IsRegisteredStaticMember` and `UnregisterStaticMember` to check if all statics members are currently registered and to unregister them.
 ```csharp
+using System;
+using Z.Expressions;
+
+public class Program
+{
+	public static void Main()
+	{
+		// Global Context: EvalManager.DefaultContext.RegisterStaticMember(typeof(Program));
+		
+		var context = new EvalContext();
+		context.RegisterStaticMember(typeof(Program));		
+		
+		var r1 = context.Execute<int>("MyStaticField + MyStaticProperty + MyStaticMethod()"); // return 6
+		Console.WriteLine("1 - Result: " + r1);
+		
+		// Check if all static members of the type `Program` is registered
+		var r2 = context.IsRegisteredStaticMember(typeof(Program)); // return true
+		Console.WriteLine("2 - Result: " + r2);
+		
+		// Unregister all static members of the type `Program`
+		context.UnregisterStaticMember(typeof(Program));
+		
+		// Check if all static members of the type `Program` has been succesfully unregistered
+		var r3 = context.IsRegisteredStaticMember(typeof(Program)); // return false
+		Console.WriteLine("3 - Result: " + r3);
+	}
+	
+	public static int MyStaticField = 1;
+	public static int MyStaticProperty { get; set; } = 2;
+	public static int MyStaticMethod()
+	{
+		return 3;
+	}
+}
 ```
 
-{% include component-try-it.html href='#' %}
+{% include component-try-it.html href='https://dotnetfiddle.net/ia50Ue' %}
 
 ## RegisterStaticMethod
 
 The RegisterStaticMethod method registers all static methods from the types or fields list provided.
 
+In this example, we will register all static methods of the type `Program` with the method `RegisterStaticMethod` and then use it in our expressions. Then we will demonstrate how to use the method `IsRegisteredStaticMethod` and `UnregisterStaticMethod` to check if all statics methods are currently registered and to unregister them.
+
 ```csharp
+using System;
+using Z.Expressions;
+
+public class Program
+{
+	public static void Main()
+	{
+		// Global Context: EvalManager.DefaultContext.RegisterStaticMethod(typeof(Program));
+		
+		var context = new EvalContext();
+		context.RegisterStaticMethod(typeof(Program));		
+		
+		var r1 = context.Execute<int>("MyStaticMethod() + 100"); // return 103
+		Console.WriteLine("1 - Result: " + r1);
+		
+		// Check if all static methods of the type `Program` is registered
+		var r2 = context.IsRegisteredStaticMethod(typeof(Program)); // return true
+		Console.WriteLine("2 - Result: " + r2);
+		
+		// Unregister all static methods of the type `Program`
+		context.UnregisterStaticMethod(typeof(Program));
+		
+		// Check if all static methods of the type `Program` has been succesfully unregistered
+		var r3 = context.IsRegisteredStaticMethod(typeof(Program)); // return false
+		Console.WriteLine("3 - Result: " + r3);
+	}
+	
+	public static int MyStaticMethod()
+	{
+		return 3;
+	}
+}
 ```
 
-{% include component-try-it.html href='#' %}
+{% include component-try-it.html href='https://dotnetfiddle.net/caBvAO' %}
 
 ## RegisterStaticProperty
 
 The RegisterStaticProperty method registers all static properties from the types or properties list provided.
 
+In this example, we will register all static properties of the type `Program` with the method `RegisterStaticProperty` and then use it in our expressions. Then we will demonstrate how to use the method `IsRegisteredStaticProperty` and `UnregisterStaticProperty` to check if all statics properties are currently registered and to unregister them.
+
 ```csharp
+using System;
+using Z.Expressions;
+
+public class Program
+{
+	public static void Main()
+	{
+		// Global Context: EvalManager.DefaultContext.RegisterStaticProperty(typeof(Program));
+		
+		var context = new EvalContext();
+		context.RegisterStaticProperty(typeof(Program));		
+		
+		var r1 = context.Execute<int>("MyStaticProperty + 100"); // return 102
+		Console.WriteLine("1 - Result: " + r1);
+		
+		// Check if all static properties of the type `Program` is registered
+		var r2 = context.IsRegisteredStaticProperty(typeof(Program)); // return true
+		Console.WriteLine("2 - Result: " + r2);
+		
+		// Unregister all static properties of the type `Program`
+		context.UnregisterStaticProperty(typeof(Program));
+		
+		// Check if all static properties of the type `Program` has been succesfully unregistered
+		var r3 = context.IsRegisteredStaticProperty(typeof(Program)); // return false
+		Console.WriteLine("3 - Result: " + r3);
+	}
+	
+	public static int MyStaticProperty { get; set; } = 2;
+}
 ```
 
-{% include component-try-it.html href='#' %}
+{% include component-try-it.html href='https://dotnetfiddle.net/b5uNyD' %}
 
 ## RegisterType
 
 The RegisterType method registers all types provided. The method also register extension methods from types but doesn't registers other static member. For example, if you register the type "Z.MyNamespace.MyClass", you can now create an expression such as "new MyClass()" or any extension methods from this type.
 
+In this example, we will register the type `MyClassHelper` and the type `MyExtensions` to register his extension methods. In the first expression, we will use our class and our extension methods with a simple arithmetic operation. Then we will demonstrate how to use the method `IsRegisteredType` and `UnregisterType` with our `MyClassHelper` to validate if the type is currently registered and to unregister it.
+
 ```csharp
+using System;
+using System.Collections.Generic;
+using Z.Expressions;
+
+public class Program
+{
+	public static void Main()
+	{
+		// Global Context: EvalManager.DefaultContext.RegisterType(typeof(Helper));
+		
+		var context = new EvalContext();
+		context.RegisterType(typeof(MyClassHelper));
+		context.RegisterType(typeof(MyExtensions));
+		
+		var r1 = context.Execute<int>("new MyClassHelper().MyClassHelperID + 2.AddMe(3)"); // return 6
+		Console.WriteLine("1 - Result: " + r1);
+		
+		// Check if the type `MyClassHelper` is registered
+		var r2 = context.IsRegisteredType(typeof(MyClassHelper)); // return true
+		Console.WriteLine("2 - Result: " + r2);
+		
+		// Unregister the type `MyClassHelper`
+		context.UnregisterType(typeof(MyClassHelper));
+		
+		// Check the type `MyClassHelper` has been succesfully unregistered
+		var r3 = context.IsRegisteredType(typeof(MyClassHelper)); // return false
+		Console.WriteLine("3 - Result: " + r3);
+	}
+	
+	public class MyClassHelper
+	{
+		public int MyClassHelperID { get; set; } = 1;
+	}
+}
+
+public static class MyExtensions
+{	
+	public static int AddMe(this int x, int y)
+	{
+		return x + y;
+	}
+}
 ```
 
-{% include component-try-it.html href='#' %}
+{% include component-try-it.html href='https://dotnetfiddle.net/LCmJGy' %}
