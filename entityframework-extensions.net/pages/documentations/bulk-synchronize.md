@@ -25,6 +25,7 @@ context.BulkSynchronize(customers, options => {
 The `BulkSynchronize` method is **fast** but also **flexible** to let you handle various scenarios in Entity Framework such as:
 - [Synchronize and keep identity value](#synchronize-and-keep-identity-value)
 - [Synchronize and include/exclude properties](#synchronize-and-includeexclude-properties)
+- [Synchronize a subset of the table](#synchronize-a-subset-of-the-table)
 - [Synchronize with custom key](#synchronize-with-custom-key)
 - [Synchronize with future action](#synchronize-with-future-action)
 - [More scenarios](#more-scenarios)
@@ -93,6 +94,20 @@ context.BulkSynchronize(customizeToSynchronize, options => {
 });
 ```
 [Try it in EF6](https://dotnetfiddle.net/mOlppr) | [Try it in EF Core](https://dotnetfiddle.net/Dk60YN)
+
+### Synchronize a subset of the table
+You want to synchronize your table, but only a subset of the table and not the whole table, such as only a specific user, type, or category that exists in the entities list provided.
+
+```csharp
+context.BulkSynchronize(customers, options => {
+    options.ColumnPrimaryKeyExpression = customer => customer.Name;
+    options.ColumnSynchronizeDeleteKeySubsetExpression = customer => customer.Type;
+});
+```
+
+[Try it in EF6](https://dotnetfiddle.net/y5snLt) | [Try it in EF Core](https://dotnetfiddle.net/clr84M)
+
+Learn more here: https://entityframework-extensions.net/column-synchronize-delete-key-subset-expression
 
 ### Synchronize with custom key
 You want to synchronize entities, but you don't have the primary key. The `ColumnPrimaryKeyExpression` let you use as a key any property or combination of properties.

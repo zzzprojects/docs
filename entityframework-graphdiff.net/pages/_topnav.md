@@ -1,6 +1,5 @@
 - Getting Started
 	- [Documentation](/getting-started/overview.md)
-	- [Knowledge Base](/knowledge-base)
 	- [GitHub](https://github.com/zzzprojects/GraphDiff)
 	- [Help & Donate](https://zzzprojects.com/contribute)
 - [Online Examples](/online-examples)

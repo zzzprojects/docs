@@ -1,2 +1,1 @@
 - [Documentation](https://riptutorial.com/expression-tree/learn/100000/getting-started)
-- [Knowledge Base](/knowledge-base)

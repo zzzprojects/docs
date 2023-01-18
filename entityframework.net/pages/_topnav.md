@@ -1,5 +1,4 @@
 - [Home](/)
 - [EF Core](https://www.learnentityframeworkcore.com/)
 - [Articles](/articles)
-- [Knowledge Base](/knowledge-base)
 - [Online Examples](/online-examples)
