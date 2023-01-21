@@ -442,9 +442,9 @@ Console.WriteLine("4 - Result: " + context.Execute("x == y", new { x, y })); // 
 
 > NOTE: The option might be eventually renamed to reflect the purpose better. It was initially created to handle more scenarios we now solve by default.
 
-## IncludeMemberFromAllParameter
+## IncludeMemberFromAllParameters
 
-The IncludeMemberFromAllParameter option lets you get or set if we should include all members from all parameters, like the default logic, automatically does when only one parameter is specified. So, for example, if you specify a customer and an invoice, you can use the `CustomerID` and `InvoiceID` properties directly. If a member name exists in more than one parameter, such as `ID`, the first member will be used, and all others be ignored. By default, the IncludeMemberFromAllParameter value is `false`.
+The IncludeMemberFromAllParameters option lets you get or set if we should include all members from all parameters, like the default logic, automatically does when only one parameter is specified. So, for example, if you specify a customer and an invoice, you can use the `CustomerID` and `InvoiceID` properties directly. If a member name exists in more than one parameter, such as `ID`, the first member will be used, and all others be ignored. By default, the IncludeMemberFromAllParameter value is `false`.
 
 In this example, we will first try to resolve our expression with the default behavior, which will fail as you cannot use the member name directly when multiple parameters are specified. Then, we will try again, but this time, with the `IncludeMemberFromAllParameters = true` option, which will make our expression execute successfully as we can use member names of all parameters in the expression.
 
