@@ -2,7 +2,7 @@
 Name: Eval.Compile Method
 ---
 
-# How to use the C# Eval Compile Methods
+# How to use the Eval Compile Method?
 
 The C# Eval Expression library offers a method that lets you compile a C# expression dynamically that returns a method (a delegate). After, you can use the method created as many times as you need for the best performance.
 
@@ -14,6 +14,39 @@ In other words, if you only need to execute an expression once, you should use t
 
 To better understand the `Compile` method, let's see all overload methods, and then we will explain them:
 
+
+## C# Compile Method
+
+You can call the `Compile` method in 24 different ways:
+
+- Instance Methods:
+   - context.Compile(string code)
+   - context.Compile(string code, IEnumerable<Type> parameterTypes)
+   - context.Compile(string code, params Type\[\] parameterTypes)
+   - context.Compile(string code, Type type1)
+   - context.Compile(string code, Type type1, ..., Type type9)
+   - context.Compile<TDelegate>(string code)
+   - context.Compile<TDelegate>(string code, IEnumerable<string> parameterNames)
+   - context.Compile<TDelegate>(string code, params string\[\] parameterNames)
+- Static Methods:
+   - Eval.Compile(string code)
+   - Eval.Compile(string code, IEnumerable<Type> parameterTypes)
+   - Eval.Compile(string code, params Type\[\] parameterTypes)
+   - Eval.Compile(string code, Type type1)
+   - Eval.Compile(string code, Type type1, ..., Type type9)
+   - Eval.Compile<TDelegate>(string code)
+   - Eval.Compile<TDelegate>(string code, IEnumerable<string> parameterNames)
+   - Eval.Compile<TDelegate>(string code, params string\[\] parameterNames)
+- Extension Methods:
+   - "code".Compile()
+   - "code".Compile(IEnumerable<Type> parameterTypes)
+   - "code".Compile(params Type\[\] parameterTypes)
+   - "code".Compile(Type type1)
+   - "code".Compile(Type type1, ..., Type type9)
+   - "code".Compile<TDelegate>()
+   - "code".Compile<TDelegate>(IEnumerable<string> parameterNames)
+   - "code".Compile<TDelegate>(params string\[\] parameterNames)
+   
 | Category          | Name                                                                        | Description                                                                                                                                                        |
 | ----------------- | --------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Static Methods    | Eval.Compile(string code)                                                   | Compile the code under the global context and return a \`Func<object>\`.                                                                                           |
