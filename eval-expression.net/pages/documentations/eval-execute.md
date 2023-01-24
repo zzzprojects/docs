@@ -9,14 +9,13 @@ The `Execute` method allows you to execute any C# code at runtime.
 It could be from a very simple math expression using an user input:
 
 ```csharp
-// Let's pretend the user input is one of the millions of easy math equations found on Facebook
-// that some of our friends still fail to understand the multiplication priority
+// Let's use a math formula found on Facebook as user input
 var anotherFacebookMathEquation = "6-1*0+2/2";
 
 // Let's check if C# Eval Expression library is smart enough to solve it
 var r = Eval.Execute<int>(anotherFacebookMathEquation); // return 7
 
-// The answer is really 7
+// The answer is 7 due to multiplication priority
 Console.WriteLine("The result is: " + r);
 ```
 
@@ -48,7 +47,7 @@ Console.WriteLine(string.Join(Environment.NewLine, list));
 
 {% include component-try-it.html href='https://dotnetfiddle.net/BBJ4Ut' %}
 
-In short, you can execute any C# code at runtime that you usually write in Visual Studio. Or even simpler, this is the equivalent in the C# language of the JavaScript `eval` method.
+In short, you can execute any C# code at runtime that you usually write in Visual Studio.
 
 ## C# Execute Method
 
