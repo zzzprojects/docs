@@ -52,3 +52,7 @@ It makes the code in your method more readable and makes it easier to change con
 ## Conclusion
 
 There is no best unique way to use an `EvalContext` as they are all good solutions depending on your scenario. They are quite easy to learn, so make sure to understand them correctly to best use our library.
+
+## TODO:
+
+But what is the global context? That is simply an instance of a [EvalContext](/eval-context), but stored in a static variable in the [EvalManager](/eval-manager). So both methods call under the hood the same method, but one takes the "code" as a parameter, and the other extends the string type, so the "code".
