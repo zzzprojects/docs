@@ -71,3 +71,7 @@ using (var connection = My.ConnectionFactory())
 ```
 
 In the above example, a stored procedure named "Invoice_Insert" will be called three times. 
+
+## How to call stored procedure using dapper in C#?
+
+Calling a stored procedure is quite simple in Dapper, as you only need to use `Query` or `Execute` methods and specify the commandType to `CommandType.StoredProcedure`.

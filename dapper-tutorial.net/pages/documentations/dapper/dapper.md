@@ -14,6 +14,13 @@ Dapper is a micro-ORM created by the team behind Stack Overflow. Dapper is a sim
   - Dapper is fast, reliable, and well-tested and has been used in production by some of the world's largest companies for many years.
   - It is very easy to use and has a lot of features that make it a powerful tool for data access. 
 
+## Is Dapper faster than Entity Framework?
+
+Yes, Dapper is faster than Entity Framework for CRUD operation (querying and saving) due to its simplicity. Unlike EF Core, it doesn't have to add all complexity, such as tracking values, writing inefficient SQL queries, and supporting features like lazy loading and all inheritance by default.
+
+However, EF Core is relatively very fast as well. The question about which ORM is the best for you should be more about if you want to write most of your SQL query (Dapper) or if you prefer to write LINQ and have EF Core write the SQL query for you.
+
+
 ## How does Dapper work?
 
 Dapper provides a simple and concise way to manage your data model without having to write a lot of code. It is also very easy to use, and its code is clean and readable.
@@ -25,6 +32,10 @@ When using Dapper, all you need is a connection string and a POCO, and then it i
 - Create an `IDbConnection` object.
 - Write a query to perform CRUD operations.
 - Pass the query as a parameter in any `Execute` or `Query` method.
+
+## Is Dapper case sensitive or insensitive?
+
+Dapper is case insensitive when mapping column to property. It doesn't matter if the column name returned is `CustomerID` or `customerid`. In both cases, it will be mapped to the right property, such as `CustomerId`, no matter the casing.
 
 ## Installation
 

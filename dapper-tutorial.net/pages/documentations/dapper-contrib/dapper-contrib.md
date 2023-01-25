@@ -13,6 +13,12 @@ Dapper Contrib is a 3rd party library that extends the Dapper functionality by p
  - It means that you don't have to write any SQL code to CRUD your data. 
  - All you need is your model/entity and Dapper Contrib will handle the rest.
  - It adds basic CRUD operations (Create, Retrieve, Update, Delete) for your models/entities.
+ 
+## Is Dapper Contrib free?
+
+Yes, Dapper Contrib is free and open source.
+
+It is released under the Appache 2.0 license: https://github.com/DapperLib/Dapper.Contrib/blob/main/License.txt
 
 ## CRUD Operations
 
