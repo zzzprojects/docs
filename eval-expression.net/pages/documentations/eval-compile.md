@@ -1,19 +1,24 @@
 ---
-Name: Eval.Compile Method
+Name: Compile Method
 ---
 
-# How to use the Eval Compile Method?
+# How to use the Compile Method?
 
-The C# Eval Expression library offers a method that lets you compile a C# expression dynamically that returns a method (a delegate). After, you can use the method created as many times as you need for the best performance.
+The `Compile` method allows you to compile any C# code or expression at runtime and return a delegate.
 
-Before continuing to read this doc, we highly recommend you read and understand the documentation about the [C# Execute Method](/eval-execute).
+Let's explain it with a very simple example:
 
-The primary reason why using the `Compile` method over the `Execute` method is performance. Under the hood, the `Execute` method uses the `Compile` method and then directly executes the created delegate. In comparison, the `Compile` method returns a delegate that you can use as many times as you wish. Even if the `Execute` method has some built-in caching mechanism that will let you re-use an existing delegate method, it will never be close to the performance of re-using the delegate method directly.
+1. First, we create a string that will contains our expression `X+Y`.
+2. Then we will call the `Compile` method with a return type and parameter name (we will explain this later in this documentation)
+   - We will specify the return type should be a `Func<int, int, int>`. That means that the first and second parameters are of type `int`, and the return value is also of type `int`.
+   - We will specify that the first parameter name is `X` and the second parameter name is `Y`.
+3. Finally, we will use the returned delegate in a `For` loop.
 
-In other words, if you only need to execute an expression once, you should use the `Execute` method. However, if you need to execute the expression multiple times with different parameters, you should always use the `Compile` method.
+```csharp
+// TODO
+```
 
-To better understand the `Compile` method, let's see all overload methods, and then we will explain them:
-
+The `Compile` method is slightly harder to use than the [Execute](eval-execute) method. However, the `Compile` method offers the best performance as you directly use the delegate.
 
 ## C# Compile Method
 
@@ -46,52 +51,49 @@ You can call the `Compile` method in 24 different ways:
    - "code".Compile<TDelegate>()
    - "code".Compile<TDelegate>(IEnumerable<string> parameterNames)
    - "code".Compile<TDelegate>(params string\[\] parameterNames)
-   
-| Category          | Name                                                                        | Description                                                                                                                                                        |
-| ----------------- | --------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Static Methods    | Eval.Compile(string code)                                                   | Compile the code under the global context and return a \`Func<object>\`.                                                                                           |
-| Static Methods    | Eval.Compile(string code, IEnumerable<Type> parameterTypes)                 | Compile the code under the global context using types specified and return a \`Func<IEnumerable, object>\`.                                                        |
-| Static Methods    | Eval.Compile(string code, params Type\[\] parameterTypes)                   | Compile the code under the global context using types specified and return a \`Func<IEnumerable, object>\`.                                                        |
-| Static Methods    | Eval.Compile(string code, Type type1)                                       | Compile the code under the global context using the type specified and return a \`Func<object, object>\`.                                                          |
-| Static Methods    | Eval.Compile(string code, Type type1, ..., Type type9)                      | Compile the code under the global context using types specified (up to 9 types are supported) and return a \`Func<object, …, object, object>\`.                    |
-| Static Methods    | Eval.Compile<TDelegate>(string code)                                        | Compile the code under the global context and return a \`TDelegate\` (Action or Func).                                                                             |
-| Static Methods    | Eval.Compile<TDelegate>(string code, IEnumerable<string> parameterNames)    | Compile the code under the global context using parameter names specified and return a \`TDelegate\` (Action or Func).                                             |
-| Static Methods    | Eval.Compile<TDelegate>(string code, params string\[\] parameterNames)      | Compile the code under the global context using parameter names specified and return a \`TDelegate\` (Action or Func).                                             |
-| Instance Methods  | context.Compile(string code)                                                | Compile the code under the instance context and return a \`Func<object>\`.                                                                                         |
-| Instance Methods  | context.Compile(string code, IEnumerable<Type> parameterTypes)              | Compile the code under the instance context using types specified and return a \`Func<IEnumerable, object>\`.                                                      |
-| Instance Methods  | context.Compile(string code, params Type\[\] parameterTypes)                | Compile the code under the instance context using types specified and return a \`Func<IEnumerable, object>\`.                                                      |
-| Instance Methods  | context.Compile(string code, Type type1)                                    | Compile the code under the instance context using the type specified and return a \`Func<object, object>\`.                                                        |
-| Instance Methods  | context.Compile(string code, Type type1, ..., Type type9)                   | Compile the code under the instance context using types specified (up to 9 types are supported) and return a \`Func<object, …, object, object>\`.                  |
-| Instance Methods  | context.Compile<TDelegate>(string code)                                     | Compile the code under the instance context and return a \`TDelegate\` (Action or Func).                                                                           |
-| Instance Methods  | context.Compile<TDelegate>(string code, IEnumerable<string> parameterNames) | Compile the code under the instance context using parameter names specified and return a \`TDelegate\` (Action or Func).                                           |
-| Instance Methods  | context.Compile<TDelegate>(string code, params string\[\] parameterNames)   | Compile the code under the instance context using parameter names specified and return a \`TDelegate\` (Action or Func).                                           |
-| Extension Methods | "code".Compile()                                                            | Extend a string to compile the code under the global context and return a \`Func<object>\`.                                                                        |
-| Extension Methods | "code".Compile(IEnumerable<Type> parameterTypes)                            | Extend a string to compile the code under the global context using types specified and return a \`Func<IEnumerable, object>\`.                                     |
-| Extension Methods | "code".Compile(params Type\[\] parameterTypes)                              | Extend a string to compile the code under the global context using types specified and return a \`Func<IEnumerable, object>\`.                                     |
-| Extension Methods | "code".Compile(Type type1)                                                  | Extend a string to compile the code under the global context using the type specified and return a \`Func<object, object>\`.                                       |
-| Extension Methods | "code".Compile(Type type1, ..., Type type9)                                 | Extend a string to compile the code under the global context using types specified (up to 9 types are supported) and return a \`Func<object, …, object, object>\`. |
-| Extension Methods | "code".Compile<TDelegate>()                                                 | Extend a string to compile the code under the global context and return a \`TDelegate\` (Action or Func).                                                          |
-| Extension Methods | "code".Compile<TDelegate>(IEnumerable<string> parameterNames)               | Extend a string to compile the code under the global context using parameter names specified and return a \`TDelegate\` (Action or Func).                          |
-| Extension Methods | "code".Compile<TDelegate>(params string\[\] parameterNames)                 | Extend a string to compile the code under the global context using parameter names specified and return a \`TDelegate\` (Action or Func).                          |
 
-If we quickly break down those methods, there are three parts to understand:
+We can easily break our 24 methods into 3 topics to quickly understand them:
 
-- [The "code"](#the-code)
+- [The code](#the-code)
 - [The delegate](#the-delegate)
 - [The parameter names](#the-parameter-names)
 
-## The "code"
+## The code
 
-Exactly like the `Execute` method, the `Compile` method allows you to compile a C# expression dynamically in 3 different ways:
+This part is exactly like the [Execute Method](/eval-execute#the-code).
 
-- Using a static method (`Eval.Compile`)
-- Using an instance method (`context.Compile`)
-- Using an extension method (`"code".Compile`)
+You can provide the code to compile in 3 different ways:
 
-Instead of repeating ourselves, if this part is not clear, see the [C# Execute Methods](/eval-execute#the-code) and the [Eval Context](/eval-context) documentation that will explain the difference in detail.
+1. **Instance method:** `context.Compile(code)`
+2. **Static method:** `Eval.Compile(code)`
+3. **Extension method:** `"code".Compile`
+
+1 - In the case of the **instance method** (`context.Compile(code)`). First, you create a new instance of the [EvalContext](/eval-context), and then you can use the `Compile` method from the context created:
 
 ```csharp
 ```
+
+{% include component-try-it.html href='https://dotnetfiddle.net/PCFOZJ' %}
+
+2 - In the case of the **static method** (`Eval.Compile(code)`), you can directly call the static `Eval.Compile` method, which uses a global context under the hood. 
+
+```csharp
+```
+
+{% include component-try-it.html href='https://dotnetfiddle.net/PCFOZJ' %}
+
+3 - In the case of the **extension method** (`"code".Compile`), you can directly call the `Compile` method that extends the string type, which uses a global context under the hood. 
+```csharp
+```
+
+{% include component-try-it.html href='https://dotnetfiddle.net/PCFOZJ' %}
+
+One of the major differences is whether you want to create a new instance of the [EvalContext](/eval-context) or use the global context (an instance stored in a static variable).
+
+We explain the answer more detail in the [EvalContext](/eval-context) documentation, but in short:
+
+- If you need to customize the context for this specific compilation, **you should** use an instance context
+- If you don't need to customize the context for this specific compilation, **you can** use the global context
 
 ## The delegate
 
@@ -132,3 +134,85 @@ var compiled = Eval.Compile<Func<int, int, int>>("X + Y", "X", "Y");
 int result = compiled(1, 2);
 ```
 {% include component-try-it.html href='https://dotnetfiddle.net/MBHlX8' %}
+
+## Compile Async
+
+The C# Eval library supports `Async` but has no `ExecuteAsync` method.
+
+Adding `Async` methods doesn't make sense, as your non-async code will not magically start to be executed asynchronously. A code runs asynchronously when you call a method that supports async and returns a `Task` or `Task<TResult>`.
+
+To execute `Async`, you have 2 choices:
+
+1. **Return a task:** `Eval.Execute<Task>(code)` or `Eval.Execute<Task<Result>>(code)`
+2. **Handle the task** using `await` in the code
+
+1 - If you **return a task** (`Eval.Execute<Task>(code)` or `Eval.Execute<Task<Result>>(code)`), you need to handle the task with `await` outside the code you want to execute dynamically 
+
+```csharp
+var task = Eval.Execute<Task<string>>("File.ReadAllTextAsync(fileName)", new { fileName });
+var text1 = await task;
+```
+
+{% include component-try-it.html href='https://dotnetfiddle.net/UPCTQT' %}
+
+2 - If you **handle the task**, you need to use `await` inside the code you want to execute dynamically
+
+```csharp
+var text2 = Eval.Execute<string>("await File.ReadAllTextAsync(fileName)", new { fileName });
+```
+
+{% include component-try-it.html href='https://dotnetfiddle.net/UPCTQT' %}
+
+## Conclusion
+
+In conclusion, even if you can call the `Execute` method in 18 different ways, they look all the same and are pretty easy to understand as we can resume them to this: Do you want to use the `Execute` method:
+
+- With an instance or a global context
+- With or without a return type
+- With or without parameters
+
+You have seen in this documentation only some basic C# codes, but remember that our library is way more powerful than this, and pretty much all the C# languages are supported.
+
+If you want to learn more about the `Execute` method, we recommend reading the [My First Evaluation](/my-first-evaluation) article. 
+
+---
+
+
+The C# Eval Expression library offers a method that lets you compile a C# expression dynamically that returns a method (a delegate). After, you can use the method created as many times as you need for the best performance.
+
+Before continuing to read this doc, we highly recommend you read and understand the documentation about the [C# Execute Method](/eval-execute).
+
+The primary reason why using the `Compile` method over the `Execute` method is performance. Under the hood, the `Execute` method uses the `Compile` method and then directly executes the created delegate. In comparison, the `Compile` method returns a delegate that you can use as many times as you wish. Even if the `Execute` method has some built-in caching mechanism that will let you re-use an existing delegate method, it will never be close to the performance of re-using the delegate method directly.
+
+In other words, if you only need to execute an expression once, you should use the `Execute` method. However, if you need to execute the expression multiple times with different parameters, you should always use the `Compile` method.
+
+To better understand the `Compile` method, let's see all overload methods, and then we will explain them:
+
+
+ 
+| Category          | Name                                                                        | Description                                                                                                                                                        |
+| ----------------- | --------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Static Methods    | Eval.Compile(string code)                                                   | Compile the code under the global context and return a \`Func<object>\`.                                                                                           |
+| Static Methods    | Eval.Compile(string code, IEnumerable<Type> parameterTypes)                 | Compile the code under the global context using types specified and return a \`Func<IEnumerable, object>\`.                                                        |
+| Static Methods    | Eval.Compile(string code, params Type\[\] parameterTypes)                   | Compile the code under the global context using types specified and return a \`Func<IEnumerable, object>\`.                                                        |
+| Static Methods    | Eval.Compile(string code, Type type1)                                       | Compile the code under the global context using the type specified and return a \`Func<object, object>\`.                                                          |
+| Static Methods    | Eval.Compile(string code, Type type1, ..., Type type9)                      | Compile the code under the global context using types specified (up to 9 types are supported) and return a \`Func<object, …, object, object>\`.                    |
+| Static Methods    | Eval.Compile<TDelegate>(string code)                                        | Compile the code under the global context and return a \`TDelegate\` (Action or Func).                                                                             |
+| Static Methods    | Eval.Compile<TDelegate>(string code, IEnumerable<string> parameterNames)    | Compile the code under the global context using parameter names specified and return a \`TDelegate\` (Action or Func).                                             |
+| Static Methods    | Eval.Compile<TDelegate>(string code, params string\[\] parameterNames)      | Compile the code under the global context using parameter names specified and return a \`TDelegate\` (Action or Func).                                             |
+| Instance Methods  | context.Compile(string code)                                                | Compile the code under the instance context and return a \`Func<object>\`.                                                                                         |
+| Instance Methods  | context.Compile(string code, IEnumerable<Type> parameterTypes)              | Compile the code under the instance context using types specified and return a \`Func<IEnumerable, object>\`.                                                      |
+| Instance Methods  | context.Compile(string code, params Type\[\] parameterTypes)                | Compile the code under the instance context using types specified and return a \`Func<IEnumerable, object>\`.                                                      |
+| Instance Methods  | context.Compile(string code, Type type1)                                    | Compile the code under the instance context using the type specified and return a \`Func<object, object>\`.                                                        |
+| Instance Methods  | context.Compile(string code, Type type1, ..., Type type9)                   | Compile the code under the instance context using types specified (up to 9 types are supported) and return a \`Func<object, …, object, object>\`.                  |
+| Instance Methods  | context.Compile<TDelegate>(string code)                                     | Compile the code under the instance context and return a \`TDelegate\` (Action or Func).                                                                           |
+| Instance Methods  | context.Compile<TDelegate>(string code, IEnumerable<string> parameterNames) | Compile the code under the instance context using parameter names specified and return a \`TDelegate\` (Action or Func).                                           |
+| Instance Methods  | context.Compile<TDelegate>(string code, params string\[\] parameterNames)   | Compile the code under the instance context using parameter names specified and return a \`TDelegate\` (Action or Func).                                           |
+| Extension Methods | "code".Compile()                                                            | Extend a string to compile the code under the global context and return a \`Func<object>\`.                                                                        |
+| Extension Methods | "code".Compile(IEnumerable<Type> parameterTypes)                            | Extend a string to compile the code under the global context using types specified and return a \`Func<IEnumerable, object>\`.                                     |
+| Extension Methods | "code".Compile(params Type\[\] parameterTypes)                              | Extend a string to compile the code under the global context using types specified and return a \`Func<IEnumerable, object>\`.                                     |
+| Extension Methods | "code".Compile(Type type1)                                                  | Extend a string to compile the code under the global context using the type specified and return a \`Func<object, object>\`.                                       |
+| Extension Methods | "code".Compile(Type type1, ..., Type type9)                                 | Extend a string to compile the code under the global context using types specified (up to 9 types are supported) and return a \`Func<object, …, object, object>\`. |
+| Extension Methods | "code".Compile<TDelegate>()                                                 | Extend a string to compile the code under the global context and return a \`TDelegate\` (Action or Func).                                                          |
+| Extension Methods | "code".Compile<TDelegate>(IEnumerable<string> parameterNames)               | Extend a string to compile the code under the global context using parameter names specified and return a \`TDelegate\` (Action or Func).                          |
+| Extension Methods | "code".Compile<TDelegate>(params string\[\] parameterNames)                 | Extend a string to compile the code under the global context using parameter names specified and return a \`TDelegate\` (Action or Func).                          |

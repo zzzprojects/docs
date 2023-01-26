@@ -103,7 +103,7 @@ var list1 = context.Execute<List<int>>("new List<int>() { 1, 2, 3 };");
 
 {% include component-try-it.html href='https://dotnetfiddle.net/PCFOZJ' %}
 
-2 - In the case of the **static method** (`Eval.Execute(code)`), you can directly call the static `Eval.Execute` method, which uses  a global context under the hood. 
+2 - In the case of the **static method** (`Eval.Execute(code)`), you can directly call the static `Eval.Execute` method, which uses a global context under the hood. 
 
 ```csharp
 // CALL the static `Eval.Execute` method
