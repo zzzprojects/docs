@@ -103,7 +103,7 @@ var list1 = context.Execute<List<int>>("new List<int>() { 1, 2, 3 };");
 
 {% include component-try-it.html href='https://dotnetfiddle.net/PCFOZJ' %}
 
-2 - In the case of the **static method** (`Eval.Execute(code)`), you can directly call the static `Eval.Execute` method, which uses a global context under the hood. 
+2 - In the case of the **static method** (`Eval.Execute(code)`), you can directly call the static `Eval.Execute` method, which uses a global context under the hood:
 
 ```csharp
 // CALL the static `Eval.Execute` method
@@ -112,7 +112,7 @@ var list2 = Eval.Execute<List<int>>("new List<int>() { 1, 2, 3 };");
 
 {% include component-try-it.html href='https://dotnetfiddle.net/PCFOZJ' %}
 
-3 - In the case of the **extension method** (`"code".Execute`), you can directly call the `Execute` method that extends the string type, which uses a global context under the hood. 
+3 - In the case of the **extension method** (`"code".Execute`), you can directly call the `Execute` method that extends the string type, which uses a global context under the hood:
 ```csharp
 // CALL the `Execute` method that extends the string type
 var list3 = "new List<int>() { 1, 2, 3 };".Execute<List<int>>();
@@ -134,7 +134,7 @@ When you use the `Execute` method, you have 2 choices that will affect the retur
 1. **A TResult**: `Eval.Execute<TResult>(code)`
 2. **Nothing**: `Eval.Execute(code)`
 
-1 - If you use the generic `Execute` method and specify a `TResult` type (`Eval.Execute<TResult>(code)`), the method will return a `TResult`
+1 - If you use the generic `Execute` method and specify a `TResult` type (`Eval.Execute<TResult>(code)`), the method will return a `TResult`:
 
 ```csharp
 List<int> list1 = Eval.Execute<List<int>>("new List<int>() { 1, 2, 3 };");
@@ -142,7 +142,7 @@ List<int> list1 = Eval.Execute<List<int>>("new List<int>() { 1, 2, 3 };");
 
 {% include component-try-it.html href='https://dotnetfiddle.net/Jqu2As' %}
 
-2 - If you don't specify a return type (`Eval.Execute(code)`), the method will return an `object`. Under the hood, the `Eval.Execute<object>` method is called.
+2 - If you don't specify a return type (`Eval.Execute(code)`), the method will return an `object`. Under the hood, the `Eval.Execute<object>` method is called:
 
 ```csharp
 object object2 = Eval.Execute("new List<int>() { 1, 2, 3 };");
@@ -281,8 +281,6 @@ public class Parameter2
 {% include component-try-it.html href='https://dotnetfiddle.net/MxDxx9' %}
 
 Should you pass parameters for your expression through an anonymous type, a dictionary, or any other ways we have seen in this section? There is no best way to do it since everything depends on your scenario and preference.
-   
-
 
 ## Execute Async
 
@@ -295,7 +293,7 @@ To execute `Async`, you have 2 choices:
 1. **Return a task:** `Eval.Execute<Task>(code)` or `Eval.Execute<Task<Result>>(code)`
 2. **Handle the task** using `await` in the code
 
-1 - If you **return a task** (`Eval.Execute<Task>(code)` or `Eval.Execute<Task<Result>>(code)`), you need to handle the task with `await` outside the code you want to execute dynamically 
+1 - If you **return a task** (`Eval.Execute<Task>(code)` or `Eval.Execute<Task<Result>>(code)`), you need to handle the task with `await` outside the code you want to execute dynamically:
 
 ```csharp
 var task = Eval.Execute<Task<string>>("File.ReadAllTextAsync(fileName)", new { fileName });
@@ -304,7 +302,7 @@ var text1 = await task;
 
 {% include component-try-it.html href='https://dotnetfiddle.net/UPCTQT' %}
 
-2 - If you **handle the task**, you need to use `await` inside the code you want to execute dynamically
+2 - If you **handle the task**, you need to use `await` inside the code you want to execute dynamically:
 
 ```csharp
 var text2 = Eval.Execute<string>("await File.ReadAllTextAsync(fileName)", new { fileName });

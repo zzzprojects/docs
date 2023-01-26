@@ -75,14 +75,14 @@ You can provide the code to compile in 3 different ways:
 
 {% include component-try-it.html href='https://dotnetfiddle.net/PCFOZJ' %}
 
-2 - In the case of the **static method** (`Eval.Compile(code)`), you can directly call the static `Eval.Compile` method, which uses a global context under the hood. 
+2 - In the case of the **static method** (`Eval.Compile(code)`), you can directly call the static `Eval.Compile` method, which uses a global context under the hood: 
 
 ```csharp
 ```
 
 {% include component-try-it.html href='https://dotnetfiddle.net/PCFOZJ' %}
 
-3 - In the case of the **extension method** (`"code".Compile`), you can directly call the `Compile` method that extends the string type, which uses a global context under the hood. 
+3 - In the case of the **extension method** (`"code".Compile`), you can directly call the `Compile` method that extends the string type, which uses a global context under the hood:
 ```csharp
 ```
 
@@ -137,16 +137,14 @@ int result = compiled(1, 2);
 
 ## Compile Async
 
-The C# Eval library supports `Async` but has no `ExecuteAsync` method.
+The C# Eval library doesn't have `CompileAsync` methods. Under the hood, we compile the expression which the [Expression<TDelegate>.Compile method](https://learn.microsoft.com/en-us/dotnet/api/system.linq.expressions.expression-1.compile), which doesn't have a `CompileAsync` method either.
 
-Adding `Async` methods doesn't make sense, as your non-async code will not magically start to be executed asynchronously. A code runs asynchronously when you call a method that supports async and returns a `Task` or `Task<TResult>`.
+However, the `Compile` method support `Async` expression, but the task needs to be handled on the [Execute](/eval-execute#execute-async) part and not the compile part:
 
-To execute `Async`, you have 2 choices:
-
-1. **Return a task:** `Eval.Execute<Task>(code)` or `Eval.Execute<Task<Result>>(code)`
+1. **Return a task from the delegate:** `Eval.Compile<Func<Task>>(code)` or `Eval.Compile<Task<Result>>(code)`
 2. **Handle the task** using `await` in the code
 
-1 - If you **return a task** (`Eval.Execute<Task>(code)` or `Eval.Execute<Task<Result>>(code)`), you need to handle the task with `await` outside the code you want to execute dynamically 
+1 - If you **return a task from the delegate** (`Eval.Compile<Func<Task>>(code)` or `Eval.Compile<Task<Result>>(code)`), you need to handle the task with `await` outside the code you want to compile and execute dynamically:
 
 ```csharp
 var task = Eval.Execute<Task<string>>("File.ReadAllTextAsync(fileName)", new { fileName });
@@ -155,7 +153,7 @@ var text1 = await task;
 
 {% include component-try-it.html href='https://dotnetfiddle.net/UPCTQT' %}
 
-2 - If you **handle the task**, you need to use `await` inside the code you want to execute dynamically
+2 - If you **handle the task**, you need to use `await` inside the code you want to compile and execute dynamically:
 
 ```csharp
 var text2 = Eval.Execute<string>("await File.ReadAllTextAsync(fileName)", new { fileName });
@@ -165,15 +163,15 @@ var text2 = Eval.Execute<string>("await File.ReadAllTextAsync(fileName)", new { 
 
 ## Conclusion
 
-In conclusion, even if you can call the `Execute` method in 18 different ways, they look all the same and are pretty easy to understand as we can resume them to this: Do you want to use the `Execute` method:
+In conclusion, you can call the `Compile` method in 24 different ways, but if you understand the concept, they all look very similar, and we can resume them to this: Do you want to use the `Compile` method:
 
 - With an instance or a global context
-- With or without a return type
+- With or without a TDelegate
 - With or without parameters
 
-You have seen in this documentation only some basic C# codes, but remember that our library is way more powerful than this, and pretty much all the C# languages are supported.
+For people beginning with our library, we recommend using the [Execute](/eval-execute) until they get comfortable with the method before moving to the `Compile` method, which is slightly more complex.
 
-If you want to learn more about the `Execute` method, we recommend reading the [My First Evaluation](/my-first-evaluation) article. 
+If you want to learn more about the `Compile` method, we recommend reading the [My First Compilation](/my-first-compilation) article.
 
 ---
 
