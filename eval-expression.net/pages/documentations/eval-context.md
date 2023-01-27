@@ -2,15 +2,77 @@
 Name: Eval Context
 ---
 
-# Eval Context
+# What is the Eval Context?
 
-The `EvalContext` is the main class of the C# Eval Expression library. In a few words, the `EvalContext` is the context under which an evaluation or compilation is executed.
+The `EvalContext` is the main class of the C# Eval Expression library. No matter how you call the [Execute](/eval-execute) or [Compile](/eval-compile) methods, an `EvalContext` is used.
 
-You can customize the `EvalContext` through:
+## What's the difference between an "instance" and a "global" context?
 
-- [Options](/options)
-- [Register / Unregister Methods](/register-unregister)
-- [Internal Dictionary](/internal-dictionary)
+We often talk about the global context through our documentation, but the explanation might not always be clear until you reach this article.
+
+An **instance context** is when you create a new instance of the [EvalContext](/eval-context), and then you can use the `Execute` method from the context created, such as:
+
+```csharp
+// TODO
+```
+
+The **global context** is used when you call methods such as:
+
+- `Eval.Execute` or `Eval.Compile`
+- `"code".Execute` or `"code".Compile`
+- [LINQ Dynamic Methods](/linq-dynamic)
+
+Under the hood, those methods will use the `DefaultContext`. That is a static property of the [EvalManager](/eval-manager).
+
+In other words, doing `Eval.Execute` is equivalent to doing `EvalManager.DefaultContext.Execute`:
+
+```csharp
+// TODO
+```
+
+Methods such as `Execute` and `Compile` are thread-safe, meaning there is no problem calling them in a concurrency scenario with the **global context**. However, configuring the **global context** should only be done when starting your application, as configuration impact how the compilation is made, so that's not thread-safe.
+
+
+
+
+
+
+
+
+
+when you create a new instance of the [EvalContext](/eval-context), and then you can use the `Execute` method from the context created, such as:
+
+
+Difference between an EvalContext instance and the Global Context?
+
+Methods such as:
+
+
+
+Use a global context under the hood. The global context is the 
+
+In other words, using `Eval.Execute` is equivalent of doing `EvalManager.DefaultContext.Execute`
+
+## EvalContext customization
+
+You can customize the `EvalContext` by using:
+
+1. [Options](/options)
+2. [Register / Unregister Methods](/register-unregister)
+3. [Internal Dictionary](/internal-dictionary)
+
+### Options
+
+Learn more about [Options](/options)
+
+### Register / Unregister Methods
+
+Learn more about [Register / Unregister Methods](/register-unregister)
+
+### Internal Dictionary
+
+Learn more about [Internal Dictionary](/internal-dictionary)
+
 
 There are 3 ways to use an `EvalContext`:
 
@@ -49,6 +111,10 @@ Instead of re-creating the same instance again and again in every method that ne
 
 It makes the code in your method more readable and makes it easier to change configuration globally.
 
+
+## Can I create a custom global context?
+Yes
+
 ## Conclusion
 
 There is no best unique way to use an `EvalContext` as they are all good solutions depending on your scenario. They are quite easy to learn, so make sure to understand them correctly to best use our library.
@@ -56,3 +122,4 @@ There is no best unique way to use an `EvalContext` as they are all good solutio
 ## TODO:
 
 But what is the global context? That is simply an instance of a [EvalContext](/eval-context), but stored in a static variable in the [EvalManager](/eval-manager). So both methods call under the hood the same method, but one takes the "code" as a parameter, and the other extends the string type, so the "code".
+
