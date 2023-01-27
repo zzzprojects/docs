@@ -153,104 +153,135 @@ List<int> list2 = (List<int>)object2;
 
 ### The parameters
 
-In this section, you will learn how to use parameters in our expression. We are now down to only understanding the method parameters part that gets repeated in all our `Execute` methods:
+You have multiple different ways how you can pass your parameters. Furthermore, there is no best way to pass parameters as everything depends on your scenario and preference:
 
-1. `(string code)`
-2. `(string code, object parameters)`
-3. `(string code, params object[] parameters)`
+1. `Eval.Execute<TResult>(string code)`
+2. `Eval.Execute<TResult>(string code, object parameters)`
+3. `Eval.Execute<TResult>(string code, params object[] parameters)`
 
-The first execute method `(string code)` doesn't allow you to pass parameters to the expression. So this one is easy to understand, the code is simply getting executed:
+1 - In the case of `Eval.Execute<TResult>(string code)`, you cannot pass parameters directly, so it leaves you 3 options:
+
+- 1a. Hardcoding parameter value in the expression
+- 1b. Using string concatenation
+- 1c. Using [string interpolation](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/tokens/interpolated)
+
+**1a. Hardcoding parameter value in the expression:**
 
 ```csharp
-var r = Eval.Execute<List<int>>("return new List<int>() { 1, 2, 3, 4, 5 }.Where(x => x > 1 && x < 5)");
+var expression = "return new List<int>() { 1, 2, 3, 4, 5 }.Where(x => x > 1 && x < 5)";
+var list1a = Eval.Execute<List<int>>(expression);
 ```
 
 {% include component-try-it.html href='https://dotnetfiddle.net/4vOu2H' %}
 
-The second execute method `(string code, object parameters)` take an object as parameter.
+**1b. Using string concatenation:**
+```csharp
+var minValue = 1;
+var maxValue = 5;
 
-The object parameter can be:
+var expression = "return new List<int>() { 1, 2, 3, 4, 5 }.Where(x => x > "+ minValue +" && x < "+ maxValue +")";
+var list1b = Eval.Execute<List<int>>(expression);
+```
 
-- An Anonymous Type
-- A Class Instance
-- A Dictionary<string, TValue>
-- An Expando Object
+{% include component-try-it.html href='https://dotnetfiddle.net/4vOu2H' %}
 
-To allow you to use more easily parameters, our library also automatically registers and lets you use in your expression:
-
-- Member names in the case of `Anonymous Type`, `Class Instance`, or `ExpandoObject`
-- Key names in the case of `Dictionary<string, TValue>`
+**1c. Using [string interpolation](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/tokens/interpolated):**
 
 ```csharp
-public static void Main()
+var minValue = 1;
+var maxValue = 5;
+
+var expression = $"return new List<int>() {{ 1, 2, 3, 4, 5 }}.Where(x => x > {minValue} && x < {maxValue})";
+var list1c = Eval.Execute<List<int>>(expression);
+```
+
+{% include component-try-it.html href='https://dotnetfiddle.net/4vOu2H' %}
+
+> NOTE: Be careful when using string concatenation (1b) and string interpolation (1c). In the same way, using this technique for SQL can lead to SQL Injection; using this technique with code can lead to Code Injection. So you should generally avoid this solution if you execute code from user input.
+
+2 - In the case of `Eval.Execute<TResult>(string code, object parameters)`, the object parameters can be:
+
+- 2a. `Anonymous Type`
+- 2b. `Class Instance`
+- 2c. `ExpandoObject`
+- 2d. `Dictionary<string, TValue>`
+
+In addition, to make your life easier, our library automatically registers and lets you use inside your expression:
+
+- Member names in the case of:
+   - 2a. `Anonymous Type`
+   - 2b. `Class Instance`
+   - 2c. `ExpandoObject`
+- Key names in the case of:
+   - 2d. `Dictionary<string, TValue>`
+
+**2a. `Anonymous Type`:**
+```csharp
+// example 1
 {
-	// AnonymousType #1
-	{
-		var r = Eval.Execute<List<int>>("return new List<int>() { 1, 2, 3, 4, 5 }.Where(x => x > MinValue && x < MaxValue)", new { MinValue = 1, MaxValue = 5 });
-	}
-```
-
-```csharp
-	// AnonymousType #2
-	{
-		var minValue = 1;
-		var maxValue = 5;
-		
-		var r = Eval.Execute<List<int>>("return new List<int>() { 1, 2, 3, 4, 5 }.Where(x => x > minValue && x < maxValue)", new { minValue, maxValue });
-	}
-```
-
-```csharp
-	// Class instance
-	{		
-		var minMaxValue = new MinMaxValue() { MinValue = 1, MaxValue = 5 };
-		var r = Eval.Execute<List<int>>("return new List<int>() { 1, 2, 3, 4, 5 }.Where(x => x > MinValue && x < MaxValue)", minMaxValue);
-	}
-```
-
-```csharp
-	// Dictionary<string, object>
-	{
-		var dict = new Dictionary<string, object>();
-		dict["MinValue"] = 1;
-		dict["MaxValue"] = 5;
-		
-		var r = Eval.Execute<List<int>>("return new List<int>() { 1, 2, 3, 4, 5 }.Where(x => x > MinValue && x < MaxValue)", dict);
-	}
-```
-
-```csharp
-	// ExpandoObject
-	{
-		dynamic expando = new ExpandoObject();
-		expando.MinValue = 1;
-		expando.MaxValue = 5;
-		
-		var r = Eval.Execute<List<int>>("return new List<int>() { 1, 2, 3, 4, 5 }.Where(x => x > MinValue && x < MaxValue)", expando);
-	}
+	var expression = "return new List<int>() { 1, 2, 3, 4, 5 }.Where(x => x > MinValue && x < MaxValue)";
+	var list2a1 = Eval.Execute<List<int>>(expression, new { MinValue = 1, MaxValue = 5 });
 }
 
+// example 2
+{
+	var minValue = 1;
+	var maxValue = 5;
+	
+	var expression = "return new List<int>() { 1, 2, 3, 4, 5 }.Where(x => x > minValue && x < maxValue)";
+	var list2a2 = Eval.Execute<List<int>>(expression, new { minValue, maxValue });
+}
+```
+
+**2b. `Class Instance`:**
+```csharp
 public class MinMaxValue
 {
 	public int MinValue { get; set; }
 	public int MaxValue { get; set; }
 }
+	
+var minMaxValue = new MinMaxValue() { MinValue = 1, MaxValue = 5 };
+
+var expression = "return new List<int>() { 1, 2, 3, 4, 5 }.Where(x => x > MinValue && x < MaxValue)";
+var list2b = Eval.Execute<List<int>>(expression, minMaxValue);
+```
+
+
+**2c. `ExpandoObject`**
+```csharp
+dynamic expando = new ExpandoObject();
+expando.MinValue = 1;
+expando.MaxValue = 5;
+
+var expression = "return new List<int>() { 1, 2, 3, 4, 5 }.Where(x => x > MinValue && x < MaxValue)";
+var list2c = Eval.Execute<List<int>>(expression, expando);
+```
+
+**2d. `Dictionary<string, TValue>`**
+```csharp
+var dict = new Dictionary<string, object>();
+dict["MinValue"] = 1;
+dict["MaxValue"] = 5;
+
+var expression = "return new List<int>() { 1, 2, 3, 4, 5 }.Where(x => x > MinValue && x < MaxValue)";
+var list2d = Eval.Execute<List<int>>(expression, dict);
 ```
 
 {% include component-try-it.html href='https://dotnetfiddle.net/wdLPTE' %}
 
-In the third execute method `(string code, params object[] parameters)`, you can pass your parameter through the `params object[]`. You can learn more about [params here](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/params)
+3 - In the case of `Eval.Execute<TResult>(string code, params object[] parameters)`, you can pass your parameter through the `params object[]`. You can learn more about [params here](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/params)
 
-As parameters are not named (our library doesn't know your variable, property, or field name), you need to use positions such as `{0}` and `{1}` in the expression as you usually do with, for example, [string.Format](https://learn.microsoft.com/en-us/dotnet/api/system.string.format)
+3a - Since parameters are not named (our library doesn't know your variable, property, or field name), you need to use positions such as `{0}` and `{1}` in the expression as you usually do with, for example, [string.Format](https://learn.microsoft.com/en-us/dotnet/api/system.string.format):
 
 ```csharp
 var expression = "return new List<int>() { 1, 2, 3, 4, 5 }.Where(x => x > {0} && x < {1})";
-var r = Eval.Execute<List<int>>(expression, 1, 5);
+var list3a = Eval.Execute<List<int>>(expression, 1, 5);
 ```
 
 {% include component-try-it.html href='https://dotnetfiddle.net/Q0gWZ3' %}
 
-In addition, unlike the second execute method we have seen, you cannot use member names or key names directly by default unless you use the [IncludeMemberFromAllParameters option](/options#includememberfromallparameters)
+3b - In addition, unlike section 2 (`Eval.Execute<TResult>(string code, object parameters)`) that we have seen, you cannot use member names or key names directly by default unless you use the [IncludeMemberFromAllParameters option](/options#includememberfromallparameters)
 
 ```csharp
 public static void Main()
@@ -264,7 +295,9 @@ public static void Main()
 	var parameter2 = new Parameter2() { MaxValue = 5 };
 	
 	var expression = "return new List<int>() { 1, 2, 3, 4, 5 }.Where(x => x > MinValue && x < MaxValue)";
-	var r = context.Execute<List<int>>(expression, parameter1, parameter2);
+	var list3b = context.Execute<List<int>>(expression, parameter1, parameter2);
+	
+	FiddleHelper.WriteTable(list3b);
 }
 
 public class Parameter1
@@ -278,9 +311,7 @@ public class Parameter2
 }
 ```
 
-{% include component-try-it.html href='https://dotnetfiddle.net/MxDxx9' %}
-
-Should you pass parameters for your expression through an anonymous type, a dictionary, or any other ways we have seen in this section? There is no best way to do it since everything depends on your scenario and preference.
+{% include component-try-it.html href='https://dotnetfiddle.net/Q0gWZ3' %}
 
 ## Execute Async
 
