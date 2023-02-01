@@ -15,7 +15,7 @@ var userInput = "6-1*0";
 // Execute the user input to solve the math expression
 var r = Eval.Execute<int>(userInput); // return 6
 
-// The answer is 6 due to multiply operator priority "6-(1*0)" => "6-0" => "6"
+// The answer is 6 due to multiply operator priority "6-1*0" => "6-(1*0)" => "6-0" => "6"
 Console.WriteLine("The result is: " + r);
 ```
 
@@ -49,33 +49,33 @@ Console.WriteLine(string.Join(Environment.NewLine, list));
 
 {% include component-try-it.html href='https://dotnetfiddle.net/BBJ4Ut' %}
 
-In short, the `Execute` method from the C# Eval library let you execute any C# code at runtime that you usually write in Visual Studio.
+In short, the `Execute` method from the C# Eval Expression library let you execute any C# code at runtime that you usually write in Visual Studio.
 
 ## C# Execute Method
 
 You can call the `Execute` method in 18 different ways:
 
 - Instance Methods:
-   - context.Execute(string code)
-   - context.Execute(string code, object parameters)
-   - context.Execute(string code, params object[] parameters)
-   - context.Execute<TResult>(string code)
-   - context.Execute<TResult>(string code, object parameters)
-   - context.Execute<TResult>(string code, params object[] parameters)
+   - `context.Execute(string code)`
+   - `context.Execute(string code, object parameters)`
+   - `context.Execute(string code, params object[] parameters)`
+   - `context.Execute<TResult>(string code)`
+   - `context.Execute<TResult>(string code, object parameters)`
+   - `context.Execute<TResult>(string code, params object[] parameters)`
 - Static Methods:
-   - Eval.Execute(string code)
-   - Eval.Execute(string code, object parameters)
-   - Eval.Execute(string code, params object[] parameters)
-   - Eval.Execute<TResult>(string code)
-   - Eval.Execute<TResult>(string code, object parameters)
-   - Eval.Execute<TResult>(string code, params object[] parameters)
+   - `Eval.Execute(string code)`
+   - `Eval.Execute(string code, object parameters)`
+   - `Eval.Execute(string code, params object[] parameters)`
+   - `Eval.Execute<TResult>(string code)`
+   - `Eval.Execute<TResult>(string code, object parameters)`
+   - `Eval.Execute<TResult>(string code, params object[] parameters)`
 - Extension Methods:
-   - "code".Execute()
-   - "code".Execute(object parameters)
-   - "code".Execute(params object[] parameters)
-   - "code".Execute<TResult>()
-   - "code".Execute<TResult>(object parameters)
-   - "code".Execute<TResult>params object[] parameters)
+   - `"code".Execute()`
+   - `"code".Execute(object parameters)`
+   - `"code".Execute(params object[] parameters)`
+   - `"code".Execute<TResult>()`
+   - `"code".Execute<TResult>(object parameters)`
+   - `"code".Execute<TResult>params object[] parameters)`
  
 Indeed 18 methods seem a lot and overkill. However, we can easily break them into 3 topics to quickly understand them:
 
@@ -159,33 +159,7 @@ You have multiple different ways how you can pass your parameters. Furthermore, 
 2. `Eval.Execute<TResult>(string code, object parameters)`
 3. `Eval.Execute<TResult>(string code, params object[] parameters)`
 
-1 - In the case of `Eval.Execute<TResult>(string code)`, you cannot pass parameters directly, so it leaves you 3 options:
-
-- 1a. Hardcoding parameter value in the expression
-- 1b. Using string concatenation
-- 1c. Using [string interpolation](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/tokens/interpolated)
-
-**1a. Hardcoding parameter value in the expression:**
-
-```csharp
-var expression = "return new List<int>() { 1, 2, 3, 4, 5 }.Where(x => x > 1 && x < 5)";
-var list1a = Eval.Execute<List<int>>(expression);
-```
-
-{% include component-try-it.html href='https://dotnetfiddle.net/4vOu2H' %}
-
-**1b. Using string concatenation:**
-```csharp
-var minValue = 1;
-var maxValue = 5;
-
-var expression = "return new List<int>() { 1, 2, 3, 4, 5 }.Where(x => x > "+ minValue +" && x < "+ maxValue +")";
-var list1b = Eval.Execute<List<int>>(expression);
-```
-
-{% include component-try-it.html href='https://dotnetfiddle.net/4vOu2H' %}
-
-**1c. Using [string interpolation](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/tokens/interpolated):**
+1 - In the case of `Eval.Execute<TResult>(string code)`, you cannot pass parameters directly, but you can always common technic such as string concatenation or [string interpolation](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/tokens/interpolated):**
 
 ```csharp
 var minValue = 1;
@@ -196,8 +170,6 @@ var list1c = Eval.Execute<List<int>>(expression);
 ```
 
 {% include component-try-it.html href='https://dotnetfiddle.net/4vOu2H' %}
-
-> NOTE: Be careful when using string concatenation (1b) and string interpolation (1c). In the same way, using this technique for SQL can lead to SQL Injection; using this technique with code can lead to Code Injection. So you should generally avoid this solution if you execute code from user input.
 
 2 - In the case of `Eval.Execute<TResult>(string code, object parameters)`, the object parameters can be:
 
@@ -281,7 +253,7 @@ var list3a = Eval.Execute<List<int>>(expression, 1, 5);
 
 {% include component-try-it.html href='https://dotnetfiddle.net/Q0gWZ3' %}
 
-3b - In addition, unlike section 2 (`Eval.Execute<TResult>(string code, object parameters)`) that we have seen, you cannot use member names or key names directly by default unless you use the [IncludeMemberFromAllParameters option](/options#includememberfromallparameters)
+3b - In addition, unlike section 2 (`Eval.Execute<TResult>(string code, object parameters)`) that we have seen, you cannot use member names or key names directly by default unless you use the [IncludeMemberFromAllParameters](/options#includememberfromallparameters) option:
 
 ```csharp
 public static void Main()
