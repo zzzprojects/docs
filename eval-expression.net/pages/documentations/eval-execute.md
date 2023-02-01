@@ -159,7 +159,7 @@ You have multiple different ways how you can pass your parameters. Furthermore, 
 2. `Eval.Execute<TResult>(string code, object parameters)`
 3. `Eval.Execute<TResult>(string code, params object[] parameters)`
 
-1 - In the case of `Eval.Execute<TResult>(string code)`, you cannot pass parameters directly, but you can always common technic such as string concatenation or [string interpolation](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/tokens/interpolated):**
+1 - In the case of `Eval.Execute<TResult>(string code)`, you cannot pass parameters directly, but you can always common technic such as string concatenation or [string interpolation](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/tokens/interpolated):
 
 ```csharp
 var minValue = 1;
