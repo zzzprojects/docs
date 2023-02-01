@@ -6,6 +6,45 @@ Name: Eval Context
 
 The `EvalContext` is the main class of the C# Eval Expression library. No matter how you call the [Execute](/eval-execute) or [Compile](/eval-compile) methods, an `EvalContext` is used.
 
+There is 2 ways to use an `EvalContext`:
+1. Creating a new instance of the `EvalContext` class
+2. Using the global context
+
+## 1. Creating a new instance of the EvalContext class
+
+## 2. Use the global context
+
+The global context is used when calling `Execute` and `Compile` methods not from a context such as:
+
+- `Eval.Execute(code)`
+- `"code".Execute()`
+- `linq.Execute(code)`
+
+In this 3 examples, no context was directly used but in fact, under the hood, all thoses method called the `Execute` method from the `EvalManager`.
+
+## EvalContext customization
+
+You can customize the local and global `EvalContext` by using:
+
+1. [Options](/options)
+2. [Register / Unregister Methods](/register-unregister)
+
+### 1. Options
+
+Learn more about [Options](/options)
+
+### 2. Register / Unregister Methods
+
+Learn more about [Register / Unregister Methods](/register-unregister)
+
+## Conclusion
+
+There is no best unique way to use an `EvalContext` as they are all good solutions depending on your scenario. They are quite easy to learn, so make sure to understand them correctly to best use our library.
+
+---
+
+
+
 ## What's the difference between an "instance" and a "global" context?
 
 We often talk about the global context through our documentation, but the explanation might not always be clear until you reach this article.
@@ -53,25 +92,7 @@ Use a global context under the hood. The global context is the
 
 In other words, using `Eval.Execute` is equivalent of doing `EvalManager.DefaultContext.Execute`
 
-## EvalContext customization
 
-You can customize the `EvalContext` by using:
-
-1. [Options](/options)
-2. [Register / Unregister Methods](/register-unregister)
-3. [Internal Dictionary](/internal-dictionary)
-
-### Options
-
-Learn more about [Options](/options)
-
-### Register / Unregister Methods
-
-Learn more about [Register / Unregister Methods](/register-unregister)
-
-### Internal Dictionary
-
-Learn more about [Internal Dictionary](/internal-dictionary)
 
 
 There are 3 ways to use an `EvalContext`:
@@ -115,9 +136,7 @@ It makes the code in your method more readable and makes it easier to change con
 ## Can I create a custom global context?
 Yes
 
-## Conclusion
 
-There is no best unique way to use an `EvalContext` as they are all good solutions depending on your scenario. They are quite easy to learn, so make sure to understand them correctly to best use our library.
 
 ## TODO:
 
