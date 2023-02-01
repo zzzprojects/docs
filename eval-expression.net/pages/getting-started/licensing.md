@@ -12,7 +12,7 @@ You can use the library for free when:
 - You only evaluate expressions under 50 characters
 - You use [LINQ Dynamic](/linq-dynamic) methods
 
-In all other cases, you have to [purchase](/pricing)a license.
+In all other cases, you have to [purchase](/pricing) a license.
 
 ## Evaluation/Trial Period
 

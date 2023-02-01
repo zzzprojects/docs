@@ -7,4 +7,3 @@
    - [Eval Manager](eval-manager.md)
    - [Options](options.md)
    - [Register/Unregister](register-unregister.md)
-   - [Internal Dictionary](internal-dictionary.md)
