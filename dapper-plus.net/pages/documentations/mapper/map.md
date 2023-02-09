@@ -19,6 +19,7 @@ Dapper Plus Mapper allows mapping the conceptual model (Entity) with the storage
 |MapWithOptions	  |Sets column(s) to input to the destination table with options.|
 |Output	  |Sets column(s) to output from the destination table (insert, update, and merge action).|
 |Table	  |Sets the destination table or view name (including schema).|
+|AutoMap | Set if the automapping should be used. |
 
 ## Mapper - Identity
 
@@ -160,4 +161,14 @@ Sets the destination table or view name (including schema). By default, the name
 ```csharp
 DapperPlusManager.Entity<Order>()
                  .Table("zzz.customers");
+```
+
+## Mapper - AutoMap
+
+Sets if the automap should be used after you manually mapped some columns
+
+```csharp
+DapperPlusManager.Entity<Order>()
+                 .Map(order => new { order.TotalPrice })
+				 .AutoMap();
 ```
