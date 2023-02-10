@@ -232,3 +232,33 @@ var data = new [] { new Entry { OptionalDate = DateTime.Now  } };
 var queryable = data.AsQueryable());
 var result = queryable.Select($"\"System.DateTime\"?(OptionalDate)");
 ```
+
+### PrioritizePropertyOrFieldOverTheType
+
+When the type and property have the same name the parser takes the property instead of type when this setting is set to `true`.
+
+#### Example
+``` csharp
+public class Company
+{
+    public DateTime DateTime { get; set; }
+}
+```
+
+The ParsingConfig should be like:
+``` csharp
+var config = new ParsingConfig
+{
+    PrioritizePropertyOrFieldOverTheType = true
+};
+```
+
+Now the following dynamic query can be used:
+``` csharp
+var companies = new List<Company>().AsQueryable();
+
+var result = companies.Where(config, "DateTime > \"2023-01-1\"").ToArray();
+```
+
+#### Note
+Note that value from this setting should also be set to `true` when calling extension methods. And the default value is `false`.
