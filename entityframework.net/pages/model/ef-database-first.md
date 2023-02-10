@@ -154,4 +154,4 @@ Now you can see that the `Book` class is also updated.
 For further details, please see the following links.
 
  - [https://www.tutorialspoint.com/entity_framework/entity_database_first_approach.htm](https://www.tutorialspoint.com/entity_framework/entity_database_first_approach.htm)
- - [http://www.entityframeworktutorial.net/entityframework6/introduction.aspx](http://www.entityframeworktutorial.net/entityframework6/introduction.aspx)
+ - [https://www.entityframeworktutorial.net/entityframework6/introduction.aspx](https://www.entityframeworktutorial.net/entityframework6/introduction.aspx)

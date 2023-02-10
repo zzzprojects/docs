@@ -6,7 +6,7 @@ Name: Getting Started with LINQ Dynamic
 
 ## LINQ Dynamic
 
-**LINQ Dynamic** in Entity Framework is supported through the [Eval-Expression.NET](http://eval-expression.net/) Library.
+**LINQ Dynamic** in Entity Framework is supported through the [Eval-Expression.NET](https://eval-expression.net/) Library.
 
 ### Predicate
 

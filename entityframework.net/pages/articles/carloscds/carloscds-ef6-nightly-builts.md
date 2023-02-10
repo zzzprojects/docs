@@ -2,10 +2,10 @@
 Permalink: articles/carloscds-ef6-nightly-builts
 name: EF6 - Nightly Builts
 tags: carloscds article nightly-built
-OriginalLink: http://carloscds.net/2013/08/entity-framework-6trabalhando-com-os-nightly-builds/
+OriginalLink: https://carloscds.net/2013/08/entity-framework-6trabalhando-com-os-nightly-builds/
 CreatedDate: 2013-08-18
 CreatedUserName: Carlos dos Santos
-CreatedUserLink: http://carloscds.net/
+CreatedUserLink: https://carloscds.net/
 ---
 
 # Entity Framework 6 - Working with Nightly Builds
@@ -39,7 +39,7 @@ To access Nightly Builds, you need to configure Visual Studio to access the addr
 Click on the "+" button and then fill in the fields:
 
 Name: Nightly Builds
-Source: http://www.myget.org/F/aspnetwebstacknightly/
+Source: https://www.myget.org/F/aspnetwebstacknightly/
 
 Save by clicking `OK`. Now that we have set it up, let's create a Console type project to be able to add the latest published version. To do this, create the Console type project, choosing .Net 4.5 because some new features will only work in this version of .NET.
 

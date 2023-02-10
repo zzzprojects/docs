@@ -14,7 +14,7 @@ The following example loads an Html from the web.
 
 ```csharp
 
-var html = @"http://html-agility-pack.net/";
+var html = @"https://html-agility-pack.net/";
 
 HtmlWeb web = new HtmlWeb();
 

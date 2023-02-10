@@ -81,7 +81,7 @@ SQL Regex Match searches in a string for the first occurrence of the regular exp
 
 ```csharp
 
-DECLARE @shortDescription VARCHAR(800) = 'zzz ... zzz... http://zzzprojects.com ... zzzz'
+DECLARE @shortDescription VARCHAR(800) = 'zzz ... zzz... https://zzzprojects.com ... zzzz'
 DECLARE @website VARCHAR(255) = NULL;
 
 IF ( @website IS NULL )
@@ -97,7 +97,7 @@ return value != "" ? value : null;
 						      .EvalString();
     END
 
--- return 'http://zzzprojects.com'
+-- return 'https://zzzprojects.com'
 SELECT @website
 
 ```
@@ -121,7 +121,7 @@ SQL Regex Matches searches in the string for all occurrences of the regular expr
 
 ```csharp
 
-DECLARE @post VARCHAR(800) = 'zzz ... zzz... http://zzzprojects.com ... zzzz
+DECLARE @post VARCHAR(800) = 'zzz ... zzz... https://zzzprojects.com ... zzzz
 . zzz... https://github.com/zzzprojects/Eval-SQL.NET ... zzzz
 . zzz... zzz... https://github.com/zzzprojects/Eval-Expression.NET ... zzzz
 . zzz.... zzz.... zzz... https://github.com/zzzprojects/EntityFramework-Plus ... zzzz
@@ -147,7 +147,7 @@ INSERT  INTO @websites
         SELECT  CAST(Value_1 AS VARCHAR(250))
         FROM    dbo.SQLNET_EvalTVF_1(@sqlnet_matchs)
 
--- SELECT 'http://zzzprojects.com'
+-- SELECT 'https://zzzprojects.com'
 -- SELECT 'https://github.com/zzzprojects/Eval-SQL.NET'
 -- SELECT 'https://github.com/zzzprojects/Eval-Expression.NET'
 -- SELECT 'https://github.com/zzzprojects/EntityFramework-Plus'
@@ -173,7 +173,7 @@ SQL Regex Replace searches for strings that match a regular expression pattern a
 
 ```csharp
 
-DECLARE @post VARCHAR(800) = 'website: http://zzzprojects.com'
+DECLARE @post VARCHAR(800) = 'website: https://zzzprojects.com'
 
 SET @post = SQLNET::New('
 var input = post;
@@ -183,7 +183,7 @@ var replacement = "<a href=\"$1\">$1</a>";
 return Regex.Replace(input, pattern, replacement);
 ').ValueString('post', @post).EvalString()
 
--- SELECT 'website: <a href="http://zzzprojects.com">http://zzzprojects.com</a>'
+-- SELECT 'website: <a href="https://zzzprojects.com">https://zzzprojects.com</a>'
 SELECT @post
 
 ```

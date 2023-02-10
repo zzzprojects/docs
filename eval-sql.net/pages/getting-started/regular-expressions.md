@@ -44,7 +44,7 @@ WHERE   @valid_email.Val('email', Email).EvalBit() = 0
 ```csharp
 DECLARE @websites TABLE ( Website VARCHAR(250) )
 DECLARE @regex VARCHAR(255) = '(https?:\/\/(?:www\.|(?!www))[^\s\.]+\.[^\s]{2,}|www\.[^\s]+\.[^\s]{2,})'
-DECLARE @post VARCHAR(MAX) = 'zzz ... zzz... http://zzzprojects.com ... zzzz
+DECLARE @post VARCHAR(MAX) = 'zzz ... zzz... https://zzzprojects.com ... zzzz
 . zzz... https://github.com/zzzprojects/Eval-SQL.NET ... zzzz
 . zzz... zzz... https://github.com/zzzprojects/Eval-Expression.NET ... zzzz
 . zzz.... zzz.... zzz... https://github.com/zzzprojects/EntityFramework-Plus ... zzzz'
@@ -60,7 +60,7 @@ INSERT  INTO @websites
         FROM    dbo.SQLNET_EvalTVF_1(@sqlnet)
 
 -- SELECT result
--- 'http://zzzprojects.com'
+-- 'https://zzzprojects.com'
 -- 'https://github.com/zzzprojects/Eval-SQL.NET'
 -- 'https://github.com/zzzprojects/Eval-Expression.NET'
 -- 'https://github.com/zzzprojects/EntityFramework-Plus'

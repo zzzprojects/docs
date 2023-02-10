@@ -26,4 +26,4 @@ Why don't we generate a key compatible with FIPS by default? Because it will not
 
 #### Disable FIPS
 
-Article: [Disable FIPS](http://docs.trendmicro.com/all/ent/sc/v3.0/en-US/cmcolh/t_fips.html){:target="_blank"}
+Article: [Disable FIPS](https://docs.trendmicro.com/all/ent/sc/v3.0/en-US/cmcolh/t_fips.html){:target="_blank"}

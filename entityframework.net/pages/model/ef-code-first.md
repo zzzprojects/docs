@@ -100,4 +100,4 @@ Let's run your application, and you will see that the database is created automa
 For further details please see the following links.
 
  - [https://www.tutorialspoint.com/entity_framework/entity_framework_code_first_approach.htm](https://www.tutorialspoint.com/entity_framework/entity_framework_code_first_approach.htm)
- - [http://www.entityframeworktutorial.net/code-first/what-is-code-first.aspx](http://www.entityframeworktutorial.net/code-first/what-is-code-first.aspx)
+ - [https://www.entityframeworktutorial.net/code-first/what-is-code-first.aspx](https://www.entityframeworktutorial.net/code-first/what-is-code-first.aspx)

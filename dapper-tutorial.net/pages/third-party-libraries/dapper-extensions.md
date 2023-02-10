@@ -21,7 +21,7 @@ If you are using Dapper in your project, then the **DapperExtensions** library c
 
 ## NuGet Installation
 
-**DapperExtensions** is only available through NuGet: <a href="http://nuget.org/List/Packages/DapperExtensions" target="_blank">http://nuget.org/List/Packages/DapperExtensions</a>
+**DapperExtensions** is only available through NuGet: <a href="https://www.nuget.org/packages/DapperExtensions" target="_blank">https://www.nuget.org/packages/DapperExtensions</a>
 
 You can easily install this library by running the following command:
 

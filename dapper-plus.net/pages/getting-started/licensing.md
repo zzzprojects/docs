@@ -10,7 +10,7 @@ Name: Getting Started with Licensing
 - You can extend your trial for several months by downloading the latest version at the beginning of every month.
 
 ## How can I purchase the library?
-- You can purchase the library [here](http://dapper-plus.net/pricing)
+- You can purchase the library [here](https://dapper-plus.net/pricing)
 - Upon purchase, you will receive an email with a license name and a license key.
 - Make sure to check your **SPAM** folder if you don't receive the license within 24h.
 
@@ -90,4 +90,4 @@ Another way to check if your license is valid is simply adding an invalid licens
 
 The following error should be raised:
 
-> ERROR_001: The provided license key is invalid or trial period is expired. Please buy a product license or go to <a href="http://www.zzzprojects.com" target="_blank">http://www.zzzprojects.com</a> and download the latest trial version. License Count: 1
+> ERROR_001: The provided license key is invalid or trial period is expired. Please buy a product license or go to <a href="https://zzzprojects.com" target="_blank">https://zzzprojects.com</a> and download the latest trial version. License Count: 1

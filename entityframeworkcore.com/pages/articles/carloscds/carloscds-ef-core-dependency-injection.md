@@ -2,10 +2,10 @@
 Permalink: articles/carloscds-ef-core-dependency-injection
 name: EF Core - Dependency Injection
 tags: carloscds article dependency-injection inmemory
-OriginalLink: http://carloscds.net/2020/02/injecao-de-depenencia-em-c-bonus/
+OriginalLink: https://carloscds.net/2020/02/injecao-de-depenencia-em-c-bonus/
 CreatedDate: 2020-02-27
 CreatedUserName: Carlos dos Santos
-CreatedUserLink: http://carloscds.net/
+CreatedUserLink: https://carloscds.net/
 ---
 
 # Dependency Injection with EF Core
@@ -63,7 +63,7 @@ The `InMemory` package allows you to have a database in memory. See that you can
 
 When I write unit tests, I create an `InMemory()` context, and in the real application, I use a database! That makes my job much easier!
 
-So we are injecting an Entity Framework context into our project through `AddDbContext()`, and also two other classes: `IHttpContextAccessor` and `IsendEmail` (`IEnvioEmail`), using Singleton and Scoped, which I showed in the <a href="http://carloscds.net/2020/02/injecao-de-dependencia-em-c-parte-2/" target="_blank">previous article<a/>.
+So we are injecting an Entity Framework context into our project through `AddDbContext()`, and also two other classes: `IHttpContextAccessor` and `IsendEmail` (`IEnvioEmail`), using Singleton and Scoped, which I showed in the <a href="https://carloscds.net/2020/02/injecao-de-dependencia-em-c-parte-2/" target="_blank">previous article<a/>.
 
 `IHttpContextAccessor` allows us to access the ASP.NET Core Http Context anywhere it is injected, and `IEnvioEmail` is an example class that I created to simulate the sending of email.
 
@@ -119,17 +119,17 @@ And now, let use the email!
 
 Running the application, we will have the following result:
 
-<img src="http://carloscds.net/wp-content/uploads/2020/02/image-6.png" alt="RequestServices.GetServicesRequest">
+<img src="https://carloscds.net/wp-content/uploads/2020/02/image-6.png" alt="RequestServices.GetServicesRequest">
 
 Now calling the email:
 
-<img src="http://carloscds.net/wp-content/uploads/2020/02/image-7.png" alt="RequestServices.GetServices<IEnvioEmail>">
+<img src="https://carloscds.net/wp-content/uploads/2020/02/image-7.png" alt="RequestServices.GetServices<IEnvioEmail>">
 
 ## Conclusion
 
 The dependency injection mechanism allows us to simplify development greatly! But use with care, as everything in excess is harmful!
 
-Special thanks to my friend <a href="http://ralms.net/" target="_blank">Rafael Almeida</a>, with whom I "argue" frequently about EntityFramework!!! These discussions have already generated improvements in EF Core, such as `WithNoLock()`.
+Special thanks to my friend <a href="https://ralms.net/" target="_blank">Rafael Almeida</a>, with whom I "argue" frequently about EntityFramework!!! These discussions have already generated improvements in EF Core, such as `WithNoLock()`.
 
 As always, the example code is on my <a href="https://github.com/carloscds/CSharpSamples/tree/master/InjecaoDependenciaDiretaEF" target="_blank">Github<a/>.
 

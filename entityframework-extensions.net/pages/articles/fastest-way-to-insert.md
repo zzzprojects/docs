@@ -49,7 +49,7 @@ There are multiple options available such as:
 
 This method is normally recommended over bulk methods such as Bulk Insert since it acts like SaveChanges by using the Change Tracker and propagating the value.
 
-Tutorial: [EFE - Bulk SaveChanges](http://entityframework-extensions.net/bulk-savechanges)
+Tutorial: [EFE - Bulk SaveChanges](/bulk-savechanges)
 
 ### Example
 ```csharp
@@ -75,7 +75,7 @@ There are multiple options available such as:
 
 Bulk Insert is faster than BulkSaveChanges. However, Bulk Insert doesn't use the Change Tracker so identity value propagation may differ. If you need to perform multiple bulk operations with some relation, it's recommended to use BulkSaveChanges instead.
 
-Tutorial: [EFE - Bulk Insert](http://entityframework-extensions.net/bulk-insert)
+Tutorial: [EFE - Bulk Insert](/bulk-insert)
 
 ### Example
 ```csharp
@@ -93,7 +93,7 @@ ctx.BulkInsert(customers, options =>
 ## EF BulkUpdate
 BulkUpdate method performs an UPDATE operation.
 
-Tutorial: [EFE - Bulk Update](http://entityframework-extensions.net/bulk-update)
+Tutorial: [EFE - Bulk Update](/bulk-update)
 
 There are multiple options available such as:
 
@@ -119,7 +119,7 @@ There are multiple options available such as:
 - Custom Key
 -	Disable Concurrency Check
 
-Tutorial: [EFE - Bulk Delete](http://entityframework-extensions.net/bulk-delete)
+Tutorial: [EFE - Bulk Delete](/bulk-delete)
 
 ### Example
 ```csharp
@@ -144,7 +144,7 @@ There are multiple options available such as:
 - Disabled output value for better performance
 -	Keep Identity Value
 
-Tutorial: [EFE - Bulk Merge](http://entityframework-extensions.net/bulk-merge)
+Tutorial: [EFE - Bulk Merge](/bulk-merge)
 
 ### Example
 ```csharp
@@ -168,8 +168,8 @@ On the negative side, this library is not free.
 
 ZZZ Projects gives back value to the .NET community by supporting some other free libraries, tutorials and sponsoring projects such as:
 
-- [Entity Framework Plus](http://entityframework-plus.net/){:target="_blank"}
-- [Html Agility Pack](http://html-agility-pack.net/){:target="_blank"}
+- [Entity Framework Plus](https://entityframework-plus.net/){:target="_blank"}
+- [Html Agility Pack](https://html-agility-pack.net/){:target="_blank"}
 - [Extension Methods](https://github.com/zzzprojects/Z.ExtensionMethods){:target="_blank"}
-- [Dapper Tutorial](http://dapper-tutorial.net/){:target="_blank"}
-- Help partners like [Entity Framework Tutorial](http://www.entityframeworktutorial.net/){:target="_blank"}
+- [Dapper Tutorial](https://dapper-tutorial.net/){:target="_blank"}
+- Help partners like [Entity Framework Tutorial](https://www.entityframeworktutorial.net/){:target="_blank"}

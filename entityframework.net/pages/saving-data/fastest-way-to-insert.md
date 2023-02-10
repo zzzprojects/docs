@@ -19,7 +19,7 @@ When you want to insert hundreds, thousands, or millions of entities, and your a
 
 ### BulkInsert
 
-There are many solutions to insert many records in the fastest way, but the most significant and recommended solution is BulkInsert provided by [Entity Framework Extensions](http://entityframework-extensions.net/) library. By default, identity value is populated to make it even easier to use.
+There are many solutions to insert many records in the fastest way, but the most significant and recommended solution is BulkInsert provided by [Entity Framework Extensions](https://entityframework-extensions.net/) library. By default, identity value is populated to make it even easier to use.
 
 #### Performance Comparisons
 

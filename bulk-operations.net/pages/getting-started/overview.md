@@ -83,5 +83,5 @@ Are you still not using it? Give it one try, and you will understand why they ch
 
 Under the hood, some of our libraries also use it:
 
-- [Entity Framework Extensions](http://entityframework-extensions.net/)
-- [Dapper Plus](http://dapper-plus.net/)
+- [Entity Framework Extensions](https://entityframework-extensions.net/)
+- [Dapper Plus](https://dapper-plus.net/)

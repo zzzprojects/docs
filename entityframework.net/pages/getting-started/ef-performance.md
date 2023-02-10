@@ -34,4 +34,4 @@ Tags: getting-started performance
 
 Have you read all theses articles? Great! Read them all a second or a third time if necessary.
 
-These articles are still under development. We recommend you to subscribe to our [newsletter](http://zzzprojects.us9.list-manage.com/subscribe?u=cecbc4775cf67bf1ff82018af&id=4765ffa5f8) to stay updated.
+These articles are still under development. We recommend you to subscribe to our [newsletter](https://mailchi.mp/zzzprojects/entity-framework-extensions-newsletter) to stay updated.

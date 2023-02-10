@@ -5,9 +5,9 @@ Name: LINQ Dynamic
 # LINQ Dynamic
 
 ## Description
-You can execute query dynamically through the [Eval-Expression.NET](http://eval-expression.net/) library.
+You can execute query dynamically through the [Eval-Expression.NET](https://eval-expression.net/) library.
 
-You can download it here: [Download](http://eval-expression.net/download)
+You can download it here: [Download](https://eval-expression.net/download)
 
 > The Eval-Expression.NET library can be activated with the LinqToSql Plus license. 
 

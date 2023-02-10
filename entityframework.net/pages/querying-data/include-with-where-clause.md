@@ -61,7 +61,7 @@ A property called c is of type Customer, and it has all the invoices, the other 
 
 ### Entity Framework Plus
 
-Entity Framework Plus [Query IncludeFilter](http://entityframework-plus.net/query-include-filter) feature allow filtering related entities. This library makes this a lot easier.
+Entity Framework Plus [Query IncludeFilter](https://entityframework-plus.net/query-include-filter) feature allow filtering related entities. This library makes this a lot easier.
 
 
 ```csharp
@@ -79,4 +79,4 @@ using (var context = new EntityContext())
 
 The **IncludeFilter** method works the same as **Include** method but lets you use LINQ Queryable extension methods as part of the query to filter related entities.
 
-[Learn more](http://entityframework-plus.net)
+[Learn more](https://entityframework-plus.net)

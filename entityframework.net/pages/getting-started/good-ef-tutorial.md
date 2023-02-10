@@ -12,9 +12,9 @@ When you want to learn any subject, the first step is to find the learning mater
 
 The following tutorials cover the basics of Entity Framework reasonably well;
 
-- [http://riptutorial.com/entity-framework](http://riptutorial.com/entity-framework)
-- [http://riptutorial.com/entity-framework-core](http://riptutorial.com/entity-framework-core)
-- [http://www.entityframeworktutorial.net/](http://www.entityframeworktutorial.net/)
+- [https://riptutorial.com/entity-framework](https://riptutorial.com/entity-framework)
+- [https://riptutorial.com/entity-framework-core](https://riptutorial.com/entity-framework-core)
+- [https://www.entityframeworktutorial.net/](https://www.entityframeworktutorial.net/)
 - [https://www.tutorialspoint.com/entity_framework/index.htm](https://www.tutorialspoint.com/entity_framework/index.htm)
 
 ### StackOverflow Related Questions

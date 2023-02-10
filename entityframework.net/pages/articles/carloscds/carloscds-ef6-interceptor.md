@@ -2,10 +2,10 @@
 Permalink: articles/carloscds-ef6-interceptor
 name: EF6 - Interceptor
 tags: carloscds article interceptor logger
-OriginalLink: http://carloscds.net/2013/12/entity-frameworkcodebase-configuration-interception/
+OriginalLink: https://carloscds.net/2013/12/entity-frameworkcodebase-configuration-interception/
 CreatedDate: 2013-12-30
 CreatedUserName: Carlos dos Santos
-CreatedUserLink: http://carloscds.net/
+CreatedUserLink: https://carloscds.net/
 ---
 
 # Entity Framework - Interceptor Configuration

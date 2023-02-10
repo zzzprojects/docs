@@ -5,9 +5,9 @@ Name: Eval.Execute
 # Eval.Execute
 
 ## Description
-You can execute C# expression at runtime using the <a href="https://Eval-Expression.NET" target="_blank">Eval-Expression.NET</a> library.
+You can execute C# expression at runtime using the <a href="https://eval-expression.net/" target="_blank">Eval-Expression.NET</a> library.
 
-You can download it here: [Download](http://eval-expression.net/download)
+You can download it here: [Download](https://eval-expression.net/download)
 
 > The Eval-Expression.NET library can be activated with the Bulk Operations license. 
 

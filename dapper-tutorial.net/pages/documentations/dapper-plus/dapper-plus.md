@@ -18,7 +18,7 @@ Dapper Plus also offers support for bulk operations, which can significantly imp
 
 This library is the **fastest way** to perform saving operations in a database.
 
-Official Website: <a href="http://dapper-plus.net/" target="_blank">http://dapper-plus.net/</a>
+Official Website: <a href="https://dapper-plus.net/" target="_blank">https://dapper-plus.net/</a>
 
 ## Installation
 

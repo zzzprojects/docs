@@ -18,7 +18,7 @@ SaveChanges requires one database round-trip for every entity to delete. So if y
 
 ## Answer
 
-[Entity Framework Extensions](http://entityframework-extensions.net/) library adds the BulkDelete extension method to the DbContext. **BulkDelete** offers great customization and requires the minimum database round-trips as compared to **SaveChanges**.
+[Entity Framework Extensions](https://entityframework-extensions.net/) library adds the BulkDelete extension method to the DbContext. **BulkDelete** offers great customization and requires the minimum database round-trips as compared to **SaveChanges**.
 
 ```csharp
 // Easy to use
@@ -39,4 +39,4 @@ All rows that match the entity key are considered as existing and are **DELETED*
 |SaveChange |1,000 ms	    |2,000 ms	    |5,000 ms      |
 |BulkDelete	|45 ms	        |50 ms	        |60 ms         |
 
-[Learn more](http://entityframework-extensions.net/bulk-delete)
+[Learn more](https://entityframework-extensions.net/bulk-delete)

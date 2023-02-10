@@ -2,10 +2,10 @@
 Permalink: articles/carloscds-ef6-logging-sql-commands
 name: EF6 - Logging SQL Commands
 tags: carloscds article logging
-OriginalLink: http://carloscds.net/2013/09/entity-framework-6gerando-log-dos-comandos-sql/
+OriginalLink: https://carloscds.net/2013/09/entity-framework-6gerando-log-dos-comandos-sql/
 CreatedDate: 2013-09-02
 CreatedUserName: Carlos dos Santos
-CreatedUserLink: http://carloscds.net/
+CreatedUserLink: https://carloscds.net/
 ---
 
 # Entity Framework 6 - Logging SQL Commands

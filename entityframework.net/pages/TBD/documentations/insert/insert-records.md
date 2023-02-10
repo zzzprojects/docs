@@ -41,7 +41,7 @@ using (var ctx = new CustomerContext())
 
 ## Answer
 
-[Entity Framework Extensions](http://entityframework-extensions.net/) library adds the BulkInsert extension method to the DbContext. **BulkInsert** requires the minimum database round-trips as compared to **SaveChanges**.
+[Entity Framework Extensions](https://entityframework-extensions.net/) library adds the BulkInsert extension method to the DbContext. **BulkInsert** requires the minimum database round-trips as compared to **SaveChanges**.
 
 
 ```csharp
@@ -63,4 +63,4 @@ using (var ctx = new CustomerContext())
 
 [Try it online](https://dotnetfiddle.net/Y1NxKL)
 
-[Learn more](http://entityframework-extensions.net/bulk-insert)
+[Learn more](https://entityframework-extensions.net/bulk-insert)

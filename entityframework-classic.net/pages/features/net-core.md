@@ -21,7 +21,7 @@ Here are some features present in `EF6` that still hasn't been implemented in EF
 - Stored procedure mapping with DbContext for CUD operation
 - Seed data
 
-_Reference: [Entity Framework Tutorial](http://www.entityframeworktutorial.net/efcore/entity-framework-core.aspx#efcore-vs-ef6)_
+_Reference: [Entity Framework Tutorial](https://www.entityframeworktutorial.net/efcore/entity-framework-core.aspx#efcore-vs-ef6)_
 
 ## Limitations
 

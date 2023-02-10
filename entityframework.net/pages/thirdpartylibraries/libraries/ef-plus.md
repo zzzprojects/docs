@@ -13,20 +13,20 @@ Tags: third-party-library
 ## Features
 
 - Batch Operations
-  - [Batch Delete](http://entityframework-plus.net/batch-delete)
-  - [Batch Update](http://entityframework-plus.net/batch-update)
+  - [Batch Delete](https://entityframework-plus.net/batch-delete)
+  - [Batch Update](https://entityframework-plus.net/batch-update)
 - LINQ
-  - [LINQ Dynamic](http://entityframework-plus.net/linq-dynamic)
+  - [LINQ Dynamic](https://entityframework-plus.net/linq-dynamic)
 - Query
-  - [Cache](http://entityframework-plus.net/query-cache)
-  - [Query Deferred](http://entityframework-plus.net/query-deferred)
-  - [Query DbSetFilter](http://entityframework-plus.net/query-db-set-filter)
-  - [Query Filter](http://entityframework-plus.net/query-filter)
-  - [Query Future](http://entityframework-plus.net/query-future)
-  - [Query IncludeFilter](http://entityframework-plus.net/query-include-filter)
-  - [Query IncludeOptimized](http://entityframework-plus.net/query-include-optimized)
+  - [Cache](https://entityframework-plus.net/query-cache)
+  - [Query Deferred](https://entityframework-plus.net/query-deferred)
+  - [Query DbSetFilter](https://entityframework-plus.net/query-db-set-filter)
+  - [Query Filter](https://entityframework-plus.net/query-filter)
+  - [Query Future](https://entityframework-plus.net/query-future)
+  - [Query IncludeFilter](https://entityframework-plus.net/query-include-filter)
+  - [Query IncludeOptimized](https://entityframework-plus.net/query-include-optimized)
 - Audit
-  - [Audit](http://entityframework-plus.net/audit)
+  - [Audit](https://entityframework-plus.net/audit)
 
 ## Batch Operations
 
@@ -88,4 +88,4 @@ AuditManager.DefaultConfiguration.AutoSavePreAction = (context, audit) =>
  - Entity Framework 6.x
  - Entity Framework 5
 
-[Learn more](http://entityframework-plus.net/)
+[Learn more](https://entityframework-plus.net/)

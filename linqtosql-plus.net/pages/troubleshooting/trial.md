@@ -16,7 +16,7 @@ You can extend your trial for several months by downloading the latest version a
 </a>
 
 ### Where is the free version?
-There is no free version. All free features has been moved to a different library: <a href="http://linqtosql-plus.net" target="_blank">LinqToSql Plus</a>
+There is no free version. All free features has been moved to a different library: <a href="https://linqtosql-plus.net" target="_blank">LinqToSql Plus</a>
 
 ### How can I purchase a license?
-A perpetual license can be purchased from here: <a href="http://linqtosql-plus.net/pricing">Buy</a>
+A perpetual license can be purchased from here: <a href="https://linqtosql-plus.net/pricing">Buy</a>

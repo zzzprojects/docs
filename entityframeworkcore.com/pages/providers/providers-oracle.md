@@ -8,7 +8,7 @@ tags: provider connection
 
 ## Introduction
 
-The Oracle .NET team has announced they are planning to release a first-party provider for EF Core 2.0 approximately in the third quarter of 2018. For more information, see their statement of direction for [.NET Core and Entity Framework Core](http://www.oracle.com/technetwork/topics/dotnet/tech-info/odpnet-dotnet-ef-core-sod-4395108.pdf).
+The Oracle .NET team has announced they are planning to release a first-party provider for EF Core 2.0 approximately in the third quarter of 2018. For more information, see their statement of direction for [.NET Core and Entity Framework Core](https://www.oracle.com/technetwork/topics/dotnet/tech-info/odpnet-dotnet-ef-core-sod-4395108.pdf).
 
  - The EF team has produced a sample [EF Core provider](https://github.com/aspnet/EntityFrameworkCore/blob/dev/samples/OracleProvider/README.md) for Oracle databases. 
  - The purpose of the project is not to produce an EF Core provider owned by Microsoft, but to help us identify gaps in EF Core's relational and base functionality which we need to address in order to better support Oracle, and to jumpstart the development of other Oracle providers for EF Core by either Oracle or third parties.

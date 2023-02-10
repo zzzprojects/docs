@@ -35,7 +35,7 @@ You are left to insert by batch addition.
 
 Since it take you 3 seconds to perform your insert, I will assume you have thousands of entities and performing bulk insert may improve your performance to reduce the 10 seconds to less then maybe the intial 3 seconds!
 
-Here is a library called [Entity Framework Extensions (EFE)](http://entityframework-extensions.net/) I can recommend. It is PAID but support everything:
+Here is a library called [Entity Framework Extensions (EFE)](https://entityframework-extensions.net/) I can recommend. It is PAID but support everything:
 
  - Association (One to One, One to Many, Many to Many, etc.)
  - Complex Type
@@ -45,4 +45,4 @@ Here is a library called [Entity Framework Extensions (EFE)](http://entityframew
  - Self-Hierarchy
  - Etc.
 
-[Learn more](http://entityframework-extensions.net/overview)
+[Learn more](https://entityframework-extensions.net/overview)

@@ -104,4 +104,4 @@ context.BulkMerge(customers, options =>
  - Entity Framework 6.x
  - Entity Framework 5
 
-[Learn more](http://entityframework-extensions.net/)
+[Learn more](https://entityframework-extensions.net/)

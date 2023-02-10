@@ -174,7 +174,7 @@ The Entity Framework Designer in Visual Studio 2012 also introduces support for;
 #### Features/Changes
 
  - This release includes bug fixes to the EF 4.1.1 release. 
- - Because this release only included bug fixes, it could have been the EF 4.1.2 patch release, but we opted to move to 4.2 to allow us to move away from the date based patch version numbers we used in the 4.1.x releases and adopt the [http://semver.org](http://semver.org) standard for semantic versioning.
+ - Because this release only included bug fixes, it could have been the EF 4.1.2 patch release, but we opted to move to 4.2 to allow us to move away from the date based patch version numbers we used in the 4.1.x releases and adopt the [https://semver.org](https://semver.org) standard for semantic versioning.
 
 ### [Entity Framework 4.1.1](https://www.nuget.org/packages/EntityFramework/4.1.10715) 
 

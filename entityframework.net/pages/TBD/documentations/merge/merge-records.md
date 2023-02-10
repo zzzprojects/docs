@@ -19,7 +19,7 @@ if you save 10,000 entities, 20,000 database round-trip will be performed which 
 
 ## Answer
 
-[Entity Framework Extensions](http://entityframework-extensions.net/) library adds the BulkMerge extension method to the DbContext. **BulkMerge** offers great customization and requires the minimum database round-trips as compared to **SaveChanges**.
+[Entity Framework Extensions](https://entityframework-extensions.net/) library adds the BulkMerge extension method to the DbContext. **BulkMerge** offers great customization and requires the minimum database round-trips as compared to **SaveChanges**.
 
 
 ```csharp
@@ -42,4 +42,4 @@ context.BulkMerge(customers, options =>
 |SaveChange |1,000 ms	    |2,000 ms	    |5,000 ms      |
 |BulkMerge	|65 ms	        |80 ms	        |110 ms        |
 
-[Learn more](http://entityframework-extensions.net/bulk-merge)
+[Learn more](https://entityframework-extensions.net/bulk-merge)

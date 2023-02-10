@@ -2,10 +2,10 @@
 Permalink: articles/carloscds-ef6-code-first-migrations
 name: EF6 - Code First Migrations
 tags: carloscds article migration
-OriginalLink: http://carloscds.net/2012/07/entity-framework-code-firstmigrations/
+OriginalLink: https://carloscds.net/2012/07/entity-framework-code-firstmigrations/
 CreatedDate: 2012-07-15
 CreatedUserName: Carlos dos Santos
-CreatedUserLink: http://carloscds.net/
+CreatedUserLink: https://carloscds.net/
 ---
 
 # Entity Framework Code First – Migrations

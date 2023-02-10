@@ -112,7 +112,7 @@ Use Entity Framework with Oracle Data Provider for .NET.
 
 #### Install
 
-See the [Oracle Data Provider for .NET documentation](http://www.oracle.com/technetwork/topics/dotnet/whatsnew/index.html) for installation instructions.
+See the [Oracle Data Provider for .NET documentation](https://www.oracle.com/technetwork/topics/dotnet/whatsnew/index.html) for installation instructions.
 
 ### In-Memory (for Testing)
 
@@ -157,11 +157,3 @@ It allows Entity Framework Core to be used with FirebirdSQL. The provider is mai
 `PM> Install-Package EntityFrameworkCore.FirebirdSQL`
 
 NuGet Url: [Microsoft.EntityFrameworkCore.InMemory](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.InMemory/)
-
-### SSAS
-
-SSAS Entity Framework Provider enables you to use LINQ and Microsoft ADO.NET Entity Framework to query OLAP cubes, offline cube files and SSAS in-memory Tabular model (BISM) like a regular relational database.
-
-#### Install
-
-See the [SSAS Entity Framework Provider documentation](http://agiledesignllc.com/Products.htm) for installation instructions.

@@ -6,7 +6,7 @@ CanonicalLink: https://entityframework-extensions.net/linq-dynamic
 # LINQ Dynamic
 
 ## Description
-You can execute query dynamically through free extensions provided by the library [Eval-Expression.NET](http://eval-expression.net/).
+You can execute query dynamically through free extensions provided by the library [Eval-Expression.NET](https://eval-expression.net/).
 
 This feature is available for free in the EF Classic Community.
 

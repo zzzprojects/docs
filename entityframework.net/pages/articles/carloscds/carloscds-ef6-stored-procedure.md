@@ -2,10 +2,10 @@
 Permalink: articles/carloscds-ef6-stored-procedure
 name: EF6 - Stored Procedure
 tags: carloscds article stored-procedure code-first
-OriginalLink: http://carloscds.net/2011/08/ef-code-first-acessando-stored-procedures/
+OriginalLink: https://carloscds.net/2011/08/ef-code-first-acessando-stored-procedures/
 CreatedDate: 2011-08-20
 CreatedUserName: Carlos dos Santos
-CreatedUserLink: http://carloscds.net/
+CreatedUserLink: https://carloscds.net/
 ---
 
 # EF Code First - Accessing Stored Procedures
@@ -18,7 +18,7 @@ In our example, we will demonstrate how to access a stored procedure from the [N
 
 So let's create our console project in Visual Studio 2010 and add the references for EF Code First.
 
-<img src="http://carloscds.net/wp-content/uploads/2011/08/image_thumb.png" width="242" height="244" alt="Solution EF Stored Procedures">
+<img src="https://carloscds.net/wp-content/uploads/2011/08/image_thumb.png" width="242" height="244" alt="Solution EF Stored Procedures">
 
 To get the stored procedure return, let's create a class that will contain the returned fields:
 

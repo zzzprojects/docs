@@ -32,7 +32,7 @@ int result = Eval.Execute<int>(@"
     return filter.Sum(x => x);");
 ```
 
-[Learn more](http://eval-expression.net/eval-execute)
+[Learn more](https://eval-expression.net/eval-execute)
 
 ## Eval.Compile
 
@@ -52,7 +52,7 @@ foreach(var order in orders)
 }
 ```
 
-[Learn more](http://eval-expression.net/eval-compile)
+[Learn more](https://eval-expression.net/eval-compile)
 
 ## Eval Dynamic LINQ
 
@@ -68,7 +68,7 @@ var linqStatic  = list.Where(x => x > 2);
 var linqDynamic = list.Where(x => "x > 2");
 ```
 
-[Learn more](http://eval-expression.net/linq-dynamic)
+[Learn more](https://eval-expression.net/linq-dynamic)
 
 ## Requirements
 
@@ -76,4 +76,4 @@ var linqDynamic = list.Where(x => "x > 2");
 
  - All versions are supported.
 
-[Learn more about the library](http://eval-expression.net)
+[Learn more about the library](https://eval-expression.net)

@@ -2,10 +2,10 @@
 Permalink: articles/carloscds-ef6-generic-query-with-linq
 name: EF6 - Generic Query with LINQ
 tags: carloscds article linq query
-OriginalLink: http://carloscds.net/2010/07/consultas-genricas-com-linq/
+OriginalLink: https://carloscds.net/2010/07/consultas-genricas-com-linq/
 CreatedDate: 2010-07-19
 CreatedUserName: Carlos dos Santos
-CreatedUserLink: http://carloscds.net/
+CreatedUserLink: https://carloscds.net/
 ---
 
 # Generic queries with Linq
@@ -16,12 +16,12 @@ Taking advantage of this situation, I will show how it is possible to create a q
 
 For our example, let's create a very simple console project, remembering that we will use Visual Studio 2010 with Entity Framework 4:
 
-<img src="http://carloscds.net/wp-content/uploads/2010/07/image_thumb.png" width="665" height="285" alt="Console Application new project">
+<img src="https://carloscds.net/wp-content/uploads/2010/07/image_thumb.png" width="665" height="285" alt="Console Application new project">
 
 Now let's add the Entity Framework model, for this example we will use the `Northwind` database, if you don't have it, download it [here](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/northwind-pubs). To add the model, right-click on your project and go to Add / New Item, or CTRL + SHIFT + A and select Data and then ADO.Net Entity Data Model. Choose 
 Generate from a database and create a connection to your `Northwind` database. Select some tables, for example: Categories, Products, Customers:
 
-<img src="http://carloscds.net/wp-content/uploads/2010/07/image_thumb1.png" width="673" height="157" alt="Generic queries with Linq">
+<img src="https://carloscds.net/wp-content/uploads/2010/07/image_thumb1.png" width="673" height="157" alt="Generic queries with Linq">
 
 After creating the EDMX file, let's go to the Query method:
 

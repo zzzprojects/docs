@@ -2,10 +2,10 @@
 Permalink: articles/carloscds-ef6-asnotracking
 name: EF6 - AsNoTracking
 tags: carloscds article asnotracking change-tracker
-OriginalLink: http://carloscds.net/2018/12/entityframework-asnotracking-por-que-preciso-saber-disto/
+OriginalLink: https://carloscds.net/2018/12/entityframework-asnotracking-por-que-preciso-saber-disto/
 CreatedDate: 2018-02-12
 CreatedUserName: Carlos dos Santos
-CreatedUserLink: http://carloscds.net/
+CreatedUserLink: https://carloscds.net/
 ---
 
 # EntityFramework AsNoTracking - Why do I need to know this?

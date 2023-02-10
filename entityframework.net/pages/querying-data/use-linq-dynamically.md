@@ -15,7 +15,6 @@ For example, we have a very simple case where we want to sort customers, but we 
 ### StackOverflow Related Questions
 
 - [Dynamically generate LINQ queries](https://stackoverflow.com/questions/9505189/dynamically-generate-linq-queries)
-- [Dynamic WHERE clause in LINQ]()
 
 ## Answer
 
@@ -79,4 +78,4 @@ using (var context = new EntityContext())
 
 [Try it online](https://dotnetfiddle.net/oxSl3s)
 
-[Learn more](http://eval-expression.net/linq-dynamic-example)
+[Learn more](https://eval-expression.net/linq-dynamic)

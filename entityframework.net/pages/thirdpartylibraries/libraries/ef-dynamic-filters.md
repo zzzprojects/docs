@@ -69,4 +69,4 @@ In this example, a filter is defined on BlogEntry records to restrict to only th
  - Entity Framework Core 2.x
  - Entity Framework 6.x
 
-[Learn more](http://entityframework-dynamicfilters.net/overview)
+[Learn more](https://entityframework-dynamicfilters.net/overview)

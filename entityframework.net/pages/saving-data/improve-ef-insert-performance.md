@@ -45,7 +45,7 @@ There are many solutions to insert many records into the database in an efficien
 
 ### BulkInsert
 
-The most significant and recommended solution is BulkInsert provided by [Entity Framework Extensions](http://entityframework-extensions.net/) library. 
+The most significant and recommended solution is BulkInsert provided by [Entity Framework Extensions](https://entityframework-extensions.net/) library. 
 
 #### Performance Comparisons
 

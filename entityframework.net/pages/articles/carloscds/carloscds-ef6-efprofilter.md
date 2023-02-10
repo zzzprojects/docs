@@ -2,10 +2,10 @@
 Permalink: articles/carloscds-ef6-efprofilter
 name: EF6 - EFProfiler
 tags: carloscds article profiler
-OriginalLink: http://carloscds.net/2010/08/efprofiler-entity-framework-profiler/
+OriginalLink: https://carloscds.net/2010/08/efprofiler-entity-framework-profiler/
 CreatedDate: 2010-08-20
 CreatedUserName: Carlos dos Santos
-CreatedUserLink: http://carloscds.net/
+CreatedUserLink: https://carloscds.net/
 ---
 
 # EFProfiler - Entity Framework Profiler
@@ -16,7 +16,7 @@ The tool is quite simple. You download an executable from the website [EF Profil
 
 For the profiler to work, you need to add a Profiler DLL reference to your project:
 
-<img src="http://carloscds.net/wp-content/uploads/2010/08/image_thumb2.png" width="339" height="206" alt="Entity Framework Profiler-1">
+<img src="https://carloscds.net/wp-content/uploads/2010/08/image_thumb2.png" width="339" height="206" alt="Entity Framework Profiler-1">
 
 Then, in the main project file, you run the profiler initializer:
 
@@ -42,6 +42,6 @@ In the example above, we have a simple query to the database.
 
 Now open the profiler and run your application, the results will appear on the screen:
 
-<img src="http://carloscds.net/wp-content/uploads/2010/08/image_thumb4.png" width="883" height="469" alt="Entity Framework Profiler-2">
+<img src="https://carloscds.net/wp-content/uploads/2010/08/image_thumb4.png" width="883" height="469" alt="Entity Framework Profiler-2">
 
 That's it folks, a good profiler for you!

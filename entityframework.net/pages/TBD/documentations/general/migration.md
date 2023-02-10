@@ -99,7 +99,7 @@ public DateTime Date { get; set;}
 
 Now If you rerun your application, you would get an `InvalidOperationException`. 
 
-> The model backing the 'BlogContext' context has changed since the database was created. Consider using Code First Migrations to update the database ( http://go.microsoft.com/fwlink/?LinkId=238269).
+> The model backing the 'BlogContext' context has changed since the database was created. Consider using Code First Migrations to update the database (https://go.microsoft.com/fwlink/?LinkId=238269).
 
 It's time to start using Code First Migrations. There are two kinds of Migration;
 

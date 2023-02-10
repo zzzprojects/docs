@@ -19,7 +19,7 @@ SaveChanges requires one database round-trip for every entity to update. So if y
 
 ## Answer
 
-[Entity Framework Extensions](http://entityframework-extensions.net/) library adds the BulkUpdate extension method to the DbContext. **BulkUpdate** offers great customization and requires the minimum database round-trips as compared to **SaveChanges**.
+[Entity Framework Extensions](https://entityframework-extensions.net/) library adds the BulkUpdate extension method to the DbContext. **BulkUpdate** offers great customization and requires the minimum database round-trips as compared to **SaveChanges**.
 
 
 ```csharp
@@ -42,4 +42,4 @@ All rows that match the entity key are considered as existing and are UPDATED in
 |SaveChange |1,000 ms	    |2,000 ms	    |5,000 ms      |
 |BulkUpdate	|50 ms	        |55 ms	        |65 ms         |
 
-[Learn more](http://entityframework-extensions.net/bulk-update)
+[Learn more](https://entityframework-extensions.net/bulk-update)

@@ -57,7 +57,7 @@ Everything is executed on the database side to let you get the best performance 
 
 ## LINQ
 
-**LINQ Dynamic** in Entity Framework is supported through the [Eval-Expression.NET](http://eval-expression.net/) Library.
+**LINQ Dynamic** in Entity Framework is supported through the [Eval-Expression.NET](https://eval-expression.net/) Library.
 
 [Learn more](/tutorial-linq)
 

@@ -26,7 +26,7 @@ The best approach for unit testing Entity Framework is mocking in memory by usin
 
 ### Entity Framework Effort
 
-[Effort](http://entityframework-effort.net/) is a powerful tool that enables a convenient way to create automated tests for Entity Framework based applications.
+[Effort](https://entityframework-effort.net/) is a powerful tool that enables a convenient way to create automated tests for Entity Framework based applications.
 
 A simple modification is enough to make Entity Framework use a fake in-memory database.
 
@@ -41,7 +41,7 @@ public List<Customer> GetAllCustomers()
 }
 ```
 
-The term Transient refers to the lifecycle of the underlying in-memory database. [Click here for more information about Entity Framework Effort](http://entityframework-effort.net/overview)
+The term Transient refers to the lifecycle of the underlying in-memory database. [Click here for more information about Entity Framework Effort](https://entityframework-effort.net/overview)
 
 ### Moq
 
@@ -90,4 +90,4 @@ public List<Customer> GetAllCustomers()
 
 This provides us with an IDbSet<Customer> fake that we can return from an IRepositoryContext fake.
 
-[Click here for more information about NSubstitute](http://nsubstitute.github.io/help/getting-started/)
+[Click here for more information about NSubstitute](https://nsubstitute.github.io/help/getting-started/)

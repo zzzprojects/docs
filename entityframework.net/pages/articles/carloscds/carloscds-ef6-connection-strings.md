@@ -2,10 +2,10 @@
 Permalink: articles/carloscds-ef6-connection-strings
 name: EF6 - Connection Strings
 tags: carloscds article connection-string
-OriginalLink: http://carloscds.net/2011/08/ef-codefirstgerenciando-as-strings-de-conexo/
+OriginalLink: https://carloscds.net/2011/08/ef-codefirstgerenciando-as-strings-de-conexo/
 CreatedDate: 2011-08-08
 CreatedUserName: Carlos dos Santos
-CreatedUserLink: http://carloscds.net/
+CreatedUserLink: https://carloscds.net/
 ---
 
 # EF CodeFirst - Managing Connection Strings

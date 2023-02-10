@@ -59,7 +59,7 @@ Name: Purchase
 				<h2>Step 2 - Purchase</h2>
 				<div class="checkbox">
 					<label>
-						<input id="agree_agreement" type="checkbox">&nbsp;I have read and agree to the <a href="http://www.zzzprojects.com/license-agreement/" target="_blank">License Agreement</a>.
+						<input id="agree_agreement" type="checkbox">&nbsp;I have read and agree to the <a href="https://zzzprojects.com/license-agreement/" target="_blank">License Agreement</a>.
 					</label>
 				</div>
 				<br />
@@ -147,8 +147,8 @@ However, this mission cannot be successful without being able to pay our develop
 
 #### Free Librairies
 
-- [Html Agility Pack](http://html-agility-pack.net/){:target="_blank"}
-- [Entity Framework Plus](http://entityframework-plus.net/){:target="_blank"}
+- [Html Agility Pack](https://html-agility-pack.net/){:target="_blank"}
+- [Entity Framework Plus](https://entityframework-plus.net/){:target="_blank"}
 - [Entity Framework DynamicFilter](https://github.com/zzzprojects/EntityFramework.DynamicFilters){:target="_blank"}
 - [RefactorThis.GraphDiff](https://github.com/zzzprojects/GraphDiff){:target="_blank"}
 - [Extension Methods](https://github.com/zzzprojects/Z.ExtensionMethods){:target="_blank"}
@@ -157,8 +157,8 @@ However, this mission cannot be successful without being able to pay our develop
 
 - [.NET Fiddle](https://dotnetfiddle.net/){:target="_blank"}
 - [SQL Fiddle](http://sqlfiddle.com/){:target="_blank"}
-- [NuGet Must Haves](http://nugetmusthaves.com/){:target="_blank"}
-- [Dapper Tutorial](http://dapper-tutorial.net/){:target="_blank"}
+- [NuGet Must Haves](https://nugetmusthaves.com/){:target="_blank"}
+- [Dapper Tutorial](https://dapper-tutorial.net/){:target="_blank"}
 
 By contributing on paid libraries, you are also helping in keeping other libraries and website FREE.
 

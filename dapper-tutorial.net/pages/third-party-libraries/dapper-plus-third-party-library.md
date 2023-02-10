@@ -9,10 +9,10 @@ Name: Dapper Plus Library
 
 **Dapper.Plus** is a small library that you can add to your project which will extend your `IDbConnection` and `IDbTransaction` interfaces with highly efficient Bulk operations methods.
 
-- <a href="http://dapper-plus.net/bulk-insert" target="_blank">Bulk Insert</a>
-- <a href="http://dapper-plus.net/bulk-update" target="_blank">Bulk Update</a>
-- <a href="http://dapper-plus.net/bulk-delete" target="_blank">Bulk Delete</a>
-- <a href="http://dapper-plus.net/bulk-merge" target="_blank">Bulk Merge</a>
+- <a href="https://dapper-plus.net/bulk-insert" target="_blank">Bulk Insert</a>
+- <a href="https://dapper-plus.net/bulk-update" target="_blank">Bulk Update</a>
+- <a href="https://dapper-plus.net/bulk-delete" target="_blank">Bulk Delete</a>
+- <a href="https://dapper-plus.net/bulk-merge" target="_blank">Bulk Merge</a>
 
 Using this library, you can perform saving operations in the **fastest way**. It can be used with or without Dapper, and it is also compatible with all other Dapper packages.
 
@@ -43,7 +43,7 @@ Every month, a **FREE** trial of the **PRO** version is available to let you eva
 | Royalty-Free | Yes |
 | Support & Upgrades (1 year) | Yes |
 
-More information can be found at: <a href="http://dapper-plus.net/" target="_blank">http://dapper-plus.net/</a>
+More information can be found at: <a href="https://dapper-plus.net/" target="_blank">https://dapper-plus.net/</a>
 
 ## APIs
 
@@ -87,7 +87,7 @@ using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlSer
 ```
 {% include component-try-it.html href='https://dotnetfiddle.net/NcILLg' %}
 
-You can find the detailed documentation here: <a href="http://dapper-plus.net/overview" target="_blank">http://dapper-plus.net/overview</a>
+You can find the detailed documentation here: <a href="https://dapper-plus.net/overview" target="_blank">https://dapper-plus.net/overview</a>
 
 ## DB Provider Supported
 

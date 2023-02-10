@@ -10,7 +10,7 @@ Bulk operations are the fastest way to insert or update a large number of record
  - A bulk operation is a single-target operation that can take a list of objects. 
  - A batch operation includes multiple target operations that each can take a list of objects. 
 
-[Dapper Plus](http://dapper-plus.net/) extends the `IDbConnection` interface with Bulk Operations methods:
+[Dapper Plus](https://dapper-plus.net/) extends the `IDbConnection` interface with Bulk Operations methods:
 
  - BulkInsert
  - BulkUpdate

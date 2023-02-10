@@ -17,7 +17,7 @@ Updating entities using SaveChanges requires typically to load them first in the
 
 ## Answer
 
-[Entity Framework Extensions](http://entityframework-extensions.net/) library adds the UpdateFromQuery extension method. **UpdateFromQuery** gives you access to directly execute an `UPDATE` statement in the database and provide a **HUGE** performance improvement.
+[Entity Framework Extensions](https://entityframework-extensions.net/) library adds the UpdateFromQuery extension method. **UpdateFromQuery** gives you access to directly execute an `UPDATE` statement in the database and provide a **HUGE** performance improvement.
 
  - UPDATE all rows from the database using a LINQ Query without loading entities in the context.
  - An UPDATE statement is built using the LINQ expression and directly executed in the database.
@@ -43,4 +43,4 @@ context.Customers
 |SaveChange      |1,000 ms	     |2,000 ms	     |5,000 ms      |
 |UpdateFromQuery |1 ms	         |1 ms	         |1 ms          |
 
-[Learn more](http://entityframework-extensions.net/update-from-query)
+[Learn more](https://entityframework-extensions.net/update-from-query)

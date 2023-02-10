@@ -16,7 +16,7 @@ Deleting entities using SaveChanges requires typically to load them first in the
 
 ## Answer
 
-[Entity Framework Extensions](http://entityframework-extensions.net/) library adds the DeleteFromQuery extension method. **DeleteFromQuery** gives you access to directly execute a `DELETE` statement in the database and provide a **HUGE** performance improvement.
+[Entity Framework Extensions](https://entityframework-extensions.net/) library adds the DeleteFromQuery extension method. **DeleteFromQuery** gives you access to directly execute a `DELETE` statement in the database and provide a **HUGE** performance improvement.
 
  - DELETE all rows from the database using a LINQ Query without loading entities in the context.
  - A DELETE statement is built using the LINQ expression and directly executed in the database.
@@ -39,4 +39,4 @@ context.Customers.Where(x => x.CustomerID == customerId).DeleteFromQuery();
 |SaveChange      |1,000 ms	     |2,000 ms	     |5,000 ms      |
 |DeleteFromQuery |1 ms	         |1 ms	         |1 ms          |
 
-[Learn more](http://entityframework-extensions.net/delete-from-query)
+[Learn more](https://entityframework-extensions.net/delete-from-query)

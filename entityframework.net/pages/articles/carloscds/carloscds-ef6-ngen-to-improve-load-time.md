@@ -2,10 +2,10 @@
 Permalink: articles/carloscds-ef6-ngen-to-improve-load-time
 name: EF6 - NGen to Improve Load Time
 tags: carloscds article ngen
-OriginalLink: http://carloscds.net/2013/11/melhorando-o-tempo-de-carga-do-entity-framework-com-ngen/
+OriginalLink: https://carloscds.net/2013/11/melhorando-o-tempo-de-carga-do-entity-framework-com-ngen/
 CreatedDate: 2013-11-03
 CreatedUserName: Carlos dos Santos
-CreatedUserLink: http://carloscds.net/
+CreatedUserLink: https://carloscds.net/
 ---
 
 # Improving Entity Framework load times with NGEN

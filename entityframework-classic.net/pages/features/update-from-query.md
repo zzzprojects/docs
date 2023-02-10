@@ -10,7 +10,7 @@ CanonicalLink: https://entityframework-extensions.net/update-from-query
 
 An `UPDATE` statement is built using the LINQ expression and directly executed in the database.
 
-This feature is provided by [Z.EntityFramework.Extensions](http://entityframework-extensions.net/) that are used by more than 2000 customers all over the world.
+This feature is provided by [Z.EntityFramework.Extensions](https://entityframework-extensions.net/) that are used by more than 2000 customers all over the world.
 
 ```csharp
 // UPDATE all customers that are inactive for more than two years

@@ -35,7 +35,7 @@ using (var ctx = new CustomerContext())
 
 ## Answer
 
-[Entity Framework Extensions](http://entityframework-extensions.net/) library adds the BulkSaveChanges extension method to the DbContext. It performs save operations 10 to 50 times faster. 
+[Entity Framework Extensions](https://entityframework-extensions.net/) library adds the BulkSaveChanges extension method to the DbContext. It performs save operations 10 to 50 times faster. 
 
 All changes made in the context are persisted in the database but way faster by reducing the number of database round-trip required!
 
@@ -67,7 +67,7 @@ using (var ctx = new CustomerContext())
 ```
 [Try it online](https://dotnetfiddle.net/ii773p)
 
-[Learn more](http://entityframework-extensions.net/tutorial-bulk-savechanges)
+[Learn more](https://entityframework-extensions.net/tutorial-bulk-savechanges)
 
 ## Improve BulkSaveChanges
 
@@ -78,6 +78,6 @@ EntityFrameworkManager.DefaultEntityFrameworkPropagationValue = false;
 ```
 [Try it online](https://dotnetfiddle.net/QSAcrl)
 
-When turning off this option, the library does no longer use the methods from Entity Framework but internal methods from our [Entity Framework Extensions](http://entityframework-extensions.net/) library.
+When turning off this option, the library does no longer use the methods from Entity Framework but internal methods from our [Entity Framework Extensions](https://entityframework-extensions.net/) library.
 
-[Learn more](http://entityframework-extensions.net/improve-bulk-savechanges)
+[Learn more](https://entityframework-extensions.net/improve-bulk-savechanges)
