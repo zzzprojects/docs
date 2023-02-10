@@ -32,7 +32,7 @@ context.BulkSaveChanges(options => { });
 await context.BulkSaveChangesAsync();
 ```
 
-See the [SaveChanges](/bulk-savechanges) documentation for more information and examples.
+See the [Bulk SaveChanges](/bulk-savechanges) documentation for more information and examples.
 
 ## Bulk Insert
 
@@ -64,7 +64,7 @@ See the [Bulk Update](/bulk-update) documentation for more information and examp
 
 ## Bulk Delete
 
-The `BulkDelete` extension method allows you to update data in your database in bulk.
+The `BulkDelete` extension method allows you to delete data in your database in bulk.
 
 ```csharp
 context.BulkDelete(customers);

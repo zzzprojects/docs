@@ -170,5 +170,5 @@ Sets if the automap should be used after you manually mapped some columns
 ```csharp
 DapperPlusManager.Entity<Order>()
                  .Map(order => new { order.TotalPrice })
-				 .AutoMap();
+                 .AutoMap();
 ```
