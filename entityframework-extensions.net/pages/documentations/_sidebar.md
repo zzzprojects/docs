@@ -79,6 +79,7 @@
    - [Pre Bulk Update](events/pre-bulk-update.md)
 - Utilities
    - [Batch SaveChanges](batch-savechanges.md)
+   - [Bulk Extensions](bulk-extensions.md)
    - [Delete ByKey](utilities/delete-by-key.md)
    - [Delete Range ByKey](utilities/delete-range-by-key.md)
    - [ToSelfHierarchyList](utilities/to-self-hierarchy-list.md)
