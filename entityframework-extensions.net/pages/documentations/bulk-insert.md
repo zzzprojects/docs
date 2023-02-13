@@ -204,7 +204,8 @@ More options can be found here:
 
 ## Limitations
 
-### Hidden Navigation
+### Hidden Navigation (EF6 only)
+
 The `BulkInsert` doesn't use the ChangeTracker to optimize the performance unless no other alternative exists.
 
 For example, you want to insert `InvoiceItem` but there is no relation toward the parent `Invoice`. In this case, you will need to add your entities in the `ChangeTracker`. The `ChangeTracker` will be used to find the related `Invoice` for your `InvoiceItem`.
@@ -224,4 +225,5 @@ context.Invoices.AddRange(invoices);
 // The ChangeTracker is used for this case
 context.BulkInsert(items);
 ```
-[Try it in EF6](https://dotnetfiddle.net/vKlII0) | [Try it in EF Core](https://dotnetfiddle.net/e9HnG3)
+
+[Try it in EF6](https://dotnetfiddle.net/vKlII0)
