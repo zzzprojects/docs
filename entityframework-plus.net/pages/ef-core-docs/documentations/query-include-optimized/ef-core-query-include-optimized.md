@@ -120,6 +120,7 @@ When an immediate method is invoked to resolve the query, multiple queries are c
 ## Limitations
 
  - **DO NOT** work with **AsNoTracking**
+ - **DO NOT** work with lazy loading
  - Entity Framework Core 2x is not supported due to client-side resolution
  - Cannot be mixed with projection
  - Cannot be mixed with Include (Include doesn't support projection)

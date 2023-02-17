@@ -167,6 +167,7 @@ Entity Framework already does all the job by linking related entities to the pa
 ## Limitations
 
  - **DO NOT** work with **AsNoTracking**
+  - **DO NOT** work with lazy loading
  - Cannot be mixed with projection
  - Cannot be mixed with Include (Include doesn't support projection)
  - Cannot be mixed with IncludeOptimized
