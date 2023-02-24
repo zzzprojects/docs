@@ -1,6 +1,7 @@
 ---
 PermaID: 1000191
 Name: Data Annotation Write in Dapper Contrib
+LastMod: 2023-02-25
 ---
 
 # Dapper Contrib - Data Annotation - Write

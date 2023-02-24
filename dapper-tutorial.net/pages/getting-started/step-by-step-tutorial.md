@@ -1,9 +1,11 @@
 ---
 PermaID: 1000200
-Name: Step by Step Dapper Tutorial
+Title: Dapper - Getting Started With a Step-by-Step Tutorial
+MetaDescription: Learn how to use Dapper, the popular lightweight ORM for .NET, with our easy-to-follow step-by-step tutorial for beginners. Discover how to create database connections, execute queries, and map database results to .NET objects with Dapper.
+LastMod: 2023-02-21
 ---
 
-# Dapper - Step by Step Tutorial 
+# Dapper: Getting Started With a Step-by-Step Tutorial
 
 ## What is Dapper?
 

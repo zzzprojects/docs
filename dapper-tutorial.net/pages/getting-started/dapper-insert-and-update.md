@@ -1,9 +1,11 @@
 ---
 PermaID: 1000204
-Name: Insert and Update
+Title: Dapper - Getting Started With Inserting and Updating Data
+MetaDescription: Learn how to insert and update records in your database to get started with Dapper. Follow our step-by-step Dapper tutorial for to insert and update data.
+LastMod: 2023-02-21
 ---
 
-# Dapper - Insert and Update
+# Dapper: Getting Started With Inserting and Updating Data
 
 When working with databases, you will often need to insert and update records. When it comes to writing insert or update statements in Dapper, the simple and easy way is to use the `Execute` method, which allows you to execute a raw SQL statement.
 

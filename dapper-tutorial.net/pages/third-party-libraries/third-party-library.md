@@ -1,9 +1,11 @@
 ---
 PermaID: 1000213
-Name: Third Party Libraries for Dapper
+Title: Dapper - An Overview of Third-Party Libraries
+MetaDescription: Discover third-party libraries to perform CRUD operations, Bulk Operations, mapping, and use dapper through the `IDbTransaction` interface. Learn about their limitations and how to install them with NuGet.
+LastMod: 2023-02-20
 ---
 
-# Dapper - Third-Party Libraries
+# Dapper: An Overview of Third-Party Libraries
 
 In this article will get a quick overview of all the most popular third-party libraries that you can use with `Dapper`.
 

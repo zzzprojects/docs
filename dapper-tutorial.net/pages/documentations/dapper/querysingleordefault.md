@@ -1,6 +1,7 @@
 ---
 PermaID: 1000178
 Name: QuerySingleOrDefault Method
+LastMod: 2023-02-24
 ---
 
 # Dapper - QuerySingleOrDefault Method

@@ -1,9 +1,11 @@
 ---
 PermaID: 1000204
-Name: Dapper Contrib Library
+Title: Dapper.Contrib - A Getting Started Tutorial for CRUD Operations
+MetaDescription: Discover Dapper.Contrib Library to perform CRUD operations such as Get, GetAll, Insert, Update, Delete, DeleteAll. Learn about Dapper.Contrib limitations and how to install it with NuGet.
+LastMod: 2023-02-20
 ---
 
-# Dapper.Contrib Library
+# Dapper.Contrib: A Getting Started Tutorial for CRUD Operations
 
 ## Overview
 

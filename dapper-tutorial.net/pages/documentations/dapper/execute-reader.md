@@ -1,6 +1,7 @@
 ---
 PermaID: 1000206
 Name: Execute Reader Method
+LastMod: 2023-02-22
 ---
 
 # Dapper - Execute Reader Method

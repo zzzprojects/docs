@@ -1,9 +1,11 @@
 ---
 PermaID: 1000212
-Name: Dapper SimpleSave Library
+Title: Dapper.SimpleSave - A Getting Started Tutorial for CRUD Operations
+MetaDescription: Discover Dapper.SimpleSave Library to perform CRUD operations such as Create, CreateAll, Update, UpdateAll, Delete, DeleteAll, SoftDelete, SoftDeleteAll. Learn about Dapper.SimpleSave limitations and how to install it with NuGet.
+LastMod: 2023-02-20
 ---
 
-# Dapper.SimpleSave Library
+# Dapper.SimpleSave: A Getting Started Tutorial for CRUD Operations
 
 ## Overview
 

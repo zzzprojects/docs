@@ -1,9 +1,11 @@
 ---
 PermaID: 1000205
-Name: Insert and Update in Bulk
+Title: Dapper - Getting Started With Inserting and Updating Data in Bulk
+MetaDescription: Learn how to bulk insert and bulk update records in your database to get started with Dapper. Follow our step-by-step Dapper tutorial for to insert and update data in bulk.
+LastMod: 2023-02-21
 ---
 
-# Dapper - Insert and Update in Bulk
+# Dapper: Getting Started With Inserting and Updating Data in Bulk
 
 Bulk operations are the fastest way to insert or update a large number of records in a database table. Bulk operations can be used to insert, update, and delete millions of records in a single operation.
 

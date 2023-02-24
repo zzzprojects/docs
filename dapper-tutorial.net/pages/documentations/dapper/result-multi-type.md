@@ -1,6 +1,7 @@
 ---
 PermaID: 1000182
 Name: Multi-Type Result
+LastMod: 2023-02-24
 ---
 
 # Dapper - Multi-Type Result

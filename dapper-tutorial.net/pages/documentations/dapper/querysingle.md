@@ -1,6 +1,7 @@
 ---
 PermaID: 1000177
 Name: QuerySingle Method
+LastMod: 2023-02-24
 ---
 
 # Dapper - QuerySingle Method 

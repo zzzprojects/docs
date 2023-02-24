@@ -1,9 +1,11 @@
 ---
 PermaID: 1000210
-Name: Dapper Rainbow Library
+Title: Dapper.Rainbow - A Getting Started Tutorial for CRUD Operations
+MetaDescription: Discover Dapper.Rainbow Library to perform CRUD operations such as Get, Insert, Update, Delete, All. Learn about Dapper.Rainbow limitations and how to install it with NuGet.
+LastMod: 2023-02-20
 ---
 
-# Dapper.Rainbow Library
+# Dapper.Rainbow: A Getting Started Tutorial for CRUD Operations
 
 ## Overview
 

@@ -1,9 +1,11 @@
 ---
 PermaID: 1000208
-Name: Dapper Mapper Library
+Title: Dapper.Mapper - A Getting Started Tutorial for Mapping
+MetaDescription: Discover Dapper.Mapper Library to map with fluent api mapping. Learn about Dapper.Mapper limitations and how to install it with NuGet.
+LastMod: 2023-02-20
 ---
 
-# Dapper.Mapper Library
+# Dapper.Mapper: A Getting Started Tutorial for Mapping
 
 ## Overview
 

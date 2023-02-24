@@ -1,6 +1,7 @@
 ---
 PermaID: 1000193
 Name: DeleteAll in Dapper Contrib
+LastMod: 2023-02-25
 ---
 
 # Dapper Contrib - DeleteAll

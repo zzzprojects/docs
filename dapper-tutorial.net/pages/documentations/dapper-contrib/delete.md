@@ -1,6 +1,7 @@
 ---
 PermaID: 1000192
 Name: Delete in Dapper Contrib
+LastMod: 2023-02-25
 ---
 
 # Dapper Contrib - Delete

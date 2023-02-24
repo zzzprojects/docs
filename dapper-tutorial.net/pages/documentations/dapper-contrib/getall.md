@@ -1,6 +1,7 @@
 ---
 PermaID: 1000195
 Name: GetAll in Dapper Contrib
+LastMod: 2023-02-25
 ---
 
 # Dapper Contrib - GetAll

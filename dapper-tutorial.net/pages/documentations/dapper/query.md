@@ -1,6 +1,7 @@
 ---
 PermaID: 1000173
 Name: Query Method
+LastMod: 2023-02-23
 ---
 
 # Dapper - Query  Method

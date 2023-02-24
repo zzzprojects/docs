@@ -1,9 +1,11 @@
 ---
 PermaID: 1000199
-Name: Create a SQL Database
+Title: Dapper - Getting Started With Your First SQL Database
+MetaDescription: Learn how to create a SQL database and table to get started with Dapper. Follow our step-by-step Dapper tutorial with to create your first database.
+LastMod: 2023-02-21
 ---
 
-# Dapper - Create a SQL Database
+# Dapper: Getting Started With Your First SQL Database
 
 To perform CRUD operations in the database, we must establish a connection with the database using a database connection. 
 

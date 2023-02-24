@@ -1,6 +1,7 @@
 ---
 PermaID: 1000190
 Name: Data Annotation Table in Dapper Contrib
+LastMod: 2023-02-25
 ---
 
 # Dapper Contrib - Data Annotation - Table

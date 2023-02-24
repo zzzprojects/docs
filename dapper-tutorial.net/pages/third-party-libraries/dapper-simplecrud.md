@@ -1,9 +1,11 @@
 ---
 PermaID: 1000211
-Name: Dapper SimpleCrud Library
+Title: Dapper.SimpleCRUD - A Getting Started Tutorial for CRUD Operations
+MetaDescription: Discover Dapper.SimpleCRUD Library to perform CRUD operations such as Get, GetList, GetListPaged, Insert, Update, Delete, DeleteList, RecordCount. Learn about Dapper.SimpleCRUD limitations and how to install it with NuGet.
+LastMod: 2023-02-20
 ---
 
-# Dapper.SimpleCRUD Library
+# Dapper.SimpleCRUD: A Getting Started Tutorial for CRUD Operations
 
 ## Overview
 

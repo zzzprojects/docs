@@ -1,6 +1,7 @@
 ---
 PermaID: 1000201
 Name: Bulk Update in Dapper Plus
+LastMod: 2023-02-26
 ---
 
 # Dapper Plus - Bulk Update

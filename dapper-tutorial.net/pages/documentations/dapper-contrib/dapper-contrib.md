@@ -1,6 +1,7 @@
 ---
 PermaID: 1000186
 Name: Getting Started with Dapper Contrib
+LastMod: 2023-02-25
 ---
 
 # Dapper Contrib

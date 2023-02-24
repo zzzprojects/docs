@@ -1,6 +1,7 @@
 ---
 PermaID: 1000199
 Name: Bulk Insert in Dapper Plus
+LastMod: 2023-02-26
 ---
 
 # Dapper Plus - Bulk Insert

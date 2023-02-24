@@ -1,6 +1,7 @@
 ---
 PermaID: 1000207
 Name: Execute Scalar Method
+LastMod: 2023-02-22
 ---
 
 # Dapper - Execute Scalar Method

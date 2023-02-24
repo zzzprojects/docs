@@ -1,9 +1,11 @@
 ---
 PermaID: 1000205
-Name: Dapper Extensions Library
+Title: DapperExtensions - A Getting Started Tutorial for CRUD Operations
+MetaDescription: Discover DapperExtensions Library to perform CRUD operations such as Get, GetList, Insert, Update, Delete, Count. Learn about DapperExtensions limitations and how to install it with NuGet.
+LastMod: 2023-02-20
 ---
 
-# DapperExtensions Library
+# DapperExtensions: A Getting Started Tutorial for CRUD Operations
 
 ## Overview
 

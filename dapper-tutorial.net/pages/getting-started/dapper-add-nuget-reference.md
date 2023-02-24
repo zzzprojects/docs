@@ -1,9 +1,11 @@
 ---
 PermaID: 1000202
-Name: Add Dapper NuGet Reference
+Title: Dapper - Getting Started With Adding NuGet Reference
+MetaDescription: Learn how to add the Dapper nuget package to get started with Dapper. Follow our step-by-step Dapper tutorial with image to add the NuGet package.
+LastMod: 2023-02-21
 ---
 
-# Dapper - Add NuGet Reference
+# Dapper: Getting Started With Adding NuGet Reference
 
 Dapper is available as a nuget package and you can install it using **Nuget Package Manager**.
 

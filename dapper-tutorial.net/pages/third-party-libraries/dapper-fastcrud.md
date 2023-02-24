@@ -1,9 +1,11 @@
 ---
 PermaID: 1000206
-Name: Dapper FastCrud Library
+Title: Dapper.FastCrud - A Getting Started Tutorial for CRUD Operations
+MetaDescription: Discover Dapper.FastCrud Library to perform CRUD operations such as Get, Find, Insert, Update, Delete, Count. Learn about Dapper.FastCrud limitations and how to install it with NuGet.
+LastMod: 2023-02-20
 ---
 
-# Dapper.FastCrud Library
+# Dapper.FastCrud: A Getting Started Tutorial for CRUD Operations
 
 ## Overview
 

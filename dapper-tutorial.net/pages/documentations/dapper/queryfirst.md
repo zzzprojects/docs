@@ -1,6 +1,7 @@
 ---
 PermaID: 1000174
 Name: QueryFirst Method
+LastMod: 2023-02-23
 ---
 
 # Dapper - QueryFirst Method

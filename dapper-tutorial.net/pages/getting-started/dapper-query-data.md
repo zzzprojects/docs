@@ -1,9 +1,11 @@
 ---
 PermaID: 1000203
-Name: Query Data 
+Title: Dapper - Getting Started With Querying Data
+MetaDescription: Learn how to use query record from a SQL database to get started with Dapper. Follow our step-by-step Dapper tutorial for to query data.
+LastMod: 2023-02-21
 ---
 
-# Dapper - Query Data 
+# Dapper: Getting Started With Querying Data
 
 Dapper provides the `Query` extension method that enables you to retrieve data from the database and populate data in your object model. 
 

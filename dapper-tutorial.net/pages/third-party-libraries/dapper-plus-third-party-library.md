@@ -1,9 +1,11 @@
 ---
 PermaID: 1000209
-Name: Dapper Plus Library
+Title: Dapper.Plus - A Getting Started Tutorial for Bulk CRUD Operations
+MetaDescription: Discover Dapper.Plus Library to perform CRUD operations such as BulkInsert, BulkUpdate, BulkDelete, BulkMerge. Learn about Dapper.Plus limitations and how to install it with NuGet.
+LastMod: 2023-02-20
 ---
 
-# Dapper.Plus Library
+# Dapper.Plus: A Getting Started Tutorial for Bulk CRUD Operations
 
 ## Overview
 

@@ -1,6 +1,7 @@
 ---
 PermaID: 1000183
 Name: Strongly Typed Result
+LastMod: 2023-02-24
 ---
 
 # Dapper - Strongly Typed Result

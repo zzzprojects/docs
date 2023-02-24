@@ -1,6 +1,7 @@
 ---
 PermaID: 1000176
 Name: QueryMultiple Method
+LastMod: 2023-02-23
 ---
 
 # Dapper - QueryMultiple Method
