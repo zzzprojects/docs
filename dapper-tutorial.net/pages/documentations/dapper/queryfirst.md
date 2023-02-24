@@ -1,10 +1,11 @@
 ---
 PermaID: 1000174
-Name: QueryFirst Method
+Name: Dapper Query First - Learn How to Return the First Result Row
+MetaDescription: Unlock the power of Dapper Query First to optimize your C# database operations. Learn how to use QueryFirst and QueryFirstAsync to return an anonymous type or strongly typed entity.
 LastMod: 2023-02-23
 ---
 
-# Dapper - QueryFirst Method
+# Dapper Query First: Discover How to Return the First Result Row
 
 ## Description
 

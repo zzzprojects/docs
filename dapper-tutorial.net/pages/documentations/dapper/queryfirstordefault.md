@@ -1,10 +1,11 @@
 ---
 PermaID: 1000175
-Name: QueryFirstOrDefault Method
+Name: Dapper Query FirstOrDefault - Learn How to Return First Row
+MetaDescription: Unlock the power of Dapper Query FirstOrDefault to optimize your C# database operations. Learn how to use QueryFirstOrDefault and QueryFirstOrDefaultAsync to return an anonymous type or strongly typed entity.
 LastMod: 2023-02-23
 ---
 
-# Dapper - QueryFirstOrDefault Method
+# Dapper Query FirstOrDefault: Discover How to Return First Row or Default Value
 
 ## Description
 

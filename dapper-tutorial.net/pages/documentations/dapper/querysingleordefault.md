@@ -1,10 +1,11 @@
 ---
 PermaID: 1000178
-Name: QuerySingleOrDefault Method
+Name: Dapper Query SingleOrDefault - Learn How to Return a Single Row 
+MetaDescription: Unlock the power of Dapper Query SingleOrDefault to optimize your C# database operations. Learn how to use QuerySingleOrDefault and QuerySingleOrDefault to return an anonymous type or strongly typed entity.
 LastMod: 2023-02-24
 ---
 
-# Dapper - QuerySingleOrDefault Method
+# Dapper Query SingleOrDefault: Discover How to Return a Single Row or Default Value
 
 ## Description
 

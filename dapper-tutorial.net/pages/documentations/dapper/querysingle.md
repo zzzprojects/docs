@@ -1,10 +1,11 @@
 ---
 PermaID: 1000177
-Name: QuerySingle Method
+Name: Dapper Query Single - Learn How to Return a Single Result Row
+MetaDescription: Unlock the power of Dapper Query Single to optimize your C# database operations. Learn how to use QuerySingle and QuerySingleAsync to return an anonymous type or strongly typed entity.
 LastMod: 2023-02-24
 ---
 
-# Dapper - QuerySingle Method 
+# Dapper Query Single: Discover How to Return a Single Result Row
 
 ## Description
 

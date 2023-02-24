@@ -1,10 +1,11 @@
 ---
 PermaID: 1000173
-Name: Query Method
+Name: Dapper Query - Learn How to Query Your Database and Return a List
+MetaDescription: Unlock the power of Dapper Query to optimize your C# database operations. Learn how to use Query and QueryAsync to return a list of anonymous type or strongly typed entities.
 LastMod: 2023-02-23
 ---
 
-# Dapper - Query  Method
+# Dapper Query: Discover How to Query Your Database and Return a List
 
 ## Description
 
