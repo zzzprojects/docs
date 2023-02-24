@@ -1,10 +1,11 @@
 ---
 PermaID: 1000168
-Name: Execute Method
+Title: Dapper Execute - Learn How to Execute Stored Procedure and SQL
+MetaDescription: Unlock the power of Dapper Execute to optimize your C# database operations. Learn how to use Execute and ExecuteAsync with a stored procedure, insert, update, and delete SQL statements.
 LastMod: 2023-02-22
 ---
 
-# Dapper - Execute Method
+# Dapper Execute: Discover How to Execute Stored Procedure and SQL
 
 ## Description
 

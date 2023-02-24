@@ -1,10 +1,11 @@
 ---
 PermaID: 1000207
-Name: Execute Scalar Method
+Title: Dapper Execute Scalar - Learn How to Return a Scalar Value
+MetaDescription: Unlock the power of Dapper Execute Scalar to optimize your C# database operations. Learn how to use ExecuteScalar and ExecuteScalarAsync to return a strongly typed scalar value.
 LastMod: 2023-02-22
 ---
 
-# Dapper - Execute Scalar Method
+# Dapper Execute Scalar: Discover How to Return a Scalar Value
 
 ## Description
 

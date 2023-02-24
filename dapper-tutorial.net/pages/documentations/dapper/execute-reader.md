@@ -1,10 +1,11 @@
 ---
 PermaID: 1000206
-Name: Execute Reader Method
+Title: Dapper Execute Reader - Learn How to Execute SQL to Return a Reader
+MetaDescription: Unlock the power of Dapper Execute Reader to optimize your C# database operations. Learn how to use ExecuteReader and ExecuteReaderAsync to return a reader and create a DataTable.
 LastMod: 2023-02-22
 ---
 
-# Dapper - Execute Reader Method
+# Dapper Execute Reader: Discover How to Execute SQL to Return a Reader
 
 ## Description
 
