@@ -54,7 +54,7 @@ public class InvoiceContext : DapperPlusContext
 }
 
 var context = new InvoiceContext();
-context.BulkInsert(context, invoices);
+context.BulkInsert(invoices);
 
 // connection.BulkInsert(context, invoices); // also available
 ```
