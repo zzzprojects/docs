@@ -1,10 +1,11 @@
 ---
 PermaID: 1000169
-Name: Anonymous Parameter
+Title: Dapper Anonymous Type Parameter - Learn How to Avoid SQL Injection
+MetaDescription: Unlock the power of Dapper with Anonymous Type Parameter to avoid SQL Injection. Learn how to easily pass your parameter without worrying about user input.
 LastMod: 2023-02-23
 ---
 
-# Dapper - Anonymous Parameter
+# Dapper Anonymous Type Parameter: Discover How to Avoid SQL Injection
 
 ## Description
 

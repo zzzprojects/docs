@@ -1,10 +1,11 @@
 ---
 PermaID: 1000171
-Name: List Parameter
+Title: Dapper List Parameter - Learn How to Execute Where 'IN' Clause
+MetaDescription: Unlock the power of Dapper with List Parameter to execute `where in` clause. Learn how to use a list or an array that will automatically be converted into a SQL `IN` clause.
 LastMod: 2023-02-23
 ---
 
-# Dapper - List Parameter
+# Dapper List Parameter: Discover How to Execute Where 'IN' Clause
 
 ## Description
 

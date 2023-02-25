@@ -1,10 +1,11 @@
 ---
 PermaID: 1000170
-Name: Dynamic Parameter
+Title: Dapper Dynamic Parameter - Learn How to Add Parameter on Demand
+MetaDescription: Unlock the power of Dapper with Dynamic Parameter to add value on demand. Learn how to pass any amount of parameters at runtime.
 LastMod: 2023-02-23
 ---
 
-# Dapper - Dynamic Parameter
+# Dapper Dynamic Parameter: Discover How to Add Parameter on Demand
 
 ## Description
 

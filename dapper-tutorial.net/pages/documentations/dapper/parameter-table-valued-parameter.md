@@ -1,9 +1,10 @@
 ---
-Name: Table-Valued Parameter
+Title: Dapper Table-Valued Parameter - Learn About AsTableValuedParameter
+MetaDescription: Unlock the power of Dapper with Table-Valued Parameter to improve performance with 'AsTableValuedParameter'. Learn how to pass an entire table for stored procedure or function.
 LastMod: 2023-02-23
 ---
 
-# Dapper - Table-Valued Parameter
+# Dapper Table-Valued Parameter: Discover About AsTableValuedParameter
 
 ## Description
 
