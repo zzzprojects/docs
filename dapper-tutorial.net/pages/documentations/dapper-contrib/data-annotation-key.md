@@ -1,10 +1,11 @@
 ---
 PermaID: 1000189
-Name: Data Annotation Key in Dapper Contrib
+Title: Dapper Contrib Key - Use Data Annotation to Specify Key Column
+MetaDescription: Unlock the power of Dapper Contrib by using 'Key' Data Annotation. Learn how to specify which properties are a part of the primary keys.
 LastMod: 2023-02-25
 ---
 
-# Dapper Contrib - Data Annotation - Key
+# Dapper Contrib Key: Use Data Annotation to Specify Key Column
 
 ## Description
 

@@ -1,10 +1,11 @@
 ---
 PermaID: 1000195
-Name: GetAll in Dapper Contrib
+Title: Dapper Contrib GetAll - Learn How to Retrieve All Data From a Table
+MetaDescription: Unlock the power of Dapper Contrib with the GetAll method to retrieve all data from a table. Learn how to use the simplest way to get all rows from a database table without writing any SQL.
 LastMod: 2023-02-25
 ---
 
-# Dapper Contrib - GetAll
+# Dapper Contrib GetAll: Discover How to Retrieve All Data From a Table
 
 ## Description
 

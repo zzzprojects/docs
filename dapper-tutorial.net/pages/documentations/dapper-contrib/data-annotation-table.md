@@ -1,10 +1,11 @@
 ---
 PermaID: 1000190
-Name: Data Annotation Table in Dapper Contrib
+Title: Dapper Contrib Table - Use Data Annotation to Specify Table Name
+MetaDescription: Unlock the power of Dapper Contrib by using 'Table' Data Annotation. Learn how to map your entity to a destination table name.
 LastMod: 2023-02-25
 ---
 
-# Dapper Contrib - Data Annotation - Table
+# Dapper Contrib Table: Use Data Annotation to Specify Table Name
 
 ## Description
 

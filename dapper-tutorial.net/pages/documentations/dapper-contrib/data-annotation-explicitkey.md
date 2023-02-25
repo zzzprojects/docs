@@ -1,10 +1,11 @@
 ---
 PermaID: 1000188
-Name: Data annotation ExplicitKey in Dapper Contrib
+Title: Dapper Contrib ExplicitKey - Use Data Annotation For Key Column
+MetaDescription: Unlock the power of Dapper Contrib by using 'ExplicitKey' Data Annotation. Learn how to specify which properties are a part of the not autoincremented primary keys.
 LastMod: 2023-02-25
 ---
 
-# Dapper Contrib - Data Annotation - ExplicitKey
+# Dapper Contrib ExplicitKey: Use Data Annotation For Key Column
 
 ## Description
 

@@ -1,10 +1,11 @@
 ---
 PermaID: 1000193
-Name: DeleteAll in Dapper Contrib
+Title: Dapper Contrib DeleteAll - Learn How to Delete All Data From a Table
+MetaDescription: Unlock the power of Dapper Contrib with the DeleteAll method to delete all data from a table. Learn how to use the simplest way to delete all rows from a database table without writing any SQL.
 LastMod: 2023-02-25
 ---
 
-# Dapper Contrib - DeleteAll
+# Dapper Contrib DeleteAll: Discover How to Delete All Data From a Table
 
 ## Description
 

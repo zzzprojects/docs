@@ -1,10 +1,11 @@
 ---
 PermaID: 1000196
-Name: Insert in Dapper Contrib
+Title: Dapper Contrib Insert - Learn How to Insert Data in a Table
+MetaDescription: Unlock the power of Dapper Contrib with the Insert method to insert data in a table. Learn how to use the simplest way to insert rows in a database table without writing any SQL.
 LastMod: 2023-02-25
 ---
 
-# Dapper Contrib - Insert
+# Dapper Contrib Insert: Discover How to Insert Data in a Table
 
 ## Description
 

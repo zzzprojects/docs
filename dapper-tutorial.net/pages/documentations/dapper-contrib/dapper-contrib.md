@@ -1,10 +1,11 @@
 ---
 PermaID: 1000186
-Name: Getting Started with Dapper Contrib
+Title: Dapper Contrib - Learn What Is This Library and How to Use It
+MetaDescription: Unlock the power of Dapper Contrib by understanding the basics and more advanced topics of this third-party library. Learn what Dapper Contrib is, how it works, and all the documentation you need to get started.
 LastMod: 2023-02-25
 ---
 
-# Dapper Contrib
+# Dapper Contrib: Discover What Is This Library and How to Use It
 
 ## What's Dapper Contrib?
 

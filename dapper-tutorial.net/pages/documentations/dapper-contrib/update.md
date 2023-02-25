@@ -1,10 +1,11 @@
 ---
 PermaID: 1000197
-Name: Update in Dapper Contrib
+Title: Dapper Contrib Update - Learn How to Update Data From a Table
+MetaDescription: Unlock the power of Dapper Contrib with the Update method to update data from a table. Learn how to use the simplest way to update rows from a database table without writing any SQL.
 LastMod: 2023-02-25
 ---
 
-# Dapper Contrib - Update
+# Dapper Contrib Update: Discover How to Update Data From a Table
 
 ## Description
 
