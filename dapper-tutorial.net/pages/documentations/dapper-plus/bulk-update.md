@@ -1,10 +1,11 @@
 ---
 PermaID: 1000201
-Name: Bulk Update in Dapper Plus
+Title: Dapper Plus Bulk Update - Learn how to update multiple rows
+MetaDescription: Unlock the power of Dapper Plus with the BulkUpdate method to update multiple rows from a table. Learn how to use the simplest and fastest way to update rows from a database table without writing any SQL.
 LastMod: 2023-02-26
 ---
 
-# Dapper Plus - Bulk Update
+# Dapper Plus Bulk Update: Discover how to update multiple rows
 
 ## Description
 

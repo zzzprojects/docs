@@ -1,10 +1,11 @@
 ---
 PermaID: 1000198
-Name: Bulk Delete in Dapper Plus
+Title: Dapper Plus Bulk Delete - Learn how to delete multiple rows
+MetaDescription: Unlock the power of Dapper Plus with the BulkDelete method to delete multiple rows from a table. Learn how to use the simplest and fastest way to delete rows from a database table without writing any SQL.
 LastMod: 2023-02-26
 ---
 
-# Dapper Plus - Bulk Delete
+# Dapper Plus Bulk Delete: Discover how to delete multiple rows
 
 ## Description
 

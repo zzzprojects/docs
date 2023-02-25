@@ -1,10 +1,11 @@
 ---
 PermaID: 1000199
-Name: Bulk Insert in Dapper Plus
+Title: Dapper Plus Bulk Insert - Learn how to insert multiple rows
+MetaDescription: Unlock the power of Dapper Plus with the BulkInsert method to insert multiple rows from a table. Learn how to use the simplest and fastest way to insert rows from a database table without writing any SQL.
 LastMod: 2023-02-26
 ---
 
-# Dapper Plus - Bulk Insert
+# Dapper Plus Bulk Insert: Discover how to insert multiple rows
 
 ## Description
 

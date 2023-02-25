@@ -1,10 +1,11 @@
 ---
 PermaID: 1000200
-Name: Bulk Merge in Dapper Plus
+Title: Dapper Plus Bulk Merge - Learn how to upsert multiple rows
+MetaDescription: Unlock the power of Dapper Plus with the BulkMerge method to insert or update multiple rows from a table. Learn how to use the simplest and fastest way to upsert rows from a database table without writing any SQL.
 LastMod: 2023-02-26
 ---
 
-# Dapper Plus - Bulk Merge
+# Dapper Plus Bulk Merge: Discover how to upsert multiple rows
 
 ## Description
 
