@@ -1,10 +1,11 @@
 ---
 PermaID: 1000185
-Name: Transaction
+Name: Dapper Transaction - Learn How to Manage your Transaction
+MetaDescription: Unlock the power of Dapper by using Transaction. Learn how to use a transaction when saving data and completing it with 'Commit' or 'Rollback'.
 LastMod: 2023-02-24
 ---
 
-# Dapper - Transaction
+# Dapper Transaction: Discover How to Manage your Transaction
 
 ## Description
 

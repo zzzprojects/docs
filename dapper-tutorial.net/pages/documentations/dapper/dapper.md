@@ -1,10 +1,11 @@
 ---
 PermaID: 1000167
-Name: Getting Started with Dapper
+Name: Dapper - Learn What is Dapper and Why You Should Use it
+MetaDescription: Unlock the power of Dapper by understanding basics and more advanced topics. Learn what Dapper is, how it works, and all the documentation you need to get started.
 LastMod: 2023-02-22
 ---
 
-# Dapper
+# Dapper: Discover What is Dapper and Why You Should Use it
 
 ## What's Dapper?
 

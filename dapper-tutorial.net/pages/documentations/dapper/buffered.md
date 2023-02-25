@@ -1,10 +1,11 @@
 ---
 PermaID: 1000166
-Name: Buffered
+Name: Dapper Buffered and Unbuffered Query
+MetaDescription: Unlock the power of Dapper by using Buffered and Unbuffered Query. Learn how to return the entire reader at once or load an object on demand by streaming the result.
 LastMod: 2023-02-22
 ---
 
-# Dapper - Buffered
+# Dapper Buffered and Unbuffered Query
 
 ## Description
 

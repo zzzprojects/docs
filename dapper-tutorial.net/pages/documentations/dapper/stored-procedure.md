@@ -1,10 +1,11 @@
 ---
 PermaID: 1000184
-Name: Stored Procedure
+Name: Dapper Stored Procedure - Learn How Execute Stored Procedure (SP)
+MetaDescription: Unlock the power of Dapper by using Stored Procedure. Learn how to use stored procedure with input and output parameters for your CRUD operations.
 LastMod: 2023-02-24
 ---
 
-# Dapper - Stored Procedure 
+# Dapper Stored Procedure: Discover How Execute Stored Procedure (SP)
 
 ## Description
 
@@ -12,7 +13,7 @@ When using Dapper the standard way to call a stored procedure is via the `Query`
 
 Using Stored Procedure in Dapper is very easy, you simply need to specify the command type.
 
-You can use the `Execute` extension method to execute a stored procedure. To execute a stored procedure the `commandTyp` parameter must be set to `commandType:CommandType.StoredProcedure`
+You can use the `Execute` extension method to execute a stored procedure. To execute a stored procedure the `commandType` parameter must be set to `commandType:CommandType.StoredProcedure`
 
 ```csharp
 var sql = "usp_UpdateTable";
