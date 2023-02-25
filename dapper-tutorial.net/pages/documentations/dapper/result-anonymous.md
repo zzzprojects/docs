@@ -1,6 +1,6 @@
 ---
 PermaID: 1000179
-Name: Dapper Anonymous Result - Learn How to Map Result to Dynamic Object
+Title: Dapper Anonymous Result - Learn How to Map Result to Dynamic Object
 MetaDescription: Unlock the power of Dapper by returning an Anonymous Result to map to a dynamic object. Learn how to query your database and return a non-strongly typed result.
 LastMod: 2023-02-24
 ---

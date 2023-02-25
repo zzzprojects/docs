@@ -1,6 +1,6 @@
 ---
 PermaID: 1000176
-Name: Dapper Multiple - Learn How to Return Multiple Results by Batching
+Title: Dapper Multiple - Learn How to Return Multiple Results by Batching
 MetaDescription: Unlock the power of Dapper Query Multiple to optimize your C# database operations. Learn how to use QueryMultiple and QueryMultipleAsync to return a GridReader and use it to return an anonymous type, strongly type entities, or a scalar value.
 LastMod: 2023-02-23
 ---

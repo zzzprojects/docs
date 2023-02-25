@@ -1,6 +1,6 @@
 ---
 PermaID: 1000181
-Name: Dapper Multi-Result Result - Learn How to Map With Multiple Results
+Title: Dapper Multi-Result Result - Learn How to Map With Multiple Results
 MetaDescription: Unlock the power of Dapper by returning a Multi-Result Result by combining queries to map multiple entity types or dynamic objects. Learn how to query your database by combining your queries in a single one and using the resultset to read all your results.
 LastMod: 2023-02-24
 ---

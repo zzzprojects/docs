@@ -1,6 +1,6 @@
 ---
 PermaID: 1000183
-Name: Dapper Strongly Typed Result - Learn How to Map Result to Entity
+Title: Dapper Strongly Typed Result - Learn How to Map Result to Entity
 MetaDescription: Unlock the power of Dapper by returning a Strongly Typed Result to map your entity type or DTO. Learn how to query your database and automatically map the result to your entity model and domain classes.
 LastMod: 2023-02-24
 ---
