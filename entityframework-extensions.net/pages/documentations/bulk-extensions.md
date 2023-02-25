@@ -3,7 +3,7 @@ Title: EF Core Bulk Extensions and EF6 Bulk Insert, Update, Delete, Merge
 MetaDescription: Discover the power of BulkExtensions in EFCore and EF6 to perform high-performance bulk operations and efficiently save large amounts of data.
 ---
 
-# Entity Framework Core Bulk Extensions / EF6
+# EF Core Bulk Extensions / EF6
 
 ## What is Bulk Extensions in Entity Framework?
 
