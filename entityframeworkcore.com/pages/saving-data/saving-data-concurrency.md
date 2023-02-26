@@ -1,10 +1,12 @@
 ---
 permaid: 1000246
-name: Concurrency
+Title: EF Core Concurrency - Learn How to Implement Optimistic Concurrency
+MetaDescription: Unlock the power of EF Core by using Concurrency and what to do when a concurrency error happens. Learn how to use a concurrency column and how to handle concurrency conflict.
+LastMod: 2023-02-24
 tags: save concurrency
 ---
 
-# Concurrency
+# EF Core Concurrency: Discover How to Implement Optimistic Concurrency
 
 ## Introduction
 

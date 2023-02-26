@@ -1,10 +1,12 @@
 ---
 permaid: 1000247
-name: Entity Disconnected
+Title: EF Core Entity Disconnected - Learn How to Track Untracked Entities
+MetaDescription: Unlock the power of EF Core by using Entity Disconnected to improve performance and track entities back in the change tracker. Learn what is considered a disconnected entity and how to track it back.
+LastMod: 2023-02-24
 tags: save change-tracker disconnected
 ---
 
-# Entity Disconnected
+# EF Core Entity Disconnected: Discover How to Track Untracked Entities
 
 ## Introduction
 

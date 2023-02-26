@@ -1,10 +1,12 @@
 ---
 permaid: 1000243
-name: Bulk Insert
+Title: EF Core Bulk Insert - Learn How to Insert Thousands of Entities
+MetaDescription: Unlock the power of EF Core by using Bulk Insert to improve performance dramatically by using bulk operations. Learn what bulk operations are, why you should use it and how easily you can implement it in your project.
+LastMod: 2023-02-24
 tags: save insert bulk-insert
 ---
 
-# Bulk Insert
+# EF Core Bulk Insert: Discover How to Insert Thousands of Entities
 
 ## Introduction
 

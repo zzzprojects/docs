@@ -1,10 +1,12 @@
 ---
 permaid: 1000249
-name: Identity Insert
+Title: EF Core Identity Insert - Lean How Explicitly  Insert Identity Value
+MetaDescription: Unlock the power of EF Core by using Identity Insert to explicitly insert a value in a database. Learn how to use the `SET IDENTITY_INSERT` SQL to allow inserting an explicit value.
+LastMod: 2023-02-24
 tags: save identity
 ---
 
-# Identity Insert
+# EF Core Identity Insert: Discover How Explicitly  Insert Identity Value
 
 ## Introduction
 

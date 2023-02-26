@@ -1,10 +1,12 @@
 ---
 permaid: 1000244
-name: Cascade Delete
+Title: EF Core Cascade Delete - Learn How to Auto Delete Child Entities 
+MetaDescription: Unlock the power of EF Core by using Cascade Delete to automatically delete child-related entities without any additional code. Learn how you can make sql server delete entities implicitly.
+LastMod: 2023-02-24
 tags: save delete
 ---
 
-# Cascade Delete
+# EF Core Cascade Delete: Discover How to Auto Delete Child Entities
 
 ## Introduction
 

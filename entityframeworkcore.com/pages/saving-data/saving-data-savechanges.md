@@ -1,10 +1,12 @@
 ---
 permaid: 1000250
-name: SaveChanges
+Title: EF Core SaveChanges - Learn How to Save Entities in a Database
+MetaDescription: Unlock the power of EF Core by using SaveChanges to save all entities in a database. Learn how to persist data by adding, updating, and deleting them.
+LastMod: 2023-02-24
 tags: save savechanges
 ---
 
-# SaveChanges
+# EF Core SaveChanges: Discover How to Save Entities in a Database
 
 ## Introduction
 

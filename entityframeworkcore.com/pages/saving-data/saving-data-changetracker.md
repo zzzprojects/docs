@@ -1,10 +1,12 @@
 ---
 permaid: 1000245
-name: ChangeTracker
+Title: EF Core Change Tracker - Learn How it Works and Possible States
+MetaDescription: Unlock the power of EF Core by using Change Tracker, understanding how it works, and the possible state of an entity entry. Learn about the possible state such as 'Added', 'Unchanged', 'Modified', 'Deleted', 'Detached' and their behaviors.
+LastMod: 2023-02-24
 tags: save change-tracker
 ---
 
-# ChangeTracker
+# EF Core Change Tracker: Discover How it Works and Possible States
 
 ## Introduction
 
