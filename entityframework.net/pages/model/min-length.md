@@ -1,10 +1,12 @@
 ---
 PermaID: 1000119
-Name: Min Length
+Title: Entity Framework MinLength Data Annotation
+MetaDescription: Unlock the power of Entity Framework by using the MinLength Data Annotations. Learn how to set this attribute to specify the minimum length of a string property.
+LastMod: 2023-02-25
 Tags: code-first fluent-api data-annotations
 ---
 
-# MinLength
+# Entity Framework MinLength Data Annotation
 
 The `MinLength` attributes allow you to specify additional property validations. It is applied to a property to specify a minimum number of characters or bytes for the column that the property should map to.
 

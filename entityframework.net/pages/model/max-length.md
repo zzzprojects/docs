@@ -1,10 +1,12 @@
 ---
 PermaID: 1000120
-Name: Max Length
+Title: Entity Framework MaxLength Data Annotation
+MetaDescription: Unlock the power of Entity Framework by using the MaxLength Data Annotations. Learn how to set this attribute to specify the maximum length of a string property.
+LastMod: 2023-02-25
 Tags: code-first fluent-api data-annotations
 ---
 
-# MaxLength
+# Entity Framework MaxLength Data Annotation
 
 The `MaxLength` attributes allow you to specify additional property validations. It is applied to a property to specify a maximum number of characters or bytes for the column that the property should map to.
 

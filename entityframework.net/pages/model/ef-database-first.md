@@ -1,10 +1,12 @@
 ---
 PermaID: 1000105
-Name: Database First
+Title: Entity Framework Database First - Learn How to Use this Approach
+MetaDescription: Unlock the power of Entity Framework by understanding how the database first approach work. Learn what this approach is and how to get started.
+LastMod: 2023-02-24
 Tags: database-first model
 ---
 
-# EF Database First
+# Entity Framework Database First: Discover How to Use this Approach
 
 ## What is Entity Framework Database First? 
 

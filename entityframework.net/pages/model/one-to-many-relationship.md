@@ -1,10 +1,12 @@
 ---
 PermaID: 1000055
-Name: One to Many
+Title: Entity Framework One-to-Many Relationships
+MetaDescription: Unlock the power of Entity Framework by using one-to-many to specify your entities relationship. Learn what this relationship is and how to use it in your model.
+LastMod: 2023-02-25
 Tags: model relationship
 ---
 
-# One-to-Many Relationships
+# Entity Framework One-to-Many Relationships
 
 In a one-to-many relationship, each row of data in one table is linked to one or more rows in the second table. It is the most common type of relationship.
 

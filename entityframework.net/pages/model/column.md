@@ -1,10 +1,12 @@
 ---
 PermaID: 1000128
-Name: Column
+Title: Entity Framework Column Data Annotations
+MetaDescription: Unlock the power of Entity Framework by using the Column Data Annotations. Learn how to set this attribute to specify the column name.
+LastMod: 2023-02-24
 Tags: code-first fluent-api data-annotations
 ---
 
-# Column
+# Entity Framework Column Data Annotations
 
 In EF 6, the default convention creates a creates a column name similar to the property name in an entity class.
 

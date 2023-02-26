@@ -1,10 +1,12 @@
 ---
 PermaID: 1000089
-Name: Table per Concrete
+Title: Entity Framework Table Per Concrete (TPC)
+MetaDescription: Unlock the power of Entity Framework by using table per concrete inheritance. Learn what a TPC is and how to use this approach.
+LastMod: 2023-02-25
 Tags: model inheritance tpc
 ---
 
-# Table Per Concrete
+# Entity Framework Table Per Concrete (TPC)
 
 ## What is Inheritance Type in Entity Framework?  
 

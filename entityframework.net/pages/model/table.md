@@ -1,10 +1,12 @@
 ---
 PermaID: 1000115
-Name: Table
+Title: Entity Framework Table Data Annotation
+MetaDescription: Unlock the power of Entity Framework by using the Table Data Annotations. Learn how to set this attribute to specify the table name and schema name.
+LastMod: 2023-02-25
 Tags: code-first fluent-api data-annotations
 ---
 
-# Table
+# Entity Framework Table Data Annotation
 
 In EF 6, the default convention creates a table name matching with `<DbSet<TEntity> property name>` + 's' or 'es' in a context class.
 

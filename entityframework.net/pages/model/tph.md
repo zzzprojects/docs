@@ -1,10 +1,12 @@
 ---
 PermaID: 1000088
-Name: Table per Hierarchy
+Title: Entity Framework Table Per Hierarchy (TPH)
+MetaDescription: Unlock the power of Entity Framework by using table per hierarchy inheritance. Learn what a TPH is and how to use this approach.
+LastMod: 2023-02-25
 Tags: model inheritance tph
 ---
 
-# Table Per Hierarchy
+# Entity Framework Table Per Hierarchy (TPH)
 
 ## What is Inheritance Type in Entity Framework?  
 

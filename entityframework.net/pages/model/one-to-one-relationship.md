@@ -1,10 +1,12 @@
 ---
 PermaID: 1000054
-Name: One to One
+Title: Entity Framework One-to-One Relationships
+MetaDescription: Unlock the power of Entity Framework by using one-to-one to specify your entities relationship. Learn what this relationship is and how to use it in your model.
+LastMod: 2023-02-25
 Tags: model relationship
 ---
 
-# One-to-One Relationships
+# Entity Framework One-to-One Relationships
 
 In a one-to-one relationship, each row of data in one table is linked to zero or one row in the second table. For example, the `Author` and `AuthorBiography` have a one-to-one relationship.
 

@@ -1,10 +1,12 @@
 ---
 PermaID: 1000107
-Name: Code First vs Database First
+Title: Entity Framework Code First vs Database First
+MetaDescription: Unlock the power of Entity Framework by understanding the difference between code first and database first approaches. Learn about both approaches and find the best one for you.
+LastMod: 2023-02-24
 Tags: model code-first database-first
 ---
 
-# Code First vs Database First
+# Entity Framework Code First vs Database First
 
 ## Code First vs Database First 
 

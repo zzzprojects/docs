@@ -1,10 +1,12 @@
 ---
 PermaID: 1000123
-Name: Foreign Key
+Title: Entity Framework ForeignKey Data Annotations
+MetaDescription: Unlock the power of Entity Framework by using the ForeignKey Data Annotations. Learn how to specify which property is the foreign key in a relationship and how to specify this attribute.
+LastMod: 2023-02-24
 Tags: code-first fluent-api data-annotations
 ---
 
-# ForeignKey
+# Entity Framework ForeignKey Data Annotations
 
 The `ForeignKey` attribute is used to specify which property is the foreign key in a relationship. It is used to express the relationship between two tables.
 

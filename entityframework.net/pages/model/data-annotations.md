@@ -1,10 +1,12 @@
 ---
 PermaID: 1000125
-Name: Data Annotations
+Title: Entity Framework Data Annotations - Learn How to use Attributes
+MetaDescription: Unlock the power of Entity Framework by using Data Annotations in your entities and properties. Learn how to map your entities and properties to your model through attributes.
+LastMod: 2023-02-24
 Tags: code-first fluent-api data-annotations
 ---
 
-# Data Annotations
+# Entity Framework Data Annotations: Discover How to use Attributes
 
 In .NET Framework, data annotation add extra meaning to the data by adding attribute tags. It is used to configure the classes which will highlight the most commonly needed configurations.
 

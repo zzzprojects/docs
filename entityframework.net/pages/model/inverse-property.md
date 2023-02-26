@@ -1,10 +1,12 @@
 ---
 PermaID: 1000122
-Name: Inverse Property
+Title: Entity Framework InverseProperty Data Annotations
+MetaDescription: Unlock the power of Entity Framework by using the InverseProperty Data Annotations. Learn how to specify an inverse navigation property of a relationship and how to specify this attribute.
+LastMod: 2023-02-24
 Tags: code-first fluent-api data-annotations
 ---
 
-# InverseProperty
+# Entity Framework InverseProperty Data Annotations
 
 The `InverseProperty` attribute is used to denote the inverse navigation property of a relationship when the same type takes part in multiple relationships. 
 

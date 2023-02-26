@@ -1,10 +1,12 @@
 ---
 PermaID: 1000126
-Name: Concurrency Check
+Title: Entity Framework ConcurrencyCheck Data Annotations
+MetaDescription: Unlock the power of Entity Framework by using the ConcurrencyCheck Annotations. Learn What a concurrency check and how to specify this attribute is.
+LastMod: 2023-02-24
 Tags: code-first fluent-api data-annotations
 ---
 
-# ConcurrencyCheck
+# Entity Framework ConcurrencyCheck Data Annotations
 
 The `ConcurrencyCheck` attribute allows you to configure one or more properties to be used for concurrency checking in the database when a user edits or deletes an entity. 
 

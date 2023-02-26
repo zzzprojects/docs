@@ -1,10 +1,12 @@
 ---
 PermaID: 1000114
-Name: Timestamp
+Title: Entity Framework Timestamp Data Annotation
+MetaDescription: Unlock the power of Entity Framework by using the Timestamp Data Annotations. Learn how to set this attribute to specify timestamp columns or row versions.
+LastMod: 2023-02-25
 Tags: code-first fluent-api data-annotations
 ---
 
-# Timestamp
+# Entity Framework Timestamp Data Annotation
 
 The `TimeStamp` attribute is used to creates a column with timestamp data type in the SQL Server database.
 

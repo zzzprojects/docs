@@ -1,10 +1,12 @@
 ---
 PermaID: 1000053
-Name: Relationships
+Title: Entity Framework Relationships - Learn which relation is supported
+MetaDescription: Unlock the power of Entity Framework by using relationships available to specify the relation within your entities. What about the many-to-many, one-to-many, and one-to-one relation and how to use it in your model.
+LastMod: 2023-02-25
 Tags: model relationship
 ---
 
-# Relationships
+# Entity Framework Relationships: Discover which relation is supported
 
 In the context of relational databases, a relationship exists between two relational database tables when one table has a foreign key that references the primary key of the other table. In Entity Framework, a relationship defines how two entities relate to each other.
 

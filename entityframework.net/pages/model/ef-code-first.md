@@ -1,10 +1,12 @@
 ---
 PermaID: 1000106
-Name: Code First
+Title: Entity Framework Code First - Learn How to Use this Approach
+MetaDescription: Unlock the power of Entity Framework by understanding how the code first approach work. Learn what this approach is and how to get started.
+LastMod: 2023-02-24
 Tags: code-first model
 ---
 
-# EF Code First
+# Entity Framework Code First: Discover How to Use this Approach
 
 ## What is Entity Framework Code First? 
 

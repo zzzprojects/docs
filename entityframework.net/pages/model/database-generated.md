@@ -1,10 +1,12 @@
 ---
 PermaID: 1000124
-Name: Database Generated
+Title: Entity Framework DatabaseGenerated Data Annotations
+MetaDescription: Unlock the power of Entity Framework by using the DatabaseGenerated Data Annotations. Learn the difference between DatabaseGeneratedOption none, identity, and computer and how to specify this attribute.
+LastMod: 2023-02-24
 Tags: code-first fluent-api data-annotations
 ---
 
-# DatabaseGenerated
+# Entity Framework DatabaseGenerated Data Annotations
 
 The `DatabaseGenerated` attribute added to the properties whose value is automatically computed/updated by the Database. It specifies how the database generates values for the property. There are three possible values:
 

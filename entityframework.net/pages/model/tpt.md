@@ -1,10 +1,12 @@
 ---
 PermaID: 1000087
-Name: Table per Type
+Title: Entity Framework Table Per Type (TPT)
+MetaDescription: Unlock the power of Entity Framework by using table per type inheritance. Learn what a TPT is and how to use this approach.
+LastMod: 2023-02-25
 Tags: model inheritance tpt
 ---
 
-# Table Per Type
+# Entity Framework Table Per Type (TPT)
 
 ## What is Inheritance Type in Entity Framework?  
 

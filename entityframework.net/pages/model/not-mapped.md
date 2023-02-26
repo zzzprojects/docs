@@ -1,10 +1,12 @@
 ---
 PermaID: 1000118
-Name: Not Mapped
+Title: Entity Framework NotMapped Data Annotation
+MetaDescription: Unlock the power of Entity Framework by using the NotMapped Data Annotations. Learn how to set this attribute to ignore the property from the mapping.
+LastMod: 2023-02-25
 Tags: code-first fluent-api data-annotations
 ---
 
-# NotMapped
+# Entity Framework NotMapped Data Annotation
 
 The `NotMapped` attribute is used to specify that an entity or property is not to be mapped to a table or column in the database. 
 

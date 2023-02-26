@@ -1,10 +1,12 @@
 ---
 PermaID: 1000056
-Name: Many to Many
+Title: Entity Framework Many-to-Many Relationships
+MetaDescription: Unlock the power of Entity Framework by using many-to-many to specify your entities relationship. Learn what this relationship is and how to use it in your model.
+LastMod: 2023-02-25
 Tags: model relationship
 ---
 
-# Many-to-Many Relationships
+# Entity Framework Many-to-Many Relationships
 
 In a many-to-many relationship, each row of data in one table is linked to many rows in the second table and vice versa.
 

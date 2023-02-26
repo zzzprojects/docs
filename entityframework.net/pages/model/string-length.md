@@ -1,10 +1,12 @@
 ---
 PermaID: 1000116
-Name: String Length
+Title: Entity Framework StringLength Data Annotation
+MetaDescription: Unlock the power of Entity Framework by using the StringLength Data Annotations. Learn how to set this attribute to specify the length of a string, including the minimum and maximum length.
+LastMod: 2023-02-25
 Tags: code-first fluent-api data-annotations
 ---
 
-# StringLength
+# Entity Framework StringLength Data Annotation
 
 The `StringLength` attributes allow you to specify additional property validations like `MaxLength`. 
 

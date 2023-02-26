@@ -1,10 +1,12 @@
 ---
 PermaID: 1000121
-Name: Key
+Title: Entity Framework Key Data Annotation - Learn How to use Key Attribute
+MetaDescription: Unlock the power of Entity Framework by using the Key Data Annotations. Learn how to set this attribute to specify which properties are your primary key columns.
+LastMod: 2023-02-24
 Tags: code-first fluent-api data-annotations
 ---
 
-# Key
+# Entity Framework Key Data Annotation: Discover How to use Key Attribute
 
 The `Key` attribute can be applied to a property to make it a key property in an entity class and the corresponding column to a primary key column in the database. 
 
