@@ -1,14 +1,16 @@
 ---
 Permalink: articles/fixedbuffer-ef-core-data-access-easy-2
-name: EF Core - Data Access II
+Title: Making Data Access Easy with Entity Framework Core (Part 2)
+MetaDescription:  In this article, we will learn how to create a database model using Entity Framework Core with the "Code First" option, generating our database through classes that we will relate to each other. We will also explore how to use the CLI commands to generate migrations and update the database. This tutorial is ideal for anyone looking to make data access simple and easy using Entity Framework Core. Reading time: 10 minutes.
 tags: fixedbuffer article data-access
 OriginalLink: https://www.fixedbuffer.com/entity-framework-core-2/
 CreatedDate: 2018-09-25
 CreatedUserName: JorTurFer
 CreatedUserLink: https://www.fixedbuffer.com/
+LastMod: 2023-02-20
 ---
 
-# Making data access easy with Entity Framework Core (Part 2)
+# Making Data Access Easy with Entity Framework Core (Part 2)
 
 _Reading time: 10 minutes_
 

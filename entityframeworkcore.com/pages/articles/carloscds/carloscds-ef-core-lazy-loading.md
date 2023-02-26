@@ -1,14 +1,16 @@
 ---
 Permalink: articles/carloscds-ef-core-lazy-loading
-name: EF Core - Lazy Loading
+Title: Understanding Lazy Loading in EF Core
+MetaDescription: Learn about lazy loading in Entity Framework Core and how it can improve performance when working with related data in your application.
 tags: carloscds article lazy-loading proxy
 OriginalLink: https://carloscds.net/2018/07/ef-core-lazy-loading/
 CreatedDate: 2018-07-02
 CreatedUserName: Carlos dos Santos
 CreatedUserLink: https://carloscds.net/
+LastMod: 2023-02-20
 ---
 
-# EF Core - Lazy Loading
+# Exploring the Benefits and Limitations of Lazy Loading in EF Core
 
 After a long time without writing about Entity Framework, I will resume with a series of articles about the new version: Entity Framework Core.
 

@@ -1,14 +1,16 @@
 ---
 Permalink: articles/carloscds-ef-core-power-tools
-name: EF Core - Power Tools
+Title: Generate EF Core Classes from Databases with EF Core Power Tools
+MetaDescription: Learn how to use EF Core Power Tools to generate Entity Framework Core classes from your existing database. This tool simplifies the development process and saves time. Follow our step-by-step guide and start using EF Core Power Tools today!
 tags: carloscds article powertools reverse-engineer
 OriginalLink: https://carloscds.net/2018/05/ef-core-powertools/
 CreatedDate: 2018-05-28
 CreatedUserName: Carlos dos Santos
 CreatedUserLink: https://carloscds.net/
+LastMod: 2023-02-20
 ---
 
-# EF Core - Power Tools
+# How to Use EF Core Power Tools to Generate EF Core Classes from Databases
 
 Already using ASP.NET Core? Entity Framework Core? This new version of EF Core is very good, and help in the development process. Today I will talk about the EF Core Power Tools.
 

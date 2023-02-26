@@ -1,14 +1,16 @@
 ---
 Permalink: articles/carloscds-ef-core-dependency-injection
-name: EF Core - Dependency Injection
+Title: Dependency Injection with EF Core: In-Memory Database and Invoking Dependencies
+MetaDescription: Learn how to use Entity Framework Core with an in-memory database and invoke injected dependencies without using class constructors. Follow our step-by-step guide and simplify your development process with Dependency Injection in EF Core.
 tags: carloscds article dependency-injection inmemory
 OriginalLink: https://carloscds.net/2020/02/injecao-de-depenencia-em-c-bonus/
 CreatedDate: 2020-02-27
 CreatedUserName: Carlos dos Santos
 CreatedUserLink: https://carloscds.net/
+LastMod: 2023-02-20
 ---
 
-# Dependency Injection with EF Core
+# How to Use Dependency Injection with EF Core: In-Memory Database and Invoking Dependencies
 
 In the last article in this series, I will show you two straightforward things: first, how to use the EntityFramework Core in memory and how to invoke an injected dependency without using the class constructor!
 

@@ -1,14 +1,16 @@
 ---
 Permalink: articles/fixedbuffer-ef-core-what-is-new
-name: EF Core - What's new?
+Title: Entity Framework Core 3.0: What's New?
+MetaDescription: Entity Framework Core 3.0 brings many new features and performance improvements, including unique SQL statements, client evaluation restriction, C# 8 support, new tooling, and compliance with .NET Standard 2.1. This article explores some of the most important features and changes in design.
 tags: fixedbuffer article release
 OriginalLink: https://www.fixedbuffer.com/entity-framework-core-3-0-que-novedades-nos-trae/
 CreatedDate: 2019-10-22
 CreatedUserName: JorTurFer
 CreatedUserLink: https://www.fixedbuffer.com/
+LastMod: 2023-02-20
 ---
 
-# Entity Framework Core 3.0: what's new?
+# A Look at the Most Important Features of Entity Framework Core 3.0
 
 _Reading time: 4 minutes_
 

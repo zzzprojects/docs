@@ -1,11 +1,13 @@
 ---
 Permalink: articles/fixedbuffer-ef-core-data-access-easy
-name: EF Core - Data Access
+Title: Making Data Access Easy with Entity Framework Core
+MetaDescription: Learn how to use Entity Framework Core for data access in this tutorial. Get step-by-step instructions on how to generate the Entity Framework Core DbContext, insert data, and read data using navigation properties.
 tags: fixedbuffer article data-access
 OriginalLink: https://www.fixedbuffer.com/acceso-a-datos-con-entity-framework-core/
 CreatedDate: 2018-09-18
 CreatedUserName: JorTurFer
 CreatedUserLink: https://www.fixedbuffer.com/
+LastMod: 2023-02-20
 ---
 
 # Making data access easy with Entity Framework Core
