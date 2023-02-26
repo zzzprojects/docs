@@ -1,6 +1,8 @@
 ---
 permaid: 1000215
-name: Database First
+Title: EF Core Database First - Learn How to Create Model From Database
+MetaDescription: Unlock the power of EF Core with Database First approach to create your model from an existing database. Learn about the advantages of this approach and how to use the database first.
+LastMod: 2023-02-21
 tags: database-first model approach
 ---
 

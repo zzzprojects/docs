@@ -1,6 +1,8 @@
 ---
 permaid: 1000216
-name: Migrations
+Title: EF Core Migrations - Learn How to Use Common Command Line
+MetaDescription: Unlock the power of EF Core with Migrations to understand existing command lines. Learn how to add a migration, update your database, and delete a migration.
+LastMod: 2023-02-21
 tags: code-first migration command-line
 ---
 

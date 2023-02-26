@@ -1,10 +1,12 @@
 ---
 permaid: 1000254
-name: Tutorial & Learn
+Title: EF Core Tutorial - Learn About Other Ressources and Websites
+MetaDescription: Unlock the power of EF Core by finding more helpful resources to help you in your journey. Learn about other existing tutorial websites and other free content. 
+LastMod: 2023-02-21
 tags: getting-started tutorial
 ---
 
-# Tutorial & Learn
+# EF Core Tutorial: Discover About Other Ressources and Websites
 
 You can visit the following links to get some information about Entity Framework Core. 
 

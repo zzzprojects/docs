@@ -1,6 +1,8 @@
 ---
 permaid: 1000221
-name: Relationships
+Title: EF Core Relationships - Learn About Existing Relation in Your Entity
+MetaDescription: Unlock the power of EF Core with Relationships by understanding all different types. Learn about one-to-one, one-to-many, and many-to-many relationship.
+LastMod: 2023-02-21
 tags: code-first relationship fluent-mapping
 ---
 

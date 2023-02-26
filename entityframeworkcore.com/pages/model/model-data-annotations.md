@@ -1,6 +1,8 @@
 ---
 permaid: 1000217
-name: Data Annotations
+Title: EF Core Data Annotations - Learn Attribute to Map Entity To Model
+MetaDescription: Unlock the power of EF Core with Data Annotations by mapping your entity to your model with attributes. Learn about the advantages of this approach and all possible data annotations.
+LastMod: 2023-02-21
 tags: code-first data-annotation fluent-mapping
 ---
 

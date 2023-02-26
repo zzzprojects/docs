@@ -1,6 +1,8 @@
 ---
 permaid: 1000218
-name: Explicit Values
+Title: EF Core Explicit Values - Learn What Happen When You Specify Value
+MetaDescription: Unlock the power of EF Core with Explicit Values to understand how property will react when a value is specified. Learn what it means to specify a value explicitly and how EF Core will save it.
+LastMod: 2023-02-21
 tags: code-first fluent-mapping model
 ---
 

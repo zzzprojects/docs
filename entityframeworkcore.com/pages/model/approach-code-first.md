@@ -1,6 +1,8 @@
 ---
 permaid: 1000214
-name: Code First
+Title: EF Core Code First - Learn How to Create Model From Code
+MetaDescription: Unlock the power of EF Core with Code First approach to create your model from your entity. Learn about the advantages of this approach and how to use code first.
+LastMod: 2023-02-21
 tags: code-first model approach migration command-line
 ---
 

@@ -1,6 +1,8 @@
 ---
 permaid: 1000219
-name: Fluent API
+Title: EF Core Fluent API - Learn How to Map Entity To Model Using Code
+MetaDescription: Unlock the power of EF Core with Fluent API by mapping your entity to your model with code. Learn about the advantages of this approach and how to use the model builder.
+LastMod: 2023-02-21
 tags: code-first fluent-mapping model
 ---
 

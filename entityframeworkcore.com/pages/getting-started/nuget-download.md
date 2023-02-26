@@ -1,10 +1,12 @@
 ---
 permaid: 1000222
-name: NuGet Download
+Title: EF Core NuGet - Learn Where and How to Install the Package
+MetaDescription: Unlock the power of EF Core by getting started to download the package. Learn which NuGet package to download and how to install it in your project.
+LastMod: 2023-02-21
 tags: getting-started nuget download
 ---
 
-# Nuget Download
+# EF Core NuGet - Learn Where and How to Install the Package
 
 ## Install EF Core
 

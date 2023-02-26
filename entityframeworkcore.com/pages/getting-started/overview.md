@@ -1,10 +1,12 @@
 ---
 permaid: 1000223
-name: Overview
+Title: EF Core Overview - Learn What is EF Core and Why You Should Use it
+MetaDescription: Unlock the power of EF Core by understanding the basics and more advanced topics of this library. Learn what EF Core is, how it works, and all the documentation you need to get started.
+LastMod: 2023-02-21
 tags: getting-started history
 ---
 
-# Overview
+# EF Core Overview - Discover What is EF Core and Why You Should Use it
 
 ## Introduction
 
