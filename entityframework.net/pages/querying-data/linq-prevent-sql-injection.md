@@ -1,10 +1,12 @@
 ---
 PermaID: 1000080
-Name: LINQ & SQL Injection
+Title: Entity Framework Prevent SQL Injection with LINQ
+MetaDescription: Unlock the power of Entity Framework by understanding how LINQ prevents SQL injection. Learn how LINQ query work and how it can prevent your code from malicious code.
+LastMod: 2023-02-26
 Tags: query
 ---
 
-# LINQ Prevent SQL Injection
+# Entity Framework Prevent SQL Injection with LINQ
 
 ## Do LINQ is SQL Injection safe? 
 

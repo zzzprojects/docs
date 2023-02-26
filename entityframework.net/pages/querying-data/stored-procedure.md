@@ -1,10 +1,12 @@
 ---
 PermaID: 1000057
-Name: Stored Procedure
+Title: Entity Framework Stored Procedure - Learn How to Use SP in LINQ
+MetaDescription: Unlock the power of Entity Framework by using a stored procedure to keep the logic in your database. Learn the advantages of using a stored procedure and how to use them.
+LastMod: 2023-02-26
 Tags: query stored-procedure raw-sql
 ---
 
-# Stored Procedure
+# Entity Framework Stored Procedure: Discover How to Use SP in LINQ
 
 ## What is Stored Procedure?
 

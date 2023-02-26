@@ -1,10 +1,12 @@
 ---
 PermaID: 1000077
-Name: LINQ Dynamic
+Title: Entity Framework Use LINQ Dynamically - Learn How Use LINQ at Runtime
+MetaDescription: Unlock the power of Entity Framework by using Dynamic LINQ at runtime. Learn how to specify where clause or order by clause at runtime.
+LastMod: 2023-02-26
 Tags: query linq linq-dynamic
 ---
 
-# Use LINQ Dynamically
+# Entity Framework Use LINQ Dynamically: Discover How Use LINQ at Runtime
 
 ## How to use LINQ dynamically? 
 

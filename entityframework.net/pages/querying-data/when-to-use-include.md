@@ -1,10 +1,12 @@
 ---
 PermaID: 1000090
-Name: When to use Include
+Title: Entity Framework When to Use Include - Learn Scenario With Include
+MetaDescription: Unlock the power of Entity Framework by understanding when you should use the Include method. Learn how the include method work and how you should use it.
+LastMod: 2023-02-26
 Tags: query include
 ---
 
-# When to Use Include
+# Entity Framework When to Use Include: Discover Scenario With Include
 
 ## When to use Include() with Entity Framework? 
 

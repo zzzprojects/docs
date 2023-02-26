@@ -1,10 +1,12 @@
 ---
 PermaID: 1000060
-Name: Lazy Loading
+Title: Entity Framework Lazy Loading - Learn How to Load Entities on Demand
+MetaDescription: Unlock the power of Entity Framework by loading related entities automatically on demand. Learn how lazy loading can help you to save development time by automatically including related entities when you need to use them.
+LastMod: 2023-02-26
 Tags: query lazy-loading
 ---
 
-# Lazy Loading
+# Entity Framework Lazy Loading: Discover How to Load Entities on Demand
 
 In Lazy loading, an entity or collection of entities is automatically loaded from the database when a property referring to that entity/entities is accessed for the first time. 
 

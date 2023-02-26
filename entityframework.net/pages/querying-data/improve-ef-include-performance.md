@@ -1,10 +1,12 @@
 ---
 PermaID: 1000070
-Name: Include Performance
+Title: Entity Framework Improve Include Performance - Learn Why it is Slow
+MetaDescription: Unlock the power of Entity Framework by improving your include performance. Learn about the cause that can make the Include method slow and how to improve the performance.
+LastMod: 2023-02-26
 Tags: query performance
 ---
 
-# Improve EF Include Performance
+# Entity Framework Improve Include Performance: Discover Why it is Slow
 
 ## How to Improve Entity Framework Include Performance?
 

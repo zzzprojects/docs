@@ -1,10 +1,12 @@
 ---
 PermaID: 1000063
-Name: Eager Loading
+Title: Entity Framework Eager Loading - Learn How To Load Related Entities
+MetaDescription: Unlock the power of Entity Framework by loading related entities with the include method in the same LINQ query. Learn how to query all your related entities using the Include method.
+LastMod: 2023-02-26
 Tags: query eager-loading
 ---
 
-# Eager Loading
+# Entity Framework Eager Loading: Discover How To Load Related Entities
 
 In Eager loading, a query for one type of entity also loads related entities as part of the query. 
 

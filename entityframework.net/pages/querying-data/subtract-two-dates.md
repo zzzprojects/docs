@@ -1,10 +1,12 @@
 ---
 PermaID: 1000078
-Name: Substract Two Dates
+Title: Entity Framework Subtract Two Dates - Lean How to Use Date in LINQ
+MetaDescription: Unlock the power of Entity Framework by understanding how to use LINQ query to subtract date. Learn how to use an expression to their full potential.
+LastMod: 2023-02-26
 Tags: query
 ---
 
-# Subtract Two Dates
+# Entity Framework Subtract Two Dates: Discover How to Use Date in LINQ
 
 ## How to subtract two dates? 
 

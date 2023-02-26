@@ -1,10 +1,12 @@
 ---
 PermaID: 1000082
-Name: Check Object Existence
+Title: Entity Framework Check Object Existence
+MetaDescription: Unlock the power of Entity Framework by understanding how you can check if an entity already exists.
+LastMod: 2023-02-26
 Tags: query
 ---
 
-# Check Object Existence
+# Entity Framework Check Object Existence
 
 ## How to check if an object exists in the database?
 

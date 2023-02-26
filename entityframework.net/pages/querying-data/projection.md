@@ -1,10 +1,12 @@
 ---
 PermaID: 1000059
-Name: Projection
+Title: Entity Framework Projection - Learn How to Return Anonymous Type
+MetaDescription: Unlock the power of Entity Framework by using projection only to return data you will use in an anonymous type. Learn how to increase your performance by only querying the data you need.
+LastMod: 2023-02-26
 Tags: query
 ---
 
-# Projection
+# Entity Framework Projection: Discover How to Return Anonymous Type
 
 A projection is just a way of mapping one set of properties to another. In Entity Framework, it's a way of translating a full entity (database table) into a C# class with a subset of those properties.
 

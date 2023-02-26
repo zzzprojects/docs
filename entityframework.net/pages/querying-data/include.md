@@ -1,10 +1,12 @@
 ---
 PermaID: 1000062
-Name: Include
+Title: Entity Framework Include - Learn to Specify Related Entities
+MetaDescription: Unlock the power of Entity Framework by including related entities in your LINQ query. Learn how the Include method allows you to load more data in the same query.
+LastMod: 2023-02-26
 Tags: query include
 ---
 
-# Include
+# Entity Framework Include: Discover to Specify Related Entities
 
 In Entity Framework, the `Include` method loads the related objects to include in the query results. It can be used to retrieve some information from the database and also want to include related entities. 
 

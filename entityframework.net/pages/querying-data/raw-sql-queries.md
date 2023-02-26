@@ -1,10 +1,12 @@
 ---
 PermaID: 1000058
-Name: Raw SQL Queries
+Title: Entity Framework Raw SQL Query - Learn How to Execute Plain Text SQL 
+MetaDescription: Unlock the power of Entity Framework by replacing complex LINQ queries by plain text SQL. Learn how to write your own SQL can save you time and increase your query performance.
+LastMod: 2023-02-26
 Tags: query raw-sql
 ---
 
-# Raw SQL Queries
+# Entity Framework Raw SQL Query: Discover How to Execute Plain Text SQL
 
 ## Why Raw SQL Queries?
 

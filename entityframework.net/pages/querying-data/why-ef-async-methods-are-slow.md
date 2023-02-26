@@ -1,10 +1,12 @@
 ---
 PermaID: 1000132
-Name: Why Async method are slow
+Title: Entity Framework Why Async Methods are Slow - Learn Why They Are Slow
+MetaDescription: Unlock the power of Entity Framework by understanding how async method can make your query be executed slower. Learn the drawback of using an async method and how it can affect your performance.
+LastMod: 2023-02-26
 Tags: query performance
 ---
 
-# Why EF Async Methods are Slow
+# Entity Framework Why Async Methods are Slow: Discover Why They Are Slow
 
 ## Why EF async methods are slower than non-async? 
 

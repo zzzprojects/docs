@@ -1,10 +1,12 @@
 ---
 PermaID: 1000092
-Name: Include Multiple Levels
+Title: Entity Framework Include Multiple Levels
+MetaDescription: Unlock the power of Entity Framework by including multiple levels of related entities in your LINQ query. Learn how to use the Include method in more advanced scenarios.
+LastMod: 2023-02-26
 Tags: query include
 ---
 
-# Include Multiple Levels
+# Entity Framework Include Multiple Levels
 
 ## How to Include multiple levels? 
 

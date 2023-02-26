@@ -1,10 +1,12 @@
 ---
 PermaID: 1000091
-Name: Include with Where Clause
+Title: Entity Framework Include With Where Clause
+MetaDescription: Unlock the power of Entity Framework by including related entities with a 'where' clause in your LINQ query. Learn how you could use included related entities by filtering them.
+LastMod: 2023-02-26
 Tags: query include
 ---
 
-# Include With Where Clause
+# Entity Framework Include With Where Clause
 
 ## How to Include with Where clause? 
 

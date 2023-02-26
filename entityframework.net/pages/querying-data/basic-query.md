@@ -1,12 +1,12 @@
 ---
 PermaID: 1000064
-Name: Basic Query
+Title: Entity Framework Basic Query - Learn How To Make Basic Queries
+MetaDescription: Unlock the power of Entity Framework by understanding what a LINQ query and how to use it is. Learn how to get started by creating your first LINQ query and how to use it.
+LastMod: 2023-02-26
 Tags: query
 ---
 
-# Basic Query
-
-test
+# Entity Framework Basic Query: Discover How To Make Basic Queries
 
 In Entity Framework, querying data is executed against the `DbSet` properties of the `DbContext`.
 
