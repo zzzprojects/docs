@@ -1,10 +1,12 @@
 ---
 permaid: 1000235
-name: Include & ThenInclude
+Title: EF Core Include - Learn How to Retrieve Related Objects in LINQ
+MetaDescription: Unlock the power of EF Core by using Include and ThenInclude to retrieve related entities. Learn how including related objects help to simplify your LINQ query.
+LastMod: 2023-02-23
 tags: query include
 ---
 
-# Include & ThenInclude
+# EF Core Include: Discover How to Retrieve Related Objects in LINQ
 
 ## Include 
 

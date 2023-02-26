@@ -1,10 +1,12 @@
 ---
 permaid: 1000232
-name: Basic Query
+Title: EF Core Query - Learn the Basics about Querying a Database in LINQ
+MetaDescription: Unlock the power of EF Core by understanding how queries in LINQ work to understand the basics and more advanced concepts. Learn how to use LINQ and all possibilities it offers.
+LastMod: 2023-02-23
 tags: query getting-started
 ---
 
-# Basic Query
+# EF Core Query: Discover the Basics about Querying a Database in LINQ
 
 Entity Framework Core uses Language Integrate Query (LINQ) to query data from the database. 
 

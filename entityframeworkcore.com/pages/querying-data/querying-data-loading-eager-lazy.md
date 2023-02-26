@@ -1,10 +1,12 @@
 ---
 permaid: 1000239
-name: Loading (Eager & Lazy)
+Title: EF Core Eager and Lazy Loading - Learn How to Load Data on Demand
+MetaDescription: Unlock the power of EF Core by understanding Eager and Lazy Loading, and their advantages when to use it. Learn why, when, and how to use lazy loading approach over eager loading.
+LastMod: 2023-02-23
 tags: query loading
 ---
 
-# Loading (Eager & Lazy)
+# EF Core Eager and Lazy Loading: Discover How to Load Data on Demand
 
 Entity Framework Core allows you to use the navigation properties in your model to load related entities. There are three common patterns used to load related data.
 

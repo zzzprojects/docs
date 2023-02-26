@@ -1,10 +1,12 @@
 ---
 permaid: 1000242
-name: Stored Procedure
+Title: EF Core Stored Procedure - Learn How to Query a SP in LINQ
+MetaDescription: Unlock the power of EF Core by using Stored Procedure in your queries to add more flexibility. Learn how to keep some logic in your database by querying a stored procedure instead of creating a complex LINQ query.
+LastMod: 2023-02-23
 tags: query stored-procedure sql
 ---
 
-# Stored Procedure
+# EF Core Stored Procedure: Discover How to Query a SP in LINQ
 
 The Entity Framework allows you to use stored procedures to perform predefined logic on database tables. Raw SQL queries can be used to execute a stored procedure. 
 

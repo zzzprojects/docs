@@ -1,10 +1,12 @@
 ---
 permaid: 1000233
-name: Evaluation (Client & Server)
+Title: EF Core Client and Server Side Evaluation
+MetaDescription: Unlock the power of EF Core by understanding the difference between Client and Server Side Evaluation. Learn when a client-side evaluation is required and why most of the time, a server-side evaluation is preferred.
+LastMod: 2023-02-23
 tags: query client-side
 ---
 
-# Evaluation (Client & Server)
+# EF Core Client and Server Side Evaluation
 
 Client vs. Server evaluation is a feature that makes it easier to write queries to the database because Entity Framework Core supports parts of the query being evaluated on the client and parts of it being pushed to the database. 
 

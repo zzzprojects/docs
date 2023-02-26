@@ -1,10 +1,12 @@
 ---
 permaid: 1000231
-name: AsNoTracking
+Title: EF Core AsNoTracking - Learn what you should not track all queries
+MetaDescription: Unlock the power of EF Core by using AsNoTracking to improve performance when returning entities. Learn why not tracking entities that don't need to be tracked could improve your querying performance.
+LastMod: 2023-02-23
 tags: query change-tracker disconnected
 ---
 
-# AsNoTracking
+# EF Core AsNoTracking: Discover what you should not track all queries
 
 ## Introduction
 

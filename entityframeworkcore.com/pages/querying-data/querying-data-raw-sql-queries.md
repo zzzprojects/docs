@@ -1,10 +1,12 @@
 ---
 permaid: 1000241
-name: Raw SQL Queries
+Title: EF Core Raw SQL Queries - Learn How to Execute Plain Text SQL
+MetaDescription: Unlock the power of EF Core by using Raw SQL Queries to execute any plain text sql instead of using LINQ. Learn how to use sql text can help you to improve readability when a LINQ query becomes too much complex.
+LastMod: 2023-02-23
 tags: query sql
 ---
 
-# Raw SQL Queries
+# EF Core Raw SQL Queries: Discover How to Execute Plain Text SQL
 
 ## Introduction
 

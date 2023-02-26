@@ -1,10 +1,12 @@
 ---
 permaid: 1000234
-name: Global Filter
+Title: EF Core Global Filter - Learn How to Filter your Query Globally
+MetaDescription: Unlock the power of EF Core by using Global Filter to filter all your queries globally. Learn how a global filter can help to simplify your LINQ query and support scenarios such as a tenant id.
+LastMod: 2023-02-23
 tags: query filter
 ---
 
-# Global Filter
+# EF Core Global Filter: Discover How to Filter your Query Globally
 
 ## Introduction
 

@@ -1,10 +1,12 @@
 ---
 permaid: 1000236
-name: Joining
+Title: EF Core Join - Learn How to Combine Row of Many Entities in LINQ
+MetaDescription: Unlock the power of EF Core by joining entities to combine rows of multiple tables. Learn how joining multiple entities can help to improve your performance.
+LastMod: 2023-02-23
 tags: query join
 ---
 
-# Joining
+# EF Core Join: Discover How to Combine Row of Many Entities in LINQ
 
 ## Introduction
 
