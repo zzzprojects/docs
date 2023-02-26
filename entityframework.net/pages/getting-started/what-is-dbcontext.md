@@ -1,10 +1,12 @@
 ---
 PermaID: 1000113
-Name: What is a DbContext
+Title: Entity Framework DbContext - Learn What is a EF DbContext
+MetaDescription: Unlock the power of Entity Framework by understanding what a DbContext is and how you can use it. Learn the purpose of an EF DbContext and why it is important.
+LastMod: 2023-02-25
 Tags: getting-started dbcontext
 ---
 
-# What is DbContext
+# Entity Framework DbContext: Discover What is a EF DbContext
 
 ## What is DbContext? 
 

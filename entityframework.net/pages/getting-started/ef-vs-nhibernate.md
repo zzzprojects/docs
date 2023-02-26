@@ -1,10 +1,12 @@
 ---
 PermaID: 1000031
-Name: Entity Framework vs Nhibernate
+Title: Entity Framework vs NHibernate - Learn Which ORM is the Best for You
+MetaDescription: Unlock the power of Entity Framework by understanding what advantages EF has over NHibernate. Learn why EF might be the best ORM for you and its advantages and disadvantages.
+LastMod: 2023-02-25
 Tags: getting-started nhibernate
 ---
 
-# Entity Framework vs NHibernate
+# Entity Framework vs NHibernate: Discover Which ORM is the Best for You
 
 ## Entity Framework vs NHibernate? 
 

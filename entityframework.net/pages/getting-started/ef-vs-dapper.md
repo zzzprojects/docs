@@ -1,10 +1,12 @@
 ---
 PermaID: 1000032
-Name: Entity Framework vs Dapper
+Title: Entity Framework vs Dapper - Learn Which ORM is the Best for You
+MetaDescription: Unlock the power of Entity Framework by understanding what advantages EF has over Dapper. Learn why EF might be the best ORM for you and its advantages and disadvantages.
+LastMod: 2023-02-25
 Tags: getting-started dapper
 ---
 
-# Entity Framework vs Dapper
+# Entity Framework vs Dapper: Discover Which ORM is the Best for You
 
 ## Entity Framework vs Dapper? 
 

@@ -1,10 +1,12 @@
 ---
 PermaID: 1000074
-Name: How to Mock Data
+Title: Entity Framework Mock - Learn How to Fake EF DbContext for Unit Tests 
+MetaDescription: Unlock the power of Entity Framework by Mocking your DbContext for your unit tests. Learn how to make your data and which library is available for EF.
+LastMod: 2023-02-25
 Tags: getting-started mock
 ---
 
-# How to Mock Data
+# Entity Framework Mock: Discover How to Fake EF DbContext for Unit Tests
 
 ## How to mock data and write unit tests with Entity Framework?
  

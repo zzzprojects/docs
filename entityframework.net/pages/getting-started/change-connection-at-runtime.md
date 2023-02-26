@@ -1,10 +1,12 @@
 ---
 PermaID: 1000130
-Name: Change Connection at Run Time
+Title: Entity Framework Change Connection String - How to Change at Runtime 
+MetaDescription: Unlock the power of Entity Framework by understanding how to modify your connection string at runtime. Learn how you can use the context constructor overload to specify a connection string.
+LastMod: 2023-02-25
 Tags: getting-started connection
 ---
 
-# Change Connection at Runtime
+# Entity Framework Change Connection String: How to Change at Runtime
 
 ## How to change the connection at runtime? 
 

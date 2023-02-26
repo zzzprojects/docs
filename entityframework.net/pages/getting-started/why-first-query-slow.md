@@ -1,10 +1,12 @@
 ---
 PermaID: 1000066
-Name: Why First Query is Slow
+Title: Entity Framework First Query Slow - Learn Why First Load Take Time
+MetaDescription: Unlock the power of Entity Framework by understanding why the first query is slow. Learn why the first load can take several seconds, why it's fast after, and how to cache and pre-compile views.
+LastMod: 2023-02-25
 Tags: getting-started performance
 ---
 
-# Why First Query is slow?
+# Entity Framework First Query Slow: Discover Why First Load Take Time
 
 ## Why Entity Framework First Load is Slow?
 

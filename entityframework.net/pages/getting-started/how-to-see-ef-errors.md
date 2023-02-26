@@ -1,10 +1,12 @@
 ---
 PermaID: 1000033
-Name: How to see EF Erros
+Title: Entity Framework Validation Exception - Learn How to See EF Errors
+MetaDescription: Unlock the power of Entity Framework by retrieving errors from your DbEntityValidationException. Learn how to see the exception message when a validation exception happens.
+LastMod: 2023-02-25
 Tags: getting-started
 ---
 
-# How to see Entity Framework Errors
+# Entity Framework Validation Exception: Discover How to See EF Errors
 
 ## How to see Entity Framework Errors?
 

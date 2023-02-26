@@ -1,10 +1,12 @@
 ---
 PermaID: 1000099
-Name: EF Tutorial
+Title: Entity Framework Tutorial - Learn Other EF Websites and Ressources
+MetaDescription: Unlock the power of Entity Framework by looking at all external websites and resources available. Learn from other EF documentation to increase your knowledge.
+LastMod: 2023-02-25
 Tags: getting-started tutorial
 ---
 
-# Good EF Tutorial
+# Entity Framework Tutorial: Discover Other EF Websites and Ressources
 
 ## What are good Entity Framework Tutorial?  
 

@@ -1,10 +1,12 @@
 ---
 PermaID: 1000073
-Name: EF Performance
+Title: Entity Framework Improve Performance - Learn What Cause EF to be Slow
+MetaDescription: Unlock the power of Entity Framework by understanding what can cause performance issues. Learn what causes your application to be slow and solutions to fix it.
+LastMod: 2023-02-25
 Tags: getting-started performance
 ---
 
-# Improve Entity Framework Performance
+# Entity Framework Improve Performance: Discover What Cause EF to be Slow
 
 ## Improve Entity Framework Performance
 

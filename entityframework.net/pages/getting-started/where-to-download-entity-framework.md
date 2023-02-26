@@ -1,10 +1,12 @@
 ---
 PermaID: 1000093
-Name: Where to download Entity Framework
+Title: Entity Framework NuGet - Learn Where to Download the EF Package
+MetaDescription: Unlock the power of Entity Framework by getting started on how you can download the NuGet package. Learn how to install EF and which package you should use.
+LastMod: 2023-02-25
 Tags: getting-started download
 ---
 
-# Download
+# Entity Framework NuGet: Discover Where to Download the EF Package
 
 The first two versions of Entity Framework shipped with the .NET Framework and had versions numbers that aligned with the version of the framework that they were included in (3.5 and 4). After this EF started shipping independently through [NuGet](https://www.nuget.org)
 

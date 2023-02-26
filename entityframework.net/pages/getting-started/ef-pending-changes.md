@@ -1,10 +1,12 @@
 ---
 PermaID: 1000131
-Name: EF Pending Changes
+Title: Entity Framework Pending Changes - Learn How to See Tracked Entries
+MetaDescription: Unlock the power of Entity Framework by understanding how to look at your pending changes. Learn how to use the change tracker to retrieve DbEntityEntry from the Entries method.
+LastMod: 2023-02-25
 Tags: getting-started migration
 ---
 
-# EF Pending Changes
+# Entity Framework Pending Changes: Discover How to See Tracked Entries
 
 ## How can I see pending changes? 
 
