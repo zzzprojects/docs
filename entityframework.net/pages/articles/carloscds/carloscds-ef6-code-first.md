@@ -1,6 +1,8 @@
 ---
 Permalink: articles/carloscds-ef6-code-first
-name: EF6 - Code First
+Title: Using Entity Framework Code First to map POCO classes to the database
+MetaDescription: Learn how to use Entity Framework Code First to map POCO classes to a database and generate the database from the classes. This article covers installation, creating a project, inserting data, and reverse engineering an existing database.
+LastMod: 2023-02-24
 tags: carloscds article code-first
 OriginalLink: https://carloscds.net/2012/01/entityframework-codefirst/
 CreatedDate: 2012-01-07
@@ -8,7 +10,7 @@ CreatedUserName: Carlos dos Santos
 CreatedUserLink: https://carloscds.net/
 ---
 
-# Entity Framework - Code First
+# Using Entity Framework Code First to map POCO classes to the database
 
 In the [previous post](/articles/carloscds-ef6-designer), I talked about how to work with Entity Framework using the Designer, a class model created from an `EDMX` file. This model works perfectly in different types of projects, but the big drawback is having an `EDMX` file for each database in your project.
 

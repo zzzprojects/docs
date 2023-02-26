@@ -1,6 +1,8 @@
 ---
 Permalink: articles/carloscds-ef6-nightly-builts
-name: EF6 - Nightly Builts
+Title: Installing and Accessing Entity Framework 6 Nightly Builds
+MetaDescription: Learn how to install Entity Framework 6 and access its nightly builds to explore its new features before they are officially released. Access the latest version and explore its source code.
+LastMod: 2023-02-24
 tags: carloscds article nightly-built
 OriginalLink: https://carloscds.net/2013/08/entity-framework-6trabalhando-com-os-nightly-builds/
 CreatedDate: 2013-08-18
@@ -8,7 +10,7 @@ CreatedUserName: Carlos dos Santos
 CreatedUserLink: https://carloscds.net/
 ---
 
-# Entity Framework 6 - Working with Nightly Builds
+# Installing and Accessing Entity Framework 6 Nightly Builds
 
 Now returning to write more about the Entity Framework, we are waiting for the new version 6 (still with no definitive date to be released) that will bring very significant improvements, and we will explore some of them in the next articles.
 

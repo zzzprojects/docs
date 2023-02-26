@@ -1,6 +1,8 @@
 ---
 Permalink: articles/carloscds-ef6-interceptor
-name: EF6 - Interceptor
+Title: Implementing Entity Framework Command Interception in Code
+MetaDescription: Learn how to intercept commands sent to the database from Entity Framework using the DbConfiguration class and generate a log text file. This tutorial shows you how to configure your model using code instead of configuration files.
+LastMod: 2023-02-24
 tags: carloscds article interceptor logger
 OriginalLink: https://carloscds.net/2013/12/entity-frameworkcodebase-configuration-interception/
 CreatedDate: 2013-12-30
@@ -8,7 +10,7 @@ CreatedUserName: Carlos dos Santos
 CreatedUserLink: https://carloscds.net/
 ---
 
-# Entity Framework - Interceptor Configuration
+# Implementing Entity Framework Command Interception in Code
 
 One of the new features of Entity Framework 6 is the possibility of configuring our model using code instead of the traditional configuration files (`app.config` / `web.config`). Also, we now have many other configurations that can be modified using the DbConfiguration class.
 

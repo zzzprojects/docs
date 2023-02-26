@@ -1,6 +1,8 @@
 ---
 Permalink: articles/carloscds-ef6-asnotracking
-name: EF6 - AsNoTracking
+Title: How to Use AsNoTracking in Entity Framework to Avoid Unintentional Changes
+MetaDescription: Learn how to use AsNoTracking in Entity Framework to avoid unintentional changes and improve performance. See code samples and examples in this article.
+LastMod: 2023-02-24
 tags: carloscds article asnotracking change-tracker
 OriginalLink: https://carloscds.net/2018/12/entityframework-asnotracking-por-que-preciso-saber-disto/
 CreatedDate: 2018-02-12
@@ -8,7 +10,7 @@ CreatedUserName: Carlos dos Santos
 CreatedUserLink: https://carloscds.net/
 ---
 
-# EntityFramework AsNoTracking - Why do I need to know this?
+# How to Use AsNoTracking in Entity Framework to Avoid Unintentional Changes
 
 This week I came across a problem with a client that is very common and causes a lot of drawbacks since it involves various concepts of how EF works.
 

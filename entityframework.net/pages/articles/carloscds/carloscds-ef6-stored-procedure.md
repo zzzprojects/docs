@@ -1,6 +1,8 @@
 ---
 Permalink: articles/carloscds-ef6-stored-procedure
-name: EF6 - Stored Procedure
+Title: Meta title: How to use Stored Procedures with Entity Framework Code First
+MetaDescription: Entity Framework Code First does not have native support for Stored Procedures, but it is possible to access them through the context's SqlQuery() method. Here's how to do it.
+LastMod: 2023-02-24
 tags: carloscds article stored-procedure code-first
 OriginalLink: https://carloscds.net/2011/08/ef-code-first-acessando-stored-procedures/
 CreatedDate: 2011-08-20
@@ -8,7 +10,7 @@ CreatedUserName: Carlos dos Santos
 CreatedUserLink: https://carloscds.net/
 ---
 
-# EF Code First - Accessing Stored Procedures
+# How to Use Stored Procedures with Entity Framework Code First
 
 I'll start this post by stating that Entity Framework Code First does not have native support for Stored Procedures, yet!
 

@@ -1,6 +1,8 @@
 ---
 Permalink: articles/carloscds-ef6-code-first-from-database
-name: EF6 - Code First from Database!
+Title: How to Reverse Engineer Tables and Views with EF Code First
+MetaDescription: Learn how to choose specific tables and views to read with EF Code First using the reverse engineering feature in Visual Studio 2013 Update 2.
+LastMod: 2023-02-24
 tags: carloscds article code-first power-tools reverse-engineering
 OriginalLink: https://carloscds.net/2014/07/entityframework-lendo-seu-banco-de-dados-com-o-visual-studio-2013-update-2/
 CreatedDate: 2014-02-07
@@ -8,7 +10,7 @@ CreatedUserName: Carlos dos Santos
 CreatedUserLink: https://carloscds.net/
 ---
 
-# EntityFramework - Reading your database with Visual Studio 2013 Update 2
+# Reverse Engineering Tables and Views with EF Code First
 
 Some time ago, I made a post talking about how to [take advantage of your existing database with EntityFramework Power Tools](/articles/carloscds-ef6-harnessing-your-database), but the Power Tools model does not allow you to choose the tables or views you want to read, and sometimes this is very useful.
 

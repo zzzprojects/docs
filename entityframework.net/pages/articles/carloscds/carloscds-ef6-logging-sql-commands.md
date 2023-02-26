@@ -1,6 +1,8 @@
 ---
 Permalink: articles/carloscds-ef6-logging-sql-commands
-name: EF6 - Logging SQL Commands
+Title: Migrating to Entity Framework 6: New Features to Explore
+MetaDescription: Learn about the new features of Entity Framework 6 and how to migrate from version 5. In this article, we explore the command log feature to see what happens under the hood.
+LastMod: 2023-02-24
 tags: carloscds article logging
 OriginalLink: https://carloscds.net/2013/09/entity-framework-6gerando-log-dos-comandos-sql/
 CreatedDate: 2013-09-02
@@ -8,7 +10,7 @@ CreatedUserName: Carlos dos Santos
 CreatedUserLink: https://carloscds.net/
 ---
 
-# Entity Framework 6 - Logging SQL Commands
+# Migrating to Entity Framework 6: New Features to Explore
 
 Entity Framework 6 RC has already been released! Now is the time to start working on migrating from version 5 to 6 and see the new features. Specifications on the new features can be found [here](https://docs.microsoft.com/en-us/ef/ef6/what-is-new/past-releases).
 

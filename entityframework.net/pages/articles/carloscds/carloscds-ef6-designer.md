@@ -1,6 +1,8 @@
 ---
 Permalink: articles/carloscds-ef6-designer
-name: EF6 - Designer
+Title: How to Create a Visual Model with Entity Designer in Entity Framework
+MetaDescription: Learn how to create a visual model with Entity Designer in Entity Framework, which generates an EDMX model, containing three parts: Storage Model Content, Conceptual Model Content, and Mapping Content.
+LastMod: 2023-02-24
 tags: carloscds article designer
 OriginalLink: https://carloscds.net/2012/01/trabalhando-com-entity-framework-designer/
 CreatedDate: 2012-01-07
@@ -8,7 +10,7 @@ CreatedUserName: Carlos dos Santos
 CreatedUserLink: https://carloscds.net/
 ---
 
-# Working with Entity Framework Designer
+# How to Create a Visual Model with Entity Designer in Entity Framework
 
 Today, in a development project, it is very common for the programmer to have to know several database commands (`Insert`, `Delete`, `Update`, `Select`) to be able to develop, in addition to knowing about the programming language. EntityFramework comes to help with this task, creating a correspondence between the database tables, what we call ORM, or Object-Relational mapping.
 

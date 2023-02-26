@@ -1,6 +1,8 @@
 ---
 Permalink: articles/carloscds-ef6-code-first-migrations
-name: EF6 - Code First Migrations
+Title: Understanding Entity Framework Code First Migrations
+MetaDescription: Learn how to use Entity Framework Code First Migrations and choose the best mode to manage your database updates.
+LastMod: 2023-02-24
 tags: carloscds article migration
 OriginalLink: https://carloscds.net/2012/07/entity-framework-code-firstmigrations/
 CreatedDate: 2012-07-15
@@ -8,7 +10,7 @@ CreatedUserName: Carlos dos Santos
 CreatedUserLink: https://carloscds.net/
 ---
 
-# Entity Framework Code First – Migrations
+# Understanding Entity Framework Code First Migrations
 
 One of the great features of Entity Framework Code First is the process of automatically updating the database through the feature called `Migrations`.
 

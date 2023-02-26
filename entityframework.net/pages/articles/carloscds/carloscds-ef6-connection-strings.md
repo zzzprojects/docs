@@ -1,6 +1,8 @@
 ---
 Permalink: articles/carloscds-ef6-connection-strings
-name: EF6 - Connection Strings
+Title: Managing Connection Strings in Entity Framework Code First
+MetaDescription: Learn how to store connection strings and providers in Entity Framework Code First for C# with Visual Studio 2010. Explore three different ways to specify connection strings and providers.
+LastMod: 2023-02-24
 tags: carloscds article connection-string
 OriginalLink: https://carloscds.net/2011/08/ef-codefirstgerenciando-as-strings-de-conexo/
 CreatedDate: 2011-08-08
@@ -8,7 +10,7 @@ CreatedUserName: Carlos dos Santos
 CreatedUserLink: https://carloscds.net/
 ---
 
-# EF CodeFirst - Managing Connection Strings
+# Managing Connection Strings in Entity Framework Code First
 
 Today we're going to talk a little bit about managing connection strings in Entity Framework Code First, a very simple and quick way to create a relational object mapping in C # with Visual Studio 2010.
 

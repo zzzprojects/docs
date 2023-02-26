@@ -1,6 +1,8 @@
 ---
 Permalink: articles/carloscds-ef6-efprofilter
-name: EF6 - EFProfiler
+Title: Improve Entity Framework Performance with EFProfiler
+MetaDescription: Learn how to optimize your Entity Framework performance with EFProfiler, a simple analysis tool that helps you identify and fix performance issues.
+LastMod: 2023-02-24
 tags: carloscds article profiler
 OriginalLink: https://carloscds.net/2010/08/efprofiler-entity-framework-profiler/
 CreatedDate: 2010-08-20
@@ -8,7 +10,7 @@ CreatedUserName: Carlos dos Santos
 CreatedUserLink: https://carloscds.net/
 ---
 
-# EFProfiler - Entity Framework Profiler
+# Improve Entity Framework Performance with EFProfiler
 
 If you are working with EF4, you have probably wondered if the generated SQL commands are really optimized, or maybe when you have a performance problem. To answer that, several analysis tools or profilers exist, and one of these is the `EFProfiler`.
 

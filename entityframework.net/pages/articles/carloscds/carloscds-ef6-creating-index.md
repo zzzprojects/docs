@@ -1,6 +1,8 @@
 ---
 Permalink: articles/carloscds-ef6-creating-index
-name: EF6 - Creating Index
+Title: How to Create Index in Database with Entity Framework Code First
+MetaDescription: Learn how to create index in EntityFramework using the Migrations feature. By adding the Index attribute in the class property, you can improve the performance of your queries.
+LastMod: 2023-02-24
 tags: carloscds article index code-first
 OriginalLink: https://carloscds.net/2014/07/criando-ndices-no-entity-framework-codefirst/
 CreatedDate: 2014-07-01
@@ -8,7 +10,7 @@ CreatedUserName: Carlos dos Santos
 CreatedUserLink: https://carloscds.net/
 ---
 
-# Creating indexes in Entity Framework Code First
+# How to Create Index in Database with Entity Framework Code First
 
 As of EntityFramework version 6.1, it is possible to create `index` in the database, specifying this directly in the classes in the source code. This creation of the indexes is carried out through the `Index` attribute directly to the class property. But beware: this is only possible using EntityFramework's Migrations feature.
 

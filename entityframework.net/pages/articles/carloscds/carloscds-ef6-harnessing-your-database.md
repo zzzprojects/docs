@@ -1,6 +1,8 @@
 ---
 Permalink: articles/carloscds-ef6-harnessing-your-database
-name: EF6 - Harnessing your Database
+Title: Using Entity Framework Power Tools for Code First Development
+MetaDescription: Learn how to generate classes and contexts for an existing database using Entity Framework Power Tools, a Visual Studio extension.
+LastMod: 2023-02-24
 tags: carloscds article power-tools
 OriginalLink: https://carloscds.net/2014/04/entityframeworkapoveitando-seu-banco-de-dados-com-powertools/
 CreatedDate: 2014-04-21
@@ -8,7 +10,7 @@ CreatedUserName: Carlos dos Santos
 CreatedUserLink: https://carloscds.net/
 ---
 
-# EntityFramework - Harnessing your Database with Power Tools
+# Using Entity Framework Power Tools for Code First Development
 
 When a company decides to adopt an ORM tool (Relational Object Mapping - in our case EntityFramework), a big paradigm break begins, as you will no longer access the database directly (`Select`, `Insert`, `Update`, `Delete`, etc.), and will start to work only with classes and objects. That makes development much easier and more productive since you don't have to worry about the commands that go to the database, as this is ORM's job.
 

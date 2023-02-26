@@ -1,6 +1,8 @@
 ---
 Permalink: articles/carloscds-ef6-generic-query-with-linq
-name: EF6 - Generic Query with LINQ
+Title: Creating Generic Queries with LINQ in Entity Framework 4
+MetaDescription: Learn how to create reusable codes by creating a generic query method using LINQ in Entity Framework 4. This article provides examples and code snippets to help you get started.
+LastMod: 2023-02-24
 tags: carloscds article linq query
 OriginalLink: https://carloscds.net/2010/07/consultas-genricas-com-linq/
 CreatedDate: 2010-07-19
@@ -8,7 +10,7 @@ CreatedUserName: Carlos dos Santos
 CreatedUserLink: https://carloscds.net/
 ---
 
-# Generic queries with Linq
+# Creating Generic Queries with LINQ in Entity Framework 4
 
 In the concept of object orientation, we always have in mind to create codes that can be reused within the application or even in different applications. In this context, I have been asked how it is possible to use `LINQ`, which is totally object-oriented and strongly typed, and still create reusable codes.
 

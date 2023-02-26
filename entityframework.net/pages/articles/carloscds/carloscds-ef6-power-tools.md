@@ -1,6 +1,8 @@
 ---
 Permalink: articles/carloscds-ef6-power-tools
-name: EF6 - Power Tools
+Title: How to Install Entity Framework Power Tools in Visual Studio 2015
+MetaDescription: Learn how to install Entity Framework Power Tools in Visual Studio 2015 with this step-by-step guide. Don't miss out on this useful tool for EF Code First.
+LastMod: 2023-02-24
 tags: carloscds article power-tools
 OriginalLink: https://carloscds.net/2015/12/entity-framework-powertool-no-visual-studio-2015/
 CreatedDate: 2015-12-21
@@ -8,7 +10,7 @@ CreatedUserName: Carlos dos Santos
 CreatedUserLink: https://carloscds.net/
 ---
 
-# Entity Framework Power Tools in Visual Studio 2015
+# How to Install Entity Framework Power Tools in Visual Studio 2015
 
 If you use EF Code First a lot like me and are already in Visual Studio 2015, you must have missed EF Power Tools. Unfortunately, it has not yet been ported to this version of Visual Studio.
 

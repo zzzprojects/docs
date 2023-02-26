@@ -1,6 +1,8 @@
 ---
 Permalink: articles/carloscds-ef6-ngen-to-improve-performance
-name: EF6 - NGen to Improve Performance
+Title: Title: Improve Entity Framework Performance with NGen
+MetaDescription: Learn how to use NGen to pre-compile Entity Framework assemblies and improve the performance of your .NET applications.
+LastMod: 2023-02-24
 tags: carloscds article ngen
 OriginalLink: https://carloscds.net/2014/04/melhorando-a-performance-do-entity-framework-com-ngen/
 CreatedDate: 2014-04-21
@@ -8,7 +10,7 @@ CreatedUserName: Carlos dos Santos
 CreatedUserLink: https://carloscds.net/
 ---
 
-# Improving Entity Framework performance with NGen
+# Improve Entity Framework Performance with NGen
 
 In another post, I introduced very quickly about [NGen](/articles/carloscds-ef6-ngen-to-improve-load-time), which serves to pre-compile an application's assemblies, doing the work of JIT (Just in Time Compiler) in advance.
 

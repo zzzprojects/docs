@@ -1,6 +1,8 @@
 ---
 Permalink: articles/carloscds-ef6-ngen-to-improve-load-time
-name: EF6 - NGen to Improve Load Time
+Title: Improve Entity Framework 6 Performance by Pre-compiling the DLL
+MetaDescription: Learn how to use Ngen.exe command to pre-compile the EntityFramework.dll in Entity Framework 6 to improve performance and reduce application load time.
+LastMod: 2023-02-24
 tags: carloscds article ngen
 OriginalLink: https://carloscds.net/2013/11/melhorando-o-tempo-de-carga-do-entity-framework-com-ngen/
 CreatedDate: 2013-11-03
@@ -8,7 +10,7 @@ CreatedUserName: Carlos dos Santos
 CreatedUserLink: https://carloscds.net/
 ---
 
-# Improving Entity Framework load times with NGEN
+# Improve Entity Framework 6 Performance with Ngen.exe
 
 Beginning with Entity Framework 6, all EF components are contained within the `EntityFramework.dll` and are no longer divided between various .NET Framework components. Therefore, the EF DLL is not optimized for the JIT (Just in Time) of the computer where it is being run, just as .NET is.
 
