@@ -6,7 +6,7 @@ LastMod: 2023-02-21
 tags: code-first inheritance fluent-mapping
 ---
 
-# Inheritance
+# EF Core Inheritance: Discover About TPC, TPH, and TPT Pattern
 
 ## What is Inheritance Type in Entity Framework?  
 

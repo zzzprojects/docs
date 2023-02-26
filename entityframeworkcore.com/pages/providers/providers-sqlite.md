@@ -1,10 +1,12 @@
 ---
 permaid: 1000230
-name: SQLite
+Title: EF Core SQLite - Learn how to install and use this provider
+MetaDescription: Unlock the power of EF Core using the SQLite Provider. Learn how to use an SQLite database and which providers to install for entity framework core.
+LastMod: 2023-02-22
 tags: provider connection
 ---
 
-# SQLite
+# EF Core SQLite: Discover how to install and use this provider
 
 2 major NuGet packages support SQLite:
 

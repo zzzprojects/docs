@@ -6,7 +6,7 @@ LastMod: 2023-02-21
 tags: database-first model approach
 ---
 
-# Database First
+# EF Core Database First: Discover How to Create Model From Database
 
 In the previous article, we have seen the migrations to create a database from a DbContext and classes. It is also possible to reverse engineer an existing database into a DbContext and classes, and it is known as **Database First** approach. 
 

@@ -1,10 +1,12 @@
 ---
 permaid: 1000229
-name: SQL Server
+Title: EF Core SQL Server - Learn how to install and use this provider
+MetaDescription: Unlock the power of EF Core using the SQL Server Provider. Learn how to use the microsoft sql server database and which providers to install for entity framework core.
+LastMod: 2023-02-22
 tags: provider connection
 ---
 
-# SQL Server
+# EF Core SQL Server: Discover how to install and use this provider
 
 ## Introduction
 

@@ -6,7 +6,7 @@ LastMod: 2023-02-21
 tags: code-first fluent-mapping model
 ---
 
-# Explicit Values
+# EF Core Explicit Values: Discover What Happen When You Specify Value
 
 ## Explicit Values for Generated Properties
 

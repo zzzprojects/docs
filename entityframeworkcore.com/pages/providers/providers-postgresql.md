@@ -1,10 +1,12 @@
 ---
 permaid: 1000228
-name: PostgreSQL
+Title: EF Core PostgreSQL - Learn how to install and use this provider
+MetaDescription: Unlock the power of EF Core using the PostgreSQL Provider. Learn how to use a PostgreSQL database and which providers to install for entity framework core.
+LastMod: 2023-02-22
 tags: provider connection
 ---
 
-# PostgreSQL
+# EF Core PostgreSQL: Discover how to install and use this provider
 
 2 major NuGet packages support PostgreSQL:
 

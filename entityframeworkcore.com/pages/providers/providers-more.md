@@ -1,10 +1,12 @@
 ---
 permaid: 1000225
-name: More...
+Title: EF Core Providers - Learn how to install and use those providers
+MetaDescription: Unlock the power of EF Core using available database providers. Learn about Pomelo, SQL Compact, Firebird and more.
+LastMod: 2023-02-22
 tags: provider connection
 ---
 
-# More Providers...
+# EF Core Providers: Discover how to install and use those providers
 
 A variety of sources builds EF Core providers and all of them are not maintained as part of the Entity Framework Core Project. Below are some more providers available for EF Core
 

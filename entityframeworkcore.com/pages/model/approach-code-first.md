@@ -6,7 +6,7 @@ LastMod: 2023-02-21
 tags: code-first model approach migration command-line
 ---
 
-# Code First
+# EF Core Code First: Discover How to Create Model From Code
 
 If you have used Entity Framework in the past, you will probably have heard about the **Code First** approach. 
 

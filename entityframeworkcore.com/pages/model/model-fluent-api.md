@@ -6,7 +6,7 @@ LastMod: 2023-02-21
 tags: code-first fluent-mapping model
 ---
 
-# Fluent API
+# EF Core Fluent API: Discover How to Map Entity To Model Using Code
 
 Fluent API specify the model configuration that you can with data annotations as well as some additional functionality that can not be possible with data annotations. 
 

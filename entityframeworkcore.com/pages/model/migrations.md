@@ -6,7 +6,7 @@ LastMod: 2023-02-21
 tags: code-first migration command-line
 ---
 
-# Migrations
+# EF Core Migrations: Discover How to Use Common Command Line
 
 Migrations provide a way to incrementally apply schema changes to the database to keep it in sync with your EF Core model while preserving existing data in the database.
 

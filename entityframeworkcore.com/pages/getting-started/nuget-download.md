@@ -6,7 +6,7 @@ LastMod: 2023-02-21
 tags: getting-started nuget download
 ---
 
-# EF Core NuGet - Learn Where and How to Install the Package
+# EF Core NuGet: Discover Where and How to Install the Package
 
 ## Install EF Core
 

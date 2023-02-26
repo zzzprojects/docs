@@ -6,7 +6,7 @@ LastMod: 2023-02-21
 tags: getting-started history
 ---
 
-# EF Core Overview - Discover What is EF Core and Why You Should Use it
+# EF Core Overview: Discover What is EF Core and Why You Should Use it
 
 ## Introduction
 

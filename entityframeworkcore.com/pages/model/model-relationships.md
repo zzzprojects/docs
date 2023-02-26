@@ -6,7 +6,7 @@ LastMod: 2023-02-21
 tags: code-first relationship fluent-mapping
 ---
 
-# Relationships
+# EF Core Relationships: Discover About Existing Relation in Your Entity
 
 In relational databases, a relationship exists between two tables through foreign keys. A Foreign Key is a column or combination of columns that are used to establish and enforce a link between the data in those two tables. Entity framework Core supports three types of relationships;
 
