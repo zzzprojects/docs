@@ -1,10 +1,12 @@
 ---
 PermaID: 1000048
-Name: Bulk Insert
+Title: Entity Framework Bulk Insert - Learn to Insert Thousands of Entities
+MetaDescription: Unlock the power of Entity Framework by using Bulk Insert to improve performance dramatically by using bulk operations. Learn what bulk operations are, why you should use it and how easily you can implement it in your project.
+LastMod: 2023-02-27
 Tags: saving insert bulk-insert
 ---
 
-# BulkInsert
+# Entity Framework Bulk Insert: Discover to Insert Thousands of Entities
 
 When you want to insert hundreds, thousands, or millions of entities using `SaveChanges()` method, you will notice that your application performance is INSANELY slow. 
 

@@ -1,10 +1,12 @@
 ---
 PermaID: 1000038
-Name: Stored Procedure
+Title: Entity Framework Stored Procedure - Learn How to Query Entities
+MetaDescription: Unlock the power of Entity Framework by understanding how to use a stored procedure to query your entities. Learn how to create a query to retrieve data from your database through a SP.
+LastMod: 2023-02-28
 Tags: saving stored procedure
 ---
 
-# Stored Procedure
+# Entity Framework Stored Procedure: Discover How to Query Entities
 
 ## How to work with stored procedure within Entity Framework? 
 

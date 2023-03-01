@@ -1,10 +1,12 @@
 ---
 PermaID: 1000072
-Name: Add Performance
+Title: Entity Framework Add - Learn How to Improve Add Performance 
+MetaDescription: Unlock the power of Entity Framework by understanding how to improve the Add method performance. Learn why the method is slow and how you can overcome this limitation.
+LastMod: 2023-02-28
 Tags: saving performance
 ---
 
-# Improve EF Add Performance
+# Entity Framework Add: Discover How to Improve Add Performance 
 
 ## How to Improve Entity Framework Add Performance?
 

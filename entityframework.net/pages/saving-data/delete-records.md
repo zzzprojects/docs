@@ -1,10 +1,12 @@
 ---
 PermaID: 1000110
-Name: Delete Records
+Title: Entity Framework Delete Records - Learn How to Delete your Entities
+MetaDescription: Unlock the power of Entity Framework by understanding how to delete your records. Learn how to delete entities with savechanges or delete thousands of entities with bulk delete.
+LastMod: 2023-02-27
 Tags: saving delete
 ---
 
-# Delete Records
+# Entity Framework Delete Records: Discover How to Delete your Entities
 
 ## How to Bulk Delete?
 

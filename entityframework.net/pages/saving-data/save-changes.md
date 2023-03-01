@@ -1,10 +1,12 @@
 ---
 PermaID: 1000041
-Name: Save Changes
+Title: Entity Framework SaveChanges - Learn to Save Entities in a Database
+MetaDescription: Unlock the power of Entity Framework by understanding how the save changes method work. Learn how to insert, update, and delete your entities and persist all changes.
+LastMod: 2023-02-28
 Tags: saving
 ---
 
-# SaveChanges
+# Entity Framework SaveChanges: Discover to Save Entities in a Database
 
 In Entity Framework, the `DbContext.SaveChanges` method saves all changes made in the context of the database. 
 

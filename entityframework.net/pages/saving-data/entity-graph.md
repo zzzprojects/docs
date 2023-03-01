@@ -1,10 +1,12 @@
 ---
 PermaID: 1000043
-Name: Entity Graph
+Title: Entity Framework Entity Graph - Learn Added or Modified State
+MetaDescription: Unlock the power of Entity Framework by using Track Graph to add, attach, or update tracked entities. Learn how to use the 'TrackGraph' method to specify if an entity should be tracked or not.
+LastMod: 2023-02-27
 Tags: saving graph
 ---
 
-# Entity Graph
+# Entity Framework Entity Graph: Discover Added or Modified State
 
 In Entity Framework, `DbSet`provides `Add and `Attach` methods for entity graph-traversal and determine whether an entity should be marked as Added (to insert), Modified (to update), Unchanged (do nothing), or Deleted (to delete).
 

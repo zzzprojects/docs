@@ -1,10 +1,12 @@
 ---
 PermaID: 1000040
-Name: Save Data using Stored Procedure
+Title: Entity Framework Stored Procedure - Learn How to Save Entities
+MetaDescription: Unlock the power of Entity Framework by understanding how to use a stored procedure to save your entities. Learn how to insert, update, and delete your entities using a stored procedure.
+LastMod: 2023-02-28
 Tags: saving stored procedure
 ---
 
-# Save Data Using Stored Procedure
+# Entity Framework Stored Procedure: Discover How to Save Entities
 
 The Entity Framework allows you to use stored procedures to perform predefined logic on database tables. 
 

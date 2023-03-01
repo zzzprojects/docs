@@ -1,10 +1,12 @@
 ---
 PermaID: 1000067
-Name: Why Detect Changes is Slow
+Title: Entity Framework DetectChanges - Learn Why it is Slow
+MetaDescription: Unlock the power of Entity Framework by understanding why the DetectChanges method is slow. Learn the secret of why the method can take hours to add entities in the context.
+LastMod: 2023-02-28
 Tags: saving performance
 ---
 
-# Why DetectChanges is slow?
+# Entity Framework DetectChanges: Discover Why it is Slow
 
 ## Why Entity Framework DetectChanges is slow?
 

@@ -1,10 +1,12 @@
 ---
 PermaID: 1000068
-Name: Save Changes Performance
+Title: Entity Framework SaveChanges - Learn How to Improve Save Performance
+MetaDescription: Unlock the power of Entity Framework by understanding how to improve the SaveChanges method performance. Learn why the method is slow and how you can overcome this limitation.
+LastMod: 2023-02-28
 Tags: saving performance
 ---
 
-# Improve EF SaveChanges Performance
+# Entity Framework SaveChanges: Discover How to Improve Save Performance
 
 ## How to Improve SaveChanges Performance? 
 

@@ -1,10 +1,12 @@
 ---
 PermaID: 1000046
-Name: Change Tracker
+Title: Entity Framework Change Tracker - Learn How to Use all Entity State
+MetaDescription: Unlock the power of Entity Framework by using Change Tracker, understanding how it works, and the possible state of an entity entry. Learn about the possible state such as 'Added', 'Unchanged', 'Modified', 'Deleted', 'Detached' and their behaviors.
+LastMod: 2023-02-27
 Tags: saving change-tracking
 ---
 
-# Change Tracker
+# Entity Framework Change Tracker: Discover How to Use all Entity State
 
 By default, Entity Framework tracks changes of the loaded entities during the life-time of the context. 
 

@@ -1,10 +1,12 @@
 ---
 PermaID: 1000083
-Name: Retrieve ID of Inserted Entity
+Title: Entity Framework Retrieve Inserted Id - Learn about IDENTITY
+MetaDescription: Unlock the power of Entity Framework by understanding how to retrieve the inserted id after you insert an entity. Learn how an identity column works.
+LastMod: 2023-02-28
 Tags: saving identity
 ---
 
-# Retrieve Id of Inserted Entity
+# Entity Framework Retrieve Inserted Id: Discover about IDENTITY
 
 ## How can I get Id of inserted entity? 
 

@@ -1,10 +1,12 @@
 ---
 PermaID: 1000039
-Name: Transaction
+Title: Entity Framework Transaction - Learn How it Works with SaveChanges
+MetaDescription: Unlock the power of Entity Framework by understanding how to use transactions with SaveChanges. Learn how the SaveChanges methods use a transaction under the hoods.
+LastMod: 2023-02-28
 Tags: saving transaction
 ---
 
-# Transaction
+# Entity Framework Transaction: Learn How it Works with SaveChanges
 
 In Entity Framework, when you call SaveChanges() to insert, delete, or update data to the database, the entity framework will wrap that operation in a transaction. 
 

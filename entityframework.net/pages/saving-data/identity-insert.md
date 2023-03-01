@@ -1,10 +1,12 @@
 ---
 PermaID: 1000042
-Name: Identity Insert
+Title: Entity Framework Identity Insert - Learn How to use IDENTITY_INSERT
+MetaDescription: Unlock the power of Entity Framework by using Identity Insert to explicitly insert a value in a database. Learn how to use the `SET IDENTITY_INSERT` SQL to allow inserting an explicit value.
+LastMod: 2023-02-27
 Tags: saving insert identity
 ---
 
-# Identity Insert
+# Entity Framework Identity Insert: Discover How to use IDENTITY_INSERT
 
 In Entity Framework, when you have a primary key field such as `Id` or `AuthorId` which is mapped to `IDENTITY` column in the database, it works well when you insert data. 
 

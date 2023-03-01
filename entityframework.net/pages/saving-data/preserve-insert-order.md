@@ -1,10 +1,12 @@
 ---
 PermaID: 1000052
-Name: Preserve Insert Order
+Title: Entity Framework Preserve Insert Order - Learn How it Works
+MetaDescription: Unlock the power of Entity Framework by understanding how the insert order works. Learn how the saving order works and why this issue will never be solved.
+LastMod: 2023-02-28
 Tags: saving
 ---
 
-# Preserve Insert Order
+# Entity Framework Preserve Insert Order: Discover How it Works
 
 ## How to Preserve Insert Order? 
 

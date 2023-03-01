@@ -1,10 +1,12 @@
 ---
 PermaID: 1000071
-Name: Detect Changes Performance
+Title: Entity Framework DetectChanges - Learn How to Improve Performance
+MetaDescription: Unlock the power of Entity Framework by understanding how to improve the DetectChanges method performance. Learn why the method is slow and how you can overcome this limitation.
+LastMod: 2023-02-28
 Tags: saving performance
 ---
 
-# Improve EF DetectChanges Performance
+# Entity Framework DetectChanges: Discover How to Improve Performance
 
 ## How to Improve Entity Framework DetectChanges Performance?
 

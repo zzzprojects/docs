@@ -1,10 +1,12 @@
 ---
 PermaID: 1000069
-Name: Insert Performance
+Title: Entity Framework Insert - Learn How to Improve Insert Performance
+MetaDescription: Unlock the power of Entity Framework by understanding how to improve the insert performance. Learn why the method is slow and how you can overcome this limitation.
+LastMod: 2023-02-28
 Tags: saving performance
 ---
 
-# Improve EF Insert Performance
+# Entity Framework Insert: Discover How to Improve Insert Performance
 
 ## How to Improve Entity Framework Insert Performance?
 

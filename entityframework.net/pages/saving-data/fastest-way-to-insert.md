@@ -1,10 +1,12 @@
 ---
 PermaID: 1000086
-Name: Fastest Way to Insert
+Title: Entity Framework Fastest Way To Insert - Improve Save Performance
+MetaDescription: Unlock the power of Entity Framework by using the fastest way to insert in a database. Learn about bulk insert and how to insert thousands of entities in a fraction of a second. 
+LastMod: 2023-02-27
 Tags: saving insert bulk-insert
 ---
 
-# Fastest Way To Insert
+# Entity Framework Fastest Way To Insert: Improve Save Performance
 
 ## What's the fastest way to insert?
 

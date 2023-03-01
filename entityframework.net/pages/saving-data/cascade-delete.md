@@ -1,10 +1,12 @@
 ---
 PermaID: 1000047
-Name: Cascade Delete
+Title: Entity Framework Cascade Delete - Learn to Auto Delete Child Entities
+MetaDescription: Unlock the power of Entity Framework by using Cascade Delete to automatically delete child-related entities without any additional code. Learn how you can make sql server delete entities implicitly.
+LastMod: 2023-02-27
 Tags: saving delete
 ---
 
-# Cascade Delete
+# Entity Framework Cascade Delete: Discover to Auto Delete Child Entities
 
 Cascade delete allows the deletion of a row to trigger the deletion of related rows automatically.
 
