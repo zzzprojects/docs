@@ -1,10 +1,12 @@
 ---
 PermaID: 1000036
-Name: Bulk Update
+Title: Entity Framework Bulk Update - Learn How to Improve Update Perfomance
+MetaDescription: Unlock the power of Entity Framework by learning how to update your entities in bulk in the database.
+LastMod: 2023-02-18
 Tags: save update bulk-update
 ---
 
-# Bulk Update
+# Entity Framework Bulk Update: Discover How to Improve Update Perfomance
 
 ## Definition
 `UPDATE` all entities in the database.

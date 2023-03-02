@@ -1,10 +1,12 @@
 ---
 PermaID: 1000097
-Name: MySQL Provider
+Title: Entity Framework MySQL - Learn About this Provider
+MetaDescription: Unlock the power of Entity Framework by learning how to use MySQL providers in your project.
+LastMod: 2023-02-18
 Tags: provider mysql
 ---
 
-# MySQL
+# Entity Framework MySQL: Discover About this Provider
 
 ## Introduction
 

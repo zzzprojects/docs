@@ -1,10 +1,12 @@
 ---
 PermaID: 1000081
-Name: Find
+Title: Entity Framework Find - Learn How to Find Entity By Key
+MetaDescription: Unlock the power of Entity Framework by learning how to use the Find method to retrieve an entity from a database.
+LastMod: 2023-02-19
 Tags: query find
 ---
 
-# Find
+# Entity Framework Find: Discover How to Find Entity By Key
 
 Finds an entity with the given primary key values. 
 

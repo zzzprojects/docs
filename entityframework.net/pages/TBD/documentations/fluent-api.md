@@ -1,10 +1,12 @@
 ---
 PermaID: 1000100
-Name: Fluent API
+Title: Entity Framework Fluent API - Learn How to Map Without Annonation
+MetaDescription: Unlock the power of Entity Framework by learning how to use fluent API to map your entity to your model.
+LastMod: 2023-02-19
 Tags: code-first fluent-api
 ---
 
-# Fluent API
+# Entity Framework Fluent API: Discover How to Map Without Annonation
 
 When working with Entity Framework Code First the default behavior is to map your POCO classes to tables using a set of conventions baked into EF. 
 

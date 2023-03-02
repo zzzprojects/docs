@@ -1,10 +1,12 @@
 ---
 PermaID: 1000085
-Name: Insert Multiple Entities
+Title: Entity Framework Insert Multiple Entities - Learn to Improve Insert
+MetaDescription: Unlock the power of Entity Framework by learning how to insert multiple entities.
+LastMod: 2023-02-19
 Tags: save insert bulk-insert
 ---
 
-# Insert Multiple Entities
+# Entity Framework Insert Multiple Entities: Discover to Improve Insert
 
 ## How to Insert Multiple Entities at Once?
 

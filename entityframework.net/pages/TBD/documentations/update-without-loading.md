@@ -1,10 +1,12 @@
 ---
 PermaID: 1000034
-Name: Update without loading
+Title: Entity Framework Update Without Loading - Learn About Batch Update
+MetaDescription: Unlock the power of Entity Framework by learning how to update entities without loading them in the context.
+LastMod: 2023-02-18
 Tags: save update batch-update
 ---
 
-# Update Without Loading
+# Entity Framework Update Without Loading: Discover About Batch Update
 
 ## How to update without loading entities in the context?
 

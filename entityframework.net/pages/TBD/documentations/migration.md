@@ -1,10 +1,12 @@
 ---
 PermaID: 1000098
-Name: Migration
+Title: Entity Framework Migration - Learn How to Update your Database Schema
+MetaDescription: Unlock the power of Entity Framework by learning how to use migrations to update your database.
+LastMod: 2023-02-18
 Tags: code-first migration
 ---
 
-# Migration
+# Entity Framework Migration: Discover How to Update your Database Schema
 
 The Migrations feature enables you to change the data model and deploy your changes to production by updating the database schema without having to drop and re-create the database. It is the recommended way to evolve your application's database schema if you are using the Code First workflow. 
 

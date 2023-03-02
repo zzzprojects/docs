@@ -1,10 +1,12 @@
 ---
 PermaID: 1000102
-Name: EF Power Tools
+Title: Entity Framework Power Tools - Learn About this Extensions
+MetaDescription: Unlock the power of Entity Framework by learning how to use power tools within visual studio.
+LastMod: 2023-02-19
 Tags: model power-tools
 ---
 
-# Power Tools
+# Entity Framework Power Tools: Discover About this Extensions
 
 [Entity Framework 6 Power Tools](https://marketplace.visualstudio.com/items?itemName=ErikEJ.EntityFramework6PowerToolsCommunityEdition) are very useful design-time utilities which can be used in Visual Studio.
 

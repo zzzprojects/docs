@@ -1,10 +1,12 @@
 ---
 PermaID: 1000035
-Name: Update Records
+Title: Entity Framework Update Records - Learn How to Improve Performance
+MetaDescription: Unlock the power of Entity Framework by learning how to improve your update performance efficiently.
+LastMod: 2023-02-18
 Tags: save update bulk-update
 ---
 
-# Update Records
+# Entity Framework Update Records: Discover How to Improve Performance
 
 ## How to Bulk Update?
 

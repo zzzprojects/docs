@@ -1,10 +1,12 @@
 ---
 PermaID: 1000075
-Name: Merge Records
+Title: Entity Framework Merge Records - Learn How to Upsert Entities
+MetaDescription: Unlock the power of Entity Framework by learning how to merge/upsert your entities in the database.
+LastMod: 2023-02-19
 Tags: save merge bulk-merge
 ---
 
-# Merge Records
+# Entity Framework Merge Records: Discover How to Upsert Entities
 
 ## How to Bulk Merge?
 

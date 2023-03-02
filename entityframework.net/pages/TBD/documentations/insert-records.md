@@ -1,10 +1,12 @@
 ---
 PermaID: 1000084
-Name: Insert Records
+Title: Unlock the power of Entity Framework by learning how to improve your insert performance efficiently.
+MetaDescription: 
+LastMod: 2023-02-19
 Tags: save insert bulk-insert
 ---
 
-# Insert Records
+# Entity Framework Insert Records: Discover How to Improve Performance
 
 ## How to do a Bulk Insert?
 

@@ -1,10 +1,12 @@
 ---
 PermaID: 1000129
-Name: Connection String
+Title: Entity Framework Connection String - Learn How to Setup it
+MetaDescription: Unlock the power of Entity Framework by learning how to setup your connection string in your project.
+LastMod: 2023-02-18
 Tags: connection-string
 ---
 
-# Connection String
+# Entity Framework Connection String: Discover How to Setup it
 
 A connection string contains initialization information that is passed as a parameter from a data provider to a data source.
 

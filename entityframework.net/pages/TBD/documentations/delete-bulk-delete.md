@@ -1,10 +1,12 @@
 ---
 PermaID: 1000112
-Name: Bulk Delete
+Title: Entity Framework Bulk Delete - Learn How to Improve Delete Performance 
+MetaDescription: Unlock the power of Entity Framework by learning how to delete in bulk your entities in the database.
+LastMod: 2023-02-18
 Tags: save delete bulk-delete
 ---
 
-# Bulk Delete
+# Entity Framework Bulk Delete: Discover How to Improve Delete Performance
 
 ## Definition
 `DELETE` all entities from the database.

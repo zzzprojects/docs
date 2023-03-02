@@ -1,10 +1,12 @@
 ---
 PermaID: 1000111
-Name: Delete Multiple Entities
+Title: Entity Framework Delete Multiple Entities - Learn to Improve Delete
+MetaDescription: Unlock the power of Entity Framework by learning how to delete multiple entities.
+LastMod: 2023-02-19
 Tags: save delete bulk-delete
 ---
 
-# Delete Multiple Entities
+# Entity Framework Delete Multiple Entities: Discover to Improve Delete
 
 ## How to Delete Multiple Entities at Once?
 

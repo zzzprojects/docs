@@ -1,10 +1,12 @@
 ---
 PermaID: 1000104
-Name: DbSet
+Title: Entity Framework DbSet - Learn What is a DbSet and How to Use it
+MetaDescription: Unlock the power of Entity Framework by learning how a dbset works and which methods you can use.
+LastMod: 2023-02-19
 Tags: model dbset
 ---
 
-# DbSet
+# Entity Framework DbSet: Discover What is a DbSet and How to Use it
 
 In Entity Framework, the DbSet class represents an entity set that can be used for the database operation, such as create, read, update, and delete.
 

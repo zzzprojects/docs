@@ -1,10 +1,12 @@
 ---
 PermaID: 1000103
-Name: Model First
+Title: Entity Framework EF Model First - Learn How to Use Model First
+MetaDescription: Unlock the power of Entity Framework by learning how to map using a model-first approach.
+LastMod: 2023-02-19
 Tags: model mode-first
 ---
 
-# EF Model First
+# Entity Framework EF Model First: Discover How to Use Model First
 
 ## What is Entity Framework Model First? 
 

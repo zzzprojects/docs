@@ -1,10 +1,12 @@
 ---
 PermaID: 1000095
-Name: Database Provider Supported
+Title: Entity Framework Supported Database Providers - Learn About Providers
+MetaDescription: Unlock the power of Entity Framework by learning how to use database providers in your project.
+LastMod: 2023-02-18
 Tags: provider
 ---
 
-# Supported Database Providers
+# Entity Framework Supported Database Providers: Discover About Providers
 
 ## What database provider are supported in Entity Framework?  
 

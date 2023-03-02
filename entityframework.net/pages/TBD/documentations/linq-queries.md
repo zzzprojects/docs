@@ -1,10 +1,12 @@
 ---
 PermaID: 1000079
-Name: LINQ Queries
+Title: Entity Framework LINQ Queries - Learn the Basics About Querying
+MetaDescription: Unlock the power of Entity Framework by learning how to make LINQ queries to your database.
+LastMod: 2023-02-19
 Tags: query linq
 ---
 
-# LINQ Queries
+# Entity Framework LINQ Queries: Discover the Basics About Querying
 
 A query is an expression that retrieves data from a data source. Queries are usually expressed in a specialized query language, such as SQL for relational databases and XQuery for XML. 
 

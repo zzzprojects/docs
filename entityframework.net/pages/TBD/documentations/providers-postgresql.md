@@ -1,10 +1,12 @@
 ---
 PermaID: 1000096
-Name: PostgreSQL Provider
+Title: Entity Framework PostgreSQL - Learn About this Provider 
+MetaDescription: Unlock the power of Entity Framework by learning how to use PostgreSQL providers in your project.
+LastMod: 2023-02-18
 Tags: provider postgresql
 ---
 
-# PostgreSQL
+# Entity Framework PostgreSQL: Discover About this Provider
 
 ## Introduction
 

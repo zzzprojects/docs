@@ -1,10 +1,12 @@
 ---
 PermaID: 1000094
-Name: What's Entity Framework
+Title: Entity Framework What is Entity Framework - Learn the Basic About EF6
+MetaDescription: Unlock the power of Entity Framework by learning what EF6 is and why you should use it in your project.
+LastMod: 2023-02-18
 Tags: getting-started
 ---
 
-# What is Entity Framework?
+# Entity Framework What is Entity Framework: Discover the Basic About EF6
 
 Entity Framework (EF) is an open source ORM framework for .NET applications supported by Microsoft. EF simplifies mapping between objects in your software to the tables and columns of a relational database.
 
