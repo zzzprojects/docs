@@ -1,10 +1,12 @@
 ---
 PermaID: 1000164
-Name: EF Auditing
+Title: Entity Framework EFAuditing - Learn How to Perform Auditing
+MetaDescription: Unlock the power of Entity Framework by understanding how to audit your context. Learn how to audit inserted, updated, and deleted entities and save them in a log file or a database.
+LastMod: 2023-02-22
 Tags: third-party-library
 ---
 
-# Auditing
+# Entity Framework EFAuditing: Discover How to Perform Auditing
 
 ## Definition
 

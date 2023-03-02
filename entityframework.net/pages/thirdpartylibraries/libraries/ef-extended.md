@@ -1,10 +1,12 @@
 ---
 PermaID: 1000009
-Name: EF Extended
+Title: Entity Framework Extended - Learn New Methods to Extends EF6
+MetaDescription: Unlock the power of Entity Framework by discovering new methods to use with EF6. Learn to extend EF6 by adding functionalities like auditing and batching.
+LastMod: 2023-02-22
 Tags: third-party-library
 ---
 
-# Extended
+# Entity Framework Extended: Discover New Methods to Extends EF6
 
 ## Definition
 

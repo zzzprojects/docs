@@ -1,10 +1,12 @@
 ---
 PermaID: 1000011
-Name: Auto History
+Title: Entity Framework AutoHistory - Learn How to Perform Auditing
+MetaDescription: Unlock the power of Entity Framework by understanding how to audit your context. Learn how to audit inserted, updated, and deleted entities and save them in a log file or a database.
+LastMod: 2023-02-22
 Tags: third-party-library
 ---
 
-# AutoHistory
+# Entity Framework AutoHistory: Discover How to Perform Auditing
 
 ## Definition
 

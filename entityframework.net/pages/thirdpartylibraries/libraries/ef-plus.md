@@ -1,10 +1,12 @@
 ---
 PermaID: 1000007
-Name: EF Plus
+Title: Entity Framework Plus - Learn About the Most Popular Libraries
+MetaDescription: Unlock the power of Entity Framework by discovering new methods to use with EF6. Learn to extend EF6 by adding functionalities like auditing and batching.
+LastMod: 2023-02-22
 Tags: third-party-library
 ---
 
-# Plus
+# Entity Framework Plus: Discover About the Most Popular Libraries
 
 ## Definition
 

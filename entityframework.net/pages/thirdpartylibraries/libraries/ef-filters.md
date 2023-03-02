@@ -1,10 +1,12 @@
 ---
 PermaID: 1000008
-Name: EF Filters
+Title: Entity Framework Filters - Learn How to Filter Your Query
+MetaDescription: Unlock the power of Entity Framework by understanding how to filter your query automatically. Learn how to pre-filter your query to handle advanced scenarios such as tenant id.
+LastMod: 2023-02-22
 Tags: third-party-library
 ---
 
-# Filters
+# Entity Framework Filters: Discover How to Filter Your Query
 
 ## Definition
 

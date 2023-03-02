@@ -1,10 +1,12 @@
 ---
 PermaID: 1000006
-Name: EF Utilities
+Title: Entity Framework Utilities - Learn New Methods to Extends EF6
+MetaDescription: Unlock the power of Entity Framework by discovering new methods to use with EF6. Learn to extend EF6 by adding some functionalities, such as batching.
+LastMod: 2023-02-22
 Tags: third-party-library
 ---
 
-# Utilities
+# Entity Framework Utilities: Discover New Methods to Extends EF6
 
 ## Definition
 

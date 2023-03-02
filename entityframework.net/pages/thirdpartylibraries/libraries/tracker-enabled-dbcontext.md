@@ -1,10 +1,12 @@
 ---
 PermaID: 1000003
-Name: Tracker Enabled DbContext
+Title: Entity Framework TrackerEnabledDbContext - Learn How to Perform Audit
+MetaDescription: Unlock the power of Entity Framework by understanding how to audit your context. Learn how to audit inserted, updated, and deleted entities and save them in a log file or a database.
+LastMod: 2023-02-22
 Tags: third-party-library
 ---
 
-# Tracker Enabled DbContext
+# Entity Framework TrackerEnabledDbContext: Discover How to Perform Audit
 
 ## Definition
 

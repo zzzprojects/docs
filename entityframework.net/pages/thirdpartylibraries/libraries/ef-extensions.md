@@ -1,10 +1,12 @@
 ---
 PermaID: 1000000
-Name: EF Extensions
+Title: Entity Framework Extensions - Learn About new Bulk Extensions Methods
+MetaDescription: Unlock the power of Entity Framework by understanding how you can use bulk operations in your project. Learn how to improve your saving performance dramatically.
+LastMod: 2023-02-22
 Tags: third-party-library
 ---
 
-# Entity Framework Extensions
+# Entity Framework Extensions: Discover About new Bulk Extensions Methods
 ## Definition
 
 **Entity Framework Extensions** is a library that dramatically improves EF performances by using bulk and batch operations.

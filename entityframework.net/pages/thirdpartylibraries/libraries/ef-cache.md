@@ -1,10 +1,12 @@
 ---
 PermaID: 1000163
-Name: EF Cache
+Title: Entity Framework Cache - Learn How to Cache Your Query Result
+MetaDescription: Unlock the power of Entity Framework by understanding how to cache your query result. Learn how using a cache can dramatically improve your query performance.
+LastMod: 2023-02-22
 Tags: third-party-library
 ---
 
-# Cache
+# Entity Framework Cache: Discover How to Cache Your Query Result
 
 ## Definition
 

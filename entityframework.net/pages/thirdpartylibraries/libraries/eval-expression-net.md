@@ -1,10 +1,12 @@
 ---
 PermaID: 1000005
-Name: C# Eval Expression
+Title: Eval Expression.NET - Learn How to Execute Dynamic LINQ
+MetaDescription: Unlock the power of Entity Framework by executing dynamic Linq at runtime. Learn how to execute dynamic where clause and order clause from user input.
+LastMod: 2023-02-22
 Tags: third-party-library
 ---
 
-# Eval Expression.NET
+# Eval Expression.NET: Discover How to Execute Dynamic LINQ
 
 ## Definition
 

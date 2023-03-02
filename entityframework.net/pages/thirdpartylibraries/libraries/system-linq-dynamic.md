@@ -1,10 +1,12 @@
 ---
 PermaID: 1000004
-Name: LINQ Dynamic
+Title: Entity Framework Dynamic LINQ - Learn How to Execute Dynamically
+MetaDescription: Unlock the power of Entity Framework by evaluating LINQ expression at runtime. Learn how to execute dynamic where clause and order clause from user input.
+LastMod: 2023-02-22
 Tags: third-party-library
 ---
 
-# System.Linq.Dynamic
+# Entity Framework Dynamic LINQ: Discover How to Execute Dynamically
 
 ## Definition
 

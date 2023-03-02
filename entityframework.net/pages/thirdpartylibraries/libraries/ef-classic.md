@@ -1,10 +1,12 @@
 ---
 PermaID: 1000001
-Name: EF Classic
+Title: Entity Framework Classic - Learn About the EF6 Fork for .NET Core
+MetaDescription: Unlock the power of Entity Framework by understanding how you can use this EF6 fork to leverage your project. Learn how this fork can help you for using EF6 in .NET Core.
+LastMod: 2023-02-22
 Tags: third-party-library
 ---
 
-# EF Classic
+# Entity Framework Classic: Discover About the EF6 Fork for .NET Core
 
 ## Definition
 

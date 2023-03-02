@@ -1,10 +1,12 @@
 ---
 PermaID: 1000013
-Name: Audit DBContext
+Title: Entity Framework AuditDbContext - Learn How to Perform Auditing
+MetaDescription: Unlock the power of Entity Framework by understanding how to audit your context. Learn how to audit inserted, updated, and deleted entities and save them in a log file or a database.
+LastMod: 2023-02-22
 Tags: third-party-library
 ---
 
-# AuditDbContext
+# Entity Framework AuditDbContext: Discover How to Perform Auditing
 
 ## Definition
 
@@ -79,4 +81,4 @@ AuditDbContext.RegisterAuditType(typeof(Customer), typeof(CustomerAudit));
 
  - Entity Framework 6.x
 
-[Learn more](https://auditdbcontext.codeplex.com/)
+[Learn more](https://www.nuget.org/packages/AuditDbContext)
