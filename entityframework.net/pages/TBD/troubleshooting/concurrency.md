@@ -1,10 +1,12 @@
 ---
 PermaID: 1000162
-Name: Concurrency
+Title: Entity Framework Store update, insert, or delete statement affected
+MetaDescription: Learn about the Store update, insert, or delete statement affected an unexpected number of rows (0) exception.
+LastMod: 2023-02-20
 Tags: troubleshooting concurrency
 ---
 
-# Concurrency
+# Entity Framework: Store update, insert, or delete statement affected
 
 ## Exception: Store update, insert, or delete statement affected an unexpected number of rows (0)
 

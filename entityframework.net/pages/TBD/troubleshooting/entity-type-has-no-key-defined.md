@@ -1,10 +1,12 @@
 ---
 PermaID: 1000155
-Name: Entity Type has not key defined
+Title: Entity Framework One or more validation error were detected Exception
+MetaDescription: Learn about the One or more validation errors were detected during model generation. EntityType has no key defined. Define the key for this EntityType exception.
+LastMod: 2023-02-20
 Tags: troubleshooting
 ---
 
-# EntityType Has No Key Defined
+# Entity Framework: One or more validation error were detected Exception
 
 ## Exception: One or more validation errors were detected during model generation. EntityType has no key defined. Define the key for this EntityType.
 

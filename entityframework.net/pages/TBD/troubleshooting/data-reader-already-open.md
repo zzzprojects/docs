@@ -1,10 +1,12 @@
 ---
 PermaID: 1000161
-Name: DataReader already open
+Title: Entity Framework There is already an open DataReader Exception
+MetaDescription: Learn about the There is already an open DataReader associated with this Command which must be closed first exception.
+LastMod: 2023-02-20
 Tags: troubleshooting data-reader
 ---
 
-# DataReader already Open
+# Entity Framework: There is already an open DataReader Exception
 
 ## Exception: There is already an open DataReader associated with this Command which must be closed first
 

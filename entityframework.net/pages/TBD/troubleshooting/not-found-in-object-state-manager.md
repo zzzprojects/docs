@@ -1,10 +1,12 @@
 ---
 PermaID: 1000160
-Name: Not found in ObjectStateManager
+Title: Entity Framework The object cannot be deleted Exception
+MetaDescription: Learn about The object cannot be deleted because it was not found in the ObjectStateManager exception.
+LastMod: 2023-02-20
 Tags: troubleshooting state-manager
 ---
 
-# Not Found in ObjectStateManager
+# Entity Framework: The object cannot be deleted Exception
 
 ## Exception: The object cannot be deleted because it was not found in the ObjectStateManager
 

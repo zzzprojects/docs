@@ -1,10 +1,12 @@
 ---
 PermaID: 1000157
-Name: Specified property not supported
+Title: Entity Framework The specified type member is not supported Exception
+MetaDescription: Learn about The specified type member '[ColumnName]' is not supported in LINQ to Entities Exception exception. 
+LastMod: 2023-02-20
 Tags: troubleshooting
 ---
 
-# Specified Property Not Supported
+# Entity Framework: The specified type member is not supported Exception
 
 ## Exception: The specified type member '[ColumnName]' is not supported in LINQ to Entities Exception 
 

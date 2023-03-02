@@ -1,10 +1,12 @@
 ---
 PermaID: 1000153
-Name: Cannot construct entity
+Title: Entity Framework The entity cannot be constructed in a LINQ Exception
+MetaDescription: Learn about The entity cannot be constructed in a LINQ to Entities query exception.
+LastMod: 2023-02-20
 Tags: troubleshooting
 ---
 
-# Cannot Construct Entity
+# Entity Framework: The entity cannot be constructed in a LINQ Exception
 
 ## Exception: The entity cannot be constructed in a LINQ to Entities query
 

@@ -1,10 +1,12 @@
 ---
 PermaID: 1000159
-Name: LINQ does not recognize method
+Title: Entity Framework LINQ to Entities does not recognize the method
+MetaDescription: Learn about the LINQ to Entities does not recognize the method exception.
+LastMod: 2023-02-20
 Tags: troubleshooting linq
 ---
 
-# LINQ Does Not Recognize Method
+# Entity Framework: LINQ to Entities does not recognize the method exception
 
 ## Exception: LINQ to Entities does not recognize the method 
 

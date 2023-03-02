@@ -1,10 +1,12 @@
 ---
 PermaID: 1000158
-Name: Only primitive types supported
+Title: Entity Framework Unable to create a constant value Exception
+MetaDescription: Learn about the Unable to create a constant value of type [Object]. Only primitive types or enumeration types are supported in this context exception.
+LastMod: 2023-02-20
 Tags: troubleshooting
 ---
 
-# Only Primitive Types Supported
+# Entity Framework: Unable to create a constant value Exception
 
 ## Exception: Unable to create a constant value of type [Object]. Only primitive types or enumeration types are supported in this context.
 

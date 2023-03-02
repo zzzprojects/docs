@@ -1,10 +1,12 @@
 ---
 PermaID: 1000156
-Name: Specified type not supported
+Title: Entity Framework The specified type member is not supported Exception
+MetaDescription: Learn about The specified type member '[MemberName]' is not supported in LINQ to Entities exception.
+LastMod: 2023-02-20
 Tags: troubleshooting
 ---
 
-# Specified Type Not Supported
+# Entity Framework: The specified type member is not supported Exception
 
 ## Exception: The specified type member '[MemberName]' is not supported in LINQ to Entities
 
