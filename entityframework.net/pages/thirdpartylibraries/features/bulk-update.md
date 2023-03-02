@@ -1,10 +1,12 @@
 ---
 PermaID: 1000021
-Name: Bulk Update
+Title: Entity Framework Bulk Update - Learn who support this features
+MetaDescription: Unlock the power of Entity Framework by learning which libraries support the Bulk Update feature.
+LastMod: 2023-02-21
 Tags: third-party-feature
 ---
 
-# Bulk Update
+# Entity Framework Bulk Update: Discover who support this features
 
 ## Introduction
 

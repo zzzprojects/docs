@@ -1,10 +1,12 @@
 ---
 PermaID: 1000028
-Name: Audit
+Title: Entity Framework Audit - Learn who support this features
+MetaDescription: Unlock the power of Entity Framework by learning which libraries support the Audit feature.
+LastMod: 2023-02-21
 Tags: third-party-feature
 ---
 
-# Audit
+# Entity Framework Audit: Discover who support this features
 
 ## Introduction
 

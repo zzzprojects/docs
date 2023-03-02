@@ -1,10 +1,12 @@
 ---
 PermaID: 1000014
-Name: Include Optimized
+Title: Entity Framework Include Optimized - Learn who support this features
+MetaDescription: Unlock the power of Entity Framework by learning which libraries support the Include Optimized feature. 
+LastMod: 2023-02-21
 Tags: third-party-feature
 ---
 
-# Include Optimized
+# Entity Framework Include Optimized: Discover who support this features
 
 ## Introduction
 

@@ -1,10 +1,12 @@
 ---
 PermaID: 1000025
-Name: Bulk Delete
+Title: Entity Framework Bulk Delete - Learn who support this features
+MetaDescription: Unlock the power of Entity Framework by learning which libraries support the Bulk Delete feature.
+LastMod: 2023-02-21
 Tags: third-party-feature
 ---
 
-# Bulk Delete
+# Entity Framework Bulk Delete: Discover who support this features
 
 ## Introduction
 

@@ -1,10 +1,12 @@
 ---
 PermaID: 1000020
-Name: Cache
+Title: Entity Framework Cache - Learn who support this features
+MetaDescription: Unlock the power of Entity Framework by learning which libraries support the Query Cache feature.
+LastMod: 2023-02-21
 Tags: third-party-feature
 ---
 
-# Cache
+# Entity Framework Cache: Discover who support this features
 
 ## Introduction
 

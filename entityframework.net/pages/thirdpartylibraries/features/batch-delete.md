@@ -1,10 +1,12 @@
 ---
 PermaID: 1000027
-Name: Batch Delete
+Title: Entity Framework Batch Delete - Learn who support this features
+MetaDescription: Unlock the power of Entity Framework by learning which libraries support the Batch Delete feature. 
+LastMod: 2023-02-21
 Tags: third-party-feature
 ---
 
-# Batch Delete
+# Entity Framework Batch Delete: Discover who support this features
 
 ## Introduction
 

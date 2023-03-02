@@ -1,10 +1,12 @@
 ---
 PermaID: 1000024
-Name: Bulk Insert
+Title: Entity Framework Bulk Insert - Learn who support this features
+MetaDescription: Unlock the power of Entity Framework by learning which libraries support the Bulk Insert feature.
+LastMod: 2023-02-21
 Tags: third-party-feature
 ---
 
-# Bulk Insert
+# Entity Framework Bulk Insert: Discover who support this features
 
 ## Introduction
 

@@ -1,10 +1,12 @@
 ---
 PermaID: 1000022
-Name: Bulk Save Changes
+Title: Entity Framework BulkSaveChanges - Learn who support this features
+MetaDescription: Unlock the power of Entity Framework by learning which libraries support the BulkSaveChanges feature.
+LastMod: 2023-02-21
 Tags: third-party-feature
 ---
 
-# BulkSaveChanges
+# Entity Framework BulkSaveChanges: Discover who support this features
 
 ## Introduction
 

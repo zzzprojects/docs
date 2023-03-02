@@ -1,10 +1,12 @@
 ---
 PermaID: 1000019
-Name: Deferred Query
+Title: Entity Framework Deferred Query - Learn who support this features
+MetaDescription: Unlock the power of Entity Framework by learning which libraries support the Deferred Query feature.
+LastMod: 2023-02-21
 Tags: third-party-feature
 ---
 
-# Deferred Query
+# Entity Framework Deferred Query: Discover who support this features
 
 ## Introduction
 

@@ -1,10 +1,12 @@
 ---
 PermaID: 1000018
-Name: Dynamic Query
+Title: Entity Framework Dynamic LINQ - Learn who support this features
+MetaDescription: Unlock the power of Entity Framework by learning which libraries support the Dynamic LINQ feature.
+LastMod: 2023-02-21
 Tags: third-party-feature
 ---
 
-# Dynamic Query
+# Entity Framework Dynamic LINQ: Discover who support this features
 
 ## Introduction
 

@@ -1,10 +1,12 @@
 ---
 PermaID: 1000023
-Name: Bulk Merge
+Title: Entity Framework Bulk Merge - Learn who support this features
+MetaDescription: Unlock the power of Entity Framework by learning which libraries support the Bulk Merge feature.
+LastMod: 2023-02-21
 Tags: third-party-feature
 ---
 
-# Bulk Merge
+# Entity Framework Bulk Merge: Discover who support this features
 
 ## Introduction
 

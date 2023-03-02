@@ -1,10 +1,12 @@
 ---
 PermaID: 1000026
-Name: Batch Update
+Title: Entity Framework Batch Update - Learn who support this features
+MetaDescription: Unlock the power of Entity Framework by learning which libraries support the Batch Update feature.
+LastMod: 2023-02-21
 Tags: third-party-feature
 ---
 
-# Batch Update
+# Entity Framework Batch Update: Discover who support this features
 
 ## Introduction
 

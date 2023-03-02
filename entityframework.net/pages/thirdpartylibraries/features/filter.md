@@ -1,10 +1,12 @@
 ---
 PermaID: 1000017
-Name: Filter
+Title: Entity Framework Filter - Learn who support this features
+MetaDescription: Unlock the power of Entity Framework by learning which libraries support the Query Filter feature.
+LastMod: 2023-02-21
 Tags: third-party-feature
 ---
 
-# Filter
+# Entity Framework Filter: Discover who support this features
 
 ## Introduction
 
