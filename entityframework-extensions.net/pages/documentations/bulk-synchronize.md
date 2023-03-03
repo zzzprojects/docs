@@ -1,8 +1,10 @@
 ---
-Name: Bulk Synchronize
+Title: EF Core Bulk Synchronize | Optimize Data Sync for EF6 and EF Core
+MetaDescription: Efficiently synchronize Entity Framework data with EF Core Bulk Synchronize Extensions. Easily update, insert and delete large numbers of entities with customizable options for all EF versions, including EF Core 7, 6, 5, 3, and EF6. Optimize your database operations - try it now.
+LastMod: 2023-03-03
 ---
 
-# Bulk Synchronize
+# EF Core Bulk Synchronize: Optimize Entity Framework Sync Performance
 
 ## Description
 
@@ -31,7 +33,8 @@ The `BulkSynchronize` method is **fast** but also **flexible** to let you handle
 - [More scenarios](#more-scenarios)
 
 ### What is supported?
-- All Entity Framework versions (EF4, EF5, EF6, EF Core, [EF Classic](https://entityframework-classic.net/))
+- All Entity Framework Core Version: EF Core 7, EF Core 6, EF Core 5, EF Core 3
+- All Entity Framework Version: EF6, EF5, EF4
 - All Inheritances (TPC, TPH, TPT)
 - Complex Type/Owned Entity Type
 - Enum

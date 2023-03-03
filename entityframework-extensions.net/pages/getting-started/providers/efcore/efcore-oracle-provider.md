@@ -1,5 +1,6 @@
 ---
 Name: EF Core - Oracle Provider
+LastMod: 2023-02-27
 ---
 
 # EF Core - Oracle Provider

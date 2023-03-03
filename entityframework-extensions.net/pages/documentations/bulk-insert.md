@@ -1,8 +1,10 @@
 ---
-Name: Bulk Insert
+Title: EF Core Bulk Insert | Optimize Data Insertion for EF6 and EF Core
+MetaDescription: Optimize Entity Framework insert performance with EF Core Bulk Insert Extensions. Easily insert large numbers of entities and customize options with compatibility across all EF versions, including EF Core 7, 6, 5, 3, and EF6. Improve your database operations - try it now.
+LastMod: 2023-03-03
 ---
 
-# Bulk Insert
+# EF Core Bulk Insert: Optimize Entity Framework Insert Performance
 
 ## Description
 
@@ -39,7 +41,8 @@ The `BulkInsert` method is **fast** but also **flexible** to let you handle vari
 - [More scenarios](#more-scenarios)
 
 ### What is supported?
-- All Entity Framework versions (EF4, EF5, EF6, EF Core, [EF Classic](https://entityframework-classic.net/))
+- All Entity Framework Core Version: EF Core 7, EF Core 6, EF Core 5, EF Core 3
+- All Entity Framework Version: EF6, EF5, EF4
 - All Inheritances (TPC, TPH, TPT)
 - Complex Type/Owned Entity Type
 - Enum

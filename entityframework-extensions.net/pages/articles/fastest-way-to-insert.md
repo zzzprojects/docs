@@ -1,5 +1,6 @@
 ---
 Name: Fastest Way to Insert
+LastMod: 2023-02-25
 ---
 
 # Fastest Way to Insert

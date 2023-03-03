@@ -1,5 +1,6 @@
 ---
 Name: BulkInsert vs BulkSaveChanges
+LastMod: 2023-02-25
 ---
 
 # BulkInsert vs BulkSaveChanges

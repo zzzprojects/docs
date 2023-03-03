@@ -1,8 +1,10 @@
 ---
-Name: Bulk Delete
+Title: Dapper Bulk Delete | The Fastest Way to Delete a List in Dapper
+MetaDescription: Optimize Dapper delete performance with Dapper Plus Bulk Delete Extensions. Easily delete multiple rows in a database from a list with customizable options. Improve your database operations - try it now.
+LastMod: 2023-03-03
 ---
 
-# Bulk Delete
+# Dapper Bulk Delete: Fastest Way in Dapper to Delete Multiple Rows
 
 ## Description
 

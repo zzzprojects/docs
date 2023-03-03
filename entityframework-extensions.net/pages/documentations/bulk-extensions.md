@@ -1,9 +1,9 @@
 ---
-Title: EF Core Bulk Extensions and EF6 Bulk Insert, Update, Delete, Merge
-MetaDescription: Discover the power of BulkExtensions in EFCore and EF6 to perform high-performance bulk operations and efficiently save large amounts of data.
+Title: EF Core Bulk Extensions | Insert, Update, Delete, Merge, Upsert
+MetaDescription: Efficiently manage Entity Framework data with EF Core Bulk Extensions. Easily perform bulk insert, update, delete, merge, upsert, read, where contains, and save changes operations on large numbers of entities with customizable options for all EF versions, including EF Core 7, 6, 5, 3, and EF6. Optimize your database operations - try it now.
 ---
 
-# EF Core Bulk Extensions / EF6
+# EF Core Bulk Extensions: Fastest Entity Framework Extensions for Bulk Operations
 
 ## What is Bulk Extensions in Entity Framework?
 
@@ -20,6 +20,10 @@ Here is a list of **EF6** and **EF Core Bulk Extensions** methods:
 - [Bulk Read](#bulk-read)
 - [Where Bulk Contains](#where-bulk-contains)
 - [Where Bulk Not Contains](#where-bulk-not-contains)
+
+### What is supported?
+- All Entity Framework Core Version: EF Core 7, EF Core 6, EF Core 5, EF Core 3
+- All Entity Framework Version: EF6, EF5, EF4
 
 ## Bulk SaveChanges
 
@@ -77,9 +81,9 @@ await context.BulkDeleteAsync(customers);
 
 See the [Bulk Delete](/bulk-delete) documentation for more information and examples.
 
-## Bulk Merge
+## Bulk Merge / Upsert
 
-The `BulkMerge` extension method allows you to insert or update data in your database in bulk. People often search for this feature on other names, such as `Upsert`, `AddOrUpdate`, or `InsertOrUpdate` bulk extensions.
+The `BulkMerge` extension method allows you to add or update data in your database in bulk. People often search for this feature on other names, such as `Upsert`, `AddOrUpdate`, or `InsertOrUpdate` bulk extensions.
 
 ```csharp
 context.BulkMerge(customers);

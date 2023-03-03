@@ -1,9 +1,10 @@
 ---
-Name: Bulk Merge
+Title: Dapper Bulk Merge | The Fastest Way to Upsert a List in Dapper
+MetaDescription: Optimize Dapper insert or update performance with Dapper Plus Bulk Merge Extensions. Easily upsert multiple rows in a database from a list with customizable options. Improve your database operations - try it now.
+LastMod: 2023-03-03
 ---
 
-# Bulk Merge
-
+# Dapper Bulk Merge: Fastest Way in Dapper to Upsert Multiple Rows
 
 ## Description
 

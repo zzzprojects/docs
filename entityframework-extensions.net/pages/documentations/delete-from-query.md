@@ -1,5 +1,6 @@
 ---
 Name: Delete from Query
+LastMod: 2023-03-01
 ---
 
 # Delete from Query

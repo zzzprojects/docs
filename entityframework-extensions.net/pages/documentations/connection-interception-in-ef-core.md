@@ -1,6 +1,7 @@
 ---
 Permalink: connection-interception-in-ef-core
 Name: Connection Interception
+LastMod: 2023-03-01
 ---
 
 # Connection Interception

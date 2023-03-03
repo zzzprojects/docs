@@ -1,5 +1,6 @@
 ---
 Name: EF Core - Entity Framework Core Profiler
+LastMod: 2023-02-27
 ---
 
 # EF Core - Entity Framework Core Profiler

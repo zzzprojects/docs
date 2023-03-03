@@ -1,6 +1,7 @@
 ---
 Permalink: transaction-interception-in-ef-core
 Name: Transaction Interception
+LastMod: 2023-03-01
 ---
 
 # Transaction Interception

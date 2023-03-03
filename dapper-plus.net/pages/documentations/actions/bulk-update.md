@@ -1,9 +1,10 @@
 ---
-Name: Bulk Update
+Title: Dapper Bulk Update | The Fastest Way to Update a List in Dapper
+MetaDescription: Optimize Dapper update performance with Dapper Plus Bulk Update Extensions. Easily update multiple rows in a database from a list with customizable options. Improve your database operations - try it now.
+LastMod: 2023-03-03
 ---
 
-# Bulk Update
-
+# Dapper Bulk Update: Fastest Way in Dapper to Update Multiple Rows
 
 ## Description
 

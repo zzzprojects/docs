@@ -1,8 +1,10 @@
 ---
-Name: Bulk Update
+Title: EF Core Bulk Update | Optimize Data Modification for EF6 and EF Core
+MetaDescription: Efficiently update Entity Framework data with EF Core Bulk Update Extensions. Customize options to update large numbers of entities with ease, compatible with all EF versions including EF Core 7, 6, 5, 3, and EF6. Optimize your database operations - try it now.
+LastMod: 2023-03-03
 ---
 
-# Bulk Update
+# EF Core Bulk Update: Optimize Entity Framework Update Performance
 
 ## Description
 
@@ -38,7 +40,8 @@ The `BulkUpdate` method is **fast** but also **flexible** to let you handle vari
 - [More scenarios](#more-scenarios)
 
 ### What is supported?
-- All Entity Framework versions (EF4, EF5, EF6, EF Core, [EF Classic](https://entityframework-classic.net/))
+- All Entity Framework Core Version: EF Core 7, EF Core 6, EF Core 5, EF Core 3
+- All Entity Framework Version: EF6, EF5, EF4
 - All Inheritances (TPC, TPH, TPT)
 - Complex Type/Owned Entity Type
 - Enum

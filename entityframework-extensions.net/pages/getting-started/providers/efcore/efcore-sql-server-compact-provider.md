@@ -1,5 +1,6 @@
 ---
 Name: EF Core - SQL Server Compact Provider
+LastMod: 2023-02-27
 ---
 
 # EF Core - SQL Server Compact Provider

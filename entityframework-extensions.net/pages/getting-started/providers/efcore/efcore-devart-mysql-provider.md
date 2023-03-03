@@ -1,5 +1,6 @@
 ---
 Name: EF Core - DevArt MySQL Provider
+LastMod: 2023-02-27
 ---
 
 # EF Core - DevArt MySQL Provider

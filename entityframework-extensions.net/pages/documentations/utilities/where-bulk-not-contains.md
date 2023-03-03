@@ -1,5 +1,6 @@
 ---
 Name: How to filter entities not contained from an existing list with Entity Framework?
+LastMod: 2023-03-01
 ---
 
 # How to filter entities not contained from an existing list with Entity Framework?

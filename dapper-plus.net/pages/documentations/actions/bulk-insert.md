@@ -1,8 +1,10 @@
 ---
-Name: Bulk Insert
+Title: Dapper Bulk Insert | The Fastest Way to Insert a List in Dapper
+MetaDescription: Optimize Dapper insert performance with Dapper Plus Bulk Insert Extensions. Easily insert multiple rows in a database from a list with customizable options. Improve your database operations - try it now.
+LastMod: 2023-03-03
 ---
 
-# Bulk Insert
+# Dapper Bulk Insert: Fastest Way in Dapper to Insert Multiple Rows
 
 ## Description
 

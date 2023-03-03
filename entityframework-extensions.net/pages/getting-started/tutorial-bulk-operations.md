@@ -1,5 +1,6 @@
 ---
 Name: Getting Started with Bulk Operations
+LastMod: 2023-02-27
 ---
 
 # Bulk Operations

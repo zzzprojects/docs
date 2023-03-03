@@ -1,5 +1,6 @@
 ---
 Name: Getting Started with Batch Operations
+LastMod: 2023-02-27
 ---
 
 # Batch Operations

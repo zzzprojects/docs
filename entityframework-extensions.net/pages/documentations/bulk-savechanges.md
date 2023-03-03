@@ -1,8 +1,10 @@
 ---
-Name: Bulk SaveChanges
+Title: EF Core Bulk SaveChanges | Optimize Data Saving for EF6 and EF Core
+MetaDescription: Efficiently save Entity Framework changes with EF Core Bulk SaveChanges Extensions. Quickly save large numbers of changes with customizable options for all EF versions, including EF Core 7, 6, 5, 3, and EF6. Optimize your database operations - try it now.
+LastMod: 2023-03-03
 ---
 
-# Bulk SaveChanges
+# EF Core Bulk SaveChanges: Optimize Entity Framework Saving Performance
 
 ## Description
 
@@ -29,7 +31,8 @@ context.BulkSaveChanges(options => options.BatchSize = 100);
 > HINT: A lot of factors might affect the benchmark time such as index, column type, latency, throttling, etc.
 
 ### What is supported?
-- All Entity Framework versions (EF4, EF5, EF6, EF Core, [EF Classic](https://entityframework-classic.net/))
+- All Entity Framework Core Version: EF Core 7, EF Core 6, EF Core 5, EF Core 3
+- All Entity Framework Version: EF6, EF5, EF4
 - All Inheritances (TPC, TPH, TPT)
 - Complex Type/Owned Entity Type
 - Enum

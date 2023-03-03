@@ -1,5 +1,6 @@
 ---
 Name: EF Core - DevArt Oracle Provider
+LastMod: 2023-02-27
 ---
 
 # EF Core - DevArt Oracle Provider
