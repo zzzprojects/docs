@@ -260,5 +260,9 @@ var companies = new List<Company>().AsQueryable();
 var result = companies.Where(config, "DateTime > \"2023-01-1\"").ToArray();
 ```
 
-#### Note
-Note that value from this setting should also be set to `true` when calling extension methods. And the default value is `false`.
+#### Note 1
+The value from this setting should also be set to `true` when calling extension methods. 
+
+#### Note 2
+- This setting was introduced in version `1.2.25`, with the default value set to `false`.
+- From version `1.3.0` and higher, the default value is set to `true`.
