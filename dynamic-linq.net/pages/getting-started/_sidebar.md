@@ -18,5 +18,7 @@
   - [Parse Lambda](advanced/parse-lambda.md)
   - [Create Dynamic Class](advanced/create-dynamic-class.md)
 
+- [Breaking Changes](versions/breaking-changes.md)
+
 - Installation
   - [NuGet](installation/nuget.md)
