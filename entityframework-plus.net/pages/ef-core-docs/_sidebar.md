@@ -11,3 +11,5 @@
    - [Query Future](documentations/query-future/ef-core-query-future.md)
    - [Query IncludeFilter](documentations/query-include-filter/ef-core-query-include-filter.md)
    - [Query IncludeOptimized](documentations/query-include-optimized/ef-core-query-include-optimized.md)
+- Enterprise Features
+   - [Bulk Extensions](documentations/efcore-bulkextensions.md)
