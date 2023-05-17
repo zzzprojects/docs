@@ -51,6 +51,13 @@ The license can be added directly in the code of your application. Make sure to 
 Z.EntityFramework.Extensions.LicenseManager.AddLicense([licenseName], [licenseKey]);
 ```
 
+### Recommendations
+- **Web App:** Use Application_Start in global.asax to activate your license.
+- **WinForm App:** Use the main thread method to activate your license.
+- **Win Service:** Use the OnStart method to activate your license
+
+> Add the license before the first call to the library. Otherwise, the library will be enabled using the evaluation period.
+
 ## Setup License with Azure User Secrets
 The LicenseManager doesn't have access to the `appsettings.json` modified with the user secret but only the original one.
 
@@ -64,13 +71,6 @@ Z.EntityFramework.Extensions.LicenseManager.AddLicense([licenseName], [licenseKe
 ```
 
 Ensure you **DO NOT** store the license name and key under the same section we previously recommended, `Z.EntityFramework.Extensions`. Otherwise, the LicenseManager will also automatically add this invalid license.
-
-### Recommendations
-- **Web App:** Use Application_Start in global.asax to activate your license.
-- **WinForm App:** Use the main thread method to activate your license.
-- **Win Service:** Use the OnStart method to activate your license
-
-> Add the license before the first call to the library. Otherwise, the library will be enabled using the evaluation period.
 
 ## How can I check if my license is valid?
 You can use the **ValidateLicense** method to check if the current license is valid or not.
