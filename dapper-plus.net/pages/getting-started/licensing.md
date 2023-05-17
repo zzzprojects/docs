@@ -58,6 +58,20 @@ DapperPlusManager.AddLicense(licenseName, licenseKey);
 
 **ENSURE** to always test the license the first time you set it up.
 
+## Setup License with Azure User Secrets
+The LicenseManager doesn't have access to the `appsettings.json` modified with the user secret but only the original one.
+
+You will have to add it manually with the `AddLicense` method:
+
+```csharp
+string licenseName = //... PRO license name
+string licenseKey = //... PRO license key
+
+DapperPlusManager.AddLicense(licenseName, licenseKey);
+```
+
+Ensure you **DO NOT** store the license name and key under the same section we previously recommended, `Z.EntityFramework.Extensions`. Otherwise, the LicenseManager will also automatically add this invalid license.
+
 ### Recommendations
 - Use the config file to store your license name and license key.
 - **Web App:** Use Application_Start in global.asax to activate your license.

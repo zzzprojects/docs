@@ -51,6 +51,20 @@ The license can be added directly in the code of your application. Make sure to 
 Z.EntityFramework.Extensions.LicenseManager.AddLicense([licenseName], [licenseKey]);
 ```
 
+## Setup License with Azure User Secrets
+The LicenseManager doesn't have access to the `appsettings.json` modified with the user secret but only the original one.
+
+You will have to add it manually with the `AddLicense` method:
+
+```csharp
+string licenseName = //... PRO license name
+string licenseKey = //... PRO license key
+
+Z.EntityFramework.Extensions.LicenseManager.AddLicense([licenseName], [licenseKey]);
+```
+
+Ensure you **DO NOT** store the license name and key under the same section we previously recommended, `Z.EntityFramework.Extensions`. Otherwise, the LicenseManager will also automatically add this invalid license.
+
 ### Recommendations
 - **Web App:** Use Application_Start in global.asax to activate your license.
 - **WinForm App:** Use the main thread method to activate your license.
