@@ -67,15 +67,6 @@ ctx.Users.Where(x => x.LastLoginDate < date)
 
 ```
 [Try it](https://dotnetfiddle.net/a6zJUe)
- 
-## Limitations
-
- - **DO NOT** support Complex Type
- - **DO NOT** support TPC
- - **DO NOT** support TPH
- - **DO NOT** support TPT
- 
-If you need to use one of this feature, you need to use the library [Entity Framework Extensions](https://entityframework-extensions.net/)
 
 ## Conclusion
 
