@@ -266,3 +266,16 @@ The value from this setting should also be set to `true` when calling extension 
 #### Note 2
 - This setting was introduced in version `1.2.25`, with the default value set to `false`.
 - From version `1.3.0` and higher, the default value is set to `true`.
+
+### SupportDotInPropertyNames
+
+Support a `.` in a property-name. Default value is `false`.
+
+``` csharp
+var config = new ParsingConfig
+{
+    SupportDotInPropertyNames = true
+};
+
+var result = persons.Select(config, "new (Profile.FirstName as Prof.Name)").ToDynamicArray();
+```
