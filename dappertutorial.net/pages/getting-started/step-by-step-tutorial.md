@@ -60,7 +60,7 @@ CREATE TABLE [dbo].[Customers] (
 
 The customers' table contains the following data.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/docs/master/dapper-tutorial.net/images/customer-data.png" alt="customer data">
+<img src="https://raw.githubusercontent.com/zzzprojects/docs/master/dappertutorial.net/images/customer-data.png" alt="customer data">
 
 ## Create Model
  
@@ -154,6 +154,6 @@ Let's run your application and specify the following Url.
 http://localhost:55016/Customer/
 ```
 
-<img src="https://raw.githubusercontent.com/zzzprojects/docs/master/dapper-tutorial.net/images/view-customer-data.png" alt="customer data-1">
+<img src="https://raw.githubusercontent.com/zzzprojects/docs/master/dappertutorial.net/images/view-customer-data.png" alt="customer data-1">
 
 [Try it online](https://dotnetfiddle.net/MyI0LA)

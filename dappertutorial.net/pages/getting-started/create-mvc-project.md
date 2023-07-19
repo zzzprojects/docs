@@ -9,12 +9,12 @@ LastMod: 2023-02-21
 
 In this article, we will learn how to create an **ASP.NET MVC** application. The easiest way to create an **ASP.NET** application is to open Visual Studio and create a C# web project using the ASP.NET Web Application (.NET Framework) template. 
 
-<img src="https://raw.githubusercontent.com/zzzprojects/docs/master/dapper-tutorial.net/images/create-mvc-project-1.png" alt="Create mvc project-1">
+<img src="https://raw.githubusercontent.com/zzzprojects/docs/master/dappertutorial.net/images/create-mvc-project-1.png" alt="Create mvc project-1">
 
 Name the project **DapperDemoApp** and select **OK**.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/docs/master/dapper-tutorial.net/images/create-mvc-project-2.png" alt="Create mvc project-1">
+<img src="https://raw.githubusercontent.com/zzzprojects/docs/master/dappertutorial.net/images/create-mvc-project-2.png" alt="Create mvc project-1">
 
 In **New ASP.NET Web Application - DapperDemoApp**, select **MVC** and click OK button. 
 
-<img src="https://raw.githubusercontent.com/zzzprojects/docs/master/dapper-tutorial.net/images/create-mvc-project.png" alt="Create mvc project-1">
+<img src="https://raw.githubusercontent.com/zzzprojects/docs/master/dappertutorial.net/images/create-mvc-project.png" alt="Create mvc project-1">
