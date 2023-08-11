@@ -38,7 +38,8 @@ using (var context = new EntityContext())
 }
 
 ```
-[Try it in EF6](https://dotnetfiddle.net/spN4T5) | [Try it in EF Core](https://dotnetfiddle.net/967y9H)
+
+[Try it in EF Core](https://dotnetfiddle.net/967y9H) | [Try it in EF6](https://dotnetfiddle.net/spN4T5)
 
  - It will insert a list of invoices including all the invoices items for each invoice.
 
@@ -68,7 +69,8 @@ ctx.BulkMerge(users, options =>
 	};
 });
 ```
-[Try it in EF6](https://dotnetfiddle.net/0uW3tw) | [Try it in EF Core](https://dotnetfiddle.net/qcjjP0)
+
+[Try it in EF Core](https://dotnetfiddle.net/qcjjP0) | [Try it in EF6](https://dotnetfiddle.net/0uW3tw)
 
 ### ReadOnly
 
@@ -89,7 +91,8 @@ ctx.BulkMerge(users, options =>
 	};
 });
 ```
-[Try it in EF6](https://dotnetfiddle.net/UgwDDk) | [Try it in EF Core](https://dotnetfiddle.net/LQnvGP)
+
+[Try it in EF Core](https://dotnetfiddle.net/LQnvGP) | [Try it in EF6](https://dotnetfiddle.net/UgwDDk)
 
 
 ### Invalid 

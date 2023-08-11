@@ -32,6 +32,6 @@ EntityFrameworkManager.PreBulkSaveChanges = ctx =>
 };
 ```
 
-[Try it in EF6](https://dotnetfiddle.net/3nTyrH) | [Try it in EF Core](https://dotnetfiddle.net/5Zj4gQ)
+[Try it in EF Core](https://dotnetfiddle.net/5Zj4gQ) | [Try it in EF6](https://dotnetfiddle.net/3nTyrH)
 
 In the `PreBulkSaveChanges` event, the `CreatedDate` for new customers and `ModifiedDate` property for existing customers is set to `DateTime.Now` before the data is saved to the database.

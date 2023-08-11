@@ -32,6 +32,6 @@ using (var context = new EntityContext())
 }
 ```
 
-[Try it in EF6](https://dotnetfiddle.net/mIhWyT) | [Try it in EF Core](https://dotnetfiddle.net/TEE4xQ)
+[Try it in EF Core](https://dotnetfiddle.net/TEE4xQ) | [Try it in EF6](https://dotnetfiddle.net/mIhWyT)
 
 The `BulkOperationExecuting` is updating the `Description` and `IsActive` in the `list` of customers but not in the database.

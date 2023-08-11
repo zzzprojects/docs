@@ -18,7 +18,8 @@ context.Customers.Where(x => !x.IsActive).DeleteFromQuery();
 // DELETE customers by id
 context.Customers.Where(x => x.ID == userId).DeleteFromQuery();
 ```
-[Try it in EF6](https://dotnetfiddle.net/0my0fe) | [Try it in EF Core](https://dotnetfiddle.net/nGIOTQ)
+
+[Try it in EF Core](https://dotnetfiddle.net/nGIOTQ) | [Try it in EF6](https://dotnetfiddle.net/0my0fe)
 
 ## Purpose
 `Deleting` entities using `SaveChanges` normally requires loading them first in the `ChangeTracker`. These additional round-trips are often not necessary.

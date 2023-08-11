@@ -21,7 +21,8 @@ context.BulkSynchronize(customers, options => {
     options.ColumnPrimaryKeyExpression = customer => customer.Code;
 });
 ```
-[Try it in EF6](https://dotnetfiddle.net/nZedku) | [Try it in EF Core](https://dotnetfiddle.net/v4KQSX)
+
+[Try it in EF Core](https://dotnetfiddle.net/v4KQSX) | [Try it in EF6](https://dotnetfiddle.net/nZedku)
 
 ### Scenarios
 The `BulkSynchronize` method is **fast** but also **flexible** to let you handle various scenarios in Entity Framework such as:
@@ -59,7 +60,8 @@ context.BulkSynchronize(customers);
 
 context.BulkSynchronizeAsync(customers, cancellationToken);
 ```
-[Try it in EF6](https://dotnetfiddle.net/yPs4WF) | [Try it in EF Core](https://dotnetfiddle.net/la3HQL)
+
+[Try it in EF Core](https://dotnetfiddle.net/la3HQL) | [Try it in EF6](https://dotnetfiddle.net/yPs4WF)
 
 ### Bulk Synchronize with options
 The `options` parameter let you use a lambda expression to customize the way entities are synchronized.
@@ -71,7 +73,8 @@ context.BulkSynchronize(customers, options => {
     options.ColumnPrimaryKeyExpression = customer => customer.Code;
 });
 ```
-[Try it in EF6](https://dotnetfiddle.net/FX3Quf) | [Try it in EF Core](https://dotnetfiddle.net/edudfD)
+
+[Try it in EF Core](https://dotnetfiddle.net/edudfD) | [Try it in EF6](https://dotnetfiddle.net/FX3Quf)
 
 ## Real Life Scenarios
 
@@ -81,7 +84,8 @@ Your entity has an identity property, but you want to force to insert a specific
 ```csharp
 context.BulkSynchronize(customers, options => options.SynchronizeKeepIdentity = true);
 ```
-[Try it in EF6](https://dotnetfiddle.net/crxeJ3) | [Try it in EF Core](https://dotnetfiddle.net/PQ2DDi)
+
+[Try it in EF Core](https://dotnetfiddle.net/PQ2DDi) | [Try it in EF6](https://dotnetfiddle.net/crxeJ3)
 
 ### Synchronize and include/exclude properties
 You want to synchronize your entities but only for specific properties.
@@ -96,7 +100,8 @@ context.BulkSynchronize(customizeToSynchronize, options => {
     options.IgnoreOnSynchronizeUpdateExpression = c => c.CreatedDate;
 });
 ```
-[Try it in EF6](https://dotnetfiddle.net/mOlppr) | [Try it in EF Core](https://dotnetfiddle.net/Dk60YN)
+
+[Try it in EF Core](https://dotnetfiddle.net/Dk60YN) | [Try it in EF6](https://dotnetfiddle.net/mOlppr)
 
 ### Synchronize a subset of the table
 You want to synchronize your table, but only a subset of the table and not the whole table, such as only a specific user, type, or category that exists in the entities list provided.
@@ -108,7 +113,7 @@ context.BulkSynchronize(customers, options => {
 });
 ```
 
-[Try it in EF6](https://dotnetfiddle.net/y5snLt) | [Try it in EF Core](https://dotnetfiddle.net/clr84M)
+[Try it in EF Core](https://dotnetfiddle.net/clr84M) | [Try it in EF6](https://dotnetfiddle.net/y5snLt)
 
 Learn more here: https://entityframework-extensions.net/column-synchronize-delete-key-subset-expression
 
@@ -118,7 +123,8 @@ You want to synchronize entities, but you don't have the primary key. The `Colum
 ```csharp
 context.BulkSynchronize(customers, options => options.ColumnPrimaryKeyExpression = c => c.Code);    
 ```
-[Try it in EF6](https://dotnetfiddle.net/PYjmAJ) | [Try it in EF Core](https://dotnetfiddle.net/oigfK6)
+
+[Try it in EF Core](https://dotnetfiddle.net/oigfK6) | [Try it in EF6](https://dotnetfiddle.net/PYjmAJ)
 
 ### Synchronize with future action
 You want to synchronize entities, but you want to defer the execution.
@@ -136,7 +142,8 @@ context.FutureAction(x => x.BulkSynchronize(invoices));
 
 context.ExecuteFutureAction();
 ```
-[Try it in EF6](https://dotnetfiddle.net/78FeXe) | [Try it in EF Core](https://dotnetfiddle.net/KmXE3m)
+
+[Try it in EF Core](https://dotnetfiddle.net/KmXE3m) | [Try it in EF6](https://dotnetfiddle.net/78FeXe) 
 
 ### More scenarios
 Hundreds of scenarios have been solved and are now supported.
@@ -152,11 +159,11 @@ info@zzzprojects.com
 
 | Name | Description | Example |
 | :--- | :---------- | :------ |
-| `BulkSynchronize<T>(items)` | Bulk synchronize entities in your database. | [EF6](https://dotnetfiddle.net/rYYc4V) / [EFCore](https://dotnetfiddle.net/JVsPRj) |
-| `BulkSynchronize<T>(items, options)` | Bulk synchronize entities in your database.  | [EF6](https://dotnetfiddle.net/D1GBYP) / [EFCore](https://dotnetfiddle.net/JAmTXP)|
-| `BulkSynchronizeAsync<T>(items)` | Bulk synchronize entities asynchronously in your database. | [EF6](https://dotnetfiddle.net/HgNKzC) / [EFCore](https://dotnetfiddle.net/inDFrg) |
-| `BulkSynchronizeAsync<T>(items, cancellationToken)` | Bulk synchronize entities asynchronously in your database. | [EF6](https://dotnetfiddle.net/3orhU0) / [EFCore](https://dotnetfiddle.net/yFqG3w) |
-| `BulkSynchronizeAsync<T>(items, options, cancellationToken)` | Bulk synchronize entities asynchronously in your database. | [EF6](https://dotnetfiddle.net/URkFs9) / [EFCore](https://dotnetfiddle.net/aVddfS) |
+| `BulkSynchronize<T>(items)` | Bulk synchronize entities in your database. | [EFCore](https://dotnetfiddle.net/JVsPRj) / [EF6](https://dotnetfiddle.net/rYYc4V) |
+| `BulkSynchronize<T>(items, options)` | Bulk synchronize entities in your database.  | [EFCore](https://dotnetfiddle.net/JAmTXP) / [EF6](https://dotnetfiddle.net/D1GBYP) |
+| `BulkSynchronizeAsync<T>(items)` | Bulk synchronize entities asynchronously in your database. | [EFCore](https://dotnetfiddle.net/inDFrg) / [EF6](https://dotnetfiddle.net/HgNKzC) |
+| `BulkSynchronizeAsync<T>(items, cancellationToken)` | Bulk synchronize entities asynchronously in your database. | [EFCore](https://dotnetfiddle.net/yFqG3w) / [EF6](https://dotnetfiddle.net/3orhU0) |
+| `BulkSynchronizeAsync<T>(items, options, cancellationToken)` | Bulk synchronize entities asynchronously in your database. | [EFCore](https://dotnetfiddle.net/aVddfS) / [EF6](https://dotnetfiddle.net/URkFs9) |
 
 ###### Options
 More options can be found here:

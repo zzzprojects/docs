@@ -17,7 +17,8 @@ context.BulkDelete(customers);
 // Easy to customize
 context.BulkDelete(customers, options => options.BatchSize = 100);
 ```
-[Try it in EF6](https://dotnetfiddle.net/ESKZJq) | [Try it in EF Core](https://dotnetfiddle.net/BCyXU6)
+
+[Try it in EF Core](https://dotnetfiddle.net/BCyXU6) | [Try it in EF6](https://dotnetfiddle.net/ESKZJq)
 
 ### Performance Comparison
 
@@ -26,7 +27,7 @@ context.BulkDelete(customers, options => options.BatchSize = 100);
 | SaveChanges     | 1,200 ms       | 2,400 ms       | 6,000 ms       |
 | BulkDelete      | 50 ms          | 55 ms          | 75 ms         |
 
-[Try it in EF6](https://dotnetfiddle.net/qYjiA9) | [Try it in EF Core](https://dotnetfiddle.net/9r3vLC)
+[Try it in EF Core](https://dotnetfiddle.net/9r3vLC) | [Try it in EF6](https://dotnetfiddle.net/qYjiA9)
 
 > HINT: A lot of factors might affect the benchmark time such as index, column type, latency, throttling, etc.
 
@@ -64,7 +65,8 @@ context.BulkDelete(customers);
 
 context.BulkDeleteAsync(customers, cancellationToken);
 ```
-[Try it in EF6](https://dotnetfiddle.net/10nw7a) | [Try it in EF Core](https://dotnetfiddle.net/EO0Z1R)
+
+[Try it in EF Core](https://dotnetfiddle.net/EO0Z1R) | [Try it in EF6](https://dotnetfiddle.net/10nw7a)
 
 ### Bulk Delete with options
 The `options` parameter let you use a lambda expression to customize the way entities are deleted.
@@ -72,7 +74,8 @@ The `options` parameter let you use a lambda expression to customize the way ent
 ```csharp
 context.BulkDelete(customers, options => options.BatchSize = 100);
 ```
-[Try it in EF6](https://dotnetfiddle.net/ygZVAu) | [Try it in EF Core](https://dotnetfiddle.net/lIUiH2)
+
+[Try it in EF Core](https://dotnetfiddle.net/lIUiH2) | [Try it in EF6](https://dotnetfiddle.net/ygZVAu)
 
 ### Why BulkDelete is faster than SaveChanges?
 Deleting thousands of entities for a file importation is a typical scenario.
@@ -89,7 +92,8 @@ You want to delete entities, but you don't have the primary key. The `ColumnPrim
 ```csharp
 context.BulkDelete(customers, options => options.ColumnPrimaryKeyExpression = c => c.Code);    
 ```
-[Try it in EF6](https://dotnetfiddle.net/9M6bKt) | [Try it in EF Core](https://dotnetfiddle.net/91wZzc)
+
+[Try it in EF Core](https://dotnetfiddle.net/91wZzc) | [Try it in EF6](https://dotnetfiddle.net/9M6bKt)
 
 ### Delete with future action
 You want to delete entities, but you want to defer the execution.
@@ -107,7 +111,8 @@ context.FutureAction(x => x.BulkDelete(customers2));
 
 context.ExecuteFutureAction();
 ```
-[Try it in EF6](https://dotnetfiddle.net/KovTrj) | [Try it in EF Core](https://dotnetfiddle.net/V6KsSl)
+
+[Try it in EF Core](https://dotnetfiddle.net/V6KsSl) | [Try it in EF6](https://dotnetfiddle.net/KovTrj) 
 
 ### More scenarios
 Hundreds of scenarios have been solved and are now supported.
@@ -123,11 +128,11 @@ info@zzzprojects.com
 
 | Name | Description | Example |
 | :--- | :---------- | :------ |
-| `BulkDelete<T>(items)` | Bulk delete entities in your database. | [EF6](https://dotnetfiddle.net/4Jv1H6) / [EFCore](https://dotnetfiddle.net/gwc9hl)|
-| `BulkDelete<T>(items, options)` | Bulk delete entities in your database.  | [EF6](https://dotnetfiddle.net/IedG1h) / [EFCore](https://dotnetfiddle.net/Qek2MJ) |
-| `BulkDeleteAsync<T>(items)` | Bulk delete entities asynchronously in your database. | [EF6](https://dotnetfiddle.net/n5OhXL) / [EFCore](https://dotnetfiddle.net/MJLo2d) |
-| `BulkDeleteAsync<T>(items, cancellationToken)` | Bulk delete entities asynchronously in your database. | [EF6](https://dotnetfiddle.net/RfSB6I) / [EFCore](https://dotnetfiddle.net/rRL627) |
-| `BulkDeleteAsync<T>(items, options, cancellationToken)` | Bulk delete entities asynchronously in your database. | [EF6](https://dotnetfiddle.net/r1Hkw7) / [EFCore](https://dotnetfiddle.net/SZ54Px) |
+| `BulkDelete<T>(items)` | Bulk delete entities in your database. | [EFCore](https://dotnetfiddle.net/gwc9hl) / [EF6](https://dotnetfiddle.net/4Jv1H6)|
+| `BulkDelete<T>(items, options)` | Bulk delete entities in your database.  | [EFCore](https://dotnetfiddle.net/Qek2MJ) / [EF6](https://dotnetfiddle.net/IedG1h) |
+| `BulkDeleteAsync<T>(items)` | Bulk delete entities asynchronously in your database. | [EFCore](https://dotnetfiddle.net/MJLo2d) / [EF6](https://dotnetfiddle.net/n5OhXL) |
+| `BulkDeleteAsync<T>(items, cancellationToken)` | Bulk delete entities asynchronously in your database. | [EFCore](https://dotnetfiddle.net/rRL627) / [EF6](https://dotnetfiddle.net/RfSB6I) |
+| `BulkDeleteAsync<T>(items, options, cancellationToken)` | Bulk delete entities asynchronously in your database. | [EFCore](https://dotnetfiddle.net/SZ54Px) / [EF6](https://dotnetfiddle.net/r1Hkw7) |
 
 ###### Options
 More options can be found here:

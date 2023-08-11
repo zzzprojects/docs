@@ -26,6 +26,6 @@ using (var context = new EntityContext())
 }
 ```
 
-[Try it in EF6](https://dotnetfiddle.net/8q6BdX) | [Try it in EF Core](https://dotnetfiddle.net/5fPyFY)
+[Try it in EF Core](https://dotnetfiddle.net/5fPyFY) | [Try it in EF6](https://dotnetfiddle.net/8q6BdX)
 
 In the `PostConfiguration` event, the Log property is set and to log the database commands and queries performed in that `BulkInsert` method.

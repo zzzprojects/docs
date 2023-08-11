@@ -28,4 +28,4 @@ context.BulkSaveChanges(options => {
 });
 ```
 
-[Try it in EF6](https://dotnetfiddle.net/ZZdWD9) | [Try it in EF Core](https://dotnetfiddle.net/PeKp75)
+[Try it in EF Core](https://dotnetfiddle.net/PeKp75) | [Try it in EF6](https://dotnetfiddle.net/ZZdWD9)

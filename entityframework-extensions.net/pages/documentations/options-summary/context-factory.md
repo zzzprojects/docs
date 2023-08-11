@@ -23,7 +23,8 @@ The current DbContext is passed in a parameter in case you need to create a work
 // Using the default constructor
 EntityFrameworkManager.ContextFactory = context => new CurrentContext();
 ```
-[Try it in EF6](https://dotnetfiddle.net/6BQAzg) | [Try it in EF Core](https://dotnetfiddle.net/WLddqV)
+
+[Try it in EF Core](https://dotnetfiddle.net/WLddqV) | [Try it in EF6](https://dotnetfiddle.net/6BQAzg)
 
 ```csharp
 // Using a constructor that requires a connection string
@@ -72,4 +73,5 @@ public class EntitiesContext : DbContext
 	// ...code...
 }
 ```
-[Try it in EF6](https://dotnetfiddle.net/jEPrjg) | [Try it in EF Core](https://dotnetfiddle.net/hUYZWx)
+
+[Try it in EF Core](https://dotnetfiddle.net/hUYZWx) | [Try it in EF6](https://dotnetfiddle.net/jEPrjg)

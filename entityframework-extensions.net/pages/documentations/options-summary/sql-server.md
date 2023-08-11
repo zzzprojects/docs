@@ -15,4 +15,5 @@ context.BulkSaveChanges(options =>
    options.SqlBulkCopyOptions = SqlBulkCopyOptions.Default | SqlBulkCopyOptions.TableLock;
 });
 ```
-[Try it in EF6](https://dotnetfiddle.net/j4jhLe) | [Try it in EF Core](https://dotnetfiddle.net/ktEGo8)
+
+[Try it in EF Core](https://dotnetfiddle.net/ktEGo8) | [Try it in EF6](https://dotnetfiddle.net/j4jhLe)

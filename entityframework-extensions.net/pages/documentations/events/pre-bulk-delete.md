@@ -29,7 +29,7 @@ EntityFrameworkManager.PreBulkDelete = (ctx, obj) =>
 };
 ```
 
-[Try it in EF6](https://dotnetfiddle.net/9ExoFg) | [Try it in EF Core](https://dotnetfiddle.net/S1X9u1)
+[Try it in EF Core](https://dotnetfiddle.net/S1X9u1) | [Try it in EF6](https://dotnetfiddle.net/9ExoFg)
 
  - In the `PreBulkDelete` event, the `IsDeleted` to `true` and clear the `obj` (list of customers).
  - So, that `BulkDelete` doesn't delete these datas from the database permanently.

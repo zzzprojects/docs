@@ -26,6 +26,6 @@ EntityFrameworkManager.PreBulkUpdate = (ctx, obj) =>
 };
 ```
 
-[Try it in EF6](https://dotnetfiddle.net/9JUluL) | [Try it in EF Core](https://dotnetfiddle.net/TCvCOm)
+[Try it in EF Core](https://dotnetfiddle.net/TCvCOm) | [Try it in EF6](https://dotnetfiddle.net/9JUluL)
 
 In the `PreBulkUpdate` event, the `ModifiedDate` property is set to `DateTime.Now` before the data is updated to the database.

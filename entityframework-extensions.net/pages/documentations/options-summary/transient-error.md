@@ -14,7 +14,8 @@ context.BulkSaveChanges(options => {
 	options.RetryCount = 3;
 });
 ```
-[Try it in EF6](https://dotnetfiddle.net/BJJKFg) | [Try it in EF Core](https://dotnetfiddle.net/0FS0Zh)
+
+[Try it in EF Core](https://dotnetfiddle.net/0FS0Zh) | [Try it in EF6](https://dotnetfiddle.net/BJJKFg) 
 
 ## RetryInterval
 Gets or sets the interval to wait before retrying an operation when a transient error occurs.
@@ -27,4 +28,5 @@ context.BulkSaveChanges(options => {
 });
 
 ```
-[Try it in EF6](https://dotnetfiddle.net/wy84D5) | [Try it in EF Core](https://dotnetfiddle.net/QTQmKF)
+
+[Try it in EF Core](https://dotnetfiddle.net/QTQmKF) | [Try it in EF6](https://dotnetfiddle.net/wy84D5)

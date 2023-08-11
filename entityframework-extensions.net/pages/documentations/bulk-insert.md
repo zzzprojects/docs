@@ -17,7 +17,8 @@ context.BulkInsert(customers);
 // Easy to customize
 context.BulkInsert(invoices, options => options.IncludeGraph = true);
 ```
-[Try it in EF6](https://dotnetfiddle.net/bNektu) | [Try it in EF Core](https://dotnetfiddle.net/2eVfFT)
+
+[Try it in EF Core](https://dotnetfiddle.net/2eVfFT) | [Try it in EF6](https://dotnetfiddle.net/bNektu)
 
 ### Performance Comparison
 
@@ -26,7 +27,8 @@ context.BulkInsert(invoices, options => options.IncludeGraph = true);
 | SaveChanges     | 1,200 ms       | 2,400 ms       | 6,000 ms       |
 | BulkInsert      | 50 ms          | 55 ms          | 75 ms          |
 
-[Try it in EF6](https://dotnetfiddle.net/pSpD10) | [Try it in EF Core](https://dotnetfiddle.net/ttbri7)
+[Try it in EF Core](https://dotnetfiddle.net/ttbri7) | [Try it in EF6](https://dotnetfiddle.net/pSpD10)
+ 
 
 > HINT: A lot of factors might affect the benchmark time such as index, column type, latency, throttling, etc.
 
@@ -67,7 +69,8 @@ context.BulkInsert(customers);
 
 context.BulkInsertAsync(customers, cancellationToken);
 ```
-[Try it in EF6](https://dotnetfiddle.net/4xB7Tf) | [Try it in EF Core](https://dotnetfiddle.net/54yNvX)
+
+[Try it in EF Core](https://dotnetfiddle.net/54yNvX) | [Try it in EF6](https://dotnetfiddle.net/4xB7Tf)
 
 ### Bulk Insert with options
 The `options` parameter let you use a lambda expression to customize the way entities are inserted.
@@ -80,7 +83,8 @@ context.BulkInsert(customers, options => {
     options.PrimaryKeyExpression = customer => customer.Code;
   });
 ```
-[Try it in EF6](https://dotnetfiddle.net/9rUgry) | [Try it in EF Core](https://dotnetfiddle.net/jpQVna)
+
+[Try it in EF Core](https://dotnetfiddle.net/jpQVna) | [Try it in EF6](https://dotnetfiddle.net/9rUgry)
 
 ### Why BulkInsert is faster than SaveChanges?
 Inserting thousands of entities for an initial load or a file importation is a typical scenario.
@@ -97,7 +101,8 @@ Your entity has an identity property, but you want to force to insert a specific
 ```csharp
 context.BulkInsert(customers, options => options.InsertKeepIdentity = true);
 ```
-[Try it in EF6](https://dotnetfiddle.net/JJeqbn) | [Try it in EF Core](https://dotnetfiddle.net/iZULeX)
+
+[Try it in EF Core](https://dotnetfiddle.net/iZULeX) | [Try it in EF6](https://dotnetfiddle.net/JJeqbn)
 
 ### Insert and include/exclude properties
 You want to insert your entities but only for specific properties.
@@ -110,7 +115,8 @@ context.BulkInsert(customers, options => options.ColumnInputExpression = c => ne
             
 context.BulkInsert(customers, options => options.IgnoreOnInsertExpression = c => new { c.ColumnToIgnore } );
 ```
-[Try it in EF6](https://dotnetfiddle.net/TUyT7A) | [Try it in EF Core](https://dotnetfiddle.net/B32EVO)
+
+[Try it in EF Core](https://dotnetfiddle.net/B32EVO) | [Try it in EF6](https://dotnetfiddle.net/TUyT7A)
 
 ### Insert only if the entity does not already exists
 You want to insert entities but only those that don't already exist in the database.
@@ -124,7 +130,8 @@ context.BulkInsert(customers, options => {
     options.ColumnPrimaryKeyExpression = c => c.Code;
 });
 ```
-[Try it in EF6](https://dotnetfiddle.net/Etc2k7) | [Try it in EF Core](https://dotnetfiddle.net/bNmy6f)
+
+[Try it in EF Core](https://dotnetfiddle.net/bNmy6f) | [Try it in EF6](https://dotnetfiddle.net/Etc2k7)
 
 ### Insert with related child entities (Include Graph)
 You want to insert entities but also automatically insert related child entities.
@@ -135,7 +142,8 @@ You want to insert entities but also automatically insert related child entities
 ```csharp
 context.BulkInsert(invoices, options => options.IncludeGraph = true);
 ```
-[Try it in EF6](https://dotnetfiddle.net/geInHT) | [Try it in EF Core](https://dotnetfiddle.net/0FxW4t)
+
+[Try it in EF Core](https://dotnetfiddle.net/0FxW4t) | [Try it in EF6](https://dotnetfiddle.net/geInHT)
 
 ### Insert with future action
 You want to insert entities, but you want to defer the execution.
@@ -153,7 +161,8 @@ context.FutureAction(x => x.BulkInsert(invoices, options => options.IncludeGraph
 
 context.ExecuteFutureAction();
 ```
-[Try it in EF6](https://dotnetfiddle.net/Ju3ReL) | [Try it in EF Core](https://dotnetfiddle.net/ltH0a4)
+
+[Try it in EF Core](https://dotnetfiddle.net/ltH0a4) | [Try it in EF6](https://dotnetfiddle.net/Ju3ReL)
 
 ### Insert without returning identity value
 By default, the EF `BulkInsert` method already returns the identity when inserting.
@@ -165,7 +174,8 @@ You can improve your performance by turning off the `AutoMapOutput` option.
 ```csharp
 context.BulkInsert(customers, options => options.AutoMapOutputDirection = false);
 ```
-[Try it](https://dotnetfiddle.net/Ld0l03) | [Try it in EF Core](https://dotnetfiddle.net/HnG2oq)
+
+[Try it in EF Core](https://dotnetfiddle.net/HnG2oq) | [Try it](https://dotnetfiddle.net/Ld0l03)
 
 ### More scenarios
 Hundreds of scenarios have been solved and are now supported.
@@ -181,12 +191,12 @@ info@zzzprojects.com
 
 | Name | Description | Example |
 | :--- | :---------- | :------ |
-| `BulkInsert<T>(items)` | Bulk insert entities in your database. | [EF6](https://dotnetfiddle.net/ShIYXu) / [EFCore](https://dotnetfiddle.net/n0p2IF)|
-| `BulkInsert<T>(items, options)` | Bulk insert entities in your database.  | [EF6](https://dotnetfiddle.net/NBVSTZ) / [EFCore](https://dotnetfiddle.net/09b2zo)|
-| `BulkInsertAsync<T>(items)` | Bulk insert entities asynchronously in your database. | [EF6](https://dotnetfiddle.net/v7621p) / [EFCore](https://dotnetfiddle.net/uYPaIS)|
-| `BulkInsertAsync<T>(items, options)` | Bulk insert entities asynchronously in your database.  | [EF6](https://dotnetfiddle.net/wuFZDZ) / [EFCore](https://dotnetfiddle.net/eWkJco)|
-| `BulkInsertAsync<T>(items, cancellationToken)` | Bulk insert entities asynchronously in your database. | [EF6](https://dotnetfiddle.net/qrDSny) / [EFCore](https://dotnetfiddle.net/4iW0p6) |
-| `BulkInsertAsync<T>(items, options, cancellationToken)` | Bulk insert entities asynchronously in your database. | [EF6](https://dotnetfiddle.net/iPmJw9) / [EFCore](https://dotnetfiddle.net/VkmKH2)|
+| `BulkInsert<T>(items)` | Bulk insert entities in your database. | [EFCore](https://dotnetfiddle.net/n0p2IF) / [EF6](https://dotnetfiddle.net/ShIYXu) |
+| `BulkInsert<T>(items, options)` | Bulk insert entities in your database.  | [EFCore](https://dotnetfiddle.net/09b2zo) / [EF6](https://dotnetfiddle.net/NBVSTZ) |
+| `BulkInsertAsync<T>(items)` | Bulk insert entities asynchronously in your database. | [EFCore](https://dotnetfiddle.net/uYPaIS) / [EF6](https://dotnetfiddle.net/v7621p) |
+| `BulkInsertAsync<T>(items, options)` | Bulk insert entities asynchronously in your database.  | [EFCore](https://dotnetfiddle.net/eWkJco) / [EF6](https://dotnetfiddle.net/wuFZDZ) |
+| `BulkInsertAsync<T>(items, cancellationToken)` | Bulk insert entities asynchronously in your database. | [EFCore](https://dotnetfiddle.net/4iW0p6) / [EF6](https://dotnetfiddle.net/qrDSny) |
+| `BulkInsertAsync<T>(items, options, cancellationToken)` | Bulk insert entities asynchronously in your database. | [EFCore](https://dotnetfiddle.net/VkmKH2) / [EF6](https://dotnetfiddle.net/iPmJw9) |
 
 ###### Options
 More options can be found here:

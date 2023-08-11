@@ -31,6 +31,7 @@ using (var context = new EntityContext())
     });
 }
 ```
-[Try it in EF6](https://dotnetfiddle.net/u3MlB7) | [Try it in EF Core](https://dotnetfiddle.net/wnXwJF)
+
+[Try it in EF Core](https://dotnetfiddle.net/wnXwJF) | [Try it in EF6](https://dotnetfiddle.net/u3MlB7)
 
 The `BulkOperationExecuted` is updating the `Description` and `IsActive` in the `list` of customers but not in the database.
