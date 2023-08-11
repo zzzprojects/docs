@@ -208,7 +208,7 @@ So all three methods are very similar but serve different purpose.
 
 ## What are the limitations?
 
-We currently only support SQL Server.
+We currently only support SQL Server and PostgreSQL.
 
 We do not support inheritance such as `TPC`, `TPH`, and `TPT`
 
