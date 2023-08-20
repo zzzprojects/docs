@@ -1,1 +1,0 @@
-- [Getting Started](https://riptutorial.com/blazor/learn/100000/getting-started)

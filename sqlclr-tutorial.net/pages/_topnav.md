@@ -1,1 +1,0 @@
-- [Tutorial](https://riptutorial.com/sql-clr/learn/100000/overview)

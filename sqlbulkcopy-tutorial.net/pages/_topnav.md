@@ -1,1 +1,0 @@
-- [Documentation](https://riptutorial.com/sqlbulkcopy/learn/100000/getting-started)

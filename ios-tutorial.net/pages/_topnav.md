@@ -1,1 +1,0 @@
-- [Getting Started](https://riptutorial.com/ios/learn/100000/overview)
