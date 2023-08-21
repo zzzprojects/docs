@@ -1,8 +1,9 @@
 <nav class="main-nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
     <ul class="nav nav-level-one" id="side-menu">
+		<li><a href="#" onclick="openFaqModal(null); return false;">Open Chat GPT Console</a></li>
         <li>
             <a href="/">Getting Started with Dapper</a>
-        </li>
+        </li>		
 		<li><a href="/dapper-vs-entity-framework">Dapper vs Entity Framework</a></li>
 		<li><a href="/database-providers">Dapper Database Providers</a></li>
 		<li>
