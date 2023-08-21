@@ -138,39 +138,6 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-## FAQ
-
-<div itemscope itemtype="https://schema.org/FAQPage">
-
-<details itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-<summary id="how-to-retrieve-a-single-row-returned-by-a-stored-procedure-in-dapper" itemprop="name">How to retrieve a single row returned by a stored procedure in Dapper?</summary>
-<div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">
-
-To retrieve a single row returned by a [stored procedure](/stored-procedures), you need to specify the stored procedure name in the command text and specify the command type to `CommandType.StoredProcedure`:
-
-```sql
-CREATE PROCEDURE MyStoredProcedure
-AS
-BEGIN
-    SELECT 1
-END
-```
-
-```csharp
-using (var connection = new SqlConnection("connectionString"))
-{
-    var scalarValue = connection.QuerySingle<int>("MyStoredProcedure", commandType: CommandType.StoredProcedure);
-    
-    Console.WriteLine(scalarValue);
-}
-
-```
-
-</div></div>
-</details>
-
-</div>
-
 ## Conclusion
 
 In the above examples, we have used Dapper `QuerySingle` and `QueryFirst` methods to query a database and return only one row from the result set. That is useful when you know only one record will be returned, and you don't need to loop through all records in the result set. We can also access the values of the object returned from `QueryFirst` by specifying the name of each column. That provides a powerful and fast way to query a database with Dapper.

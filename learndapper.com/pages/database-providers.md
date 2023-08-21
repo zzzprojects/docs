@@ -127,58 +127,6 @@ using (var connection = new NpgsqlConnection(connectionString))
 
 Like other providers, you must first create a connection and use any available Dapper methods, including [Dapper Bulk Operations](/bulk-operations) methods.
 
-## FAQ
-
-<div itemscope itemtype="https://schema.org/FAQPage">
-
-<details itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-<summary id="what-database-providers-is-supported-in-dapper" itemprop="name">What database providers is supported in Dapper?</summary>
-<div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">
-
-Dapper supports a wide range of database providers that are compatible with ADO.NET, including but not limited to Microsoft SQL Server, MySQL, PostgreSQL, Oracle, and SQLite.
-
-Since Dapper has no database specific implementation, it works with pretty much all providers.
-
-</div></div>
-</details>
-
-<details itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-<summary id="how-can-i-install-a-database-provider-in-dapper" itemprop="name">How do I install a database provider in Dapper?</summary>
-<div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">
-
-To install a database provider in Dapper, you need to add the appropriate [NuGet](https://www.nuget.org/) package to your project. For example:
-
-- **SQL Server**: You need to install the [Microsoft.Data.SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient) package
-- **Oracle**: You need to install the [Oracle.ManagedDataAccess.Core](https://www.nuget.org/packages/Oracle.ManagedDataAccess.Core) package
-- **MySQL**: You need to install the [MySql.Data](https://www.nuget.org/packages/MySql.Data) package
-- **PostgreSQL**: You need install the [Npgsql](https://www.nuget.org/packages/Npgsql) package
-- **SQLite**: You need to install the [System.Data.SQLite.Core](https://www.nuget.org/packages/System.Data.SQLite.Core) package
-
-More than one package might exist for the same providers. We just have included the most popular one.
-
-</div></div>
-</details>
-
-<details itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-<summary id="is-ado-net-provider-supported-in-dapper" itemprop="name">Is ADO.NET provider supported in Dapper?</summary>
-<div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">
-
-Yes, Dapper is built on top of ADO.NET and supports all databases that have an ADO.NET provider. That allows Dapper to work with a wide range of database technologies, including SQL Server, MySQL, PostgreSQL, Oracle, SQLite, and more.
-
-</div></div>
-</details>
-
-<details itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-<summary id="are-there-any-performance-considerations-when-using-a-specific-database-provider-in-dapper" itemprop="name">Are there any performance considerations when using a specific database provider in Dapper?</summary>
-<div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">
-
-Dapper is designed to be very efficient, but actual performance can depend on several factors, such as the specific database provider, the complexity and efficiency of your queries, the size of the result set, and the load on the database server. Always ensure your SQL queries are optimized for the best performance.
-
-</div></div>
-</details>
-
-</div>
-
 ## Related Articles
 
 - [Bulk Operations](/bulk-operations)

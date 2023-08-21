@@ -59,30 +59,6 @@ No value is printed to the output for the `Discontinued` property:
 
 ![Image](/images/28-03-2019-08-37-00.png)
 
-## FAQ
-
-<div itemscope itemtype="https://schema.org/FAQPage">
-
-<details itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-<summary id="how-to-retrieve-a-specific-column-returned-by-a-stored-procedure-in-dapper" itemprop="name">How to retrieve a specific column returned by a stored procedure in Dapper?</summary>
-<div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">
-
-To return a specific column returned by a [stored procedure](/stored-procedures), you need to specify the stored procedure name in the command text and specify the command type to `CommandType.StoredProcedure`:
-
-```csharp
-using (var connection = new SqlConnection("connectionString"))
-{
-    var result = connection.Query("MyStoredProcedure", commandType: CommandType.StoredProcedure).ToList();
-
-    var specificColumnList = result.Select(x => (string)x.MyColumn).ToList();
-}
-```
-
-</div></div>
-</details>
-
-</div>
-
 ## Related Articles
 
 - [Querying](/dapper-query)

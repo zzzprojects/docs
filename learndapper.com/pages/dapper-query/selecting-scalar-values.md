@@ -79,39 +79,6 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-## FAQ
-
-<div itemscope itemtype="https://schema.org/FAQPage">
-
-<details itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-<summary id="how-to-retrieve-a-scalar-value-returned-by-a-stored-procedure-in-dapper" itemprop="name">How to retrieve a scalar value returned by a stored procedure in Dapper?</summary>
-<div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text">
-
-To retrieve a scalar value returned by a [stored procedure](/stored-procedures), you need to specify the stored procedure name in the command text and specify the command type to `CommandType.StoredProcedure`:
-
-```sql
-CREATE PROCEDURE MyStoredProcedure
-AS
-BEGIN
-    SELECT 1
-END
-```
-
-```csharp
-using (var connection = new SqlConnection("connectionString"))
-{
-    var scalarValue = connection.ExecuteScalar<int>("MyStoredProcedure", commandType: CommandType.StoredProcedure);
-    
-    Console.WriteLine(scalarValue);
-}
-
-```
-
-</div></div>
-</details>
-
-</div>
-
 ## Related Articles
 
 - [Querying](/dapper-query)
