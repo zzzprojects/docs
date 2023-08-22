@@ -4,7 +4,7 @@ description: Entity Framework Core provides support for optimistic concurrency m
 canonical: /concurrency
 proficiencylevel: Intermediate
 status: Published
-lastmod: 2023-03-01
+lastmod: 2023-08-22
 ---
 
 # EF Core Concurrency
