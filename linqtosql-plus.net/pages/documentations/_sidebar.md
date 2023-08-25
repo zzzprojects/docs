@@ -4,9 +4,6 @@
    - [Bulk Delete](bulk-delete.md)
    - [Bulk Merge](bulk-merge.md)
    - [Bulk Synchronize](bulk-synchronize.md)
-- Batch Operations
-   - [Delete from Query](delete-from-query.md)
-   - [Update from Query](update-from-query.md)
 - C# Eval Expression
    - [LINQ Dynamic](eval-expressions/linq-dynamic.md)
    - [Eval.Compile](eval-expressions/eval-compile.md)

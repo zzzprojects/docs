@@ -9,7 +9,7 @@ Gets or sets the maximum number of operations retry when a transient error occur
 
 
 ```csharp
-context.BulkSubmitChanges(options => {
+context.BulkMerge(options => {
 	options.RetryCount = 3;
 });
 ```
@@ -21,7 +21,7 @@ Gets or sets the interval to wait before retrying an operation when a transient 
 
 
 ```csharp
-context.BulkSubmitChanges(options => {
+context.BulkMerge(options => {
 	options.RetryCount = 3;
 	options.RetryInterval = new TimeSpan(100);
 });

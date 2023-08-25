@@ -9,8 +9,8 @@ Gets or sets the SqlBulkCopyOptions to use when `SqlBulkCopy` is used to directl
 
 
 ```csharp
-context.BulkSubmitChanges(options =>
+context.BulkMerge(options =>
 {
-   options.SqlBulkCopyOptions = SqlBulkCopyOptions.Default | SqlBulkCopyOptions.TableLock;
+   options.SqlBulkCopyOptions = (int)(SqlBulkCopyOptions.Default | SqlBulkCopyOptions.TableLock);
 });
 ```

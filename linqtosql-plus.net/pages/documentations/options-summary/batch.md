@@ -9,7 +9,7 @@ Gets or sets the number of records to use in a batch.
 
 
 ```csharp
-context.BulkSubmitChanges(options => options.BatchSize = 1000);
+context.BulkMerge(options => options.BatchSize = 1000);
 ```
 
 ---
@@ -19,7 +19,7 @@ Gets or sets the maximum of time in seconds to wait for a batch before the comma
 
 
 ```csharp
-context.BulkSubmitChanges(options => options.BatchTimeout = 180);
+context.BulkMerge(options => options.BatchTimeout = 180);
 ```
 
 ---
@@ -29,5 +29,5 @@ Gets or sets a delay in milliseconds to wait between batch.
 
 
 ```csharp
-context.BulkInsert(list, options => options.BatchDelayInterval = 100);
+context.BulkMerge(list, options => options.BatchDelayInterval = 100);
 ```

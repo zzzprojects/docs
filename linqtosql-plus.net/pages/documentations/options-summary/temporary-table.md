@@ -9,7 +9,7 @@ Gets or sets the number of batches a temporary table can contain. This option ma
 
 
 ```csharp
-context.BulkSubmitChanges(options =>
+context.BulkMerge(options =>
 {
    options.TemporaryTableBatchByTable = 0; // unlimited
 });
@@ -22,7 +22,7 @@ Gets or sets the number of records to use in a batch when inserting in a tempora
 
 
 ```csharp
-context.BulkSubmitChanges(options =>
+context.BulkMerge(options =>
 {
    options.TemporaryTableInsertBatchSize = 50000;
 });
@@ -35,7 +35,7 @@ Gets or sets the minimum number of records to use a temporary table instead of u
 
 
 ```csharp
-context.BulkSubmitChanges(options =>
+context.BulkMerge(options =>
 {
    options.TemporaryTableMinRecord = 25;
 });
@@ -48,7 +48,7 @@ Gets or sets the schema name to use for the temporary table.
 
 
 ```csharp
-context.BulkSubmitChanges(options =>
+context.BulkMerge(options =>
 {
    options.TemporaryTableSchemaName = "zzz";
 });
@@ -61,7 +61,7 @@ Gets or sets if the temporary table must be locked when inserting records into i
 
 
 ```csharp
-context.BulkSubmitChanges(options =>
+context.BulkMerge(options =>
 {
    options.TemporaryTableUseTableLock = true;
 });
@@ -75,7 +75,7 @@ Gets or sets if the library should `create` and `drop` a permanent table instead
 
 
 ```csharp
-context.BulkSubmitChanges(options =>
+context.BulkMerge(options =>
 {
    options.UsePermanentTable = true;
 });

@@ -11,7 +11,7 @@ Gets or sets if `INSERTED` and `DELETED` data from the database should be return
 ```csharp
 List<AuditEntry> auditEntries = new List<AuditEntry>();
 
-context.BulkSubmitChanges(options =>
+context.BulkMerge(options =>
 {
 	options.UseAudit = true;
 	options.BulkOperationExecuted = bulkOperation => auditEntries.AddRange(bulkOperation.AuditEntries);
@@ -28,7 +28,7 @@ Gets `INSERTED` and `DELETED` data when `UseAudit` option is enabled.
 ```csharp
 List<AuditEntry> auditEntries = new List<AuditEntry>();
 
-context.BulkSubmitChanges(options =>
+context.BulkMerge(options =>
 {
 	options.UseAudit = true;
 	options.BulkOperationExecuted = bulkOperation => auditEntries.AddRange(bulkOperation.AuditEntries);
