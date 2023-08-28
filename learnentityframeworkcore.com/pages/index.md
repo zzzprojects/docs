@@ -1,25 +1,14 @@
 ---
-title: Entity Framework Core Documentation And Tutorials
-description: An introduction to Entity Framework Core and Object Relational Mappers
+title: Learn Entity Framework Core - EF Core Tutorial
+description: Getting started with Entity Framework Core with tutorials and documentation
 canonical: /
 status: Published
-lastmod: 2023-08-15
+lastmod: 2023-08-28
 ---
 
-# Welcome To Learn Entity Framework Core
+# What is Entity Framework Core?
 
-This site provides documentation and tutorials for people looking for help with using EF Core, Microsoft's recommended data access technology for applications based on the [.NET Core framework](https://www.microsoft.com/net/core).
-
-## What is Entity Framework Core / EF Core?
-
-Entity Framework Core (EF Core) is an open-source, lightweight, and cross-platform version of Entity Framework data-access technology. It is an Object-Relational Mapper (ORM) tool that enables developers to work with relational databases using .NET objects. It has been designed to be lightweight, and extensible and to support cross-platform development as part of Microsoft's .NET Core framework. It has also been designed to be simpler to use and to offer performance improvements over previous versions of Entity Framework. 
-
-EF Core is an object-relational mapper (ORM). Object-relational mapping is a technique that enables developers to work with data in an object-oriented way by performing the work required to **map** between **objects** defined in an application's programming language and data stored in **relational** data sources.
-
- - EF Core provides a set of APIs for managing database operations, such as querying, inserting, updating, and deleting data, and it supports a wide range of relational databases including SQL Server, MySQL, SQLite, and PostgreSQL. 
- - EF Core supports LINQ (Language-Integrated Query), which allows developers to write expressive and efficient queries using C# or Visual Basic.
- - EF Core also provides a variety of performance-related features such as lazy loading, change tracking, and caching. 
- - Additionally, it allows developers to use LINQ (Language Integrated Query) to query and filter data, similar to how you would query an in-memory collection.
+Entity Framework Core (EF Core) is the recommended Object-Relational Mapper (ORM) for [.NET](https://dotnet.microsoft.com/en-us/download), formerly known as .NET Core. As the successor to EF6, EF Core has been entirely reengineered and made open source on [GitHub](https://github.com/dotnet/efcore).
 
 ## Why use an ORM?
 
@@ -33,16 +22,17 @@ An ORM (Object-Relational Mapper) is used to interact with a database using an o
 
 Most development frameworks include libraries that enable access to data from relational databases via recordset-like data structures. The following code sample illustrates a typical scenario where data is retrieved from a database and stored in an ADO.NET `DataTable` so that it is accessible to the program's code:
 
-
 ```csharp
 using(var conn = new SqlConnection(connectionString))
-using(var cmd = new SqlCommand("select * from Products", conn))
 {
-    var dt = new DataTable();
-    using(var da = new SqlDataAdapter(cmd))
-    {
-        da.Fill(dt);
-    }
+	using(var cmd = new SqlCommand("select * from Products", conn))
+	{
+		var dt = new DataTable();
+		using(var da = new SqlDataAdapter(cmd))
+		{
+			da.Fill(dt);
+		}
+	}
 }
 ```
 
@@ -90,6 +80,7 @@ public class Product
     int ProductId { get; set; }
     string ProductName { get; set; }
 }
+
 int productId = myProduct.ProductId;
 string productName = myProduct.ProductName;
 ```

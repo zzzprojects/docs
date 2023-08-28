@@ -1,14 +1,15 @@
 <nav class="main-nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
     <ul class="nav nav-level-one" id="side-menu">
+		<li><a href="#" onclick="openFaqModal(null); return false;">Open Chat GPT Console</a></li>
         <li>
             <a href="/">Home</a>
-            <ul class="nav-level-two">
+            <ul class="nav-level-two" data-display="home">
                 <li><a href="/efcore/how-to-get">How To Get EF Core</a></li>
             </ul>
         </li>
         <li>
             <a href="/dbcontext">DbContext</a>
-            <ul class="nav-level-two">
+            <ul class="nav-level-two" data-display="dbcontext">
                 <li><a href="/dbcontext/adding-data">Insert Entity</a></li>
                 <li><a href="/dbcontext/modifying-data">Update Entity</a></li>
                 <li><a href="/dbcontext/deleting-data">Delete Entity</a></li>
@@ -17,7 +18,7 @@
         </li>
         <li>
             <a href="/dbset">DbSet</a>
-            <ul class="nav-level-two">
+            <ul class="nav-level-two" data-display="dbset">
                 <li><a href="/dbset/querying-data">Querying Data</a></li>
                 <li><a href="/dbset/adding-data">Add Record</a></li>
                 <li><a href="/dbset/modifying-data">Modify Record</a></li>
@@ -28,7 +29,7 @@
         </li>
         <li>
             <a href="/bulk-extensions">Bulk Extensions</a>
-            <ul class="nav-level-two">
+            <ul class="nav-level-two" data-display="bulk-extensions">
                 <li><a href="/bulk-extensions/bulk-insert">Bulk Insert</a></li>
                 <li><a href="/bulk-extensions/bulk-update">Bulk Update</a></li>
                 <li><a href="/bulk-extensions/bulk-delete">Bulk Delete</a></li>
@@ -39,21 +40,21 @@
         </li>
         <li>
             <a href="/model">Model</a>
-            <ul class="nav-level-two">
+            <ul class="nav-level-two" data-display="model">
                 <li><a href="/walkthroughs/existing-database">From Existing Database</a></li>
                 <li><a href="/model/shadow-properties">Shadow Properties</a></li>
             </ul>
         </li>
         <li>
             <a href="/relationships">Relationships</a>
-            <ul class="nav-level-two">
+            <ul class="nav-level-two" data-display="relationships">
                 <li><a href="/relationships/managing-one-to-many-relationships">Managing One To Many Relationships</a></li>
                 <li><a href="/relationships/referential-constraint-action-options">Referential Constraint Action Options</a></li>
             </ul>
         </li>
         <li>
             <a href="/conventions">Conventions</a>
-            <ul class="nav-level-two">
+            <ul class="nav-level-two" data-display="conventions">
                 <li><a href="/conventions/one-to-many-relationship">One To Many Relationship</a></li>
                 <li><a href="/conventions/one-to-one-relationship">One To One Relationship</a></li>
                 <li><a href="/conventions/many-to-many-relationship">Many To Many Relationship</a></li>
@@ -61,10 +62,10 @@
         </li>
         <li>
             <a href="/configuration">Configuration</a>
-            <ul class="nav-level-two">
+            <ul class="nav-level-two" data-display="configuration">
                 <li>
                     <a href="/configuration/data-annotation-attributes">Data Annotation Attributes</a>
-                    <ul class="nav-level-three">
+                    <ul class="nav-level-three" data-display="data-annotation-attributes">
                         <li><a href="/configuration/data-annotation-attributes/column-attribute">Column Attribute</a></li>
                         <li><a href="/configuration/data-annotation-attributes/complextype-attribute">ComplexType Attribute</a></li>
                         <li><a href="/configuration/data-annotation-attributes/concurrencycheck-attribute">ConcurrencyCheck Attribute</a></li>
@@ -83,7 +84,7 @@
                 </li>
                 <li>
                     <a href="/configuration/fluent-api">Fluent Api</a>
-                    <ul class="nav-level-three">
+                    <ul class="nav-level-three" data-display="fluent-api">
                         <li><a href="/configuration/fluent-api/model-configuration">Model Configuration</a></li>
                         <li><a href="/configuration/fluent-api/property-configuration">Property Configuration</a></li>
                         <li><a href="/configuration/fluent-api/hasalternatekey-method">HasAlternatekey Method</a></li>
@@ -130,7 +131,7 @@
         </li>
         <li>
             <a href="/inheritance">Inheritance</a>
-            <ul class="nav-level-two">
+            <ul class="nav-level-two" data-display="inheritance">
                 <li><a href="/inheritance/table-per-concrete">Table Per Concrete</a></li>
                 <li><a href="/inheritance/table-per-hierarchy">Table Per Hierarchy</a></li>
                 <li><a href="/inheritance/table-per-type">Table Per Type</a></li>
@@ -141,12 +142,12 @@
         </li>
         <li>
             <a href="/migrations">Migrations</a>
-            <ul class="nav-level-two">
+            <ul class="nav-level-two" data-display="migrations">
                 <li><a href="/migrations/model-snapshot">Model Snapshot</a></li>
                 <li><a href="/migrations/seeding">Seeding Data</a></li>
                 <li>
                     <a href="/migrations/commands">Commands</a>
-                    <ul class="nav-level-three">
+                    <ul class="nav-level-three" data-display="migrations">
                         <li><a href="/migrations/commands/cli-commands">CLI Commands</a></li>
                         <li><a href="/migrations/commands/pmc-commands">PMC Commands</a></li>
                     </ul>
@@ -155,7 +156,7 @@
         </li>
         <li>
             <a href="/walkthroughs">Walkthoughs</a>
-            <ul class="nav-level-two">
+            <ul class="nav-level-two" data-display="walkthroughs">
                 <li><a href="/walkthroughs/aspnetcore-application">ASP.NET Core MVC Application</a></li>
                 <li><a href="/walkthroughs/console-application">.NET Core Console Application</a></li>
                 <li><a href="/walkthroughs/existing-database">Using An Existing Database</a></li>
@@ -163,7 +164,7 @@
         </li>
         <li>
             <a href="/raw-sql">Raw SQL</a>
-            <ul class="nav-level-two">
+            <ul class="nav-level-two" data-display="raw-sql">
                 <li><a href="/raw-sql/from-sql">FromSql</a></li>
                 <li><a href="/raw-sql/sql-query">SqlQuery</a></li>
                 <li><a href="/raw-sql/execute-sql">ExecuteSql</a></li>
@@ -180,7 +181,7 @@
         </li>
         <li>
             <a href="/misc">Misc</a>
-            <ul class="nav-level-two">
+            <ul class="nav-level-two" data-display="misc">
                 <li><a href="/misc/temporal-tables">Temporal Tables</a></li>
                 <li><a href="/misc/pre-convention-model-configuration">Pre-convention Model Configuration</a></li>
                 <li><a href="/misc/compiled-models">Compiled Models</a></li>

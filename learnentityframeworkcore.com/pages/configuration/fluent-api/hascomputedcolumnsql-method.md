@@ -3,7 +3,7 @@ title: The Fluent API HasComputedColumnSql Method
 description: Usage of the Fluent API HasComputedColumnSql Method in Entity Framework Core
 canonical: /configuration/fluent-api/hascomputedcolumnsql-method
 status: Published
-lastmod: 2023-02-26
+lastmod: 2023-08-27
 ---
 
 # EF Core HasComputedColumnSql
@@ -21,8 +21,8 @@ public class Contact
     public DateTime DateCreated { get; set; }
     public DateTime LastModified { get; set; }
 }
-
-public clas SampleContext : DbContext
+	
+public class SampleContext : DbContext
 {
     public DbSet<Contact> Contacts { get; set; }
 
