@@ -1,5 +1,6 @@
 - Getting Started
    - [Overview](overview.md)
+   - [EFCore-Pinned Versioning](efcore-pinned-versioning.md)
    - [Licensing](licensing.md)
 - Tutorials
    - [Bulk SaveChanges](tutorial-bulk-savechanges.md)
