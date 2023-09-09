@@ -29,6 +29,8 @@ The [efcore-version] directly corresponds to the EF Core version:
 
 Incrementing the `x` value typically indicates a major release, which often indicate of a breaking changes.
 
+<img src="https://raw.githubusercontent.com/zzzprojects/docs/master/entityframework-extensions.net/images/efcore-pinned-versioning-example.png" alt="EFCore-Pinned Versioning Example" loading="lazy">
+
 ## Why use EFCore-Pinned Versioning?
 
 EFCore-Pinned Versioning provides a mechanism to a library like [Entity Framework Extensions](https://entityframework-extensions.net/) to simultaneously support multiple versions of EF Core while still being able to introduce major version releases.
