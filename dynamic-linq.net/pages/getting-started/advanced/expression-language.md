@@ -256,6 +256,7 @@ The expression language can only call those methods and constructors that are de
 - In informal terms, overload resolution will pick the best matching method, constructor, or indexer, or report an ambiguity error if no single best match can be identified.
 - When you want to call a constructor, there is no need for the new keyword.
 
+### Constructor example
 ```csharp
 using (var context = new EntityContext())
 {
@@ -266,6 +267,65 @@ using (var context = new EntityContext())
 [Try it online](https://dotnetfiddle.net/BWGuvY)
 
 The example above creates a DateTime instance for a specific year, month, and day by calling a constructor.
+
+### Method example
+```csharp
+[DynamicLinqType]
+public class User
+{
+    public string UserName { get; set; }
+
+   	public string LastName { get; set; }
+
+    public string GetFullName()
+    {
+        return $"{UserName} {LastName}";
+    }
+}
+
+var users = new []
+{ 
+	new User { UserName = "A", LastName = "B" }, 
+	new User { UserName = "C", LastName = "D" }
+}.AsQueryable();
+
+var result = users.Select("GetFullName()");
+```
+
+[Try it online](https://dotnetfiddle.net/NH1g9M)
+
+
+### Method example using `out` keyword
+
+```csharp
+[DynamicLinqType]
+public class User
+{
+    public string UserName { get; set; }
+
+    public bool TryParseExample(out int i)
+    {
+        i = 42;
+        return true;
+    }
+}
+
+var users = new []
+{ 
+	new User { UserName = "A" }, new User { UserName = "B" }
+}.AsQueryable();
+
+var result = users.Select("TryParseExample(out _)");
+```
+
+[Try it online](https://dotnetfiddle.net/OeRUHY)
+
+Notes: 
+- You need to use a discard `_`.
+- You can use `out` or `$out` as keyword.
+- This functionality is not supported in .NET Framework 3.5
+- This functionality is only supported from version v1.3.5 and higher.
+
 
 ## Data Object Initializers
 
