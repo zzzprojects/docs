@@ -275,7 +275,7 @@ public class User
 {
     public string UserName { get; set; }
 
-   	public string LastName { get; set; }
+    public string LastName { get; set; }
 
     public string GetFullName()
     {
@@ -284,9 +284,9 @@ public class User
 }
 
 var users = new []
-{ 
-	new User { UserName = "A", LastName = "B" }, 
-	new User { UserName = "C", LastName = "D" }
+{
+    new User { UserName = "A", LastName = "B" },
+    new User { UserName = "C", LastName = "D" }
 }.AsQueryable();
 
 var result = users.Select("GetFullName()");
@@ -311,8 +311,8 @@ public class User
 }
 
 var users = new []
-{ 
-	new User { UserName = "A" }, new User { UserName = "B" }
+{
+   new User { UserName = "A" }, new User { UserName = "B" }
 }.AsQueryable();
 
 var result = users.Select("TryParseExample(out _)");
