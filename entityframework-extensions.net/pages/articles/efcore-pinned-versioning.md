@@ -1,6 +1,6 @@
 ---
 Name: EFCore-Pinned Versioning
-LastMod: 2023-09-08
+LastMod: 2023-09-12
 ---
 
 # EFCore-Pinned Versioning
@@ -19,7 +19,7 @@ Traditional Semantic Versioning follows the format:
 
 In contrast, EFCore-Pinned Versioning incorporates the [efcore-version] at the beginning:
 
-- [efcore-version].[major].[minor].[patch] (e.g., `7.7.2.1` for [Entity Framework Extensions](https://entityframework-extensions.net/) using `EF Core 7`)
+- [efcore-version].[major].[minor].[patch] (e.g., `7.100.0.1` for [Entity Framework Extensions](https://entityframework-extensions.net/) using `EF Core 7`)
 
 The [efcore-version] directly corresponds to the EF Core version:
 
@@ -28,6 +28,8 @@ The [efcore-version] directly corresponds to the EF Core version:
 - `5.x.y.z`: For **EFE** using `EF Core 5` 
 
 Incrementing the `x` value typically indicates a major release, which often indicate of a breaking changes.
+
+**NOTE:** On NuGet, when the `[patch]` value is `0`, it doesn't appear in the version number. For example, a release like `7.100.0.0` will be displayed on NuGet as `7.100.0`. Keep this in mind when comparing version numbers between our release notes and NuGet listings.
 
 <img src="https://raw.githubusercontent.com/zzzprojects/docs/master/entityframework-extensions.net/images/efcore-pinned-versioning-example.png" alt="EFCore-Pinned Versioning Example" loading="lazy">
 

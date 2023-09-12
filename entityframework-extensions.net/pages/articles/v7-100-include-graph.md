@@ -44,17 +44,19 @@ Due to .NET Fiddle's memory constraints, we cannot showcasing examples with a la
 
 **10k invoices, 50k InvoiceItem**:
 
-| | IncludeGraph | LegacyIncludeGraph |
-| -- | :--: | :--: |
-| Memory | 100 MB | 200 MB |
-| Performance | 1s | 4s |
+| | IncludeGraph | LegacyIncludeGraph | SaveChanges |
+| -- | :--: | :--: | :--: |
+| Memory | 100 MB | 200 MB | 200 MB |
+| Performance | 1s | 4s | 4s |
 
 **100k invoices, 500k InvoiceItem**:
 
-| | IncludeGraph | LegacyIncludeGraph |
-| -- | :--: | :--: |
-| Memory | 350 MB | 1600 MB |
-| Performance | 8s | 40s |
+| | IncludeGraph | LegacyIncludeGraph | SaveChanges |
+| -- | :--: | :--: | :--: |
+| Memory | 350 MB | 1600 MB | 1500 MB |
+| Performance | 8s | 40s | 35s |
+
+TODO: Why SaveChanges faster!
 
 For cases with hundreds of thousands of entities, the new `IncludeGraph` consumes around 20% of the memory that its predecessor did and can perform bulk operations up to 5 times faster. This memory savings can be even more significant in projects that often use bulk operations, as the garbage collector now has fewer objects to manage.
 
