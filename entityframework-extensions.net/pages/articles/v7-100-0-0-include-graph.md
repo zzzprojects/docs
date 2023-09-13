@@ -43,9 +43,9 @@ To demonstrate, consider a scenario with 2000 invoices and 10,000 invoice items:
 
 <img src="https://raw.githubusercontent.com/zzzprojects/docs/master/entityframework-extensions.net/images/include-graph-memory-performance-comparisons.png" alt="Memory & Performance Comparisons" loading="lazy">
 
-Though the improvement might seem marginal initially, the new `IncludeGraph` take **94 MB**, while the `LegacyIncludeGraph` take **128 MB**. However, if we remove the `70MB` required by not related, it means that the `IncludeGraph` take only **24 MB** while the `LegacyIncludeGraph` take **58 MB**. So the new `IncludeGraph` took only **40%** of the memory and the difference becomes even more noticeable as the number of entities rises.
+Though the improvement might seem marginal initially, the new `IncludeGraph` take **94 MB**, while the `LegacyIncludeGraph` take **128 MB**. However, if we remove the **70MB** required to create the context and entities by not related to this option, it means that the `IncludeGraph` take only **24 MB** while the `LegacyIncludeGraph` take **58 MB**. So the new `IncludeGraph` took only **40%** of the memory compared to `LegacyIncludeGraph` and the difference becomes even more noticeable as the number of entities rises.
 
-The improvement in the performance was always twice as fast.
+In addition, the improvement in the performance was twice as fast which is another benefit of the new `IncludeGraph`.
 
 Due to .NET Fiddle's memory constraints, we cannot showcasing examples with a larger number of entities online. However, based on our tests, here's what you can expect:
 
