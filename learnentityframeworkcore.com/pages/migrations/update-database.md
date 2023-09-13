@@ -6,6 +6,10 @@ status: Unpublished
 lastmod: 2023-09-01
 ---
 
+--
+System.InvalidOperationException: The ConnectionString property has not been initialized.
+--
+
 # EF Core Seed Data
 
 Applying seed data to a database refers to the process of inserting initial data into a database, usually when the database is first created. This data serves as a baseline and can be used for testing, and development, and to provide some context for the application that will be built on top of the database.
