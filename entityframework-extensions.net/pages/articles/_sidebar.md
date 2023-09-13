@@ -9,6 +9,8 @@
    - [Soft Delete](soft-delete.md)
    - [Concurrency (EF Core)](concurrency.md)
    - [Concurrency (EF 6)](concurrency-ef6.md)
+- Breaking Changes
+   - [v7.100.0.0 - Include Graph](v7-100-0-0-include-graph.md)
 - Misc
    - [EFCore-Pinned Versioning](efcore-pinned-versioning.md)
    - [Edmx](edmx.md)

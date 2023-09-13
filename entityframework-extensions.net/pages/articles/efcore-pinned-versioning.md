@@ -78,10 +78,10 @@ While we can't pinpoint every library's exact versioning strategy, several third
 
 ## EFCore-Pinned Versioning in Action
 
-The [Entity Framework Extensions](https://entityframework-extensions.net/) library introduced a breaking change in its [release on 2023-09-12](https://github.com/zzzprojects/EntityFramework-Extensions/releases/tag/7.100.0). Highlighted features of this release included:
+The [Entity Framework Extensions](https://entityframework-extensions.net/) library introduced a breaking change in its [release on 2023-09-12](https://github.com/zzzprojects/EntityFramework-Extensions/releases/tag/7.100.0.0). Highlighted features of this release included:
 
 - The formal adoption of **EFCore-Pinned Versioning**.
-- A major breaking changes within the [IncludeGraph feature](https://entityframework-extensions.net/include-graph).
+- A major breaking changes within the [IncludeGraph feature](https://entityframework-extensions.net/v7-100-0-0-include-graph).
 
 These modifications was including a breacking changes, consequently requiring the major version being incremented to `100` resulting in the release of the following packages:
 

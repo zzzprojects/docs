@@ -1,18 +1,21 @@
 ---
-Name: v7.100.0 - IncludeGraph
+Name: v7.100.0.0 - IncludeGraph
 LastMod: 2023-09-08
 ---
 
-# IncludeGraph Breaking Changes & Improvements
+# v7.100.0.0 Breaking Changes: IncludeGraph 
 
-Starting with `v7.100.0`, the `IncludeGraph` for EF Core has been entirely rewritten, bringing about the following enhancements:
+Starting with `v7.100.0.0`, the [IncludeGraph](/include-graph) for EF Core has been entirely rewritten, bringing about the following enhancements:
 
-1. **Reduce Memory Consumption**: The new `IncludeGraph` can reduce memory usage to around 20% of the **memory** its predecessor required, or even less.
-2. **Improve Performance**: The new `IncludeGraph` can be up to 5 times faster, and potentially more so when dealing with a very high number of entities.
+1. **Reduce Memory Consumption**: The new `IncludeGraph` can reduce memory usage to around **20% of the memory** its predecessor required, or even less.
+2. **Improve Performance**: The new `IncludeGraph` can be up to **5 times faster**, and potentially more so when dealing with a very high number of entities.
+3. **Elimination of Context Factory**: The new `IncludeGraph` no longer necessitates the configuration of a [Context Factory](/context-factory) for contexts that lack an empty constructor.
 
 Projects that frequently use bulk operations will see additional benefits, as the memory collector now has fewer objects to dispose of, leading to an even greater reduction in memory footprint.
 
-However, it's crucial to be aware that the new `IncludeGraph` comes with some [breaking changes](#breaking-changes), detailed later in this document. For those using `IncludeGraph` in their applications, we strongly advise thorough testing before updating your production environment.
+However, it's crucial to be aware that the new `IncludeGraph` comes with some [breaking changes](#breaking-changes), detailed later in this document.
+
+**IMPORTANT**: For those using `IncludeGraph` in their applications, we strongly advise thorough testing before updating your production environment.
 
 ## LegacyIncludeGraph
 
@@ -28,17 +31,21 @@ context.BulkInsert(list, options => {
 
 ## Memory & Performance Improvements
 
-The revamped `IncludeGraph` offers a substantial reduction in memory consumption and significant performance enhancements across various scenarios. To demonstrate, consider a scenario with 2000 invoices and 10,000 invoice items:
+The revamped `IncludeGraph` offers a substantial reduction in memory consumption and significant performance enhancements across various scenarios.
+
+These improvements are primarily due from minimizing the dependence of our library on certain EF Core methods. For instance, while `LegacyIncludeGraph` generates commands similarly to the `SaveChanges` method, the new `IncludeGraph` has been redesigned to generate commands in a more optimized manner. By reducing the number of commands generated, we've significantly reduced the memory footprint and simultaneously enhanced performance.
+
+To demonstrate, consider a scenario with 2000 invoices and 10,000 invoice items:
 
 - [IncludeGraph Demo](https://dotnetfiddle.net/ImBJ1x)
 - [LegacyIncludeGraph Demo](https://dotnetfiddle.net/HG7L9q)
+- [Without Saving](https://dotnetfiddle.net/yOBjBV)
 
----
-Benchmark
-[Image comparing both fiddles]
----
+<img src="https://raw.githubusercontent.com/zzzprojects/docs/master/entityframework-extensions.net/images/include-graph-memory-performance-comparisons.png" alt="Memory & Performance Comparisons" loading="lazy">
 
-Though the improvement might seem marginal initially, the new `IncludeGraph` operates twice as quickly and consumes far less memory. The difference becomes even more noticeable as the number of entities rises.
+Though the improvement might seem marginal initially, the new `IncludeGraph` take **94 MB**, while the `LegacyIncludeGraph` take **128 MB**. However, if we remove the `70MB` required by not related, it means that the `IncludeGraph` take only **24 MB** while the `LegacyIncludeGraph` take **58 MB**. So the new `IncludeGraph` took only **40%** of the memory and the difference becomes even more noticeable as the number of entities rises.
+
+The improvement in the performance was always twice as fast.
 
 Due to .NET Fiddle's memory constraints, we cannot showcasing examples with a larger number of entities online. However, based on our tests, here's what you can expect:
 
@@ -46,19 +53,19 @@ Due to .NET Fiddle's memory constraints, we cannot showcasing examples with a la
 
 | | IncludeGraph | LegacyIncludeGraph | SaveChanges |
 | -- | :--: | :--: | :--: |
-| Memory | 100 MB | 200 MB | 200 MB |
-| Performance | 1s | 4s | 4s |
+| Memory | 60 MB | 220 MB | 200 MB |
+| Performance | 1.5s | 5s | 6s |
 
 **100k invoices, 500k InvoiceItem**:
 
 | | IncludeGraph | LegacyIncludeGraph | SaveChanges |
 | -- | :--: | :--: | :--: |
-| Memory | 350 MB | 1600 MB | 1500 MB |
-| Performance | 8s | 40s | 35s |
+| Memory | 400 MB | 2000 MB | 1800 MB |
+| Performance | 10s | 48s | 58s |
 
-TODO: Why SaveChanges faster!
+From these observations, the `LegacyIncludeGraph` consumes marginally more memory compared to `SaveChanges`, but offer better performance.
 
-For cases with hundreds of thousands of entities, the new `IncludeGraph` consumes around 20% of the memory that its predecessor did and can perform bulk operations up to 5 times faster. This memory savings can be even more significant in projects that often use bulk operations, as the garbage collector now has fewer objects to manage.
+The new `IncludeGraph` consumes around **20% of the memory** that its predecessor did and can perform bulk operations **5 times faster**. This memory savings can be even more significant in projects that often use bulk operations, as the garbage collector now has fewer objects to manage.
 
 ## Limitations
 
@@ -136,9 +143,6 @@ For a clearer understanding, examine the following examples and their outputs:
 - [DefaultValueSql + IncludeGraph](https://dotnetfiddle.net/yBfHSD)
 - [DefaultValueSql + IncludeGraph + ValueGeneratedStrategyType.OnAdd](https://dotnetfiddle.net/F2nu0I)
 
----
-[Image Place Holder]
----
 
 ### Handling Duplicate Entities in a List
 
