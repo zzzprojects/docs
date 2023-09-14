@@ -6,74 +6,94 @@ status: Unpublished
 lastmod: 2023-09-01
 ---
 
-```sql
-SELECT [MigrationId], [ProductVersion]
-FROM [__EFMigrationsHistory]
-ORDER BY [MigrationId];
-```
-
 # EF Core Remove Migration
 
-The `Remove-Migration` command in EF Core remove the last migration created. The command will remove all files created by the last [Add-Migration](/add-migration) commands.
+Removing a migration in EF Core is the process of deleting [files](/migrations/migration-files) of the most recent unapplied migration created. To remove those migration files, a `Remove Migration` command must be run. This command checks the database for all applied migrations and deletes the most recent migration files only if they haven't been applied to the database yet.
 
-:::{.alert .alert-info}
-**NOTE**: The `Remove-Migration` command doesn't revert a database state to a previous state unlike the [Update-Migration](/update-migration#revert) command.
-:::
+There are 2 ways to run the `Remove Migration` command and both will be covered in this article:
 
-<img src="/images/efcore/migrations/remove-migration/thumbnail-ef-core-remove-migration.png" alt="EF Core Remove Migration">
+- `Remove-Migration`: When using the Package Manager Console (PMC)
+- `dotnet ef migrations remove`: When using the .NET Command Line Interface (.NET CLI)
+
+<img src="/images/efcore/migrations/remove-migration/thumbnail-ef-core-remove-migration.png" loading="lazy" alt="EF Core Remove Migration">
+
+The `Remove Migration` command is one of the 3 main migration commands:
+
+- [Add Migration](/migrations/add-migration)
+- [Update Database](/migrations/update-database)
+- [Remove Migration](/migrations/remove-migration)
 
 ## How to use the Remove-Migration command with PMC in EF Core?
 
 To use the `Remove-Migration` command with the Package Manager Console (PMC) in EF Core:
 
 1. Launch the [Package Manager Console](/migrations/commands/pmc-commands) within Visual Studio.
-2. Make sure the default project in the console corresponds to the one containing your EF Core DbContext.
-3. Type in the console:
+2. Ensure the default project in the console is the one containing your EF Core DbContext.
+3. Enter the following command:
 
 ```
 Remove-Migration
 ```
 
+:::{.alert .alert-info}
+**NOTE**: If you want to remove multiple migrations, you will need to run the command multiple times.
+:::
+
+See [Package Manager Console Parameters](#what-are-the-parameters-for-the-remove-migration-command-in-ef-core) for additional parameters options.
+
+<img src="/images/efcore/migrations/remove-migration/how-to-use-remove-migration-command-with-pmc-in-ef-core.png" loading="lazy" alt="Remove Migration - PMC Example">
+
 ## How to use the Remove Migration command with .NET CLI in EF Core?
 
-For those who prefer the .NET Command Line Interface (.NET CLI) in EF Core:
+To use the `dotnet ef migrations remove` command with the .NET Command Line Interface (.NET CLI) in EF Core:
 
-1. Open your preferred [command prompt or terminal](/migrations/commands/cli-commands).
-2. Navigate to the project directory.
-3. Run:
+1. Open a [command prompt or terminal](/migrations/commands/cli-commands).
+2. Navigate to the directory containing your context.
+3. Run the following command:
 
 ```
 dotnet ef migrations remove
 ```
 
-## What does the Remove Migration command accomplish in EF Core?
-
-The `Remove Migration` command, whether executed via the package manager console or command line, performs the following:
-
-1. Firstly, the EF Core Tools search for the latest migration created.
-2. The tools will very the migration has not been applied in the database. If this is the case, an error will be thrown. You can rollback a migration with the [Update-Database](/update-database#revert) command.
-3. The tools then revoke this migration, removing the corresponding [migration file](/migrations/migration-file) from your codebase. 
-
-<img src="/images/efcore/migrations/remove-migration/what-does-the-remove-migration-command-do-in-ef-core.png" loading="lazy">
-
-## Which files are affected by the Remove Migration command in EF Core?
-
-Post execution of the `Remove Migration` command, 2 files will be removed and 1 modified:
-
-1. **[Timestamp]_[MigrationName].cs**: The primary migration file containing the `Up()` and `Down()` methods is removed.
-2. **[Timestamp]_[MigrationName].Designer.cs**: The model snapshot generated via [fluent-api](/configuration/fluent-api) is removed.
-3. **[ContextClassName]ModelSnapshot.cs**: The latest snapshot of your current model is updated to reflect the removal of the latest migration.
-
-## Reverting Database Changes After Removing a Migration
-
-After executing the `Remove Migration` command, remember that your codebase is updated but the changes persist in your database. To revert those changes:
-
-1. Use the `Update-Database` command, followed by the name of the previous migration.
-2. Ensure to inspect and test your database after rollback to ensure data integrity and consistency.
-
-:::{.alert .alert-warning}
-**NOTE**: Before removing migrations, always ensure you have backups of your data. Mistakes or unexpected outcomes during the migration process might result in data loss.
+:::{.alert .alert-info}
+**NOTE**: If you want to remove multiple migrations, you will need to run the command multiple times.
 :::
+
+See [Command Line Parameters](#net-command-line-interface.net-cli) for additional parameters options.
+
+<img src="/images/efcore/migrations/remove-migration/how-to-use-remove-migration-command-with-net-cli-in-ef-core.png" loading="lazy" alt="Remove Migration - CLI Example">
+
+## What does the Remove-Migration command accomplish in EF Core?
+
+When you use the `Remove-Migration` command with PMC or `dotnet ef migrations remove` with .NET CLI, both utilize EF Core Tools to perform several tasks:
+
+1. First, EF Core Tools fetch all migrations that have been applied to your database.
+2. Then, EF Core Tools check if the latest migration has been applied.
+   a. An error will be thrown if that's the case.
+3. The EF Core Tools then remove the latest unapplied migration by:
+   a. Removing the corresponding [migration files](/migrations/migration-files) from your project.
+   b. Updating the model snapshot to reflect the state before the latest migration.
+
+<img src="/images/efcore/migrations/remove-migration/what-does-the-remove-migration-command-do-in-ef-core.png" loading="lazy" alt="Remove Migration Tasks">
+
+## What are the parameters for the Remove Migration command in EF Core?
+
+#### Package Manager Console (PMC)
+
+The `Remove-Migration` command with PMC offers several optional options:
+
+| Option | Description |
+| ------ | ----------- |
+| **-Force** | When used, the `Remove-Migration -Force` command will remove the migration regardless of whether it has already been applied to the database. |
+| **-Context** | The context class to use that contains the migration you want to remove, it can be either the `name` or the `fullname` including namespaces. For example, `Remove-Migration -Context Z.MyContextName` will remove the migration for the **Z.MyContextName** context. |
+| **-Project** | The project containing the context used to remove the migration file. If omitted, the default project in the Package Manager Console is used. For example, `Remove-Migration -Project Z.MyProjectName` will revove the migration for the context in the **Z.MyProjectName** project. |
+| **-StartupProject** | The project with the configurations and settings. If omitted, the startup project of your solution is used. For example, `Remove-Migration -StartupProject Z.MyStartupProjectName` will remove the migration using the configurations and settings of the **Z.MyStartupProjectName** project. |
+
+:::{.alert .alert-info}
+**NOTE**: The `-Project` option specifies which project contains the [context](/dbcontext), while the `-StartupProject` option indicates the project that has the application's configurations and settings.
+:::
+
+---
 
 ## Troubleshooting
 
@@ -118,3 +138,10 @@ The migration 'AddingEFExtensions' has already been applied to the database. Rev
 **Cause**: This error arises when attempting to remove a migration that has already been committed to the database.
 
 **Solution**: Before using `Remove Migration`, make sure to revert the database to the state prior to the migration you intend to remove. This can typically be achieved using the `Update-Database` command followed by the name of the migration preceding the one you wish to remove.
+
+---
+```sql
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+```

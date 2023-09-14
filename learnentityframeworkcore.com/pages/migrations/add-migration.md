@@ -10,84 +10,93 @@ localhost: https://localhost:5005/migrations/add-migration
 
 # EF Core Add Migration
 
-The `Add Migration` command in EF Core generate a [migration file](/migrations/migration-file) by capturing any model changes since the last migration. To create this migration file, the `Add Migration` command compares the current [context](/dbcontext) with the last migration (if there is one) to detect what has changed in the [model](/model).
+Adding a migration in EF Core is the process of capturing model changes since the last migration and generating [migration files](/migrations/migration-files) from those changes. To create those migration files, an `Add Migration` command must be run. This command compares the current [context](/dbcontext) with the last migration created (if there was one) to detect what has changed in the [model](/model).
 
-<img src="/images/efcore/migrations/add-migration/thumbnail-ef-core-add-migration.png" alt="EF Core Add Migration">
+There are 2 ways to run the `Add Migration` command and both will be covered in this article:
+
+- `Add-Migration`: When using the Package Manager Console (PMC)
+- `dotnet ef migrations add`: When using the .NET Command Line Interface (.NET CLI)
+
+<img src="/images/efcore/migrations/add-migration/thumbnail-ef-core-add-migration.png" loading="lazy" alt="EF Core Add Migration">
+
+The `Add Migration` command is one of the 3 main migration commands:
+
+- [Add Migration](/migrations/add-migration)
+- [Update Database](/migrations/update-database)
+- [Remove Migration](/migrations/remove-migration)
 
 ## How to use the Add Migration command with PMC in EF Core?
 
-To use the `Add Migration` command with the Package Manager Console (PMC) in EF Core:
+To use the `Add-Migration` command with the Package Manager Console (PMC) in EF Core:
 
 1. First, open the [Package Manager Console](/migrations/commands/pmc-commands) in Visual Studio.
-2. Ensure your default project in the console is the one containing your EF Core DbContext.
+2. Ensure the default project in the console is the one containing your EF Core DbContext.
 3. Enter the following command:
 
 ```
 Add-Migration [MigrationName]
 ```
 
-See [Package Manager Console Parameters](/migrations/add-migration#what-are-the-parameters-for-the-add-migration-command-in-ef-core) for additional parameters options.
-
 :::{.alert .alert-info}
 **NOTE**: Replace `[MigrationName]` by the name you want to give to your migration.
 :::
+
+See [Package Manager Console Parameters](#what-are-the-parameters-for-the-add-migration-command-in-ef-core) for additional parameters options.
 
 <img src="/images/efcore/migrations/add-migration/how-to-use-add-migration-command-with-pmc-in-ef-core.png" loading="lazy" alt="Add Migration - PMC Example">
 
 ## How to use the Add Migration command with .NET CLI in EF Core?
 
-To use the `Add Migration` command with the .NET Command Line Interface (.NET CLI) in EF Core:
+To use the `dotnet ef migrations add` command with the .NET Command Line Interface (.NET CLI) in EF Core:
 
 1. Open a [command prompt or terminal](/migrations/commands/cli-commands).
-2. Navigate to the directory containing project.
-3. Execute the following command:
+2. Navigate to the directory containing your context.
+3. Run the following command:
 ```
 dotnet ef migrations add [MigrationName]
 ```
 
-See [Command Line Parameters](/migrations/add-migration#net-command-line-interface.net-cli) for additional parameters options.
-
 :::{.alert .alert-info}
-**NOTE**:
- - Replace `[MigrationName]` by the name you want to give to your migration.
+**NOTE**: Replace `[MigrationName]` by the name you want to give to your migration.
 :::
+
+See [Command Line Parameters](#net-command-line-interface.net-cli) for additional parameters options.
 
 <img src="/images/efcore/migrations/add-migration/how-to-use-migration-add-command-with-net-cli-in-ef-core.png" loading="lazy" alt="Add Migration - CLI Example">
 
-## What does the Add Migration command do in EF Core?
+## What does the Add-Migration command do in EF Core?
 
-When you use the `Add Migration` command, either through the package manager console or command line, it will use EF Core Tools to execute several tasks:
+When you use the `Add-Migration` command with PMC or `dotnet ef migrations add` with .NET CLI, both utilize EF Core Tools to perform several tasks:
 
-1. First, EF Core Tools examine your [DbContext](/dbcontext) and [Model](/model).
-2. Then EF Core Tools compare the current context with the most recent migration (if it exists) to detect any changes.
-3. Based on this comparison, a new [migration file](/migrations/migration-file) is generated. This file contains the necessary code to implement those changes in the database.
-4. After generating the migration, you can apply it to your database using the [`Update-Database`](/migrations/update-database) command, ensuring your database schema aligns with your models.
+1. First, EF Core Tools look at your [DbContext](/dbcontext) and [Model](/model).
+2. Then, EF Core Tools compare the current context against the one from the latest migration (if there is one) to find any changes.
+3. Based on this comparison, new [migration files](/migrations/migration-file) are generated. These files contain the necessary code to apply and revert those changes in the database.
+4. After creating a new migration, you can apply it to your database with the [Update-Database](/migrations/update-database) command or remove it using the [Remove-Migration](/migrations/remove-migration) command.
 
-<img src="/images/efcore/migrations/add-migration/what-does-the-add-migration-command-do-in-ef-core.png" loading="lazy">
+<img src="/images/efcore/migrations/add-migration/what-does-the-add-migration-command-do-in-ef-core.png" loading="lazy" alt="Add Migration Tasks">
 
 ## What are the parameters for the Add Migration command in EF Core?
 
 #### Package Manager Console (PMC)
 
-The `Add Migration` command offers several options but only specifying the name is mandatory, all other options are optional: 
+The `Add-Migration` command with PMC offers several options. While specifying the migration name is mandatory (the console will ask for one if not specified), all other options are optional:
 
 | Option | Description |
 | ------ | ----------- |
-| **-Name** | The name of your migration. While the `-Name` parameter is available, it's often more straightforward to directly specify the migration name as the first parameter. For example, `Add-Migration AddingEFExtensions` will create a migration named **AddingEFExtensions**. |
-| **-OutputDir** | The output directory relative to the project in which the the [migration file](/migrations/migration-file) will be created. For example, `Add-Migration AddingEFExtensions -OutputDir MyMigrationDirectoryName` will add the migration file in the **MyMigrationDirectoryName** directory. |
-| **-Namespace** | The namespace to use for the generated classes in the migration file. If omitted, the following namespace `[ProjectNamespace].[OutputDirectoryName]` will be used. For example, `Add-Migration AddingEFExtensions -Namespace Z.MyMigrationNamespace` will add generated classes in the **Z.MyMigrationNamespace** namespace. |
-| **-Context** | The context class to use to generate the migration file, it can be either only the `name` or the `fullname` including namespaces. For example, `Add-Migration AddingEFExtensions -Context Z.MyContextName` will generate a migration for the **Z.MyContextName** context. |
-| **-Project** | The project that contains the context to use to generate the migration file. If omitted, the default project in the Package Manager Console is used. For example, `Add-Migration AddingEFExtensions -Project Z.MyProjectName` will generate a migration for the context in the **Z.MyProjectName** project. |
-| **-StartupProject** | The project that contains the configurations and settings. If omitted, the startup project of your solution is used.  For example, `Add-Migration AddingEFExtensions -StartupProject Z.MyStartupProjectName` will generate a migration by using configuration and settings of the **Z.MyStartupProjectName** project. |
+| **-Name** | The name of the migration you want to create. While the `-Name` parameter is there, it's often simpler to directly specify the migration name as the first parameter. For example, `Add-Migration AddingEFExtensions` will create a migration named **AddingEFExtensions**. |
+| **-OutputDir** | The output directory relative to the project where [migration files](/migrations/migration-files) will be created. For example, `Add-Migration AddingEFExtensions -OutputDir MyMigrationDirectoryName` will create the migration file in the **MyMigrationDirectoryName** directory. |
+| **-Namespace** | The namespace to use for the generated classes in the migration file. If omitted, the following namespace `[ProjectNamespace].[OutputDirectoryName]` will be used. For example, `Add-Migration AddingEFExtensions -Namespace Z.MyMigrationNamespace` will add classes in the **Z.MyMigrationNamespace** namespace. |
+| **-Context** | The context class to use to generate the migration file, it can be either the `name` or the `fullname` including namespaces. For example, `Add-Migration AddingEFExtensions -Context Z.MyContextName` will generate a migration for the **Z.MyContextName** context. |
+| **-Project** | The project containing the context used to generate the migration file. If omitted, the default project in the Package Manager Console is used. For example, `Add-Migration AddingEFExtensions -Project Z.MyProjectName` will generate a migration for the context in the **Z.MyProjectName** project. |
+| **-StartupProject** | The project with the configurations and settings. If omitted, the startup project of your solution is used. For example, `Add-Migration AddingEFExtensions -StartupProject Z.MyStartupProjectName` will make a migration using the configurations and settings of the **Z.MyStartupProjectName** project. |
 
 **Tips**:
-
-- **DO NOT**: Use `-Name`, just directly specify the name as the first parameter to the `Add-Migration` command.
-- **DO NOT**: Use `-OutputDir` after the first migration, EF Core Tools is smart enough to find the output directory.
-- **DO NOT**: Use `-Project`, just select the default project in the console _(personal preference)_.
+- **DO NOT** use `-Name`. Directly specify the name as the first parameter of the `Add-Migration` command.
+- **DO NOT** use `-OutputDir` after the first migration. EF Core Tools can automatically locate the output directory for later migrations.
+- **DO NOT** use `-Project`. Instead, select the default project in the console _(personal preference)_.
 
 :::{.alert .alert-info}
-**NOTE**: While `-Project` and `-StartupProject` might appear similar, they serve different purposes. The `-Project` specifies which project contains the context file, and the `-StartupProject` indicates which project contains the application's configurations and settings.
+**NOTE**: The `-Project` option specifies which project contains the [context](/dbcontext), while the `-StartupProject` option indicates the project that has the application's configurations and settings.
 :::
 
 #### .NET Command Line Interface (.NET CLI)
