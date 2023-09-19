@@ -1,9 +1,11 @@
 ---
-title: ???
-description: ???
+title: Update Database Command in Entitiy Framework Core
+description: Explore the essentials of the Update Database command in EF Core. Learn how to apply or revert migrations using the Up and Down methods, the differences between the Package Manager Console (PMC) and .NET CLI commands, and dive deep into their parameters. Keep your database in sync effortlessly!
 canonical: /migrations/update-database
-status: Unpublished
-lastmod: 2023-09-01
+status: Published
+lastmod: 2023-09-19
+thumbnail: /images/efcore/migrations/update-database/thumbnail-ef-core-update-database.png
+localhost: https://localhost:5005/migrations/update-database
 ---
 
 # EF Core Update-Database
@@ -18,12 +20,12 @@ There are 2 ways to run the `Update Database` command and both will be covered i
 - `Update-Database`: When using the Package Manager Console (PMC)
 - `dotnet ef database update`: When using the .NET Command Line Interface (.NET CLI)
 
-<img src="/images/efcore/migrations/update-database/thumbnail-ef-core-update-database.png" loading="lazy" alt="EF Core Update Database">
+<div class="image-outer"><img src="/images/efcore/migrations/update-database/thumbnail-ef-core-update-database.png" loading="lazy" alt="EF Core Update Database"></div>
 
 The `Update Database` command is one of the 3 main migration commands:
 
 - [Add Migration](/migrations/add-migration)
-- [Update Database](/migrations/update-database)
+- Update Database
 - [Remove Migration](/migrations/remove-migration)
 
 ## How to use the Update-Database command with PMC in EF Core?
@@ -48,7 +50,9 @@ Update-Database [MigrationName]
 **NOTE**: Replace `[MigrationName]` with the name of the migration you want to apply or revert to.
 :::
 
-<img src="/images/efcore/migrations/update-database/how-to-use-update-database-command-with-pmc-in-ef-core.png" loading="lazy" alt="Update Database - PMC Example">
+See [Package Manager Console Parameters](#what-are-the-parameters-for-the-update-database-command-in-ef-core) for additional parameters options.
+
+<div class="image-outer"><img src="/images/efcore/migrations/update-database/how-to-use-update-database-command-with-pmc-in-ef-core.png" loading="lazy" alt="Update Database - PMC Example"></div>
 
 ## How to use the Update-Database command with .NET CLI in EF Core?
 
@@ -73,7 +77,7 @@ dotnet ef database update [MigrationName]
 
 See [Command Line Parameters](#net-command-line-interface.net-cli) for additional parameters options.
 
-<img src="/images/efcore/migrations/update-database/how-to-use-update-database-command-with-net-cli-in-ef-core.png" loading="lazy" alt="Update Database - CLI Example">
+<div class="image-outer"><img src="/images/efcore/migrations/update-database/how-to-use-update-database-command-with-net-cli-in-ef-core.png" loading="lazy" alt="Update Database - CLI Example"></div>
 
 ## What does the Update-Database command do in EF Core?
 
@@ -83,8 +87,6 @@ When you use the `Update-Database` command with PMC or `dotnet ef database updat
 2. Then, EF Core Tools determine whether a migration should be applied or reverted.
    a. If the database needs to be updated to a more recent migration, the `Up Method` for each migration since the last one applied will be run.
    b. If the database needs to be reverted to a previous migration, the `Down Method` for each migration up to the specified migration will be run.
-
-<img src="/images/efcore/migrations/update-database/what-does-the-update-database-command-do-in-ef-core.png" loading="lazy" alt="Update Database Tasks">
 
 ## What are the parameters for the Update Database command in EF Core?
 
@@ -99,27 +101,35 @@ The `Update-Database` command with PMC provides several optional options:
 | **-Project** | The project containing the context used to apply the migration file. If omitted, the default project in the Package Manager Console is used. For example, `Update-Database -Project Z.MyProjectName` will apply the migration for the context in the **Z.MyProjectName** project. |
 | **-StartupProject** | The project with the configurations and settings. If omitted, the startup project of your solution is used. For example, `Update-Database -StartupProject Z.MyStartupProjectName` will apply the migration using the configurations and settings of the **Z.MyStartupProjectName** project. |
 
+```csharp
+Update-Database AddingEFExtensions -Context Z.MyContextName -Project Z.MyProjectName -StartupProject Z.MyStartupProjectName
+```
+
 :::{.alert .alert-info}
 **NOTE**: The `-Project` option specifies which project contains the [context](/dbcontext), while the `-StartupProject` option indicates the project that has the application's configurations and settings.
 :::
 
 #### .NET Command Line Interface (.NET CLI)
 
-For those working outside of Visual Studio or preferring the command line, EF Core offers similar functionality with a slightly different syntax:
+For those who work outside of Visual Studio or prefer the command line, EF Core Tools offer similar features for .NET CLI, but with slightly different syntax:
 
 | Option | Short |  Description |
 | ------ | ----- |  ----------- |
-| **[TargetMigration]** | | The target migration. If omitted, it will apply all pending migrations. |  
-| **--context** | **-c** | Specifies the DbContext to use. |  
-| **--project** | **-p** | The project that contains the migrations to be applied. |  
-| **--startup-project** | **-s** | The project that contains the configurations and settings. |
+| **[TargetMigration]** | | The name of the migration to apply. If omitted, all pending migrations will be applied. |  
+| **--context** | **-c** | The context class to use when applying the migration. |  
+| **--project** | **-p** | The project that contains the context used to apply the migration. |  
+| **--startup-project** | **-s** | The project with the necessary configurations and settings to apply the migrations. |
 
 ```csharp
 dotnet ef database update [TargetMigration] -c MyContext -p MigrationsProject -s StartupProject
 ```
 
-:::{.alert .alert-info
+:::{.alert .alert-info}
+**NOTE**: Refer to the documentation above about [Package Manager Console Parameters](/migrations/update-database#what-are-the-parameters-for-the-update-database-command-in-ef-core) for additional examples.
+:::
 
---
-System.InvalidOperationException: The ConnectionString property has not been initialized.
---
+## Related Articles
+
+- [Add Migration](/migrations/add-migration)
+- [Remove Migration](/migrations/remove-migration)
+- [Migration Files](/migrations/migration-files)

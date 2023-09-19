@@ -3,16 +3,19 @@ title: The Model Snapshot In Entity Framework Core
 description: The role of the ModelSnapshot file in Entity Framework Core Migrations is to store a snapshot of the current state of your model
 canonical: /migrations/model-snapshot
 status: Published
-lastmod: 2023-02-17
+lastmod: 2023-09-15
 ---
 
-# EF Core Add Migration and Remove Migration
+# EF Core Model Snapshot
 
 In EF Core, a model snapshot is a representation of the current state of the model that is used to detect changes made to the model during development and update the database schema accordingly.
 
- - A model snapshot is generated automatically by EF Core when you build your project, and is stored in a file named `<YourContext>ModelSnapshot.cs`. 
+ - A model snapshot is generated automatically by EF Core when you build your project, and is stored in a file named `<YourContext>ModelSnapshot.cs`.
+ - The model snapshot is one of the [3 migration files](/migrations/migration-files).
  - The file is added to the Migrations folder when the first migration is created, and updated with each subsequent migration. 
  - It enables the migrations framework to calculate the changes required to bring the database up to date with the model.
+ 
+The model snapshot is created whenever you use the [Add Migration](/migrations/add-migration) or [Remove Migration](/migrations/remove-migration) command.
 
 EF Core uses the model snapshot to compare the current state of the model to the state it was in when the snapshot was created and determines what changes have been made. 
 
@@ -29,3 +32,8 @@ In previous versions, this information was stored in the database, which resulte
  - If you delete a migration file in EF Core, the snapshot and migrations will be left out of kilter. For this reason, you are advised to get yourself into the practice of only ever using the `remove-migration` command to revert a migration. 
  - Having said that, if you do inadvertently delete a migration file from the migrations folder, EF Core will recognize this and revert the snapshot for you.
 
+## Related Articles
+
+- [Add Migration](/migrations/add-migration)
+- [Remove Migration](/migrations/remove-migration)
+- [Migration Files](/migrations/migration-files)

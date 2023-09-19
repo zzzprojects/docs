@@ -13,7 +13,7 @@ This site is for developers who want to learn how to use Dapper - The micro ORM 
 
 ## What is Dapper?
 
-Dapper is an open-source object-relational mapping (ORM) library for .NET and .NET Core applications. The library allows developers quickly and easily access data from databases without the need to write tedious code. Dapper allows you to [execute raw SQL queries](/non-query), map the results to objects, and [execute stored procedures](/stored-procedures), among other things. It is available as a [NuGet package](https://dapper-tutorial.net/download).
+Dapper is an open-source object-relational mapping (ORM) library for .NET and .NET Core applications. The library allows developers quickly and easily access data from databases without the need to write tedious code. Dapper allows you to [execute raw SQL queries](/non-query), map the results to objects, and [execute stored procedures](/stored-procedures), among other things. It is available as a [NuGet package](https://dappertutorial.net/download).
 
  - Dapper is lightweight and fast, making it an ideal choice for applications that require low latency and high performance. 
  - It is a simple yet powerful object mapping tool for any .NET language, such as C#, that enables developers to quickly and easily map query results from ADO.NET data readers to instances of business objects. 
@@ -109,7 +109,7 @@ Dapper also creates the command and opens the connection if needed. If you use D
 
 ### Where can you get Dapper?
 
-Dapper is available from [NuGet](https://dapper-tutorial.net/download). It is compliant with .NET Standard 2.0, which means you can use it in .NET applications that target the .NET Framework and .NET Core. You can install the latest version using the following command with the .NET CLI:
+Dapper is available from [NuGet](https://dappertutorial.net/download). It is compliant with .NET Standard 2.0, which means you can use it in .NET applications that target the .NET Framework and .NET Core. You can install the latest version using the following command with the .NET CLI:
 
 ```cmd
 dotnet add package Dapper

@@ -13,7 +13,7 @@ Applying seed data to a database refers to the process of inserting initial data
 ## OnModelCreating
 
 
-As of version 2.1, Entity Framework Core has a formal API for applying seed data to the database as part of your migration - the `HasData` method of the `EntityTypeBuilder<T>` method, which is exposed by the `ModelBuilder.Entity<T>` method, accessible in the `OnModelCreating` method of the `DbContext` class. So, seeding forms part of the model configuration.
+EF Core has a formal API for applying seed data to the database as part of your migration - the `HasData` method of the `EntityTypeBuilder<T>` method, which is exposed by the `ModelBuilder.Entity<T>` method, accessible in the `OnModelCreating` method of the `DbContext` class. So, seeding forms part of the model configuration.
 
 Here's an example of how you might use EF Core to apply seed data to an SQLite database:
 

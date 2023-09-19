@@ -143,6 +143,10 @@
         <li>
             <a href="/migrations">Migrations</a>
             <ul class="nav-level-two" data-display="migrations">
+                <li><a href="/migrations/add-migration">Add Migration</a></li>
+                <li><a href="/migrations/update-database">Update Database</a></li>
+				<li><a href="/migrations/remove-migration">Remove Migration</a></li>
+                <li><a href="/migrations/migration-files">Migration Files</a></li>
                 <li><a href="/migrations/model-snapshot">Model Snapshot</a></li>
                 <li><a href="/migrations/seeding">Seeding Data</a></li>
                 <li>

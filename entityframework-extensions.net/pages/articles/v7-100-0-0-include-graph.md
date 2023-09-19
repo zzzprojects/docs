@@ -33,7 +33,7 @@ context.BulkInsert(list, options => {
 
 The revamped `IncludeGraph` offers a substantial reduction in memory consumption and significant performance enhancements across various scenarios.
 
-These improvements are primarily due from minimizing the dependence of our library on certain EF Core methods. For instance, while `LegacyIncludeGraph` generates commands similarly to the `SaveChanges` method, the new `IncludeGraph` has been redesigned to generate commands in a more optimized manner. By reducing the number of commands generated, we've significantly reduced the memory footprint and simultaneously enhanced performance.
+These improvements are primarily due from minimizing the dependence of our library on certain EF Core methods. For instance, the `LegacyIncludeGraph` was generating commands similarly to the `SaveChanges` method, but the new `IncludeGraph` has been redesigned to generate commands in a more optimized manner. By reducing the number of commands generated, we've significantly reduced the memory footprint and simultaneously enhanced performance.
 
 To demonstrate, consider a scenario with 2000 invoices and 10,000 invoice items:
 
