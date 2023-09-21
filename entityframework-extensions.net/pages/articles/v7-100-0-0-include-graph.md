@@ -1,6 +1,6 @@
 ---
 Name: v7.100.0.0 - IncludeGraph
-LastMod: 2023-09-08
+LastMod: 2023-09-21
 ---
 
 # v7.100.0.0 Breaking Changes: IncludeGraph 
@@ -170,7 +170,9 @@ In this case, the same customer has been added twice to the `customers` list. De
 - **BulkInsert + IncludeGraph**: An exception will be thrown. Duplicate entities are not permitted with the new `IncludeGraph`.
 - **BulkInsert + LegacyIncludeGraph**: The customer will only be inserted once. The graph identifies the entity as identical within the list and prevents duplicate insertions.
 
-### Handling Duplicate Key
+The behavior described above for [IncludeGraph](/include-graph) applies only to the top-level entity (`Customer`). Any entities found within the graph will be added only once if they are the same instance.
+
+### Handling Duplicate Key on Root
 
 Consider the following example:
 
@@ -192,3 +194,48 @@ In this scenario, different customers have been added, but they share the same k
 - **BulkInsert**: SQL Server will throw the error: 'Violation of PRIMARY KEY constraint 'PK_Customers'. Cannot insert duplicate key in object 'dbo.Customers'. The duplicate key value is (1).'
 - **BulkInsert + IncludeGraph**: SQL Server will throw the error: 'Violation of PRIMARY KEY constraint 'PK_Customers'. Cannot insert duplicate key in object 'dbo.Customers'. The duplicate key value is (1).'
 - **BulkInsert + LegacyIncludeGraph**: The EF Core tracking will throw the error: 'The instance of entity type 'Customer' cannot be tracked because another instance with the same key value for {'CustomerID'} is already being tracked'
+
+### Handling Duplicate Key in Graph
+
+Consider the following example:
+
+```csharp
+public class Invoice
+{
+	public int ID { get; set; }
+	public int ColumnInt { get; set; }
+	public InvoiceItem Item1 { get; set; }
+	public InvoiceItem Item2 { get; set; }
+}
+
+public class InvoiceItem
+{
+	public int ID { get; set; }
+	public int ColumnInt { get; set; }
+}
+
+var invoice = new Invoice() { ColumnInt = 1 };
+
+var itemX = new InvoiceItem() { ID = 1, ColumnInt = 2 };
+var itemY = new InvoiceItem() { ID = 1, ColumnInt = 3 };
+
+invoice.Item1 = itemX;
+invoice.Item2 = itemY;
+```
+
+In this scenario, the invoice has been added with 2 different `InvoiceItem` objects that have the same `ID`.
+
+Due to how `context.Add(invoice);` functions, the `ChangeTracker` will update `Item2` to overwrite its value with `ItemX`. In more detail:
+
+- The `ChangeTracker` adds the `invoice` for tracking.
+- When adding `itemX`, the `ChangeTracker` checks if an `InvoiceItem` already exists with this key. Since the answer is `no`, it adds it for tracking.
+- When adding `itemY`, the `ChangeTracker` checks if an `InvoiceItem` already exists with this key. Since the answer is `yes`, it updates the reference of `Item2` to `itemX`.
+
+In this situation, different behaviors will occur:
+
+- **SaveChanges**: The invoice and `itemX` will be inserted. The `itemY` will not be saved.
+- **BulkSaveChanges**: The invoice and `itemX` will be inserted. The `itemY` will not be saved. This follows the same behavior as `SaveChanges`.
+- **BulkInsert + IncludeGraph**: SQL Server will show the error: 'Violation of PRIMARY KEY constraint 'PK_InvoiceItems'. Cannot insert duplicate key in object 'dbo.InvoiceItems'. The duplicate key value is (1).'
+- **BulkInsert + LegacyIncludeGraph**: The invoice and `itemX` will be inserted. This follows the same behavior as `SaveChanges`.
+
+For `BulkInsert`, we assumed that the `ID` is always inserted or the option `InsertKeepIdentity` is true.
