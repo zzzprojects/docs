@@ -11,6 +11,8 @@
    - [Concurrency (EF 6)](concurrency-ef6.md)
 - Breaking Changes
    - [v7.100.0.0 - Include Graph](v7-100-0-0-include-graph.md)
+- Articles
+   - [Exception - Unknow Error 258](exception-unknown-error-258.md)
 - Misc
    - [EFCore-Pinned Versioning](efcore-pinned-versioning.md)
    - [Edmx](edmx.md)
