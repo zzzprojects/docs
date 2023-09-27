@@ -15,7 +15,7 @@ Here is a list of **EF6** and **EF Core Bulk Extensions** methods:
 - [Bulk Insert](#bulk-insert)
 - [Bulk Update](#bulk-update)
 - [Bulk Delete](#bulk-delete)
-- [Bulk Merge](#bulk-merge)
+- [Bulk Merge](#bulk-merge-upsert)
 - [Bulk Synchronize](#bulk-synchronize)
 - [Bulk Read](#bulk-read)
 - [Where Bulk Contains](#where-bulk-contains)

@@ -10,13 +10,14 @@ First, let's see all available options, and then we will explain them one by one
 
 | Category | Name                                 | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | -------- | ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Options  | AllowAddSubtractOperatorToCollection | The AllowAddSubtractOperatorToCollection option lets you get or set if the minus characters `-` can be used to remove an item from a list. In other words, doing `list - 200` will behave like `list.Remove(200)`. By default, the AllowAddSubtractOperatorToCollection value is `false`.                                                                                                                                                                                                                                          |
+| Options  | AllowAddSubtractOperatorToCollection | The AllowAddSubtractOperatorToCollection option lets you get or set if the minus characters `-` can be used to remove an item from a list. In other words, doing `list - 200` will behave like `list.Remove(200)`. By default, the AllowAddSubtractOperatorToCollection value is `false`.                                                                                                                                                                                                                                            |
 | Options  | AutoAddMissingTypes                  | The AutoAddMissingTypes option lets you get or set if the library should try to automatically find and add missing types when an expression cannot compile due to missing types. You can specify which assembly the missing types should look for through the RegisterAutoAddMissingTypeAssembly method, otherwise the library will search over all domain assemblies. By default, the AutoAddMissingTypes value is false for performance and side impact reasons.                                                                   |
-| Options  | BindingFlags                         | The BindingFlags option lets you get or set the flags when searching for a member (Property, Field, Method). By default, the BindingFlags value is \`BindingFlags.Public &#124; BindingFlags.NonPublic &#124; BindingFlags.FlattenHierarchy &#124; BindingFlags.IgnoreCase\`.                                                                                                                                                                                                                                                                       |
+| Options  | BindingFlags                         | The BindingFlags option lets you get or set the flags when searching for a member (Property, Field, Method). By default, the BindingFlags value is \`BindingFlags.Public &#124; BindingFlags.NonPublic &#124; BindingFlags.FlattenHierarchy &#124; BindingFlags.IgnoreCase\`.                                                                                                                                                                                                                                                        |
 | Options  | CacheKeyPrefix                       | The CacheKeyPrefix option lets you get or set the prefix in the Cache Key. That option can be helpful if you want to make the cache key more unique. By default, the CacheKeyPrefix value is \`\[evalContext\].GetType().FullName\` (The full name of the EvalContext type).                                                                                                                                                                                                                                                         |
 | Options  | DefaultNumberType                    | The DefaultNumberType option lets you get or get what type a number without a data type suffixes should be. For example, if you set the value to \`DefaultNumberType.Double\`, the expression "1+2" will consider the \`1\` and \`2\` numbers as a double instead of an \`int\` and will return a \`double\`. By default, the DefaultNumberType value is \`DefaultNumberType.None\`, which will act like the default C# behavior with numbers.                                                                                       |
 | Options  | DisableAutoRegisterEntityFramework   | The DisableAutoRegisterEntityFramework option lets you get or sets if the auto registration from some method when using Entity Framework Core and EF6 should be disabled. By default, the DisableAutoRegisterEntityFramework value is false.                                                                                                                                                                                                                                                                                         |
 | Options  | DisableAutoReplaceDictionaryKey      | The DisableAutoReplaceDictionaryKey option lets you get or sets if the feature that allows using the dictionary keys directly in the expression should be disabled. When true, you will still be able to access the dictionary but no longer be able to use directly dictionary key. By default, the DisableAutoReplaceDictionaryKey value is false.                                                                                                                                                                                 |
+| Options  | DisableConstantFolding      		  | The DisableConstantFolding option lets you to get or set if constant folding should be disabled. Constant folding is the logic to replace an equation with 2 constants like `2+3` directly into the constant `5`. This avoids running the addition every time the compiled method is executed.                                                                                                                                                                            															 |
 | Options  | DisableDynamicResolution             | The DisableDynamicResolution option lets you get or sets all logic to solve some issue when the expression is of type dynamic  should be disabled. For example, when a binary operation is used between an ExpandoObject property and an int is used. By default, the DisableDynamicResolution value is false.                                                                                                                                                                                                                       |
 | Options  | DynamicGetMemberMissingValueFactory  | The DynamicGetMemberMissingValueFactory option lets you get or sets a factory to return a value when a member is not found. In other words, it allows specifying a value for a missing member on demand. By default, the DynamicGetMemberMissingValueFactory value is null.                                                                                                                                                                                                                                                          |
 | Options  | DynamicMemberNames                   | The DynamicMemberNames option lets you when compiling an expression using an ExpandoObject as a parameter, retrieve all member names that we assume will be a member of the ExpandoObject. For example, suppose the \`CustomerID\` is returning from the member names list, in that case, the library expects the ExpandoObject will have a property and a value for this \`CustomerID\` to be executed correctly. By default, the DynamicMemberNames value is null.                                                                 |
@@ -24,6 +25,8 @@ First, let's see all available options, and then we will explain them one by one
 | Options  | ForceObjectAsDynamic                 | The ForceObjectAsDynamic option lets you get or set if the type \`object\` should act like the type \`ExpandoObject\` on some occasions, such as when using a binary operation. By default, the ForceObjectAsDynamic value is false.                                                                                                                                                                                                                                                                                                 |
 | Options  | IncludeMemberFromAllParameter        | The IncludeMemberFromAllParameter option lets you get or set if we should include all members from all parameters, like the default logic, automatically does when only one parameter is specified. So, for example, if you specify a customer and an invoice, you can use the \`CustomerID\` and \`InvoiceID\` properties directly. If a member name exists in more than one parameter, such as \`ID\`, the first member will be used, and all others be ignored. By default, the IncludeMemberFromAllParameter value is \`false\`. |
 | Options  | IsCaseSensitive                      | The IsCaseSensitive option lets you get or set the flags when searching for a member (Property, Field, Method) if the search should be case sensitive. Under the hood, the \`IgnoreCase\` binding flag is added or removed to the BindingFlags options. By default, the IsCaseSensitive value is true or the value assigned to the BindingFlags options if already modified.                                                                                                                                                         |
+| Options  | LastCompiledExpression               | The LastCompiledExpression option lets you to get the expression that was used in the last compilation. This option is not thread safe, so it should always be used in a new instance of an eval context if your application is multi-threaded.                                                                                                                                                       																																 |
+| Options  | LastCompiledParameterExpressions     | The LastCompiledParameterExpressions option lets you to get the list of parameter expression that was used in the last compilation. This option is not thread safe, so it should always be used in a new instance of an eval context if your application is multi-threaded..                                                                                                                                                         																								 |
 | Options  | MaxLoopIteration                     | The MaxLoopIteration option lets you get or set the maximum of iteration allowed for a loop (do, while, for, foreach). For example, if you execute an expression from a user input but want to avoid an infinite loop, you can set the option \`MaxLoopIteration = 25\` to limit it to 25 iterations. By default, the MaxLoopIteration value is null (unlimited).                                                                                                                                                                    |
 | Options  | MemoryCacheEntryOptionsFactory       | The MemoryCacheEntryOptionsFactory option lets you get or set for .NET 5+ and .NET Core the cache entry options to use when caching the delegate returned from the compile method. By default, the MemoryCacheEntryOptionsFactory value is \`new MemoryCacheEntryOptions() { Size = 1 };\`.                                                                                                                                                                                                                                          |
 | Options  | MissingTypes                         | The MissingType option lets you get or set the missing types to make an expression valid. The list is automatically populated when the option \`AutoAddMissingTypes\` or \`RetryAndThrowMissingTypes\` is used. By default, the MissingType value is null.                                                                                                                                                                                                                                                                           |
@@ -259,6 +262,39 @@ var r3 = context.Execute<int>("1 + 2", dict); // return 3
 ```
 
 {% include component-try-it.html href='https://dotnetfiddle.net/G8UeDH' %}
+
+## DisableConstantFolding
+
+The DisableConstantFolding option lets you to get or set if constant folding should be disabled. Constant folding is the logic to replace an equation with 2 constants like `2+3` directly into the constant `5`. This avoids running the addition every time the compiled method is executed.
+
+In this example, we will compile a basic addition expression with 2 constants. By exploring the last compiled expression, we will show the difference when a constant was used with constant folding versus when the addition was used with constant folding turned off.
+
+```csharp
+// Global Context: EvalManager.DefaultContext.DisableConstantFolding = true;
+
+var expression = "2+3";
+
+// Example 1 - with constant folding enabled
+{
+	var context = new EvalContext();	
+	var compiled = context.Compile<Func<int>>(expression);
+	var lastExpression = context.LastCompiledExpression;
+	
+	Console.WriteLine($"Constant Folding Enabled; NodeType: {lastExpression.NodeType}; Value {((ConstantExpression)lastExpression).Value}");
+}	
+
+// Example 1 - with constant folding disabled
+{
+	var context = new EvalContext();
+	context.DisableConstantFolding = true;
+	var compiled = context.Compile<Func<int>>(expression);
+	var lastExpression = context.LastCompiledExpression;
+	
+	Console.WriteLine($"Constant Folding Disabled; NodeType: {lastExpression.NodeType}; LeftValue: {((ConstantExpression)((BinaryExpression)lastExpression).Left).Value}; RightValue: {((ConstantExpression)((BinaryExpression)lastExpression).Right).Value};");
+}
+```
+
+{% include component-try-it.html href='https://dotnetfiddle.net/u205UR' %}
 
 ## DisableDynamicResolution
 
@@ -502,7 +538,48 @@ catch(Exception ex)
 }
 ```
 
+## LastCompiledExpression
 
+The LastCompiledExpression option lets you to get the expression that was used in the last compilation. This option is not thread safe, so it should always be used in a new instance of an eval context if your application is multi-threaded.
+
+In this example, we will compile a basic C# statement and explore the expression that was compiled.
+
+```csharp
+// Global Context: var lastCompiledExpression = EvalManager.DefaultContext.LastCompiledExpression;
+
+var context = new EvalContext();
+
+var compiled = context.Compile<Func<int, int, int>>("X + Y", "X", "Y");
+var lastExpression = context.LastCompiledExpression;
+
+Console.WriteLine($"Root NodeType: {lastExpression.NodeType};");
+Console.WriteLine($"Left NodeType: {((BinaryExpression)lastExpression).Left.NodeType}");
+Console.WriteLine($"Right NodeType: {((BinaryExpression)lastExpression).Right.NodeType}");
+```
+
+{% include component-try-it.html href='https://dotnetfiddle.net/RE6pa0' %}
+
+## LastCompiledParameterExpressions
+
+The LastCompiledParameterExpressions option lets you to get the list of parameter expression that was used in the last compilation. This option is not thread safe, so it should always be used in a new instance of an eval context if your application is multi-threaded.
+
+In this example, we will compile a basic C# statement with 2 parameters and explore the 2 parameters expression that was used for the compilation.
+
+```csharp
+// Global Context: var lastCompiledParameterExpressions = EvalManager.DefaultContext.LastCompiledParameterExpressions;
+
+var context = new EvalContext();
+
+var compiled = context.Compile<Func<int, int, int>>("X + Y", "X", "Y");
+var lastParameterExpressions = context.LastCompiledParameterExpressions;
+
+foreach(var parameterExpression in lastParameterExpressions)
+{
+	Console.WriteLine($"ParameterName: {parameterExpression.Name}; ParameterType: {parameterExpression.Type}");
+}
+```
+
+{% include component-try-it.html href='https://dotnetfiddle.net/8ay2L2' %}
 
 ## MaxLoopIteration
 

@@ -13,6 +13,7 @@
    - [v7.100.0.0 - Include Graph](v7-100-0-0-include-graph.md)
 - Articles
    - [Exception - Unknow Error 258](exception-unknown-error-258.md)
+   - [Improving Performance of BulkMerge with WhereBulkContains](improving-performance-of-bulkmerge-with-wherebulkcontains.md)
 - Misc
    - [EFCore-Pinned Versioning](efcore-pinned-versioning.md)
    - [Edmx](edmx.md)

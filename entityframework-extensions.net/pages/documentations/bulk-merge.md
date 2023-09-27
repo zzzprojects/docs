@@ -15,8 +15,7 @@ The EF `BulkMerge` extension method let you merge (insert or update/Upsert) a la
 context.BulkMerge(customers);
 
 // Easy to customize
-conte
-xt.BulkMerge(customers, options => options.IncludeGraph = true);
+context.BulkMerge(customers, options => options.IncludeGraph = true);
 ```
 
 [Try it in EF Core](https://dotnetfiddle.net/v08Jzy) | [Try it in EF6](https://dotnetfiddle.net/Aodij2)
