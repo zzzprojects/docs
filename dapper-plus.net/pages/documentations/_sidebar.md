@@ -18,6 +18,8 @@
    - [Include Action](actions/include-actions.md)
    - [Transaction](actions/transaction.md)
    - [DataTable](actions/data-table.md)
+- Utilities
+   - [CreateTable](utilities/create-table.md)
 - Mapper
    - [Map](mapper/map.md)
    - [Action Options](mapper/action-options.md)
