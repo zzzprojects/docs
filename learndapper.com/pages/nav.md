@@ -1,6 +1,18 @@
 <nav class="main-nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
     <ul class="nav nav-level-one" id="side-menu">
 		<li><a href="#" onclick="openFaqModal(null); return false;">Open Chat GPT Console</a></li>
+		<li>
+			<a href="/dapper-ai-tools">Dapper AI Tools</a>
+			<ul class="nav-level-two" data-display="dapper-ai-tools">
+				<li><a href="https://zzzcode.ai/dapper/chat">Chat</a></li>
+				<li><a href="https://zzzcode.ai/dapper/sql-injection-detector">SQL Injection Detector</a></li>
+				<li><a href="https://zzzcode.ai/dapper/sql-generator">SQL Generator</a></li>
+				<li><a href="https://zzzcode.ai/dapper/stored-procedure-generator">Stored Procedure Generator</a></li>
+				<li><a href="https://zzzcode.ai/dapper/seed-data-generator">Seed Data Generator</a></li>
+				<li><a href="https://zzzcode.ai/dapper/entity-to-table-converter">Entity to Table Converter</a></li>
+				<li><a href="https://zzzcode.ai/dapper/table-to-entity-converter">Table to Entity Converter</a></li>
+			</ul>
+		</li>
         <li>
             <a href="/">Getting Started with Dapper</a>
         </li>		

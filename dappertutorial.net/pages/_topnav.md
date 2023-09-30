@@ -1,4 +1,12 @@
 - [Getting Started](getting-started/step-by-step-tutorial.md)
 - [Documentation](documentations/dapper/dapper.md)
+- Dapper AI Tools
+	- [Chat](https://zzzcode.ai/dapper/chat)
+	- [SQL Injection Detector](https://zzzcode.ai/dapper/sql-injection-detector)
+	- [SQL Generator](https://zzzcode.ai/dapper/sql-generator)
+	- [Stored Procedure Generator](https://zzzcode.ai/dapper/stored-procedure-generator)
+	- [Seed Data Generator](https://zzzcode.ai/dapper/seed-data-generator)
+	- [Entity to Table Converter](https://zzzcode.ai/dapper/entity-to-table-converter)
+	- [Table to Entity Converter](https://zzzcode.ai/dapper/table-to-entity-converter)
 - [3<sup>rd</sup> Party Libraries](third-party-libraries/dapper-plus-third-party-library.md)
 - [Online Examples](/online-examples)
