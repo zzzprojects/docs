@@ -4,7 +4,7 @@ position: 1
 title: How to retrieve multiple rows returned by a stored procedure in Dapper?
 ---
 
-To retrieve multiple rows returned by a [stored procedure](/stored-procedures), you need to specify the stored procedure name in the command text and specify the command type to `CommandType.StoredProcedure`.
+To retrieve multiple rows returned by a [stored procedure](https://www.learndapper.com/stored-procedures), you need to specify the stored procedure name in the command text and specify the command type to `CommandType.StoredProcedure`.
 
 1. First, create your stored procedure:
 

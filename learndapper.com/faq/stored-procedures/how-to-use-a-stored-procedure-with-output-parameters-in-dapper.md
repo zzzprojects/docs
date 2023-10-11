@@ -20,7 +20,7 @@ END
 
 
 2. Create a `DynamicParameters` object and add parameter to it. For an output parameter, you must specify `ParameterDirection.Output`
-3. Use a [querying](/dapper-query) or [execute](/non-query) method with your parameters
+3. Use a [querying](https://www.learndapper.com/dapper-query) or [execute](https://www.learndapper.com/non-query) method with your parameters
 4. Retrieve the parameter value from the parameters passed to the stored procedure:
 
 ```csharp

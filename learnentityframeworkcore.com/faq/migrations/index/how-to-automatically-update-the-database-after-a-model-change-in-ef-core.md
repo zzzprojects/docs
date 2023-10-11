@@ -4,7 +4,7 @@ position: 3
 title: How to automatically update the database after a model changes in EF Core?
 ---
 
-EF Core doesn't automatically update the database. A migration script must manually be [created](/migrations#creating-a-migration)
+EF Core doesn't automatically update the database. A migration script must manually be [created](https://www.learnentityframeworkcore.com/migrations#creating-a-migration)
 
 Once created, you can automatically apply the migration script when the application starts with the `Migrate` method.
 
@@ -12,4 +12,4 @@ Once created, you can automatically apply the migration script when the applicat
 context.Database.Migrate();
 ```
 
-Or manually [update your database](/migrations#ef-core-update-database)
+Or manually [update your database](https://www.learnentityframeworkcore.com/migrations#ef-core-update-database)

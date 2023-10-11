@@ -20,7 +20,7 @@ At line:1 char:1
  
 ```
 
-<div class="image-outer"><img src="/images/efcore/migrations/add-migration/troubleshooting-the-term-add-migration-is-not-recognized-as-the-name-of-a-cmdlet.png" loading="lazy" alt="Exception - The term Add Migration is not recognized"></div>
+<div class="image-outer"><img src="https://www.learnentityframeworkcore.com/images/efcore/migrations/add-migration/troubleshooting-the-term-add-migration-is-not-recognized-as-the-name-of-a-cmdlet.png" loading="lazy" alt="Exception - The term Add Migration is not recognized"></div>
 
 <div class="h9">Cause:</div>
 

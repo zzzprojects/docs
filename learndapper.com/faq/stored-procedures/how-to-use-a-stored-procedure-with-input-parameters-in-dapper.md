@@ -18,7 +18,7 @@ BEGIN
 END
 ```
 
-2. Use a [querying](/dapper-query) or [execute](/non-query) method with an anonymous types for your parameters
+2. Use a [querying](https://www.learndapper.com/dapper-query) or [execute](https://www.learndapper.com/non-query) method with an anonymous types for your parameters
 
 ```csharp
 using(var connection = new SqlConnection(connectionString))

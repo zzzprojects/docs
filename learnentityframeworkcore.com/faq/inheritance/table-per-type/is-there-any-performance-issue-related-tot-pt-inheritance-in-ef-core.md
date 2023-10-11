@@ -4,7 +4,7 @@ position: 3
 title: Is there any performance issue related to TPT inheritance in EF Core?
 ---
 
-The `TPT` inheritance is often considered slower than [TPC](/inheritance/table-per-concrete) and [TPH](https://www.learnentityframeworkcore.com/inheritance/table-per-hierarchy).
+The `TPT` inheritance is often considered slower than [TPC](https://www.learnentityframeworkcore.com/inheritance/table-per-concrete) and [TPH](https://www.learnentityframeworkcore.com/inheritance/table-per-hierarchy).
 
 You can see a benchmark made by Microsoft [here](https://learn.microsoft.com/en-us/ef/core/performance/modeling-for-performance#inheritance-mapping) 
 

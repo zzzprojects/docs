@@ -16,7 +16,7 @@ At line:1 char:1
     + FullyQualifiedErrorId : CommandNotFoundException
 ```
 
-<div class="image-outer"><img src="/images/efcore/migrations/remove-migration/troubleshooting-the-term-remove-migration-isn-t-recognized-as-a-valid-command.png" loading="lazy" alt="Exception - The migration has already been applied to the database"></div>
+<div class="image-outer"><img src="https://www.learnentityframeworkcore.com/images/efcore/migrations/remove-migration/troubleshooting-the-term-remove-migration-isn-t-recognized-as-a-valid-command.png" loading="lazy" alt="Exception - The migration has already been applied to the database"></div>
 
 <div class="h9">Cause:</div>
 

@@ -10,4 +10,4 @@ To insert data using a transaction, you have 3 choices:
 2. Create a [TransactionScope](https://learn.microsoft.com/en-us/dotnet/api/system.transactions.transactionscope)
 3. Use [Dapper.Transaction](https://dapper-tutorial.net/dapper-transaction) _(**recommended solution**)_
 
-Learn more about [Transaction with Dapper](/misc/transaction)
+Learn more about [Transaction with Dapper](https://www.learndapper.com/misc/transaction)

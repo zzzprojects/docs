@@ -45,6 +45,7 @@
    - [Execute Event](options-summary/execute-event.md)
    - [Identity](options-summary/identity.md)
    - [Include Graph](options-summary/include-graph.md)
+   - [ForceValueGeneratedStrategy](options-summary/forcevaluegeneratedstrategy.md)
    - [Key](options-summary/key.md)
    - [Logging](options-summary/logging.md)
       - [Log](options/log.md)

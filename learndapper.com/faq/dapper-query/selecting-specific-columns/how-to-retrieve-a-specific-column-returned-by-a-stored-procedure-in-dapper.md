@@ -4,7 +4,7 @@ position: 1
 title: How to retrieve a specific column returned by a stored procedure in Dapper?
 ---
 
-To return a specific column returned by a [stored procedure](/stored-procedures), you need to specify the stored procedure name in the command text and specify the command type to `CommandType.StoredProcedure`:
+To return a specific column returned by a [stored procedure](https://www.learndapper.com/stored-procedures), you need to specify the stored procedure name in the command text and specify the command type to `CommandType.StoredProcedure`:
 
 ```csharp
 using (var connection = new SqlConnection("connectionString"))

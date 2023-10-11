@@ -4,7 +4,7 @@ position: 5
 title: How to use a stored procedure to retrieve a returned scalar value in Dapper?
 ---
 
-To use a stored procedure and retrieve a returned scalar value, you need to use the [ExecuteScalar](/dapper-query/selecting-scalar-values) method:
+To use a stored procedure and retrieve a returned scalar value, you need to use the [ExecuteScalar](https://www.learndapper.com/dapper-query/selecting-scalar-values) method:
 
 ```sql
 CREATE PROCEDURE MyStoredProcedure

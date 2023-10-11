@@ -35,7 +35,7 @@ using (var connection = new SqlConnection("connectionString"))
 }
 ```
 
-3. By using [QueryMultiple (Multi-Mapping)](/dapper-query/selecting-multiple-results) and read returned data with an anonymous type or strongly typed object:
+3. By using [QueryMultiple (Multi-Mapping)](https://www.learndapper.com/dapper-query/selecting-multiple-results) and read returned data with an anonymous type or strongly typed object:
 
 ```csharp
 using (var connection = new SqlConnection("connectionString"))

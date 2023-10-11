@@ -35,7 +35,7 @@ System.InvalidOperationException: The ConnectionString property has not been ini
 The ConnectionString property has not been initialized.
 ```
 
-<div class="image-outer"><img src="/images/efcore/migrations/update-database/troubleshooting-the-connectionstring-property-has-not-been-initialized.png" loading="lazy" alt="Exception - The ConnectionString property has not been initialized"></div>
+<div class="image-outer"><img src="https://www.learnentityframeworkcore.com/images/efcore/migrations/update-database/troubleshooting-the-connectionstring-property-has-not-been-initialized.png" loading="lazy" alt="Exception - The ConnectionString property has not been initialized"></div>
 
 <div class="h9">Cause:</div>
 

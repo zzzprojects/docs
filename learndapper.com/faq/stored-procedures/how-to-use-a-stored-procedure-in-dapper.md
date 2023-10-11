@@ -16,7 +16,7 @@ BEGIN
 END
 ```
 
-2. Use a [querying](/dapper-query) or [execute](/non-query) method:
+2. Use a [querying](https://www.learndapper.com/dapper-query) or [execute](https://www.learndapper.com/non-query) method:
 
 ```csharp
 using(var connection = new SqlConnection(connectionString))

@@ -15,7 +15,7 @@ Possible reasons for this include:
   * You intended to run a global tool, but a dotnet-prefixed executable with this name could not be found on the PATH.
 ```
 
-<div class="image-outer"><img src="/images/efcore/migrations/add-migration/troubleshooting-dotnet-command-not-found.png" loading="lazy" alt="Exception - dotnet command not found"></div>
+<div class="image-outer"><img src="https://www.learnentityframeworkcore.com/images/efcore/migrations/add-migration/troubleshooting-dotnet-command-not-found.png" loading="lazy" alt="Exception - dotnet command not found"></div>
 
 <div class="h9">Cause:</div>
 

@@ -4,4 +4,4 @@ position: 7
 title: Can I combine TPH inheritance with another inheritance in EF Core?
 ---
 
-No, you can only have one inheritance at a time. You cannot combine Table Per Hierarchy (TPC) with a [TPC](/inheritance/table-per-concrete) or [TPT](/inheritance/table-per-type) inheritance.
+No, you can only have one inheritance at a time. You cannot combine Table Per Hierarchy (TPC) with a [TPC](https://www.learnentityframeworkcore.com/inheritance/table-per-concrete) or [TPT](https://www.learnentityframeworkcore.com/inheritance/table-per-type) inheritance.
