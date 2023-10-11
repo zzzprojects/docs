@@ -24,7 +24,7 @@ object[] parameters = { new { Name = "John Doe", Email = "jdoe@example.com" } };
 	
 using (var connection = new SqlConnection(connectionString))
 {
-    conn.Execute(sql, parameters); 
+    connection.Execute(sql, parameters); 
 }
 ```
 
