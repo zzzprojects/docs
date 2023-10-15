@@ -163,4 +163,4 @@ There is no batch when using the [WhereBulkContains](/where-bulk-contains). All 
 
 ## Conclusion
 
-Our client finally ended up only implementing solution #2. He told us he had been pleased and the performance had improved from more than 30 minutes to less than 3 minutes.
+Our client finally ended up only implementing only the solution #1 as the covering index was fast enough for him. He told us he had been pleased and the performance had improved from more than 30 minutes to less than 5 minutes.
