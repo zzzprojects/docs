@@ -97,7 +97,7 @@ using (var connection = My.ConnectionFactory())
 }
 ```
 
-<img src="https://raw.githubusercontent.com/zzzprojects/dapper-tutorial/master/docs/images/3-anonynous-entity.png" alt="Stored Procedure Single" />
+<img src="https://raw.githubusercontent.com/zzzprojects/dappertutorial/master/docs/images/3-anonynous-entity.png" alt="Stored Procedure Single" />
 
 In the above example, we are calling a stored procedure named "Invoice_Insert" a single time and passing in two parameters. 
 
