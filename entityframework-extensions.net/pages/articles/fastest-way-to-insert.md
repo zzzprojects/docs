@@ -172,5 +172,5 @@ ZZZ Projects gives back value to the .NET community by supporting some other fre
 - [Entity Framework Plus](https://entityframework-plus.net/){:target="_blank"}
 - [Html Agility Pack](https://html-agility-pack.net/){:target="_blank"}
 - [Extension Methods](https://github.com/zzzprojects/Z.ExtensionMethods){:target="_blank"}
-- [Dapper Tutorial](https://dapper-tutorial.net/){:target="_blank"}
+- [Dapper Tutorial](https://dappertutorial.net/){:target="_blank"}
 - Help partners like [Entity Framework Tutorial](https://www.entityframeworktutorial.net/){:target="_blank"}

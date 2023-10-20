@@ -133,7 +133,7 @@ However, this mission cannot be successful without being able to pay our develop
 - [.NET Fiddle](https://dotnetfiddle.net/){:target="_blank"}
 - [SQL Fiddle](http://sqlfiddle.com/){:target="_blank"}
 - [NuGet Must Haves](https://nugetmusthaves.com/){:target="_blank"}
-- [Dapper Tutorial](https://dapper-tutorial.net/){:target="_blank"}
+- [Dapper Tutorial](https://dappertutorial.net/){:target="_blank"}
 
 By contributing on paid libraries, you also help keeping other libraries and websites FREE.
 

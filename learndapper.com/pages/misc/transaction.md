@@ -67,7 +67,7 @@ NuGet Package: [https://www.nuget.org/packages/Dapper.Transaction/](https://www.
 
 Documentation:
 
-- [Website](https://dapper-tutorial.net/dapper-transaction)
+- [Website](https://dappertutorial.net/dapper-transaction)
 - [GitHub](https://github.com/zzzprojects/Dapper.Transaction)
 
 ```csharp
