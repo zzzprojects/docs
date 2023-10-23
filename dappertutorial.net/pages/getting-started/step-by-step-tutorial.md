@@ -2,7 +2,7 @@
 PermaID: 1000200
 Title: Dapper - Getting Started With a Step-by-Step Tutorial
 MetaDescription: Learn how to use Dapper, the popular lightweight ORM for .NET, with our easy-to-follow step-by-step tutorial for beginners. Discover how to create database connections, execute queries, and map database results to .NET objects with Dapper.
-LastMod: 2023-02-21
+LastMod: 2023-10-22
 ---
 
 # Dapper: Getting Started With a Step-by-Step Tutorial
@@ -43,6 +43,8 @@ Install Dapper through [NuGet](https://www.nuget.org/packages/Dapper) by executi
 ```csharp
 PM> Install-Package Dapper
 ```
+
+You can also see our [Dapper Downloads](/download) section for more options / libraries.
 
 ## Database Data
 

@@ -2,7 +2,7 @@
 PermaID: 1000186
 Title: Dapper Contrib - Learn What Is This Library and How to Use It
 MetaDescription: Unlock the power of Dapper Contrib by understanding the basics and more advanced topics of this third-party library. Learn what Dapper Contrib is, how it works, and all the documentation you need to get started.
-LastMod: 2023-02-25
+LastMod: 2023-10-21
 ---
 
 # Dapper Contrib: Discover What Is This Library and How to Use It
@@ -125,3 +125,12 @@ var isSuccess = connection.Update<InvoiceContrib>(new InvoiceContrib {InvoiceID 
 ```csharp
 var isSuccess = SqlMapperExtensions.Update(connection, new InvoiceContrib {InvoiceID = 1, Code = "Update_Single_2"});
 ```
+
+## Related Articles
+
+- [Get](/get)
+- [GetAll](/getall)
+- [Insert](/insert)
+- [Update](/update)
+- [Delete](/delete)
+- [DeleteAll](/deleteall)

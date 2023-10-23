@@ -2,7 +2,7 @@
 PermaID: 1000204
 Title: Dapper - Getting Started With Inserting and Updating Data
 MetaDescription: Learn how to insert and update records in your database to get started with Dapper. Follow our step-by-step Dapper tutorial for to insert and update data.
-LastMod: 2023-02-21
+LastMod: 2023-10-22
 ---
 
 # Dapper: Getting Started With Inserting and Updating Data
@@ -13,14 +13,14 @@ The `Execute` extension method in Dapper enables you to execute a command one or
 
 This method is usually used to execute:
 
- - INSERT statement
- - UPDATE statement
- - DELETE statement
- - Stored Procedure
+ - [INSERT statement](/execute#example-execute-insert)
+ - [UPDATE statement](/execute#example-execute-update)
+ - [DELETE statement](/execute#example-execute-delete)
+ - [Stored Procedure](/execute#example-execute-stored-procedure)
 
 ## Insert
 
-Inserting a single new record is easy. All we need to do is write an `INSERT` statement with parameters for each column that we want to set. To insert data into the database, the `CustomerController` contains two `Create` action methods.
+[Inserting in Dapper](/execute#example-execute-insert) a single new record is easy. All we need to do is write an `INSERT` statement with parameters for each column that we want to set. To insert data into the database, the `CustomerController` contains two `Create` action methods.
 
  - The first method is for the `GET` process which will run when we call the method.
  - The second method is for the `POST` process which will run when we submit the entry to the server.
@@ -129,7 +129,7 @@ Click the **Add** button and it will add the following code for you.
 
 ## Update
 
-Updating an existing entity is similar to inserting. All we need is a SQL statement containing an `UPDATE` statement that sets the appropriate columns. We also want to make sure we include a `WHERE` clause limiting the update only to the row with the specified `Id`.
+[Updating in Dapper](/execute#example-execute-update) an existing entity is similar to inserting. All we need is a SQL statement containing an `UPDATE` statement that sets the appropriate columns. We also want to make sure we include a `WHERE` clause limiting the update only to the row with the specified `Id`.
 
 To update data in the database, the `CustomerController` contains two `Edit` action methods.
 
@@ -250,7 +250,7 @@ Click the **Add** button and it will add the following code for you.
 
 ## Delete
 
-Deleting an entity is the easiest of all because it only requires a unique `Id` to identify the entity being deleted. The SQL statement is a simple `DELETE` with a `WHERE` clause on the `Id` column.
+[Deleting in Dapper](/execute#example-execute-delete) an entity is the easiest of all because it only requires a unique `Id` to identify the entity being deleted. The SQL statement is a simple `DELETE` with a `WHERE` clause on the `Id` column.
 
 To delete a record from the database, the `CustomerController` contains two `Delete` action methods.
 
@@ -369,3 +369,11 @@ Enter data in all the fields and press Create button, you will the index view.
 <img src="https://raw.githubusercontent.com/zzzprojects/docs/master/dappertutorial.net/images/display-all-customers-1.png" alt="Create customer-1">
 
 Similarly, you can try the Edit link as well to update any customer data.
+
+## Related Articles
+
+- [Dapper INSERT](/execute#example-execute-insert)
+- [Dapper UPDATE](/execute#example-execute-update)
+- [Dapper DELETE](/execute#example-execute-delete)
+- [Dapper Stored Procedure](/execute#example-execute-stored-procedure)
+

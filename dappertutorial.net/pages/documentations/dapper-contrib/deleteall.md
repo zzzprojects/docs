@@ -2,7 +2,7 @@
 PermaID: 1000193
 Title: Dapper Contrib DeleteAll - Learn How to Delete All Data From a Table
 MetaDescription: Unlock the power of Dapper Contrib with the DeleteAll method to delete all data from a table. Learn how to use the simplest way to delete all rows from a database table without writing any SQL.
-LastMod: 2023-02-25
+LastMod: 2023-10-21
 ---
 
 # Dapper Contrib DeleteAll: Discover How to Delete All Data From a Table
@@ -36,3 +36,8 @@ using (var connection = My.ConnectionFactory())
     var isSuccess = connection.DeleteAll<Invoice>();
 }
 ```
+
+## Related Articles
+
+- [Dapper Delete](/execute#example-execute-delete)
+- [Dapper Plus Bulk Delete](/bulk-delete)

@@ -2,15 +2,14 @@
 PermaID: 1000200
 Title: Dapper Plus Bulk Merge - Learn how to upsert multiple rows
 MetaDescription: Unlock the power of Dapper Plus with the BulkMerge method to insert or update multiple rows from a table. Learn how to use the simplest and fastest way to upsert rows from a database table without writing any SQL.
-LastMod: 2023-02-26
+LastMod: 2023-10-21
 ---
 
 # Dapper Plus Bulk Merge: Discover how to upsert multiple rows
 
 ## Description
 
-Dapper Plus is a 3rd party library that offers some very useful extensions to Dapper. One of these extensions is the `BulkMerge` method that can be used to merge an object into the database, similar to an `UPSERT` operation. 
-
+Dapper Plus is a 3rd party library that offers some very useful extensions to Dapper. One of these extensions is the [BulkMerge](https://dapper-plus.net/bulk-merge) method that can be used to merge an object into the database, similar to an `UPSERT` operation. 
 
  - UPSERT refers to operations that update or insert data into a database table. 
  - If the row already exists in the table, then it is updated. 
@@ -19,10 +18,10 @@ Dapper Plus is a 3rd party library that offers some very useful extensions to Da
 
 With `BulkMerge`, you can:
 
-- [Merge single](#example---merge-single)
-- [Merge many](#example---merge-many)
-- [Merge with relation (One to One)](#example---merge-with-relation-one-to-one)
-- [Merge with relation (One to Many)](#example---merge-with-relation-one-to-many)
+- [Merge single](#example-merge-single)
+- [Merge many](#example-merge-many)
+- [Merge with relation (One to One)](#example-merge-with-relation-one-to-one)
+- [Merge with relation (One to Many)](#example-merge-with-relation-one-to-many)
 
 Bulk Merge helps you merge your entities in a single command. This can come in handy for various reasons, such as reducing database roundtrips or improving performance by avoiding entity lookups.
 
@@ -91,3 +90,8 @@ using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlSer
 }
 ```
 Try it: [.NET Core](https://dotnetfiddle.net/bYDz5C) | [.NET Framework](https://dotnetfiddle.net/YM0zev)
+
+## Related Articles
+
+- [Dapper Plus Website](https://dapper-plus.net/)
+- [Bulk Merge](https://dapper-plus.net/bulk-merge)

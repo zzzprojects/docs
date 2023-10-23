@@ -68,3 +68,8 @@ Unfortunately, there is no proper documentation available for this library.
 ## Support
 
 Currently, this library is not supported.
+
+## Related Articles
+
+- [Dapper Insert](/execute#example-execute-insert)
+- [Dapper Plus Bulk Insert](/bulk-insert)

@@ -2,7 +2,7 @@
 PermaID: 1000165
 Title: Dapper Async Methods - Learn How Execute Query Asynchronously
 MetaDescription: Unlock the power of Dapper by using Async Methods. Learn how to use methods such as 'ExecuteAsync' and 'QueryAsync' in your async methods.
-LastMod: 2023-02-22
+LastMod: 2023-10-20
 ---
 
 # Dapper Async Methods: Discover How Execute Query Asynchronously

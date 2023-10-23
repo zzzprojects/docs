@@ -2,7 +2,7 @@
 PermaID: 1000172
 Title: Dapper String Parameter - Learn How to Improve Mapping With DbString
 MetaDescription: Unlock the power of Dapper with String Parameter to improve your mapping with 'DbString'. Learn how to pass an explicit string to improve type mapping, database compatibility, and performance.
-LastMod: 2023-02-23
+LastMod: 2023-10-20
 ---
 
 # Dapper String Parameter: Discover How to Improve Mapping With DbString

@@ -2,7 +2,7 @@
 PermaID: 1000192
 Title: Dapper Contrib Delete - Learn How to Delete Data From a Table
 MetaDescription: Unlock the power of Dapper Contrib with the Delete method to delete data from a table. Learn how to use the simplest way to delete rows from a database table without writing any SQL.
-LastMod: 2023-02-25
+LastMod: 2023-10-21
 ---
 
 # Dapper Contrib Delete: Discover How to Delete Data From a Table
@@ -69,3 +69,8 @@ using (var connection = My.ConnectionFactory())
     var isSuccess = connection.Delete(list);
 }
 ```
+
+## Related Articles
+
+- [Dapper Delete](/execute#example-execute-delete)
+- [Dapper Plus Bulk Delete](/bulk-delete)

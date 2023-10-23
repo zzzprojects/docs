@@ -2,7 +2,7 @@
 PermaID: 1000209
 Title: Dapper.Plus - A Getting Started Tutorial for Bulk CRUD Operations
 MetaDescription: Discover Dapper.Plus Library to perform CRUD operations such as BulkInsert, BulkUpdate, BulkDelete, BulkMerge. Learn about Dapper.Plus limitations and how to install it with NuGet.
-LastMod: 2023-02-20
+LastMod: 2023-10-23
 ---
 
 # Dapper.Plus: A Getting Started Tutorial for Bulk CRUD Operations
@@ -51,10 +51,10 @@ More information can be found at: <a href="https://dapper-plus.net/" target="_bl
 
 Once you installed this library then the following extension methods will automatically add to `DbConnection`:
 
-- BulkInsert
-- BulkUpdate
-- BulkMerge
-- BulkDelete
+- <a href="https://dapper-plus.net/bulk-insert" target="_blank">Bulk Insert</a>
+- <a href="https://dapper-plus.net/bulk-update" target="_blank">Bulk Update</a>
+- <a href="https://dapper-plus.net/bulk-delete" target="_blank">Bulk Delete</a>
+- <a href="https://dapper-plus.net/bulk-merge" target="_blank">Bulk Merge</a>
 
 There is no configuration required and no need for extra coding. You can easily use these extension methods in your code.
 

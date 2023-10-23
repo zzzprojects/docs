@@ -2,7 +2,7 @@
 PermaID: 1000197
 Title: Dapper Contrib Update - Learn How to Update Data From a Table
 MetaDescription: Unlock the power of Dapper Contrib with the Update method to update data from a table. Learn how to use the simplest way to update rows from a database table without writing any SQL.
-LastMod: 2023-02-25
+LastMod: 2023-10-21
 ---
 
 # Dapper Contrib Update: Discover How to Update Data From a Table
@@ -71,3 +71,8 @@ using (var connection = My.ConnectionFactory())
     var isSuccess = connection.Update(list);
 }
 ```
+
+## Related Articles
+
+- [Dapper Update](/execute#example-execute-update)
+- [Dapper Plus Bulk Update](/bulk-update)

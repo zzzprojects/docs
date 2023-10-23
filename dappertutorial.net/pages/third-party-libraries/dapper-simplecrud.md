@@ -2,7 +2,7 @@
 PermaID: 1000211
 Title: Dapper.SimpleCRUD - A Getting Started Tutorial for CRUD Operations
 MetaDescription: Discover Dapper.SimpleCRUD Library to perform CRUD operations such as Get, GetList, GetListPaged, Insert, Update, Delete, DeleteList, RecordCount. Learn about Dapper.SimpleCRUD limitations and how to install it with NuGet.
-LastMod: 2023-02-20
+LastMod: 2023-10-23
 ---
 
 # Dapper.SimpleCRUD: A Getting Started Tutorial for CRUD Operations
@@ -72,3 +72,8 @@ You can find more information and documentation here: <a href="https://github.co
 ## Support
 
 This library is supported regularly and you will get your answers within the next few days. <a href="https://github.com/ericdc1/Dapper.SimpleCRUD/issues/">https://github.com/ericdc1/Dapper.SimpleCRUD/issues</a>
+
+## Related Articles
+
+- [Dapper Insert](/execute#example-execute-insert)
+- [Dapper Plus Bulk Insert](/bulk-insert)

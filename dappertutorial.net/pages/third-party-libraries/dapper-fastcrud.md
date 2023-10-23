@@ -2,7 +2,7 @@
 PermaID: 1000206
 Title: Dapper.FastCrud - A Getting Started Tutorial for CRUD Operations
 MetaDescription: Discover Dapper.FastCrud Library to perform CRUD operations such as Get, Find, Insert, Update, Delete, Count. Learn about Dapper.FastCrud limitations and how to install it with NuGet.
-LastMod: 2023-02-20
+LastMod: 2023-10-23
 ---
 
 # Dapper.FastCrud: A Getting Started Tutorial for CRUD Operations
@@ -42,9 +42,7 @@ Once you installed this library then the following extension methods will automa
 - Find
 - Insert
 - Update
-- BulkUpdate
 - Delete
-- BulkDelete
 - Count
 
 There is no configuration required and no need for extra coding. You can easily use these extension methods in your code.
@@ -70,3 +68,8 @@ You can find the detailed documentation here: <a href="https://github.com/MoonSt
 ## Support
 
 This library is supported regularly and you will get your answers within the next few days. <a href="https://github.com/MoonStorm/Dapper.FastCRUD/issues">https://github.com/MoonStorm/Dapper.FastCRUD/issues</a>
+
+## Related Articles
+
+- [Dapper Insert](/execute#example-execute-insert)
+- [Dapper Plus Bulk Insert](/bulk-insert)

@@ -2,7 +2,7 @@
 PermaID: 1000180
 Title: Dapper Multi-Mapping Result - Learn How to Map Result to Many Types
 MetaDescription: Unlock the power of Dapper by returning a Multi-Mapping Result to map multiple entity types or DTOs in one query. Learn how to query your database and map your navigation by mapping many types.
-LastMod: 2023-02-24
+LastMod: 2023-10-20
 ---
 
 # Dapper Multi-Mapping Result: Discover How to Map Result to Many Types

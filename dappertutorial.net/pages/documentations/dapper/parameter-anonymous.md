@@ -2,7 +2,7 @@
 PermaID: 1000169
 Title: Dapper Anonymous Type Parameter - Learn How to Avoid SQL Injection
 MetaDescription: Unlock the power of Dapper with Anonymous Type Parameter to avoid SQL Injection. Learn how to easily pass your parameter without worrying about user input.
-LastMod: 2023-02-23
+LastMod: 2023-10-20
 ---
 
 # Dapper Anonymous Type Parameter: Discover How to Avoid SQL Injection
@@ -14,7 +14,7 @@ Dapper make it simple & safe (SQL Injection) to use parameter by supporting anon
  - Anonymous parameters are used in cases where you don't want to hardcode the parameter names in your query. 
  - This can be useful if you want to dynamically build a query, or if you want to avoid SQL injection attacks. 
 
-The raw SQL query can be executed using the `Execute` method with anonymous parameters. These are useful for simple queries where you don't need to create a separate class to represent your data. This can save you a considerable amount of time and effort when working with complex SQL queries.
+The raw SQL query can be executed using the [Execute](/execute) method with anonymous parameters. These are useful for simple queries where you don't need to create a separate class to represent your data. This can save you a considerable amount of time and effort when working with complex SQL queries.
 
 ### Single
 
@@ -30,13 +30,13 @@ using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlSer
 	Console.WriteLine(affectedRows);
 	
 	// Only for see the Insert.
-	var customer = connection.Query<Customer>("Select * FROM CUSTOMERS WHERE CustomerName = 'Mark'").ToList();
+	var customer = connection.Query<Customer>("SELECT * FROM CUSTOMERS WHERE CustomerName = 'Mark'").ToList();
 
 	FiddleHelper.WriteTable(customer);
 }
 ```
 
-In the example above, we use the `Execute` to insert a customer named "Mark". We use an anonymous parameter for the `CustomerName` value. 
+In the example above, we use the [Execute](/execute) to insert a customer named "Mark". We use an anonymous parameter for the `CustomerName` value. We also use the [Query](/query) method to return all customer with the name `Mark`.
 
 Try it: [.NET Core](https://dotnetfiddle.net/wNl0G3) | [.NET Framework](https://dotnetfiddle.net/Z1iRIQ)
 
@@ -64,8 +64,9 @@ using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlSer
 
 Try it: [.NET Core](https://dotnetfiddle.net/df2ZDH) | [.NET Framework](https://dotnetfiddle.net/fvRKsY)
 
+To insert, multiple record, you can also use the [Dapper Plus - BulkInsert](https://dappertutorial.net/bulk-insert) methods
 
-You can also use anonymous parameters with the `Query` and `QueryFirst` methods. 
+You can also use anonymous parameters with the [Query](/query) and [QueryFirst](/queryfirst) methods. 
 
 ```csharp
 string sql = "SELECT * FROM OrderDetails WHERE OrderDetailID = @OrderDetailID;";
@@ -81,3 +82,10 @@ using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlSer
 In this example, the variable `orderDetail` would be of type `dynamic`. This means that you can access the columns of the result set by their names.
 
 Try it: [.NET Core](https://dotnetfiddle.net/5GFAdJ) | [.NET Framework](https://dotnetfiddle.net/1K2DU4)
+
+## Related Articles
+
+- [Dapper Execute](/execute)
+- [Dapper Plus - BulkInsert](https://dappertutorial.net/bulk-insert)
+- [Dapper Query](/query)
+- [Dapper QueryFirst](/queryfirst)

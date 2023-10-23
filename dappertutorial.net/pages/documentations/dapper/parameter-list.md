@@ -2,7 +2,7 @@
 PermaID: 1000171
 Title: Dapper List Parameter - Learn How to Execute Where 'IN' Clause
 MetaDescription: Unlock the power of Dapper with List Parameter to execute `where in` clause. Learn how to use a list or an array that will automatically be converted into a SQL `IN` clause.
-LastMod: 2023-02-23
+LastMod: 2023-10-20
 ---
 
 # Dapper List Parameter: Discover How to Execute Where 'IN' Clause
@@ -15,7 +15,7 @@ Dapper supports multiple ways to specify list parameters. The simplest is just p
  - The object is anonymous, you need to give each parameter a unique name. 
  - This can be done by using the syntax param1, param2, etc., or by giving each property in the object a different name.
 
-For example, let's say we want to pass a list of `IDs` to a SQL query and we would use that SQL statement in the `Query` method as shown below. 
+For example, let's say we want to pass a list of `IDs` to a SQL query and we would use that SQL statement in the [Query](/query) method as shown below. 
 
 ```csharp
 var ids = new[] { 1, 2, 3 };
@@ -66,3 +66,7 @@ using (var connection = My.ConnectionFactory())
 ```
 
 As you can see, using Dapper's `IN` clause support is a simple and convenient way to work with lists of values in your SQL queries.
+
+## Related Articles
+
+- [Dapper Query](/query)

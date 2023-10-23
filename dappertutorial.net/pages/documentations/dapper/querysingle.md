@@ -2,7 +2,7 @@
 PermaID: 1000177
 Title: Dapper Query Single - Learn How to Return a Single Result Row
 MetaDescription: Unlock the power of Dapper Query Single to optimize your C# database operations. Learn how to use QuerySingle and QuerySingleAsync to return an anonymous type or strongly typed entity.
-LastMod: 2023-02-24
+LastMod: 2023-10-20
 ---
 
 # Dapper Query Single: Discover How to Return a Single Result Row
@@ -65,7 +65,7 @@ When deciding which method to use, it is important to consider the particular ne
 
 The raw SQL query can be executed using the `QuerySingle` method which maps the first result to a dynamic list and throws an exception if there is not exactly one element in the sequence. 
 
-You could store the results of this query in a Dapper anonymous result type as follows:
+You could store the results of this query in a [Dapper anonymous result type](/result-anonymous) as follows:
 
 ```csharp
 string sql = "SELECT * FROM OrderDetails WHERE OrderDetailID = @OrderDetailID;";
@@ -84,7 +84,7 @@ Try it: [.NET Core](https://dotnetfiddle.net/ZYSItm) | [.NET Framework](https://
 
 ## Example - QuerySingle Strongly Typed
 
-Dapper provides you with the ability to get your query results as strongly typed objects instead of just getting back a dynamic object. The raw SQL query can be executed using the `QuerySingle` method which maps the first result to a strongly typed list and throws an exception if there is not exactly one element in the sequence.
+Dapper provides you with the ability to get your [query results as strongly typed objects](/result-strongly-typed) instead of just getting back a dynamic object. The raw SQL query can be executed using the `QuerySingle` method which maps the first result to a strongly typed list and throws an exception if there is not exactly one element in the sequence.
 
 First, let's create a simple class that we can use to map our query results and we will call this class `OrderDetail`.
 
@@ -114,3 +114,8 @@ using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlSer
 In the above example, you can see that Dapper makes it very easy to map your query results to strongly typed objects. 
 
 Try it: [.NET Core](https://dotnetfiddle.net/oEsh6D) | [.NET Framework](https://dotnetfiddle.net/vnkv7q)
+
+## Related Articles
+
+- [Dapper - Anonymous Result](/result-anonymous) 
+- [Dapper - Strongly Typed Result](/result-strongly-typed)

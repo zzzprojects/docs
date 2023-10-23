@@ -2,7 +2,7 @@
 PermaID: 1000212
 Title: Dapper.SimpleSave - A Getting Started Tutorial for CRUD Operations
 MetaDescription: Discover Dapper.SimpleSave Library to perform CRUD operations such as Create, CreateAll, Update, UpdateAll, Delete, DeleteAll, SoftDelete, SoftDeleteAll. Learn about Dapper.SimpleSave limitations and how to install it with NuGet.
-LastMod: 2023-02-20
+LastMod: 2023-10-23
 ---
 
 # Dapper.SimpleSave: A Getting Started Tutorial for CRUD Operations
@@ -98,3 +98,8 @@ Current limitations:
 
 ## Support
 Unfortunately, this library is not supported.
+
+## Related Articles
+
+- [Dapper Insert](/execute#example-execute-insert)
+- [Dapper Plus Bulk Insert](/bulk-insert)

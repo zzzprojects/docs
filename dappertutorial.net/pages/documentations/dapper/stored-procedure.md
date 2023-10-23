@@ -2,7 +2,7 @@
 PermaID: 1000184
 Title: Dapper Stored Procedure - Learn How Execute Stored Procedure (SP)
 MetaDescription: Unlock the power of Dapper by using Stored Procedure. Learn how to use stored procedure with input and output parameters for your CRUD operations.
-LastMod: 2023-02-24
+LastMod: 2023-10-20
 ---
 
 # Dapper Stored Procedure: Discover How Execute Stored Procedure (SP)
@@ -74,6 +74,14 @@ using (var connection = My.ConnectionFactory())
 
 In the above example, a stored procedure named "Invoice_Insert" will be called three times. 
 
+You can also insert multiple entities using the [Dapper Plus Bulk Insert](/bulk-insert) method.
+
 ## How to call stored procedure using dapper in C#?
 
-Calling a stored procedure is quite simple in Dapper, as you only need to use `Query` or `Execute` methods and specify the commandType to `CommandType.StoredProcedure`.
+Calling a stored procedure is quite simple in Dapper, as you only need to use [Query](/query) or [Execute](/execute) methods and specify the commandType to `CommandType.StoredProcedure`.
+
+## Related Articles
+
+- [Dapper - Execute](/execute)
+- [Dapper - Query](/query)
+- [Dapper Plus - Bulk Insert](/bulk-insert)

@@ -2,23 +2,23 @@
 PermaID: 1000199
 Title: Dapper Plus Bulk Insert - Learn how to insert multiple rows
 MetaDescription: Unlock the power of Dapper Plus with the BulkInsert method to insert multiple rows from a table. Learn how to use the simplest and fastest way to insert rows from a database table without writing any SQL.
-LastMod: 2023-02-26
+LastMod: 2023-10-21
 ---
 
 # Dapper Plus Bulk Insert: Discover how to insert multiple rows
 
 ## Description
 
-Dapper Plus provides an extension method called `BulkInsert` which is a high-performance bulk insert command for Dapper. It can insert multiple rows into a database table at once. It inserts entities using the **Bulk Operation**.
+Dapper Plus provides an extension method called [BulkInsert](https://dapper-plus.net/bulk-insert) which is a high-performance bulk insert command for Dapper. It can insert multiple rows into a database table at once. It inserts entities using the **Bulk Operation**.
 
 It is faster than standard insert because it reduces the number of database round trips. `BulkInsert` can also be used to load data from a file or stream.
 
 With `BulkInsert`, you can:
 
-- [Insert single](#example---insert-single)
-- [Insert many](#example---insert-many)
-- [Insert with relation (One to One)](#example---insert-with-relation-one-to-one)
-- [Insert with relation (One to Many)](#example---insert-with-relation-one-to-many)
+- [Insert single](#example-insert-single)
+- [Insert many](#example-insert-many)
+- [Insert with relation (One to One)](#example-insert-with-relation-one-to-one)
+- [Insert with relation (One to Many)](#example-insert-with-relation-one-to-many)
 
 This can be useful when inserting a large number of records into a database table. For example, if you need to insert 1 million rows, `BulkInsert` can do it in just a few seconds.
 
@@ -122,3 +122,8 @@ using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlSer
 ```
 
 Try it: [.NET Core](https://dotnetfiddle.net/lDwDOS) | [.NET Framework](https://dotnetfiddle.net/Zbf1Qk)
+
+## Related Articles
+
+- [Dapper Plus Website](https://dapper-plus.net/)
+- [Dapper Plus Bulk Insert](https://dapper-plus.net/bulk-insert)

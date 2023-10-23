@@ -2,7 +2,7 @@
 PermaID: 1000204
 Title: Dapper.Contrib - A Getting Started Tutorial for CRUD Operations
 MetaDescription: Discover Dapper.Contrib Library to perform CRUD operations such as Get, GetAll, Insert, Update, Delete, DeleteAll. Learn about Dapper.Contrib limitations and how to install it with NuGet.
-LastMod: 2023-02-20
+LastMod: 2023-10-23
 ---
 
 # Dapper.Contrib: A Getting Started Tutorial for CRUD Operations
@@ -40,12 +40,12 @@ More information and documentation can be found at: <a href="https://github.com/
 
 Once you install this library then, the following extension methods will automatically add to `DbConnection`:
 
-- Get
-- GetAll
-- Insert
-- Update
-- Delete
-- DeleteAll
+- [Get](/get)
+- [GetAll](/getall)
+- [Insert](/insert)
+- [Update](/update)
+- [Delete](/delete)
+- [DeleteAll](/deleteall)
 
 You can use these extension methods easily in your code.
 
@@ -116,3 +116,8 @@ var isSuccess = SqlMapperExtensions.Update(connection, new InvoiceContrib {Invoi
 ### Support
 
 This library is supported regularly, and you will get your answers within the next few days. <a href="https://github.com/DapperLib/Dapper.Contrib/issues">https://github.com/DapperLib/Dapper.Contrib/issues</a>
+
+## Related Articles
+
+- [Dapper Insert](/execute#example-execute-insert)
+- [Dapper Plus Bulk Insert](/bulk-insert)

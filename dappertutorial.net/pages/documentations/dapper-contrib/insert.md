@@ -2,7 +2,7 @@
 PermaID: 1000196
 Title: Dapper Contrib Insert - Learn How to Insert Data in a Table
 MetaDescription: Unlock the power of Dapper Contrib with the Insert method to insert data in a table. Learn how to use the simplest way to insert rows in a database table without writing any SQL.
-LastMod: 2023-02-25
+LastMod: 2023-10-21
 ---
 
 # Dapper Contrib Insert: Discover How to Insert Data in a Table
@@ -70,3 +70,8 @@ using (var connection = My.ConnectionFactory())
 ```
 
 It is important to note that the `Insert` method does not support inserting multiple objects into a table with a composite primary key. If you need to insert multiple objects into a table with a composite primary key, you will need to use the Execute method.
+
+## Related Articles
+
+- [Dapper Insert](/execute#example-execute-insert)
+- [Dapper Plus Bulk Insert](/bulk-insert)

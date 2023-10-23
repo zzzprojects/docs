@@ -2,7 +2,7 @@
 PermaID: 1000207
 Title: Dapper.FluentMap - A Getting Started Tutorial for Mapping
 MetaDescription: Discover Dapper.FluentMap Library to map with manual mapping and convention-based mapping. Learn about Dapper.FluentMap limitations and how to install it with NuGet.
-LastMod: 2023-02-20
+LastMod: 2023-10-23
 ---
 
 # Dapper.FluentMap: A Getting Started Tutorial for Mapping

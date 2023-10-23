@@ -1,7 +1,7 @@
 ---
 Title: Dapper Table-Valued Parameter - Learn About AsTableValuedParameter
 MetaDescription: Unlock the power of Dapper with Table-Valued Parameter to improve performance with 'AsTableValuedParameter'. Learn how to pass an entire table for stored procedure or function.
-LastMod: 2023-02-23
+LastMod: 2023-10-20
 ---
 
 # Dapper Table-Valued Parameter: Discover About AsTableValuedParameter
@@ -77,7 +77,7 @@ connection.Execute(@"
 
 To use a TVP parameter, we must first need to create a `DataTable` with the same definition and populate it.
 
-Now you can execute the stored procedure and pass a TVP as a parameter. The following example creates a TVP that contains five rows of data and passes it to the `Customer_Seed` stored procedure. 
+Now you can execute the stored procedure and pass a TVP as a parameter. The following example creates a TVP that contains five rows of data and passes it to the `Customer_Seed` [stored procedure](/stored-procedure). 
 
 ```csharp
 var dt = new DataTable();
@@ -94,3 +94,7 @@ connection.Execute("Customer_Seed", new { Customers = dt.AsTableValuedParameter(
 In your parameter list, use the `AsTableValuedParameter` with the TVP type name in the parameter to execute the Stored Procedure.
 
 Try it: [.NET Core](https://dotnetfiddle.net/qt2QPN) | [.NET Framework](https://dotnetfiddle.net/RwPLBk)
+
+## Related Articles
+
+- [Dapper - Stored Procedure](/stored-procedure)

@@ -2,7 +2,7 @@
 PermaID: 1000168
 Title: Dapper Execute - Learn How to Execute Stored Procedure and SQL
 MetaDescription: Unlock the power of Dapper Execute to optimize your C# database operations. Learn how to use Execute and ExecuteAsync with a stored procedure, insert, update, and delete SQL statements.
-LastMod: 2023-02-22
+LastMod: 2023-10-20
 ---
 
 # Dapper Execute: Discover How to Execute Stored Procedure and SQL
@@ -44,10 +44,10 @@ In the example above, we are running a `SELECT` query to get all rows from a tab
 
 It can execute a command one or multiple times and return the number of affected rows. This method is usually used to execute:
 
-- [Stored Procedure](#example---execute-stored-procedure)
-- [INSERT statement](#example---execute-insert)
-- [UPDATE statement](#example---execute-update)
-- [DELETE statement](#example---execute-delete)
+- [Stored Procedure](#example-execute-stored-procedure)
+- [INSERT statement](#example-execute-insert)
+- [UPDATE statement](#example-execute-update)
+- [DELETE statement](#example-execute-delete)
 
 ### Parameters
 
@@ -67,7 +67,7 @@ The following table shows the different parameters of an Execute method.
 
 ## Example - Execute Stored Procedure
 
-You can use the `Execute` extension method to execute a stored procedure. To execute a stored procedure the `commandTyp` parameter must be set to `commandType:CommandType.StoredProcedure`
+You can use the `Execute` extension method to execute a stored procedure. To execute a stored procedure the `commandType` parameter must be set to `commandType:CommandType.StoredProcedure`
 
 ```csharp
 var sql = "usp_UpdateTable";
@@ -79,6 +79,8 @@ using (var connection = new SqlConnection(connectionString))
 ```
 
 In the example above, we are calling a stored procedure named "usp_UpdateTable" and passing in three parameters. The first parameter is an `id`, the second parameter is a `value1`, and the third parameter is a `value2`. The Execute method will return the number of rows that were updated.
+
+We also [passed parameter with anonymous type](/parameter-anonymous)
 
 ### Single
 
@@ -126,9 +128,13 @@ using (var connection = My.ConnectionFactory())
 
 In the above example, a stored procedure named "Invoice_Insert" will be called three times. 
 
+In this example, we also [passed parameter to Dapper with a List](/parameter-anonymous#many)
+
 ## Example - Execute INSERT
 
 Using the Dapper `Execute` method, you can insert data into the database. It takes an SQL statement and an optional parameters object. This will execute the SQL statement against the database and return the number of rows affected. 
+
+See also [Dapper - BulkInsert Method](https://dappertutorial.net/bulk-insert)
 
 ### Single
 
@@ -198,6 +204,8 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
+See also [Dapper - BulkUpdate Method](https://dappertutorial.net/bulk-update)
+
 ### Single
 
 When you need to update a single record, you can pass the `UPDATE` statement directly to the `Execute` method.  It also allows you to use parameterized `UPDATE` statement as shown in the below example.
@@ -242,6 +250,8 @@ Try it: [.NET Core]() | [.NET Framework](https://dotnetfiddle.net/qCdKI3)
 
 You can use the `Execute` method to execute the `DELETE` statement. You will need to pass the `id` of the record to be deleted as a parameter to the SQL query.
 
+See also [Dapper - BulkDelete Method](https://dappertutorial.net/bulk-delete)
+
 ### Single
 
 When you need to delete a single record, you can pass the `DELETE` statement directly to the `Execute` method.  It also allows you to use parameterized `DELETE` statement as shown in the below example.
@@ -281,3 +291,11 @@ Console.WriteLine(affectedRows);
 ```
 
 Try it: [.NET Core](https://dotnetfiddle.net/2igFqM) | [.NET Framework](https://dotnetfiddle.net/nxP1vL)
+
+## Related Articles
+
+- [Dapper - Anonymous Type Parameter](/parameter-anonymous)
+- [Dapper - Anonymous Type Many](/parameter-anonymous#many)
+- [Dapper - BulkInsert Method](https://dappertutorial.net/bulk-insert)
+- [Dapper - BulkUpdate Method](https://dappertutorial.net/bulk-update)
+- [Dapper - BulkDelete Method](https://dappertutorial.net/bulk-delete)

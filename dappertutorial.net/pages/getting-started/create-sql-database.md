@@ -2,7 +2,7 @@
 PermaID: 1000199
 Title: Dapper - Getting Started With Your First SQL Database
 MetaDescription: Learn how to create a SQL database and table to get started with Dapper. Follow our step-by-step Dapper tutorial with to create your first database.
-LastMod: 2023-02-21
+LastMod: 2023-10-22
 ---
 
 # Dapper: Getting Started With Your First SQL Database
@@ -36,7 +36,9 @@ CREATE TABLE [dbo].[Customers] (
 );
 ```
 
-It will add a **Customers** table with the specified columns to the database.  
+It will add a **Customers** table with the specified columns to the database. 
+
+You can also use the [Dapper Plus - CreateTable](https://dapper-plus.net/create-table) extensions for quick tests.
 
 ## Create Model Class
 
@@ -52,6 +54,8 @@ public class Customer
 }
 ```
 
+You can also use [Dapper Entity to Table Converter](https://zzzcode.ai/dapper/table-to-entity-converter) to automatically convert your table to entity.
+
 ## Database Operations
 
 Dapper is an ORM library, which extends methods of the `IDbConnection` interface. These extension methods have efficient code to perform insert, update delete, and select methods.
@@ -64,3 +68,11 @@ using (var connection = new SqlConnection(ConfigurationManager.ConnectionStrings
     var affectedRows = connection.Execute(sql);
 }
 ```
+
+In this example, the [Dapper Execute](/execute#example-execute-insert) extension method has been used to insert a new customer.
+
+## Related Articles
+
+- [Dapper Execute](/execute#example-execute-insert)
+- [Dapper Plus - CreateTable](https://dapper-plus.net/create-table)
+- [Dapper AI - Entity to Table Converter](https://zzzcode.ai/dapper/table-to-entity-converter)

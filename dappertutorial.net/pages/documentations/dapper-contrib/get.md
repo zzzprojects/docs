@@ -2,7 +2,7 @@
 PermaID: 1000194
 Title: Dapper Contrib Get - Learn How to Retrieve Data From a Table
 MetaDescription: Unlock the power of Dapper Contrib with the Get method to retrieve data from a table. Learn how to use the simplest way to get rows from a database table without writing any SQL.
-LastMod: 2023-02-25
+LastMod: 2023-10-21
 ---
 
 # Dapper Contrib Get: Discover How to Retrieve Data From a Table

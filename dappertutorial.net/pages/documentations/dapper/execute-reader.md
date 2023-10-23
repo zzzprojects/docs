@@ -2,7 +2,7 @@
 PermaID: 1000206
 Title: Dapper Execute Reader - Learn How to Execute SQL to Return a Reader
 MetaDescription: Unlock the power of Dapper Execute Reader to optimize your C# database operations. Learn how to use ExecuteReader and ExecuteReaderAsync to return a reader and create a DataTable.
-LastMod: 2023-02-22
+LastMod: 2023-10-20
 ---
 
 # Dapper Execute Reader: Discover How to Execute SQL to Return a Reader
@@ -17,12 +17,12 @@ Dapper `ExecuteReader` is an extension method that executes a query and returns 
 
 The `ExecuteReader` method can be called from any object of type `IDbConnection`. This is typically used when the results of a query are not processed by Dapper. For example, to fill a `DataTable` or `DataSet`.
 
-Here is an example of how to use the Dapper `ExecuteReader` method. 
+Here is an example of how to use the Dapper `ExecuteReader` method with an [anonymous parameter](/parameter-anonymous): 
 
 ```csharp
 using(var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServer()))
 {
-    var reader = connection.ExecuteReader("SELECT * FROM Customers;");
+    var reader = connection.ExecuteReader("SELECT * FROM Customers WHERE CreatedDate > @CreatedDate;", new { createdDate} );
 
     DataTable table = new DataTable();
     table.Load(reader);
@@ -69,3 +69,7 @@ using(var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServ
 ```
 
 Try it: [.NET Core](https://dotnetfiddle.net/c22ZGl) | [.NET Framework](https://dotnetfiddle.net/7TnXxm)
+
+## Related Articles
+
+- [Dapper - Anonymous Type Parameter](/parameter-anonymous)

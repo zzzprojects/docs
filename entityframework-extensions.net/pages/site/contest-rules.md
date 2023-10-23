@@ -29,7 +29,7 @@ See below for full contest details. Participation in this contest constitutes yo
 6. Before being declared a winner: The selected winner will be contacted by email and notified that they won. Winner's names, feedback, company names and website URLs will be posted on this page, on our social media pages and newsletters.
  
 ### PRIZES 
-7. Grand Prize: There will be one (1) grand prize per month available to be won, consisting of a Free License between participating libraries including Support & updates for a year until the end of the contest. 
+7. Grand Prize: There will be one (1) grand prize per month available to be won, consisting of a Free License between participating libraries including support & updates for 3 months. 
 Prizes must be accepted as awarded and are not transferable or convertible to cash.  
 If the winner already bought a license, he/she receives a new license for the following year. Your license would be automatically renewed at the expiry date of the current library. 
 

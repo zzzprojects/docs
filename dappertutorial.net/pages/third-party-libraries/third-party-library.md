@@ -2,12 +2,14 @@
 PermaID: 1000213
 Title: Dapper - An Overview of Third-Party Libraries
 MetaDescription: Discover third-party libraries to perform CRUD operations, Bulk Operations, mapping, and use dapper through the `IDbTransaction` interface. Learn about their limitations and how to install them with NuGet.
-LastMod: 2023-02-20
+LastMod: 2023-10-23
 ---
 
 # Dapper: An Overview of Third-Party Libraries
 
 In this article will get a quick overview of all the most popular third-party libraries that you can use with `Dapper`.
+
+You can also find more library on the [Awesome Dapper List](https://github.com/zzzprojects/awesome-dapper)
 
 ## Why should you use a Third Party Library?
 
@@ -45,3 +47,7 @@ Here is a list of libraries that you can use with `Dapper`:
 | [Dapper.Rainbow](dapper-rainbow) | Free | 2 - 3 Days | No | Get<br>Insert<br>Update<br>Delete<br>All |
 | [Dapper.SimpleCRUD](dapper-simplecrud) | Free | 1 - 3 Days | [Yes](https://github.com/ericdc1/Dapper.SimpleCRUD) | Get<br>GetList<br>GetListPaged<br>Insert<br>Update<br>Delete<br>DeleteList<br>RecordCount |
 | [Dapper.SimpleSave](dapper-simplesave) | Free | No | [Yes](https://github.com/Paymentsense/Dapper.SimpleSave/wiki/) | Create<br>CreateAll<br>Update<br>UpdateAll<br>Delete<br>DeleteAll<br>SoftDelete<br>SoftDeleteAll |
+
+## Related Articles
+
+- [Awesome Dapper List](https://github.com/zzzprojects/awesome-dapper)

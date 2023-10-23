@@ -2,7 +2,7 @@
 PermaID: 1000202
 Title: Dapper Plus - Learn What Is This Library and How to Use It
 MetaDescription: Unlock the power of Dapper Plus by understanding the basics and more advanced topics of this third-party library. Learn what Dapper Plus is, how it works, and all the documentation you need to get started.
-LastMod: 2023-02-26
+LastMod: 2023-10-21
 ---
 
 # Dapper Plus: Discover What Is This Library and How to Use It
@@ -13,10 +13,10 @@ Dapper Plus is a high-performance micro-ORM library. It provides an easy way to 
 
 Dapper Plus also offers support for bulk operations, which can significantly improve the performance of your application. Dapper Plus extends the IDbConnection interface with Bulk Operations methods:
 
-- Bulk Insert
-- Bulk Update
-- Bulk Delete
-- Bulk Merge
+- [Bulk Insert](https://dapper-plus.net/bulk-insert)
+- [Bulk Update](https://dapper-plus.net/bulk-update)
+- [Bulk Delete](https://dapper-plus.net/bulk-delete)
+- [Bulk Merge](https://dapper-plus.net/bulk-merge)
 
 This library is the **fastest way** to perform saving operations in a database.
 
@@ -31,6 +31,8 @@ To install the Dapper NuGet Package, run the following command in the **Package 
 ```csharp
 PM> Install-Package Z.Dapper.Plus
 ```
+
+You can also find the package in their [Download Page](https://dapper-plus.net/download)
 
 Once you have the package installed, you can begin mapping your classes to database tables. 
 
@@ -93,3 +95,12 @@ using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlSer
 }
 ```
 Try it: [.NET Core](https://dotnetfiddle.net/CPzM2X) | [.NET Framework](https://dotnetfiddle.net/dbMVfr)
+
+## Related Articles
+
+- [Dapper Plus Website](https://dapper-plus.net/)
+- [Dapper Plus Download](https://dapper-plus.net/download)
+- [Bulk Insert](/bulk-insert)
+- [Bulk Update](/bulk-update)
+- [Bulk Merge](/bulk-merge)
+- [Bulk Delete](/bulk-delete)

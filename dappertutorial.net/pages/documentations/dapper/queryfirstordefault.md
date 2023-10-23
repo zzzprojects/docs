@@ -2,7 +2,7 @@
 PermaID: 1000175
 Title: Dapper Query FirstOrDefault - Learn How to Return First Row
 MetaDescription: Unlock the power of Dapper Query FirstOrDefault to optimize your C# database operations. Learn how to use QueryFirstOrDefault and QueryFirstOrDefaultAsync to return an anonymous type or strongly typed entity.
-LastMod: 2023-02-23
+LastMod: 2023-10-20
 ---
 
 # Dapper Query FirstOrDefault: Discover How to Return First Row or Default Value
@@ -60,7 +60,7 @@ When deciding which method to use, it is important to consider the particular ne
 
 The raw SQL query can be executed using the `QueryFirstOrDefault` method and map the first result to a dynamic list, or a default value if the sequence contains no elements to a dynamic list. 
 
-You could store the results of this query in a Dapper anonymous result type as follows:
+You could store the results of this query in a [Dapper anonymous result type](/result-anonymous) as follows:
 
 The following examples show how to use the `QueryFirstOrDefault` method:
 ```csharp
@@ -80,7 +80,7 @@ Try it: [.NET Core](https://dotnetfiddle.net/6f9rcQ) | [.NET Framework](https://
 
 ## Example - QueryFirstOrDefault Strongly Typed
 
-Dapper provides you with the ability to get your query results as strongly typed objects instead of just getting back a dynamic object. The raw SQL query can be executed using the `QueryFirstOrDefault` method and map the first result to a strongly typed list, or a default value if the sequence contains no elements.
+Dapper provides you with the ability to get your [query results as strongly typed objects](/result-strongly-typed) instead of just getting back a dynamic object. The raw SQL query can be executed using the `QueryFirstOrDefault` method and map the first result to a strongly typed list, or a default value if the sequence contains no elements.
 
 First, let's create a simple class that we can use to map our query results and we will call this class `OrderDetail`.
 
@@ -110,3 +110,8 @@ using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlSer
 In the above example, you can see that Dapper makes it very easy to map your query results to strongly typed objects. 
 
 Try it: [.NET Core](https://dotnetfiddle.net/Ct5P3q) | [.NET Framework](https://dotnetfiddle.net/2WQ7sc)
+
+## Related Articles
+
+- [Dapper - Anonymous Result](/result-anonymous) 
+- [Dapper - Strongly Typed Result](/result-strongly-typed)

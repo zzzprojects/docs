@@ -1,7 +1,7 @@
 ---
 Title: Dapper.Transaction - Learn What Is This Library and How to Use It
 MetaDescription: Unlock the power of Dapper.Transaction by understanding the basics and more advanced topics of this third-party library. Learn what Dapper.Transaction is, how it works, and all the documentation you need to get started.
-LastMod: 2023-02-26
+LastMod: 2023-10-21
 ---
 
 # Dapper.Transaction: Discover What Is This Library and How to Use It

@@ -2,7 +2,7 @@
 PermaID: 1000201
 Title: Dapper - Getting Started With Your First MVC Projects
 MetaDescription: Learn how to create an ASP.NET MVC project to get started with Dapper. Follow our step-by-step Dapper tutorial with image to create your first MVC project.
-LastMod: 2023-02-21
+LastMod: 2023-10-22
 ---
 
 # Dapper: Getting Started With your First MVC Projects

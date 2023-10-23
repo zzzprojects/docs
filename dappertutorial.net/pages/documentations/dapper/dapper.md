@@ -2,7 +2,7 @@
 PermaID: 1000167
 Title: Dapper - Learn What is Dapper and Why You Should Use it
 MetaDescription: Unlock the power of Dapper by understanding the basics and more advanced topics. Learn what Dapper is, how it works, and all the documentation you need to get started.
-LastMod: 2023-02-22
+LastMod: 2023-10-20
 ---
 
 # Dapper: Discover What is Dapper and Why You Should Use it
@@ -22,6 +22,7 @@ Yes, Dapper is faster than Entity Framework for CRUD operation (querying and sav
 
 However, EF Core is relatively very fast as well. The question about which ORM is the best for you should be more about if you want to write most of your SQL query (Dapper) or if you prefer to write LINQ and have EF Core write the SQL query for you.
 
+For a better comparisons, see [Dapper vs Entity Framework (EF6 or EF Core)](https://www.learndapper.com/dapper-vs-entity-framework)
 
 ## How does Dapper work?
 
@@ -33,7 +34,7 @@ When using Dapper, all you need is a connection string and a POCO, and then it i
 
 - Create an `IDbConnection` object.
 - Write a query to perform CRUD operations.
-- Pass the query as a parameter in any `Execute` or `Query` method.
+- Pass the query as a parameter in any [Execute](/execute) or [Query](/query) method.
 
 ## Is Dapper case sensitive or insensitive?
 

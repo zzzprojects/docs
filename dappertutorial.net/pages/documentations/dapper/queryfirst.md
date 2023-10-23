@@ -2,7 +2,7 @@
 PermaID: 1000174
 Title: Dapper Query First - Learn How to Return the First Result Row
 MetaDescription: Unlock the power of Dapper Query First to optimize your C# database operations. Learn how to use QueryFirst and QueryFirstAsync to return an anonymous type or strongly typed entity.
-LastMod: 2023-02-23
+LastMod: 2023-10-20
 ---
 
 # Dapper Query First: Discover How to Return the First Result Row
@@ -64,7 +64,7 @@ When deciding which method to use, it is important to consider the particular ne
 
 The raw SQL query can be executed using the `QueryFirst` method and map the first result to a dynamic list. 
 
-You could store the results of this query in a Dapper anonymous result type as follows:
+You could store the results of this query in a [Dapper anonymous result type](/result-anonymous) as follows:
 
 ```csharp
 string sql = "SELECT * FROM OrderDetails WHERE OrderDetailID = @OrderDetailID;";
@@ -83,7 +83,7 @@ Try it: [.NET Core](https://dotnetfiddle.net/CDQKMN) | [.NET Framework](https://
 
 ## Example - Query Strongly Typed
 
-Dapper provides you with the ability to get your query results as strongly typed objects instead of just getting back a dynamic object. The raw SQL query can be executed using the `QueryFirst` method and map the first result to a strongly typed list.
+Dapper provides you with the ability to get your [query results as strongly typed objects](/result-strongly-typed) instead of just getting back a dynamic object. The raw SQL query can be executed using the `QueryFirst` method and map the first result to a strongly typed list.
 
 First, let's create a simple class that we can use to map our query results and we will call this class `OrderDetail`.
 
@@ -113,3 +113,8 @@ using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlSer
 In the above example, you can see that Dapper makes it very easy to map your query results to strongly typed objects. 
 
 Try it: [.NET Core](https://dotnetfiddle.net/FTB4ih) | [.NET Framework](https://dotnetfiddle.net/AV0OgZ)
+
+## Related Articles
+
+- [Dapper - Anonymous Result](/result-anonymous) 
+- [Dapper - Strongly Typed Result](/result-strongly-typed)

@@ -2,7 +2,7 @@
 PermaID: 1000191
 Title: Dapper Contrib Write - Use Data Annotation to Specify Readonly Column
 MetaDescription: Unlock the power of Dapper Contrib by using 'Write' Data Annotation. Learn how to specify whether a property should be writable in the database.
-LastMod: 2023-02-25
+LastMod: 2023-10-21
 ---
 
 # Dapper Contrib Write: Use Data Annotation to Specify Readonly Column

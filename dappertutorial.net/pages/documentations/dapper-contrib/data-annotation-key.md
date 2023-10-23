@@ -2,7 +2,7 @@
 PermaID: 1000189
 Title: Dapper Contrib Key - Use Data Annotation to Specify Key Column
 MetaDescription: Unlock the power of Dapper Contrib by using 'Key' Data Annotation. Learn how to specify which properties are a part of the primary keys.
-LastMod: 2023-02-25
+LastMod: 2023-10-21
 ---
 
 # Dapper Contrib Key: Use Data Annotation to Specify Key Column
@@ -39,3 +39,8 @@ using (var connection = My.ConnectionFactory())
 	var identity = connection.Insert(new InvoiceContrib {Kind = InvoiceKind.WebInvoice, Code = "Insert_Single_1"});
 }
 ```
+
+## Related Articles
+
+- [Dapper Insert](/execute#example-execute-insert)
+- [Dapper Plus Bulk Insert](/bulk-insert)

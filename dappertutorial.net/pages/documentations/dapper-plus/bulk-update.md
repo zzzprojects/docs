@@ -2,14 +2,14 @@
 PermaID: 1000201
 Title: Dapper Plus Bulk Update - Learn how to update multiple rows
 MetaDescription: Unlock the power of Dapper Plus with the BulkUpdate method to update multiple rows from a table. Learn how to use the simplest and fastest way to update rows from a database table without writing any SQL.
-LastMod: 2023-02-26
+LastMod: 2023-10-21
 ---
 
 # Dapper Plus Bulk Update: Discover how to update multiple rows
 
 ## Description
 
-Dapper Plus provides an extension method called `BulkUpdate` that is used to update multiple records in a database table at once. It is the fastest and most efficient way to update entities in your database. It can update multiple entities in one database round trip
+Dapper Plus provides an extension method called [BulkUpdate](https://dapper-plus.net/bulk-update) that is used to update multiple records in a database table at once. It is the fastest and most efficient way to update entities in your database. It can update multiple entities in one database round trip
 
  - The `BulkUpdate` method takes a list of entities as a parameter and updates each entity in the database.
  - To use the `BulkUpdate` method, you first need to create a list of entities that you want to update. 
@@ -18,10 +18,10 @@ Dapper Plus provides an extension method called `BulkUpdate` that is used to upd
 
 It updates entities using **Bulk Operation** and with `BulkUpdate`, you can:
 
-- [Update single](#example---update-single)
-- [Update many](#example---update-many)
-- [Update with relation (One to One)](#example---update-with-relation-one-to-one)
-- [Update with relation (One to Many)](#example---update-with-relation-one-to-many)
+- [Update single](#example-update-single)
+- [Update many](#example-update-many)
+- [Update with relation (One to One)](#example-update-with-relation-one-to-one)
+- [Update with relation (One to Many)](#example-update-with-relation-one-to-many)
 
 ## Example - Update Single
 
@@ -93,3 +93,8 @@ using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlSer
 }
 ```
 Try it: [.NET Core](https://dotnetfiddle.net/l799dF) | [.NET Framework](https://dotnetfiddle.net/fsTfEg)
+
+## Related Articles
+
+- [Dapper Plus Website](https://dapper-plus.net/)
+- [Bulk Update](https://dapper-plus.net/bulk-update)

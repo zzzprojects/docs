@@ -2,7 +2,7 @@
 PermaID: 1000182
 Title: Dapper Multi-Type Result - Learn How to Map Result to Different Types
 MetaDescription: Unlock the power of Dapper by returning a Multi-Type Result to map multiple types from an inheritance. Learn how to query your database and map your inheritance such as `TPC`, `TPT`, and `TPH`.
-LastMod: 2023-02-24
+LastMod: 2023-10-20
 ---
 
 # Dapper Multi-Type Result: Discover How to Map Result to Different Types

@@ -2,7 +2,7 @@
 PermaID: 1000187
 Title: Dapper Contrib Computed - Use Data Annotation With Computed Column
 MetaDescription: Unlock the power of Dapper Contrib by using 'Computed' Data Annotation. Learn how to specify a property based on other property values.
-LastMod: 2023-02-25
+LastMod: 2023-10-21
 ---
 
 # Dapper Contrib Computed: Use Data Annotation With Computed Column

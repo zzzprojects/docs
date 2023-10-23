@@ -2,7 +2,7 @@
 PermaID: 1000183
 Title: Dapper Strongly Typed Result - Learn How to Map Result to Entity
 MetaDescription: Unlock the power of Dapper by returning a Strongly Typed Result to map your entity type or DTO. Learn how to query your database and automatically map the result to your entity model and domain classes.
-LastMod: 2023-02-24
+LastMod: 2023-10-20
 ---
 
 # Dapper Strongly Typed Result: Discover How to Map Result to Entity
@@ -35,7 +35,7 @@ Next, we write our SQL query to fetch a particular `OrderDetail` from our databa
 
 ## Example - Query
 
-The raw SQL query can be executed using the `Query` method and map the result to a strongly typed list.
+The raw SQL query can be executed using the [Query](/query) method and map the result to a strongly typed list.
 
 The following example shows how to map the `Query` method results to a strongly typed result type.
 
@@ -58,7 +58,7 @@ Try it: [.NET Core](https://dotnetfiddle.net/CvMkj8) | [.NET Framework](https://
 
 ## Example - QueryFirst
 
-The `QueryFirst` method can execute a query and map the first result to a strongly typed list.
+The [QueryFirst](/queryfirst) method can execute a query and map the first result to a strongly typed list.
 
 The following example shows how to map the `QueryFirst` method results to a strongly typed result type.
 
@@ -76,7 +76,7 @@ Try it: [.NET Core](https://dotnetfiddle.net/FTB4ih) | [.NET Framework](https://
 
 ## Example - QueryFirstOrDefault
 
-The `QueryFirstOrDefault` method can execute a query and map the first result to a strongly typed list, or a default value if the sequence contains no elements.
+The [QueryFirstOrDefault](/queryfirstordefault) method can execute a query and map the first result to a strongly typed list, or a default value if the sequence contains no elements.
 
 The following example shows how to map the `QueryFirstOrDefault` method results to a strongly typed result type.
 
@@ -95,7 +95,7 @@ Try it: [.NET Core](https://dotnetfiddle.net/Ct5P3q) | [.NET Framework](https://
 
 ## Example - QuerySingle
 
-The `QuerySingle` method can execute a query and map the first result to a strongly typed list and throws an exception if there is not exactly one element in the sequence.
+The [QuerySingle](/querysingle) method can execute a query and map the first result to a strongly typed list and throws an exception if there is not exactly one element in the sequence.
 
 The following example shows how to map the `QuerySingle` method results to a strongly typed result type.
 
@@ -113,7 +113,7 @@ Try it: [.NET Core](https://dotnetfiddle.net/oEsh6D) | [.NET Framework](https://
 
 ## Example - QuerySingleOrDefault
 
-The `QuerySingleOrDefault` method can execute a query and map the first result to a strongly typed list, or a default value if the sequence is empty; this method throws an exception if there is more than one element in the sequence.
+The [QuerySingleOrDefault](/querysingleordefault) method can execute a query and map the first result to a strongly typed list, or a default value if the sequence is empty; this method throws an exception if there is more than one element in the sequence.
 
 The following example shows how to map the `QuerySingleOrDefault` method results to a strongly typed result type.
 
@@ -128,3 +128,11 @@ using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlSer
 }
 ```
 Try it: [.NET Core](https://dotnetfiddle.net/BNTmxc) | [.NET Framework](https://dotnetfiddle.net/kFMKnL)
+
+## Related Articles
+
+- [Dapper - Query](/query)
+- [Dapper - QueryFirst](/queryfirst)
+- [Dapper - QueryFirstOrDefault](/queryfirstordefault)
+- [Dapper - QuerySingle](/querysingle)
+- [Dapper - QuerySingleOrDefault](/querysingleordefault)

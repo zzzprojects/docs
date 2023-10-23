@@ -2,7 +2,7 @@
 PermaID: 1000173
 Title: Dapper Query - Learn How to Query Your Database and Return a List
 MetaDescription: Unlock the power of Dapper Query to optimize your C# database operations. Learn how to use Query and QueryAsync to return a list of anonymous type or strongly typed entities.
-LastMod: 2023-02-23
+LastMod: 2023-10-20
 ---
 
 # Dapper Query: Discover How to Query Your Database and Return a List
@@ -57,7 +57,7 @@ The following table shows the different parameters of a `Query` method.
 
 The raw SQL query can be executed using the `Query` method and map the result to a dynamic list. These are useful for simple queries where you don't need to create a separate class to represent your data. This can save you a considerable amount of time and effort when working with complex SQL queries.
 
-You could store the results of this query in a Dapper anonymous result type as follows:
+You could store the results of this query in a [Dapper anonymous result type](/result-anonymous) as follows:
 
 ```csharp
 string sql = "SELECT TOP 10 * FROM OrderDetails";
@@ -76,7 +76,7 @@ Try it: [.NET Core](https://dotnetfiddle.net/5GFAdJ) | [.NET Framework](https://
 
 ## Example - Query Strongly Typed
 
-Dapper provides you with the ability to get your query results as strongly typed objects instead of just getting back a dynamic object. The raw SQL query can be executed using the `Query` method and map the result to a strongly typed list.
+Dapper provides you with the ability to get your [query results as strongly typed objects](/result-strongly-typed) instead of just getting back a dynamic object. The raw SQL query can be executed using the `Query` method and map the result to a strongly typed list.
 
 First, let's create a simple class that we can use to map our query results and we will call this class `OrderDetail`.
 
@@ -189,3 +189,8 @@ using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlSer
 In the above example, the input parameters are `Order` and an `OrderDetail`, and the return type is `Order` (`<Order, OrderDetail, Order>`). So we are telling the `Query` method to take an `order` and `orderDetail`, process them in some way to be defined, and return an `order`. It means, first map the columns to an `Order` object, then to an `OrderDetail` object, and return `IEnumerable<Order>`.
 
 Try it: [.NET Core](https://dotnetfiddle.net/HClmCa) | [.NET Framework](https://dotnetfiddle.net/DPiy2b)
+
+## Related Articles
+
+- [Dapper - Anonymous Result](/result-anonymous) 
+- [Dapper - Strongly Typed Result](/result-strongly-typed)

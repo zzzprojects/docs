@@ -2,14 +2,14 @@
 PermaID: 1000181
 Title: Dapper Multi-Result Result - Learn How to Map With Multiple Results
 MetaDescription: Unlock the power of Dapper by returning a Multi-Result Result by combining queries to map multiple entity types or dynamic objects. Learn how to query your database by combining your queries in a single one and using the resultset to read all your results.
-LastMod: 2023-02-24
+LastMod: 2023-10-20
 ---
 
 # Dapper Multi-Result Result: Discover How to Map With Multiple Results
 
 ## Description
 
-The multi-result is the ability to map a single query to multiple objects. It is useful when you need to select data from multiple tables or when you need to select multiple columns from a single table. Dapper supports this by providing an extension method called `QueryMultiple`.
+The multi-result is the ability to map a single query to multiple objects. It is useful when you need to select data from multiple tables or when you need to select multiple columns from a single table. Dapper supports this by providing an extension method called [QueryMultiple](/querymultiple).
 
  - The `QueryMultiple` can be called from any object of type `IDbConnection`. 
  - It can execute multiple queries within the same command and map results.
@@ -33,3 +33,7 @@ using (var connection = My.ConnectionFactory())
 ```
 
 In the above example, you can see that we have mapped the results of both queries to the `Invoice` and `InvoiceItem` classes.
+
+## Related Articles
+
+- [Dapper - QueryMultiple](/querymultiple)

@@ -2,7 +2,7 @@
 PermaID: 1000203
 Title: Dapper - Getting Started With Querying Data
 MetaDescription: Learn how to use query record from a SQL database to get started with Dapper. Follow our step-by-step Dapper tutorial for to query data.
-LastMod: 2023-02-21
+LastMod: 2023-10-22
 ---
 
 # Dapper: Getting Started With Querying Data
@@ -47,7 +47,7 @@ public ActionResult Index()
 }
 ```
 
-The above code retrieves all the records from the **Customers** table, stores them in memory, and returns the collection.
+The above code retrieves with the [Dapper Query](/query) method all the records from the **Customers** table, stores them in memory, and returns the collection.
 
 Generally, we create **View** with the same name as an Action method, so let's create an `Index` view by right-clicking on the `Index` Action method in `CustomerController` and select the **Add View**.
 
@@ -111,7 +111,7 @@ On **Add Scaffold** dialog, choose **MVC 5 View** and click on the **Add** butto
 </table>
 ```
 
-Similarly, you can add the following code in the `Details` action method to retrieve the specific customer from the **Customers** table.
+Similarly, you can add the following code in the `Details` action method to retrieve with the [Dapper Query](/query) method specific customer from the **Customers** table by passing an [Anonymous Type Parameter](/parameter-anonymous).
 
 ```csharp
 // GET: Customer/Details/5

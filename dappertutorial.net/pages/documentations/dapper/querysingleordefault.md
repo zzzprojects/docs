@@ -2,7 +2,7 @@
 PermaID: 1000178
 Title: Dapper Query SingleOrDefault - Learn How to Return a Single Row 
 MetaDescription: Unlock the power of Dapper Query SingleOrDefault to optimize your C# database operations. Learn how to use QuerySingleOrDefault and QuerySingleOrDefault to return an anonymous type or strongly typed entity.
-LastMod: 2023-02-24
+LastMod: 2023-10-20
 ---
 
 # Dapper Query SingleOrDefault: Discover How to Return a Single Row or Default Value
@@ -64,7 +64,7 @@ When deciding which method to use, it is important to consider the particular ne
 
 The raw SQL query can be executed using the `QuerySingleOrDefault` method and map the first result to a dynamic list, or a default value if the sequence is empty; this method throws an exception if there is more than one element in the sequence.
 
-For example, let's say we have a database table of `OrderDetails` and we want to retrieve the `OrderDetail` with the `OrderDetailID` of 1. You could store the results of this query in a Dapper anonymous result type as follows:
+For example, let's say we have a database table of `OrderDetails` and we want to retrieve the `OrderDetail` with the `OrderDetailID` of 1. You could store the results of this query in a [Dapper anonymous result type](/result-anonymous) as follows:
 
 
 ```csharp
@@ -86,7 +86,7 @@ Try it: [.NET Core](https://dotnetfiddle.net/uG7LPt) | [.NET Framework](https://
 
 Dapper provides you with the ability to get your query results as strongly typed objects instead of just getting back a dynamic object. 
 
-The raw SQL query can be executed using the `QuerySingleOrDefault` method and map the first result to a strongly typed list, or a default value if the sequence is empty; this method throws an exception if there is more than one element in the sequence.
+The raw SQL query can be executed using the `QuerySingleOrDefault` method and map the first result to a [strongly typed list](/result-strongly-typed), or a default value if the sequence is empty; this method throws an exception if there is more than one element in the sequence.
 
 First, let's create a simple class that we can use to map our query results and we will call this class `OrderDetail`.
 
@@ -116,3 +116,8 @@ using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlSer
 In the above example, you can see that Dapper makes it very easy to map your query results to strongly typed objects. 
 
 Try it: [.NET Core](https://dotnetfiddle.net/BNTmxc) | [.NET Framework](https://dotnetfiddle.net/kFMKnL)
+
+## Related Articles
+
+- [Dapper - Anonymous Result](/result-anonymous) 
+- [Dapper - Strongly Typed Result](/result-strongly-typed)

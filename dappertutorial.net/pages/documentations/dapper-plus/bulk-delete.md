@@ -2,21 +2,21 @@
 PermaID: 1000198
 Title: Dapper Plus Bulk Delete - Learn how to delete multiple rows
 MetaDescription: Unlock the power of Dapper Plus with the BulkDelete method to delete multiple rows from a table. Learn how to use the simplest and fastest way to delete rows from a database table without writing any SQL.
-LastMod: 2023-02-26
+LastMod: 2023-10-21
 ---
 
 # Dapper Plus Bulk Delete: Discover how to delete multiple rows
 
 ## Description
 
-The `BulkDelete` method allows you to delete multiple entities in one database call. It is useful when you want to delete a large number of records from a table. You can use the `BulkDelete` method to delete all records from a table, or you can specify a filter condition to only delete certain records. 
+The [BulkDelete](https://dapper-plus.net/bulk-delete) method allows you to delete multiple entities in one database call. It is useful when you want to delete a large number of records from a table. You can use the `BulkDelete` method to delete all records from a table, or you can specify a filter condition to only delete certain records. 
 
 It deletes entities using Bulk Operation. With `BulkDelete`, you can:
 
-- [Delete single](#example---delete-single)
-- [Delete many](#example---delete-many)
-- [Delete with relation (One to One)](#example---delete-with-relation-one-to-one)
-- [Delete with relation (One to Many)](#example---delete-with-relation-one-to-many)
+- [Delete single](#example-delete-single)
+- [Delete many](#example-delete-many)
+- [Delete with relation (One to One)](#example-delete-with-relation-one-to-one)
+- [Delete with relation (One to Many)](#example-delete-with-relation-one-to-many)
 
 To use the `BulkDelete` method, you simply need to specify the list of entities that you want to delete.
 
@@ -81,3 +81,8 @@ using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlSer
 }
 ```
 Try it: [.NET Core](https://dotnetfiddle.net/BaIldo) | [.NET Framework](https://dotnetfiddle.net/7BVhC5)
+
+## Related Articles
+
+- [Dapper Plus Website](https://dapper-plus.net/)
+- [Bulk Delete](https://dapper-plus.net/bulk-delete)

@@ -2,7 +2,7 @@
 PermaID: 1000205
 Title: Dapper - Getting Started With Inserting and Updating Data in Bulk
 MetaDescription: Learn how to bulk insert and bulk update records in your database to get started with Dapper. Follow our step-by-step Dapper tutorial for to insert and update data in bulk.
-LastMod: 2023-02-21
+LastMod: 2023-10-22
 ---
 
 # Dapper: Getting Started With Inserting and Updating Data in Bulk
@@ -14,14 +14,14 @@ Bulk operations are the fastest way to insert or update a large number of record
 
 [Dapper Plus](https://dapper-plus.net/) extends the `IDbConnection` interface with Bulk Operations methods:
 
- - BulkInsert
- - BulkUpdate
- - BulkDelete
- - BulkMerge
+ - [BulkInsert](/bulk-insert)
+ - [BulkUpdate](/bulk-update)
+ - [BulkDelete](/bulk-delete)
+ - [BulkMerge](/bulk-merge)
 
 ## Bulk Insert
 
-The `BulkInsert` method allows you to `INSERT` a large number of entities in your database. It inserts multiple rows of data into a database table at once. 
+The [Dapper BulkInsert](/bulk-insert) method allows you to `INSERT` a large number of entities in your database. It inserts multiple rows of data into a database table at once. 
 
 ```csharp
 DapperPlusManager.Entity<Customer>().Table("Customers").Identity(x => x.CustomerID);
@@ -40,7 +40,7 @@ Try it: [.NET Core](https://dotnetfiddle.net/GjoUpm) | [.NET Framework](https://
 
 ## Bulk Update
 
-The `BulkUpdate` method allows to `UPDATE` a larger number of entities in a database table or a view. You can use this action to update multiple records at the same time, which can be useful when you need to make changes to a large number of records.
+The [Dapper BulkUpdate](/bulk-update) method allows to `UPDATE` a larger number of entities in a database table or a view. You can use this action to update multiple records at the same time, which can be useful when you need to make changes to a large number of records.
 
 ```csharp
 using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServer()))
@@ -56,7 +56,7 @@ Try it: [.NET Core](https://dotnetfiddle.net/JZfSWN) | [.NET Framework](https://
 
 ## Bulk Delete
 
-The `BulkDelete` method allows to `DELETE` a larger number of entities in a database table or a view. It allows you to delete multiple items at the same time. 
+The [Dapper BulkDelete](/bulk-delete) method allows to `DELETE` a larger number of entities in a database table or a view. It allows you to delete multiple items at the same time. 
 
 ```csharp
 using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServer()))
@@ -71,7 +71,7 @@ Try it: [.NET Core](https://dotnetfiddle.net/jTjPId) | [.NET Framework](https://
 
 ## Bulk Merge
 
-The `BulkMerge` method allows to `MERGE` a larger number of entities in a database table or a view. The `BulkMerge` method can be used to merge an object into the database, similar to an `UPSERT` operation. 
+The [Dapper BulkMerge](/bulk-merge) method allows to `MERGE` a larger number of entities in a database table or a view. The `BulkMerge` method can be used to merge an object into the database, similar to an `UPSERT` operation. 
 
 
  - UPSERT refers to operations that update or insert data into a database table. 
@@ -104,7 +104,7 @@ The `DapperPlusMapper` allows you to map the conceptual model (Entity) with the 
 
 ### Mapper - Table
 
-The `Table()` sets the destination table or view name (including schema). By default, the name mapped is singular.
+The [Table()](https://dapper-plus.net/map#mapper-table) sets the destination table or view name (including schema). By default, the name mapped is singular.
 
 ```csharp
 DapperPlusManager.Entity<Customer>()
@@ -115,7 +115,7 @@ Try it: [.NET Core](https://dotnetfiddle.net/KCRMGQ) | [.NET Framework](https://
 
 ### Mapper - Identity
 
-The `Identity()` sets column(s) which the database generates value. The value is outputted from the destination table (insert and merge action).
+The [Identity()](https://dapper-plus.net/map#mapper-table) sets column(s) which the database generates value. The value is outputted from the destination table (insert and merge action).
 
 ```csharp
 DapperPlusManager.Entity<Customer>()
@@ -286,3 +286,12 @@ You can see by default, some more customer data is available in the text area, y
 
 <img src="https://raw.githubusercontent.com/zzzprojects/docs/master/dappertutorial.net/images/display-all-customers-2.png" alt="Display all customers-2">
 
+## Related Articles
+
+- [Dapper Plus](https://dapper-plus.net/)
+- [Dapper BulkInsert](/bulk-insert)
+- [Dapper BulkUpdate](/bulk-update)
+- [Dapper BulkDelete](/bulk-delete)
+- [Dapper BulkMerge](/bulk-merge)
+- [Dapper Plus - Map Table](https://dapper-plus.net/map#mapper-table)
+- [Dapper Plus - Map Identity](https://dapper-plus.net/map#mapper-table) 
