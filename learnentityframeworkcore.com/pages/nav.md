@@ -42,6 +42,7 @@
             <a href="/model">Model</a>
             <ul class="nav-level-two" data-display="model">
                 <li><a href="/walkthroughs/existing-database">From Existing Database</a></li>
+				<li><a href="/model/complex-type">Complex Type</a></li>
                 <li><a href="/model/shadow-properties">Shadow Properties</a></li>
             </ul>
         </li>
@@ -86,6 +87,7 @@
                     <a href="/configuration/fluent-api">Fluent Api</a>
                     <ul class="nav-level-three" data-display="fluent-api">
                         <li><a href="/configuration/fluent-api/model-configuration">Model Configuration</a></li>
+						<li><a href="/configuration/fluent-api/complexproperty-method">ComplexProperty Method</a></li>
                         <li><a href="/configuration/fluent-api/property-configuration">Property Configuration</a></li>
                         <li><a href="/configuration/fluent-api/hasalternatekey-method">HasAlternatekey Method</a></li>
                         <li><a href="/configuration/fluent-api/hascolumnname-method">HasColumnName Method</a></li>
