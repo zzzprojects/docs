@@ -35,7 +35,7 @@ string sql = "SELECT TOP 10 * FROM OrderDetails";
 
 using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServerW3Schools()))
 {            
-    var orderDetails = connection.QueryFirstOrDefault(sql);
+    var orderDetails = connection.Query(sql);
 
     FiddleHelper.WriteTable(orderDetails);
 }
