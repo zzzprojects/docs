@@ -1,9 +1,9 @@
 ---
-title: Update Database Command in Entitiy Framework Core
+title: Update Database Command in Entity Framework Core
 description: Explore the essentials of the Update Database command in EF Core. Learn how to apply or revert migrations using the Up and Down methods, the differences between the Package Manager Console (PMC) and .NET CLI commands, and dive deep into their parameters. Keep your database in sync effortlessly!
 canonical: /migrations/update-database
 status: Published
-lastmod: 2023-09-19
+lastmod: 2023-11-11
 thumbnail: /images/efcore/migrations/update-database/thumbnail-ef-core-update-database.png
 localhost: https://localhost:5005/migrations/update-database
 ---

@@ -71,7 +71,7 @@ public class EntityContext : DbContext
 ## FAQ
 
 ### Why BatchSaveChanges is faster than SaveChanges?
-The `SaveChanges` method makes 1 database round-trip for every **1** entitiy to save.
+The `SaveChanges` method makes 1 database round-trip for every **1** entity to save.
 
 The `BatchSaveChanges` method makes 1 database round-trip for every **25** entities to save (Default Value).
 

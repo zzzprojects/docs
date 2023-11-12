@@ -1,5 +1,5 @@
 ---
-title: Remove Migration Command in Entitiy Framework Core
+title: Remove Migration Command in Entity Framework Core
 description: Discover how to effectively remove migrations in EF Core. This guide provides step-by-step instructions for using the Remove Migration command via both the Package Manager Console (PMC) and the .NET Command Line Interface (CLI). Learn to safely delete the latest unapplied migration files and understand the available parameters for seamless migration management.
 canonical: /migrations/remove-migration
 status: Published

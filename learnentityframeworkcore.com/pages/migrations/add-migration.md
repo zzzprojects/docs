@@ -1,5 +1,5 @@
 ---
-title: Add Migration Command in Entitiy Framework Core
+title: Add Migration Command in Entity Framework Core
 description: Discover how to use the 'Add Migration' command in Entity Framework Core. Learn step-by-step processes for both the Package Manager Console (PMC) and the .NET Command Line Interface (.NET CLI) to capture and implement model changes.
 canonical: /migrations/add-migration
 status: Published

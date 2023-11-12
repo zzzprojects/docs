@@ -38,6 +38,7 @@ EF Core Migrations is a feature of EF Core that enables developers to evolve the
 | `dotnet ef database update [name]` | Update the database to a specific migration name point. |
 | `dotnet ef migrations list` | Lists all available migrations. |
 | `dotnet ef migrations script` | Generates a SQL script for all migrations. |
+| `dotnet ef migrations has-pending-model-changes` | Check if there is any model changes since the last migration. |
 | `dotnet ef database drop` | Drop the database. |
 
 ## Steps for Migrations

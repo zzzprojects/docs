@@ -13,7 +13,7 @@ Build succeeded.
 Your startup project 'Z.MyStartupProjectName' doesn't reference Microsoft.EntityFrameworkCore.Design. This package is required for the Entity Framework Core Tools to work. Ensure your startup project is correct, install the package, and try again.
 ```
 
-<div class="image-outer"><img src="https://www.learnentityframeworkcore.com/images/efcore/migrations/add-migration/troubleshooting-your-startup-project-doesn-t-reference-microsoft-entitiyframeworkcore-design.png" loading="lazy" alt="Exception - Startup project not reference Microsoft.EntityFrameworkCore.Design"></div>
+<div class="image-outer"><img src="https://www.learnentityframeworkcore.com/images/efcore/migrations/add-migration/troubleshooting-your-startup-project-doesn-t-reference-microsoft-entityframeworkcore-design.png" loading="lazy" alt="Exception - Startup project not reference Microsoft.EntityFrameworkCore.Design"></div>
  
 <div class="h9">Cause:</div>
 

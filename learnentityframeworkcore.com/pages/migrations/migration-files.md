@@ -1,5 +1,5 @@
 ---
-title: Migration Files in Entitiy Framework Core
+title: Migration Files in Entity Framework Core
 description: Dive into EF Core's migration files, a key tool for the code-first approach. Understand the significance of Up and Down methods, explore commands like add-migration, and unravel the intricacies of database schema modifications.
 canonical: /migrations/migration-files
 status: Published
