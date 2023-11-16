@@ -11,6 +11,7 @@
    - [Concurrency (EF 6)](concurrency-ef6.md)
 - Breaking Changes
    - [v7.100.0.0 - Include Graph](v7-100-0-0-include-graph.md)
+   - [v8.101.0.0 - EF Core 8](v8-101-0-0-efcore-8.md)
 - Articles
    - [Exception - Unknow Error 258](exception-unknown-error-258.md)
    - [Improving Performance of BulkMerge with WhereBulkContains](improving-performance-of-bulkmerge-with-wherebulkcontains.md)
