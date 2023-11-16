@@ -1,6 +1,7 @@
 ---
-Name: v7.100.0.0 - IncludeGraph
-LastMod: 2023-09-21
+Title: v7.100.0.0 - IncludeGraph Performance and Memory Improvement
+MetaDescription: Learn starting from the v7.100.0.0 how the new IncludeGraph consumes around 20% of the memory that its predecessor did and can perform bulk operations 5 times faster.
+LastMod: 2023-11-16
 ---
 
 # v7.100.0.0 Breaking Changes: IncludeGraph 
