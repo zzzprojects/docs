@@ -3,7 +3,7 @@ title: Dapper vs Entity Framework (EF6 or EF Core)
 description: TODO
 canonical: /dapper-vs-entity-framework
 status: Published
-lastmod: 2023-08-01
+lastmod: 2023-11-17
 ---
 
 # Dapper vs Entity Framework (EF6 or EF Core)
