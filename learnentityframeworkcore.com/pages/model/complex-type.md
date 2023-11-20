@@ -87,7 +87,7 @@ protected override void OnModelCreating(ModelBuilder modelBuilder)
 Unlike reference types, value types are immutable and represent data objects. So to create a `Complex Type` as a Value Type, we simply create a `struct` instead of a `class`:
 
 ```csharp
-public class Address
+public struct Address
 {
     public string Street { get; set; }
     public string City { get; set; }
