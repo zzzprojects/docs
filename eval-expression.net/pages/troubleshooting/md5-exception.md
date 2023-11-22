@@ -4,6 +4,8 @@ Name: MD5 Exception Troubleshooting
 
 # MD5 Exception
 
+**NOTE**: Since 2020, the default generation is FIPS by default. So, this error only happens with old license key.
+
 ## Problem
 
 You execute a method from the Eval Expression.NET library, and the following error is thrown:
@@ -20,9 +22,7 @@ The default algorithm to validate the license key & name is not supported with F
 
 #### Ask for a compatible key
 
-Contact us and we will send you a new key supporting FIPS: info@zzzprojects.com
-
-Why don't we generate a key compatible with FIPS by default? Because it will not be supported for a client machine with Windows XP or below.
+Contact us and we will send you a new key supporting FIPS: <a href="mailto:info@zzzprojects.com">info@zzzprojects.com</a>
 
 #### Disable FIPS
 
