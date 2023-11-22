@@ -3,7 +3,7 @@ title: Modifying data via the DbSet
 description: An examination of the methods and approaches available for modifying data via the Entity Framework Core DbSet API 
 canonical: /dbset/modifying-data
 status: Published
-lastmod: 2023-02-21
+lastmod: 2023-11-22
 ---
 
 # EF Core Modify Record
@@ -48,3 +48,4 @@ This method results in the entity being tracked by the context as `Modified`. Th
 #### Further Reading
 
 - [Entity Framework Core TrackGraph For Disconnected Data](http://www.mikesdotnetting.com/article/303/entity-framework-core-trackgraph-for-disconnected-data)
+- [EF Core - Bulk Update](https://entityframework-extensions.net/bulk-update)

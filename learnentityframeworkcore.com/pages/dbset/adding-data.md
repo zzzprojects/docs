@@ -3,7 +3,7 @@ title: Adding data via the DbSet
 description: An examination of the methods and approaches available for adding data via the Entity Framework Core DbSet API 
 canonical: /dbset/adding-data
 status: Published
-lastmod: 2023-02-21
+lastmod: 2023-11-22
 ---
 
 # EF Core Add Record
@@ -92,3 +92,4 @@ When the `SaveChanges` method is called on the `DbContext`, all entities with an
 #### Further Reading
 
 - [Adding data via the DbContext](/dbcontext/adding-data)
+- [EF Core - Bulk Insert](https://entityframework-extensions.net/bulk-insert)

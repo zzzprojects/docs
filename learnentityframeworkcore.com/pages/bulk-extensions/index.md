@@ -3,14 +3,14 @@ title: EF Core BulkExtensions, Bulk Insert, Update, Delete, Read, SaveChanges
 description: Learn to use Bulk Extensions in EF Core 7 and lower. Improve your .net core performance with bulk extensions methods.
 canonical: /bulk-extensions
 status: Published
-lastmod: 2023-03-02
+lastmod: 2023-11-22
 ---
 
 # Bulk Extensions With EF Core
 
 ## Getting Started
 
-In that tutorial, you will learn how to use bulk extension methods in EF Core 7 and lower. 
+In that tutorial, you will learn how to use bulk extension methods in EF Core 8 and lower. 
 
 Unfortunately, EF Core doesn't formal API for performing any bulk operations, so to improve your performance with bulk operations, you will need to use the [Entity Framework Extensions](https://entityframework-extensions.net/) library created by [ZZZ Projects](https://zzzprojects.com/).
  
@@ -33,6 +33,7 @@ To add Entity Framework Extensions, you need the following NuGet package:  [http
 
 You must match the EF Core major version with the EF Extensions major version. For example:
 
+- If you are using EF Core 8.x, you need to use EF Extensions 8.x
 - If you are using EF Core 7.x, you need to use EF Extensions 7.x
 - If you are using EF Core 6.x, you need to use EF Extensions 6.x
 - If you are using EF Core 5.x, you need to use EF Extensions 5.x

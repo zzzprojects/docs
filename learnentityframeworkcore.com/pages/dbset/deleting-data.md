@@ -3,7 +3,7 @@ title: Deleting data via the DbSet
 description: An examination of the methods and approaches available for deleting data via the Entity Framework Core DbSet API 
 canonical: /dbset/deleting-data
 status: Published
-lastmod: 2023-02-21
+lastmod: 2023-11-22
 ---
 
 # EF Core Remove Record
@@ -100,3 +100,8 @@ SELECT @@ROWCOUNT;
 ',N'@p6 int',@p6=1
 ```
 This approach results in _four_ calls being made to the database: one to select the author; one to select the books, one to update the books, and a final one to delete the author. It is therefore always a good idea to make use of the referential integrity constraints to set foreign keys to null or to delete dependents.
+
+#### Further Reading
+
+- [Adding data via the DbContext](/dbcontext/adding-data)
+- [EF Core - Bulk Delete](https://entityframework-extensions.net/bulk-delete)
