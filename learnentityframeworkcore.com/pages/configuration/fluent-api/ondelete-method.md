@@ -52,7 +52,7 @@ protected override void OnModelCreating(ModelBuilder modelBuilder)
         .HasOne(b => b.Author)
         .WithMany(a => a.Books)
         .IsRequired()
-        .OnDelete(DeleteBehavior.Delete);
+        .OnDelete(DeleteBehavior.Cascade);
 }
 ```
 
