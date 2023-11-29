@@ -3,7 +3,7 @@ title: The Fluent API OnDelete Method
 description: Usage of the Fluent API OnDelete Method in Entity Framework Core
 canonical: /configuration/fluent-api/ondelete-method
 status: Published
-lastmod: 2023-02-27
+lastmod: 2023-11-29
 ---
 
 # EF Core OnDelete
