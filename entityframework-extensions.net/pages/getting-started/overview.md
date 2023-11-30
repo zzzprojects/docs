@@ -37,9 +37,12 @@ Download the <a href="/download">NuGet Package</a>
 
 ### Entity Framework Version
 
-- Entity Framework Core 5
-- Entity Framework Core 3
-- Entity Framework Core 2
+- EF Core 8
+- EF Core 7
+- EF Core 6
+- EF Core 5
+- EF Core 3
+- EF Core 2
 - Entity Framework 6
 - Entity Framework 5
 - Entity Framework 4
