@@ -233,6 +233,8 @@ catch(Exception ex)
 
 {% include component-try-it.html href='https://dotnetfiddle.net/hGumFP' %}
 
+To learn more and see what contains this method, see [Register Default Alias Safe/Unsafe](/register-default-alias-safe-unsafe)
+
 ## RegisterDefaultAliasUnsafe
 
 The RegisterDefaultAliasUnsafe method register types , members and extension methods of some type that might be considered most unsafe such as (Console, DirectionInfo, FileInfo, etc.). You can find the complete list here:
@@ -258,6 +260,8 @@ Console.WriteLine("2 - Result: " + r2);
 ```
 
 {% include component-try-it.html href='https://dotnetfiddle.net/9tbo3E' %}
+
+To learn more and see what contains this method, see [Register Default Alias Safe/Unsafe](/register-default-alias-safe-unsafe)
 
 ## RegisterDomainAssemblies
 
