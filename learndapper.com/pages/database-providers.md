@@ -3,7 +3,7 @@ title: Dapper Database Providers - SQL Server - Oracle - MySQL - PostgreSQL
 description: Discover how to use Dapper database providers like SQL Server, MySQL, PostgreSQL, Oracle, and more on your website. Learn to install and apply these providers.
 canonical: /database-providers
 status: Published
-lastmod: 2023-08-01
+lastmod: 2024-01-05
 ---
 
 # Database Providers With Dapper
@@ -27,6 +27,10 @@ PM> NuGet\Install-Package Microsoft.Data.SqlClient
 Using Dapper to access SQL Server is relatively easy. You first create a connection and start using methods from Dapper available.
 
 ```csharp
+// using Dapper;
+
+var connectionString = "Server=localhost;Initial Catalog=DapperDB;Integrated Security=true;TrustServerCertificate=True";
+
 // Connect to the database 
 using (var connection = new SqlConnection(connectionString)) 
 {    
@@ -38,6 +42,8 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
+[Online Example](https://dotnetfiddle.net/AMbnuB)
+
 Once you have created the connection, you can use any [Dapper Query](/dapper-query/selecting-multiple-rows#dapper-query) methods to map the data returned from your query into a strongly typed object (or any other supported [querying methods](/dapper-query)). In addition, it includes [executing stored procedures](/stored-procedures) to retrieve data from the database.
 
 ## Dapper Oracle
@@ -47,6 +53,10 @@ To start using Oracle with Dapper, you must install the [Oracle.ManagedDataAcces
 Once the connection is created, you can begin writing code that uses Dapper's built-in methods for interacting with the database. These include [Execute](/non-query), [Execute Reader](/execute-reader), etc.
 
 ```csharp
+// using Dapper;
+
+var connectionString = "Data Source=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1522)))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=orcl19 )));User Id=system;Password=z;";
+
 // Connect to the database 
 using (var connection = new OracleConnection(connectionString)) 
 {    
@@ -64,16 +74,13 @@ Dapper offers an easy way to access and manipulate data in an SQLite database. W
 
 To start using SQLite with Dapper, you must install the [System.Data.SQLite.Core](https://www.nuget.org/packages/System.Data.SQLite.Core) NuGet package.
 
-
-Using Dapper, you can connect to an SQLite database using a connection string like this: 
-
-```csharp
-private static string connectionString = "Data Source=D:\\BookStoreContext.db;";
-```
-
 To execute any SQL statement, such as returning the first author found by using [QueryFirst](/dapper-query/selecting-single-rows#dapper-queryfirst) or [QuerySingle](/dapper-query/selecting-single-rows) if only a single row is returned.
 
 ```csharp
+// using Dapper;
+
+var connectionString = "Data Source=D:\\DapperDB.db;";
+
 // Connect to the database
 using (var connection = new SQLiteConnection(connectionString))
 {
@@ -92,6 +99,10 @@ When working with MySQL in .NET Core, you must install the following NuGet packa
 Using Dapper to retrieve data from MySql is simple and can be done in a few lines of code. First, create a connection, then use any query method provided by Dapper, such as [ExecuteScalar](/dapper-query/selecting-scalar-values).
 
 ```csharp
+// using Dapper;
+
+var connectionString = "Server=localhost;database=DapperDB;Uid=root;Pwd=;Charset=utf8;Port=3307;SslMode=none";
+
 // Connect to the database
 using (var connection = new MySqlConnection(connectionString))
 {
@@ -114,6 +125,10 @@ To start using PostgreSQL with Dapper, you must install the [Npgsql](https://www
 
 
 ```csharp
+// using Dapper;
+
+var connectionString = "Server=127.0.0.1;Port=5432;Database=DapperDB;User Id=postgres;Password=z;";
+
 // Connect to the database
 using (var connection = new NpgsqlConnection(connectionString))
 {
