@@ -216,6 +216,7 @@ We do not support inheritance such as `TPC`, `TPH`, and `TPT`
 
 - [WhereBulkNotContains](/where-bulk-not-contains)
 - [BulkRead](/bulk-read)
+- [WhereBulkContainsFilterList](/where-bulk-contains-filter-list)
 - Batch Methods
    - [UpdateFromQuery](/update-from-query)
    - [DeleteFromQuery](/delete-from-query)
