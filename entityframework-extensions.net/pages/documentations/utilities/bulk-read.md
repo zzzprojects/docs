@@ -91,3 +91,4 @@ You can also find additional information on our [YouTube video](https://youtu.be
 - [WhereBulkContains](/where-bulk-contains)
 - [WhereBulkNotContains](/where-bulk-not-contains)
 - [WhereBulkContainsFilterList](/where-bulk-contains-filter-list)
+- [WhereBulkNotContainsFilterList](/where-bulk-not-contains-filter-list)

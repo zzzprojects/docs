@@ -1,6 +1,6 @@
 ---
 Name: How do you filter a list to return only items from the list that match no row in the database?
-LastMod: 2024-01-16
+LastMod: 2024-01-23
 ---
 
 # How do you filter a list to return only items from the list that match no row in the database?
@@ -39,14 +39,14 @@ context.BulkUpdate(existingCustomers);
 ## FAQ
 
 - [How to use the method WhereBulkNotContainsFilterList?](#how-to-use-the-method-wherebulknotcontainsfilterlist)
-- [What is the difference between the method WhereBulkNotContainsFilterList and WhereBulkContains?](#what-is-the-difference-between-the-method-wherebulknotcontainsfilterlist-and-wherebulknotcontains)
+- [What is the difference between the method WhereBulkNotContainsFilterList and WhereBulkNotContains?](#what-is-the-difference-between-the-method-wherebulknotcontainsfilterlist-and-wherebulknotcontains)
 - [Where can I learn more about the method WhereBulkNotContainsFilterList?](#where-can-i-learn-more-about-the-method-wherebulknotcontainsfilterlist)
 
 ## How to use the method WhereBulkNotContainsFilterList?
 
 The most basic scenario is passing a list to the `WhereBulkNotContainsFilterList` method.
 
-The `WhereBulkNotContainsFilterList` method will filter the list to return only item that exists in the database.
+The `WhereBulkNotContainsFilterList` method will filter the list to return only item that doesn't exists in the database.
 
 ```csharp
 // The `JOIN` statement will use the default entity key if none is provided (CustomerID)

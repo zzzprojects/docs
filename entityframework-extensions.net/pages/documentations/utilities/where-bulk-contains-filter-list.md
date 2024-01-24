@@ -83,6 +83,7 @@ Both methods have the same features and limitations.
 
 ## Related Solutions
 
+- [WhereBulkNotContainsFilterList](/where-bulk-not-contains-filter-list)
 - [WhereBulkContains](/where-bulk-contains)
 - [WhereBulkNotContains](/where-bulk-not-contains)
 - [BulkRead](/bulk-read)
