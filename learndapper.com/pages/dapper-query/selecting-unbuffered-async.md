@@ -1,5 +1,5 @@
 ---
-title: Dapper QueryUnbuferredAsync
+title: Dapper QueryUnbufferedAsync
 description: The Dapper Query Unbuffered Async method is used to select data from your database asynchronously by loading objects on demand (unbuffered).
 canonical: /dapper-query/selecting-unbuffered-async
 status: Published
@@ -12,7 +12,7 @@ The method `QueryUnbufferedAsync` has been added in the [v2.0.138](https://githu
 
 The `Async` method should extend the `DbConnection` and not the `IDbConnection`, which will be done when the next major v3 version is released.
 
-## Dapper Query Unbuferred Async
+## Dapper Query Unbuffered Async
 
 The method `QueryUnbufferedAsync` has 2 main purposes:
 
