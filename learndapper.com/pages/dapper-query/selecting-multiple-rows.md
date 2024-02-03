@@ -116,10 +116,14 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
+:::{.alert .alert-info}
+Note if you want to use `QueryAsync` with `buffered = false`, you should use instead the [QueryUnbufferedAsync](/dapper-query/selecting-unbuffered-async) method.
+:::
+
 ## Related Articles
 
 - [Querying](/dapper-query)
-- [Query Unbuferred Async](/dapper-query/selecting-unbuffered-async)
+- [Query Unbuffered Async](/dapper-query/selecting-unbuffered-async)
 - [Stored Procedure](/stored-procedures)
 - [Using Parameters](/parameters)
 - [Buffered & Unbuffered Queries](/misc/buffered-unbuffered)
