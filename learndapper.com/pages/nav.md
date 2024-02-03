@@ -26,6 +26,7 @@
 				<li><a href="/dapper-query/selecting-multiple-rows">Querying Multiple Rows</a></li>
 				<li><a href="/dapper-query/selecting-multiple-results">Querying Multiple Result</a></li>
 				<li><a href="/dapper-query/selecting-specific-columns">Querying Specific Columns</a></li>
+				<li><a href="/dapper-query/selecting-unbuffered-async">Querying Unbuffered Async</a></li>
 			</ul>
 		</li>
 		<li><a href="/non-query">Executing Non-Query Command</a></li>

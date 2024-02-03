@@ -89,6 +89,7 @@
    - [BulkRead](utilities/bulk-read.md)
    - [WhereBulkNotContains](utilities/where-bulk-not-contains.md)
    - [WhereBulkContainsFilterList](utilities/where-bulk-contains-filter-list.md)
+   - [WhereBulkNotContainsFilterList](utilities/where-bulk-not-contains-filter-list.md)
    - [EF PostConfigurationCore - DbCommandInterceptor](command-interception-in-ef-core.md)
    - [EF Core - DbConnectionInterceptor](connection-interception-in-ef-core.md)
    - [EF Core - DbTransactionInterceptor](transaction-interception-in-ef-core.md)

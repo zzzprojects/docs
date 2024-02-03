@@ -44,6 +44,7 @@ Dapper also allows you to query your database asynchronously with `Async` method
 
 - [ExecuteScalarAsync](/dapper-query/selecting-scalar-values#dapper-executescalarasync)
 - [QueryAsync](/dapper-query/selecting-multiple-rows#dapper-queryasync)
+- [QueryUnbufferedAsync](/dapper-query/selecting-unbuffered-async)
 - [QuerySingleAsync](/dapper-query/selecting-single-rows#dapper-querysingleasync)
 - [QueryFirstAsync](/dapper-query/selecting-single-rows#dapper-queryfirstasync)
 - [QueryMultipleAsync](/dapper-query/selecting-multiple-results#dapper-querymultipleasync)
