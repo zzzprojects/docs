@@ -1,6 +1,6 @@
 ---
 Name: Include Graph
-LastMod: 2023-03-01
+LastMod: 2024-02-05
 ---
 
 # Include Graph
@@ -111,8 +111,5 @@ Read more: [Context Factory](context-factory)
 The unsafe mode is required when some proxy entities are found in the graph.
 To retrieve all information, we need to detach temporary proxy type from the current context before re-attaching them.
 There is currently no known issue about this technic, but we prefer to force people to understand that some unsafe code is currently done under the hood by our library.
-
-### Why is IncludeGraph not compatible with BulkDelete?
-For security purposes, we prefer to force people to delete their entities. We currently have no plans to support it.
 
 {% include section-faq-end.html %}

@@ -1,7 +1,7 @@
 ---
 Title: EF Core Bulk Delete | Optimize Data Deletion for EF6 and EF Core
 MetaDescription: Efficiently delete Entity Framework data with EF Core Bulk Delete Extensions. Customize options to quickly delete large numbers of entities with ease, compatible with all EF versions including EF Core 7, 6, 5, 3, and EF6. Optimize your database operations - try it now.
-LastMod: 2023-03-03
+LastMod: 2024-02-05
 ---
 
 # EF Core Bulk Delete: Optimize Entity Framework Delete Performance
@@ -94,6 +94,20 @@ context.BulkDelete(customers, options => options.ColumnPrimaryKeyExpression = c 
 ```
 
 [Try it in EF Core](https://dotnetfiddle.net/91wZzc) | [Try it in EF6](https://dotnetfiddle.net/9M6bKt)
+
+### Delete with related child entities (Include Graph)
+You want to delete entities but also automatically delete related child entities.
+
+- `IncludeGraph`: This option lets you to automatically delete all entities part of the graph.
+- `IncludeGraphBuilder`: This option lets you customize how to delete entities for a specific type.
+
+```csharp
+context.BulkDelete(invoices, options => options.IncludeGraph = true);
+```
+
+[Try it in EF Core](https://dotnetfiddle.net/0FxW4t)
+
+NOTE: Only support EF Core 3+
 
 ### Delete with future action
 You want to delete entities, but you want to defer the execution.
