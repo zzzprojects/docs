@@ -53,5 +53,11 @@
                 <li><a href="/misc/transaction">Transaction</a></li>
             </ul>
 		</li>
+		<li>
+			<a href="/troubleshooting">Troubleshooting</a>
+			<ul class="nav-level-two">
+                <li><a href="/troubleshooting/the-connection-had-been-disposed">The connection had been disposed</a></li>
+            </ul>
+		</li>
     </ul>
 </nav>
