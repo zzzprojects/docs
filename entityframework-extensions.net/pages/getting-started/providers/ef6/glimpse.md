@@ -24,7 +24,7 @@ PM> Install-Package Z.EntityFramework.Extensions
 
 You can also install EFE by right-clicking on your project in Solution Explorer and select **Manage Nuget Packages...**. 
 
-<img src="https://raw.githubusercontent.com/zzzprojects/EntityFramework-Extensions/master/docs2/images/glimpse-1.png" alt="Glimpse-1">
+<img src="https://raw.githubusercontent.com/zzzprojects/docs/master/entityframework-extensions.net/images/glimpse-1.png" alt="Glimpse-1">
 
 Search for **Z.EntityFramework.Extensions** and install the latest version by pressing the install button. 
 
@@ -41,7 +41,7 @@ PM> Install-Package Glimpse.EF6
 
 By default, a glimpse is turned-off and to turn it on, run your application and go to the `http://localhost:<port #>/glimpse.axd` and click the **Turn Glimpse On** button.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/EntityFramework-Extensions/master/docs2/images/glimpse-2.png" alt="Glimpse-2">
+<img src="https://raw.githubusercontent.com/zzzprojects/docs/master/entityframework-extensions.net/images/glimpse-2.png" alt="Glimpse-2">
 
  You are now ready to start your application.
  
@@ -260,11 +260,11 @@ Add menu entries for **Authors**
 
 Press Ctrl+F5 to run the project.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/EntityFramework-Extensions/master/docs2/images/glimpse-3.png" alt="Glimpse-3">
+<img src="https://raw.githubusercontent.com/zzzprojects/docs/master/entityframework-extensions.net/images/glimpse-3.png" alt="Glimpse-3">
 
 You can see the **Heads Up Display** (HUD) is shown at the bottom of the page which contains the details timing information. Clicking on the "g" in the lower right corner brings up the Glimpse panel.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/EntityFramework-Extensions/master/docs2/images/glimpse-4.png" alt="Glimpse-4">
+<img src="https://raw.githubusercontent.com/zzzprojects/docs/master/entityframework-extensions.net/images/glimpse-4.png" alt="Glimpse-4">
 
 In the Execution tab, the timing details of the actions and filters in the pipeline are shown.
  

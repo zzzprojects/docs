@@ -25,7 +25,7 @@ PM> Install-Package Z.EntityFramework.Extensions
 
 You can also install EFE by right-clicking on your project in Solution Explorer and select **Manage Nuget Packages...**. 
 
-<img src="https://raw.githubusercontent.com/zzzprojects/EntityFramework-Extensions/master/docs2/images/postgresql-1.png" alt="postgresql-1">
+<img src="https://raw.githubusercontent.com/zzzprojects/docs/master/entityframework-extensions.net/images/postgresql-1.png" alt="postgresql-1">
 
 Search for **Z.EntityFramework.Extensions** and install the latest version by pressing the install button. 
 
@@ -39,7 +39,7 @@ PM> Install-Package EntityFramework6.Npgsql
 
 Similarly, you can also install [EntityFramework6.Npgsql](https://www.nuget.org/packages/EntityFramework6.Npgsql/) by right-clicking on your project in Solution Explorer and select **Manage Nuget Packages...**. 
 
-<img src="https://raw.githubusercontent.com/zzzprojects/EntityFramework-Extensions/master/docs2/images/postgresql-2.png" alt="postgresql-2">
+<img src="https://raw.githubusercontent.com/zzzprojects/docs/master/entityframework-extensions.net/images/postgresql-2.png" alt="postgresql-2">
 
 Search for **EntityFramework6.Npgsql** and install the latest version by pressing the install button. 
 

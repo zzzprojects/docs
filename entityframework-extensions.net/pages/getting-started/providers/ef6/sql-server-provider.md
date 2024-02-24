@@ -24,7 +24,7 @@ PM> Install-Package Z.EntityFramework.Extensions
 
 You can also install EFE by right-clicking on your project in Solution Explorer and select **Manage Nuget Packages...**. 
 
-<img src="https://raw.githubusercontent.com/zzzprojects/EntityFramework-Extensions/master/docs2/images/sql-server-1.png" alt="SQL server">
+<img src="https://raw.githubusercontent.com/zzzprojects/docs/master/entityframework-extensions.net/images/sql-server-1.png" alt="SQL server">
 
 Search for **Z.EntityFramework.Extensions** and install the latest version by pressing the install button. 
 

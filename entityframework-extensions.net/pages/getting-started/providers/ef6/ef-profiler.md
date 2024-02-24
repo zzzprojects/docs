@@ -21,7 +21,7 @@ PM> Install-Package Z.EntityFramework.Extensions
 
 You can also install EFE by right-clicking on your project in Solution Explorer and select **Manage Nuget Packages...**. 
 
-<img src="https://raw.githubusercontent.com/zzzprojects/EntityFramework-Extensions/master/docs2/images/ef-profiler-1.png" alt="EF profiler">
+<img src="https://raw.githubusercontent.com/zzzprojects/docs/master/entityframework-extensions.net/images/ef-profiler-1.png" alt="EF profiler">
 
 Search for **Z.EntityFramework.Extensions** and install the latest version by pressing the install button. 
 
@@ -228,5 +228,5 @@ using (var context = new BookStore())
 
 Now when you run the application, it's going to send data over to the Entity Framework Profiler application.
 
-<img src="https://raw.githubusercontent.com/zzzprojects/EntityFramework-Extensions/master/docs2/images/ef-profiler-2.png" alt="EF profiler-2">
+<img src="https://raw.githubusercontent.com/zzzprojects/docs/master/entityframework-extensions.net/images/ef-profiler-2.png" alt="EF profiler-2">
 
