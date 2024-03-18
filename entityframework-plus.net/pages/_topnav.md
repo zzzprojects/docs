@@ -1,9 +1,7 @@
 - EF Core Docs
 	- [Documentation](documentations/batch-delete/ef-core-batch-delete.md)
 	- [Release Notes](https://github.com/zzzprojects/EntityFramework-Plus/releases)
-	- [Help & Donate](https://zzzprojects.com/contribute)
 - EF6 Docs
 	- [Documentation](documentations/batch-delete/ef6-batch-delete.md)
 	- [Release Notes](https://github.com/zzzprojects/EntityFramework-Plus/releases)
-	- [Help & Donate](https://zzzprojects.com/contribute)
 - [Online Examples](/online-examples)

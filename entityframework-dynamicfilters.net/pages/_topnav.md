@@ -2,5 +2,4 @@
 - Documentation
 	- [Documentation](documentations/filters/filter.md)
 	- [Release Notes](https://github.com/zzzprojects/EntityFramework.DynamicFilters/releases)
-	- [Help & Donate](https://zzzprojects.com/contribute)
 - [Online Examples](/online-examples)
