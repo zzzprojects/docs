@@ -1,5 +1,6 @@
 ---
 Name: String Extensions Methods
+LastMod: 2024-03-22
 ---
 
 # String Extensions Methods

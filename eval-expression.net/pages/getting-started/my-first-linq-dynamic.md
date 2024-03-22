@@ -1,6 +1,7 @@
 ---
 Title: Execute LINQ Dynamic Expression with List and EF Core
 MetaDescription: Learn how to use LINQ Dynamic query to execute methods such as Select, OrderBy, or Where clause dynamically.
+LastMod: 2024-03-22
 ---
 
 # My First LINQ Dynamic
@@ -24,7 +25,7 @@ The `Where` clause cannot have a dynamic expression. However, the C# Eval Expres
 
 To use our method, you first must add the `using System.Linq;` directive to see LINQ Dynamic extension methods.
 
-In this example, we assume a typical scenario where a developer uses EF Core and needs to filter a customer list depending on a custom filter entered by the end-user input. We will filter customers in the database to return only active customers who have logged in since the last month.
+In this example, we assume a typical scenario where a developer uses [EF Core](https://www.learnentityframeworkcore.com/) and needs to filter a customer list depending on a custom filter entered by the end-user input. We will filter customers in the database to return only active customers who have logged in since the last month.
 
 ```csharp
 var customers = context.Customers.WhereDynamic(x => "x.Status == Statut && x.LastLogon >= DateTime.Now.AddMonths(-1)").ToList();

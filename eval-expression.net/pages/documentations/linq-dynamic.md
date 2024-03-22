@@ -1,5 +1,6 @@
 ---
 Name: LINQ Dynamic
+LastMod: 2024-03-22
 ---
 
 # How to use LINQ with Dynamic Expression

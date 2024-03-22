@@ -1,5 +1,6 @@
 ---
 Name: Compile Method
+LastMod: 2024-03-22
 ---
 
 # How to use the Compile Method?

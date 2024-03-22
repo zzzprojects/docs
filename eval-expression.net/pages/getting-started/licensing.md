@@ -1,6 +1,7 @@
 ---
 Title: How to Setup and validate the C# Eval Expression License
 MetaDescription: Learn about how to add the license from the code or config file in the C# Eval Expression library. Learn how to validate the license was correctly added.
+LastMod: 2024-03-22
 ---
 
 # Licensing

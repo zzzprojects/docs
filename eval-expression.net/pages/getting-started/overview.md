@@ -1,6 +1,7 @@
 ---
 Title: Getting Started with C# Eval Expression | C# Expression Evaluator
 MetaDescription: Learn about what the C# Eval Expression library is and what is an expression evaluator. Learn how to evaluate string code dynamically and why you should do it.
+LastMod: 2024-03-22
 ---
 
 # Overview
