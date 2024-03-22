@@ -116,7 +116,7 @@ With the `LegacyIncludeGraph` option, the behavior was different. This option re
 
 The new `IncludeGraph` option now generates the command itself, behaving the same way as when no option is specified. This means it will ignore the `MaximumRequestPerDay` property during insertion, regardless of whether a value has been provided.
 
-To force the use of values from the entity, you can utilize the `ForceValueGeneratedStrategy` option:
+To force the use of values from the entity, you can utilize the [ForceValueGeneratedStrategy](/forcevaluegeneratedstrategy) option:
 
 ```csharp
 context.BulkInsert(list, options => {
