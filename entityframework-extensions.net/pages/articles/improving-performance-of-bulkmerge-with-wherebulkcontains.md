@@ -146,10 +146,10 @@ using (var context = new EntityContext())
 
 	// UPDATE existing PickData
 	{
-		// Copy the `id` retrieved previously for the entity to update.
+		// 6. Copy the `id` retrieved previously for the entity to update.
 		toUpdatePickDatas.ForEach(x => x.PickDataID = existingPickDataDict[GetCustomPickDataKey(x)].PickDataID);
 		
-		// Update data with BulkUpdate using the natural primary key instead of a custom key.
+		// 7. Update data with [BulkUpdate](/bulk-update) using the natural primary key instead of a custom key.
 		context.BulkUpdate(toUpdatePickDatas);
 	}
 	
@@ -160,6 +160,19 @@ using (var context = new EntityContext())
 [Try it](https://dotnetfiddle.net/2MgHzU)
 
 There is no batch when using the [WhereBulkContains](/where-bulk-contains). All data is retrieved at once, which means that even the `covering index` solution was now optional as the index was only required once instead of being used over 100 times.
+
+## Solution 3 - Sync Properties from Database Values
+
+A new solution is now available when using Entity Framework Plus. The feature [SyncPropertiesFromDatabaseValues](https://entityframework-plus.net/ef-core-sync-properties-from-database-values) let you synchronizes one or more properties from your list by retriving the database values.
+
+It's very similar to the solution #2, but way easier to implement:
+
+1. Sync ids using the `SyncPropertiesFromDatabaseValues` methods
+2. Find all entities to be inserted (`id = 0`)
+3. Find all entities to be updated (`id != 0`)
+4. Insert data with [BulkInsert](/bulk-insert).
+5. Copy the `id` retrieved previously for the entity to update.
+6. Update data with [BulkUpdate](/bulk-update) using the natural primary key instead of a custom key.
 
 ## Conclusion
 
