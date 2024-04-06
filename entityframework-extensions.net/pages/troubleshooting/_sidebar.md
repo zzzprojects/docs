@@ -1,5 +1,4 @@
 - Licenses
-   - [Trial Period Expired](trial-period-expired-exception.md)
    - [Trial](trial.md)
    - [MD5 Exception](md5-exception.md)
 - Concurrency
