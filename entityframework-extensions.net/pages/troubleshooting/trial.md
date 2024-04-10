@@ -100,7 +100,7 @@ if (!Z.Expressions.EvalManager.ValidateLicense(out licenseErrorMessage))
 {
   throw new Exception(licenseErrorMessage);
 }
-// …code..
+// ...code...
 ```
 
 ### The license is in a Key Vault
