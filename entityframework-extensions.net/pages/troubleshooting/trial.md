@@ -1,6 +1,6 @@
 ---
-Name: Trial Troubleshooting
-LastMod: 2024-04-05
+Name: Entity Framework Extensions Trial Troubleshooting
+LastMod: 2024-04-11
 ---
 
 # Trial Period Expired
@@ -34,7 +34,7 @@ For a production environment, you should **always** purchase our [perpetual lice
 
 ## 2. You purchased a license but didn't add the license correctly.
 
-Almost every time this issue is reported, it is caused by letting our library automatically find the license from the `appsettings.json` file instead of explicitly using the [AddLicense](/licensing#setup-license-from-code) method.
+Almost every time this issue is reported, it is caused by letting our library automatically find the license from the `appsettings.json` file instead of explicitly using the [AddLicense](/licensing#how-do-i-add-the-license-directly-in-the-code) method.
 
 In addition, this error could have been avoided every time by using the [ValidateLicense](/licensing#how-can-i-check-if-my-license-is-valid) to ensure your license was valid. So, as soon as the `ValidateLicense` method would have been called, you would have known that there was an issue with the license instead of getting this error at the end of the month when the trial expires.
 
@@ -55,7 +55,6 @@ The solution to fix this issue is easy: just ensure that your production environ
 
 This error could also be avoided if the [ValidateLicense](/licensing#how-can-i-check-if-my-license-is-valid) method had been added to the project, as we recommended.
 
-Your text is informative, but there are a few areas that could be improved for clarity and correctness. Here are some suggestions:
 
 ### The license is in another file than the appsettings.json
 
@@ -63,7 +62,7 @@ It's possible to split your configuration into multiple different configuration 
 
 So the easiest solution is to make sure the `appsettings.json` at the project root is the file that contains our license name and the license key.
 
-An alternative solution is reading the values from the configuration on your side and explicitly calling the [AddLicense](/licensing#setup-license-from-code) method:
+An alternative solution is reading the values from the configuration on your side and explicitly calling the [AddLicense](/licensing#how-do-i-add-the-license-directly-in-the-code) method:
 
 ```csharp
 string licenseName = _configuration["licenseName"]; // or any other technique you usually use to read values from the appsettings.json
@@ -72,7 +71,7 @@ string licenseKey = _configuration["licenseKey"]; // or any other technique you 
 Z.EntityFramework.Extensions.LicenseManager.AddLicense(licenseName, licenseKey);
 
 string licenseErrorMessage;
-if (!Z.Expressions.EvalManager.ValidateLicense(out licenseErrorMessage))
+if (!Z.EntityFramework.Extensions.LicenseManager.ValidateLicense(out licenseErrorMessage))
 {
   throw new Exception(licenseErrorMessage);
 }
@@ -80,15 +79,15 @@ if (!Z.Expressions.EvalManager.ValidateLicense(out licenseErrorMessage))
 
 ### The appsettings.json is not in the project root
 
-Our library can only read the `appsettings.json` in the project root.
+Our library can only read the `appsettings.json` file located in the project root. It is not aware of any file located in another directory, such as '/config/appsettings.json'.
 
-So the solution is the same as the issue described in the section "The license is in another file than the appsettings.json".
+So, the solution is the same as the issue described in the section "The license is in another file than the appsettings.json".
 
 ### The current directory doesn't contain the appsettings.json file
 
 This error is more tricky and more common for `Web API` / `Windows Service` projects. The appsettings.json exists in the same directory as the executable, but the service runs in another directory. So our library doesn't find the `appsettings.json` file.
 
-In this case, you can either explicitly call the [AddLicense](/licensing#setup-license-from-code) method.
+In this case, you can either explicitly call the [AddLicense](/licensing#how-do-i-add-the-license-directly-in-the-code) method.
 
 Or alternatively, change the current directory before validating the license:
 
@@ -96,7 +95,7 @@ Or alternatively, change the current directory before validating the license:
 Directory.SetCurrentDirectory(AppDomain.CurrentDomain.BaseDirectory);
 
 string licenseErrorMessage;
-if (!Z.Expressions.EvalManager.ValidateLicense(out licenseErrorMessage))
+if (!Z.EntityFramework.Extensions.LicenseManager.ValidateLicense(out licenseErrorMessage))
 {
   throw new Exception(licenseErrorMessage);
 }
@@ -109,7 +108,7 @@ This error is common for people storing sensitive values in an Azure Key Vault o
 
 Our library can only read the original value of the `appsettings.json`, so our library is not aware of any value the Key Vault replaces at runtime.
 
-In this case, you should read the values directly from your Key Vault or configuration file and use the [AddLicense](/licensing#setup-license-from-code) method:
+In this case, you should read the values directly from your Key Vault or configuration file and use the [AddLicense](/licensing#how-do-i-add-the-license-directly-in-the-code) method:
 
 ```csharp
 string licenseName = _configuration["licenseName"]; // or any other technique you usually use to read values from the Key Vault or appsettings.json
@@ -118,7 +117,7 @@ string licenseKey = _configuration["licenseKey"]; // or any other technique you 
 Z.EntityFramework.Extensions.LicenseManager.AddLicense(licenseName, licenseKey);
 
 string licenseErrorMessage;
-if (!Z.Expressions.EvalManager.ValidateLicense(out licenseErrorMessage))
+if (!Z.EntityFramework.Extensions.LicenseManager.ValidateLicense(out licenseErrorMessage))
 {
   throw new Exception(licenseErrorMessage);
 }

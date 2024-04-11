@@ -1,3 +1,2 @@
-- [Trial Period Expired](trial-period-expired-exception.md)
+- [Trial Period Expired](trial.md)
 - [MD5](md5-exception.md)
-- [Trial Extend](trial.md)

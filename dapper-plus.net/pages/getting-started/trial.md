@@ -1,5 +1,5 @@
 ---
-Name: C# Eval Expression Trial Troubleshooting
+Name: Dapper Plus Trial Troubleshooting
 LastMod: 2024-04-11
 ---
 
@@ -9,7 +9,7 @@ Every month, we offer a new trial that expires at the end of this month or the n
 
 However, when the trial period is expired, the following exception is thrown:
 
-> ERROR_005: The monthly trial period is expired (date: [date], version = [version]). You can extend your trial by downloading the latest version at the beginning of every month. More information can be found here: https://eval-expression.net/trial
+> ERROR_005: The monthly trial period is expired (date: [date], version = [version]). You can extend your trial by downloading the latest version at the beginning of every month. More information can be found here: https://dapper-plus.net/trial
 
 There are 2 reasons why this exception can be thrown:
 
@@ -68,10 +68,10 @@ An alternative solution is reading the values from the configuration on your sid
 string licenseName = _configuration["licenseName"]; // or any other technique you usually use to read values from the appsettings.json
 string licenseKey = _configuration["licenseKey"]; // or any other technique you usually use to read values from the appsettings.json
 
-Z.Expressions.EvalManager.AddLicense(licenseName, licenseKey);
+Z.Dapper.Plus.DapperPlusManager.AddLicense(licenseName, licenseKey);
 
 string licenseErrorMessage;
-if (!Z.Expressions.EvalManager.ValidateLicense(out licenseErrorMessage))
+if (!Z.Dapper.Plus.DapperPlusManager.ValidateLicense(out licenseErrorMessage))
 {
     throw new Exception(licenseErrorMessage);
 }
@@ -95,9 +95,9 @@ Or alternatively, change the current directory before validating the license:
 Directory.SetCurrentDirectory(AppDomain.CurrentDomain.BaseDirectory);
 
 string licenseErrorMessage;
-if (!Z.Expressions.EvalManager.ValidateLicense(out licenseErrorMessage))
+if (!Z.Dapper.Plus.DapperPlusManager.ValidateLicense(out licenseErrorMessage))
 {
-  throw new Exception(licenseErrorMessage);
+    throw new Exception(licenseErrorMessage);
 }
 // ...code...
 ```
@@ -114,10 +114,10 @@ In this case, you should read the values directly from your Key Vault or configu
 string licenseName = _configuration["licenseName"]; // or any other technique you usually use to read values from the Key Vault or appsettings.json
 string licenseKey = _configuration["licenseKey"]; // or any other technique you usually use to read values from the Key Vault or appsettings.json
 
-Z.Expressions.EvalManager.AddLicense(licenseName, licenseKey);
+Z.Dapper.Plus.DapperPlusManager.AddLicense(licenseName, licenseKey);
 
 string licenseErrorMessage;
-if (!Z.Expressions.EvalManager.ValidateLicense(out licenseErrorMessage))
+if (!Z.Dapper.Plus.DapperPlusManager.ValidateLicense(out licenseErrorMessage))
 {
     throw new Exception(licenseErrorMessage);
 }

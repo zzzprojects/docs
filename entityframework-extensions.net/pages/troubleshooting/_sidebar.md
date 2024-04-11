@@ -1,5 +1,5 @@
 - Licenses
-   - [Trial](trial.md)
+   - [Trial Period Expired](trial.md)
    - [MD5 Exception](md5-exception.md)
 - Concurrency
    - [DbUpdateConcurrency](dbupdateconcurrency-exception.md)

@@ -1,36 +1,28 @@
 ---
-Name: Getting Started with Licensing
+Title: Bulk Operations Licensing
+MetaDescription: Learn about how to add the license from the code or config file for the Bulk Operations library. Learn how to validate the license was correctly added.
+LastMod: 2024-04-11
 ---
 
 # Licensing
 
-## Evaluation Period
-You can evaluate our library for several months before purchasing it.
+For developers who have just purchased a license, it's important to always use the [ValidateLicense](/licensing#how-can-i-check-if-my-license-is-valid) method to prevent any unexpected issues caused by the [trial expired error](/trial#you-purchased-a-license-but-didnt-add-the-license-correctly) in your production environment.
 
-The trial period stops at the end of the month. When you receive a license expiration error, download the latest version which will automatically extend your trial period.
+## How long is the evaluation/trial period?
 
-You can also purchase the library [here](/pricing)
+You can evaluate our library for several months before making a purchase.
 
-Upon purchase, you will receive a license name and a license key.
+The trial period stops at the end of the month. However, you can extend the trial by an additional month by [downloading](/download) the latest version.
 
-## How can I get a free license for a personal or academic purpose?
-We don't offer free licenses.
+## How do I purchase a license?
 
-However, you can benefit from all the prime features for personal or academic projects for free by downloading the trial at the beginning of every month.
+Once you have completed your evaluation, you can purchase the library [here](/pricing).
 
-## Setup License from config file
-The license name and key can be directly added in the app.config or web.config file in the appSettings section.
+A few hours after the purchase, you will receive an email with your **license name** and a **license key**.
 
+## How do I add the license from the appsettings.json file?
 
-```csharp
-<appSettings>
-	<add key="Z_BulkOperations_LicenseName" value="[licenseName]"/>
-	<add key="Z_BulkOperations_LicenseKey" value="[licenseKey]"/>
-</appSettings>
-```
-
-## Setup License from appsettings.json file (.NET Core)
-The license name and key can be added directly in the appsettings.json.
+You can add the license in an `appsettings.json` file by creating a new section for our library:
 
 ```csharp
 {
@@ -41,42 +33,79 @@ The license name and key can be added directly in the appsettings.json.
 }
 ```
 
-## Setup License from code
-You can also set the license name and key directly in the code.
+NOTE:
 
+- The name of the JSON file should be exactly `appsettings.json` (Our library is not aware of any other configuration files).
+- The JSON file should be in the root of the project, not within a folder (Our library is not aware of any other configuration files in other directories).
+- Make sure you still call the [ValidateLicense](/licensing#how-can-i-check-if-my-license-is-valid) method in your code.
 
-```csharp
-// using Z.BulkOperations; // Don't forget to include this.
+## How do I add the license from a config file?
 
-string licenseName = //... PRO license name
-string licenseKey = //... PRO license key
+You can add the license directly in an `app.config` or `web.config` file in the `appSettings` section:
 
-Z.BulkOperations.LicenseManager.AddLicense(licenseName, licenseKey);
+```xml
+<appSettings>
+	<add key="Z_BulkOperations_LicenseName" value="[licenseName]"/>
+	<add key="Z_BulkOperations_LicenseKey" value="[licenseKey]"/>
+</appSettings>
 ```
 
-### Recommendation
-- Use the config file to store your license name and license key.
-- **Web App:** Use Application_Start in global.asax to activate your license.
-- **WinForm App:** Use the main thread method to activate your license.
-- **Win Service:** Use the OnStart method to activate your license
+NOTE:
+- Ensure you still call the [ValidateLicense](/licensing#how-can-i-check-if-my-license-is-valid) method in your code.
 
-> The AddLicense must be set before the first call to the library. Otherwise, you will start the evaluation period
+## How do I add the license directly in the code?
 
-## How can I check if my license is valid?
-The validate method allow you to know whether your license is valid or not.
+The latest way to add the license is by using the `AddLicense` method directly in the code. The license name and license key can be hardcoded, read from a file, key vault, or any other source:
 
 ```csharp
-// CHECK for default provider (SQL Server)
+string licenseName = _configuration["licenseName"]; // or any other technique you usually use to read values from the appsettings.json
+string licenseKey = _configuration["licenseKey"]; // // or any other technique you usually use to read values from the appsettings.json
+
+Z.BulkOperations.LicenseManager.AddLicense(licenseName, licenseKey);
+
 string licenseErrorMessage;
 if (!Z.BulkOperations.LicenseManager.ValidateLicense(out licenseErrorMessage))
 {
     throw new Exception(licenseErrorMessage);
 }
 
-// CHECK for a specific provider
+```
+
+NOTE:
+- Make sure to add the license **before making the first use of a paid method** to ensure it is applied correctly. Otherwise, an error will be thrown.
+
+## How can I check if my license is valid?
+
+You should always use the `ValidateLicense` method. We highly recommend it, as every time someone reported a [trial expired error](/trial#you-purchased-a-license-but-didnt-add-the-license-correctly) in their production environment, they were not using this method.
+
+The `ValidateLicense` method allows you to validate that the license has been added correctly. If no license has been added or the license is invalid, the method will return `false`, and you can retrieve the reason in the `licenseErrorMessage` variable:
+
+```csharp
+// Check if the license is valid for the default provider (SQL Server)
 string licenseErrorMessage;
-if (!Z.BulkOperations.LicenseManager.ValidateLicense(out licenseErrorMessage, ProviderType.MySql))
+if (!Z.BulkOperations.LicenseManager.ValidateLicense(out licenseErrorMessage))
+{
+    throw new Exception(licenseErrorMessage);
+}
+
+// Check if the license is valid for a specific provider
+string licenseErrorMessage;
+if (!Z.BulkOperations.LicenseManager.ValidateLicense(out licenseErrorMessage, ProviderType.SqlServer))
 {
    throw new Exception(licenseErrorMessage);
 }
 ```
+
+## I have a license but received a trial period expired error
+
+The `ERROR_005: The monthly trial period has expired...` error occurs when the license has not been added correctly to your project.
+
+You can find the most common cause and solution for this issue [here](/trial#you-purchased-a-license-but-didnt-add-the-license-correctly). This error can always be avoided by using the [ValidateLicense](/licensing#how-can-i-check-if-my-license-is-valid) method.
+
+## How can I get a free license for Personal or Academic purposes?
+
+We don't offer free licenses.
+
+However, you can use our library for free in your personal or academic projects by [downloading](/download) the trial at the beginning of every month.
+
+So, technically, you can use it for free for personal or school projects. However, for commercial purposes [purchasing a license](/pricing) is always required.
