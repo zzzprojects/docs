@@ -161,7 +161,7 @@
             </ul>
         </li>
         <li>
-            <a href="/walkthroughs">Walkthoughs</a>
+            <a href="/walkthroughs">Walkthroughs</a>
             <ul class="nav-level-two" data-display="walkthroughs">
                 <li><a href="/walkthroughs/aspnetcore-application">ASP.NET Core MVC Application</a></li>
                 <li><a href="/walkthroughs/console-application">.NET Core Console Application</a></li>
