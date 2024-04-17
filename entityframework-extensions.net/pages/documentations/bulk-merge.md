@@ -24,7 +24,7 @@ context.BulkMerge(customers, options => options.IncludeGraph = true);
 
 | Operations      | 1,000 Entities | 2,000 Entities | 5,000 Entities |
 | :-------------- | -------------: | -------------: | -------------: |
-| SaveChanges     | 4,000 ms       | To long...     | Way way to long... |
+| SaveChanges     | 4,000 ms       | Too long...     | Way way too long... |
 | BulkMerge       | 80 ms          | 110 ms         | 170 ms         |
 
 [Try it in EF Core](https://dotnetfiddle.net/hmDtiI) | [Try it in EF6](https://dotnetfiddle.net/Erk8R3)

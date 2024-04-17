@@ -23,7 +23,7 @@ Try it: [NET Core](https://dotnetfiddle.net/9Z8Cr9) | [NET Framework](https://do
 
 | Operations      | 1,000 Entities | 2,000 Entities | 5,000 Entities |
 | :-------------- | -------------: | -------------: | -------------: |
-| SaveChanges     | 4,000 ms       | To long...     | Way way to long... |
+| SaveChanges     | 4,000 ms       | Too long...     | Way way too long... |
 | BulkMerge       | 80 ms          | 110 ms         | 170 ms         |
 
 Try it: [NET Core](https://dotnetfiddle.net/3d1KUv) | [NET Framework](https://dotnetfiddle.net/L1yqaL)
