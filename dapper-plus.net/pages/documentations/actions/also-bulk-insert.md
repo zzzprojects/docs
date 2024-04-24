@@ -1,6 +1,6 @@
 ---
 Name: Also Bulk Insert
-LastMod: 2023-03-02
+LastMod: 2024-04-24
 ---
 
 # Also Bulk Insert
@@ -10,6 +10,18 @@ LastMod: 2023-03-02
 The Dapper Plus AlsoBulkInsert method allows to INSERTs entities in a database table or a view using a lambda expression.
 
 The lambda expression uses the entity or the IEnumerable<TEntity> from the last Bulk[Action] or ThenBulk[Action] chained method. (The action can be an insert, update, delete or merge operation).
+
+## Also Bulk Insert Async
+
+To use chaining with the `AlsoBulkInsertAsync` method, you will need to first call any async method and then use this method.
+
+An `await` is required for each method that you use to perform an operation in your database asynchronously.
+
+In this C# example, we will create a list of order and insert them along with their invoice in our database asynchronously.
+
+```csharp
+await (await connection.BulkInsertAsync(orders)).AlsoBulkInsertAsync(order => order.Invoice);
+```
 
 ## Also Bulk Insert with "One to One" Relation
 

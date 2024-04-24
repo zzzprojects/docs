@@ -1,7 +1,7 @@
 ---
 Title: Dapper Bulk Insert | The Fastest Way to Insert a List in Dapper
 MetaDescription: Optimize Dapper insert performance with Dapper Plus Bulk Insert Extensions. Easily insert multiple rows in a database from a list with customizable options. Improve your database operations - try it now.
-LastMod: 2023-03-03
+LastMod: 2024-04-24
 ---
 
 # Dapper Bulk Insert: Fastest Way in Dapper to Insert Multiple Rows
@@ -31,7 +31,15 @@ connection.UseBulkOptions(options => options.InsertIfNotExists = true)
 
 > HINT: A lot of factors might affect the benchmark time such as index, column type, latency, throttling, etc.
 
-> NOTE: For async method, see [async action](/async-action)
+## Bulk Insert Async
+
+To perform an asynchronous bulk insert in Dapper Plus, you will need to call the `BulkInsertAsync` method or use the [ActionAsync](/async-action) method.
+
+In this C# example, we will create a list of products and insert them into our database asynchronously.
+
+```csharp
+await connection.BulkInsertAsync(products);
+```
 
 ## Bulk Insert Entity
 

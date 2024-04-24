@@ -1,6 +1,6 @@
 ---
 Name: Also Bulk Delete
-LastMod: 2023-03-02
+LastMod: 2024-04-24
 ---
 
 # Also Bulk Delete
@@ -10,6 +10,18 @@ LastMod: 2023-03-02
 The Dapper Plus AlsoBulkDelete method allows to DELETE entities in a database table or a view using a lambda expression.
 
 The lambda expression uses the entity or the IEnumerable<TEntity> from the last Bulk[Action] or ThenBulk[Action] chained method. (The action can be an insert, update, delete or merge operation).
+
+## Also Bulk Delete Async
+
+To apply chaining with the `AlsoBulkDeleteAsync` method, you need to initiate with async operation and then chain this method.
+
+Each database operation performed asynchronously requires an `await`.
+
+In this C# example, we demonstrate deleting a list of order and and their associated invoice from our database asynchronously:
+
+```csharp
+await (await connection.BulkDeleteAsync(orders)).AlsoBulkDeleteAsync(order => order.Invoice);
+```
 
 ## Also Bulk Delete with "One to One" Relation
 

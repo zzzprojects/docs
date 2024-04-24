@@ -1,6 +1,6 @@
 ---
 Name: Then Bulk Merge
-LastMod: 2023-03-02
+LastMod: 2024-04-24
 ---
 
 # Then Bulk Merge
@@ -10,6 +10,18 @@ LastMod: 2023-03-02
 The Dapper Plus ThenBulkMerge method allows to MERGE entities in a database table or a view using a lambda expression.
 
 The lambda expression uses the entity or the IEnumerable<TEntity> from the last Bulk[Action] or ThenBulk[Action] chained method. (The action can be an insert, update, delete or merge operation).
+
+## Then Bulk Merge Async
+
+To perform chaining with the `ThenBulkMergeAsync` method, begin with an asynchronous operation and then add this method.
+
+Each asynchronous database operation requires an `await` to ensure it completes properly.
+
+In this C# example, we show how to merge a list of orders and their associated invoices into our database asynchronously:
+
+```csharp
+await (await connection.BulkMergeAsync(orders)).ThenBulkMergeAsync(order => order.Invoice);
+```
 
 ## Then Bulk Merge with "One to One" Relation
 

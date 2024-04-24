@@ -1,7 +1,7 @@
 ---
 Title: Dapper Bulk Merge | The Fastest Way to Upsert a List in Dapper
 MetaDescription: Optimize Dapper insert or update performance with Dapper Plus Bulk Merge Extensions. Easily upsert multiple rows in a database from a list with customizable options. Improve your database operations - try it now.
-LastMod: 2023-03-03
+LastMod: 2024-04-24
 ---
 
 # Dapper Bulk Merge: Fastest Way in Dapper to Upsert Multiple Rows
@@ -10,7 +10,15 @@ LastMod: 2023-03-03
 
 The Dapper Plus BulkMerge method allows to MERGE entities in a database table or a view.
 
-> NOTE: For async method, see [async action](/async-action)
+## Bulk Merge Async
+
+To perform an asynchronous bulk merge in Dapper Plus, you can use the `BulkMergeAsync` method or the [ActionAsync](/async-action) method.
+
+In this C# example, we will create a list of products and merge them into our database asynchronously.
+
+```csharp
+await connection.BulkMergeAsync(products);
+```
 
 ## Bulk Merge Entity
 

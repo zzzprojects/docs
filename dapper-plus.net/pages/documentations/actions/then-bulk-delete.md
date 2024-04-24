@@ -1,6 +1,6 @@
 ---
 Name: Then Bulk Update
-LastMod: 2023-03-02
+LastMod: 2024-04-24
 ---
 
 # Then Bulk Update
@@ -10,6 +10,18 @@ LastMod: 2023-03-02
 The Dapper Plus ThenBulkDelete method allows to DELETE entities in a database table or a view using a lambda expression.
 
 The lambda expression uses the entity or the IEnumerable<TEntity> from the last Bulk[Action] or ThenBulk[Action] chained method. (The action can be an insert, update, delete or merge operation).
+
+## Then Bulk Delete Async
+
+To use chaining with the `ThenBulkDeleteAsync` method, initiate an asynchronous operation first and then apply this method.
+
+An `await` is necessary for each asynchronous database operation to ensure it executes properly.
+
+In this C# example, we demonstrate how to delete a list of orders and their associated invoices from our database asynchronously:
+
+```csharp
+await (await connection.BulkDeleteAsync(orders)).ThenBulkDeleteAsync(order => order.Invoice);
+```
 
 ## Then Bulk Delete with "One to One" Relation
 

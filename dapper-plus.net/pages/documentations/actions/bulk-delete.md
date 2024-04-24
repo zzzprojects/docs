@@ -1,7 +1,7 @@
 ---
 Title: Dapper Bulk Delete | The Fastest Way to Delete a List in Dapper
 MetaDescription: Optimize Dapper delete performance with Dapper Plus Bulk Delete Extensions. Easily delete multiple rows in a database from a list with customizable options. Improve your database operations - try it now.
-LastMod: 2023-03-03
+LastMod: 2024-04-24
 ---
 
 # Dapper Bulk Delete: Fastest Way in Dapper to Delete Multiple Rows
@@ -10,7 +10,15 @@ LastMod: 2023-03-03
 
 The Dapper Plus BulkDelete method allows to DELETE entities in a database table or a view.
 
-> NOTE: For async method, see [async action](/async-action)
+## Bulk Delete Async
+
+To execute an asynchronous bulk delete in Dapper Plus, you should utilize the `BulkDeleteAsync` method or the [ActionAsync](/async-action) method.
+
+In this C# example, we will create a list of products and delete them from our database asynchronously.
+
+```csharp
+await connection.BulkDeleteAsync(products);
+```
 
 ## Bulk Delete Entity
 

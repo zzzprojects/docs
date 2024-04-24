@@ -1,7 +1,7 @@
 ---
 Title: Dapper Bulk Update | The Fastest Way to Update a List in Dapper
 MetaDescription: Optimize Dapper update performance with Dapper Plus Bulk Update Extensions. Easily update multiple rows in a database from a list with customizable options. Improve your database operations - try it now.
-LastMod: 2023-03-03
+LastMod: 2024-04-24
 ---
 
 # Dapper Bulk Update: Fastest Way in Dapper to Update Multiple Rows
@@ -10,7 +10,15 @@ LastMod: 2023-03-03
 
 The Dapper Plus BulkUpdate method allows to UPDATE entities in a database table or a view.
 
-> NOTE: For async method, see [async action](/async-action)
+## Bulk Update Async
+
+To perform an asynchronous bulk update in Dapper Plus, you need to use the `BulkUpdateAsync` method or opt for the [ActionAsync](/async-action) method.
+
+In this C# example, we will create a list of products and update them in our database asynchronously.
+
+```csharp
+await connection.BulkUpdateAsync(products);
+```
 
 ## Bulk Update Entity
 

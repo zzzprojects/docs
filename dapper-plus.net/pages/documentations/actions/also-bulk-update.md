@@ -1,6 +1,6 @@
 ---
 Name: Also Bulk Update
-LastMod: 2023-03-02
+LastMod: 2024-04-24
 ---
 
 # Also Bulk Update
@@ -11,6 +11,17 @@ The Dapper Plus AlsoBulkUpdate method allows to UPDATE entities in a database ta
 
 The lambda expression uses the entity or the IEnumerable<TEntity> from the last Bulk[Action] or ThenBulk[Action] chained method. (The action can be an insert, update, delete or merge operation).
 
+## Also Bulk Update Async
+
+To implement chaining with the `AlsoBulkUpdateAsync` method, start with an async operation and then chain this method.
+
+Every database operation performed asynchronously must include an `await`.
+
+In this C# example, we demonstrate updating a list of orders and their associated invoices in our database asynchronously:
+
+```csharp
+await (await connection.BulkUpdateAsync(orders)).AlsoBulkUpdateAsync(order => order.Invoice);
+```
 
 ## Also Bulk Update with "One to One" Relation
 

@@ -1,6 +1,6 @@
 ---
 Name: Also Bulk Merge
-LastMod: 2023-03-02
+LastMod: 2024-04-24
 ---
 
 # Also Bulk Merge
@@ -10,6 +10,18 @@ LastMod: 2023-03-02
 The Dapper Plus AlsoBulkMerge method allows to MERGE entities in a database table or a view using a lambda expression.
 
 The lambda expression uses the entity or the IEnumerable<TEntity> from the last Bulk[Action] or ThenBulk[Action] chained method. (The action can be an insert, update, delete or merge operation).
+
+## Also Bulk Merge Async
+
+To utilize chaining with the `AlsoBulkMergeAsync` method, begin with an async operation and then proceed to chain this method.
+
+Remember, each database operation that is performed asynchronously must incorporate an `await`.
+
+In this C# example, we show how to merge a list of orders and their associated invoice in our database asynchronously:
+
+```csharp
+await (await connection.BulkMergeAsync(orders)).AlsoBulkMergeAsync(order => order.Invoice);
+```
 
 ## Also Bulk Merge with "One to One" Relation
 

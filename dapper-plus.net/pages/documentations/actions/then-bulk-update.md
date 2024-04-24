@@ -1,6 +1,6 @@
 ---
 Name: Then Bulk Update
-LastMod: 2023-03-02
+LastMod: 2024-04-24
 ---
 
 # Then Bulk Update
@@ -10,6 +10,19 @@ LastMod: 2023-03-02
 The Dapper Plus ThenBulkUpdate method allows to UPDATE entities in a database table or a view using a lambda expression.
 
 The lambda expression uses the entity or the IEnumerable<TEntity> from the last Bulk[Action] or ThenBulk[Action] chained method. (The action can be an insert, update, delete or merge operation).
+
+
+## Then Bulk Update Async
+
+To implement chaining with the `ThenBulkUpdateAsync` method, start with an asynchronous operation and follow it up with this method.
+
+You must use an `await` for every database operation you perform asynchronously.
+
+In this C# example, we show how to update a list of orders and their associated invoices in our database asynchronously:
+
+```csharp
+await (await connection.BulkUpdateAsync(orders)).ThenBulkUpdateAsync(order => order.Invoice);
+```
 
 ## Then Bulk Update with "One to One" Relation
 
