@@ -23,6 +23,7 @@ First, let's see all available options, and then we will explain them one by one
 | Options  | DynamicGetMemberMissingValueFactory  | The DynamicGetMemberMissingValueFactory option lets you get or sets a factory to return a value when a member is not found. In other words, it allows specifying a value for a missing member on demand. By default, the DynamicGetMemberMissingValueFactory value is null.                                                                                                                                                                                                                                                          |
 | Options  | DynamicMemberNames                   | The DynamicMemberNames option lets you when compiling an expression using an ExpandoObject as a parameter, retrieve all member names that we assume will be a member of the ExpandoObject. For example, suppose the \`CustomerID\` is returning from the member names list, in that case, the library expects the ExpandoObject will have a property and a value for this \`CustomerID\` to be executed correctly. By default, the DynamicMemberNames value is null.                                                                 |
 | Options  | ForceCharAsString                    | The ForceCharAsString option lets you get or set if a \`char\` such as \`'z'\` must be forced as a string as if you would have been specified \`"z"\`. The library is smart enough to know that the expression 'zzz' is a string (more than one char) but sometimes cannot know if 'z' is a string or a char, in particular when a method exists with an overload for a \`char\` and a \`string\`. By default, the ForceCharAsString value is false.                                                                                 |
+| Options  | ForceIncludeInstanceMethodFromParameter | The ForceIncludeInstanceMethodFromParameter  option lets you get or set if instance method (found from parameter) should always be included. They are usually included only if no matching method are found.                                                                                 |
 | Options  | ForceObjectAsDynamic                 | The ForceObjectAsDynamic option lets you get or set if the type \`object\` should act like the type \`ExpandoObject\` on some occasions, such as when using a binary operation. By default, the ForceObjectAsDynamic value is false.                                                                                                                                                                                                                                                                                                 |
 | Options  | IncludeMemberFromAllParameter        | The IncludeMemberFromAllParameter option lets you get or set if we should include all members from all parameters, like the default logic, automatically does when only one parameter is specified. So, for example, if you specify a customer and an invoice, you can use the \`CustomerID\` and \`InvoiceID\` properties directly. If a member name exists in more than one parameter, such as \`ID\`, the first member will be used, and all others be ignored. By default, the IncludeMemberFromAllParameter value is \`false\`. |
 | Options  | IsCaseSensitive                      | The IsCaseSensitive option lets you get or set the flags when searching for a member (Property, Field, Method) if the search should be case sensitive. Under the hood, the \`IgnoreCase\` binding flag is added or removed to the BindingFlags options. By default, the IsCaseSensitive value is true or the value assigned to the BindingFlags options if already modified.                                                                                                                                                         |
@@ -452,6 +453,39 @@ public static string MethodOverload(string s)
 
 {% include component-try-it.html href='https://dotnetfiddle.net/2dVPsr' %}
 
+## ForceIncludeInstanceMethodFromParameter
+
+The ForceIncludeInstanceMethodFromParameter  option lets you get or set if instance method (found from parameter) should always be included. They are usually included only if no matching method are found.  
+
+In this example, we will register a static method and try to call a method with the overload that only exists in our instance entity. Since at least 1 method has been found, we will see that by default, the instance will not be taken unless we specify `ForceIncludeInstanceMethodFromParameter = true`.
+
+```csharp
+// Global Context: EvalManager.DefaultContext.ForceCharAsString = true;
+
+var context = new EvalContext();
+context.UseCache = false;
+context.RegisterStaticMethod(typeof(Program));
+
+var r1 = context.Execute("MethodOverload('z')"); // return "Method with char z"
+Console.WriteLine(r1);
+
+context.ForceCharAsString = true;
+var r2 = context.Execute("MethodOverload('z')"); // return "Method with string z"
+Console.WriteLine(r2);
+
+public static string MethodOverload(char s)
+{
+	return "Method with char " + s;
+}
+
+public static string MethodOverload(string s)
+{
+	return "Method with string " + s;
+}
+```
+
+{% include component-try-it.html href='https://dotnetfiddle.net/2dVPsr' %}
+
 ## ForceObjectAsDynamic
 
 The ForceObjectAsDynamic option lets you get or set if the type `object` should for operator `==` (equals) and `!=` (not equals) compare by reference or value. By default, the ForceObjectAsDynamic value is `false` (compared by reference).
@@ -486,31 +520,27 @@ The IncludeMemberFromAllParameters option lets you get or set if we should inclu
 In this example, we will first try to resolve our expression with the default behavior, which will fail as you cannot use the member name directly when multiple parameters are specified. Then, we will try again, but this time, with the `IncludeMemberFromAllParameters = true` option, which will make our expression execute successfully as we can use member names of all parameters in the expression.
 
 ```csharp
-// Global Context: EvalManager.DefaultContext.IncludeMemberFromAllParameters = true;
+// Global Context: EvalManager.DefaultContext.ForceIncludeInstanceMethodFromParameter = true;
 
 var context = new EvalContext();
 context.UseCache = false;
-
-var customer = new Customer() { Name = "C# Eval Expression" };
-var invoice = new Invoice() { TotalQuantity = 13 };
+context.RegisterStaticMethod(typeof(Program.MyStaticMethod));
 
 try
 {
-	// 1 - the library include default member name when only 1 parameter is specified but not for multiples parameters
-	var fail = context.Execute("return $'the customer {customer.Name} ordered {invoice.TotalQuantity} items';", new { customer }, new { invoice});
+	var r1 = context.Execute("MyMethod(1, 2)", new MyEntity());
 }
 catch(Exception ex)
-{		
+{
 	Console.WriteLine("1 - Exception: " + ex.Message);
 }
 
-// 2 - however, you can have the behavior to include members of all parameters with the option `IncludeMemberFromAllParameters`
-context.IncludeMemberFromAllParameters = true;
-var r2 = context.Execute("return $'the customer {customer.Name} ordered {invoice.TotalQuantity} items';", new { customer }, new { invoice});
+context.ForceIncludeInstanceMethodFromParameter = true;
+var r2 = context.Execute("MyMethod(1, 2)", new MyEntity());
 Console.WriteLine("2 - Result: " + r2);
 ```
 
-{% include component-try-it.html href='https://dotnetfiddle.net/s0x5sW' %}
+{% include component-try-it.html href='https://dotnetfiddle.net/ttTURM' %}
 
 ## IsCaseSensitive
 
