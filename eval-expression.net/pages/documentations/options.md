@@ -460,31 +460,27 @@ The ForceIncludeInstanceMethodFromParameter  option lets you get or set if insta
 In this example, we will register a static method and try to call a method with the overload that only exists in our instance entity. Since at least 1 method has been found, we will see that by default, the instance will not be taken unless we specify `ForceIncludeInstanceMethodFromParameter = true`.
 
 ```csharp
-// Global Context: EvalManager.DefaultContext.ForceCharAsString = true;
+// Global Context: EvalManager.DefaultContext.ForceIncludeInstanceMethodFromParameter = true;
 
 var context = new EvalContext();
 context.UseCache = false;
-context.RegisterStaticMethod(typeof(Program));
+context.RegisterStaticMethod(typeof(Program.MyStaticMethod));
 
-var r1 = context.Execute("MethodOverload('z')"); // return "Method with char z"
-Console.WriteLine(r1);
-
-context.ForceCharAsString = true;
-var r2 = context.Execute("MethodOverload('z')"); // return "Method with string z"
-Console.WriteLine(r2);
-
-public static string MethodOverload(char s)
+try
 {
-	return "Method with char " + s;
+	var r1 = context.Execute("MyMethod(1, 2)", new MyEntity());
+}
+catch(Exception ex)
+{
+	Console.WriteLine("1 - Exception: " + ex.Message);
 }
 
-public static string MethodOverload(string s)
-{
-	return "Method with string " + s;
-}
+context.ForceIncludeInstanceMethodFromParameter = true;
+var r2 = context.Execute("MyMethod(1, 2)", new MyEntity());
+Console.WriteLine("2 - Result: " + r2);
 ```
 
-{% include component-try-it.html href='https://dotnetfiddle.net/2dVPsr' %}
+{% include component-try-it.html href='https://dotnetfiddle.net/ttTURM' %}
 
 ## ForceObjectAsDynamic
 
@@ -520,27 +516,31 @@ The IncludeMemberFromAllParameters option lets you get or set if we should inclu
 In this example, we will first try to resolve our expression with the default behavior, which will fail as you cannot use the member name directly when multiple parameters are specified. Then, we will try again, but this time, with the `IncludeMemberFromAllParameters = true` option, which will make our expression execute successfully as we can use member names of all parameters in the expression.
 
 ```csharp
-// Global Context: EvalManager.DefaultContext.ForceIncludeInstanceMethodFromParameter = true;
+// Global Context: EvalManager.DefaultContext.IncludeMemberFromAllParameters = true;
 
 var context = new EvalContext();
 context.UseCache = false;
-context.RegisterStaticMethod(typeof(Program.MyStaticMethod));
+
+var customer = new Customer() { Name = "C# Eval Expression" };
+var invoice = new Invoice() { TotalQuantity = 13 };
 
 try
 {
-	var r1 = context.Execute("MyMethod(1, 2)", new MyEntity());
+	// 1 - the library include default member name when only 1 parameter is specified but not for multiples parameters
+	var fail = context.Execute("return $'the customer {customer.Name} ordered {invoice.TotalQuantity} items';", new { customer }, new { invoice});
 }
 catch(Exception ex)
-{
+{		
 	Console.WriteLine("1 - Exception: " + ex.Message);
 }
 
-context.ForceIncludeInstanceMethodFromParameter = true;
-var r2 = context.Execute("MyMethod(1, 2)", new MyEntity());
+// 2 - however, you can have the behavior to include members of all parameters with the option `IncludeMemberFromAllParameters`
+context.IncludeMemberFromAllParameters = true;
+var r2 = context.Execute("return $'the customer {customer.Name} ordered {invoice.TotalQuantity} items';", new { customer }, new { invoice});
 Console.WriteLine("2 - Result: " + r2);
 ```
 
-{% include component-try-it.html href='https://dotnetfiddle.net/ttTURM' %}
+{% include component-try-it.html href='https://dotnetfiddle.net/s0x5sW' %}
 
 ## IsCaseSensitive
 
