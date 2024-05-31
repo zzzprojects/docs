@@ -105,7 +105,7 @@ You want to delete entities but also automatically delete related child entities
 context.BulkDelete(invoices, options => options.IncludeGraph = true);
 ```
 
-[Try it in EF Core](https://dotnetfiddle.net/0FxW4t)
+[Try it in EF Core](https://dotnetfiddle.net/SHM63t)
 
 NOTE: Only support EF Core 3+
 

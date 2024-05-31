@@ -143,7 +143,7 @@ You want to insert entities but also automatically insert related child entities
 context.BulkInsert(invoices, options => options.IncludeGraph = true);
 ```
 
-[Try it in EF Core](https://dotnetfiddle.net/0FxW4t) | [Try it in EF6](https://dotnetfiddle.net/geInHT)
+[Try it in EF Core](https://dotnetfiddle.net/Nd52w2) | [Try it in EF6](https://dotnetfiddle.net/geInHT)
 
 ### Insert with future action
 You want to insert entities, but you want to defer the execution.
