@@ -289,3 +289,18 @@ var config = new ParsingConfig
 {
     DisallowNewKeyword = true
 };
+```
+
+### LoadAdditionalAssembliesFromCurrentDomainBaseDirectory  (since v1.4.0)
+
+This is a breaking change which was introduced in version `1.4.0`.
+
+When using the full .NET Framework or .NET Core App 2.x and higher, it is possible to load additional assemblies from the current domain base directory. However, this is disabled by default because it can be very slow when all assemblies are scanned and loaded. If you still want to enable it, set the value to `true`. 
+
+
+``` csharp
+var config = new ParsingConfig
+{
+	LoadAdditionalAssembliesFromCurrentDomainBaseDirectory = true
+};
+```
