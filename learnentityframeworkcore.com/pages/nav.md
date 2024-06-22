@@ -8,6 +8,9 @@
             </ul>
         </li>
         <li>
+            <a href="/model/generated-value">Generated Value</a>
+        </li>
+        <li>
             <a href="/dbcontext">DbContext</a>
             <ul class="nav-level-two" data-display="dbcontext">
                 <li><a href="/dbcontext/adding-data">Insert Entity</a></li>
@@ -43,6 +46,7 @@
             <ul class="nav-level-two" data-display="model">
                 <li><a href="/walkthroughs/existing-database">From Existing Database</a></li>
 				<li><a href="/model/complex-type">Complex Type</a></li>
+				<li><a href="/model/generated-value">Generated Value</a></li>
                 <li><a href="/model/shadow-properties">Shadow Properties</a></li>
             </ul>
         </li>
