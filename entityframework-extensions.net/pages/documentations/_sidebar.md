@@ -45,6 +45,7 @@
       - [Coalesce OnUpdate Expression](options/coalesce-on-update-expression.md)
    - [Context Factory](options-summary/context-factory.md)
    - [Execute Event](options-summary/execute-event.md)
+   - [ExplicitValueResolutionMode](options/explicit-value-resolution-mode.md)
    - [Identity](options-summary/identity.md)
    - [Include Graph](options-summary/include-graph.md)
    - [ForceValueGeneratedStrategy](options-summary/forcevaluegeneratedstrategy.md)

@@ -5,6 +5,27 @@ LastMod: 2023-10-11
 
 # ForceValueGeneratedStrategy Option
 
+## Obsolete Option
+
+This option has been removed in the [v8.103.0.0](https://github.com/zzzprojects/EntityFramework-Extensions/releases/tag/8.103.0.0)
+
+The ForceValueGeneratedStrategy option has been replaced by the [ExplicitValueResolutionMode](https://entityframework-extensions.net/explicit-value-resolution-mode) option.
+
+See the following code to understand how to replace the old options with the new options:
+
+```csharp
+// The option `options.ForceValueGeneratedStrategy = ValueGeneratedStrategyType.OnAdd` has been replaced by:
+options.ExplicitValueResolutionMode = Z.EntityFramework.Extensions.ExplicitValueResolutionMode.AlwaysKeepValueOnInsert;
+
+// The option `options.ForceValueGeneratedStrategy = ValueGeneratedStrategyType.OnUpdate` has been replaced by
+options.ExplicitValueResolutionMode = Z.EntityFramework.Extensions.ExplicitValueResolutionMode.AlwaysKeepValueOnUpdate;
+
+// The option `options.ForceValueGeneratedStrategy = ValueGeneratedStrategyType.OnAddOrUpdate` has been replaced by:
+options.ExplicitValueResolutionMode = Z.EntityFramework.Extensions.ExplicitValueResolutionMode.AlwaysKeepValueOnInsertOrUpdate;
+```
+
+You can find more about this breaking change in this article: [How EFE Bulk Extensions handle explicit value in EF Core?](https://entityframework-extensions.net/explicit-value-resolution-mode)
+
 ## Description
 
 In EF Core, you can set a value to a property even if you have set a [default value](https://www.learnentityframeworkcore.com/configuration/fluent-api/hasdefaultvalue-method) in the database with `.HasDefaultValue(100);`
