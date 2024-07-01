@@ -221,7 +221,7 @@ var queryable = data.AsQueryable());
 var result = queryable.Select($"\"System.DateTime\"(LastUpdate)");
 ```
 
-It's also possible to case to a nullable type:
+It's also possible to cast to a nullable type:
 ``` csharp
 public class Entry
 {
@@ -319,7 +319,7 @@ var result = customers.Where("Value == \"\\\"\"");
 
 
 #### `EscapeDoubleQuoteByTwoDoubleQuotes`
-Represents a string literal parsing type where a double quote should be escaped by an extra double quote.
+Represents a string literal parsing type where a double quote should be escaped by an extra double quote (`"`).
 
 To check if a Value equals a double quote (`"`), use this c# code:
 ``` csharp
