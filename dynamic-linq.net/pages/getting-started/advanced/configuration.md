@@ -221,7 +221,7 @@ var queryable = data.AsQueryable());
 var result = queryable.Select($"\"System.DateTime\"(LastUpdate)");
 ```
 
-It's also possible to case to a nullable type:
+It's also possible to cast to a nullable type:
 ``` csharp
 public class Entry
 {
@@ -291,7 +291,7 @@ var config = new ParsingConfig
 };
 ```
 
-### LoadAdditionalAssembliesFromCurrentDomainBaseDirectory  (since v1.4.0)
+### LoadAdditionalAssembliesFromCurrentDomainBaseDirectory (since v1.4.0)
 
 This is a breaking change which was introduced in version `1.4.0`.
 
@@ -303,4 +303,29 @@ var config = new ParsingConfig
 {
 	LoadAdditionalAssembliesFromCurrentDomainBaseDirectory = true
 };
+```
+
+### StringLiteralParsingType (since v1.4.3)
+
+This configuration setting defines the type of string literal parsing that will be performed. The `StringLiteralParsingType` is an enum with two possible values:
+
+#### `Default`
+Represents the default string literal parsing type. Double quotes should be escaped using the default escape character (a `\`).
+
+To check if a Value equals a double quote (`"`), use this c# code:
+``` csharp
+var result = customers.Where("Value == \"\\\"\"");
+```
+
+
+#### `EscapeDoubleQuoteByTwoDoubleQuotes`
+Represents a string literal parsing type where a double quote should be escaped by an extra double quote (`"`).
+
+To check if a Value equals a double quote (`"`), use this c# code:
+``` csharp
+var config = new ParsingConfig
+{
+	StringLiteralParsingType = StringLiteralParsingType.EscapeDoubleQuoteByTwoDoubleQuotes
+};
+var result = customers.Where(config, "Value == \"\"\"\"");
 ```
