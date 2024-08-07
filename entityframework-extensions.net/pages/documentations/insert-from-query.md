@@ -1,6 +1,6 @@
 ---
 Name: Insert from Query
-LastMod: 2023-03-01
+LastMod: 2024-08-07
 ---
 
 # Insert from Query
@@ -31,7 +31,3 @@ context.Customers
 | :-------------- | -------------: | -------------: | -------------: |
 | SaveChanges     | 1,000 ms       | 2,000 ms       | 5,000 ms       |
 | InsertFromQuery | 1 ms           | 1 ms           | 1 ms           |
-
-## Limitations
-
-- DO NOT support EF Core 2.x due to client-side evaluation
