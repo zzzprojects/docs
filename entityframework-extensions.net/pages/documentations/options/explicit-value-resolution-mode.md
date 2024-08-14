@@ -1,7 +1,7 @@
 ---
 Title: How EFE Bulk Extensions Handle Explicit Values in EF Core
 MetaDescription: How EFE Bulk Extensions Handle Explicit Values in EF Core
-LastMod: 2024-06-24
+LastMod: 2024-08-14
 ---
 
 # How EFE Bulk Extensions Handle Explicit Values in EF Core
@@ -44,6 +44,7 @@ Here are the three differences in default behavior for our bulk extensions compa
 
 While the behavior for `Identity` mirrors what we observed in the `BulkSaveChanges` method, new behaviors for `Default Value` and `ValueGeneratedOnAdd` have been introduced.
 
+## ExplicitValueResolutionMode 
 To increase flexibility, starting from [version 8.103.09.0](https://github.com/zzzprojects/EntityFramework-Extensions/releases/tag/8.103.0.0), we added the `ExplicitValueResolutionMode` options. You can modify the default behavior by selecting one of these six states:
 
 - **Ignore:** The default value ([Online Example](https://dotnetfiddle.net/upc1SI))
