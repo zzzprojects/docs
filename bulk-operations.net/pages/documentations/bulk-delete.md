@@ -63,7 +63,7 @@ Try it (DataTable): [.NET Core](https://dotnetfiddle.net/J86vbg) | [.NET Framewo
 Try it (Entity): [.NET Core](https://dotnetfiddle.net/Ad7mTs) | [.NET Framework](https://dotnetfiddle.net/p8dt0G) 
 
 ### Bulk Delete with options
-The `options` parameter lets you usehttps://dotnetfiddle.net/J86vbg a lambda expression to customize the way entities are deleted.
+The `options` parameter lets you use a lambda expression to customize the way entities are deleted.
 
 ```csharp
 bulk.BatchSize = 100;

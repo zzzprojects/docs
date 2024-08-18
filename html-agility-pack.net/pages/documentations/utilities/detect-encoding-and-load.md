@@ -38,7 +38,7 @@ detectEncoding: true to detect encoding, false otherwise.
 ### Example
 
 The following example detects the encoding of an HTML file first, and then loads it.
-https://dotnetfiddle.net/LqhqAq
+
 ```csharp
 
 var htmlNewDoc = new HtmlDocument();
