@@ -6,7 +6,7 @@ LastMod: 2024-08-23
 
 # Adding a Namespace to Entity Framework Extensions
 
-By default, Entity Framework Extensions does not include a namespace for methods like [Bulk Insert](https://entityframework-extensions.net/bulk-insert) provided by [Bulk Extensions](https://entityframework-extensions.net/bulk-extensions).
+By default, Entity Framework Extensions does not include a namespace for methods like [Bulk Insert](https://entityframework-extensions.net/bulk-insert) or others [Bulk Extensions](https://entityframework-extensions.net/bulk-extensions).
 
 When we created this library, our primary goal was to make Entity Framework Extensions feel part of Entity Framework (both EF Core and EF6). We wanted users to be able to download the NuGet package and start using the library immediately, without needing to add any additional namespaces. This approach is different from libraries like [Dapper](https://www.learndapper.com/) or [EF Core](https://www.learnentityframeworkcore.com/) itself, where adding a namespace is required. With our library, the intent was for it to integrate directly in Entity Framework.
 
