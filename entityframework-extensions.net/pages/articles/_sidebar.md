@@ -4,6 +4,7 @@
    - [Benchmark](benchmark.md)
    - [Fastest way to insert](fastest-way-to-insert.md)
 - Customizations
+   - [Adding a namespace to EFE](adding-a-namespace-to-entity-framework-extensions.md)
    - [Use Custom Column](custom-column.md)
    - [Use Custom Key](custom-key.md)
    - [Soft Delete](soft-delete.md)

@@ -1,7 +1,7 @@
 ---
 Title: ZZZ Projects: Adding Value to the .NET Community
 MetaDescription: Learn how ZZZ Projects contributes to the .NET community through sponsorship, free products, online tutorials, and AI tools.
-LastMod: 2024-06-27
+LastMod: 2024-08-22
 ---
 
 # Mission: A Business Devoted to Adding Value to the .NET Community
@@ -93,6 +93,15 @@ So, we also offer some tools:
 - Free online chat on multiple websites such as SQL Fiddle, Learn Dapper, and Learn EF Core.
 
 AI tools help thousands of people every day who either don't have access to ChatGPT due to country restrictions or want to share a solution online.
+
+Sure! Here’s your corrected section for the mission page:
+
+## Just for Helping...
+
+Finally, sometimes some companies just deserve to have a free license. They dedicate all their money to a good cause, so this is our way to help them accomplish their goals.
+
+<a href="https://www.threelittlepittiesrescue.org/" target="_blank"><img src="/images/three-little-pitties.png" height="128" /></a>
+
 
 ## Conclusion
 
