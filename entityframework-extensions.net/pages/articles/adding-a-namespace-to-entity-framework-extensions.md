@@ -59,7 +59,7 @@ In some cases, you may need to use classes that are not extension methods, such 
 
 To access these classes, you can still do so by first adding the `extern alias EntityFrameworkExtensionsCoreAlias;` directive, and then prefixing the namespace with this alias, like so: `EntityFrameworkExtensionsCoreAlias.Z.EntityFramework.Extensions.LicenseManager`.
 
-Here’s an example:
+Here's an example:
 
 ```csharp
 extern alias EntityFrameworkExtensionsCoreAlias;
@@ -71,6 +71,6 @@ var audit = new List<EntityFrameworkExtensionsCoreAlias.Z.BulkOperations.AuditEn
 
 ## Conclusion
 
-With this technique, adding a namespace to Entity Framework Extensions becomes straightforward. While there are some pros and cons—such as occasionally needing to add the `extern alias` directive—it provides a viable alternative solution for those who prefer or require namespaces.
+With this technique, adding a namespace to Entity Framework Extensions becomes straightforward. While there are some pros and cons—such as occasionally needing to add the `extern alias` directive, it provides a viable alternative solution for those who prefer or require namespaces.
 
 If you encounter any other scenarios or issues that we should be aware of, please report them to our support team at: info@zzzprojects.com.
