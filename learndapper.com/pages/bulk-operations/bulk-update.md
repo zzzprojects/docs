@@ -8,7 +8,7 @@ lastmod: 2023-01-08T18:15:15Z
 
 # Bulk Updating Data With Dapper
 
-Dapper provides the [Execute method for updating data](https://localhost:5015/non-query#dapper-update). However, a database roundtrip is required for every data you update. The more database roundtrip you do, the longer it will take to complete all your updates.
+Dapper provides the [Execute method for updating data](https://www.learndapper.com/non-query#dapper-update). However, a database roundtrip is required for every data you update. The more database roundtrip you do, the longer it will take to complete all your updates.
 
 It is possible to dramatically reduce the number of database roundtrips by using the `BulkUpdate` method from the [Dapper Plus](https://dapper-plus.net/) third-party library.
 
