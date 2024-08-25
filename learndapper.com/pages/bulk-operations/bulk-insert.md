@@ -8,7 +8,7 @@ lastmod: 2023-01-08T18:13:25Z
 
 # Bulk Inserting Data With Dapper
 
-Dapper provides the [Execute method for inserting data](https://www.learndapper.com/non-query#dapper-insert). However, a database roundtrip is required for every data you insert. It’s a perfect solution when you need to insert only 1 data, but it becomes very inefficient as soon as you insert multiple data.
+Dapper provides the [Execute method for inserting data](/non-query#dapper-insert). However, a database roundtrip is required for every data you insert. It’s a perfect solution when you need to insert only 1 data, but it becomes very inefficient as soon as you insert multiple data.
 
 The **fastest way of inserting** multiple data is by using the [Dapper Plus](https://dapper-plus.net/) third-party library.
 
