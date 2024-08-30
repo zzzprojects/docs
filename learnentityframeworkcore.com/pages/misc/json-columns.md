@@ -3,7 +3,7 @@ title: JSON Columns in Entity Framework Core
 description: EF Core 7.0 contains provider-agnostic support for JSON columns, with an implementation for SQL Server. This support allows the mapping of aggregates built from .NET types to JSON documents. 
 canonical: /misc/sparse-columns
 status: Published
-lastmod: 2023-02-16
+lastmod: 2024-08-30
 ---
 
 # EF Core JSON Columns
@@ -13,7 +13,7 @@ JSON columns are a type of database column that can store JSON (JavaScript Objec
  - In the context of databases, JSON columns allow for storing structured or semi-structured data flexibly and efficiently. 
  - This can be particularly useful when dealing with data that has varying or unpredictable structure, such as user-generated content or log data. 
  - Instead of creating a separate column for each data element, a JSON column can store all the data in a single column.
- - JSON columns are supported by several popular relational databases, including SQL Server, PostgreSQL, and MySQL. 
+ - JSON columns are supported by several popular relational databases, including SQL Server, PostgreSQL, MySQL, and MariaDB. 
 
 ## Mapping to JSON Columns
 

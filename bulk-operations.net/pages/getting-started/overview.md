@@ -24,6 +24,7 @@ And many providers:
 - SQL Compact
 - Oracle
 - MySQL
+- MariaDB
 - PostgreSQL
 - SQLite
 

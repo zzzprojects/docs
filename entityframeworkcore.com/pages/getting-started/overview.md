@@ -2,7 +2,7 @@
 permaid: 1000223
 Title: EF Core Overview - Learn What is EF Core and Why You Should Use it
 MetaDescription: Unlock the power of EF Core by understanding the basics and more advanced topics of this library. Learn what EF Core is, how it works, and all the documentation you need to get started.
-LastMod: 2023-02-21
+LastMod: 2024-08-30
 tags: getting-started history
 ---
 
@@ -35,6 +35,7 @@ Entity Framework Core supports many database providers to access different datab
 
  - SQL Server
  - MySQL
+ - MariaDB
  - PostgreSQL
  - SQLite
  - SQL Compact

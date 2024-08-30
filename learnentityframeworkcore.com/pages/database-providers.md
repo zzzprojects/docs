@@ -3,7 +3,7 @@ title: Working With Providers in EF Core - EF Core Providers - C# EF Core Provid
 description: EF Core is designed to work with a variety of providers, allowing users to access their data in different databases. The list of supported providers includes MySQL, PostgreSQL, Oracle Database, and Microsoft SQL Server. 
 canonical: /database-providers
 status: Published
-lastmod: 2023-02-11
+lastmod: 2024-08-30
 ---
 
 # EF Core Providers
@@ -14,6 +14,7 @@ EF Core is an open-source, lightweight, cross-platform, and extensible Object-Re
  - Microsoft SQL Server Compact Edition
  - SQLite
  - MySQL
+ - MariaDB
  - PostgreSQL
  - In-memory databases and more.
 

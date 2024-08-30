@@ -1,7 +1,7 @@
 ---
 Title: EFCore BulkExtensions | Bulk Insert, Update, Delete, Merge, Upsert
 MetaDescription: Learn how to use EFCore BulkExtensions to boost your CRUD operations performance. Discover how to save entities faster and by using less memory. Try it now.
-LastMod: 2023-10-26
+LastMod: 2024-08-30
 ---
 
 # EFCore BulkExtensions
@@ -56,6 +56,7 @@ Using **BulkExtensions** can improve your performance by more than **5 times fas
 All major providers are supported:
 - SQL Server
 - MySQL
+- MariaDB
 - Oracle
 - PostgreSQL
 - SQLite

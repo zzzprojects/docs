@@ -2,7 +2,7 @@
 PermaID: 1000209
 Title: Dapper.Plus - A Getting Started Tutorial for Bulk CRUD Operations
 MetaDescription: Discover Dapper.Plus Library to perform CRUD operations such as BulkInsert, BulkUpdate, BulkDelete, BulkMerge. Learn about Dapper.Plus limitations and how to install it with NuGet.
-LastMod: 2023-10-23
+LastMod: 2024-08-30
 ---
 
 # Dapper.Plus: A Getting Started Tutorial for Bulk CRUD Operations
@@ -100,6 +100,7 @@ You can find the detailed documentation here: <a href="https://dapper-plus.net/o
 - SQL Compact
 - Oracle
 - MySQL
+- MariaDB
 - SQLite
 - PostgreSQL
 

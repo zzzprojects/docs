@@ -2,7 +2,7 @@
 PermaID: 1000202
 Title: Dapper Plus - Learn What Is This Library and How to Use It
 MetaDescription: Unlock the power of Dapper Plus by understanding the basics and more advanced topics of this third-party library. Learn what Dapper Plus is, how it works, and all the documentation you need to get started.
-LastMod: 2023-10-21
+LastMod: 2024-08-30
 ---
 
 # Dapper Plus: Discover What Is This Library and How to Use It
@@ -47,6 +47,7 @@ Dapper Plus is compatible with all major database providers and there is no data
 - SQL Compact
 - Oracle
 - MySQL
+- MariaDB
 - SQLite
 - PostgreSQL
 

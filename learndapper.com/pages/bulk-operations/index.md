@@ -3,14 +3,14 @@ title: Dapper Bulk Operations
 description: The Dapper Plus library allows developers to easily perform bulk operations. It helps to optimize performance by reducing the number of database round trips.
 canonical: /bulk-operations
 status: Published
-lastmod: 2023-01-08T17:48:20Z
+lastmod: 2024-08-30
 ---
 
 # Bulk Operations With Dapper
 
 Dapper does not provide a formal API for performing bulk inserts or other bulk operations. However, those operations are possible using a third-party library called [Dapper Plus](https://dapper-plus.net/).
 
-[Dapper Plus](https://dapper-plus.net/) library is a comprehensive .NET library that provides a unified API for working with different databases, such as SQL Server, MySQL, SQLite, Oracle, PostgreSQL, etc. 
+[Dapper Plus](https://dapper-plus.net/) library is a comprehensive .NET library that provides a unified API for working with different databases, such as SQL Server, MySQL, MariaDB, SQLite, Oracle, PostgreSQL, etc. 
 
  - It offers features like bulk operations, object mapping, and much more. 
  - The library allows you to write less code and get more performance out of your database operations. 

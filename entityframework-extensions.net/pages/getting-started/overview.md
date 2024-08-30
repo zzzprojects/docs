@@ -1,6 +1,6 @@
 ---
 Name: Getting Started
-LastMod: 2023-02-27
+LastMod: 2024-08-30
 ---
 
 # Overview
@@ -54,6 +54,7 @@ Download the <a href="/download">NuGet Package</a>
 - SQL Compact
 - Oracle
 - MySQL
+- MariaDB
 - PostgreSQL
 - SQLite
 

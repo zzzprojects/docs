@@ -3,12 +3,12 @@ title: Dapper Database Providers - SQL Server - Oracle - MySQL - PostgreSQL
 description: Discover how to use Dapper database providers like SQL Server, MySQL, PostgreSQL, Oracle, and more on your website. Learn to install and apply these providers.
 canonical: /database-providers
 status: Published
-lastmod: 2024-01-05
+lastmod: 2024-08-30
 ---
 
 # Database Providers With Dapper
 
-Dapper supports a variety of database providers, including the popular Microsoft SQL Server, Oracle, MySQL, PostgreSQL, SQLite, etc. 
+Dapper supports a variety of database providers, including the popular Microsoft SQL Server, Oracle, MySQL, MariaDB, PostgreSQL, SQLite, etc. 
 
  - It is important to note that Dapper does not provide any database abstraction layer like Entity Framework or NHibernate. 
  - Instead, it provides the user with several methods and extension points to extend the library for their custom database provider. 

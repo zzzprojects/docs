@@ -2,7 +2,7 @@
 PermaID: 1000208
 Title: Dapper.Mapper - A Getting Started Tutorial for Mapping
 MetaDescription: Discover Dapper.Mapper Library to map with fluent api mapping. Learn about Dapper.Mapper limitations and how to install it with NuGet.
-LastMod: 2023-10-23
+LastMod: 2024-08-30
 ---
 
 # Dapper.Mapper: A Getting Started Tutorial for Mapping
@@ -17,7 +17,7 @@ LastMod: 2023-10-23
 
 ## Features
 
- - Supports multiple database platforms including SQLite, MySQL, and PostgreSQL.
+ - Supports multiple database platforms including SQLite, MySQL, MariaDB, and PostgreSQL.
  - Provides a clean, simple API for mapping data to objects.
  - Generates SQL queries automatically, eliminating the need to write tedious and error-prone SQL by hand.
 

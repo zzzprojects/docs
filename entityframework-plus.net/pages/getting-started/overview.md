@@ -43,6 +43,7 @@ Download the <a href="/download">NuGet Package</a>
 - SQL Compact
 - Oracle
 - MySQL
+- MariaDB
 - PostgreSQL
 - SQLite
 

@@ -1,6 +1,6 @@
 ---
 Name: Getting Started
-LastMod: 2023-02-26
+LastMod: 2024-08-30
 ---
 
 # Getting Started
@@ -60,5 +60,6 @@ Oh, we also offer **outstanding customer support** and hundreds of [Online Examp
 - SQL Compact
 - Oracle
 - MySQL
+- MariaDB
 - PostgreSQL
 - SQLite

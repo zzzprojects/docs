@@ -1,7 +1,7 @@
 ---
 Title: EF Core Bulk Extensions
 MetaDescription: This article provides a comprehensive guide to using EFCore BulkExtensions inside EFE, a powerful library that extends Entity Framework Core to support bulk operations. Learn about its features, including bulk insert, updates, deletes, and merge (upsert). Whether you're a beginner or an experienced EFCore developer, this article will help you unlock the full potential of Z.EntityFramework.Extensions and streamline your database operations.
-LastMod: 2023-03-29
+LastMod: 2024-08-30
 ---
 
 # EF Core Bulk Extensions
@@ -19,7 +19,7 @@ Since 2019, [EF Plus depends on EFE](https://github.com/zzzprojects/EntityFramew
 - **Flexibility:** Z.EntityFramework.Extensions provides hundreds of options to customize your bulk operations
 - **Easy to use:** Z.EntityFramework.Extensions provides a simple API that is easy to use and understand.
 - **Multiple EF Core versions supported:** EF Core 7, EF Core 6, EF Core 5, EF Core 3, EF Core 2 (Including EF Core 8 Preview).
-- **Multiple providers supported:** SQL Server, SQLite, PostgreSQL, MySQL, and Oracle.
+- **Multiple providers supported:** SQL Server, SQLite, PostgreSQL, MySQL, MariaDB, and Oracle.
 
 ## Scenarios
  
