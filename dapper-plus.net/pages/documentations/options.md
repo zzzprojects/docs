@@ -18,22 +18,28 @@ Before we learn into all the available options, let's first understand how to us
 You can utilize the `UseBulkOptions` method by incorporating it into the mapping for a specific entity type. This ensures that every time your mapping is invoked, the bulk operations will employ these pre-defined options:
 
 ```csharp
-// example
+DapperPlusManager.Entity<Product>()
+	.Table("Product")
+	.Identity(x => x.ProductID)
+	.UseBulkOptions(x => x.InsertIfNotExists = true);
+	
+connection.BulkInsert(products);
 ```
 
 You can also use a [mapping key](/mapping-key) if the [mapping](/mapping) is not the default one used for saving your entities.
 
-[Online Example](https://dotnetfiddle.net/pwcR2q)
+[Online Example](https://dotnetfiddle.net/1Hp8kC)
 
 ## From Connection and Transaction
 
 You can call the `UseBulkOptions` method directly from the connection or transaction before chaining your bulk operations methods. When configured in this manner, all subsequent bulk operations will use the specified options. Note that only general options that are not related to a specific entity type, such as `Audit`, `BatchSize`, or `Log`, are available in this context:
 
 ```csharp
-// example
+connection.UseBulkOptions(options => options.Log = s => Console.WriteLine(s))
+		  .BulkInsert(products);
 ```
 
-[Online Example](https://dotnetfiddle.net/pwcR2q)
+[Online Example](https://dotnetfiddle.net/TUu0bl)
 
 ## Options
 

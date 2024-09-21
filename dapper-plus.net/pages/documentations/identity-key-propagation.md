@@ -1,101 +1,109 @@
 ---
 Title: Master Easy Techniques to Propagate Identity and Key Values Across Your Graph 
 MetaDescription: Master Easy Techniques to Propagate Identity and Key Values Across Your Graph 
-LastMod: 2024-06-27
+LastMod: 2024-09-21
 ---
 
 # Master Easy Techniques to Propagate Identity and Key Values Across Your Graph
 
-In the previous article, we learned about [supported datasource](#)
+Propagating the key or identity value is often necessary when dealing with a graph scenario, such as an Order and Order Items. When you save the Order, you need to propagate the `OrderID` value to all items.
 
-Propagating the identity is often needed when an entity has some relationship without navigation property.
+In Dapper Plus, there are four major ways to propagate the key or identity:
 
-For example, the invoice has invoice items which also hold the `InvoiceID` value.
+- **Auto Identity Propagation**
+- **BeforeAction**
+- **AfterAction**
+- **ThenForEach**
 
-In Dapper Plus, there is 4 major ways to propagate the identity:
+## Auto Identity Propagation
 
-- Auto Identity Propagation
-- BeforeAction
-- AfterAction
-- ThenForEach
-
-
-## Auto Identity Propagation 
-
-**NAMING COnventions...**
-
-The auto identity propagation is the easiest ways. You simply specify during the mapping that the identity value should be auto propagated (set the second parameter to `true`).
+Auto identity propagation is one of the easiest methods. You simply specify during the mapping that the identity value should be automatically propagated (set the second parameter of the `Identity` method to `true`).
 
 ```csharp
-context.Entity<Invoice>().Identity(x => x.InvoiceID, true);
+DapperPlusManager.Entity<Order>()
+	.Identity(x => x.OrderID, true);		
+DapperPlusManager.Entity<OrderItem>()
+	.Identity(x => x.OrderItemID, true);
+	
+var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServer());
+
+connection.BulkInsert(newOrders).ThenBulkInsert(x => x.Items);
 ```
-[Try it](https://dotnetfiddle.net/LBfItU)
+[Try it](https://dotnetfiddle.net/nyBt0T)
 
-However, some restriction applies. The identity must have either one of the those following convention (case insensitive):
+However, some restrictions apply. The identity must follow one of these conventions (case insensitive):
 
-- `ID`, in this case, we will automatically propagate to all properties with the name `[EntityType]ID`, in our example `InvoiceID`.
-- Or directly `[EntityType]ID`, in our example `InvoiceID`.
+- The parent and child share the same property name. In our case, `OrderID`.
+- The parent has the name `ID` and the child has the property name `[EntityType]ID`. For example, `OrderID`.
 
 ## BeforeAction Event
 
-The `BeforeAction` event happen before an operation is performed. This event is important to be able to set some value such as `CreatedDate` and `UpdatedDate` but also ensure the key value from the parent entity is set.
+The `BeforeAction` event occurs before an operation is performed. This event is crucial for setting values such as `CreatedDate` and `UpdatedDate`, but it can also be used to propagate key or identity values.
 
-In the following example, we will set our audit value properties but also check that the `InvoiceID` has been set. If that's not the case, we will get it first from the parent.
-
-```csharp
-
-```
-
-## AfterAction Event 
-
-The `AfterAction` method allows you during the mapping to specify a custom action to perform after an operation has been made.
+In the following example, we will check if the `OrderID` has been set, and if not, we will obtain the value from the parent.
 
 ```csharp
-DapperPlusManager.Entity<Invoice>().Identity(x => x.InvoiceID)
-	.AfterAction((actionKind, invoice) =>
-		 {
-			 if (actionKind == DapperPlusActionKind.Insert || actionKind == DapperPlusActionKind.Merge)
-			 {
-				 if (invoice.InvoiceMeta != null)
-				 {
-					 invoice.InvoiceMeta.InvoiceID = invoice.InvoiceID;
-				 }
+DapperPlusManager.Entity<Order>().Identity(x => x.OrderID);		
+DapperPlusManager.Entity<OrderItem>().Identity(x => x.OrderItemID)
+	.BeforeAction((actionKind, orderItem) => {
+		if (actionKind == DapperPlusActionKind.Insert || actionKind == DapperPlusActionKind.Merge)
+		{
+			if(orderItem.Parent != null)
+			{
+				orderItem.OrderID = orderItem.Parent.OrderID;
+			}
+		}
+	});
+	
+var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServer());
 
-				 if (invoice.InvoiceItems != null)
-				 {
-					 invoice.InvoiceItems.ForEach(x => x.InvoiceID = invoice.InvoiceID);
-				 }
-			 }
-		 });
+connection.BulkInsert(newOrders).ThenBulkInsert(x => x.Items);
 ```
-[Try it](https://dotnetfiddle.net/yDPhxS)
+
+[Try it](https://dotnetfiddle.net/NgQ0wE)
+
+## AfterAction Event
+
+The `AfterAction` event is more straightforward than the `BeforeAction` event. This time, the event is raised after the Order is saved, allowing us to directly propagate the value to all items.
+
+```csharp
+DapperPlusManager.Entity<Order>().Identity(x => x.OrderID)
+	.AfterAction((actionKind, order) => {
+		if (actionKind == DapperPlusActionKind.Insert || actionKind == DapperPlusActionKind.Merge)
+		{
+			if(order.Items != null)
+			{
+				order.Items.ForEach(x => x.OrderID = order.OrderID);
+			}
+		}
+	});
+DapperPlusManager.Entity<OrderItem>().Identity(x => x.OrderItemID);
+	
+var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServer());
+
+connection.BulkInsert(newOrders).ThenBulkInsert(x => x.Items);
+```
+
+[Try it](https://dotnetfiddle.net/jQRbkk)
 
 ## ThenForEach Method
 
-The `ThenForEach` method allows you to make a custom action after a bulk-operation has been made.
+The `ThenForEach` method allows you to execute a custom action after a bulk operation has been completed. It acts exactly like the `AfterAction` event, but instead of occurring during the mapping, it is executed through our action chaining, as we have seen in our [Bulk Extensions Method - Chaining](/bulk-extensions-methods#chaining).
 
 ```csharp
-connection.BulkInsert(invoices)
-		.ThenForEach(invoice => {
-			if(invoice.InvoiceMeta != null)
-			{
-				invoice.InvoiceMeta.InvoiceID = invoice.InvoiceID;
-			}
-			  
-			if(invoice.InvoiceItems != null)
-			{
-				invoice.InvoiceItems.ForEach(invoiceItem => invoiceItem.InvoiceID = invoice.InvoiceID);
-			}
-		  })
-		.AlsoBulkInsert(x => x.InvoiceMeta)
-		.ThenBulkInsert(x => x.InvoiceItems);
+DapperPlusManager.Entity<Order>().Identity(x => x.OrderID);
+DapperPlusManager.Entity<OrderItem>().Identity(x => x.OrderItemID);
+	
+var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServer());
+
+connection.BulkInsert(newOrders)
+	.ThenForEach(x => x.Items?.ForEach(y => y.OrderID = x.OrderID))
+	.ThenBulkInsert(x => x.Items);
 ```
-[Try it](https://dotnetfiddle.net/HhJ06l)
+[Try it](https://dotnetfiddle.net/UoewoB)
 
 ## Conclusion
 
-In this article, we learned how the identity value can be automatically propagated by following a naming convention but also how to manually propagate the key before or after a bulk operations has been performed.
+In this article, we learned how the key/identity value can be implicitly or explicitly propagated. There is no recommended technique to use, as the best choice often depends on your specific scenario.
 
-We now completed our getting started section about how to customize [Bulk Extensions](#) method and [Single Extensions](#) methods.
-
-It's time to see some more method that could help you through to [Improve your Dapper Experience](#)
+Still, my favorite method is usually Auto Identity Propagation because it ensures that my property name is consistent throughout all my graph, and there is nothing more I have to do besides setting a property to true.

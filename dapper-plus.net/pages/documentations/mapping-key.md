@@ -4,73 +4,94 @@ MetaDescription: Unlocking the Power of a Mapping Key: Map the Same Entity Type 
 LastMod: 2024-06-27
 ---
 
-# Unlocking the Power of a Mapping Key: Map the Same Entity Type Multiple Time 
+# Unlocking the Power of a Mapping Key: Map the Same Entity Type Multiple Times
 
-A major problem with most moderm ORM like [EF Core](https://www.learnentityframeworkcore.com/) is once your map your Entity Type, it's mapped this way all the time and you cannot change it.
+A major problem with most modern ORMs like [EF Core](https://www.learnentityframeworkcore.com/) is that once you map your Entity Type, it's mapped that way all the time and you cannot change it.
 
-Sure it makes sense for the default behavior but the reality is another story. Sometime you want to:
+Sure, it makes sense for the default behavior, but the reality is another story. Sometimes you want to:
 - Insert or update only a few properties
-- Use a custom key (an `ExternalID` when importing data for example)
-- Insert data if it doesn't exists
+- Use a custom key (an `ExternalID` when importing data, for example)
+- Insert data only if it doesn't exist
 
-Those are not the default behavior but are required from time to time. People using Entity Framework  usually choose to use library like our [Entity Framework Extensions](https://entityframework-extensions.net/) that solve this issue.
-
+These are not the default behaviors but are required from time to time. People using Entity Framework usually choose to use a library like our [Entity Framework Extensions](https://entityframework-extensions.net/) that solves this issue.
 
 But for Dapper Plus, how do we solve this problem?
 
-Dapper Plus solve this problem by allowing you to specify a custom mapping key:
+Dapper Plus solves this problem by allowing you to map an entity type an unlimited number of times by specifying a **mapping key**:
 
 ```csharp
-// TODO
+// Map your entity
+DapperPlusManager.Entity<Product>()
+	.Table("Product")
+	.Identity(x => x.ProductID);
+
+DapperPlusManager.Entity<Product>("InsertIfNotExists")
+	.Table("Product")
+	.Identity(x => x.ProductID)
+	.UseBulkOptions(x => x.InsertIfNotExists = true);
+
+DapperPlusManager.Entity<Product>("InsertKeepIdentity")
+	.Table("Product")
+	.Identity(x => x.ProductID)
+	.UseBulkOptions(x => x.InsertKeepIdentity = true);
+	
+var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServer());
+
+connection.BulkInsert("InsertKeepIdentity", products);
 ```
 
-In this [Online Example](#), we have 3 different mappings. One without a mapping key (usualy the default behavior), one with the `InsertIfNotExists` mapping key, and one with `InsertKeepIdentity` mapping key. As we can see, we pass to our [Bulk Insert](#) method the mapping key we want the method to use and only this mapping will be used to have different behavior for the same entity type.
+In this [Online Example](https://dotnetfiddle.net/LRl5nt), we have three different mappings:
 
-Providing a mapping key is very useful for specifying different [Mapping](#) and [Options](#) for the same entity type as we learned from previous articles but will also help for some kind of [Data Source](#) as weill soon learn.
+- One without a mapping key (usually the default behavior)
+- One with the `InsertIfNotExists` mapping key
+- One with the `InsertKeepIdentity` mapping key.
 
-## When to use a mapping key
+As we can see, we pass to our [Bulk Insert](/bulk-insert) method the mapping key we want the method to use, and only this mapping will be used to have different behavior for the same entity type.
 
-My preference is not using a mapping key for the default behavior. It make simply the code easier to use for 95% of my cases.
+Providing a mapping key is very useful for specifying different [Mapping](/mapping) and [Options](/options) for the same entity type, as we learned from previous articles, but will also help for some kinds of [Data Source](/data-source) like mapping a DataTable.
 
-But whenever I have a different behavior then the default one, I automatically start to create a new mapping key that self describe if possible this behavior:
+## When to Use a Mapping Key
+
+My preference is not to use a mapping key for the default behavior. This simply makes the code easier to use for 95% of my cases.
+
+But whenever I have a behavior different from the default one, I automatically start to create a new mapping key that, if possible, self-describes the behavior:
 
 ```csharp
-// TODO
+DapperPlusManager.Entity<Product>("InsertKeepIdentity")
+	.Table("Product")
+	.Identity(x => x.ProductID)
+	.UseBulkOptions(x => x.InsertKeepIdentity = true);
 ```
 
-Weither you choose to always use one or not strickly depend on you and doesn't affect the performance.
+Whether you choose to always use a mapping key or not strictly depends on you and does not affect performance.
 
-## Benefits and Examples of Using the Dapper Plus Mapping Key
+## Storing Mapping Keys: Variable/Enum vs. Hardcoded String
 
-By now, you should understand what is a mapping key but now let explore some scenarios that make some sense.
+In our previous examples, the mapping key was directly a hardcoded string as it's easier to show.
 
-Let take the scenario that I want a mapping for my update but also a mapping for a partial update only 2 specific columns:
+However, hardcoding your strings might lead to errors, especially if you decide to change your string value.
+
+To solve this, we recommend using static variables or an enum instead and placing ALL your mapping keys in it. This way, whenever you change a name in your enum to fix a spelling mistake or simply because you find a better name, you will be able to quickly change it as well, or let Visual Studio do it with the rename option everywhere in your solution.
 
 ```csharp
+public static class DapperPlusMappingKey
+{
+	public static string InsertIfNotExists = "InsertIfNotExists";
+	public static string InsertKeepIdentity = "InsertKeepIdentity";		
+}
+	
+DapperPlusManager.Entity<Product>(DapperPlusMappingKey.InsertKeepIdentity)
+	.Table("Product")
+	.Identity(x => x.ProductID)
+	.UseBulkOptions(x => x.InsertKeepIdentity = true);
+	
+var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServer());
+
+connection.BulkInsert(DapperPlusMappingKey.InsertKeepIdentity, products);
 ```
 
-Let take the scenario that I have different database and each database require some special customization as the SQL for formula by example are diffrent:
+[Online Example](https://dotnetfiddle.net/hMOZO1)
 
-```csharp
-// Use formula
-```
+## Conclusion
 
-## Storing Mapping Key: Enum vs Hardcoded String 
-
-
-In our previous example, we hardcoded the string as it easier to show.
-
-However hardcoding your string might lead to error, especially if you change your string.
-
-To solve it, we recommand you to use an enum instead and put ALL your mapping key in it instead. So whenever you change a name in your enum to fix a spelling mistake, you will be able to quickly change as well (or let visual studio do it with the rename option) everywhere in your solution.
-
-```csharp
-// TODO
-```
-
-
-## Conclusions 
-
-We have seen in this article how powerful is a mapping key. This is one trick that a lot of people miss....
-
-Now that we know what is mapping key and how to use it, it's now time to better understand about [Mapping & Modeling](#)
+We have seen in this article how powerful a mapping key can be. Make sure to use it whenever you encounter a special scenario. It is often preferable to have a static mapping with a mapping key than to create a new instance of the [Dapper Plus Context](dapper-plus-context).
