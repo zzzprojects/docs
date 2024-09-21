@@ -1,110 +1,90 @@
 ---
-Title: Dapper Bulk Merge | The Fastest Way to Upsert a List in Dapper
-MetaDescription: Optimize Dapper insert or update performance with Dapper Plus Bulk Merge Extensions. Easily upsert multiple rows in a database from a list with customizable options. Improve your database operations - try it now.
-LastMod: 2024-04-24
+Title: Bulk Synchronize | The Best Way in Dapper to Synchronize Multiple Rows
+MetaDescription: Learn how to perform faster synchronization in Dapper using the Bulk Synchronize method, understand why it's essential, and explore some common scenarios.
+LastMod: 2024-09-21
 ---
 
-# Dapper Bulk Merge: Fastest Way in Dapper to Upsert Multiple Rows
+# Bulk Synchronize: The Best Way in Dapper to Synchronize Multiple Rows
 
-## Description
-
-The Dapper Plus BulkMerge method allows to MERGE entities in a database table or a view.
-
-## Bulk Merge Async
-
-To perform an asynchronous bulk merge in Dapper Plus, you can use the `BulkMergeAsync` method or the [ActionAsync](/async-action) method.
-
-In this C# example, we will create a list of products and merge them into our database asynchronously.
+The Dapper Plus `BulkSynchronize` extension method acts as a **MIRROR** operation; it makes your table exactly reflect your data source. This means it will **UPDATE** existing rows, **INSERT** new rows that do not exist in the database, and **DELETE** rows that are no longer present in your data source.
 
 ```csharp
-await connection.BulkMergeAsync(products);
+// Easy to use
+connection.BulkSynchronize(orders);
+
+// Easy to customize
+connection.UseBulkOptions(options => options.InsertIfNotExists = true)
+          .BulkSynchronize(orders);
 ```
 
-## Bulk Merge Entity
+[Online Example](https://dotnetfiddle.net/ltIqrC)
 
-The Dapper Plus BulkMerge method allows merging a single or multiple entities of the same type.
+The `BulkSynchronize` method may be less frequently used, but it remains one of the most powerful tools in the Dapper Plus arsenal, allowing you to create an exact mirror of an entire table or just a portion of it, as we will explore later in this article.
 
+## Benchmark
+
+There isn't a traditional technique in Dapper for fully synchronizing a table—essentially, a mirror operation is not as straightforward as performing [Insert](/bulk-insert) or [Merge](/bulk-merge) operations.
+
+However, let's examine the performance of our `BulkSynchronize` method:
+
+| Technique        | 50 Entities | 2,000 Entities | 5,000 Entities |
+| :--------------- | -----------:| --------------:| --------------:|
+| BulkSynchronize  | 50 ms       | 55 ms          | 75 ms          |
+
+As always, don't just take our word for it. Try our [online benchmark](https://dotnetfiddle.net/CqTwfr) on .NET Fiddle to see the performance difference for yourself and verify these results firsthand.
+
+## Getting Started with Bulk Synchronize
+
+To effectively begin using the `BulkSynchronize` method, we recommend first familiarizing yourself with our comprehensive [Bulk Extensions Methods](/bulk-extensions-methods) articles.
+
+Here is a quick recap:
+
+- **Asynchronous Synchronization**: You can synchronize data asynchronously with the `BulkSynchronizeAsync` method.
+- **Chaining Operations**: Enhance workflow efficiency by chaining operations with the `AlsoBulkSynchronize` and `ThenBulkSynchronize` methods.
+- **Flexible Usage**: Use `BulkSynchronize` from a connection, transaction, or leverage a new [Dapper Plus Context](/dapper-plus-context) for greater control.
+- **Multiple Data Sources**: The `BulkSynchronize` method supports synchronization across various [DataSources](/datasource), enhancing its adaptability.
 
 ```csharp
-
-//Merge a single order.
-connection.BulkMerge(order);
-
-//Merge multiple orders.
-connection.BulkMerge(order1, order2, order3);
+// Example code will be provided here to demonstrate the use of BulkSynchronize
 ```
 
-## Bulk Merge IEnumerable<TEntity>
+[Online Example](https://dotnetfiddle.net/ltIqrC)
 
-The Dapper Plus BulkMerge method allows merging a single enumerable or multiple enumerable of entities of the same type.
+This setup guides you through the initial steps to effectively use `BulkSynchronize`, emphasizing its flexibility and power in handling complex data synchronization scenarios.
 
+## Common Options / Scenarios
+
+In this section, we explore some common options and scenarios that developers frequently use with the `BulkSynchronize` method:
+
+- **Synchronize Only a Subset of Your Data**
+- **SynchronizeSoftDeleteFormula**
+
+For a comprehensive list of options, please refer to our [options documentation](/options).
+
+### Synchronize Only a Subset of Your Data
+
+Suppose your table has a column named `StoreID` that acts like a tenant identifier. You can synchronize only a specific store by using the `ColumnSynchronizeDeleteKeySubsetExpression` or `ColumnSynchronizeDeleteKeySubsetNames` option. This ensures that only data from your data source for a specified store is synchronized, leaving all other store data unmodified.
 
 ```csharp
-
-//Merge a list of orders.
-connection.BulkMerge(orders);
-
-//Merge multiple list of orders.
-connection.BulkMerge(orders1, orders2, orders3);
+// Example code demonstrating how to synchronize only a subset of your data
 ```
 
-## Bulk Merge with "One to One" Relation
+[Online Example](https://dotnetfiddle.net/ltIqrC)
 
-The Dapper Plus BulkMerge method allows merging a related item with a "One to One" relation.
+### SynchronizeSoftDeleteFormula
 
+If you prefer performing a soft delete instead of a hard delete, you can use the `SynchronizeSoftDeleteFormula`. This option allows you to update non-existing rows based on your formula, effectively enabling soft deletion where data is marked as inactive instead of being removed.
 
 ```csharp
-
-//Merge an order and the related invoice.
-connection.BulkMerge(order, order => order.Invoice);
-
-//Merge a list of orders and the related invoice to every order.
-connection.BulkMerge(orders, order => order.Invoice);
+// Example code demonstrating how to use SynchronizeSoftDeleteFormula
 ```
 
-## Bulk Merge with "One to Many" Relation
+[Online Example](https://dotnetfiddle.net/ltIqrC)
 
-The Dapper Plus BulkMerge method allows merging related items with a "One to Many" relation.
+These options enhance the flexibility of the `BulkSynchronize` method, making it suitable for a variety of data handling scenarios.
 
+## Conclusion
 
-```csharp
+In this article, we've explored the `BulkSynchronize` method, discussed why it is beneficial, and highlighted a few common scenarios where it can be particularly effective.
 
-//Merge an order and all related items.
-connection.BulkMerge(order, order => order.Items);
-
-//Merge a list of orders and all related items to every order.
-connection.BulkMerge(orders, order => order.Items);
-```
-
-## Bulk Merge with "Mixed" Relation
-
-The Dapper Plus BulkMerge method allows merging related item(s) with any relation.
-
-
-```csharp
-
-//Merge an order, all related items, and the related invoice.
-connection.BulkMerge(order, order => order.Items, order => order.Invoice);
-
-//Merge a list of orders, all related items to every order, and the related invoice to every order.
-connection.BulkMerge(orders, order => order.Items, order => order.Invoice);
-```
-
-## Bulk Merge Chain Action
-
-The Dapper Plus BulkMerge method allows chaining multiple bulk action methods.
-
-
-```csharp
-
-//Merge an order and all related items. Merge an invoice and all related invoice items.
-connection.BulkMerge(order, order => order.Items)
-          .BulkMerge(invoice, invoice => invoice.Items);
-
-//Merge a list of orders and all related items to every order. Merge a list of invoices and 
-//all related items to every invoice.
-connection.BulkMerge(orders, order => order.Items)
-          .BulkMerge(invoices, invoice => invoice.Items);
-
-```
-
+The `BulkSynchronize` method is unique and incredibly powerful. While not all projects may require such a feature, for those that do, having access to a pre-coded and thoroughly tested method can be a significant advantage. This saves you the time and effort of having to develop and debug a complex synchronization process on your own.

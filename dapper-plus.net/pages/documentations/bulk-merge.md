@@ -1,110 +1,121 @@
 ---
-Title: Dapper Bulk Merge | The Fastest Way to Upsert a List in Dapper
-MetaDescription: Optimize Dapper insert or update performance with Dapper Plus Bulk Merge Extensions. Easily upsert multiple rows in a database from a list with customizable options. Improve your database operations - try it now.
-LastMod: 2024-04-24
+Title: Bulk Merge | The Fastest Way in Dapper to Upsert Multiple Rows
+MetaDescription: Learn how to perform faster "add or update"/"upsert" in Dapper using the Bulk Merge method, understand why it's essential, and explore some common scenarios.
+LastMod: 2024-09-21
 ---
 
-# Dapper Bulk Merge: Fastest Way in Dapper to Upsert Multiple Rows
+Here’s a streamlined version of your introduction for the "Bulk Merge" article, which focuses on clarity and impact:
 
-## Description
+# Bulk Merge: The Fastest Way in Dapper to Upsert Multiple Rows
 
-The Dapper Plus BulkMerge method allows to MERGE entities in a database table or a view.
-
-## Bulk Merge Async
-
-To perform an asynchronous bulk merge in Dapper Plus, you can use the `BulkMergeAsync` method or the [ActionAsync](/async-action) method.
-
-In this C# example, we will create a list of products and merge them into our database asynchronously.
+The Dapper Plus `BulkMerge` extension method performs an `Add or Update` operation, more commonly known as an [Upsert](https://en.wikipedia.org/wiki/Merge_(SQL)). This method updates existing rows and inserts non-existing rows in your database seamlessly.
 
 ```csharp
-await connection.BulkMergeAsync(products);
-```
-
-## Bulk Merge Entity
-
-The Dapper Plus BulkMerge method allows merging a single or multiple entities of the same type.
-
-
-```csharp
-
-//Merge a single order.
-connection.BulkMerge(order);
-
-//Merge multiple orders.
-connection.BulkMerge(order1, order2, order3);
-```
-
-## Bulk Merge IEnumerable<TEntity>
-
-The Dapper Plus BulkMerge method allows merging a single enumerable or multiple enumerable of entities of the same type.
-
-
-```csharp
-
-//Merge a list of orders.
+// Easy to use
 connection.BulkMerge(orders);
 
-//Merge multiple list of orders.
-connection.BulkMerge(orders1, orders2, orders3);
+// Easy to customize
+connection.UseBulkOptions(options => options.InsertIfNotExists = true)
+          .BulkMerge(orders);
 ```
 
-## Bulk Merge with "One to One" Relation
+[Online Example](https://dotnetfiddle.net/ltIqrC)
 
-The Dapper Plus BulkMerge method allows merging a related item with a "One to One" relation.
+`BulkMerge` not only merges your entities at an extremely fast rate but also allows you to quickly customize the process with [hundreds of options](/options), eliminating the need to remember complex SQL syntax.
 
+## Benchmark
+
+The traditional technique to [add or update multiple rows in Dapper](https://www.learndapper.com/saving-data/insert#dapper-insert-multiple-rows) requires you to write your `INSERT` statement and pass a list of entities to the [execute](https://www.learndapper.com/non-query) method:
 
 ```csharp
-
-//Merge an order and the related invoice.
-connection.BulkMerge(order, order => order.Invoice);
-
-//Merge a list of orders and the related invoice to every order.
-connection.BulkMerge(orders, order => order.Invoice);
+// TODO
+connection.Execute(sql, anonymousCustomers);
 ```
 
-## Bulk Merge with "One to Many" Relation
+**The problem** is similar to what we have observed in our [Bulk Insert Benchmark](/bulk-insert#benchmark); one database round-trip is required for every row that needs to be updated, making the entire operation significantly slower than if you use the Dapper Plus `BulkMerge` method. Additionally, the syntax for a traditional upsert operation can be less intuitive, often requiring a refresher even for experienced developers (myself included—I often have to look it up on Google!).
 
-The Dapper Plus BulkMerge method allows merging related items with a "One to Many" relation.
+Let's compare the performance of both techniques:
 
+| Technique        | 50 Entities | 2,000 Entities | 5,000 Entities |
+| :--------------- | -----------:| --------------:| --------------:|
+| Merge (Execute)  | 1,200 ms    | 2,400 ms       | 6,000 ms       |
+| BulkMerge        | 50 ms       | 55 ms          | 75 ms          |
+
+As demonstrated with other bulk operations, you can try this [online benchmark](https://dotnetfiddle.net/CqTwfr) on .NET Fiddle.
+
+The `BulkMerge` method can reduce saving times by up to 99% for SQL Server when handling a large number of entities. Additionally, it significantly cuts down the time spent writing and maintaining code due to the complexity of the `MERGE` statement compared to traditional insert or update statements.
+
+## Getting Started with Bulk Merge
+
+To get started with the `BulkMerge` method, please read our comprehensive [Bulk Extensions Methods](/bulk-extensions-methods) article for all the necessary information.
+
+Here is a recap:
+
+- **Asynchronous Upsert**: You can perform upsert operations asynchronously with the `BulkMergeAsync` method.
+- **Chaining Operations**: Enhance workflow efficiency by chaining operations with the `AlsoBulkMerge` and `ThenBulkMerge` methods.
+- **Versatile Usage**: Utilize `BulkMerge` from a connection, transaction, or a new [Dapper Plus Context](/dapper-plus-context).
+- **Multiple Data Sources**: The `BulkMerge` method can be applied across various [DataSources](/datasource), enhancing its adaptability.
 
 ```csharp
-
-//Merge an order and all related items.
-connection.BulkMerge(order, order => order.Items);
-
-//Merge a list of orders and all related items to every order.
-connection.BulkMerge(orders, order => order.Items);
+// Example code will be provided here to demonstrate the use of BulkMerge
 ```
 
-## Bulk Merge with "Mixed" Relation
+[Online Example](https://dotnetfiddle.net/ltIqrC)
 
-The Dapper Plus BulkMerge method allows merging related item(s) with any relation.
+This setup guides you through the initial steps to effectively use `BulkMerge`, emphasizing its flexibility and power in handling data operations.
 
+## Common Options / Scenarios
+
+In this section, we will explore some common options and scenarios that developers often use with the `BulkMerge` method:
+
+- Ignore Properties on Insert or Update Only
+- Conditional Update
+- Merge Keep Identity
+
+For a more comprehensive list of options, please refer to our [options documentation](/options).
+
+### Ignore Properties on Insert or Update Only
+
+This option is often very useful for audit properties such as `CreatedDate` and `LastUpdatedDate`.
+
+- **Ignore on Merge Insert**: Use `IgnoreOnMergeInsertExpression` or `IgnoreOnMergeInsertNames` to exclude `LastUpdateDate` during the insert phase.
+- **Ignore on Merge Update**: Use `IgnoreOnMergeUpdateExpression` or `IgnoreOnMergeUpdateNames` to exclude `CreatedDate` during the update phase.
 
 ```csharp
-
-//Merge an order, all related items, and the related invoice.
-connection.BulkMerge(order, order => order.Items, order => order.Invoice);
-
-//Merge a list of orders, all related items to every order, and the related invoice to every order.
-connection.BulkMerge(orders, order => order.Items, order => order.Invoice);
+// Example code demonstrating how to ignore properties during insert or update
 ```
 
-## Bulk Merge Chain Action
+[Online Example](https://dotnetfiddle.net/ltIqrC)
 
-The Dapper Plus BulkMerge method allows chaining multiple bulk action methods.
+### Conditional Update
 
+Similar to what we have seen for the [Bulk Update - Conditional Update](/bulk-update#conditional-update), this option allows you to update rows only if at least one value has been modified.
+
+Use `MergeMatchedAndConditionNames` or `MergeMatchedAndConditionExpression` to specify which properties must differ before an update is applied.
 
 ```csharp
-
-//Merge an order and all related items. Merge an invoice and all related invoice items.
-connection.BulkMerge(order, order => order.Items)
-          .BulkMerge(invoice, invoice => invoice.Items);
-
-//Merge a list of orders and all related items to every order. Merge a list of invoices and 
-//all related items to every invoice.
-connection.BulkMerge(orders, order => order.Items)
-          .BulkMerge(invoices, invoice => invoice.Items);
-
+// Example code demonstrating Conditional Update using MergeMatchedAndConditionNames
 ```
 
+[Online Example](https://dotnetfiddle.net/ltIqrC)
+
+### Merge Keep Identity
+
+This option allows rows that will be inserted to retain specific values in an identity column from your entities. This is particularly useful when you want to maintain the same identity values as in your source data.
+
+```csharp
+// Example code demonstrating how to preserve identity values during a merge
+```
+
+[Online Example](https://dotnetfiddle.net/ltIqrC)
+
+## Conclusion
+
+In this article, we've explored the `BulkMerge` method, discussed its benefits, and highlighted a few common scenarios where it can be particularly effective.
+
+The three major advantages of `BulkMerge` are, without a doubt:
+- **Performance**: It processes large datasets rapidly, offering a significant speed advantage.
+- **Clear Syntax**: The method simplifies complex SQL upsert operations, making them easier to write and understand.
+- **Flexibility**: It offers a wide range of customization options to tailor the functionality to your specific needs.
+
+Being able to write an upsert statement in just a few seconds and customize it with all [available options](/options) will undoubtedly always benefit you.
