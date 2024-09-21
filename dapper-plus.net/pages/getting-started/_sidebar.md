@@ -1,7 +1,0 @@
-- [Overview](overview.md)
-- [Basic Usage](getting-started-basic-usage.md)
-- [Identity Propagation](getting-started-identity-propagation.md)
-- [Mapping](getting-started-mapping.md)
-- [Async Action](getting-started-async-action.md)
-- [Chaining Action](getting-started-chaining-action.md)
-- [Licensing](licensing.md)

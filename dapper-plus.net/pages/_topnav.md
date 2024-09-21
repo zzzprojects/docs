@@ -1,5 +1,2 @@
-- [Getting Started](getting-started/overview.md)
-- Documentation
-	- [Documentation](documentations/bulk-insert.md)
-	- [Release Notes](https://github.com/zzzprojects/Dapper-Plus/releases)
+- [Documentation](/overview)
 - [Online Examples](/online-examples)
