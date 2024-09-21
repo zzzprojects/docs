@@ -12,8 +12,8 @@ For developers who have just purchased a license, it's important to always use t
 
 You can use the library for free in the following cases:
 
-- When using single methods such as `SingleInsert`, `SingleUpdate`, etc.
-- When using community methods such as `CreateTable` without data
+- When using single methods such as [SingleInsert](/single-extensions-methods#single-insert), [SingleUpdate](/single-extensions-methods#single-update), etc.
+- When using community methods such as [CreateTable](/create-table) without data
 
 In all other cases, you must [purchase](/pricing) a license after evaluating the library.
 

@@ -12,7 +12,7 @@ Like every library, I eventually discovered that Dapper also has its limitations
 
 One day, the job I had to do was to import more than 10,000 rows into my database. Since Dapper already supports [inserting multiple rows in a database](https://www.learndapper.com/saving-data/insert#dapper-insert-multiple-rows), the job was already completed, right? **WRONG!** It was at this moment I discovered that Dapper has performance limitations by making one database round-trip for every entity I had to save instead of bulking them.
 
-Obviously, I didn’t want my end user to have to wait several seconds for these import operations, anyway who would want to wait that long? I barely had the patience myself to wait that long when I was coding this import feature.
+Obviously, I didn't want my end user to have to wait several seconds for these import operations, anyway who would want to wait that long? I barely had the patience myself to wait that long when I was coding this import feature.
 
 This is when and why I created Dapper Plus with the same goal as Dapper in my mind. So **What is Dapper Plus?** A library you can use with or without Dapper that makes your life easier by providing an easy-to-use API that extends your connection. Dapper Plus handles everything for you... From opening the connection, creating/executing the most optimized saving command, to outputting values to your entities.
 
@@ -68,7 +68,7 @@ This means that Dapper Plus for inserting 2,000 rows is around **75x faster, red
 
 Some developers will argue that you can use alternative techniques to insert faster than the traditional ways in Dapper (obviously, since we use those techniques!), but **remember:** One of the major advantages of the Dapper Plus library is making your life easier.
 
-If you ask those same developers how to write a merge (insert or update) operation, it will take them several minutes, and they will even need to search on Google how to make a MERGE statement (I know I still have to do it every time). On the other hand, you can simply call [BulkMerge](/bulk-merge) and have access to [hundreds of options](#options). So even for explaining and writing code, we are still way faster!
+If you ask those same developers how to write a merge (insert or update) operation, it will take them several minutes, and they will even need to search on Google how to make a MERGE statement (I know I still have to do it every time). On the other hand, you can simply call [BulkMerge](/bulk-merge) and have access to [hundreds of options](/options). So even for explaining and writing code, we are still way faster!
 
 Saving your data as fast as possible is very important to make your application **responsive**, and that's exactly what our library offers.
 
@@ -89,7 +89,7 @@ So, letting Dapper Plus write those saving SQL statements for you comes with som
 
 There are multiple other advantages. But, in short, your code is faster and **YOU** code faster, allowing yourself to focus more on strategic tasks that require **your expertise** and less about writing those boring SQL statements.
 
-While performance is always the main goal for Dapper Plus, providing you with flexibility is another. You will learn that Dapper Plus gives you access to [hundreds of options](#options) enhancing even more those advantages that we just saw. Even when you looked at our first example, you understood in a blink of an eye what was the purpose of this option `InsertIfNotExists = true`.
+While performance is always the main goal for Dapper Plus, providing you with flexibility is another. You will learn that Dapper Plus gives you access to [hundreds of options](/options) enhancing even more those advantages that we just saw. Even when you looked at our first example, you understood in a blink of an eye what was the purpose of this option `InsertIfNotExists = true`.
 
 We always like to say that our library is: **Easy to use, easy to customize!**
 

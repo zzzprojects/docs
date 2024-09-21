@@ -20,5 +20,6 @@
 - [Identity/Key Propagation](/identity-key-propagation)
 - [Mapping](/mapping)
 - [Mapping Key](/mapping-key)
+- [Release Notes](https://github.com/zzzprojects/Dapper-Plus/releases)
 - [Licensing](/licensing)
 - [Trial](/trial)

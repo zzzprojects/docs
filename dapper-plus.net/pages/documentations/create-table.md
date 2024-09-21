@@ -1,12 +1,10 @@
 ---
 Title: Dapper Create Table | Use Code First approach in your application
 MetaDescription: Explore how to utilize Dapper Plus' CreateTable extension method for a 'Code First' approach in your SQL Server applications. Learn about table types, data annotations, and populating tables swiftly. Ideal for both testing scenarios and specific production use cases.
-LastMod: 2023-09-29
+LastMod: 2024-09-21
 ---
 
 # Dapper Create Table: Use Code First approach in your application
-
-## Description
 
 The Dapper Plus `CreateTable` extension method lets you create a table in a SQL Server database. The `CreateTable` method returns the name of the table created.
 
@@ -109,7 +107,7 @@ public class Customer
 
 ## Create Table and Populate
 
-Besides creating a table, you can also populate it with a list right after you make it:
+Besides creating a table, you can also populate it with a list right after you make it. However this part require a valid [Dapper Plus License](/pricing) as a [Bulk Insert](/bulk-insert) is used to populate it:
 
 - `CreateTable<T>(this IDbConnection connection, IEnumerable<T> items, string tableName)`
 - `CreateTable<T>(this IDbConnection connection, IEnumerable<T> items, CreateTableType createTableType)`
@@ -146,3 +144,9 @@ public class Customer
 ```
 
 [Try it](https://dotnetfiddle.net/LSiOah)
+
+## Conclusion
+
+The Dapper Plus create table feature is one of the most valuable free methods our library offers, especially for testing purposes. The ability to quickly set up a database without manually scripting the create statement significantly streamlines development processes.
+
+However, its utility extends beyond just development environments. The need to create and populate temporary tables in production environments is a common scenario, making this feature equally essential for live applications.

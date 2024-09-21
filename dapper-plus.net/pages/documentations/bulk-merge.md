@@ -4,8 +4,6 @@ MetaDescription: Learn how to perform faster "add or update"/"upsert" in Dapper 
 LastMod: 2024-09-21
 ---
 
-Here’s a streamlined version of your introduction for the "Bulk Merge" article, which focuses on clarity and impact:
-
 # Bulk Merge: The Fastest Way in Dapper to Upsert Multiple Rows
 
 The Dapper Plus `BulkMerge` extension method performs an `Add or Update` operation, more commonly known as an [Upsert](https://en.wikipedia.org/wiki/Merge_(SQL)). This method updates existing rows and inserts non-existing rows in your database seamlessly.
