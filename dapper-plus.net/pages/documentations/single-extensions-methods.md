@@ -1,89 +1,104 @@
 ---
 Title: The Easiest Way to Save Data: Single Extension Methods (100% Free) 
 MetaDescription: The Easiest Way to Save Data: Single Extension Methods (100% Free) 
-LastMod: 2024-06-27
+LastMod: 2024-09-21
 ---
-
-TBD: Add also a context part???
 
 # The Easiest Way to Save Data: Single Extension Methods (100% Free)
 
-In our getting started with our [Bulk Extension Methods](#) article, we saw that one of the major advantage is that you don't have to write your saving SQL for every entity type. They are usually boring to write and follow pretty much the same pattern. Who like to write them anyway?
+In our [Bulk Extension Methods](/bulk-extensions-methods) documentation, we highlighted a significant advantage: you don't have to write your SQL statements for saving entities. These SQL statements are often repetitive and tedious to write. Honestly, who enjoys that?
 
-Surely not me! But then if you only have a few entities to save, would not be nice to still enjoy this major advantage but for free?
+Certainly not me! But what if you only have a few entities to save? Wouldn't it be great to still enjoy this major advantages of the bulk extension methods, but for free?
 
-Surely we agree! **Single methods are 100% free and doesn't require any license.** So feel free to use them for your personal projects, commercial projects, or any other kind of projects.
+We thought you'd agree! **Single methods are 100% free and require no license.** Feel free to use them in your personal projects, commercial projects, or any other type of project.
 
-Let me repeat, they are free to use!
+To reiterate, they are free to use!
 
-Single methods offer your the same flexibility and same advantages as their bulk extensions equivalent. However, you trade off the high performance advantage for the **100% free** advantage.
+Single methods offer the same flexibility and advantages as their bulk counterparts, except they trade off the **high performance** of bulk operations for being **100% free**.
 
-You can use any of those single method with one entity at a time:
-- [SingleInsert](#): This method allow you to **INSERT** one row
-- [SingleUpdate](#): This method allow your to **UPDATE** one row
-- [SingleDelete](#): This method allow your to **DELETE** one row
-- [SingleMerge](#): This method is an **UPSERT** operation. It will **UPDATE** if the row exists, or **INSERT** if not exists.
+You can use any of these single methods with one entity at a time:
+- **SingleInsert:** Allows you to **INSERT** one row.
+- **SingleUpdate:** Allows you to **UPDATE** one row.
+- **SingleDelete:** Allows you to **DELETE** one row.
+- **SingleMerge:** Performs an **UPSERT** operation; **UPDATE** if the row exists, **INSERT** if it does not.
 
-Here is our example from our first [Getting Started](#) article but using single method this time:
+Here is an example from our initial [overview](/overview) documentation, now using a single method:
+
 ```csharp
 var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServer());
 		
 // Easy to use
-connection.SingleInsert(customer);
+connection.SingleInsert(products[0]);
 
 // Easy to customize
 connection.UseBulkOptions(options => options.InsertIfNotExists = true)
-          .SingleInsert(customer);
+		  .BulkInsert(products[1]);
 ```
 
-Again, the code speak by itself as you already know what they will do:
+[Online Example](https://dotnetfiddle.net/pwcR2q)
 
-- The first `BulkInsert` will insert one customer in your database 
-- The second `BulkInsert` will insert one customer if it doesn't already exists.
+Again, the code speaks for itself, as you already know what it will do:
+
+- The first `SingleInsert` will insert one product into your database.
+- The second `SingleInsert` will insert one product only if they don't already exist.
+
+## Single Insert
+
+The `SingleInsert` and `SingleInsertAsync` methods allow you to **INSERT** one row.
+
+For more information about usage and customization, refer to the equivalent [BulkInsert](/bulk-insert) methods.
+
+## Single Update
+
+The `SingleUpdate` and `SingleUpdateAsync` methods allow you to **UPDATE** one row.
+
+For more details on usage and customization, see the equivalent [BulkUpdate](/bulk-update) methods.
+
+## Single Delete
+
+The `SingleDelete` and `SingleDeleteAsync` methods allow you to **DELETE** one row.
+
+For additional information on usage and customization, refer to the equivalent [BulkDelete](/bulk-delete) methods.
+
+## Single Merge
+
+The `SingleMerge` and `SingleMergeAsync` methods perform an **UPSERT** operation. They will **UPDATE** if the row exists or **INSERT** if it does not.
+
+For more documentation about usage and customization, see the equivalent [BulkMerge](/bulk-merge) methods.
+
+## Single Synchronize
+
+The `SingleSynchronize` and `SingleSynchronizeAsync` methods are equals to a **MIRROR** operation; they ensure your table matches your data source exactly. This includes **UPDATING** existing rows, **INSERTING** non-existing rows, and **DELETING** rows that are not in your data source. However, this method is rarely practical as it mirrors only one row.
+
+For more details on usage and customization, refer to the equivalent [BulkSynchronize](/bulk-synchronize) methods.
 
 ## How to Use Single Action Methods With Multiple Rows?
 
-The answer is simple: You cannot. **Oh WAIT! Yes you can**, you just have to use the `foreach` statement!
+The answer is simple: You cannot. **Oh WAIT! Yes you can**, but you'll need to use the `foreach` statement!
 
-If we take our main example that we have see in our [Bulk Extension Methods](#) article, we can easily do it this way:
-
-```csharp
-Merge Customer
-Insert Order
-Insert OrderItem
-```
-
-The main differense is one database round-trip will be required for every action executed. So if you have only a few entities to save, single method are great. But if you have hundred or thousand entitiy to save, we recommand you to use bulk extension method instead.
-
-## Async Method
-
-All our single extension methods offer their async equivalence:
-
-- [SingleInsertAsync](#)
-- [SingleUpdateAsync](#)
-- [SingleDeleteAsync](#)
-- [SingleMergeAsync](#)
-
-Let take our previous example that insert/merge multiple entities using the `ForEach` statement but this time asynchrousnouly:
+Taking our initial example, you can apply the single methods in this way:
 
 ```csharp
-// TODO
+var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServer());
+
+// Easy to use
+products.ForEach(x => connection.SingleInsert(x));
+
+// Easy to customize
+products.ForEach(x => connection.UseBulkOptions(options => options.InsertIfNotExists = true)
+		  .BulkInsert(x));
 ```
 
-And as we learned from our previous [Bulk Extensions Async](#) article, you can pass the `CancellationToken` from the connection:
+[Online Example](https://dotnetfiddle.net/f0Hf1F)
 
-```csharp
-// TODO
-```
+The main difference is that one database round-trip will be required for every action executed. So, if you have only a few entities to save, single methods are great as the performance impact is minimal. However, if you need to save hundreds or thousands of entities, we recommend using the [bulk extensions methods](/bulk-extensions-methods) instead for better efficiency and performance.
 
 ## Conclusion
 
-This getting started article introduced Single Extension Methods. By now, you should already know:
+In this documentation, we introduced our single extension methods. Here are the key points to remember:
 
-- They are **100% free** to use
-- You can insert multiple rows but without the performance [Bulk Extension Methods](#) provide
-- You can use them asynchrously
+- They are **100% free** to use.
+- You can insert multiple rows using a `foreach` loop, but without the performance benefits that [Bulk Extension Methods](/bulk-extensions-methods) offer.
+- These methods are available for asynchronous operations.
 
-Since they are free, why not trying them right now by [downloading Dapper Plus](#)?
-
-It's now the time to continue our getting started journey by learning how to map your entities and customize your saving operation through options we offer. But first, let understand [What is the Dapper Plus Context](#) which is a prerequiste for this.
+Since they are free, why not try them out right now by [downloading Dapper Plus](/downloads)?
