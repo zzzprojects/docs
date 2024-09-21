@@ -4,50 +4,40 @@ MetaDescription: 100+ Options to Improve Flexibility in Your Data Saving Operati
 LastMod: 2024-09-21
 ---
 
-# 100+ Options to Improve Flexibility in Your Data Saving Operations
+# 100+ Options to Add Flexibility to Your Data Saving Operations
 
-// TODO: We can also give option for a column... MapWithOptions
+Being able to save your entities quickly is crucial, but having the flexibility to save them **THE WAY YOU WANT** often holds greater importance, especially when using [Bulk Extensions Methods](/bulk-extensions-methods) and [Single Extensions Methods](/single-extensions-methods).
 
-Being able to save entity very fast is always important but being able to save entity the **WAY YOU WANT** is often more important when using [Bulk Methods](#) and [Single Methods](#).
+Before we learn into all the available options, let's first understand how to use them with the `UseBulkOptions` method: 
 
-We just saw in the previous article how to [map your entity](#) for common scenario. However, this mapping only cover a subset of all option our library support.
-
-Before learning more about all the [options](#), let learn first how to use the method `UseBulkOptions`:
-
-- [From Mapping](#)
-- [From Connection and Transaction](#)
+- From Mapping
+- From Connection and Transaction
 
 ## From Mapping
 
-You can use the `UseBulkOptions` method by adding it to your mapping for a specific entity type. So every time your mapping is called, the bulk operations under the hood will use those options:
+You can utilize the `UseBulkOptions` method by incorporating it into the mapping for a specific entity type. This ensures that every time your mapping is invoked, the bulk operations will employ these pre-defined options:
 
 ```csharp
-todo
+// example
 ```
 
-For options that are specific for an entity type or should always be used when saved this entity type, this is the recommanded way.
+You can also use a [mapping key](/mapping-key) if the [mapping](/mapping) is not the default one used for saving your entities.
 
-[Mapping Key]
+[Online Example](https://dotnetfiddle.net/pwcR2q)
 
 ## From Connection and Transaction
 
-You can use the `UseBulkOptions` method by chaining it as the first method to a connection or transaction. When performing this way, all bulk operations chained after will use those options.
+You can call the `UseBulkOptions` method directly from the connection or transaction before chaining your bulk operations methods. When configured in this manner, all subsequent bulk operations will use the specified options. Note that only general options that are not related to a specific entity type, such as `Audit`, `BatchSize`, or `Log`, are available in this context:
 
 ```csharp
+// example
 ```
 
-This is the recommand way for option that are more generic such as auditing and logging. Options that are generic for a type should not be used this way.
-
-As their will be used for maybe more than 1 type, you should only specify global option here like a `BatchSize` or if you want to use the `Audit`.
-
-You can specify options that are more generate during the connection such as `Audit`, `BatchSize`, and `Logging`.
-```csharp
-todo
-```
+[Online Example](https://dotnetfiddle.net/pwcR2q)
 
 ## Options
 
-This section is under developement since 2024-09-21, it will soon be improved.
+This section is currently under development as of 2024-09-21 and will soon be enhanced. Our upcoming updates will include better categorization of options, along with detailed descriptions and practical examples. Stay tuned for these improvements, designed to enhance your understanding and usage of the available settings in our library.
 
 - Mapping
    - CaseSensitive
@@ -333,8 +323,4 @@ Lambda
 
 ## Conclusion
 
-In this article, we only have seen an introduction to all options we provide. Fortunately (because this is a good thing), our library provide too many options to cover them all in a getting started.
-
-We highly encourage you to read from time to time our [Documention - Options & UseBulkOptions](#), to better understand everything you can do through our library.
-
-One major problem when providing options through the mapping is you might need different options for different scenario, so how can you handle this? Obviously that is not a problem as the next article about [Mapping Key](#) will solve this.
+In this article, we've explored the extensive range of options Dapper Plus offers. It's understandable to feel a bit overwhelmed by the sheer number of choices available. Typically, a developer might use about 10 options throughout a project. However, if you have specific requirements, it's likely that one of our options can meet your needs. Should you need further clarification or have unique scenarios, you might want to revisit this page or [contact us directly](/contact-us) for assistance.
