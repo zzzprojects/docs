@@ -10,14 +10,14 @@ The Dapper Plus `BulkMerge` extension method performs an `Add or Update` operati
 
 ```csharp
 // Easy to use
-connection.BulkMerge(orders);
+connection.BulkMerge(products);
 
 // Easy to customize
-connection.UseBulkOptions(options => options.InsertIfNotExists = true)
-          .BulkMerge(orders);
+connection.UseBulkOptions(options => options.MergeKeepIdentity = true)
+		  .BulkMerge(products);
 ```
 
-[Online Example](https://dotnetfiddle.net/ltIqrC)
+[Online Example](https://dotnetfiddle.net/v5stH2)
 
 `BulkMerge` not only merges your entities at an extremely fast rate but also allows you to quickly customize the process with [hundreds of options](/options), eliminating the need to remember complex SQL syntax.
 
@@ -76,36 +76,58 @@ For a more comprehensive list of options, please refer to our [options documenta
 
 This option is often very useful for audit properties such as `CreatedDate` and `LastUpdatedDate`.
 
-- **Ignore on Merge Insert**: Use `IgnoreOnMergeInsertExpression` or `IgnoreOnMergeInsertNames` to exclude `LastUpdateDate` during the insert phase.
+- **Ignore on Merge Insert**: Use `IgnoreOnMergeInsertExpression` or `IgnoreOnMergeInsertNames` to exclude `LastUpdatedDate` during the insert phase.
 - **Ignore on Merge Update**: Use `IgnoreOnMergeUpdateExpression` or `IgnoreOnMergeUpdateNames` to exclude `CreatedDate` during the update phase.
 
 ```csharp
-// Example code demonstrating how to ignore properties during insert or update
+DapperPlusManager.Entity<Product>()
+	.Table("Product")
+	.Identity(x => x.ProductID)
+	.UseBulkOptions(x => {
+		x.IgnoreOnMergeInsertExpression = y => new { y.LastUpdatedDate };
+		x.IgnoreOnMergeUpdateExpression = y => new { y.CreatedDate };
+	});
+	
+var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServer());
+
+connection.BulkMerge(products);
 ```
 
-[Online Example](https://dotnetfiddle.net/ltIqrC)
+[Online Example](https://dotnetfiddle.net/KnXMdZ)
 
 ### Conditional Update
 
 Similar to what we have seen for the [Bulk Update - Conditional Update](/bulk-update#conditional-update), this option allows you to update rows only if at least one value has been modified.
 
-Use `MergeMatchedAndConditionNames` or `MergeMatchedAndConditionExpression` to specify which properties must differ before an update is applied.
+Use `MergeMatchedAndOneNotConditionNames` or `MergeMatchedAndOneNotConditionExpression` to specify which properties must differ before an update is applied.
 
 ```csharp
-// Example code demonstrating Conditional Update using MergeMatchedAndConditionNames
+DapperPlusManager.Entity<Product>()
+	.Table("Product")
+	.Identity(x => x.ProductID)
+	.UseBulkOptions(x => {
+		x.MergeMatchedAndOneNotConditionExpression = y => new { y.Name };
+	});
+	
+var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServer());
+
+connection.BulkMerge(products);
 ```
 
-[Online Example](https://dotnetfiddle.net/ltIqrC)
+[Online Example](https://dotnetfiddle.net/UbOQVY)
 
 ### Merge Keep Identity
 
 This option allows rows that will be inserted to retain specific values in an identity column from your entities. This is particularly useful when you want to maintain the same identity values as in your source data.
 
 ```csharp
-// Example code demonstrating how to preserve identity values during a merge
+var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServer());
+
+connection.UseBulkOptions(options => options.MergeKeepIdentity = true)
+		  .BulkMerge(products);
 ```
 
-[Online Example](https://dotnetfiddle.net/ltIqrC)
+[Online Example](https://dotnetfiddle.net/72fytT)
 
 ## Conclusion
 

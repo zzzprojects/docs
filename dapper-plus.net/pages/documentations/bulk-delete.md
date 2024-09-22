@@ -10,18 +10,19 @@ The Dapper Plus `BulkDelete` extension method allows you to delete multiple rows
 
 ```csharp
 // Easy to use
-connection.BulkDelete(orders);
+connection.BulkDelete(products);
 
 // Easy to customize
-connection.UseBulkOptions(options => options.Condition = "IsActive = 0") // Example condition
-          .BulkDelete(orders);
+var resultInfo = new ResultInfo();
+connection.UseBulkOptions(options => {
+	options.UseRowsAffected = true;
+	options.ResultInfo = resultInfo; })
+	.BulkDelete(products);
 ```
 
-[Online Example](https://dotnetfiddle.net/ltIqrC)
+[Online Example](https://dotnetfiddle.net/p7L99k)
 
 The `BulkDelete` method simplifies the process of deleting your entities, making it easier to write and maintain. We will explore some common options and scenarios later in this article.
-
-Here’s a refined version of your "Benchmark" section for the "Bulk Delete" functionality, with enhanced clarity and structure:
 
 ## Benchmark
 
@@ -62,12 +63,6 @@ Here is a recap:
 - You can use `BulkDelete` from a connection, transaction, or a new [Dapper Plus Context](/dapper-plus-context).
 - You can utilize the `BulkDelete` method with multiple different [DataSources](/datasource).
 
-```csharp
-// Example code will be provided here
-```
-
-[Online Example](https://dotnetfiddle.net/ltIqrC)
-
 ## Common Options / Scenarios
 
 In this section, we will explore some common options and scenarios that developers often use with the `BulkDelete` method:
@@ -82,20 +77,36 @@ For more options, refer to our [list of options](/options) documentation.
 If your table also has a rowversion column, you might only want to delete rows that have a corresponding rowversion. The `DeleteMatchedAndConditionNames` and `DeleteMatchedAndConditionExpression` options allow you to delete only rows that match a specific condition.
 
 ```csharp
-// Example code demonstrating Conditional Delete
+DapperPlusManager.Entity<Product>()
+	.Table("Product")
+	.Identity(x => x.ProductID)
+	.UseBulkOptions(x => {
+		x.DeleteMatchedAndConditionExpression = y => new { y.Version };
+	});
+	
+var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServer());
+
+connection.BulkDelete(products);
 ```
 
-[Online Example](https://dotnetfiddle.net/ltIqrC)
+[Online Example](https://dotnetfiddle.net/LNO8Mj)
 
 ### Rows Affected
 
 By default, Dapper Plus does not return the number of rows affected as it can decrease performance in some scenarios. However, you can enable this feature with the `UseRowsAffected` option and view the results from the `ResultInfo` property.
 
 ```csharp
-// Example code demonstrating how to use the Rows Affected feature
+var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServer());
+
+var resultInfo = new ResultInfo();
+
+connection.UseBulkOptions(options => {
+	options.UseRowsAffected = true;
+	options.ResultInfo = resultInfo; })
+	.BulkDelete(products);
 ```
 
-[Online Example](https://dotnetfiddle.net/ltIqrC)
+[Online Example](https://dotnetfiddle.net/WOFkM6)
 
 ## Conclusion
 

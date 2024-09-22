@@ -10,14 +10,14 @@ The Dapper Plus `BulkInsert` extension method allows you to insert multiple rows
 
 ```csharp
 // Easy to use
-connection.BulkInsert(orders);
+connection.BulkInsert(products);
 
 // Easy to customize
 connection.UseBulkOptions(options => options.InsertIfNotExists = true)
-          .BulkInsert(orders);
+		  .BulkInsert(products);
 ```
 
-[Online Example](https://dotnetfiddle.net/ltIqrC)
+[Online Example](https://dotnetfiddle.net/6TTDXX)
 
 The `BulkInsert` method is not only exceptionally fast but also very easy to use and customize with all of our [available options](#options). We will explore some common options and scenarios later in this article.
 
@@ -54,12 +54,6 @@ To get started, we recommend first reading our [Bulk Extensions Methods](/bulk-e
 - You can use `BulkInsert` from a connection, transaction, or a new [Dapper Plus Context](/dapper-plus-context).
 - You can utilize the `BulkInsert` method with multiple different [DataSources](/datasource).
 
-```csharp
-// Example code will be provided here
-```
-
-[Online Example](https://dotnetfiddle.net/ltIqrC)
-
 ## Common Options / Scenarios
 
 In this section, we will explore some common options and scenarios that developers often use with the `BulkInsert` method:
@@ -74,20 +68,28 @@ For more options, refer to our [list of options](/options) documentation.
 This option ensures that only new entities that do not already exist in the database are inserted. It is great for maintaining data integrity and avoiding duplicate entries. This option requires you to set a key during the [mapping](/mapping) process or use the `ColumnPrimaryKeyExpression` or `ColumnPrimaryKeyNames` options.
 
 ```csharp
-// Example code demonstrating InsertIfNotExists
+var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServer());
+
+// Bulk Insert
+connection.UseBulkOptions(options => options.InsertIfNotExists = true)
+		  .BulkInsert(products);
 ```
 
-[Online Example](https://dotnetfiddle.net/ltIqrC)
+[Online Example](https://dotnetfiddle.net/NB6KDY)
 
 ### InsertKeepIdentity
 
 This option allows you to insert specific values into an identity column from your entities. This is useful when you want to maintain the same identity values as in your source data.
 
 ```csharp
-// Example code demonstrating InsertKeepIdentity
+var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServer());
+
+// Bulk Insert
+connection.UseBulkOptions(options => options.InsertKeepIdentity = true)
+		  .BulkInsert(products);
 ```
 
-[Online Example](https://dotnetfiddle.net/ltIqrC)
+[Online Example](https://dotnetfiddle.net/KzV2AI)
 
 ## Conclusion
 
