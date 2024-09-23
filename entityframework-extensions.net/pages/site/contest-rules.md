@@ -19,7 +19,7 @@ See below for full contest details. Participation in this contest constitutes yo
    
    - c.	Answer the email sent from info@zzzprojects.com to confirm your email is valid.
    
-4. You will receive one (1) Entry in the Contest when you give us feedback as described in Section 3 in accordance with these Rules. LIMIT (1) ENTRY PER PERSON/COMPANY DURING THE CONTEST PERIOD, your participation will be entered automatically for 3 months month following your first entry or until the end of the contest. You can only win once, if you win a license your name is withdrawn from the other contestants for the following monthly draws. 
+4. You will receive one (1) Entry in the Contest when you give us feedback as described in Section 3 in accordance with these Rules. LIMIT (1) ENTRY PER PERSON/COMPANY DURING THE CONTEST PERIOD, your participation will be entered automatically for 3 months following your first entry or until the end of the contest. You can only win once, if you win a license your name is withdrawn from the other contestants for the following monthly draws. 
  If it is discovered that you attempted to enter more than once during the Contest Period, then all your Entries will be void.  Use of any automated system to submit Entries is prohibited and will result in disqualification.  
 
 
