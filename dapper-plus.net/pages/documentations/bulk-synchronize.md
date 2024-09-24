@@ -10,14 +10,14 @@ The Dapper Plus `BulkSynchronize` extension method acts as a **MIRROR** operatio
 
 ```csharp
 // Easy to use
-connection.BulkSynchronize(orders);
+connection.BulkSynchronize(products);
 
 // Easy to customize
-connection.UseBulkOptions(options => options.InsertIfNotExists = true)
-          .BulkSynchronize(orders);
+connection.UseBulkOptions(options => options.BatchSize = 1000)
+		  .BulkSynchronize(products);
 ```
 
-[Online Example](https://dotnetfiddle.net/ltIqrC)
+[Online Example](https://dotnetfiddle.net/V2iLNI)
 
 The `BulkSynchronize` method may be less frequently used, but it remains one of the most powerful tools in the Dapper Plus arsenal, allowing you to create an exact mirror of an entire table or just a portion of it, as we will explore later in this article.
 
@@ -29,9 +29,9 @@ However, let's examine the performance of our `BulkSynchronize` method:
 
 | Technique        | 50 Entities | 2,000 Entities | 5,000 Entities |
 | :--------------- | -----------:| --------------:| --------------:|
-| BulkSynchronize  | 50 ms       | 55 ms          | 75 ms          |
+| BulkSynchronize  | 200 ms      | 750 ms         | 1600 ms          |
 
-As always, don't just take our word for it. Try our [online benchmark](https://dotnetfiddle.net/CqTwfr) on .NET Fiddle to see the performance difference for yourself and verify these results firsthand.
+As always, don't just take our word for it. Try our [online benchmark](https://dotnetfiddle.net/0BOMyw) on .NET Fiddle to see the performance difference for yourself and verify these results firsthand.
 
 ## Getting Started with Bulk Synchronize
 
@@ -66,20 +66,34 @@ For a comprehensive list of options, please refer to our [options documentation]
 Suppose your table has a column named `StoreID` that acts like a tenant identifier. You can synchronize only a specific store by using the `ColumnSynchronizeDeleteKeySubsetExpression` or `ColumnSynchronizeDeleteKeySubsetNames` option. This ensures that only data from your data source for a specified store is synchronized, leaving all other store data unmodified.
 
 ```csharp
-// Example code demonstrating how to synchronize only a subset of your data
+DapperPlusManager.Entity<Product>()
+	.Table("Product")
+	.Identity(x => x.ProductID)
+	.UseBulkOptions(options => options.ColumnSynchronizeDeleteKeySubsetExpression = x => new { x.StoreID });
+	
+var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServer());
+	
+connection.BulkSynchronize(products);
 ```
 
-[Online Example](https://dotnetfiddle.net/ltIqrC)
+[Online Example](https://dotnetfiddle.net/J4ogEk)
 
 ### SynchronizeSoftDeleteFormula
 
 If you prefer performing a soft delete instead of a hard delete, you can use the `SynchronizeSoftDeleteFormula`. This option allows you to update non-existing rows based on your formula, effectively enabling soft deletion where data is marked as inactive instead of being removed.
 
 ```csharp
-// Example code demonstrating how to use SynchronizeSoftDeleteFormula
+DapperPlusManager.Entity<Product>()
+	.Table("Product")
+	.Identity(x => x.ProductID)
+	.UseBulkOptions(options => options.SynchronizeSoftDeleteFormula = "IsSoftDeleted = 1");
+	
+var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServer());
+	
+connection.BulkSynchronize(products);
 ```
 
-[Online Example](https://dotnetfiddle.net/ltIqrC)
+[Online Example](https://dotnetfiddle.net/Q5uzy3)
 
 These options enhance the flexibility of the `BulkSynchronize` method, making it suitable for a variety of data handling scenarios.
 

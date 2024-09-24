@@ -58,7 +58,7 @@ Why do so many companies trust us? Probably because we are proud to offer an **o
 We said earlier that Dapper Plus was faster than the traditional way of inserting with Dapper, but how much faster exactly?
 
 | Library      | 500 rows   | 1,000 rows | 2,000 rows  |
-| :----------- | :--------: | :--------: | :---------: |
+| :----------- | ---------: | ---------: | ----------: |
 | Dapper       | 1550 ms    | 3250 ms    | 6500 ms     |
 | Dapper Plus  | 40 ms      | 50 ms      | 80 ms       |
 

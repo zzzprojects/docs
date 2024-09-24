@@ -34,12 +34,12 @@ connection.Execute(sql, anonymousCustomers);
 
 Let's compare the performance of both techniques:
 
-| Technique        | 50 Entities | 2,000 Entities | 5,000 Entities |
+| Technique        | 50 Entities | 1,000 Entities | 2,000 Entities |
 | :--------------- | -----------:| --------------:| --------------:|
-| Merge (Execute)  | 1,200 ms    | 2,400 ms       | 6,000 ms       |
-| BulkMerge        | 50 ms       | 55 ms          | 75 ms          |
+| Merge (Execute)  | 400 ms      | 7000 ms       | 6,000 ms       |
+| BulkMerge        | 95 ms       | 425 ms          | 75 ms          |
 
-As demonstrated with other bulk operations, you can try this [online benchmark](https://dotnetfiddle.net/CqTwfr) on .NET Fiddle.
+As demonstrated with other bulk operations, you can try this [online benchmark](https://dotnetfiddle.net/piaZmp) on .NET Fiddle.
 
 The `BulkMerge` method can reduce saving times by up to 99% for SQL Server when handling a large number of entities. Additionally, it significantly cuts down the time spent writing and maintaining code due to the complexity of the `MERGE` statement compared to traditional insert or update statements.
 
@@ -53,14 +53,6 @@ Here is a recap:
 - **Chaining Operations**: Enhance workflow efficiency by chaining operations with the `AlsoBulkMerge` and `ThenBulkMerge` methods.
 - **Versatile Usage**: Utilize `BulkMerge` from a connection, transaction, or a new [Dapper Plus Context](/dapper-plus-context).
 - **Multiple Data Sources**: The `BulkMerge` method can be applied across various [DataSources](/datasource), enhancing its adaptability.
-
-```csharp
-// Example code will be provided here to demonstrate the use of BulkMerge
-```
-
-[Online Example](https://dotnetfiddle.net/ltIqrC)
-
-This setup guides you through the initial steps to effectively use `BulkMerge`, emphasizing its flexibility and power in handling data operations.
 
 ## Common Options / Scenarios
 

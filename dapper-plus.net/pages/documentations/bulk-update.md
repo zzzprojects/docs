@@ -10,14 +10,14 @@ The Dapper Plus `BulkUpdate` extension method enables you to quickly update mult
 
 ```csharp
 // Easy to use
-connection.BulkUpdate(orders);
+connection.BulkUpdate(products);
 
 // Easy to customize
-connection.UseBulkOptions(options => options.InsertIfNotExists = true)
-          .BulkUpdate(orders);
+connection.UseBulkOptions(options => options.BatchSize = 1000)
+		  .BulkUpdate(products);
 ```
 
-[Online Example](https://dotnetfiddle.net/ltIqrC)
+[Online Example](https://dotnetfiddle.net/iezfmD)
 
 In this article, we will explore why using the `BulkUpdate` method can be extremely beneficial for your projects. We will also discuss some common options and scenarios, such as conditional updating (only updating rows if at least one value is different).
 
@@ -34,12 +34,12 @@ connection.Execute(sql, anonymousCustomers);
 
 Let's compare the performance of both techniques:
 
-| Technique         | 50 Entities | 2,000 Entities | 5,000 Entities |
+| Technique         | 50 Entities | 1,000 Entities | 2,000 Entities |
 | :---------------- | -----------:| --------------:| --------------:|
-| Update (Execute)  | 1,200 ms    | 2,400 ms       | 6,000 ms       |
-| BulkUpdate        | 50 ms       | 55 ms          | 75 ms          |
+| Update (Execute)  | 450 ms      | 5000 ms        | 10,000 ms      |
+| BulkUpdate        | 50 ms       | 350 ms         | 450 ms         |
 
-You can directly try this [online benchmark](https://dotnetfiddle.net/CqTwfr) in your browser.
+You can directly try this [online benchmark](https://dotnetfiddle.net/qnbq6o) in your browser.
 
 Not only does `BulkUpdate` offer significantly better performance, but the code is also clearer and easier to maintain.
 
@@ -51,12 +51,6 @@ To get started, you should read the [Bulk Extensions Methods](/bulk-extensions-m
 - You can [chain](/bulk-extensions-methods#chaining) operations with the `AlsoBulkUpdate` and `ThenBulkUpdate` methods.
 - You can use `BulkUpdate` from a connection, transaction, or a new [Dapper Plus Context](/dapper-plus-context).
 - You can utilize the `BulkUpdate` method with multiple different [DataSources](/datasource).
-
-```csharp
-// Example code will be provided here
-```
-
-[Online Example](https://dotnetfiddle.net/ltIqrC)
 
 ## Common Options / Scenarios
 
@@ -75,10 +69,17 @@ A common scenario when using `BulkUpdate` involves updating a large number of en
 In Dapper Plus, you can map your entities multiple times in different ways using a [mapping key](/mapping#mapping-key).
 
 ```csharp
-// Example code demonstrating Custom Key mapping
+DapperPlusManager.Entity<Product>()
+	.Table("Product")
+	.Identity(x => x.ProductID)
+	.Key(x => x.Code);
+	
+var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServer());
+			
+connection.BulkUpdate(products);
 ```
 
-[Online Example](https://dotnetfiddle.net/ltIqrC)
+[Online Example](https://dotnetfiddle.net/sZczkE)
 
 ### Conditional Update
 
@@ -87,20 +88,34 @@ Why update a row if no column values have been modified? This is often a require
 You can choose to update only if at least one column has a different value using the `UpdateMatchedAndOneNotConditionExpression` and `UpdateMatchedAndOneNotConditionNames` options:
 
 ```csharp
-// Example code demonstrating Conditional Update
+DapperPlusManager.Entity<Product>()
+	.Table("Product")
+	.Identity(x => x.ProductID)
+	.UseBulkOptions(options => options.UpdateMatchedAndOneNotConditionExpression = x => new { x.Name });
+	
+var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServer());
+
+connection.BulkUpdate(products);
 ```
 
-[Online Example](https://dotnetfiddle.net/ltIqrC)
+[Online Example](https://dotnetfiddle.net/V2dUq2)
 
 ### Coalesce Update
 
-Handling null values is another common scenario reported to us. If your database column value is not null but your entity's property value is null, you can opt to keep the database value with the `CoalesceDestinationOnUpdateExpression` and `CoalesceDestinationOnUpdateNames` options:
+Handling null values is another common scenario reported to us. If your database column value is not null but your entity's property value is null, you can opt to keep the database value with the `CoalesceOnUpdateExpression` and `CoalesceOnUpdateNames` options:
 
 ```csharp
-// Example code demonstrating Coalesce Update
+DapperPlusManager.Entity<Product>()
+	.Table("Product")
+	.Identity(x => x.ProductID)
+	.UseBulkOptions(options => options.CoalesceOnUpdateExpression = x => new { x.Name });
+	
+var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServer());
+	
+connection.BulkUpdate(products);
 ```
 
-[Online Example](https://dotnetfiddle.net/ltIqrC)
+[Online Example](https://dotnetfiddle.net/eV2FeA)
 
 ## Conclusion
 

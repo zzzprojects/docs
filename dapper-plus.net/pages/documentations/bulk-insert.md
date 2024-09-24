@@ -34,12 +34,12 @@ connection.Execute(sql, anonymousCustomers);
 
 Let's compare the performance of both techniques:
 
-| Technique           | 50 Entities | 2,000 Entities | 5,000 Entities |
-| :------------------ | -----------:| --------------:| --------------:|
-| Insert (Execute)    | 1,200 ms    | 2,400 ms       | 6,000 ms       |
-| BulkInsert          | 50 ms       | 55 ms          | 75 ms          |
+| Technique           | 50 Entities | 1,000 rows | 2,000 rows  |
+| :------------------ | -----------:| ----------:| -----------:|
+| Insert (Execute)    | 250 ms      | 3250 ms    | 6500 ms     |
+| BulkInsert          | 30 ms       | 50 ms      | 80 ms       |
 
-As always, don't trust numbers on the internet! Instead, try our [online benchmark](https://dotnetfiddle.net/CqTwfr) on .NET Fiddle and see the performance difference for yourself.
+As always, don't trust numbers on the internet! Instead, try our [online benchmark](https://dotnetfiddle.net/zlTePU) on .NET Fiddle and see the performance difference for yourself.
 
 The `BulkInsert` method allows you to reduce saving times by up to 99% for SQL Server when saving a large number of entities. Even for just 50 rows, it can reduce saving times by 88%, which can dramatically improve the user experience you provide to your clients.
 

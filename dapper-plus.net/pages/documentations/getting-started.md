@@ -1,147 +1,203 @@
 ---
-Title: What is Dapper Plus? Join Thousands of Companies Boosting Performance Worldwide
-MetaDescription: Learn what Dapper Plus is, who uses this library, why you need this library, how it helps you to develop faster, and how Dapper Plus helps Dapper.
-LastMod: 2024-09-17
+Title: Getting Started with Dapper Plus in Under 10 Minutes
+MetaDescription: Learn the basics of Dapper Plus in under 10 minutes. Install the library, execute bulk inserts, map entities, and explore options.
+LastMod: 2024-09-18
 ---
 
 # Getting Started with Dapper Plus
 
-So you are ready to try Dapper Plus for the first time?
+So, you're ready to try Dapper Plus for the first time?
 
-Under 10 minutes, I promise that you already will be confortable using our library in your day to day basis.
+In under 10 minutes, I promise that you'll already be comfortable using our library in your day-to-day programming.
 
 You will learn:
-- How easily you can use the [BulkInsert](/bulk-insert) method to reduce your saving times by up **99%**
-- How to [map](/mapping) your entities to save it the way **you want**
-- How to have access to [hundred of options](/options)
+- How easily you can use the [BulkInsert](/bulk-insert) and other [Bulk Extension Methods](/bulk-extensions-methods) to reduce your saving times by up to **99%**
+- How to [map](/mapping) your entities to save them the way **you want**
+- How to access [hundreds of options](/options) to customize your saving operations
+- And some more!
 
-Enough talk, let get started!
+Enough talk, let's get started!
 
 ## Download Dapper Plus
 
-The first step is obviously adding the Dapper Plus NuGet package to your project.
+The first step is obviously to add the Dapper Plus NuGet package to your project.
 
-You can find it by either go on our [download](/download) page or by using directly this NuGet link: [https://www.nuget.org/packages/Z.Dapper.Plus](https://www.nuget.org/packages/Z.Dapper.Plus)
+You can find it either by visiting our [download](/download) page or by using this direct NuGet link: [https://www.nuget.org/packages/Z.Dapper.Plus](https://www.nuget.org/packages/Z.Dapper.Plus).
 
-Even if you didn't have purchased the library yet, you can fully try all our features for free. Every month, a new [trial](/trial) is available, that expires at the end of the month. So using the latest version allow you to test our library without having to purchase it.
+Even if you haven't purchased the library yet, you can fully try **all our features for free**. Every month, a new [trial](/trial) version is available that expires at the end of the month. Using the latest version allows you to test our library without having to purchase it.
 
-Don't forget also to leave us a feedback to enter in our [contest to win a free license](https://dapper-plus.net/contest)
+Don’t forget to also leave us feedback to enter our [contest to win a free license](https://dapper-plus.net/contest).
 
 ## Using Directive
 
-The second step now that the library has been added to your project is adding the `using Z.Dapper.Plus;` header directive to your file, so you can have access to all our extension methods.
+The second step, now that the library has been added to your project, is to include the `using Z.Dapper.Plus;` header directive in your file. This allows you to access all our extension methods. You add it just like you would with the `using Dapper` directive:
 
 ```csharp
-using Dapper
-using Z.Dapper.Plus
+using Dapper;
+using Z.Dapper.Plus;
 ```
 
-So far, so good we did exactly the same as you normally do when using [Dapper](https://www.learndapper.com/) (Adding the NuGet package and the header directive), so nothing should be suprising.
+So far, so good. We've done exactly what you normally do when using [Dapper](https://www.learndapper.com/) (adding the NuGet package and the header directive), so nothing should be surprising.
 
-## My First BulkInsert / SingleInsert
+## My First BulkInsert
 
-For our getting started example, we will assume that we have to save a list of order and their corresponding order items.
+For our getting started example, we will assume that you need to save a list of orders and their corresponding order items.
 
-First, let insert our entities with our [BulkInsert](/bulk-insert) method:
+First, let's insert all our entities with our [BulkInsert](/bulk-insert) method:
 
 ```csharp
+DapperPlusManager.Entity<Order>()
+	.Identity(x => x.OrderID, true);
+DapperPlusManager.Entity<OrderItem>()
+	.Identity(x => x.OrderItemID, true);
+	
+var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServer());
+
+connection.BulkInsert(orders);
+connection.BulkInsert(orders.SelectMany(x => x.Items));
 ```
 
-[Online Examples](#)
+[Online Examples](https://dotnetfiddle.net/0ijPFA)
 
-Nothing special in our example beside that we have to propagate the `OrderID` identity values to the order items. See the following article if you want to know more about [propagating the identity value](/identity-key-propagation)
+Nothing special in our example besides that the `OrderID` identity value has been automatically propagated to their corresponding items. See the following article if you want to know more about [propagating the identity value](/identity-key-propagation).
 
-Let now make our code even simpler by using what we call [chaining methods](/bulk-extensions-methods#chaining-methods), this is the same principe of what we usally do through LINQ:
+Let's now make our code even simpler by using what we call [chaining methods](/bulk-extensions-methods#chaining-methods), employing the same principle we usually see with LINQ:
 
 ```csharp
+DapperPlusManager.Entity<Order>()
+	.Identity(x => x.OrderID, true);
+DapperPlusManager.Entity<OrderItem>()
+	.Identity(x => x.OrderItemID, true);
+	
+var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServer());
+
+connection.BulkInsert(orders).ThenBulkInsert(x => x.Items);
 ```
 
-[Online Examples](#)
+[Online Examples](https://dotnetfiddle.net/lbjr8C)
 
-The code is now simpler to write and simpler to read making it easier to maintains. On this example, we used the `ThenForEach` method to propagate the identity value this time.
+The code is now simpler to write and easier to read, making it **easier to maintain**.
 
-For people that want to use Dapper Plus for FREE, you can achieve the same result by using [SingleInsert](/single-extensions-methods) extension method:
-
-```csharp
-
-```
-
-[Online Examples](#)
+The same result can be achieved through our **FREE** [Single Methods](/single-extensions-methods).
 
 ## Mapping and Mapping Key
 
-So far so good, but what if you only want to insert a few number of properties?
+So far so good, but what if you only want to insert a few properties?
 
-This is now time to introduce the [Mapping](/mapping) to save your entity type the way **you want**. In our example, we will mixe a lot of mapping logic to show as much as we can:
+Now is the time to introduce [Mapping](/mapping) to save your entity type exactly how **you want**.
+
+In our example, we will mix a lot of mapping logic to demonstrate as much as possible:
 
 For the Order:
-- We will map only a few properties
-- We will map a constant value
-- We will map a value from a client-side evaluation
-- We will map a value from a database side evaluation
+- We will map only the `Number` property.
+- We will map a constant value (`IsActive`).
+- We will map a value from a client-side evaluation (`TotalAmount`).
+- We will map a value from a database-side evaluation (`CreatedDate`).
 
 For the OrderItem:
-- We will map the `OrderID` directly from the parent
-- We will ignore a few properties
-- We will call the `AutoMap` to complete the mapping
+- We will map the `OrderID` directly from the parent.
+- We will call the `AutoMap` to complete the mapping.
 
 ```alert-note
-**AutoMap**: Once you start to map, we cannot automatically use the automapping logic anymore unless you call explicitely the `AutoMap` method as we have shown for tyhe OrderItem.
+**AutoMap**: Once you start mapping, we cannot automatically use the auto-mapping logic anymore unless you explicitly call the `AutoMap` method as we have shown for the OrderItem.
 ```
 
-Here is the full example:
+Here is the full mapping:
 
 ```csharp
-TODO
+DapperPlusManager.Entity<Order>()
+	.Identity(x => x.OrderID)
+	.Map(x => new { x.Number })
+	.MapValue(true, "IsActive")
+	.Map(x => x.Items.Sum(y => y.Price), "TotalAmount")
+	.MapWithOptions(x => x.CreatedDate, options => {
+		options.FormulaInsert = "GETDATE()";
+	});
+
+DapperPlusManager.Entity<OrderItem>()
+	.Identity(x => x.OrderItemID)
+	.Map(x => x.Parent.OrderID, "OrderID")
+	.AutoMap();
+	
+var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServer());
+
+connection.BulkInsert(orders).ThenBulkInsert(x => x.Items);
+
+FiddleHelper.WriteTable(connection.Query<Order>("SELECT * FROM [Order]"));
+FiddleHelper.WriteTable(connection.Query<OrderItem>("SELECT * FROM [OrderItem]"));
 ```
 
-[Online Example](#)
+To see it in action, try this [Online Example](https://dotnetfiddle.net/FQWqTt).
 
-However something remain weird in this example, as you probably don't want this mapping to be your default behavior whenever you call the [BulkInsert](/bulk-insert)!
+However, something may seem odd in this example, as you probably don't want this mapping to be your default behavior whenever you call [BulkInsert](/bulk-insert)!
 
-Dapper Plus allow you to map your entity time an unlimited amount of time by using a [Mapping Key](/mapping-key) and specify it whenever you want to save your entity.
+Dapper Plus allows you to map your entity type an unlimited number of times by using a [Mapping Key](/mapping-key) and specifying it whenever you want to save your entity this way.
 
 ```csharp
-TODO
+DapperPlusManager.Entity<Order>("Order_CustomInsert")
+	.Identity(x => x.OrderID)
+	.Map(x => new { x.Number })
+	.MapValue(true, "IsActive")
+	.Map(x => x.Items.Sum(y => y.Price), "TotalAmount")
+	.MapWithOptions(x => x.CreatedDate, options => {
+		options.FormulaInsert = "GETDATE()";
+	});
+
+DapperPlusManager.Entity<OrderItem>("OrderItem_CustomInsert")
+	.Identity(x => x.OrderItemID)
+	.Map(x => x.Parent.OrderID, "OrderID")
+	.AutoMap();
+	
+var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServer());
+
+connection.BulkInsert("Order_CustomInsert", orders).ThenBulkInsert("OrderItem_CustomInsert", x => x.Items);
+
+FiddleHelper.WriteTable(connection.Query<Order>("SELECT * FROM [Order]"));
+FiddleHelper.WriteTable(connection.Query<OrderItem>("SELECT * FROM [OrderItem]"));
 ```
 
-[Online Example](#)
+[Online Example](https://dotnetfiddle.net/cnl9Vu)
 
-Another technique would have to use a new instance of the [DapperPlusContext](dapper-plus-context).
+Another technique would be to use a new instance of the [DapperPlusContext](dapper-plus-context).
  
 ## My First Options
 
-It's finally time to see how we can use some of the [hundreds of options](/options) available in Dapper Plus.
+It's finally time to explore some of the [hundreds of options](/options) available in Dapper Plus.
 
-To use options, you need to use the `UseBulkOptions` method from the connection or the mapping depending of the scenario.
+To use options, you need to employ the `UseBulkOptions` method from either the connection or the mapping, depending on the scenario.
 
-By example, let say I would like to log all query executed from Dapper Plus, doing it from the connection would make more sense:
-
-```csharp
-```
-
-[Online Example](#)
-
-While using the `UseBulkOptions` such as options that are more related to the mapping such as use the `UseTableLock`, or etc...
+For example, let's say I want to log all queries executed by Dapper Plus. Doing this from the connection would make more sense:
 
 ```csharp
+connection.UseBulkOptions(options => { options.Log += s => Console.WriteLine(s); })
+	.BulkInsert(orders).ThenBulkInsert(x => x.Items);
 ```
 
-[Online Example](#)
+[Online Example](https://dotnetfiddle.net/hkCmZv)
 
-## Data Source
-
-We have seen that Dapper Plus is flexible by allowing to provide a lot of options but also for supporting multiple kind of [Data Source](/data-source).
-
-In this example, we will assume that the data was imported from a CSV and loaded in a DataTable.
+While using the `UseBulkOptions` for options that are more related to the mapping, such as specifying that you want to keep the identity value when inserting, you can apply it with a [Mapping Key](/mapping-key):
 
 ```csharp
+DapperPlusManager.Entity<Order>()
+	.Identity(x => x.OrderID, true);
+
+DapperPlusManager.Entity<OrderItem>()
+	.Identity(x => x.OrderItemID, true);
+
+DapperPlusManager.Entity<OrderItem>("OrderItem_KeepIdentityValue")
+	.UseBulkOptions(options => { options.InsertKeepIdentity = true; });
+	
+var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServer());
+
+connection.BulkInsert(orders).ThenBulkInsert("OrderItem_KeepIdentityValue", x => x.Items);
 ```
+
+[Online Example](https://dotnetfiddle.net/Ijouh7)
 
 ## Conclusion
 
-In this getting started tutorial, we have seen almost all the most common usage of the Dapper Plus library.
+In this getting started tutorial, we have explored almost all of the most common usages of the Dapper Plus library.
 
-As I intiialy promised, by now you should already be confortable using our library in your day to day basis.
+As I initially promised, by now you should already be comfortable using our library in your day-to-day programming.
 
-If you want to already master Dapper Plus better understand how to utilize it effectively, then you can continue by exploring all our [Bulk Extensions Methods](#bulk-extensions-methods) and then all our **FREE** [Single Extensions Methods](/single-extensions-methods).
+If you want to further master Dapper Plus and better understand how to utilize it effectively, you can continue by exploring all our [Bulk Extension Methods](#bulk-extensions-methods) and then all our **FREE** [Single Extension Methods](/single-extensions-methods).

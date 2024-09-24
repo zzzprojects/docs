@@ -31,6 +31,7 @@ The traditional technique to delete multiple rows in Dapper when using a surroga
 ```csharp
 // TODO
 connection.Execute(sql, anonymousCustomers);
+
 ```
 
 However, if you have a unique key, you can also use the [Where IN Parameter](https://www.learndapper.com/parameters#dapper-where-in-parameters) to make it significantly faster:
@@ -42,15 +43,15 @@ connection.Execute(sql, anonymousCustomers);
 
 Let's compare the performance of the three techniques:
 
-| Technique              | 50 Entities | 2,000 Entities | 5,000 Entities |
+| Technique              | 50 Entities | 1,000 Entities | 2,000 Entities |
 | :--------------------- | -----------:| --------------:| --------------:|
-| Delete (Execute)       | 1,200 ms    | 2,400 ms       | 6,000 ms       |
-| Delete (IN Parameter)  | 50 ms       | 55 ms          | 75 ms          |
-| BulkDelete             | 50 ms       | 55 ms          | 75 ms          |
+| Delete (Execute)       | 400 ms      | 6000 ms       | 6,000 ms       |
+| Delete (IN Parameter)  | 20 ms       | 1200 ms        | 75 ms          |
+| BulkDelete             | 50 ms       | 130 ms          | 75 ms          |
 
-You can try this [online benchmark](https://dotnetfiddle.net/CqTwfr) directly on .NET Fiddle.
+You can try this [online benchmark](https://dotnetfiddle.net/18paED) directly on .NET Fiddle.
 
-As the benchmark shows, using the [Where IN Parameter](https://www.learndapper.com/parameters#dapper-where-in-parameters) solution is already faster than our library for simple cases. This method is effective if you do not use a surrogate key. However, in the case of a surrogate key, our `BulkDelete` method can reduce deletion times by up to 99% for SQL Server when deleting a large number of entities.
+As the benchmark shows, using the [Where IN Parameter](https://www.learndapper.com/parameters#dapper-where-in-parameters) solution is already faster than our library for simple cases. This method is effective if you do not use a surrogate key with a few number of entities. However, in the case of a surrogate key, our `BulkDelete` method can reduce deletion times by up to 99% for SQL Server when deleting a large number of entities.
 
 ## Getting Started with Bulk Delete
 
