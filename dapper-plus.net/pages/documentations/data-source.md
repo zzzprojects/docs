@@ -61,7 +61,7 @@ connection.BulkInsert("Expando_Product", products);
 
 This approach allows for great flexibility in data handling, adapting easily to varying data schemas without needing predefined classes.
 
-## DataTable and DataRows
+## DataTable
 
 Using DataRows from a DataTable is especially common when your data is coming from a CSV file. This method is also favored in scenarios involving legacy systems or when data needs to be manipulated programmatically before being persisted.
 

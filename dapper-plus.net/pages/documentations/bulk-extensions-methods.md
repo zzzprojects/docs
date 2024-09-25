@@ -33,7 +33,7 @@ You can try it yourself in this [Online Example](https://dotnetfiddle.net/nd7sh3
 
 It was easy, no? Well, it will get even easier in the next section when we will learn about chaining methods.
 
-## The Secret of Chaining Methods to Write Quicker and More Fluently
+## Chaining Methods
 
 Chaining methods are a way to write code that flows. Over time, they become easier to write, read, and maintain.
 
