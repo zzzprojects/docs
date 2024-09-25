@@ -94,7 +94,6 @@ So, we also offer some tools:
 
 AI tools help thousands of people every day who either don't have access to ChatGPT due to country restrictions or want to share a solution online.
 
-Sure! Here’s your corrected section for the mission page:
 
 ## Just for Helping...
 
