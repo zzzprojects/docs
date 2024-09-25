@@ -16,6 +16,8 @@ Our library does more than only inserting; in fact, it covers all scenarios you 
 - [BulkMerge](/bulk-merge): This method is an **UPSERT** operation. It will **UPDATE** existing rows and **INSERT** non-existing rows in bulk.
 - [BulkSynchronize](/bulk-synchronize): This method is like a **MIRROR** operation; your table becomes exactly like your datasource. In other words, it will **UPDATE** existing rows, **INSERT** non-existing rows, and **DELETE** rows that are not in your datasource.
 
+Our library not only inserts very fast, but you will also see similar performance gains for deleting, updating, and merging (upsert). Additionally, you'll be able to **code more efficiently**.
+
 Let's now see how simple it is to use these bulk extension methods. Let's assume we receive data from an external system that provides a list of customers with their new orders and order items.
 
 - Since customers might already exist, we will use the [BulkMerge](/bulk-merge) method.
@@ -35,11 +37,12 @@ It was easy, no? Well, it will get even easier in the next section when we will 
 
 Chaining methods are a way to write code that flows. Over time, they become easier to write, read, and maintain.
 
-We offer 3 types of chaining methods:
+We offer 4 types of chaining methods:
 
-- [AlsoBulk[Action]](#): Performs additional bulk actions at the last hierarchy level without changing the hierarchy level.
-- [ThenBulk[Action]](#): Performs additional bulk actions at the last hierarchy level and moves deeper into the hierarchy level.
-- [Include](#): Performs included bulk actions at the last hierarchy level without changing the hierarchy level.
+- **AlsoBulk[Action]:** Performs additional bulk actions at the last hierarchy level without changing the hierarchy level.
+- **ThenBulk[Action]):** Performs additional bulk actions at the last hierarchy level and moves deeper into the hierarchy level.
+- **ThenForEach:** Perform an action for each entity, such as [propagating the identity value](identity-key-propagation).
+- **Include:** Performs included bulk actions at the last hierarchy level without changing the hierarchy level.
 
 **Uhhh What?** Yeah, I guess those descriptions are hard to understand at first glance, but rest assured, you will easily understand and know how to use them once you finish this getting started section.
 
@@ -127,4 +130,4 @@ In this article, we've explored a high-level overview of how to use our bulk ext
 
 One of the major reasons why people appreciate [Dapper](https://www.learndapper.com/) is for its simplicity. We maintained the same approach when we created our Bulk Extension methods in Dapper Plus. We've made them very easy to use and highly customizable through the [hundreds of options](/options) we provide.
 
-But before we dive into the topic of customization, let’s first explore our [Single Extension Methods](#) that are **100% free** in our next section.
+If you are more interested by a **100% FREE** solution, you can check our  [Single Extension Methods](single-extensions-methods).

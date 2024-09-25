@@ -1,170 +1,118 @@
 ---
 Title: 3 Effective Ways to Use the Dapper Plus Context 
-MetaDescription: 3 Effective Ways to Use the Dapper Plus Context 
-LastMod: 2024-06-27
+MetaDescription: Learn how to use Dapper Plus Context with our comprehensive guide on 'Global Context', 'Instance Context', and 'Inheritance Context'.
+LastMod: 2024-09-25
 ---
 
 # 3 Effective Ways to Use the Dapper Plus Context
 
-The `DapperPlusContext` is the class where all the magic happen. Every [Bulk Extensions](#) and [Single Extensions](#) methods are executed under an instance of this class even when used through a connection or transaction. The `
-
-
-
-main class of Dapper Plus is the . 
-
-We have seen in the both previous getting articles, [Bulk Extensions](#) methods and our 100% free [Single Extensions](#). We have seen that we can execute them from the connection but also from a `DapperPlusContext` but what exactly is this?
-
-To make it very simple, a `DapperPlusContext` is a class that contains all your mapping and options information. Even more, all [Bulk Extensions](#) methods and our 100% free [Single Extensions](#)
-
-you execute a [BulkInsert](/bulk-insert) on a connection or transaction, it's in fact executed inside a context that we call the global context
-
-
-
-
-
-A `DapperPlusContext` is a class that:
-- Will be aware of your mapping
-- Will be aware of your options
-- Will 
-
-where are they really executed? Really from the connection?
-
-
-So far, almost all example were basic and didn
-
-we have seen only basic example that doesn't require any configuration 
-
-In the both previous article, we have see  but one question remain is where exactly they are executed?
-
-All our methods are executed within a Dapper Plus Context that we will introduce in this article.
-
-
-
-The `DapperPlusContext` class is the center of our library. The purpose of the context is to use the configured mapping and options that we will see later.
-
-
-
-We have a global context (`DapperPlusManager.DefaultContext`) that is used whenever you execute a method from a connection or transaction or you can initialize yourself a DapperPlusContext:
-
-```
-// use the DapperPlusManager.DefaultContext
-connection.BulkInsert(customers);
-
-// use the DapperPlusManager.DefaultContext
-transaction.BulkInsert(customers);
-
-var context = new DapperPlusContext(connection);
-context.BulkInsert(customers)
-```
-
-There is 3 different way to use the DapperPlusContext:
-
-- Global Context
-- Instance Context
-- Inheritance Context
-
-
-They all have pros and cons; choosing the right one will depend on what you need to do.
-
-## Global Context Mapping
-
-The global context mapping is the one that is used whenever you execute an action from the `connection` or `transaction`.
-
-This is in fact, simply a new instance of a DapperPlusContext stored in a static variable in the DapperPlusManager:
+The `DapperPlusContext` is the class where all the magic happens. All [Bulk Extension](bulk-extensions-methods) and [Single Extension](single-extensions-methods) methods execute use an instance of a `DapperPlusContext`. Even when you utilize methods through a connection or transaction, you are employing what we call the global context, which is simply a new instance of the `DapperPlusContext` stored in a static variable in the [DapperPlusManager](/dapper-plus-manager):
 
 ```csharp
-// TODO
-```
-
-You can configure mapping and options through directly through the DapperPlusManager or DefaultContext.
-
-You can either use methods directly from the `DapperPlusManager` or on the `DapperPlusManager.DefaultContext` (both techniques exist for backward compatibility)
-
-```csharp
-// TODO
-```
-
-The global context mapping allows you to map your entities globally.
-
-This mapping will be used whenever no specific context mapping is provided.
-
-```csharp
-DapperPlusManager.Entity<Invoice>().Identity(x => x.InvoiceID, true);
-
-connection.BulkInsert(invoices);
-```
-
-[Try it](https://dotnetfiddle.net/MljjYW)
-
-One common troubleshooting of people using the global mapping context is that you should do your mapping only once when your application is initialized.
-
-A lot of developer make the mistake to remap the same entity type inside a method which lead to some concurrency error. We will see next the Instance Context Mapping that solve this issue.
-
-## Instance Context Mapping
-
-The instance mapping allows you to map your entities for the scope of the `DapperPlusContext` instance.
-
-It can be very useful if you need dynamic mapping that always changes.
-
-```csharp
-var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServer());
-
-var context = new DapperPlusContext(connection);
-SetMapping(context);
-context.BulkInsert(invoices);
-		
-public static void SetMapping(DapperPlusContext context)
+public class DapperPlusManager
 {
-	context.Entity<Invoice>().Identity(x => x.InvoiceID);
+    public static DapperPlusContext DefaultContext { get; set; } = new DapperPlusContext();
+    
+    // ...code...
 }
 ```
 
-[Try it](https://dotnetfiddle.net/WHSCTW)
+But what exactly is a `DapperPlusContext`?
 
-Or even if the method receive which properties to insert and a custom key:
+To put it simply, a `DapperPlusContext` is a class that contains all your mapping and options information, which will be utilized whenever you call a method from it.
+
+There are three different ways to use the DapperPlusContext:
+
+- **Global Context**
+- **Instance Context**
+- **Inheritance Context**
+
+Each method has its pros and cons; choosing the right one will depend on your specific needs.
+
+## Global Context
+
+The global context mapping is the most commonly used one. This mapping is applied whenever you execute an action from the `connection` or `transaction`.
+
+However, there is one simple rule to follow: **This is global, so ensure wherever you map, it's called only once.**
+
+**A common mistake** people make is performing a mapping for the global context inside a method. This can lead to potential concurrency issues, as one call of the method might be at the step of re-creating the mapping while another call might be using the mapping.
+
+As we noted in our introduction, the global context mapping is simply an instance of the `DapperPlusContext` stored in a variable in the [DapperPlusManager](/dapper-plus-manager):
 
 ```csharp
-MergeSomething(List column, List keys)
+public class DapperPlusManager
 {
+    public static DapperPlusContext DefaultContext { get; set; } = new DapperPlusContext();
+    
+    // ...code...
 }
 ```
 
-The instance context mapping is one of the most used mapping but sometime you want to keep some variable on your side so this is now the time to introduce how to inherit from a context mapping.
-
-## Inheritance Context Mapping 
-
-The inheritance mapping allows you to map your entities for the scope of the context instance that inherit from the `DapperPlusContext`.
-
-1.	Create a class that inherits from the DapperPlusContext
-2.	Add the mapping in the constructor
-
-It can be very useful whenever you want different mapping that depends on parameters passed in your constructors.
+You can configure [mapping](/mapping) and [options](/options) directly through the [DapperPlusManager](/dapper-plus-manager) or `DefaultContext`:
 
 ```csharp
-public class InvoiceContext : DapperPlusContext
+// commonly used method
+DapperPlusManager.Entity<Product>().Identity(x => x.ProductID);
+
+// alternative method using DefaultContext
+DapperPlusManager.DefaultContext.Entity<Product>().Identity(x => x.ProductID);
+```
+
+## Instance Context
+
+The instance mapping allows you to map your entities specifically for the scope of a `DapperPlusContext` instance. You then call [Bulk Extension Methods](/bulk-extensions-methods) directly from this instance.
+
+This approach is particularly useful inside a method when the context of the mapping might change depending on certain parameters. In the following example, you will see that we've added a parameter to specify whether our mapping should keep the identity value provided and the column names to insert:
+
+```csharp
+public static void CustomInsert(IEnumerable<Product> products, bool keepIdentityValue, List<string> mappingColumnNames)
 {
-	public InvoiceContext() : base(new SqlConnection(FiddleHelper.GetConnectionStringSqlServer()))
+	var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServer());
+	var context = new DapperPlusContext(connection);
+
+	var mapping = context.Entity<Product>().Identity(x => x.ProductID);
+	
+	mappingColumnNames.ForEach(x => mapping.Map(x));
+
+	if(keepIdentityValue)
 	{
-		this.Entity<Invoice>().Identity(x => x.InvoiceID, true);
-		this.Entity<InvoiceItem>().Identity(x => x.InvoiceItemID, true);
+		mapping.UseBulkOptions(options => options.InsertKeepIdentity = true);
 	}
+
+	context.BulkInsert(products);
 }
-
-var context = new InvoiceContext();
-context.BulkInsert(invoices);
-
-// connection.BulkInsert(context, invoices); // also available
 ```
 
-[Try it](https://dotnetfiddle.net/BbBQ2F)
+[Online Example](https://dotnetfiddle.net/JODTb7)
+
+The instance context is the most flexible way to use our library, especially when you cannot determine the mapping and options in advance.
+
+## Inheritance Context
+
+Inheritance mapping allows you to define how entities are mapped within the scope of a context instance that inherits from `DapperPlusContext`. This method is particularly useful when you need different mappings based on parameters passed in your constructors, or when you wish to maintain these mappings in your own variable.
+
+Here's an example where a specialized `ProductContext` is set up to handle only products:
+
+```csharp
+public class ProductContext : DapperPlusContext
+{
+    public ProductContext() : base(new SqlConnection(FiddleHelper.GetConnectionStringSqlServer()))
+    {
+        this.Entity<Product>().Identity(x => x.ProductID, true);
+    }
+}
+
+var productContext = new ProductContext();
+productContext.BulkInsert(products);
+```
+
+[Online Example](https://dotnetfiddle.net/qGVnl2)
+
+This inheritance context approach allows for robust, context-specific configurations that are encapsulated within their own classes, thereby enhancing modularity and readability of your data access layer.
 
 ## Conclusion
+In this article, we explored three different ways to use the Dapper Plus context.
 
-In this article, we have seen 3 differents way to uses the dapper plus context.
+It's important not to limit yourself to only the global context mapping, as it does not cover all scenarios.
 
-You should not limit yourself to only the global context mapping as it doesn't covert all scenarios.
-
-In the next 3 articles, we will finally discover more about how to use the dapper plus context with (since it was an introduction / prerequiste):
-- [Mapping Key](#)
-- [Mapping & Modeling](#)
-- [OPtions](#)
+Typically, people new to our library start by using the global context, but they often encounter scenarios where using an instance context or an inheritance context might be a more suitable solution for their specific needs.
