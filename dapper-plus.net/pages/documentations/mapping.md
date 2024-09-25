@@ -1,104 +1,137 @@
 ---
 Title: Essentials of Mapping & Modeling: A Comprehensive Guide 
 MetaDescription: Essentials of Mapping & Modeling: A Comprehensive Guide 
-LastMod: 2024-06-27
+LastMod: 2024-09-25
 ---
 
 # Essentials of Mapping: A Comprehensive Guide
 
-To save your entity the way **YOU WANT**, our library need to know exactly **WHAT YOU WANT**. The mapping let you configure the [Dapper Plus Context](#) we just previously saw to specify by example:
+To customize how your entity is saved, our library needs precise instructions on **WHAT YOU WANT**:
 
-- What is the destination table name
-- What is your key
-- Which properties should be saved
-- etc.
+- The destination table name
+- The key identifier
+- The properties that should be saved
+- And more.
 
-```csharp
-// TODO
-```
+In this documentation, we will explore the three methods you can use to map your entity in Dapper Plus:
 
-In this example, we mapped our `Customer` type:
-- To the table **WebCustomer**
-- With key **CustomerID**
-- And to **Automap** all the rest of properties
+- [Auto Mapping](#auto-mapping)
+- [Data Annotations](#data-annotations)
+- [Fluent API Mapping](#fluent-api-mapping)
 
-The mapping alone will cover a lot of scenario but not all of them. We will learn later about [options](#) and [mapping key](#) that will give you additional way to customize how to save your entity. But since we need to start somewhere, let start to learn about the 3 main way to configure your mapping:
+This guide aims to provide you with a clear understanding of each mapping approach to ensure your data is handled exactly as you intend.
 
-- [Auto Mapping](#)
-- [Data Annoations](#)
-- [Fluent API Mapping](#)
+#Here’s your section on Auto Mapping polished for clarity and to provide detailed insights:
 
 ## Auto Mapping
 
-In the most basic scenario, you don't have anything to do. Our library is smart enough to discover how to map your entity automatically.
+In the simplest scenarios, you won’t need to do anything special. Our library is designed to intelligently discover how to map your entity automatically.
 
-Let take the following C# example:
-
-```csharp
-
-```
-
-And the corresponding SQL table:
-
-[Screenshot]
-
-Our auto mapping will have the following behavior if nothing explicit is specified:
-- **Table Name:** Will use the type name in singular form, if none exists, will try the plural form
-- **Key:** Will use the key from your database if one is found
-- **Properties:** Will match every properties name with your database column name. Some additional logic apply if your column name contains underscore '_' or dot '.' to remove those if no match is found.
-
-So it explain why many example we previously saw in our Getting Started was already working without having to specify any mapping.
-
-Some part of the auto mapping only work if nothing is explicitely provided. For example, as soon as you map a property, we will no longer map other properties automatically unless you use the `AutoMap()` method such as:
+Consider the following C# example, which requires no explicit mapping:
 
 ```csharp
-context.Entity<T>().Key(x => x.CustomerID).AutoMap()
+var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServer());
+
+connection.BulkInsert(products);
 ```
+
+[Online Example](https://dotnetfiddle.net/kgIAE1)
+
+If nothing is explicitly specified, our auto mapping will exhibit the following behaviors:
+- **Table Name:** The library will use the entity's type name in singular form by default; if it doesn’t find a match, it will attempt to use the plural form.
+- **Key:** It will default to using the key defined in your database, if available.
+- **Properties:** It will attempt to match each property name with your database column names. If there’s no direct match, especially in cases where column names contain underscores '_' or dots '.', the library will remove these characters to try and find a match.
+
+This approach explains why many examples in our documentation work seamlessly without requiring specific mappings.
+
+However, if you provide an explicit mapping for a property, the auto-mapping will no longer apply its logic to that property, unless you explicitly call the `AutoMap()` method:
+
+```csharp
+DapperPlusManager.Entity<Product>().Map(x => "ZZZ " + x.Name, "Name").AutoMap();
+
+var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServer());
+
+connection.BulkInsert(products);
+```
+
+[Online Example](https://dotnetfiddle.net/SUAeRl)
 
 ## Data Annotations
 
-You can provide additional indications to our Auto Mapping by providing data annotations to your class and property.
+Data annotations can be used to provide additional instructions to our Auto Mapping, guiding it on how to interpret your class and properties more effectively.
 
 ```csharp
+[Table("Custom_Product")]
+public class Product
+{
+    [Key]
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    public int ProductID { get; set; }
+    
+    [Column("Custom_Name")]
+    public string Name { get; set; }
+    
+    [NotMapped]
+    public string Description { get; set; }
+}
 
+var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServer());
+
+connection.BulkInsert(products);
 ```
 
-Unlike ORM like [Entity Framework](https://www.learnentityframeworkcore.com/configuration/data-annotation-attributes), we don't care from which namespace your attribute is coming. Is can be from `System.Component....` or your own custom attribute as long as they have the same name.
+[Online Example](https://dotnetfiddle.net/QeJb8Y)
 
-Here is a list of supported Data Annoations Attributes:
+Unlike ORMs like [Entity Framework](https://www.learnentityframeworkcore.com/configuration/data-annotation-attributes), our library does not require annotations to be from a specific namespace. They can be from `System.ComponentModel...` or any custom namespace, as long as the attribute names match.
 
-- **Table:**
-- **Column:**
-- **NotMapped:**
+Here is a list of supported Data Annotations Attributes that our library recognizes:
 
-More attribute are supported for the [CreateTable](#) feature but this is another topic.
+- **Table:** Specifies the database table that a class is mapped to.
+- **Column:** Maps a property to a column in the database.
+- **Key:** Maps the key to use for your entity
+- **DatabaseGenerated(DatabaseGeneratedOption.Identity)**: Map a property to act like an identiy
+- **NotMapped:** Indicates that a property should not be mapped to any column in the database.
+
+Additional attributes are supported for features like [CreateTable](/create-table), but that is a topic for another discussion.
+
+These annotations allow for fine-tuned control over how entities are mapped to the database, ensuring that your data integration process is as precise and efficient as possible.
 
 ## Fluent API Mapping
 
-Mapping through the Fluent API is often the preferred choice as it make your code more readable and easier to maintain. Exactly like when you [Chain Bulk Extensions Methods](#) one after another. 
+Fluent API mapping is often the preferred method for many developers as it enhances code readability and maintainability. This approach allows you to chain methods in a manner similar to how you [chain bulk extension methods](/bulk-extensions-methods#chaining) one after another.
 
 ```csharp
-
+DapperPlusManager.Entity<Product>()
+	.Table("Product")
+	.Key(x => x.ProductID)
+	.Map(x => new { x.Name, x.Description })
+	.MapValue("ZZZ Projects", "Col1")
+	.MapWithOptions(x => x.CreatedDate, options => {
+		options.FormulaInsert = "GETDATE()";
+	})
+	.Output(x => new { x.ProductID });
 ```
 
-Here is a complete list of all methods supported for the Fluent API Mapping:
+[Online Example](https://dotnetfiddle.net/HsRHIp)
 
-- Identity	Sets column(s) which the database generates value. The value is outputted from the destination table (insert and merge action).
-- Ignore	Sets column(s) to ignore.
-- Key	Sets column(s) to use for Primary Key (update, delete, and merge action).
-- Map	Sets column(s) to input to the destination table.
-- MapValue	Sets value to map to the destination table.
-- MapWithOptions	Sets column(s) to input to the destination table with options.
-- Output	Sets column(s) to output from the destination table (insert, update, and merge action).
-- Table	Sets the destination table or view name (including schema).
-- AutoMap
+Here is a complete list of all methods supported for Fluent API Mapping:
+
+- **Identity:** Sets the property for which the database generates a value. This value is outputted from the destination table (insert and merge actions). The second boolean parameter allows you to choose whether to automatically propagate the identity value (see [Identity Key Propagation](identity-key-propagation#auto-identity-propagation)).
+- **Key:** Sets properties to use as a Primary Key (for update, delete, and merge actions).
+- **Map:** Maps properties for input to the destination table.
+- **Ignore:** Sets properties to ignore. All other columns will be mapped.
+- **MapValue:** Maps a constant value (or variable) to the destination columns.
+- **MapWithOptions:** Maps a property with specified options.
+- **Output:** Specifies which properties should be outputted from the database.
+- **Table:** Sets the destination table or view name (including schema name).
+- **AutoMap:** Forces auto-mapping even if you have already started manual mapping.
+
+This method of mapping provides extensive control over how your data is transferred to and from the database, ensuring that all operations are executed precisely as intended.
 
 ## Conclusion
 
-In this article, we started to explore how to customize your experience with Dapper Plus through the mapping.
+Mapping alone addresses numerous scenarios, but not all. To fully harness the potential of customizing your saving operations, you will also need to become familiar with [available options](/options) and [mapping keys](/mapping-key).
 
-There is currently not a "best way" or recommanded way to do your mapping as sometimes you might use 2 or 3 of those solutions at the same times. By example, you might only want to specify the destination table name and let the auto mapping doing the rest.
+Currently, there is no single "best way" or recommended method for mapping, as the optimal approach can vary depending on the specifics of your project. In some cases, you may find yourself combining two or three different methods. For example, you might specify only the destination table name and rely on auto mapping to handle the rest.
 
-Dapper Plus is very rich in features. The mapping we just saw only cover common scenario. Our library support way more such as providing inserting only the rows doesn't already exists, auditing, logging, etc.
-
-To gain access to all the power our library offer, we will learn next about [Options and UseBulkOptions method](#).
+This flexibility ensures that you can adapt the mapping process to meet the unique needs of each data handling situation, maximizing efficiency and effectiveness in your database interactions.
