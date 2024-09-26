@@ -27,9 +27,9 @@ There isn't a traditional technique in Dapper for fully synchronizing a table—
 
 However, let's examine the performance of our `BulkSynchronize` method:
 
-| Technique        | 50 Entities | 2,000 Entities | 5,000 Entities |
+| Technique        | 50 Entities | 1,000 Entities | 2,000 Entities |
 | :--------------- | -----------:| --------------:| --------------:|
-| BulkSynchronize  | 200 ms      | 750 ms         | 1600 ms          |
+| BulkSynchronize  | 30 ms       | 90 ms          | 140 ms         |
 
 As always, don't just take our word for it. Try our [online benchmark](https://dotnetfiddle.net/0BOMyw) on .NET Fiddle to see the performance difference for yourself and verify these results firsthand.
 

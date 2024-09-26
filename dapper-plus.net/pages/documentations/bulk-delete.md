@@ -29,25 +29,22 @@ The `BulkDelete` method simplifies the process of deleting your entities, making
 The traditional technique to delete multiple rows in Dapper when using a surrogate key requires you to write a `DELETE` statement and pass a list of entities to the [execute](https://www.learndapper.com/non-query) method:
 
 ```csharp
-// TODO
-connection.Execute(sql, anonymousCustomers);
-
+connection.Execute(@"DELETE Product WHERE ProductID = @ProductID", products);
 ```
 
-However, if you have a unique key, you can also use the [Where IN Parameter](https://www.learndapper.com/parameters#dapper-where-in-parameters) to make it significantly faster:
+However, if you have a unique key, you can also use the [Where IN Parameter](https://www.learndapper.com/parameters#dapper-where-in-parameters) to make it significantly faster for a low number of rows:
 
 ```csharp
-// TODO
-connection.Execute(sql, anonymousCustomers);
+connection.Execute(@"DELETE Product WHERE ProductID IN @ProductIDs", new { ProductIDs = products.Select(x => x.ProductID).ToList() });
 ```
 
 Let's compare the performance of the three techniques:
 
 | Technique              | 50 Entities | 1,000 Entities | 2,000 Entities |
 | :--------------------- | -----------:| --------------:| --------------:|
-| Delete (Execute)       | 400 ms      | 6000 ms       | 6,000 ms       |
-| Delete (IN Parameter)  | 20 ms       | 1200 ms        | 75 ms          |
-| BulkDelete             | 50 ms       | 130 ms          | 75 ms          |
+| Delete (Execute)       | 180 ms      | 3300 ms        | 6,600 ms       |
+| Delete (IN Parameter)  | 15 ms       | 200 ms         | 650 ms          |
+| BulkDelete             | 25 ms       | 35 ms          | 45 ms          |
 
 You can try this [online benchmark](https://dotnetfiddle.net/18paED) directly on .NET Fiddle.
 

@@ -26,8 +26,8 @@ The `BulkInsert` method is not only exceptionally fast but also very easy to use
 The traditional technique to [insert multiple rows in Dapper](https://www.learndapper.com/saving-data/insert#dapper-insert-multiple-rows) require you to write your `INSERT` statement and pass a list of entities to the [execute](https://www.learndapper.com/non-query) method:
 
 ```csharp
-// TODO
-connection.Execute(sql, anonymousCustomers);
+connection.Execute(@"INSERT INTO Product (Name, Description, Column1, Column2, Column3, Column4, Column5, Column6, Column7, Column8, Column9)
+								  VALUES (@Name, @Description, @Column1, @Column2, @Column3, @Column4, @Column5, @Column6, @Column7, @Column8, @Column9)", products);
 ```
 
 **The problem** is that one database round-trip is required for every row that needs to be inserted, making the entire insertion operation significantly slower than if you use the Dapper Plus `BulkInsert` method.

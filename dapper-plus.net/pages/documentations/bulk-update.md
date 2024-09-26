@@ -26,8 +26,8 @@ In this article, we will explore why using the `BulkUpdate` method can be extrem
 The traditional technique for updating multiple rows in Dapper requires you to write your `UPDATE` statement and pass a list of entities to the [execute](https://www.learndapper.com/non-query) method:
 
 ```csharp
-// TODO
-connection.Execute(sql, anonymousCustomers);
+connection.Execute(@"UPDATE Product SET Name = @Name, Description = @Description, Column1 = @Column1, Column2 = @Column2, Column3 = @Column3, Column4 = @Column4, Column5 = @Column5, Column6 = @Column6, Column7 = @Column7, Column8 = @Column8, Column9 = @Column9
+					 WHERE ProductID = @ProductID", products);
 ```
 
 **The problem** is similar to what we have seen in our [Bulk Insert Benchmark](/bulk-insert#benchmark); one database round-trip is required for every row that needs to be updated, making the entire update operation significantly slower than if you use the Dapper Plus `BulkUpdate` method.
@@ -36,8 +36,8 @@ Let's compare the performance of both techniques:
 
 | Technique         | 50 Entities | 1,000 Entities | 2,000 Entities |
 | :---------------- | -----------:| --------------:| --------------:|
-| Update (Execute)  | 450 ms      | 5000 ms        | 10,000 ms      |
-| BulkUpdate        | 50 ms       | 350 ms         | 450 ms         |
+| Update (Execute)  | 150 ms      | 3300 ms        | 6600 ms      |
+| BulkUpdate        | 30 ms       | 75 ms          | 125 ms         |
 
 You can directly try this [online benchmark](https://dotnetfiddle.net/qnbq6o) in your browser.
 

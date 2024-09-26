@@ -26,8 +26,30 @@ connection.UseBulkOptions(options => options.MergeKeepIdentity = true)
 The traditional technique to [add or update multiple rows in Dapper](https://www.learndapper.com/saving-data/insert#dapper-insert-multiple-rows) requires you to write your `INSERT` statement and pass a list of entities to the [execute](https://www.learndapper.com/non-query) method:
 
 ```csharp
-// TODO
-connection.Execute(sql, anonymousCustomers);
+connection.Execute(@"
+MERGE INTO Product AS Target
+USING (SELECT @ProductID AS ProductID, @Name AS Name, @Description AS Description,
+              @Column1 AS Column1, @Column2 AS Column2, @Column3 AS Column3,
+              @Column4 AS Column4, @Column5 AS Column5, @Column6 AS Column6,
+              @Column7 AS Column7, @Column8 AS Column8, @Column9 AS Column9) AS Source
+ON Target.ProductID = Source.ProductID
+WHEN MATCHED THEN
+    UPDATE SET
+        Target.Name = Source.Name,
+        Target.Description = Source.Description,
+        Target.Column1 = Source.Column1,
+        Target.Column2 = Source.Column2,
+        Target.Column3 = Source.Column3,
+        Target.Column4 = Source.Column4,
+        Target.Column5 = Source.Column5,
+        Target.Column6 = Source.Column6,
+        Target.Column7 = Source.Column7,
+        Target.Column8 = Source.Column8,
+        Target.Column9 = Source.Column9
+WHEN NOT MATCHED BY TARGET THEN
+    INSERT (Name, Description, Column1, Column2, Column3, Column4, Column5, Column6, Column7, Column8, Column9)
+    VALUES (Source.Name, Source.Description, Source.Column1, Source.Column2, Source.Column3, Source.Column4, Source.Column5, Source.Column6, Source.Column7, Source.Column8, Source.Column9);
+			", products);
 ```
 
 **The problem** is similar to what we have observed in our [Bulk Insert Benchmark](/bulk-insert#benchmark); one database round-trip is required for every row that needs to be updated, making the entire operation significantly slower than if you use the Dapper Plus `BulkMerge` method. Additionally, the syntax for a traditional upsert operation can be less intuitive, often requiring a refresher even for experienced developers (myself included—I often have to look it up on Google!).
@@ -36,8 +58,8 @@ Let's compare the performance of both techniques:
 
 | Technique        | 50 Entities | 1,000 Entities | 2,000 Entities |
 | :--------------- | -----------:| --------------:| --------------:|
-| Merge (Execute)  | 400 ms      | 7000 ms       | 6,000 ms       |
-| BulkMerge        | 95 ms       | 425 ms          | 75 ms          |
+| Merge (Execute)  | 175 ms      | 3500 ms        | 7000 ms        |
+| BulkMerge        | 30 ms       | 90 ms          | 140 ms         |
 
 As demonstrated with other bulk operations, you can try this [online benchmark](https://dotnetfiddle.net/piaZmp) on .NET Fiddle.
 
