@@ -20,6 +20,8 @@ context.Customers
     .InsertFromQuery("bck_Customer", x => new { x.CustomerID, x.Name, x.Email });
 ```
 
+[Online Example](https://dotnetfiddle.net/UvIOBU)
+
 ## Purpose
 `Inserting` entities using `SaveChanges` normally requires loading them first in the `ChangeTracker` if you want to copy existing ones. These additional round-trips are often not necessary.
 
