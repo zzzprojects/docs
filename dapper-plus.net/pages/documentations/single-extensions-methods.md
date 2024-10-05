@@ -1,7 +1,7 @@
 ---
 Title: The Easiest Way to Save Data: Single Extension Methods (100% Free) 
 MetaDescription: The Easiest Way to Save Data: Single Extension Methods (100% Free) 
-LastMod: 2024-09-21
+LastMod: 2024-10-05
 ---
 
 # The Easiest Way to Save Data: Single Extension Methods (100% Free)
@@ -101,4 +101,4 @@ In this documentation, we introduced our single extension methods. Here are the 
 - You can insert multiple rows using a `foreach` loop, but without the performance benefits that [Bulk Extension Methods](/bulk-extensions-methods) offer.
 - These methods are available for asynchronous operations.
 
-Since they are free, why not try them out right now by [downloading Dapper Plus](/downloads)?
+Since they are free, why not try them out right now by [downloading Dapper Plus](/download)?

@@ -1,7 +1,7 @@
 ---
 Title: Dapper Plus Manager - Customize for Your Needs
 MetaDescription: Learn about the DapperPlusManager, which offers shortcuts, methods for adding custom types, value converters, clearing the cache, and managing licensing.
-LastMod: 2024-06-27
+LastMod: 2024-10-05
 ---
 
 # Dapper Plus Manager
@@ -105,7 +105,7 @@ To address this, we provide methods to implement custom logic for value conversi
 Our library caches multiple pieces of information, including details retrieved from your database tables. Sometimes, developers intentionally modify their database by adding or removing a temporary column, which can lead to issues if our library expects or does not expect this column. Clearing the cache ensures that our library fetches the latest information from the database again.
 
 - **ClearInformationTableCache:** Clears all caches related to information retrieved from the database.
-- **ClearAllCache:** Performs the same action as ClearInformationTableCache but additionally clears everything—including [mapping](/mapping) and [options](options). This is done by creating a new instance of [DapperPlusContext](/dapper-plus-context) for the default context: `DapperPlusManager.DefaultContext = new DapperPlusContext();`.
+- **ClearAllCache:** Performs the same action as ClearInformationTableCache but additionally clears everything; including [mapping](/mapping) and [options](options). This is done by creating a new instance of [DapperPlusContext](/dapper-plus-context) for the default context: `DapperPlusManager.DefaultContext = new DapperPlusContext();`.
 
 ## License
 

@@ -1,7 +1,7 @@
 ---
 Title: Essentials of Mapping & Modeling: A Comprehensive Guide 
 MetaDescription: Essentials of Mapping & Modeling: A Comprehensive Guide 
-LastMod: 2024-09-25
+LastMod: 2024-10-04
 ---
 
 # Essentials of Mapping: A Comprehensive Guide
@@ -98,7 +98,7 @@ These annotations allow for fine-tuned control over how entities are mapped to t
 
 ## Fluent API Mapping
 
-Fluent API mapping is often the preferred method for many developers as it enhances code readability and maintainability. This approach allows you to chain methods in a manner similar to how you [chain bulk extension methods](/bulk-extensions-methods#chaining) one after another.
+Fluent API mapping is often the preferred method for many developers as it enhances code readability and maintainability. This approach allows you to chain methods in a manner similar to how you [chain bulk extension methods](/bulk-extensions-methods#chaining-methods) one after another.
 
 ```csharp
 DapperPlusManager.Entity<Product>()

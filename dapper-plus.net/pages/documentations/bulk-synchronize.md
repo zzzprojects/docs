@@ -23,7 +23,7 @@ The `BulkSynchronize` method may be less frequently used, but it remains one of 
 
 ## Benchmark
 
-There isn't a traditional technique in Dapper for fully synchronizing a table—essentially, a mirror operation is not as straightforward as performing [Insert](/bulk-insert) or [Merge](/bulk-merge) operations.
+There isn't a traditional technique in Dapper for fully synchronizing a table, a mirror operation is not as straightforward as performing [Insert](/bulk-insert) or [Merge](/bulk-merge) operations.
 
 However, let's examine the performance of our `BulkSynchronize` method:
 
