@@ -1,7 +1,7 @@
 ---
 Title: The Quickest Way to Save Data: Mastering Bulk Extension Methods
 MetaDescription: Learn how to save 75x faster with Dapper Plus bulk extension methods, master bulk chaining methods, and use asynchronous bulk methods.
-LastMod: 2024-09-09
+LastMod: 2024-10-05
 ---
 
 # The Quickest Way to Save Data: Mastering Bulk Extension Methods
@@ -40,7 +40,7 @@ Chaining methods are a way to write code that flows. Over time, they become easi
 We offer 4 types of chaining methods:
 
 - **AlsoBulk[Action]:** Performs additional bulk actions at the last hierarchy level without changing the hierarchy level.
-- **ThenBulk[Action]):** Performs additional bulk actions at the last hierarchy level and moves deeper into the hierarchy level.
+- **ThenBulk[Action]:** Performs additional bulk actions at the last hierarchy level and moves deeper into the hierarchy level.
 - **ThenForEach:** Perform an action for each entity, such as [propagating the identity value](identity-key-propagation).
 - **Include:** Performs included bulk actions at the last hierarchy level without changing the hierarchy level.
 

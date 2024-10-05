@@ -1,7 +1,7 @@
 ---
 Title: Bulk Synchronize | The Best Way in Dapper to Synchronize Multiple Rows
 MetaDescription: Learn how to perform faster synchronization in Dapper using the Bulk Synchronize method, understand why it's essential, and explore some common scenarios.
-LastMod: 2024-09-21
+LastMod: 2024-10-05
 ---
 
 # Bulk Synchronize: The Best Way in Dapper to Synchronize Multiple Rows
@@ -42,7 +42,7 @@ Here is a quick recap:
 - **Asynchronous Synchronization**: You can synchronize data asynchronously with the `BulkSynchronizeAsync` method.
 - **Chaining Operations**: Enhance workflow efficiency by chaining operations with the `AlsoBulkSynchronize` and `ThenBulkSynchronize` methods.
 - **Flexible Usage**: Use `BulkSynchronize` from a connection, transaction, or leverage a new [Dapper Plus Context](/dapper-plus-context) for greater control.
-- **Multiple Data Sources**: The `BulkSynchronize` method supports synchronization across various [DataSources](/datasource), enhancing its adaptability.
+- **Multiple Data Sources**: The `BulkSynchronize` method supports synchronization across various [Data Sources](/data-source), enhancing its adaptability.
 
 ```csharp
 // Example code will be provided here to demonstrate the use of BulkSynchronize

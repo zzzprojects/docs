@@ -1,7 +1,7 @@
 ---
 Title: Bulk Insert | The Fastest Way in Dapper to Insert Multiple Rows
 MetaDescription: Learn how to perform faster inserts in Dapper using the Bulk Insert method, understand why it's essential, and explore some common scenarios.
-LastMod: 2024-09-21
+LastMod: 2024-10-05
 ---
 
 # Bulk Insert: The Fastest Way in Dapper to Insert Multiple Rows
@@ -19,15 +19,16 @@ connection.UseBulkOptions(options => options.InsertIfNotExists = true)
 
 [Online Example](https://dotnetfiddle.net/6TTDXX)
 
-The `BulkInsert` method is not only exceptionally fast but also very easy to use and customize with all of our [available options](#options). We will explore some common options and scenarios later in this article.
+The `BulkInsert` method is not only exceptionally fast but also very easy to use and customize with all of our [available options](/options). We will explore some common options and scenarios later in this article.
 
 ## Benchmark
 
 The traditional technique to [insert multiple rows in Dapper](https://www.learndapper.com/saving-data/insert#dapper-insert-multiple-rows) require you to write your `INSERT` statement and pass a list of entities to the [execute](https://www.learndapper.com/non-query) method:
 
 ```csharp
-connection.Execute(@"INSERT INTO Product (Name, Description, Column1, Column2, Column3, Column4, Column5, Column6, Column7, Column8, Column9)
-								  VALUES (@Name, @Description, @Column1, @Column2, @Column3, @Column4, @Column5, @Column6, @Column7, @Column8, @Column9)", products);
+connection.Execute(@"
+INSERT INTO Product (Name, Description, Column1, Column2, Column3, Column4, Column5, Column6, Column7, Column8, Column9)
+VALUES (@Name, @Description, @Column1, @Column2, @Column3, @Column4, @Column5, @Column6, @Column7, @Column8, @Column9)", products);
 ```
 
 **The problem** is that one database round-trip is required for every row that needs to be inserted, making the entire insertion operation significantly slower than if you use the Dapper Plus `BulkInsert` method.
@@ -50,9 +51,9 @@ The performance varies depending on the provider, but you should always see a si
 To get started, we recommend first reading our [Bulk Extensions Methods](/bulk-extensions-methods) articles. Here is a recap:
 
 - You can insert asynchronously with the `BulkInsertAsync` method.
-- You can [chain](/bulk-extensions-methods#chaining) operations with the `AlsoBulkInsert` and `ThenBulkInsert` methods.
+- You can [chain](/bulk-extensions-methods#chaining-methods) operations with the `AlsoBulkInsert` and `ThenBulkInsert` methods.
 - You can use `BulkInsert` from a connection, transaction, or a new [Dapper Plus Context](/dapper-plus-context).
-- You can utilize the `BulkInsert` method with multiple different [DataSources](/datasource).
+- You can utilize the `BulkInsert` method with multiple different [Data Sources](/data-source).
 
 ## Common Options / Scenarios
 
@@ -65,7 +66,7 @@ For more options, refer to our [list of options](/options) documentation.
 
 ### InsertIfNotExists
 
-This option ensures that only new entities that do not already exist in the database are inserted. It is great for maintaining data integrity and avoiding duplicate entries. This option requires you to set a key during the [mapping](/mapping) process or use the `ColumnPrimaryKeyExpression` or `ColumnPrimaryKeyNames` options.
+This option ensures that only new entities that do not already exist in the database are inserted. It is great for maintaining data integrity and avoiding duplicate entries. This option requires you to set a key during the [mapping](/mapping) process or use the `ColumnPrimaryKeyExpression` or `ColumnPrimaryKeyNames` options (or lets our library automatically discover it).
 
 ```csharp
 var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServer());

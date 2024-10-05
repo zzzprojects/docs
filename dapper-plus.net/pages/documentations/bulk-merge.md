@@ -1,7 +1,7 @@
 ---
 Title: Bulk Merge | The Fastest Way in Dapper to Upsert Multiple Rows
 MetaDescription: Learn how to perform faster "add or update"/"upsert" in Dapper using the Bulk Merge method, understand why it's essential, and explore some common scenarios.
-LastMod: 2024-09-21
+LastMod: 2024-10-05
 ---
 
 # Bulk Merge: The Fastest Way in Dapper to Upsert Multiple Rows
@@ -19,11 +19,11 @@ connection.UseBulkOptions(options => options.MergeKeepIdentity = true)
 
 [Online Example](https://dotnetfiddle.net/v5stH2)
 
-`BulkMerge` not only merges your entities at an extremely fast rate but also allows you to quickly customize the process with [hundreds of options](/options), eliminating the need to remember complex SQL syntax.
+`BulkMerge` not only merges your entities at an extremely fast rate but also allows you to easily customize your upsert with [hundreds of options](/options), eliminating the need to remember complex SQL syntax.
 
 ## Benchmark
 
-The traditional technique to [add or update multiple rows in Dapper](https://www.learndapper.com/saving-data/insert#dapper-insert-multiple-rows) requires you to write your `INSERT` statement and pass a list of entities to the [execute](https://www.learndapper.com/non-query) method:
+The traditional technique to [add or update multiple rows in Dapper](https://www.learndapper.com/saving-data/insert#dapper-insert-multiple-rows) requires you to write your `MERGE` statement and pass a list of entities to the [execute](https://www.learndapper.com/non-query) method:
 
 ```csharp
 connection.Execute(@"
@@ -52,7 +52,9 @@ WHEN NOT MATCHED BY TARGET THEN
 			", products);
 ```
 
-**The problem** is similar to what we have observed in our [Bulk Insert Benchmark](/bulk-insert#benchmark); one database round-trip is required for every row that needs to be updated, making the entire operation significantly slower than if you use the Dapper Plus `BulkMerge` method. Additionally, the syntax for a traditional upsert operation can be less intuitive, often requiring a refresher even for experienced developers (myself included—I often have to look it up on Google!).
+**The problem** is similar to what we have observed in our [Bulk Insert Benchmark](/bulk-insert#benchmark); one database round-trip is required for every row that needs to be updated, making the entire operation significantly slower than if you use the Dapper Plus `BulkMerge` method.
+
+Additionally, the syntax is not very straightfoward, often make it very hard to write not only for new developers, but even for experienced developers (myself included, I need to check on Google/ChatGPT every time!).
 
 Let's compare the performance of both techniques:
 
@@ -74,7 +76,7 @@ Here is a recap:
 - **Asynchronous Upsert**: You can perform upsert operations asynchronously with the `BulkMergeAsync` method.
 - **Chaining Operations**: Enhance workflow efficiency by chaining operations with the `AlsoBulkMerge` and `ThenBulkMerge` methods.
 - **Versatile Usage**: Utilize `BulkMerge` from a connection, transaction, or a new [Dapper Plus Context](/dapper-plus-context).
-- **Multiple Data Sources**: The `BulkMerge` method can be applied across various [DataSources](/datasource), enhancing its adaptability.
+- **Multiple Data Sources**: The `BulkMerge` method can be applied across various [Data Sources](/data-source), enhancing its adaptability.
 
 ## Common Options / Scenarios
 

@@ -1,7 +1,7 @@
 ---
 Title: Getting Started with Dapper Plus in Under 10 Minutes
 MetaDescription: Learn the basics of Dapper Plus in under 10 minutes. Install the library, execute bulk inserts, map entities, and explore options.
-LastMod: 2024-09-18
+LastMod: 2024-10-05
 ---
 
 # Getting Started with Dapper Plus
@@ -26,7 +26,7 @@ You can find it either by visiting our [download](/download) page or by using th
 
 Even if you haven't purchased the library yet, you can fully try **all our features for free**. Every month, a new [trial](/trial) version is available that expires at the end of the month. Using the latest version allows you to test our library without having to purchase it.
 
-Don’t forget to also leave us feedback to enter our [contest to win a free license](https://dapper-plus.net/contest).
+Don't forget to also leave us feedback to enter our [contest to win a free license](https://dapper-plus.net/contest).
 
 ## Using Directive
 
@@ -98,7 +98,7 @@ For the OrderItem:
 - We will map the `OrderID` directly from the parent.
 - We will call the `AutoMap` to complete the mapping.
 
-```alert-note
+```alert-info
 **AutoMap**: Once you start mapping, we cannot automatically use the auto-mapping logic anymore unless you explicitly call the `AutoMap` method as we have shown for the OrderItem.
 ```
 
@@ -200,4 +200,4 @@ In this getting started tutorial, we have explored almost all of the most common
 
 As I initially promised, by now you should already be comfortable using our library in your day-to-day programming.
 
-If you want to further master Dapper Plus and better understand how to utilize it effectively, you can continue by exploring all our [Bulk Extension Methods](#bulk-extensions-methods) and then all our **FREE** [Single Extension Methods](/single-extensions-methods).
+If you want to further master Dapper Plus and better understand how to utilize it effectively, you can continue by exploring all our [Bulk Extension Methods](/bulk-extensions-methods) and then all our **FREE** [Single Extension Methods](/single-extensions-methods).

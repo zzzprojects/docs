@@ -1,7 +1,7 @@
 ---
 Title: Bulk Delete | The Easiest Way in Dapper to Delete Multiple Rows
 MetaDescription: Learn how to perform easier delete in Dapper using the Bulk Delete method, understand why it's essential, and explore some common scenarios.
-LastMod: 2024-09-21
+LastMod: 2024-10-05
 ---
 
 # Bulk Delete: The Easiest Way in Dapper to Delete Multiple Rows
@@ -32,7 +32,7 @@ The traditional technique to delete multiple rows in Dapper when using a surroga
 connection.Execute(@"DELETE Product WHERE ProductID = @ProductID", products);
 ```
 
-However, if you have a unique key, you can also use the [Where IN Parameter](https://www.learndapper.com/parameters#dapper-where-in-parameters) to make it significantly faster for a low number of rows:
+However, if you have a single key, you can also use the [Where IN Parameter](https://www.learndapper.com/parameters#dapper-where-in-parameters) to make it significantly faster for a low number of rows:
 
 ```csharp
 connection.Execute(@"DELETE Product WHERE ProductID IN @ProductIDs", new { ProductIDs = products.Select(x => x.ProductID).ToList() });
@@ -57,9 +57,9 @@ To get started, please read our [Bulk Extensions Methods](/bulk-extensions-metho
 Here is a recap:
 
 - You can delete asynchronously with the `BulkDeleteAsync` method.
-- You can [chain](/bulk-extensions-methods#chaining) operations with the `AlsoBulkDelete` and `ThenBulkDelete` methods.
+- You can [chain](/bulk-extensions-methods#chaining-methods) operations with the `AlsoBulkDelete` and `ThenBulkDelete` methods.
 - You can use `BulkDelete` from a connection, transaction, or a new [Dapper Plus Context](/dapper-plus-context).
-- You can utilize the `BulkDelete` method with multiple different [DataSources](/datasource).
+- You can utilize the `BulkDelete` method with multiple different [Data Sources](/data-source).
 
 ## Common Options / Scenarios
 
@@ -108,6 +108,6 @@ connection.UseBulkOptions(options => {
 
 ## Conclusion
 
-In this article, we've explored the `BulkDelete` method. We have seen that unlike the [BulkInsert](/bulk-insert), which is consistently faster than traditional insertion methods, the `BulkDelete` might not always be the best option unless you have a surrogate key.
+In this article, we've explored the `BulkDelete` method. We have seen that unlike the [BulkInsert](/bulk-insert), which is consistently faster than traditional insertion methods, the `BulkDelete` might not always be the best option unless you have a surrogate key or enough entites to delete.
 
 However, the syntax of the method surely makes it easier to use and ensures consistency throughout your project if you are already using other bulk operation methods. This can simplify development and maintenance, providing a uniform approach to handling data operations across your application.
