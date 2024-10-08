@@ -1,7 +1,7 @@
 ---
 Title: Master Easy Techniques to Propagate Identity and Key Values Across Your Graph 
 MetaDescription: Master Easy Techniques to Propagate Identity and Key Values Across Your Graph 
-LastMod: 2024-09-21
+LastMod: 2024-10-08
 ---
 
 # Master Easy Techniques to Propagate Identity and Key Values Across Your Graph
@@ -48,7 +48,7 @@ DapperPlusManager.Entity<OrderItem>().Identity(x => x.OrderItemID)
 	.BeforeAction((actionKind, orderItem) => {
 		if (actionKind == DapperPlusActionKind.Insert || actionKind == DapperPlusActionKind.Merge)
 		{
-			if(orderItem.Parent != null)
+			if(orderItem.OrderID == 0 && orderItem.Parent != null)
 			{
 				orderItem.OrderID = orderItem.Parent.OrderID;
 			}
@@ -88,7 +88,7 @@ connection.BulkInsert(newOrders).ThenBulkInsert(x => x.Items);
 
 ## ThenForEach Method
 
-The `ThenForEach` method allows you to execute a custom action after a bulk operation has been completed. It acts exactly like the `AfterAction` event, but instead of occurring during the mapping, it is executed through our action chaining, as we have seen in our [Bulk Extensions Method - Chaining](/bulk-extensions-methods#chaining).
+The `ThenForEach` method allows you to execute a custom action after a bulk operation has been completed. It acts exactly like the `AfterAction` event, but instead of occurring during the mapping, it is executed through our action chaining, as we have seen in our [Bulk Extensions Method - Chaining](/bulk-extensions-methods#chaining-methods).
 
 ```csharp
 DapperPlusManager.Entity<Order>().Identity(x => x.OrderID);

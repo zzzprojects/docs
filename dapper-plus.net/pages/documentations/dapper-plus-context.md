@@ -1,12 +1,12 @@
 ---
 Title: 3 Effective Ways to Use the Dapper Plus Context 
 MetaDescription: Learn how to use Dapper Plus Context with our comprehensive guide on 'Global Context', 'Instance Context', and 'Inheritance Context'.
-LastMod: 2024-09-25
+LastMod: 2024-10-08
 ---
 
 # 3 Effective Ways to Use the Dapper Plus Context
 
-The `DapperPlusContext` is the class where all the magic happens. All [Bulk Extension](bulk-extensions-methods) and [Single Extension](single-extensions-methods) methods execute use an instance of a `DapperPlusContext`. Even when you utilize methods through a connection or transaction, you are employing what we call the global context, which is simply a new instance of the `DapperPlusContext` stored in a static variable in the [DapperPlusManager](/dapper-plus-manager):
+The `DapperPlusContext` is the class where all the magic happens. All [Bulk Extension](bulk-extensions-methods) and [Single Extension](single-extensions-methods) methods executed use an instance of a `DapperPlusContext`. Even when you utilize methods through a connection or transaction, you are employing what we call the global context, which is simply a new instance of the `DapperPlusContext` stored in a static variable in the [DapperPlusManager](/dapper-plus-manager):
 
 ```csharp
 public class DapperPlusManager
@@ -38,15 +38,6 @@ However, there is one simple rule to follow: **This is global, so ensure whereve
 **A common mistake** people make is performing a mapping for the global context inside a method. This can lead to potential concurrency issues, as one call of the method might be at the step of re-creating the mapping while another call might be using the mapping.
 
 As we noted in our introduction, the global context mapping is simply an instance of the `DapperPlusContext` stored in a variable in the [DapperPlusManager](/dapper-plus-manager):
-
-```csharp
-public class DapperPlusManager
-{
-    public static DapperPlusContext DefaultContext { get; set; } = new DapperPlusContext();
-    
-    // ...code...
-}
-```
 
 You can configure [mapping](/mapping) and [options](/options) directly through the [DapperPlusManager](/dapper-plus-manager) or `DefaultContext`:
 

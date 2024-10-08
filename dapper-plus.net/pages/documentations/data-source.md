@@ -1,7 +1,7 @@
 ---
 Title: Exploring Supported Data Sources in Dapper Plus: What You Need to Know 
 MetaDescription: Learn how to use Dapper Plus with strongly typed entities, Expando objects, and DataTables.
-LastMod: 2024-09-25
+LastMod: 2024-10-08
 ---
 
 # Exploring Supported Data Sources in Dapper Plus: What You Need to Know
@@ -20,7 +20,7 @@ While it's possible to work with other data sources such as XML, JSON, and CSV, 
 
 A strongly typed entity is a common structure in programming, typically a class with properties and fields that represent the data model. This format is straightforward and widely understood, making it a primary choice for many applications.
 
-Here’s an example of a strongly typed entity defined for a product:
+Here's an example of a strongly typed entity defined for a product:
 
 ```csharp
 [Table("Product")]

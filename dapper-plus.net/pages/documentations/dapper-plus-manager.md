@@ -1,7 +1,7 @@
 ---
 Title: Dapper Plus Manager - Customize for Your Needs
 MetaDescription: Learn about the DapperPlusManager, which offers shortcuts, methods for adding custom types, value converters, clearing the cache, and managing licensing.
-LastMod: 2024-10-05
+LastMod: 2024-10-08
 ---
 
 # Dapper Plus Manager
@@ -113,10 +113,6 @@ The `DapperPlusManager` is where you add your [license](/licensing) after purcha
 
 - **AddLicense:** Use this method to manually add a license by hardcoding it into your project or retrieving it from your configuration file.
 - **ValidateLicense:** This crucial method ensures that your license has been correctly added and is valid.
-
-## Conclusion
-
-Here's a polished version of your conclusion to ensure clarity and conciseness:
 
 ## Conclusion
 

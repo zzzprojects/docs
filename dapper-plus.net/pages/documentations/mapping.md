@@ -1,7 +1,7 @@
 ---
 Title: Essentials of Mapping & Modeling: A Comprehensive Guide 
 MetaDescription: Essentials of Mapping & Modeling: A Comprehensive Guide 
-LastMod: 2024-10-04
+LastMod: 2024-10-08
 ---
 
 # Essentials of Mapping: A Comprehensive Guide
@@ -21,11 +21,9 @@ In this documentation, we will explore the three methods you can use to map your
 
 This guide aims to provide you with a clear understanding of each mapping approach to ensure your data is handled exactly as you intend.
 
-#Here’s your section on Auto Mapping polished for clarity and to provide detailed insights:
-
 ## Auto Mapping
 
-In the simplest scenarios, you won’t need to do anything special. Our library is designed to intelligently discover how to map your entity automatically.
+In the simplest scenarios, you won't need to do anything special. Our library is designed to intelligently discover how to map your entity automatically.
 
 Consider the following C# example, which requires no explicit mapping:
 
@@ -38,9 +36,9 @@ connection.BulkInsert(products);
 [Online Example](https://dotnetfiddle.net/kgIAE1)
 
 If nothing is explicitly specified, our auto mapping will exhibit the following behaviors:
-- **Table Name:** The library will use the entity's type name in singular form by default; if it doesn’t find a match, it will attempt to use the plural form.
-- **Key:** It will default to using the key defined in your database, if available.
-- **Properties:** It will attempt to match each property name with your database column names. If there’s no direct match, especially in cases where column names contain underscores '_' or dots '.', the library will remove these characters to try and find a match.
+- **Table Name:** The library will use the entity's type name in singular form by default; if it doesn't find a match, it will attempt to use the plural form.
+- **Key:** Will try to use the key defined in your database, if available.
+- **Properties:** It will attempt to match each property name with your database column names. If there's no direct match, especially in cases where column names contain underscores '_' or dots '.', the library will remove these characters to try and find a match.
 
 This approach explains why many examples in our documentation work seamlessly without requiring specific mappings.
 
