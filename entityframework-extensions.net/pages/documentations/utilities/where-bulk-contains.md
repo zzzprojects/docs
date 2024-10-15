@@ -1,6 +1,6 @@
 ---
 Name: How to filter entities contained from an existing list with Entity Framework?
-LastMod: 2023-03-01
+LastMod: 2024-10-15
 ---
 
 # How to filter entities contained from an existing list with Entity Framework?
@@ -169,6 +169,22 @@ context.Customers.WhereBulkContains(deserializedCustomers).InsertFromQuery(x => 
 ```
 
 [Try it](https://dotnetfiddle.net/B9c0uA)
+
+## How to Use It with a Generic Type Instead of a DbSet?
+
+If you have the `type` but cannot directly use the corresponding `DbSet`, you can call the method using the `context.Set` method as follows:
+
+```csharp
+public static List<T> GetFromGenericContains<T>(List<T> items) where T : class
+{
+	using (var context = new EntityContext())
+	{
+		return context.Set<T>().WhereBulkContains(items,  new List<string> { "Code" }).ToList();
+	}
+}
+```
+
+[Try it](https://dotnetfiddle.net/fGhD66)
 
 ## What are Contains method limitations?
 
