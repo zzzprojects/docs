@@ -100,7 +100,8 @@ AI tools help thousands of people every day who either don't have access to Chat
 Finally, sometimes some companies just deserve to have a free license. They dedicate all their money to a good cause, so this is our way to help them accomplish their goals.
 
 <a href="https://www.threelittlepittiesrescue.org/" target="_blank"><img src="/images/three-little-pitties.png" height="128" /></a>
-
+<br>
+<img src="/images/shotokan-karate-club.png" height="128" />
 
 ## Conclusion
 
