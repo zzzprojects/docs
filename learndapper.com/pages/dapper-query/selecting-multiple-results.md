@@ -3,7 +3,7 @@ title: Dapper QueryMultiple, QueryMultipleAsync
 description: The Dapper QueryMultiple method allows you to select multiple results from a database in a single query and then, after reading those results for mapping them.
 canonical: /dapper-query/selecting-multiple-results
 status: Published
-lastmod: 2023-08-01
+lastmod: 2024-10-17
 ---
 
 # Querying Multiple Results With Dapper
@@ -44,19 +44,21 @@ The following example demonstrates how to use Dapper `QueryMultiple` to execute 
 
 ```csharp
 string sql = @"
-SELECT * FROM Invoices WHERE InvoiceID = @InvoiceID;
-SELECT * FROM InvoiceItems WHERE InvoiceID = @InvoiceID;
+SELECT * FROM [Order] WHERE OrderID = @orderID;
+SELECT * FROM [OrderItem] WHERE OrderID = @orderID;
 ";
 
-using (var connection = new SqlConnection(connectionString))
+using (var multi = connection.QueryMultiple(sql, new {orderID = 1}))
 {
-    using (var multi = connection.QueryMultiple(sql, new {InvoiceID = 1}))
-    {
-        var invoice = multi.First<Invoice>();
-        var invoiceItems = multi.Read<InvoiceItem>().ToList();
-    }
+   var order = multi.ReadFirst<Order>();
+   var orderItems = multi.Read<OrderItem>().ToList();
+ 
+   FiddleHelper.WriteTable("Order", new List<Order>() { order});
+   FiddleHelper.WriteTable("OrderItem", orderItems);
 }
 ```
+
+[Online Example](https://dotnetfiddle.net/bHeSOS)
 
 With this, we can execute multiple SQL statements in one query and read each result set from the `GridReader` object returned by the `QueryMultiple` method. That can help increase the performance of your application in cases where multiple queries need to be executed and their results combined. 
 
@@ -67,20 +69,24 @@ Using Dapper `QueryMultiple` is a great way to simplify data access and ensure t
 The asynchronous version of the `QueryMultiple<T>`  method is `QueryMultipleAsync<T>`:
 
 ```csharp
+var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServer());
+
 string sql = @"
-SELECT * FROM Invoices WHERE InvoiceID = @InvoiceID;
-SELECT * FROM InvoiceItems WHERE InvoiceID = @InvoiceID;
+SELECT * FROM [Order] WHERE OrderID = @orderID;
+SELECT * FROM [OrderItem] WHERE OrderID = @orderID;
 ";
 
-using (var connection = new SqlConnection(connectionString))
+using (var multi = await connection.QueryMultipleAsync(sql, new {orderID = 1}))
 {
-    using (var multi = await connection.QueryMultipleAsync(sql, new {InvoiceID = 1}))
-    {
-        var invoice = await multi.FirstAsync<Invoice>();
-        var invoiceItems = await multi.ReadAsync<InvoiceItem>().ToList();
-    }
+   var order = multi.ReadFirst<Order>();
+   var orderItems = multi.Read<OrderItem>().ToList();
+ 
+   FiddleHelper.WriteTable("Order", new List<Order>() { order});
+   FiddleHelper.WriteTable("OrderItem", orderItems);
 }
 ```
+
+[Online Example](https://dotnetfiddle.net/Zak9uk)
 
 ## Related Articles
 
