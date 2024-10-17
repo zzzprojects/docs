@@ -4,12 +4,14 @@ description: Dapper is a simple and efficient .NET library for data access and o
 keywords: dapper c#, dapper in c#, dapper nuget, what is dapper, what is dapper in .net core
 canonical: /
 status: Published
-lastmod: 2023-01-08T12:52:49Z
+lastmod: 2024-10-17
 ---
 
-# Welcome To Learn Dapper
+# Welcome to Learn Dapper
 
-This site is for developers who want to learn how to use Dapper - The micro ORM created by the people behind [Stack Overflow](https://stackoverflow.com/questions/tagged/dapper).
+This site is for developers who want to learn how to use Dapper - the micro ORM **downloaded over 350m times** and created by the people behind [Stack Overflow](https://stackoverflow.com/questions/tagged/dapper).
+
+Through this tutorial, you will also learn about Dapper Plus, a third-party library that offers features like [Create Table](https://dapper-plus.net/create-table) and [Bulk Extensions (such as BulkInsert)](https://dapper-plus.net/bulk-extensions-methods) methods.
 
 ## What is Dapper?
 
@@ -53,7 +55,7 @@ Dapper concentrates its efforts on the **O** and **M** of _ORM_ - **O**bject **M
 
 ## When Should You Use Dapper?
 
-When deciding whether to use Dapper or not, one should bear in mind the primary reason for its existence - performance. The original developers of Dapper were using Entity Framework Core's predecessor - the short-lived [Linq to SQL](https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/sql/linq/). However, they found that query performance wasn't good enough for the increasing traffic that the site in question (Stack Overflow) was experiencing, [so they wrote their own micro ORM](https://samsaffron.com/archive/2011/03/30/How+I+learned+to+stop+worrying+and+write+my+own+ORM).
+When deciding whether to use Dapper or not, one should bear in mind the primary reason for its existence - performance. The original developers of Dapper were using Entity Framework Core's predecessor - the short-lived [Linq to SQL](https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/sql/linq/). However, they found that query performance wasn't good enough for the increasing traffic that the site in question (Stack Overflow) was experiencing, [so they wrote their own micro ORM](https://samsaffron.com/archive/2011/03/30/How+I+learned+to+stop+worrying+and+write+my+own+ORM). For a comparisons, see our [Dapper vs Entity Framework (EF Core)](/dapper-vs-entity-framework) article.
 
 Dapper is, therefore, a good choice in scenarios where read-only data changes frequently and is requested often. It is particularly good in stateless scenarios (e.g. the web) where there is no need to persist complex object graphs in memory for any duration.
 
@@ -81,15 +83,13 @@ using (var connection = new SqlConnection(connString))
         {
             var product = new Product
             {
-                ProductId = reader.GetInt32(reader.GetOrdinal("ProductId")),
+                ProductID = reader.GetInt32(reader.GetOrdinal("ProductID")),
                 ProductName = reader.GetString(reader.GetOrdinal("ProductName")),
-                SupplierId = reader.GetInt32(reader.GetOrdinal("SupplierId")),
-                CategoryId = reader.GetInt32(reader.GetOrdinal("CategoryId")),
-                QuantityPerUnit = reader.GetString(reader.GetOrdinal("QuantityPerUnit")),
+                SupplierID = reader.GetInt32(reader.GetOrdinal("SupplierID")),
+                CategoryID = reader.GetInt32(reader.GetOrdinal("CategoryID")),
                 UnitPrice = reader.GetDecimal(reader.GetOrdinal("UnitPrice")),
-                UnitsInStock = reader.GetInt16(reader.GetOrdinal("UnitsInStock")),
-                UnitsOnOrder = reader.GetInt16(reader.GetOrdinal("UnitsOnOrder")),
-                ReorderLevel = reader.GetInt16(reader.GetOrdinal("ReorderLevel")),
+                UnitsInStock = reader.GetInt32(reader.GetOrdinal("UnitsInStock")),
+                UnitsOnOrder = reader.GetInt32(reader.GetOrdinal("UnitsOnOrder")),
                 Discontinued = reader.GetBoolean(reader.GetOrdinal("Discontinued")),
                 DiscontinuedDate = reader.GetDateTime(reader.GetOrdinal("DiscontinuedDate"))
             };
@@ -104,6 +104,8 @@ At its most basic level, Dapper replaces the highlighted block of assignment cod
 ```csharp
 products = connection.Query<Product>(sql).ToList();
 ```
+
+[Online Example](https://dotnetfiddle.net/2aFqUE)
 
 Dapper also creates the command and opens the connection if needed. If you use Dapper to manage basic assignments like this, it will save you hours. However, Dapper is capable of doing quite a bit more.
 
@@ -128,4 +130,4 @@ git clone https://github.com/StackExchange/Dapper.git
 
 ## Conclusion
 
-In conclusion, Dapper is an excellent choice for applications that require simple and efficient data access. It is easy to use, lightweight and performant, making it a perfect option for developers who need fast data access without the overhead of more complex ORM solutions. Furthermore, Dapper is compatible with .NET Framework and .NET Core, and you can use it with any .NET language, including C#, VB.NET, and F#. Whether you are new to ORM or have experience with other libraries, Dapper is a powerful tool worth considering for your data access needs.
+In conclusion, Dapper is an excellent choice for applications that require simple and efficient data access. It is easy to use, lightweight and performant, making it a perfect option for developers who need fast data access without the overhead of more complex ORM solutions. Furthermore, Dapper is compatible with .NET Framework and .NET Core, and you can use it with any .NET language, including C#, VB.NET, and F#. Whether you are new to ORM or have experience with other libraries, Dapper is a powerful tool worth considering for your data access needs. Dapper is enriched by third-party libraries such as [Dapper Plus](https://dapper-plus.net/), which aims to provide additional features, including bulk extension methods.

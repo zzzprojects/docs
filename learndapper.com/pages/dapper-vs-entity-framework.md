@@ -1,14 +1,14 @@
 ---
 title: Dapper vs Entity Framework (EF6 or EF Core)
-description: TODO
+description: Learn the differences between Dapper and Entity Framework (EF6 or EF Core). Discover which ORM you should use and why.
 canonical: /dapper-vs-entity-framework
 status: Published
-lastmod: 2023-11-17
+lastmod: 2024-10-17
 ---
 
 # Dapper vs Entity Framework (EF6 or EF Core)
 
-This article will help you better understand the difference between Dapper and Entity Framework and how to choose which ORM you should use in your next project. For Entity Framework, we will mainly use Entity Framework Core (`EF Core`) as our example, but for most cases, Entity Framework 6 (`EF6`) could have been used for the same comparison as well.
+This article will help you better understand the difference between Dapper and Entity Framework and how to choose which ORM you should use in your next project. For Entity Framework, we will mainly use Entity Framework Core ([EF Core](https://www.learnentityframeworkcore.com/)) as our example, but for most cases, Entity Framework 6 (`EF6`) could have been used for the same comparison as well.
 
 This article will help you to understand:
 
@@ -36,8 +36,8 @@ Surely there is some way to use `LINQ` with Dapper and write SQL in Entity Frame
 
 For 95% of the code you will create, both ORMs are amazing and can work with any kind of project, from small-scale to massive enterprise-level applications. The remaining 5% are exception cases and should be treated as exceptions. For example, both libraries will have bad performance if you need to import 1 million customers in your database, but for this scenario, you can easily find solutions outside of those ORMs:
 
-- [Dapper Plus Bulk Extensions](https://dapper-plus.net/bulk-insert)
-- [EFE Bulk Extensions](https://entityframework-extensions.net/bulk-extensions)
+- [Dapper Plus](https://dapper-plus.net/bulk-insert)
+- [Entity Framework Extensions](https://entityframework-extensions.net/bulk-extensions)
 - [SqlBulkCopy](https://riptutorial.com/sqlbulkcopy/learn/100000/getting-started)
 
 So again, do you want to write all your SQL statements in Dapper or let Entity Framework generate them for you?

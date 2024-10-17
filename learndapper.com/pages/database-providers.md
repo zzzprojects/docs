@@ -3,14 +3,14 @@ title: Dapper Database Providers - SQL Server - Oracle - MySQL - PostgreSQL
 description: Discover how to use Dapper database providers like SQL Server, MySQL, PostgreSQL, Oracle, and more on your website. Learn to install and apply these providers.
 canonical: /database-providers
 status: Published
-lastmod: 2024-08-30
+lastmod: 2024-10-17
 ---
 
 # Database Providers With Dapper
 
 Dapper supports a variety of database providers, including the popular Microsoft SQL Server, Oracle, MySQL, MariaDB, PostgreSQL, SQLite, etc. 
 
- - It is important to note that Dapper does not provide any database abstraction layer like Entity Framework or NHibernate. 
+ - It is important to note that Dapper does not provide any database abstraction layer like [Entity Framework Core](https://www.learnentityframeworkcore.com/database-providers) or NHibernate. 
  - Instead, it provides the user with several methods and extension points to extend the library for their custom database provider. 
  - This is possible because it uses the simple ADO.NET data providers that come with the .NET framework, so it can easily work with any existing database technology that supports ADO.NET. 
  - Dapper provides asynchronous support for all databases supported in ADO.NET. 
@@ -32,17 +32,14 @@ Using Dapper to access SQL Server is relatively easy. You first create a connect
 var connectionString = "Server=localhost;Initial Catalog=DapperDB;Integrated Security=true;TrustServerCertificate=True";
 
 // Connect to the database 
-using (var connection = new SqlConnection(connectionString)) 
-{    
-    // Create a query that retrieves all books with an author name of "John Smith"    
-    var sql = "SELECT * FROM Books WHERE Author = @authorName";     
-	
-    // Use the Query method to execute the query and return a list of objects    
-    var books = connection.Query<Book>(sql, new { authorName = "John Smith"}).ToList(); 
-}
+var connection = new SqlConnection(connectionString);
+
+// Query data with Dapper
+var sql = "SELECT * FROM Product WHERE CategoryID = @categoryID";
+var products = connection.Query<Product>(sql, new { categoryID = 1}).ToList();
 ```
 
-[Online Example](https://dotnetfiddle.net/AMbnuB)
+[Online Example](https://dotnetfiddle.net/jGgu1F)
 
 Once you have created the connection, you can use any [Dapper Query](/dapper-query/selecting-multiple-rows#dapper-query) methods to map the data returned from your query into a strongly typed object (or any other supported [querying methods](/dapper-query)). In addition, it includes [executing stored procedures](/stored-procedures) to retrieve data from the database.
 
@@ -145,3 +142,4 @@ Like other providers, you must first create a connection and use any available D
 ## Related Articles
 
 - [Bulk Operations](/bulk-operations)
+- [Querying Methods](/dapper-query)
