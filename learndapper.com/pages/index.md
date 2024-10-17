@@ -71,8 +71,8 @@ There is no reason why you cannot use both an ORM and a micro ORM in the same pr
 
 Here is a standard ADO.NET C# code for retrieving data from a database and materializing it as a collection of `Product` objects:
 
-```csharp{data-lines="6-26"}
-var sql = "select * from products";
+```csharp
+var sql = "SELECT * FROM products";
 var products = new List<Product>();
 using (var connection = new SqlConnection(connString))
 {

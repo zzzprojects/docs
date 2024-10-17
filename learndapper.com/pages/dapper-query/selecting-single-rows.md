@@ -3,7 +3,7 @@ title: Dapper QuerySingle, QuerySingleOrDefault, QueryFirst, QueryFirstOrDefault
 description: The Dapper QuerySingle and QueryFirst methods allow you to return a single row of data and map it to a dynamic object or the generic entity type.
 canonical: /dapper-query/selecting-single-rows
 status: Published
-lastmod: 2023-08-01
+lastmod: 2024-10-17
 ---
 
 # Querying Single Row With Dapper
@@ -30,54 +30,39 @@ Dapper allows developers to easily select a single row of data from the database
 
 The following examples query the _Products_ table from the Microsoft Northwind sample database. The schema of the table is as follows:
 
-![Northwind Products Table](/images/28-03-2019-13-57-48.png)
-
 The first example returns dynamic types:
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
-{
-    var sql = "SELECT * FROM Products WHERE ProductID = 1";
-    var product = connection.QuerySingle(sql);
-	
-    Console.WriteLine($"{product.ProductID} {product.ProductName}");
-}
+var sql = "SELECT * FROM Product WHERE ProductID = @productID";
+var product = connection.QuerySingle(sql, new { productID = 1 });
+
+Console.WriteLine($"ProductID: {product.ProductID}; Name: {product.Name}");
 ```
+
+[Online Example](https://dotnetfiddle.net/GIUai9)
 
 The next example works with a `Product` type, which  has the following definition based on the table schema:
 
 ```csharp
 public class Product
 {
-    public int ProductID { get; set; }
-    public string ProductName { get; set; }
-    public int? SupplierId { get; set; }
-    public int? CategoryId { get; set; }
-    public string QuantityPerUnit { get; set; }
-    public decimal UnitPrice { get; set; }
-    public short? UnitsInStock { get; set; }
-    public short? UnitsOnOrder { get; set; }
-    public short? ReorderLevel { get; set; }
-    public bool Discontinued { get; set; }
-    public DateTime? DiscontinuedDate { get; set; }
-
-    public Category Category { get; set; }
-    public Supplier Supplier { get; set; }
-    public ICollection<OrderDetail> OrderDetails { get; set; } = new HashSet<OrderDetail>();
+	public int ProductID { get; set; }
+	public int CategoryID { get; set; }
+	public string Name { get; set; }
+	public string Description { get; set; }		
 }
 ```
 
 The following example is identical to the first one except for the presence of the `<Product>` type parameter:
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
-{
-    var sql = "SELECT * FROM Products WHERE ProductID = 1";
-    var product = connection.QuerySingle<Product>(sql);
-	
-    Console.WriteLine($"{product.ProductID} {product.ProductName}");
-}
+var sql = "SELECT * FROM Product WHERE ProductID = @productID";
+var product = connection.QuerySingle<Product>(sql, new { productID = 1 });
+
+Console.WriteLine($"ProductID: {product.ProductID}; Name: {product.Name}");
 ```
+
+[Online Example](https://dotnetfiddle.net/Wq1NAZ)
 
 No matter what type of data you select from your database, Dapper's QuerySingle method can help make the process much simpler. With its simple syntax and parameterized queries, you'll easily select single rows of data from your database. 
 
@@ -86,57 +71,52 @@ No matter what type of data you select from your database, Dapper's QuerySingle 
 The `QuerySingleAsync` is an asynchronous version of `QuerySingle`, that executes the query asynchronously and returns the single row in the result set returned by the query.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
-{
-    var sql = "SELECT * FROM Customers WHERE CustomerID = 1";
-    var customer = await connection.QuerySingleAsync(sql);
-    
-    Console.WriteLine($"{customer.CustomerID} {customer.CompanyName}");
-}
+var sql = "SELECT * FROM Product WHERE ProductID = @productID";
+var product = await connection.QuerySingleAsync(sql, new { productID = 1 });
+
+Console.WriteLine($"ProductID: {product.ProductID}; Name: {product.Name}");
 ```
+
+[Online Example](https://dotnetfiddle.net/LDe6ah)
 
 The asynchronous version of the `QuerySingle<T>`  method is `QuerySingleAsync<T>`:
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
-{
-    var sql = "SELECT * FROM Customers WHERE CustomerID = 1";
-    var customer = await connection.QuerySingleAsync<Customer>(sql);
-    
-    Console.WriteLine($"{customer.CustomerID} {customer.CompanyName}");
-}
+var sql = "SELECT * FROM Product WHERE ProductID = @productID";
+var product = await connection.QuerySingleAsync<Product>(sql, new { productID = 1 });
+
+Console.WriteLine($"ProductID: {product.ProductID}; Name: {product.Name}");
 ```
+
+[Online Example](https://dotnetfiddle.net/Cyocky)
 
 ## Dapper QueryFirst
 
 Dapper `QueryFirst` allows you to collect the first result from a query. That is especially useful when you need only one row of data, such as when querying for an ID value or other single-row returns. QueryFirst can accept any type of SQL query and will return the result accordingly. 
 
 ```csharp
-string sql = "SELECT * FROM Customers WHERE id=2";
+var sql = "SELECT * FROM Product WHERE ProductID = @productID";
+var product = connection.QueryFirst(sql, new { productID = 1 });
+// var product = connection.QueryFirst<Product>(sql, new { productID = 1 });
 
-using (var connection = new SqlConnection(connectionString))
-{
-    var customer = connection.QueryFirst<Customer>(sql);
-
-    Console.WriteLine(person.FirstName);
-    Console.WriteLine(person.LastName);
-}
+Console.WriteLine($"ProductID: {product.ProductID}; Name: {product.Name}");
 ```
+
+[Online Example](https://dotnetfiddle.net/lfknXe)
 
 ## Dapper QueryFirstAsync
 
 The asynchronous version of the `QueryFirst`  method is `QueryFirstAsync`:
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
-{
-    var sql = "SELECT * FROM Customers WHERE CustomerID = 1";
-    var customer = await connection.QueryFirstAsync<Customer>(sql);
-    
-    Console.WriteLine($"{customer.CustomerID} {customer.CompanyName}");
-    Console.ReadLine();
-}
+var sql = "SELECT * FROM Product WHERE ProductID = @productID";
+var product = await connection.QueryFirstAsync(sql, new { productID = 1 });
+// var product = await connection.QueryFirstAsync<Product>(sql, new { productID = 1 });
+
+Console.WriteLine($"ProductID: {product.ProductID}; Name: {product.Name}");
 ```
+
+[Online Example](https://dotnetfiddle.net/PqnUr6)
 
 ## Conclusion
 

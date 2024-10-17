@@ -3,7 +3,7 @@ title: Dapper ExecuteScalar, ExecuteScalarAsync
 description: The Dapper ExecuteScalar method allows you to execute a query and return the first column of the first row in the result set returned by the query.
 canonical: /dapper-query/selecting-scalar-values
 status: Published
-lastmod: 2023-08-01
+lastmod: 2024-10-17
 ---
 
 # Querying Scalar Values With Dapper
@@ -30,54 +30,50 @@ The `ExecuteScalar` method is often used to execute SQL queries that return a si
 To retrieve a scalar value using Dapper, you first need to construct a query that will be executed against the database. After creating the query, you use the `ExecuteScalar` method to execute it and get back a single value from the results.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
-{
-    var sql = "SELECT COUNT(*) FROM Products";
-    var count = connection.ExecuteScalar(sql);
-	
-    Console.WriteLine($"Total products: {count}");
-}
+var sql = "SELECT COUNT(*) FROM Product";
+var count = connection.ExecuteScalar(sql);
+
+Console.WriteLine($"Total products: {count}");
 ```
+
+[Online Example](https://dotnetfiddle.net/lasOkf)
 
 For example, if you wanted to select the total number of records in a table, you could use a query such as `SELECT COUNT(*) FROM Products`. Then, you could use the `ExecuteScalar` method on the query to get back a single value representing the total number of records.
 
 If you want to perform any operations on the returned value, you must cast or convert it to its expected type. Alternatively, use the version of `ExecuteScalar<T>` that takes a generic parameter and specifies the return type explicitly:
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
-{
-    var sql = "SELECT COUNT(*) FROM Products";
-    var count = connection.ExecuteScalar<int>(sql);
-	
-    Console.WriteLine($"Total products: {count}");
-}
+var sql = "SELECT COUNT(*) FROM Product";
+var count = connection.ExecuteScalar<int>(sql);
+
+Console.WriteLine($"Total products: {count}");
 ```
+
+[Online Example](https://dotnetfiddle.net/waDhiH)
 
 ## Dapper ExecuteScalarAsync
 
 The `ExecuteScalarAsync` is an asynchronous version of `ExecuteScalar` that executes the query asynchronously. It returns the first column of the first row from the result set returned by the query. Any additional columns or rows are ignored.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
-{
-    var sql = "SELECT COUNT(*) FROM Products";
-    var count = await connection.ExecuteScalarAsync(sql);
-	
-    Console.WriteLine($"Total products: {count}");
-}
+var sql = "SELECT COUNT(*) FROM Product";
+var count = await connection.ExecuteScalarAsync(sql);
+
+Console.WriteLine($"Total products: {count}");
 ```
+
+[Online Example](https://dotnetfiddle.net/vs9BDS)
 
 You can also use the `ExecuteScalarAsync<T>` that takes a generic parameter and specify the return type explicitly.
 
 ```csharp
-using (var connection = new SqlConnection(connectionString))
-{
-    var sql = "SELECT COUNT(*) FROM Products";
-    var count = await connection.ExecuteScalarAsync<int>(sql);
-	
-    Console.WriteLine($"Total products: {count}");
-}
+var sql = "SELECT COUNT(*) FROM Product";
+var count = await connection.ExecuteScalarAsync<int>(sql);
+
+Console.WriteLine($"Total products: {count}");
 ```
+
+[Online Example](https://dotnetfiddle.net/3L3ILK)
 
 ## Related Articles
 
