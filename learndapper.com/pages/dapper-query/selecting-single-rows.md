@@ -28,7 +28,7 @@ Dapper allows developers to easily select a single row of data from the database
  - The `QuerySingle` and `QuerySingle<T>` methods are designed to be used when you expect only one row to match the criteria specified in the query. 
  - The difference between `QuerySingle` and `QuerySingle<T>` is that `QuerySingle` returns results as a  `dynamic` type whereas `QuerySingle<T>` returns an instance of the type represented by `T` type argument. 
 
-The following examples query the _Products_ table from the Microsoft Northwind sample database. The schema of the table is as follows:
+The following examples query a `Product` table.
 
 The first example returns dynamic types:
 

@@ -3,7 +3,7 @@ title: Dapper QueryUnbufferedAsync
 description: The Dapper Query Unbuffered Async method is used to select data from your database asynchronously by loading objects on demand (unbuffered).
 canonical: /dapper-query/selecting-unbuffered-async
 status: Published
-lastmod: 2024-02-03
+lastmod: 2024-10-17
 ---
 
 # Querying Multiple Rows on Demand Asynchronously With Dapper
@@ -26,22 +26,27 @@ In this example, we will start by using Dapper Plus to make the setup easier by 
 public static async Task Main()
 {
 	var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServer());
-
-	// CREATE table
-	connection.CreateTable<Customer>();
 	
-	// SEED data
-	var customers = new List<Customer>();
-	customers.Add(new Customer() { Name = "Jonathan Magnan", Email = "info@zzzprojects.com" });
-	customers.Add(new Customer() { Name = "ZZZ Projects", Email = "sales@zzzprojects.com" });
-	customers.Add(new Customer() { Name = "Sara", Email = "sara@zzzprojects.com" });		
-	connection.BulkInsert(customers);
-	
-	// SELECT data
-	await foreach (var customer in connection.QueryUnbufferedAsync<Customer>("SELECT * FROM Customers WHERE CustomerID > @ID", new { ID  = 1 }).ConfigureAwait(false))
+	// CREATE database and data seeding
 	{
-		Console.WriteLine($"CustomerID: {customer.CustomerID}; Name: {customer.Name}; Email: {customer.Email}");
+		// CREATE Table (from Dapper Plus)
+		connection.CreateTable<Product>();
+		
+		var seedProducts = new List<Product>();
+		seedProducts.Add(new Product() { Name = "Dapper Plus", CategoryID = 1, Description = @"Use <a href=""https://dapper-plus.net/"" target=""_blank"">Dapper Plus</a> to extend your IDbConnection with high-performance bulk operations." });
+		seedProducts.Add(new Product() { Name = "C# Eval Expression", CategoryID = 1, Description = @"Use <a href=""https://eval-expression.net/"" target=""_blank"">C# Eval Expression</a> to compile and execute C# code at runtime." });
+		seedProducts.Add(new Product() { Name = "Entity Framework Extensions", CategoryID = 2, Description = @"Use <a href=""https://entityframework-extensions.net/"" target=""_blank"">Entity Framework Extensions</a> to extend your DbContext with high-performance bulk operations." });
+		
+		// BulkInsert data (from Dapper Plus)
+		connection.BulkInsert(seedProducts);
 	}
+
+	// Query data with Dapper
+	var sql = "SELECT * FROM Product WHERE CategoryID = @categoryID";
+	await foreach (var product in connection.QueryUnbufferedAsync<Product>(sql, new { categoryID  = 1 }).ConfigureAwait(false))
+	{
+		Console.WriteLine($"ProductID: {product.ProductID}; Name: {product.Name}");
+	}	
 }
 ```
 [Online Example](https://dotnetfiddle.net/PB495V)
