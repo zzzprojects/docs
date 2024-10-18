@@ -26,8 +26,9 @@ In this example:
 1. We will create a connection
 2. We will create an `INSERT` sql statement
 3. Call the `Execute` method
-   3a. The first time, we will pass parameters values with an anonymous type
-   3b. The second time, we will pass parameters values by providing the customer entity
+
+-  3a. The first time, we will pass parameters values with an anonymous type
+-  3b. The second time, we will pass parameters values by providing the customer entity
 
 ```csharp
 // 1. We will create a connection

@@ -3,7 +3,7 @@ title: Dapper Execute, ExecuteAsync, Insert, Update, Delete
 description:  The Dapper Execute method allows executing SQL statements not returning any results besides the row affecteds for operations such as insert, update, and delete.
 canonical: /non-query
 status: Published
-lastmod: 2023-01-05T12:53:15Z
+lastmod: 2024-10-18
 ---
 
 # Executing Non-Query Commands With Dapper
@@ -19,30 +19,25 @@ The `Execute` method returns an `int`, representing the number of rows affected 
 Here is an example of how to use the `Execute` method.
 
 ```csharp
-string sql = "INSERT INTO Customers (Name, Email) VALUES (@Name, @Email);" 
-object[] parameters = { new { Name = "John Doe", Email = "jdoe@example.com" } };
-	
-using (var connection = new SqlConnection(connectionString))
-{
-    connection.Execute(sql, parameters); 
-}
+var sql1 = "INSERT INTO Product (CategoryID, Name, Description) VALUES (@categoryID, @name, @description)";		
+object[] parameters = { new { categoryID = 1, name = "Dapper Plus", description = @"Use <a href=""https://dapper-plus.net/"" target=""_blank"">Dapper Plus</a> to extend your IDbConnection with high-performance bulk operations." }};
+
+connection.Execute(sql1, parameters);
 ```
+
+[Online Example](https://dotnetfiddle.net/iJXgRU)
 
 ## Dapper Insert
 
 The `INSERT` statement is used to add records to a table. You can use the Dapper `Execute` method to execute an `INSERT` statement to add one or more record(s) to the database table.
 
 ```csharp
-var sql = "INSERT INTO Categories (CategoryName) values ('New Category')";
-
-using (var connection = new SqlConnection(connectionString))
-{
-    var affectedRows =  connection.Execute(sql);
-	
-    Console.WriteLine($"Affected Rows: {affectedRows}");
-}
+// Insert data with Dapper
+var sql1 = "INSERT INTO Product (CategoryID, Name, Description) VALUES (@categoryID, @name, @description)";		
+connection.Execute(sql1, new { categoryID = 1, name = "Dapper Plus", description = @"Use <a href=""https://dapper-plus.net/"" target=""_blank"">Dapper Plus</a> to extend your IDbConnection with high-performance bulk operations." });
 ```
-![Image](/images/20-05-2019-07-55-49.png)
+
+[Online Example](https://dotnetfiddle.net/nymteK)
 
 Dapper also supports inserting a list of objects, but it is an expensive operation if you use the dapper `Execute` method. The [BulkInsert](/bulk-operations/bulk-insert) method makes it easy to manage large amounts of data efficiently. It allows you to quickly and safely insert multiple records in bulk, reducing the need for manual input or looping through individual records.
 
@@ -51,16 +46,11 @@ Dapper also supports inserting a list of objects, but it is an expensive operati
 The `UPDATE` statement is used to update existing records in a table. You can use the `Execute` method of Dapper to perform an `UPDATE` statement by passing a string containing the SQL query and any needed parameters. 
 
 ```csharp
-var sql = @"UPDATE Products SET TotalPrice = Quantity * UnitPrice WHERE CategoryID = 2";
-
-using (var connection = new SqlConnection(connectionString))
-{
-    var affectedRows = connection.Execute(sql);
-	
-    Console.WriteLine($"Affected Rows: {affectedRows}");
-}
+var sql1 = "UPDATE Product SET Name = Name + @suffix WHERE CategoryID = @categoryID";		
+connection.Execute(sql1, new { categoryID = 1, suffix = " (Updated)" });
 ```
-![Image](/images/20-05-2019-07-52-25.png)
+
+[Online Example](https://dotnetfiddle.net/OtSfDf)
 
 Dapper also supports updating a list of objects. However, if you are looking for a highly efficient way to update thousands of entities, you should look at the [BulkUpdate](/bulk-operations/bulk-update) method.
 
@@ -71,19 +61,13 @@ Dapper provides an `Execute` method for deleting data from the database. When us
 The value returned by the `Execute` method can be used to determine if the delete operation was successful or not. It is also important to note that any errors thrown by the database must be handled in your code. 
 
 ```csharp
-var sql = "DELETE FROM Categories WHERE CategoryName = 'New Category'";
-
-using (var connection = new SqlConnection(connectionString))
-{
-    var affectedRows =  connection.Execute(sql);
-	
-    Console.WriteLine($"Affected Rows: {affectedRows}");
-}
+var sql1 = "DELETE FROM Product WHERE CategoryID = @categoryID";		
+connection.Execute(sql1, new { categoryID = 2 });
 ```
 
-![Image](/images/20-05-2019-07-55-49.png)
+[Online Example](https://dotnetfiddle.net/NFIRDF)
 
-The [BulkDelete](/bulk-operations/bulk-update) method allows you to delete large amounts of data efficiently. By using bulk operation instead of the `Execute` method, you reduce the number of database round-trips and increase your application performance.
+The [BulkDelete](/bulk-operations/bulk-delete) method allows you to delete large amounts of data efficiently. By using bulk operation instead of the `Execute` method, you reduce the number of database round-trips and increase your application performance.
 
 ## Dapper ExecuteAsync
 
@@ -95,15 +79,13 @@ The Dapper `ExecuteAsync` method is an asynchronous version of the `Execute` com
  - As with the `Execute` command, the `ExecuteAsync` method also supports passing in parameters and can be used to execute commands against multiple databases. 
 
 ```csharp
-string sql = "INSERT INTO Users (UserName) Values (@UserName);";
+var sql1 = "INSERT INTO Product (CategoryID, Name, Description) VALUES (@categoryID, @name, @description)";		
+object[] parameters = { new { categoryID = 1, name = "Dapper Plus", description = @"Use <a href=""https://dapper-plus.net/"" target=""_blank"">Dapper Plus</a> to extend your IDbConnection with high-performance bulk operations." }};
 
-using (var connection = new SqlConnection(connectionString))
-{
-    var affectedRows = await connection.ExecuteAsync(sql, new { UserName = "Mark" });
-	
-    Console.WriteLine(affectedRows);
-}
+await connection.ExecuteAsync(sql1, parameters);
 ```
+
+[Online Example](https://dotnetfiddle.net/QiyxK5)
 
 It is important to note that while the async version of this command will generally improve performance, it should not be used for queries that need to return immediate results. In those cases, you should use the synchronous version of the Execute command. 
 

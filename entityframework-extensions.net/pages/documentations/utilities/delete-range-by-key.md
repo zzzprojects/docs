@@ -58,3 +58,7 @@ context.Customers.DeleteByKey(customerDTO);
 | `DeleteRangeByKey<TEntity, T>(IEnumerable<T> entities)` | Deletes multiple entities by key in your database. | [Try it](https://dotnetfiddle.net/ONTPIs) |
 | `DeleteRangeByKeyAsync<TEntity, T>(IEnumerable<T> entities)` | Deletes multiple entities by key in your database.  | |
 | `DeleteRangeByKeyAsync<TEntity, T>(CancellationToken cancellationToken, IEnumerable<T> entities)` | Deletes multiple entities by key in your database. | |
+
+## Limitations
+
+- Support SQL Server and SQLite

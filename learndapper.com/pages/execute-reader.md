@@ -3,7 +3,7 @@ title: Dapper ExecuteReader, ExecuteReaderAsync
 description: The Dapper ExecuteReader method allows to executes a SQL query and returns a DataReader containing the result set of the query as rows and columns. 
 canonical: /execute-reader
 status: Published
-lastmod: 2023-01-05
+lastmod: 2024-10-18
 ---
 
 # Executing Reader With Dapper
@@ -25,51 +25,51 @@ The `ExecuteReader` method has a variety of overloads that allow developers to s
 The following example shows how to use the `ExecuteReader` method. First, we create a connection to the database using a `SqlConnection` object and then create an SQL query to select the data from the database and pass it to the `ExecuteReader` method of Dapper.
 
 ```csharp
-using(var connection = new SqlConnection(connectionString))
+var sql = "SELECT * FROM Product WHERE CategoryID = @categoryID";
+
+var reader = connection.ExecuteReader(sql, new { categoryID = 1 });
+
+while(reader.Read())
 {
-    var reader = connection.ExecuteReader("SELECT * FROM Customers;");
-	
-    while (reader.Read())
-    {
-        int id = reader.GetInt32(0);  // Get the first column of the row as an int
-        string name = reader.GetString(1);  // Get the second column of the row as a string    
-    
-        Console.WriteLine("Id: {0}, Name: {1}", id, name);
-    
-    }
-}
+	var productId = reader.GetInt32(reader.GetOrdinal("ProductID"));
+	var name = reader.GetString(reader.GetOrdinal("Name"));
+	Console.WriteLine($"ProductID: {productId}; Name: {name}");
+}	
 ```
+
+[Online Example](https://dotnetfiddle.net/9v1bXc)
 
 You can also fill a `DataTable` or `DataSet` from the results returned by the `ExecuteReader` method. 
 
 ```csharp
-using(var connection = new SqlConnection(connectionString))
-{
-    var reader = connection.ExecuteReader("SELECT * FROM Customers;");
-	
-    DataTable table = new DataTable();
-    table.Load(reader);
-}
+var sql = "SELECT * FROM Product WHERE CategoryID = @categoryID";
+
+var reader = connection.ExecuteReader(sql, new { categoryID = 1 });
+
+DataTable table = new DataTable();
+table.Load(reader);
 ```
+
+[Online Example](https://dotnetfiddle.net/NVOj5n)
 
 ## Dapper ExecuteReaderAsync
 
 To execute a reader asynchronously, Dapper provides the `ExecuteReaderAsync` method, an asynchronous version of the `ExecuteReader` method.
 
 ```csharp
-using(var connection = new SqlConnection(connectionString))
+var sql = "SELECT * FROM Product WHERE CategoryID = @categoryID";
+
+var reader = await connection.ExecuteReaderAsync(sql, new { categoryID = 1 });
+
+while(reader.Read())
 {
-    var reader = await connection.ExecuteReaderAsync("SELECT * FROM Customers;");
-	
-    while (reader.Read())
-    {
-        int id = reader.GetInt32(0);  // Get the first column of the row as an int
-        string name = reader.GetString(1);  // Get the second column of the row as a string    
-		
-        Console.WriteLine("Id: {0}, Name: {1}", id, name);
-    }
-}
+	var productId = reader.GetInt32(reader.GetOrdinal("ProductID"));
+	var name = reader.GetString(reader.GetOrdinal("Name"));
+	Console.WriteLine($"ProductID: {productId}; Name: {name}");
+}	
 ```
+
+[Online Example](https://dotnetfiddle.net/HDBWrC)
 
 ## Related Articles
 

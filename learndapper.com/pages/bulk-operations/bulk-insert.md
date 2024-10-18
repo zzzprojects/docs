@@ -3,7 +3,7 @@ title: Dapper Bulk Insert
 description: The Dapper Plus BulkInsert method is the fastest way to insert entities in Dapper. Your performance is increased by up to 50x faster and more.
 canonical: /bulk-operations/bulk-insert
 status: Published
-lastmod: 2023-01-08T18:13:25Z
+lastmod: 2024-10-18
 ---
 
 # Bulk Inserting Data With Dapper
@@ -12,16 +12,13 @@ Dapper provides the [Execute method for inserting data](/non-query#dapper-insert
 
 The **fastest way of inserting** multiple data is by using the [Dapper Plus](https://dapper-plus.net/) third-party library.
 
-Depending on the provider, performance can be increased by up to **50x faster** and more.
+Depending on the provider, performance can be increased by up to **75x faster** and more ([Online Benchmark](https://dotnetfiddle.net/zlTePU))
 
 ## Getting Started
 
 NuGet Package: [https://www.nuget.org/packages/Z.Dapper.Plus/](https://www.nuget.org/packages/Z.Dapper.Plus/)
 
-Documentation:
-
-- [Dapper Plus – Bulk Insert](https://dapper-plus.net/bulk-insert)
-- [Dapper Plus – Mapping](https://dapper-plus.net/getting-started-mapping)
+Documentation: [Dapper Plus – Bulk Insert](https://dapper-plus.net/bulk-insert)
 
 ## Dapper BulkInsert
 
@@ -32,8 +29,15 @@ The **Dapper Plus** `BulkInsert` method is a great way to insert multiple data r
  - Unlike Dapper, you don’t need to write any SQL but simply pass your entities in parameters:
 
 ```csharp
-connection.BulkInsert(customers);
+// Easy to use
+connection.BulkInsert(products);
+
+// Easy to customize
+connection.UseBulkOptions(options => options.InsertIfNotExists = true)
+		  .BulkInsert(products);
 ```
+
+[Online Example](https://dotnetfiddle.net/6TTDXX)
 
 ## Dapper BulkInsert with Global Context Mapping
 
@@ -98,3 +102,6 @@ using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlSer
 ## Related Articles
 
 - [Bulk Operations](/bulk-operations)
+- [Bulk Update](/bulk-operations/bulk-update)
+- [Bulk Delete](/bulk-operations/bulk-delete)
+- [Bulk Merge (Upsert)](/bulk-operations/bulk-merge)

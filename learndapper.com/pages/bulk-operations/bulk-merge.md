@@ -3,7 +3,7 @@ title: Dapper Bulk Merge
 description: The Dapper Plus BulkMerge method allows performing UPSERT operations (update/insert) in your database and improves your performance by 5000% and more.
 canonical: /bulk-operations/bulk-merge
 status: Published
-lastmod: 2023-01-08T18:29:43Z
+lastmod: 2024-10-18
 ---
 
 # Bulk Merging Data With Dapper
@@ -12,16 +12,13 @@ A merge is equivalent to an `UPSERT` (Update/Insert) operation. Existing data in
 
 The **easiest and fastest way** to merge data is by using the [Dapper Plus](https://dapper-plus.net/) third-party library.
 
-The `BulkMerge` method makes that operation very easy to use and **improves the performance by 5000%** depending more on the provider.
+The `BulkMerge` method makes that operation very easy to use and **improves the performance by 5000%** depending more on the provider ([Online Benchmark](https://dotnetfiddle.net/piaZmp)).
 
 ## Getting Started
 
 NuGet Package: [https://www.nuget.org/packages/Z.Dapper.Plus/](https://www.nuget.org/packages/Z.Dapper.Plus/)
 
-Documentation:
-
-- [Dapper Plus – Bulk Merge](https://dapper-plus.net/bulk-merge)
-- [Dapper Plus – Mapping](https://dapper-plus.net/getting-started-mapping)
+Documentation: [Dapper Plus – Bulk Merge](https://dapper-plus.net/bulk-merge)
 
 ## Dapper BulkMerge
 
@@ -32,8 +29,15 @@ Documentation:
 Using the `BulkMerge` method is very simple. All you need to do is pass your entities in the parameter and let the automapping matching properties with column names:
 
 ```csharp
-connection.BulkMerge(customers);
+// Easy to use
+connection.BulkMerge(products);
+
+// Easy to customize
+connection.UseBulkOptions(options => options.MergeKeepIdentity = true)
+		  .BulkMerge(products);
 ```
+
+[Online Example](https://dotnetfiddle.net/v5stH2)
 
 ## Dapper BulkMerge with Global Context Mapping
 
@@ -72,3 +76,6 @@ All of these features make BulkMerge an essential method for optimizing the perf
 ## Related Articles
 
 - [Bulk Operations](/bulk-operations)
+- [Bulk Insert](/bulk-operations/bulk-insert)
+- [Bulk Update](/bulk-operations/bulk-update)
+- [Bulk Delete](/bulk-operations/bulk-delete)

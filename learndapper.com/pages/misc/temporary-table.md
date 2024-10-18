@@ -3,7 +3,7 @@ title: Dapper Temporary Table
 description: Dapper supports temporary tables by allowing you to create, insert, and query them using the execute or querying methods. Learn more how to use temporary table
 canonical: /misc/temporary-table
 status: Published
-lastmod: 2023-01-05
+lastmod: 2024-10-18
 ---
 
 # Temporary Table With Dapper
@@ -53,3 +53,60 @@ using (var connection = new SqlConnection(connectionString))
 ```
 
 You can also query a temporary table like any other table in the database; however, all changes made to it will be lost after closing the connection. Temporary tables can be a great way to store data temporarily without creating permanent tables in the database. 
+
+Here's an improved version of the text for the "CreateTable Methods" section of Dapper Plus:
+
+## Dapper Plus - CreateTable Methods
+
+The [CreateTable](https://dapper-plus.net/create-table) method in Dapper Plus offers a straightforward approach to creating various types of tables directly from an entity type. It supports all type of table:
+
+- Permanent Table
+- Temporary Table
+- Global Temporary Table
+
+In addition, it support data annotation
+
+```csharp
+public static void Main()
+{
+	var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServer());
+	
+	connection.CreateTable<Customer>();
+}
+	
+[Table("CustomerWithAnnotation")]
+public class Customer 
+{
+	[Key]
+	[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+	public int CustomerID { get; set; }
+	[Column("FullName", TypeName="nvarchar(50)")]
+	public string Name { get; set; }
+	public string Email { get; set; }
+	
+	[Timestamp]
+	public byte[] Version { get; set; }
+	
+	[NotMapped]
+	public string NotMapped { get; set; }
+}
+```
+
+[Online Example](https://dotnetfiddle.net/1pjhVa)
+
+Throughout this tutorial, we almost always use the `CreateTable` method to set up our examples, as it's a perfect fit for this kind of scenario.
+
+Moreover, the `CreateTable` method isn't just for creation; you can also populate your tables immediately. By passing a list as the first parameter, you can both create and fill a table in a single operation, as detailed in [CreateTable and Populate](https://dapper-plus.net/create-table#create-table-and-populate). This feature simplifies the process of setting up and utilizing new tables in your applications.
+
+```csharp
+var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServer());
+
+var customers = new List<Customer>();
+customers.Add(new Customer() { Name = "Jonathan Magnan", Email = "info@zzzprojects.com" });
+customers.Add(new Customer() { Name = "ZZZ Projects", Email = "sales@zzzprojects.com" });
+customers.Add(new Customer() { Name = "Sara", Email = "sara@zzzprojects.com" });
+
+connection.CreateTable(customers, CreateTableType.Permanent);
+```
+
+[Online Example](https://dotnetfiddle.net/LSiOah)

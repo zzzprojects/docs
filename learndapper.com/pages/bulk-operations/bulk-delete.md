@@ -3,14 +3,14 @@ title: Dapper Bulk Delete
 description: Dapper Plus BulkDelete allows you to delete entities from the database in a single roundtrip. It eliminates multiple trips to the db for each entity to delete.
 canonical: /bulk-operations/bulk-delete
 status: Published
-lastmod: 2023-01-08T18:23:00Z
+lastmod: 2024-10-18
 ---
 
 # Bulk Deleting Data With Dapper
 
 Deleting data with Dapper is already very fast, as you can use the `IN` statement and specify a list of keys. However, in some scenarios, you might have thousands of data to delete and be limited by the number of parameters supported by SQL Server or want more flexibility.
 
-The **fastest and easiest** way of deleting multiple data is using the [Dapper Plus](https://dapper-plus.net/) third-party library.
+The **fastest and easiest** way of deleting multiple data is using the [Dapper Plus](https://dapper-plus.net/) third-party library ([Online Benchmark](https://dotnetfiddle.net/18paED)).
 
 This library is very fast and offers hundreds of features and all other bulk operations to support the most common and complex cases.
 
@@ -18,10 +18,7 @@ This library is very fast and offers hundreds of features and all other bulk ope
 
 NuGet Package: [https://www.nuget.org/packages/Z.Dapper.Plus/](https://www.nuget.org/packages/Z.Dapper.Plus/)
 
-Documentation:
-
-- [Dapper Plus – Bulk Delete](https://dapper-plus.net/bulk-delete)
-- [Dapper Plus – Mapping](https://dapper-plus.net/getting-started-mapping)
+Documentation: [Dapper Plus – Bulk Delete](https://dapper-plus.net/bulk-delete)
 
 ## Dapper BulkDelete
 
@@ -32,8 +29,11 @@ By default, you only need to pass your entities in parameter, and the library wi
  - Additionally, it supports conditional deletes, allowing you to delete entities based on specific criteria that you specify. 
  
 ```csharp
-connection.BulkDelete(customers);
+// Easy to use
+connection.BulkDelete(products);
 ```
+
+[Online Example](https://dotnetfiddle.net/p7L99k)
 
 ## Dapper BulkDelete with Global Context Mapping
 
@@ -74,3 +74,5 @@ All of this combined makes Dapper Plus BulkDelete an incredibly powerful and use
 ## Related Articles
 
 - [Bulk Operations](/bulk-operations)
+- [Bulk Insert](/bulk-operations/bulk-insert)
+- [Bulk Merge (Upsert)](/bulk-operations/bulk-merge)

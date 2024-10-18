@@ -3,7 +3,7 @@ title: Dapper Bulk Operations
 description: The Dapper Plus library allows developers to easily perform bulk operations. It helps to optimize performance by reducing the number of database round trips.
 canonical: /bulk-operations
 status: Published
-lastmod: 2024-08-30
+lastmod: 2024-10-18
 ---
 
 # Bulk Operations With Dapper
@@ -32,8 +32,6 @@ To use Dapper Plus in your application, you need to install the [NuGet Package](
 
 This library is not free but is the fastest way to save your data. In addition, you save development time (so money) as you don't have to write any SQL statements and unit tests for those bulk operations.
 
-You can find more information on their official [website](https://dapper-plus.net/)
-
 Like Dapper, Dapper Plus extends your `IDbConnection` interface but with high-performance bulk operations:
 
 ```csharp
@@ -42,3 +40,16 @@ connection.BulkUpdate(customers);
 connection.BulkDelete(customers);
 connection.BulkMerge(customers);
 ```
+
+You can find more information on their [Getting Started](https://dapper-plus.net/getting-started)
+
+## Dapper Plus - Performance
+
+Dapper Plus significantly outperforms traditional methods for [inserting multiple rows](/saving-data/insert#dapper-insert-multiple-rows) in Dapper, providing a remarkable boost in efficiency:
+
+- **Insert:** 75x faster, reducing time by 99% ([Online Benchmark](https://dotnetfiddle.net/zlTePU))
+- **Update:** 50x faster, reducing time by 98% ([Online Benchmark](https://dotnetfiddle.net/qnbq6o))
+- **Delete:** 150x faster, reducing time by 99% ([Online Benchmark](https://dotnetfiddle.net/18paED))
+- **Merge:** 50x faster, reducing time by 98% ([Online Benchmark](https://dotnetfiddle.net/piaZmp))
+
+In addition to its speed, Dapper Plus offers an extensive array of customization options for your bulk operations, allowing you to tailor data saving processes to your specific needs.

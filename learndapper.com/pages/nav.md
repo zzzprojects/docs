@@ -1,6 +1,6 @@
 <nav class="main-nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
     <ul class="nav nav-level-one" id="side-menu">
-		<li><a href="https://zzzcode.ai/dapper/chat" target="_blank">Open Chat GPT Console</a></li>
+		<li><a href="https://zzzcode.ai/dapper/chat" target="_blank">Dapper Chat GPT Console</a></li>
 		<li>
 			<a href="/dapper-ai-tools">Dapper AI Tools</a>
 			<ul class="nav-level-two" data-display="dapper-ai-tools">

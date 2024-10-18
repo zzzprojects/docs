@@ -1,7 +1,7 @@
 ---
 Permalink: ef-core-query-hint
 Name: Query Hint
-LastMod: 2024-02-18
+LastMod: 2024-10-18
 ---
 
 # Query Hint
@@ -78,3 +78,25 @@ namespace Z.EntityFramework.Plus
     }
 }
 ```
+
+## How to Specify "Hints" for Particular Entity Types
+
+When using the `.Include` method, or in scenarios where you need to apply the same SQL hints across multiple entity types, you can pass a list of types as the second parameter. This approach allows you to fine-tune query performance by specifying hints, such as `NOLOCK`, for targeted entities within your query.
+
+Below are examples demonstrating how to apply hints selectively:
+
+```csharp
+// Apply the NOLOCK hint only to OrderItem
+context.Orders
+    .Include(x => x.Items)
+    .WithHint(SqlServerTableHintFlags.NOLOCK, typeof(OrderItem))
+    .ToList();
+
+// Apply the NOLOCK hint to both Order and OrderItem
+context.Orders
+    .Include(x => x.Items)
+    .WithHint(SqlServerTableHintFlags.NOLOCK, typeof(Order), typeof(OrderItem))
+    .ToList();
+```
+
+This method ensures that your hints are applied precisely where needed, enhancing query flexibility and performance.

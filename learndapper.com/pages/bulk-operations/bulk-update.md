@@ -3,7 +3,7 @@ title: Dapper Bulk Update
 description: The Dapper Plus BulkUpdate method allows executing bulk updates in a single database call. Performance can be improved by up 5000% and more.
 canonical: /bulk-operations/bulk-update
 status: Published
-lastmod: 2023-01-08T18:15:15Z
+lastmod: 2024-10-18
 ---
 
 # Bulk Updating Data With Dapper
@@ -12,16 +12,13 @@ Dapper provides the [Execute method for updating data](/non-query#dapper-update)
 
 It is possible to dramatically reduce the number of database roundtrips by using the `BulkUpdate` method from the [Dapper Plus](https://dapper-plus.net/) third-party library.
 
-Performance can be **improved by up 5000%** and more depending on the provider.
+Performance can be **improved by up 5000%** and more depending on the provider ([Online Benchmark](https://dotnetfiddle.net/qnbq6o)).
 
 ## Getting Started
 
 NuGet Package: [https://www.nuget.org/packages/Z.Dapper.Plus/](https://www.nuget.org/packages/Z.Dapper.Plus/)
 
-Documentation:
-
-- [Dapper Plus – Bulk Update](https://dapper-plus.net/bulk-update)
-- [Dapper Plus – Mapping](https://dapper-plus.net/getting-started-mapping)
+Documentation: [Dapper Plus – Bulk Update](https://dapper-plus.net/bulk-update)
 
 ## Dapper BulkUpdate
 
@@ -33,8 +30,15 @@ Documentation:
 To perform a `BulkUpdate`, you need to pass your entities in the parameters:
 
 ```csharp
-connection.BulkUpdate(customers);
+// Easy to use
+connection.BulkUpdate(products);
+
+// Easy to customize
+connection.UseBulkOptions(options => options.BatchSize = 1000)
+		  .BulkUpdate(products);
 ```
+
+[Online Example](https://dotnetfiddle.net/iezfmD)
 
 ## Dapper BulkUpdate with Global Context Mapping
 
@@ -72,3 +76,6 @@ public void CustomBulkUpdate<T>(List<T> entities, List<string> propertieNames) w
 ## Related Articles
 
 - [Bulk Operations](/bulk-operations)
+- [Bulk Insert](/bulk-operations/bulk-insert)
+- [Bulk Delete](/bulk-operations/bulk-delete)
+- [Bulk Merge (Upsert)](/bulk-operations/bulk-merge)

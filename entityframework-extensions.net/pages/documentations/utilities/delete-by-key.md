@@ -63,3 +63,9 @@ context.Customers.DeleteByKey(customerDTO);
 | `DeleteByKeyAsync<TEntity>(params object[] keyValues)` | Deletes an entity by key in your database. | |
 | `DeleteByKeyAsync<TEntity, T>(CancellationToken cancellationToken, T entityOrKeyValue)` | Deletes an entity by key in your database. | |
 | `DeleteByKeyAsync<TEntity>(CancellationToken cancellationToken, params object[] keyValues)` | Deletes an entity by key in your database. | |
+
+## Limitations
+
+- Support SQL Server and SQLite
+
+
