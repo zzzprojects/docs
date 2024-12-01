@@ -306,8 +306,8 @@ var config = new ParsingConfig
 ```
 
 ### StringLiteralParsingType (since v1.4.3)
-
-This configuration setting defines the type of string literal parsing that will be performed. The `StringLiteralParsingType` is an enum with two possible values:
+This configuration setting defines the type of string literal parsing that will be performed.
+The `StringLiteralParsingType` is an enum with two possible values:
 
 #### `Default`
 Represents the default string literal parsing type. Double quotes should be escaped using the default escape character (a `\`).
@@ -328,4 +328,19 @@ var config = new ParsingConfig
 	StringLiteralParsingType = StringLiteralParsingType.EscapeDoubleQuoteByTwoDoubleQuotes
 };
 var result = customers.Where(config, "Value == \"\"\"\"");
+```
+
+
+#### RestrictOrderByToPropertyOrField (since v1.4.9)
+When set to `true`, the `OrderBy` method will only allow properties or fields to be used. Default value is `false`.
+This setting can be used to prevent SQL injection when using the `OrderBy` method.
+
+The next example sets the `RestrictOrderByToPropertyOrField` to `true` and will throw an exception when the `OrderBy` method is called with something else then a property:
+``` csharp
+var config = new ParsingConfig
+{
+    RestrictOrderByToPropertyOrField = true
+};
+
+var result = customers.OrderBy(config, "IIF(1 == 1, 1, 0)");
 ```
