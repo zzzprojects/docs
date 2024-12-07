@@ -331,7 +331,7 @@ var result = customers.Where(config, "Value == \"\"\"\"");
 ```
 
 
-#### RestrictOrderByToPropertyOrField (since v1.4.9)
+#### RestrictOrderByToPropertyOrField (since v1.5.0)
 When set to `true`, the `OrderBy` method will only allow properties or fields to be used. Default value is `false`.
 This setting can be used to prevent SQL injection when using the `OrderBy` method.
 
