@@ -98,4 +98,6 @@
    - [LINQ Dynamic](eval-expressions/linq-dynamic.md)
    - [Eval.Compile](eval-expressions/eval-compile.md)
    - [Eval.Execute](eval-expressions/eval-execute.md)  
-
+- [Articles](articles/bulk-insert-vs-bulk-savechanges.md)
+- [Troubleshooting](troubleshooting/trial.md)
+- [Release Notes](https://github.com/zzzprojects/EntityFramework-Extensions/releases)
