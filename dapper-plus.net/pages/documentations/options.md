@@ -80,6 +80,8 @@ This section is currently under development as of 2024-09-21 and will soon be en
    - AuditEntries
    - AuditMode
    - UseAudit
+- Async
+   - CancellationToken
 - AutoMap
    - AutoMap
    - AutoMapColumnBuilder
