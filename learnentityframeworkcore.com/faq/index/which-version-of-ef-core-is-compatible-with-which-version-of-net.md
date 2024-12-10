@@ -6,6 +6,7 @@ title: Which version of EF Core is compatible with which version of .NET?
 
 | EF Core | .NET Version |
 | ------- | ------------ |
+| EF Core 9 | .NET 8+ |
 | EF Core 8 | .NET 8+ |
 | EF Core 7 | .NET 6+ |
 | EF Core 6 | .NET 6+ |

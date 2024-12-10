@@ -41,7 +41,7 @@ The `BulkMerge` method is **fast** but also **flexible** to let you handle vario
 - [More scenarios](#more-scenarios)
 
 ### What is supported?
-- All Entity Framework Core Version: EF Core 7, EF Core 6, EF Core 5, EF Core 3
+- All Entity Framework Core Version: EF Core 9, EF Core 8, EF Core 7, EF Core 6, EF Core 5, EF Core 3
 - All Entity Framework Version: EF6, EF5, EF4
 - All Inheritances (TPC, TPH, TPT)
 - Complex Type/Owned Entity Type

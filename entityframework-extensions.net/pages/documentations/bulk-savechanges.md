@@ -32,7 +32,7 @@ context.BulkSaveChanges(options => options.BatchSize = 100);
 > HINT: A lot of factors might affect the benchmark time such as index, column type, latency, throttling, etc.
 
 ### What is supported?
-- All Entity Framework Core Version: EF Core 7, EF Core 6, EF Core 5, EF Core 3
+- All Entity Framework Core Version: EF Core 9, EF Core 8, EF Core 7, EF Core 6, EF Core 5, EF Core 3
 - All Entity Framework Version: EF6, EF5, EF4
 - All Inheritances (TPC, TPH, TPT)
 - Complex Type/Owned Entity Type
