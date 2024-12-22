@@ -31,6 +31,8 @@ Manipulation allow you to manipulate the HTML document.
 | [CreateNode()](create-node) | Creates an HTML node from a string representing literal HTML. |
 | [InsertAfter()](insert-after) | Inserts the specified node immediately after the specified reference node. |
 | [InsertBefore](insert-before) | Inserts the specified node immediately before the specified reference node. |
+| [MoveChild()](move-child) | Move a node already associated and append it to this node instead (must be from a different document).  |
+| [MoveChildren](move-children) | Move a children collection already associated and append it to this node instead (must be from a different document). |
 | [PrependChild](prepend-child) | Adds the specified node to the beginning of the list of children of this node. |
 | [PrependChildren](prepend-children) | Adds the specified node list to the beginning of the list of children of this node. |
 | [Remove](remove) | Removes node from parent collection |
