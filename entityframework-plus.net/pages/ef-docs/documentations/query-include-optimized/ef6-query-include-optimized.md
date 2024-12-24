@@ -121,6 +121,7 @@ When an immediate method is invoked to resolve the query, multiple queries are c
 ## Limitations
 
  - **DO NOT** work with **AsNoTracking**
+ - **DO NOT** throw an error when used with **SingleOrDefault** and more than one row is returned ([Issue #822](https://github.com/zzzprojects/EntityFramework-Plus/issues/822))
  - Cannot be mixed with projection
  - Cannot be mixed with Include (Include doesn't support projection)
  - Cannot be mixed with IncludeFilter
