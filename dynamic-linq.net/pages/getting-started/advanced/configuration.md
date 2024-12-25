@@ -62,6 +62,7 @@ Defines if the resolution should be case-sensitive for:
 - constant expressions ("null", "true", "false")
 - keywords ("it", "parent", "root")
 - functions ("as", "cast", "iif", "is", "isnull", "new", "np")
+- operator aliases ("eq", "equal", "ne", "notequal", "neq", "lt", "LessThan", "le", "LessThanEqual", "gt", "GreaterThan", "ge", "GreaterThanEqual", "and", "AndAlso", "or", "OrElse", "not", "mod")
 
 The default value is false.
 
