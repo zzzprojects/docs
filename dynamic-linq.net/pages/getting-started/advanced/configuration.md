@@ -53,6 +53,19 @@ By default, when a member is not found in a type and the type has a string-based
 
 It gets or sets a value indicating whether the Entity Framework version supports evaluating GroupBy at the database level. See also [linq-groupby-translation](https://docs.microsoft.com/en-us/ef/core/what-is-new/ef-core-2.1#linq-groupby-translation). The default value is false.
 
+
+### IsCaseSensitive
+
+Defines if the resolution should be case-sensitive for:
+- fields and properties
+- (extension) methods
+- constant expressions ("null", "true", "false")
+- keywords ("it", "parent", "root")
+- functions ("as", "cast", "iif", "is", "isnull", "new", "np")
+- operator aliases ("eq", "equal", "ne", "notequal", "neq", "lt", "LessThan", "le", "LessThanEqual", "gt", "GreaterThan", "ge", "GreaterThanEqual", "and", "AndAlso", "or", "OrElse", "not", "mod")
+
+The default value is false.
+
 ### NumberParseCulture
 
 Set this if you want to use another number of parsing culture. The default value is InvariantCulture.
