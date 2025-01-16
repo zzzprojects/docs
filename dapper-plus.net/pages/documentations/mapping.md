@@ -95,7 +95,6 @@ Additional attributes are supported for features like [CreateTable](/create-tabl
 
 These annotations allow for fine-tuned control over how entities are mapped to the database, ensuring that your data integration process is as precise and efficient as possible.
 
-
 ## Fluent API Mapping
 
 Fluent API mapping is often the preferred method for many developers as it enhances code readability and maintainability. This approach allows you to chain methods in a manner similar to how you [chain bulk extension methods](/bulk-extensions-methods#chaining-methods) one after another.
