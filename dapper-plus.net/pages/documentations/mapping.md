@@ -1,7 +1,8 @@
+
 ---
 Title: Essentials of Mapping & Modeling: A Comprehensive Guide 
 MetaDescription: Essentials of Mapping & Modeling: A Comprehensive Guide 
-LastMod: 2024-10-08
+LastMod: 2025-01-16
 ---
 
 # Essentials of Mapping: A Comprehensive Guide
@@ -94,6 +95,7 @@ Additional attributes are supported for features like [CreateTable](/create-tabl
 
 These annotations allow for fine-tuned control over how entities are mapped to the database, ensuring that your data integration process is as precise and efficient as possible.
 
+
 ## Fluent API Mapping
 
 Fluent API mapping is often the preferred method for many developers as it enhances code readability and maintainability. This approach allows you to chain methods in a manner similar to how you [chain bulk extension methods](/bulk-extensions-methods#chaining-methods) one after another.
@@ -125,6 +127,14 @@ Here is a complete list of all methods supported for Fluent API Mapping:
 - **AutoMap:** Forces auto-mapping even if you have already started manual mapping.
 
 This method of mapping provides extensive control over how your data is transferred to and from the database, ensuring that all operations are executed precisely as intended.
+
+### Do you have to fluently map your entity every time or only once?
+
+The answer fully depends on how you use the [Dapper Plus Context](https://dapper-plus.net/dapper-plus-context), but in all cases, you map only once for a specific instance of the context:
+
+-   **Global Context:** You fluently map your entity only once, usually during your application startup.
+-   **Instance Context:** You fluently map your entity every time you create a new context.
+-   **Inheritance Context:** You fluently map your entity every time you create a new context.
 
 ## Conclusion
 
