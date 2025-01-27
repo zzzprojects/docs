@@ -345,15 +345,26 @@ var result = customers.Where(config, "Value == \"\"\"\"");
 
 
 #### RestrictOrderByToPropertyOrField (since v1.5.0)
-When set to `true`, the `OrderBy` method will only allow properties or fields to be used. Default value is `false`.
+When set to `true`, the `OrderBy` method will only allow properties or fields to be used. Default value is `true`.
 This setting can be used to prevent SQL injection when using the `OrderBy` method.
 
-The next example sets the `RestrictOrderByToPropertyOrField` to `true` and will throw an exception when the `OrderBy` method is called with something else then a property:
+The next example throws an exception when the `OrderBy` method is called with something else then a property:
+``` csharp
+var result = customers.OrderBy(config, "IIF(1 == 1, 1, 0)");
+```
+
+
+#### AllowEqualsAndToStringMethodsOnObject (since v1.6.0)
+It's not allowed anymore to call any methods on the object type. 
+By default also the `ToString` and `Equals` methods are not allowed. 
+This is done to mitigate the risk of calling methods on the object type which could lead to security issues (CVE-2024-51417). 
+To allow these methods set `AllowEqualsAndToStringMethodsOnObject` to `true` in the `ParsingConfig` and provide that config to all dynamic calls.
+
+The next example allows the use of the `ToString()` method:
 ``` csharp
 var config = new ParsingConfig
 {
-    RestrictOrderByToPropertyOrField = true
+	AllowEqualsAndToStringMethodsOnObject = true
 };
-
-var result = customers.OrderBy(config, "IIF(1 == 1, 1, 0)");
+var result = customers.Where(config, "it.ToString() == \"test\"");
 ```
