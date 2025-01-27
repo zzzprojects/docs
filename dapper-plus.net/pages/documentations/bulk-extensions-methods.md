@@ -1,7 +1,7 @@
 ---
 Title: The Quickest Way to Save Data: Mastering Bulk Extension Methods
 MetaDescription: Learn how to save 75x faster with Dapper Plus bulk extension methods, master bulk chaining methods, and use asynchronous bulk methods.
-LastMod: 2024-10-05
+LastMod: 2025-01-27
 ---
 
 # The Quickest Way to Save Data: Mastering Bulk Extension Methods
@@ -41,8 +41,8 @@ We offer 4 types of chaining methods:
 
 - **AlsoBulk[Action]:** Performs additional bulk actions at the last hierarchy level without changing the hierarchy level.
 - **ThenBulk[Action]:** Performs additional bulk actions at the last hierarchy level and moves deeper into the hierarchy level.
-- **ThenForEach:** Perform an action for each entity, such as [propagating the identity value](identity-key-propagation).
 - **Include:** Performs included bulk actions at the last hierarchy level without changing the hierarchy level.
+- **ThenForEach:** Perform an action for each entity, such as [propagating the identity value](identity-key-propagation).
 
 **Uhhh What?** Yeah, I guess those descriptions are hard to understand at first glance, but rest assured, you will easily understand and know how to use them once you finish this getting started section.
 
@@ -87,6 +87,16 @@ connection.BulkMerge("KeepIdentity", newCustomerOrders)
 See the [Online Example](https://dotnetfiddle.net/hTTWb0)
 
 The `Include` method allows everything within it to move the hierarchy level but only affects what is inside the method. The `Include` method itself is not impacted and always stays at the same level (the customer).
+
+Finally, let's assume our identity value was not propagated automatically. We can use the `ThenForEach` method to propagate this value. This method can also be used to apply any other logic after an operation has been performed, such as logging the current status:
+
+```csharp
+connection.BulkInsert(newOrders)
+	.ThenForEach(x => x.Items?.ForEach(y => y.OrderID = x.OrderID))
+	.ThenBulkInsert(x => x.Items);
+``` 
+
+See the [Online Example](https://dotnetfiddle.net/UoewoB)
 
 Now that you have seen some explanations about how to implement them, read again the descriptions provided at the beginning of this section to see if they make more sense.
 
