@@ -1,7 +1,7 @@
 ---
 Title: How EFE Bulk Extensions Handle Explicit Values in EF Core
 MetaDescription: How EFE Bulk Extensions Handle Explicit Values in EF Core
-LastMod: 2024-08-14
+LastMod: 2025-02-12
 ---
 
 # How EFE Bulk Extensions Handle Explicit Values in EF Core
@@ -53,6 +53,8 @@ To increase flexibility, starting from [version 8.103.09.0](https://github.com/z
 - **AlwaysKeepValueOnInsertOrUpdate:** Combines the behaviors of `AlwaysKeepValueOnInsert` and `AlwaysKeepValueOnUpdate` ([Online Example](https://dotnetfiddle.net/hf7ctT))
 - **SmartDefaultValueOnBulkInsert:** This state allows BulkInsert to logically split an insert into multiple statements to behave like `SaveChanges` with default values ([Online Example](https://dotnetfiddle.net/wT6XLk))
 - **SmartPartialResolutionOnBulkInsert:** Similar to `SmartDefaultValueOnBulkInsert` but doesn't insert for the `ValueGeneratedOnAddOrUpdate` ([Online Example](https://dotnetfiddle.net/mmNmkw))
+- **SmartDefaultValueOnBulkMergeInsert:** Same as the `SmartDefaultValueOnBulkInsert` but for the "INSERT" part of the merge.
+- **SmartPartialResolutionOnBulkMergeInsert:** Same as the `SmartPartialResolutionOnBulkInsert` but for the "INSERT" part of the merge.
 
 For the `AlwaysKeepValueOnInsert`, `AlwaysKeepValueOnUpdate`, and `AlwaysKeepValueOnInsertOrUpdate` states, they force all our bulk extensions to always takes values from the entity regardless of whether an explicit value is specified.
 
