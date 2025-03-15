@@ -1,14 +1,14 @@
 ---
-Title: EF Core Bulk Insert | Optimize Data Insertion for EF6 and EF Core
+Title: EF Core Bulk Insert | Optimize Data Insertion for EF Core and EF6
 MetaDescription: Optimize Entity Framework insert performance with EF Core Bulk Insert Extensions. Easily insert large numbers of entities and customize options with compatibility across all EF versions, including EF Core 7, 6, 5, 3, and EF6. Improve your database operations - try it now.
-LastMod: 2023-03-03
+LastMod: 2025-03-13
 ---
 
-# EF Core Bulk Insert: Optimize Entity Framework Insert Performance
+# Bulk Insert /n How to insert thousands of entities in EF Core faster than anyone?
 
-## Description
+The `BulkInsert` method is the fastest way you can insert thousands of entities in EF Core.
 
-The EF `BulkInsert` extension method let you insert a large number of entities in your database.
+You can use this method by simply passing a list of entities. You can also pass various options to include and insert an entire object graph (for example, an Invoice and its associated InvoiceItem), or to tell our library not to return identity values for the best possible performance. We’ll explore these and other options later in the documentation.
 
 ```csharp
 // Easy to use
@@ -16,20 +16,42 @@ context.BulkInsert(customers);
 
 // Easy to customize
 context.BulkInsert(invoices, options => options.IncludeGraph = true);
+
+// For best performance
+context.BulkInsert(customers, options => options.AutoMapOutputDirection = false);
 ```
 
 [Try it in EF Core](https://dotnetfiddle.net/2eVfFT) | [Try it in EF6](https://dotnetfiddle.net/bNektu)
 
-### Performance Comparison
+## 🚀 Performance Comparison 🚀
 
-| Operations      | 1,000 Entities | 2,000 Entities | 5,000 Entities |
-| :-------------- | -------------: | -------------: | -------------: |
-| SaveChanges     | 1,200 ms       | 2,400 ms       | 6,000 ms       |
-| BulkInsert      | 50 ms          | 55 ms          | 75 ms          |
+### EF Core
 
-[Try it in EF Core](https://dotnetfiddle.net/ttbri7) | [Try it in EF6](https://dotnetfiddle.net/pSpD10)
- 
+Our library is about **7x faster** when outputting values, reducing insert time by **87%**.
 
+If you don't need to output values, our library can be around **14x faster**, reducing insert time by **93%**.
+
+| Operations  | 1,000 Entities | 2,000 Entities | 5,000 Entities |
+| :---------- | -------------: | -------------: | -------------: |
+| SaveChanges | 1,200 ms       | 2,400 ms       | 6,000 ms       |
+| BulkInsert  | 50 ms          | 55 ms          | 75 ms          |
+
+[Try it in EF Core](https://dotnetfiddle.net/ttbri7)
+
+### EF6
+
+For EF6, our library is essential if you don’t want to make your customers wait a long time for inserted data. Over the years, many users have reported insert performance **50x faster** than `SaveChanges`, reducing insert time by **98%**.
+
+| Operations  | 1,000 Entities | 2,000 Entities | 5,000 Entities |
+| :---------- | -------------: | -------------: | -------------: |
+| SaveChanges | 1,200 ms       | 2,400 ms       | 6,000 ms       |
+| BulkInsert  | 50 ms          | 55 ms          | 75 ms          |
+
+[Try it in EF6](https://dotnetfiddle.net/pSpD10)
+
+
+---
+TBD
 > HINT: A lot of factors might affect the benchmark time such as index, column type, latency, throttling, etc.
 
 ### Scenarios
