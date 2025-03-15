@@ -20,9 +20,9 @@ The expression language defines the following constants:
 ## Identifiers
 
 An Identifier consists of a letter or underscore followed by any number of letters, digits, or underscores. In order to reference an identifier with the same spelling as a keyword, the identifier must be prefixed with a single `@` character.
-Some examples of identifiers: `x`, `Hello`, `m_1`, `@true` and `@String`
+Some examples of identifiers: `x`, `Hello`, `m_1`, `@true` and `@String`.
 
-Identifiers of the from `@x`, where x is an integral number greater than or equal to zero, are used to denote the substitution values, if any, that were passed to the expression parser. For example:
+Identifiers of the form `@x`, where x is an integral number greater than or equal to zero, are used to denote the substitution values, if any, that were passed to the expression parser. For example:
 
 ```csharp
 customers.Where("Country = @0", country);
