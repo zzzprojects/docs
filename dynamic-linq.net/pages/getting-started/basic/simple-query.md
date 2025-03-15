@@ -12,17 +12,17 @@ When querying data using Dynamic LINQ, everything can be expressed using strings
 Strongly typed LINQ looks like:
 
 ```csharp
-1: var result = context.Customers
-2:     .Where(c => c.City == "Paris")
-3:     .ToList();
+var result = context.Customers
+    .Where(c => c.City == "Paris")
+    .ToList();
 ```
 
 Dynamic LINQ looks like:
 
 ```csharp
-1: var resultDynamic = context.Customers
-2:     .Where("City == \"Paris\"")
-3:     .ToList();
+var resultDynamic = context.Customers
+    .Where("City == \"Paris\"")
+    .ToList();
 ```
 
 When we break down these examples:
@@ -51,10 +51,10 @@ Note that instead of using the query value directly in the string like `"City ==
 And of course, it's not required to specify the value as a hard-coded value. So another valid Dynamic LINQ query example will be:
 
 ```csharp
-1: string cityToSearch = "Paris";
-2: var resultDynamic = context.Customers
-3:     .Where("City == @0", cityToSearch)
-4:     .ToList();
+string cityToSearch = "Paris";
+var resultDynamic = context.Customers
+    .Where("City == @0", cityToSearch)
+    .ToList();
 ```
 
 [View all above examples here](https://dotnetfiddle.net/cs6MRX)
@@ -66,33 +66,33 @@ See chapters below for more basic query examples.
 Note that it's also possible to query data using multiple predicates:
 
 ```csharp
-1: var result = context.Customers
-2:     .Where(c => c.City == "Paris" && c.Age > 50)
-3:     .ToList();
+var result = context.Customers
+    .Where(c => c.City == "Paris" && c.Age > 50)
+    .ToList();
 ```
 
 This code can be used when using Dynamic LINQ:
 
 ```csharp
-1: var resultDynamic = context.Customers
-2:     .Where("City == \"Paris\" && Age > 50")
-3:     .ToList();
+var resultDynamic = context.Customers
+    .Where("City == \"Paris\" && Age > 50")
+    .ToList();
 ```
 
 Note that instead of the `&&`-operand, you can use `and`. Also in this example you can use composite string formatting. In that case, the Dynamic LINQ will be:
 
 ```csharp
-1: var resultDynamic = context.Customers
-2:     .Where("City == @0 and Age > @1", "Paris", 50)
-3:     .ToList();
+var resultDynamic = context.Customers
+    .Where("City == @0 and Age > @1", "Paris", 50)
+    .ToList();
 ```
 
 You can also mimic the strongly typed `Where`-predicate using the [=> operator](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/lambda-operator), like this:
 
 ```csharp
-1: var resultDynamic = context.Customers
-2:     .Where("c => c.City == \"Paris\" && c.Age > 50")
-3:     .ToList();
+var resultDynamic = context.Customers
+    .Where("c => c.City == \"Paris\" && c.Age > 50")
+    .ToList();
 ```
 
 [View all above examples here](https://dotnetfiddle.net/4yOUhM)
@@ -104,17 +104,17 @@ Selecting entities or only the properties you need is another powerful feature o
 Here is an example of a strongly typed:
 
 ```csharp
-1: var result = context.Customers
-2:     .Select(c => new { c.City, c.CompanyName } )
-3:     .ToList();
+var result = context.Customers
+    .Select(c => new { c.City, c.CompanyName } )
+    .ToList();
 ```
 
 Dynamic LINQ looks like:
 
 ```csharp
-1: var resultDynamic = context.Customers
-2:     .Select("new { City, CompanyName }")
-3:     .ToDynamicList();
+var resultDynamic = context.Customers
+    .Select("new { City, CompanyName }")
+    .ToDynamicList();
 ```
 
 When we break down these two examples:
@@ -132,17 +132,17 @@ Sorting the result based on a property or multiple properties is another feature
 A strongly typed example to sort on City and then on CompanyName would look like:
 
 ```csharp
-1: var ordered = context.Customers
-2:     .OrderBy(c => c.City).ThenBy(c => c.CompanyName)
-3:     .ToList();
+var ordered = context.Customers
+    .OrderBy(c => c.City).ThenBy(c => c.CompanyName)
+    .ToList();
 ```
 
 Dynamic LINQ looks like:
 
 ```csharp
-1: var orderedDynamic = context.Customers
-2:     .OrderBy("City, CompanyName")
-3:     .ToList();
+var orderedDynamic = context.Customers
+    .OrderBy("City, CompanyName")
+    .ToList();
 ```
 
 When we break down these two examples:
@@ -157,19 +157,41 @@ For Dynamic Linq you only need to use the `OrderBy`-method, and provide the two 
 In case you want to sort Descending, or a mixed combination, you can use the following Dynamic LINQ:
 
 ```csharp
-1: var orderedDynamic = context.Customers
-2:     .OrderBy("City").ThenBy("CompanyName desc")
-3:     .ToList();
+var orderedDynamic = context.Customers
+    .OrderBy("City").ThenBy("CompanyName desc")
+    .ToList();
 ```
 
 Or
 
 ```csharp
-1: var orderedDynamic = context.Customers
-2:     .OrderBy("City, CompanyName desc")
-3:     .ToList();
+var orderedDynamic = context.Customers
+    .OrderBy("City, CompanyName desc")
+    .ToList();
+```
+
+It's also possible to use `ThenBy`:
+
+```csharp
+var orderedDynamic = context.Customers
+    .OrderBy("City").ThenBy("CompanyName desc")
+    .ToList();
 ```
 
 The examples above will perform the sorting on the City property *Ascending* (= default) and then the sorting will be on the CompanyName in a *Descending* way.
 
+Note that it's *not* possible to use identifiers of the form `@x` to define the property name or the sorting direction.
+The identifiers `@x` are only used for the (constant) values in the query.
+
 [View all above examples here](https://dotnetfiddle.net/GdxsMG)
+
+
+### Providing a comparer
+It's also possible to provide a comparer to the `OrderBy` or `ThenBy`. This can be done by providing class which implements the `IComparer<T>` interface.
+
+An example of provising a comparer for a string property:
+```csharp
+var result = context.Customers
+    .OrderBy("City", StringComparer.OrdinalIgnoreCase)
+    .ToList();
+```
