@@ -1,35 +1,30 @@
 ---
 Title: EF Core 8 Bulk Insert Optimized | Improve your Insert Performance
 MetaDescription: Boost EF Core insert performance with BulkInsertOptimized. Easily insert large numbers of entities without outputting values for the best performance. Get hints and recommendations about what could be improved to improve insert performance - try it now.
-LastMod: 2024-08-14
+LastMod: 2025-03-21
 ---
 
-# EF Core Bulk Insert Optimized
+# Bulk Insert Optimized /n Instantly maximize your insert performance in EF Core 9
 
-The method `BulkInsertOptimized` is a new method introduced to our library for [EF Core 8](/v8-101-0-0-efcore-8) and below. You can use it exactly like you do with the [BulkInsert](/bulk-insert) method:
-
-```csharp
-context.BulkInsertOptimized(list);
-```
-
-The main difference between this method and the [BulkInsert](/bulk-insert) method is the `BulkInsertOptimized` method doesn't output value by default. In other words, it will not automatically return and set the inserted identity value or any other values after the insertion.
-
-A key advantage of not outputting values by default is to be able to use the `BulkCopy` strategy directly into the destination table instead of creating a temporary table (when outputting values).
-
-Another key benefit of the `BulkInsertOptimized` method is its ability to suggest improvements for optimal performance, ensuring the use of `BulkCopy` into the destination table.
-
-## What is the difference between BulkInsert and BulkInsertOptimized?
-
-The [BulkInsert](/bulk-insert) output identity values (or any other values) by default, while the `BulkInsertOptimized` doesn't output any values by default.
-
-In short, the `BulkInsertOptimized` is similar to doing a `BulkInsert` with the `AutoMapOutputDirection = false` option.
+The `BulkInsertOptimized` method is the fastest way you can insert entities in EF Core. By default, it uses the most optimal SQL because it doesn't return any values unless you explicitly request them. This approach lets it skip the additional steps required by our [BulkInsert](/bulk-insert) method, making it even faster.
 
 ```csharp
-context.BulkInsert(customers, options => options.AutoMapOutputDirection = false); 
+// Easy to use
 context.BulkInsertOptimized(customers);
+
+// Easy to customize
+context.BulkInsertOptimized(invoices, options => options.IncludeGraph = true);
 ```
 
-Another difference is that `BulkInsertOptimized` provides hints and recommendations for better performance whenever something has been found.
+[Online Example (EF Core)](#) | [Online Example (EF6)](#)
+
+**What advantages does `BulkInsertOptimized` have over `BulkInsert`?**  
+One key advantage is that `BulkInsertOptimized` can use the `BulkCopy` strategy directly into the destination table instead of creating a temporary table to handle output values. This removes an extra step and boosts performance.  
+
+Another benefit is that it can suggest best practices for optimal performance, ensuring the most efficient use of `BulkCopy`.
+
+**What disadvantages does `BulkInsertOptimized` have over `BulkInsert`?**  
+Because `BulkInsertOptimized` doesn’t return values, the `IncludeGraph` option isn’t compatible with models that rely on database-generated keys like identities.
 
 ## What are the performance gains when not outputting values
 

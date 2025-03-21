@@ -1,16 +1,20 @@
 ---
 Title: EF Core Bulk Synchronize | Optimize Data Sync for EF6 and EF Core
 MetaDescription: Efficiently synchronize Entity Framework data with EF Core Bulk Synchronize Extensions. Easily update, insert and delete large numbers of entities with customizable options for all EF versions, including EF Core 7, 6, 5, 3, and EF6. Optimize your database operations - try it now.
-LastMod: 2023-03-03
+LastMod: 2025-03-17
 ---
 
-# EF Core Bulk Synchronize: Optimize Entity Framework Sync Performance
+# Bulk Synchronize /n Directly execute add, update, and delete operations to mirror data in EF Core
 
-## Description
+The `BulkSynchronize` method allows you to mirror data from your source to the database in EF Core. What exactly is a mirror operation?
 
-The EF `BulkSynchronize` extension method let you synchronize a large number of entities in your database.
+- Rows that match the entity key are **UPDATED**.  
+- Rows that exist in the source but not in the database are **INSERTED**.  
+- Rows that exist in the database but not in the source are **DELETED**.
 
-A synchronize is a mirror operation from the data source to the database. All rows that match the entity key are `UPDATED`, non-matching rows that exist from the source are `INSERTED`, non-matching rows that exist in the database are `DELETED`.
+In other words, your destination table data becomes exactly like the list of entities you provide. The method is similar to [BulkMerge](/bulk-merge), but it also includes the **delete** step, making it a complete mirror.
+
+It’s also possible to synchronize only a subset of your table with the `ColumnSynchronizeDeleteKeySubsetExpression` option, or to soft-delete rows with the `SynchronizeSoftDeleteFormula` option (which we will cover later).
 
 ```csharp
 // Easy to use
@@ -22,7 +26,7 @@ context.BulkSynchronize(customers, options => {
 });
 ```
 
-[Try it in EF Core](https://dotnetfiddle.net/v4KQSX) | [Try it in EF6](https://dotnetfiddle.net/nZedku)
+[Online Example (EF Core)](https://dotnetfiddle.net/v4KQSX) | [Online Example (EF6)](https://dotnetfiddle.net/nZedku)
 
 ### Scenarios
 The `BulkSynchronize` method is **fast** but also **flexible** to let you handle various scenarios in Entity Framework such as:

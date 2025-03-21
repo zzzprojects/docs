@@ -1,14 +1,12 @@
 ---
 Title: EF Core Bulk Update | Optimize Data Modification for EF6 and EF Core
 MetaDescription: Efficiently update Entity Framework data with EF Core Bulk Update Extensions. Customize options to update large numbers of entities with ease, compatible with all EF versions including EF Core 7, 6, 5, 3, and EF6. Optimize your database operations - try it now.
-LastMod: 2023-03-03
+LastMod: 2025-03-22
 ---
 
-# EF Core Bulk Update: Optimize Entity Framework Update Performance
+# Bulk Update /n Easily customize and optimize your entity updates in EF Core now
 
-## Description
-
-The EF `BulkUpdate` extension method let you update a large number of entities in your database.
+The `BulkUpdate` method is the most flexible way to update your entities in EF Core. It allows you to customize how your entities will be updated, such as by specifying a custom key, updating only a few properties, and much more.
 
 ```csharp
 // Easy to use
@@ -18,7 +16,7 @@ context.BulkUpdate(customers);
 context.BulkUpdate(customers, options => options.IncludeGraph = true);
 ```
 
-[Try it in EF Core](https://dotnetfiddle.net/Cwn8NC) | [Try it in EF6](https://dotnetfiddle.net/5wBlVh)
+[Online Example (EF Core)](https://dotnetfiddle.net/Cwn8NC) | [Online Example (EF6)](https://dotnetfiddle.net/5wBlVh)
 
 ### Performance Comparison
 

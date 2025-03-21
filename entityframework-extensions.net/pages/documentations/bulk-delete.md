@@ -1,14 +1,12 @@
 ---
 Title: EF Core Bulk Delete | Optimize Data Deletion for EF6 and EF Core
 MetaDescription: Efficiently delete Entity Framework data with EF Core Bulk Delete Extensions. Customize options to quickly delete large numbers of entities with ease, compatible with all EF versions including EF Core 7, 6, 5, 3, and EF6. Optimize your database operations - try it now.
-LastMod: 2024-02-05
+LastMod: 2025-03-18
 ---
 
-# EF Core Bulk Delete: Optimize Entity Framework Delete Performance
+# Bulk Delete /n Swiftly perform delete operations on thousands of entities in EF Core
 
-## Description
-
-The EF `BulkDelete` extension method let you delete a large number of entities in your database.
+The `BulkDelete` method lets you delete thousands of entities in EF Core. The biggest advantage of this method over the traditional approach is that you don’t need to fetch your entities from the database before deleting them (which doesn’t make much sense since you’re deleting them!).
 
 ```csharp
 // Easy to use
@@ -18,7 +16,12 @@ context.BulkDelete(customers);
 context.BulkDelete(customers, options => options.BatchSize = 100);
 ```
 
-[Try it in EF Core](https://dotnetfiddle.net/BCyXU6) | [Try it in EF6](https://dotnetfiddle.net/ESKZJq)
+[Online Example (EF Core)](https://dotnetfiddle.net/BCyXU6) | [Online Example (EF6)](https://dotnetfiddle.net/ESKZJq)
+
+Our library also offers several other ways to delete your entities even more easily and quickly:
+- [Delete from Query](/delete-from-query)
+- [Delete by Key](/delete-by-key)
+- [Delete Range by Key](/delete-range-by-key)
 
 ### Performance Comparison
 

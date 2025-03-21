@@ -1,14 +1,12 @@
 ---
 Title: EF Core Bulk SaveChanges | Optimize Data Saving for EF6 and EF Core
 MetaDescription: Efficiently save Entity Framework changes with EF Core Bulk SaveChanges Extensions. Quickly save large numbers of changes with customizable options for all EF versions, including EF Core 7, 6, 5, 3, and EF6. Optimize your database operations - try it now.
-LastMod: 2023-03-03
+LastMod: 2025-03-20
 ---
 
-# EF Core Bulk SaveChanges: Optimize Entity Framework Saving Performance
+# Bulk SaveChanges /n Supercharge your EF Core SaveChanges by adding 'Bulk'
 
-## Description
-
-The EF `BulkSaveChanges` extension method execute bulk operations from entries to save.
+The `BulkSaveChanges` method works like EF Core’s [SaveChanges](https://learn.microsoft.com/en-us/ef/core/saving/basic) method—only faster! It saves to the database all entities in your [ChangeTracker](https://www.learnentityframeworkcore.com/dbcontext/change-tracker) that have one of the following states: **Added**, **Modified**, or **Deleted**.
 
 ```csharp
 // Easy to use
@@ -18,7 +16,9 @@ context.BulkSaveChanges();
 context.BulkSaveChanges(options => options.BatchSize = 100);
 ```
 
-[Try it in EF Core](https://dotnetfiddle.net/4nbecz) | [Try it in EF6](https://dotnetfiddle.net/MP65WH)
+[Online Example (EF Core)](https://dotnetfiddle.net/4nbecz) | [Online Example (EF6)](https://dotnetfiddle.net/MP65WH)
+
+💡 **One key difference:** If you provide an explicit identity value, you still need to use the `InsertKeepIdentity = true` option to tell our library to keep it.
 
 ### Performance Comparison
 
