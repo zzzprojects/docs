@@ -16,7 +16,7 @@ context.BulkInsertOptimized(customers);
 context.BulkInsertOptimized(invoices, options => options.IncludeGraph = true);
 ```
 
-[Online Example (EF Core)](#) | [Online Example (EF6)](#)
+[Online Example (EF Core)](https://dotnetfiddle.net/DEgyZF)
 
 **What advantages does `BulkInsertOptimized` have over `BulkInsert`?**  
 One key advantage is that `BulkInsertOptimized` can use the `BulkCopy` strategy directly into the destination table instead of creating a temporary table to handle output values. This removes an extra step and boosts performance.  
