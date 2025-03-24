@@ -27,114 +27,21 @@ If you want to insert entities in EF Core even faster, you can use the [BulkInse
 
 One of the main raison people use our library is for the performance and to reduce the memory usage. The other reason is for the flexibility that we will see later.
 
-✅ Extremely fast insert
-✅ Memory-efficient
-✅ Flexible with hundreds of options
-✅ Support all majors database providers
-✅ Support the latest EF Core 9 version
-✅ Support all legacy version of EF Core (2-8), EF5, and EF6
+- ✅ Extremely fast insert
+- ✅ Memory-efficient
+- ✅ Flexible with hundreds of options
+- ✅ Support all majors database providers
+- ✅ Support the latest EF Core 9 version
+- ✅ Support all legacy version of EF Core (2-8), EF5, and EF6
 
 ## 🚀 Performance Comparison
 
-The `SaveChanges` method in EF Core is way faster than what is was in EF6 when inserting data. But even with this, our library still offer the best performance.
+| Operations      | 1,000 Entities | 2,000 Entities | 5,000 Entities |
+| :-------------- | -------------: | -------------: | -------------: |
+| SaveChanges     | 1,200 ms       | 2,400 ms       | 6,000 ms       |
+| BulkInsert      | 50 ms          | 55 ms          | 75 ms          |
 
-### EF Core
-
-Our library provide the best performance when no data is returned/outputted. This is the reason we created the `AutoMapOutputDirection = false`option and the [BulkInsertOptimized](/bulk-insert-optimized) method.
-
-| Operations  | 1,000 Entities | 2,000 Entities | 5,000 Entities |
-| :---------- | -------------: | -------------: | -------------: |
-| SaveChanges (EF Core)                 | 1,200 ms          | 2,400 ms       | 6,000 ms       |
-| BulkInsert (Outputting values)        | 50 ms             | 55 ms          | 75 ms          |
-| BulkInsert (Not Outputting values)    | 50 ms             | 55 ms          | 75 ms          |
-| BulkInsertOptimized                   | 50 ms             | 55 ms          | 75 ms          |
-
-[Try it in EF Core](https://dotnetfiddle.net/ttbri7)
-
-In other words:
-- **BulkInsert (Outputting values)**: Is about **7x faster**, reducing insert time by **87%**.
-- **BulkInsert (Not Outputting values)**: is about **14x faster**, reducing insert time by **93%**.
-
-### EF Core + Include Graph
-
-// TODO
-
-### EF6
-
-In EF6, the `SaveChanges` method make one database round-trip for every entity it need to insert. If you have hundreds or thousands of entities, our library is a must-haves for this version.
-
-| Operations  | 1,000 Entities | 2,000 Entities | 5,000 Entities |
-| :---------- | -------------: | -------------: | -------------: |
-| SaveChanges | 1,200 ms       | 2,400 ms       | 6,000 ms       |
-| BulkInsert  | 50 ms          | 55 ms          | 75 ms          |
-
-[Try it in EF6](https://dotnetfiddle.net/pSpD10)
-
-In many scenari, our library can increase the insert performance **50x faster** than `SaveChanges`, reducing insert time by **98%**.
-
-## ⚙️ Real Life Scenario & Options
-
-Our library is very flexible. It support all basics and advanced requirement you have.
-
-Let explore some of our options by asking the following question **"I want to insert my entities but I want to"**:
-
-- DataSource
-   - To use an anonymous type list ([Online Example](#))
-- Performance
-   - To have the best performance ([Online Example](#))
-- Behavior
-   - Include all my entities graph ([Online Example](#))
-   - Inserting only if data doesn't already exists in the database ([Online Example](#))
-- Data
-   - Keeping the identity value ([Online Example](#))
-   - Exclude specific properties only ([Online Example](#))
-   - Include specific properties only ([Online Example](#))
-  
-
-/*
-How to passe option:
-// Easy to customize #2
-var options = context.CreateBulkOptions<Invoice>();
-options.IncludeGraph = true;
-context.BulkInsert(invoices, options);
-*/
- Insert
-InsertIfNotExists
-InsertKeepIdentity
-InsertNotMatchedAndFormula
-InsertPrimaryKeyAndFormula
-InsertStagingTableFilterFormula
-IgnoreOnInsertExpression
-IgnoreOnInsertNames
-Log
-UseRowsAffected RowsAffected
-Mapping
-Audit
-Hint
-Batch
-IncludeGraph
-Lock UseTableLock
-Audit
-AutoTruncate
-DefaultValueResolution && Explicit Value Resolution
-UseRowsAffected
-UsePostgreSqlInsertOnConflictDoNothing
-UsePostgreSqlInsertOverridingSystemValue
-UsePostgreSqlInsertOverridingUserValue
-CaseSensitive
----
-   - Choosing which column to insert
-   - Chossing which column to ignore
-
-Insert only if the entity does not already exists
-The `BulkInsert` method is **fast** but also **flexible** to let you handle various scenarios in Entity Framework such as:
-- [Insert and keep identity value](#insert-and-keep-identity-value)
-- [Insert and include/exclude properties](#insert-and-includeexclude-properties)
-- [Insert only if the entity not already exists](#insert-only-if-the-entity-not-already-exists)
-- [Insert with related child entities (Include Graph)](#insert-with-related-child-entities-include-graph)
-- [Insert with future action](#insert-with-future-action)
-- [Insert without returning identity value](#insert-without-returning-identity-value)
-- [More scenarios](#more-scenarios)
+[Try it in EF Core](https://dotnetfiddle.net/ttbri7) | [Try it in EF6](https://dotnetfiddle.net/pSpD10)
 
 ### What is supported?
 - All Entity Framework Core Version: EF Core 9, EF Core 8, EF Core 7, EF Core 6, EF Core 5, EF Core 3
