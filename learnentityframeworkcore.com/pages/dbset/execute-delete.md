@@ -3,7 +3,7 @@ title: ExecuteDelete in EF Core – A Faster Way to Delete Entities
 description: Discover how to use the new ExecuteDelete method starting from EF Core 7 to delete entities more efficiently—no tracking, no SaveChanges needed.
 canonical: /dbset/execute-delete
 status: Published
-lastmod: 2025-03-26
+lastmod: 2025-03-27
 ---
 
 # EF Core Execute Delete
@@ -56,8 +56,9 @@ Let’s now see the main differences between the traditional way to delete entit
 
 All this means that the `ExecuteDelete` method cannot replace the traditional way in every scenario. It's a method that complements, rather than replaces, the existing `SaveChanges` approach.
 
-### More Examples
+## More Examples
 
+### Basic case
 The following example shows how to call `ExecuteDelete` on a `DbSet`, which will immediately delete all entities from that `DbSet` in the database.
 
 For example, to delete all authors:
@@ -76,6 +77,8 @@ DELETE FROM [a]
 FROM [Authors] AS [a]
 ```
 
+### Basic case with filter
+
 You can also use filters in your query:
 
 ```csharp
@@ -93,20 +96,7 @@ FROM [Authors] AS [a]
 WHERE [a].[Name] LIKE N'%ZZZ Projects%'
 ```
 
-You can also check the number of affected rows to make sure at least one row was deleted:
-
-```csharp
-var authorName = "ZZZ Projects";
-using (var context = new LibraryContext())
-{
-    var affectedRows = context.Authors.Where(a => a.Name.Contains(authorName)).ExecuteDelete();
-    
-    if (affectedRows == 0)
-    {
-        throw new Exception($"Oops! No authors with the name '{authorName}' were found.");
-    }
-}
-```
+### Complex filter
 
 More complex filters are also supported, including filtering based on related data. For example, to delete tags only from old blog posts:
 
@@ -131,6 +121,23 @@ WHERE NOT EXISTS (
     WHERE [t].[Id] = [p].[TagsId] AND NOT (DATEPART(year, [p0].[PublishedOn]) < 2018))
 ```
 
+### Return the number of row affecteds
+
+You can also check the number of affected rows to make sure at least one row was deleted:
+
+```csharp
+var authorName = "ZZZ Projects";
+using (var context = new LibraryContext())
+{
+    var affectedRows = context.Authors.Where(a => a.Name.Contains(authorName)).ExecuteDelete();
+    
+    if (affectedRows == 0)
+    {
+        throw new Exception($"Oops! No authors with the name '{authorName}' were found.");
+    }
+}
+```
+
 ## External Resource
 
 ### Entity Framework 7 – Bulk Editing
@@ -149,6 +156,8 @@ He covers everything from project setup, traditional pitfalls, and how this new 
 3. **[02:09 - Traditional Way to Delete](https://youtube.com/watch?v=A5_thTxsCjY&t=129)** – Shows why the old method is inefficient.
 4. **[07:19 - Implementing ExecuteDelete](https://youtube.com/watch?v=A5_thTxsCjY&t=439)** – Demo of the new method and SQL comparison.
 5. **[24:35 - Conclusion and Performance Insights](https://youtube.com/watch?v=A5_thTxsCjY&t=1475)** – Final thoughts on how game-changing these new methods are.
+
+You can download the project source code here: [Ef7-Bulk-Actions](https://github.com/JasperKent/Ef7-Bulk-Actions)
 
 ## Conclusion
 
