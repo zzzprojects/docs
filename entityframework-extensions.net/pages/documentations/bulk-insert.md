@@ -1,7 +1,7 @@
 ---
-Title: EF Core Bulk Insert | Optimize Data Insertion for EF Core and EF6
-MetaDescription: Optimize Entity Framework insert performance with EF Core Bulk Insert Extensions. Easily insert large numbers of entities and customize options with compatibility across all EF versions, including EF Core 7, 6, 5, 3, and EF6. Improve your database operations - try it now.
-LastMod: 2025-03-20
+Title: Bulk Insert in EF Core / EF6 | The Fastest Way to Insert Entities
+MetaDescription: Boost your EF Core inserts performance by up to 15x, reducing insert time by 94% with EF Extensions. Use BulkInsert to handle thousands of entities with less memory and more control. Fully supports EF Core 9 to 2 and EF6. Try the live benchmark now!
+LastMod: 2025-03-27
 ---
 
 # Bulk Insert /n Boost your EF Core insert performance now
@@ -25,32 +25,88 @@ If you want to insert entities in EF Core even faster, you can use the [BulkInse
 
 ## 🔑 Key Benefits
 
-One of the main raison people use our library is for the performance and to reduce the memory usage. The other reason is for the flexibility that we will see later.
+One of the main reasons people use our Bulk Insert with Entity Framework is for its performance and reduced memory usage. Another key reason is its flexibility, with hundreds of supported options — which we’ll explore later.
 
-- ✅ Extremely fast insert
-- ✅ Memory-efficient
-- ✅ Flexible with hundreds of options
-- ✅ Support all majors database providers
-- ✅ Support the latest EF Core 9 version
-- ✅ Support all legacy version of EF Core (2-8), EF5, and EF6
+- ✅ **Extremely fast insert:** Insert millions of rows in seconds instead of minutes.
+- ✅ **Memory-efficient:** Keep your memory usage low, even with large datasets.
+- ✅ **Flexible with hundreds of options:** Customize the behavior to fit your exact needs.
+
+
+## 🔍 What is supported?
+
+Our library supports all the common scenarios — and almost everything you can do with Entity Framework!
+
+- ✅ The latest Entity Framework Core version: EF Core 9  
+- ✅ All previous EF Core versions: EF Core 2 to 8  
+- ✅ All Entity Framework versions: EF6, EF5, EF4, and EF Classic  
+- ✅ All major database providers: SQL Server, SQL Azure, PostgreSQL, MySQL, MariaDB, SQLite, and Oracle  
+- ✅ All inheritance mapping strategies: TPC, TPH, and TPT  
+- ✅ Complex types / owned entity types  
+- ✅ Enums  
+- ✅ Value converters (EF Core)  
+- ✅ And much more — even shadow properties!
 
 ## 🚀 Performance Comparison
 
-| Operations      | 1,000 Entities | 2,000 Entities | 5,000 Entities |
-| :-------------- | -------------: | -------------: | -------------: |
-| SaveChanges     | 1,200 ms       | 2,400 ms       | 6,000 ms       |
-| BulkInsert      | 50 ms          | 55 ms          | 75 ms          |
+A very popular search on Google is **"Fastest way to Bulk Insert in EF Core"**—and that’s exactly what our library delivers!
 
-[Try it in EF Core](https://dotnetfiddle.net/ttbri7) | [Try it in EF6](https://dotnetfiddle.net/pSpD10)
+Don't just take our word for it or blindly trust what we say. Instead, try it yourself using our online benchmark and see the results with a single click!
 
-### What is supported?
-- All Entity Framework Core Version: EF Core 9, EF Core 8, EF Core 7, EF Core 6, EF Core 5, EF Core 3
-- All Entity Framework Version: EF6, EF5, EF4
-- All Inheritances (TPC, TPH, TPT)
-- Complex Type/Owned Entity Type
-- Enum
-- Value Converter (EF Core)
-- And more!
+### EF Core
+
+The `SaveChanges` method in EF Core is much faster than it was back in the EF6 days when inserting data. Why the improvement? The EF Core team introduced a new approach using a `MERGE` statement with a `RETURNING` clause—similar to the one we’ve been using for SQL Server since 2014. So yes, we were already doing something right!
+
+Even with this new strategy, our library is still faster. That’s because we use `SqlBulkCopy` and have deeply optimized how data is handled behind the scenes. In fact, the performance gap becomes even more noticeable when your entities have more than just a few properties. If your entity only has 2 or 3 properties—like a very simple `Customer` with just `Id`, `Name`, and `Email`—the difference might seem smaller. But once you deal with real-world entities containing 10, 15, or more properties, **our optimized approach truly shines**.
+
+
+| Operation                           | 1,000 Entities | 2,000 Entities | 5,000 Entities |
+| :---------------------------------- | -------------: | -------------: | -------------: |
+| SaveChanges                         | 325 ms         | 575 ms         | 1,400 ms       |
+| BulkInsert (Outputting values)      | 60 ms          | 90 ms          | 150 ms         |
+| BulkInsert (Not Outputting values)  | 30 ms          | 50 ms          | 90 ms          |
+| BulkInsertOptimized                 | 30 ms          | 50 ms          | 90 ms          |
+
+👉 [Try our Online Benchmark](https://dotnetfiddle.net/ttbri7)
+
+In other words, to save 5,000 entities:
+- **BulkInsert (Outputting values)** is about **9x faster**, reducing insert time by **89%**.
+- **BulkInsert (Not Outputting values)** is about **15x faster**, reducing insert time by **94%**.
+
+Our library provides the best performance when no data needs to be returned/outputted. That’s why we introduced the `AutoMapOutputDirection = false` option and the [BulkInsertOptimized](/bulk-insert-optimized) method.
+
+### EF Core + Include Graph
+
+Another important benchmark for EF Core is when inserting data that includes a graph of related entities. Being faster is one big advantage we offer—but just as important, our library uses only a **fraction of the memory**.
+
+For example, when working with millions of entities, EF Core might use up to **2,000 MB**, while our library needs only around **400 MB**. That’s a huge difference, especially in memory-constrained environments.
+
+In this benchmark, each **Order** entity includes **5 OrderItems**. We use `IncludeGraph` to automatically handle related entities during the insert—so you don’t need to manually insert children or worry about setting their foreign keys.
+
+| Operation                           | 1,000 Entities | 2,000 Entities | 5,000 Entities |
+| :---------------------------------- | -------------: | -------------: | -------------: |
+| SaveChanges                         | 1,475 ms       | 2,600 ms       | 6,500 ms       |
+| BulkInsert + IncludeGraph           | 260 ms         | 450 ms         | 900 ms         |
+| BulkInsertOptimized + IncludeGraph  | 200 ms         | 350 ms         | 800 ms         |
+
+👉 [Try our Online Benchmark](https://dotnetfiddle.net/xD6Bxk)
+
+⚠️ On .NET Fiddle, you won’t be able to run `SaveChanges` with more than around **1,800 entities** before it crashes due to memory limits. But if you **comment out** the `SaveChanges` call, you’ll see that our library handles **5,000 entities** just fine. This helps prove an important point: performance isn’t only about speed—**memory usage matters too**.
+
+### EF6
+
+In EF6, the `SaveChanges` method makes one database round-trip for every entity it needs to insert. If you have hundreds or thousands of entities, our library is a must-have for this version. Otherwise, you're making your users wait forever for the save to complete.
+
+| Operation                            | 1,000 Entities | 2,000 Entities | 5,000 Entities |
+| :----------------------------------- | -------------: | -------------: | -------------: |
+| SaveChanges                          | 1,000 ms       | 2,000 ms       | 5,000 ms       |
+| BulkInsert (Outputting values)       | 90 ms          | 115 ms         | 150 ms         |
+| BulkInsert (Not Outputting values)   | 30 ms          | 35 ms          | 60 ms          |
+
+👉 [Try our Online Benchmark](https://dotnetfiddle.net/pSpD10)
+
+In other words, to save 5,000 entities:
+- **BulkInsert (Outputting values)** is about **30x faster**, reducing insert time by **97%**.
+- **BulkInsert (Not Outputting values)** is about **85x faster**, reducing insert time by **99%**.
 
 ## Getting Started
 
