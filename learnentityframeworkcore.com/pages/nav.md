@@ -8,6 +8,12 @@
             </ul>
         </li>
         <li>
+            <a href="/extensions">Extensions</a>
+            <ul class="nav-level-two" data-display="raw-sql">
+                <li><a href="/extensions/audit-entityframework-core">Audit.EntityFramework.Core</a></li>
+            </ul>
+        </li>
+        <li>
             <a href="/model/generated-value">Generated Value</a>
         </li>
         <li>

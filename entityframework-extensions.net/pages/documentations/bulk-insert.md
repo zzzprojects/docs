@@ -1,7 +1,7 @@
 ---
 Title: Bulk Insert in EF Core / EF6 | The Fastest Way to Insert Entities
 MetaDescription: Boost your EF Core inserts performance by up to 15x, reducing insert time by 94% with EF Extensions. Use BulkInsert to handle thousands of entities with less memory and more control. Fully supports EF Core 9 to 2 and EF6. Try the live benchmark now!
-LastMod: 2025-03-27
+LastMod: 2025-04-03
 ---
 
 # Bulk Insert /n Boost your EF Core insert performance now
@@ -52,7 +52,7 @@ A very popular search on Google is **"Fastest way to Bulk Insert in EF Core"**�
 
 Don't just take our word for it or blindly trust what we say. Instead, try it yourself using our online benchmark and see the results with a single click!
 
-### EF Core
+### EF Core vs EFE
 
 The `SaveChanges` method in EF Core is much faster than it was back in the EF6 days when inserting data. Why the improvement? The EF Core team introduced a new approach using a `MERGE` statement with a `RETURNING` clause—similar to the one we’ve been using for SQL Server since 2014. So yes, we were already doing something right!
 
@@ -74,7 +74,7 @@ In other words, to save 5,000 entities:
 
 Our library provides the best performance when no data needs to be returned/outputted. That’s why we introduced the `AutoMapOutputDirection = false` option and the [BulkInsertOptimized](/bulk-insert-optimized) method.
 
-### EF Core + Include Graph
+### EF Core vs EFE + Include Graph
 
 Another important benchmark for EF Core is when inserting data that includes a graph of related entities. Being faster is one big advantage we offer—but just as important, our library uses only a **fraction of the memory**.
 
@@ -92,7 +92,7 @@ In this benchmark, each **Order** entity includes **5 OrderItems**. We use `Incl
 
 ⚠️ On .NET Fiddle, you won’t be able to run `SaveChanges` with more than around **1,800 entities** before it crashes due to memory limits. But if you **comment out** the `SaveChanges` call, you’ll see that our library handles **5,000 entities** just fine. This helps prove an important point: performance isn’t only about speed—**memory usage matters too**.
 
-### EF6
+### EF6 vs EFE
 
 In EF6, the `SaveChanges` method makes one database round-trip for every entity it needs to insert. If you have hundreds or thousands of entities, our library is a must-have for this version. Otherwise, you're making your users wait forever for the save to complete.
 
