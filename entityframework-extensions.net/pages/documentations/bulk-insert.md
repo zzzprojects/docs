@@ -1,12 +1,12 @@
 ---
 Title: Bulk Insert in EF Core / EF6 | The Fastest Way to Insert Entities
 MetaDescription: Boost your EF Core inserts performance by up to 15x, reducing insert time by 94% with EF Extensions. Use BulkInsert to handle thousands of entities with less memory and more control. Fully supports EF Core 9 to 2 and EF6. Try the live benchmark now!
-LastMod: 2025-04-03
+LastMod: 2025-04-06
 ---
 
 # Bulk Insert /n Boost your EF Core insert performance now
 
-The `BulkInsert` method is the easiest way you can insert thousands of entities in EF Core. In addition to being super fast, you can also customize it with various options to insert entities the way you want—such as keeping identity values, inserting only entities that don't already exist in the database, and much more.
+The `BulkInsert` method is the easiest way you can insert thousands of entities in EF Core. In addition to being super fast, you can also customize it with various [options](/bulk-insert#bulk-insert-options) to insert entities the way you want—such as keeping identity values, inserting only entities that don't already exist in the database, and much more.
 
 ```csharp
 // Easy to use
@@ -108,169 +108,95 @@ In other words, to save 5,000 entities:
 - **BulkInsert (Outputting values)** is about **30x faster**, reducing insert time by **97%**.
 - **BulkInsert (Not Outputting values)** is about **85x faster**, reducing insert time by **99%**.
 
-## Getting Started
+## Bulk Insert Options
 
-### Bulk Insert
-The `BulkInsert` and `BulkInsertAync` methods extend your `DbContext` to let you insert a large number of entities in your database.
+### Configuring Options
 
-```csharp
-context.BulkInsert(customers);
-
-context.BulkInsertAsync(customers, cancellationToken);
-```
-
-[Try it in EF Core](https://dotnetfiddle.net/54yNvX) | [Try it in EF6](https://dotnetfiddle.net/4xB7Tf)
-
-### Bulk Insert with options
-The `options` parameter let you use a lambda expression to customize the way entities are inserted.
+We already saw in previous articles how to pass options to the `BulkInsert` method — but here’s a quick recap:
 
 ```csharp
-context.BulkInsert(customers, options => options.BatchSize = 100);
+// Using a lambda expression (only works with one option)
+context.BulkInsert(list, options => options.InsertKeepIdentity = true);
 
-context.BulkInsert(customers, options => { 
-    options.InsertIfNotExists = true;
-    options.PrimaryKeyExpression = customer => customer.Code;
-  });
-```
-
-[Try it in EF Core](https://dotnetfiddle.net/jpQVna) | [Try it in EF6](https://dotnetfiddle.net/9rUgry)
-
-### Why BulkInsert is faster than SaveChanges?
-Inserting thousands of entities for an initial load or a file importation is a typical scenario.
-
-The `SaveChanges` method makes it quite slow/impossible to handle this kind of situation due to the number of database round-trips required. The `SaveChanges` perform one database round-trip for every entity to insert. So, if you need to insert 10,000 entities, 10,000 database round-trips will be performed which is **INSANELY** slow.
-
-The `BulkInsert` in counterpart requires the minimum number of database round-trips possible. For example, under the hood for SQL Server, a `SqlBulkCopy` is performed to insert 10,000 entities which is the fastest way available.
-
-## Real Life Scenarios
-
-### Insert and keep identity value
-Your entity has an identity property, but you want to force to insert a specific value instead. The `InsertKeepIdentity` option allows you to keep the identity value of your entity.
-
-```csharp
-context.BulkInsert(customers, options => options.InsertKeepIdentity = true);
-```
-
-[Try it in EF Core](https://dotnetfiddle.net/iZULeX) | [Try it in EF6](https://dotnetfiddle.net/JJeqbn)
-
-### Insert and include/exclude properties
-You want to insert your entities but only for specific properties.
-
-- `ColumnInputExpression`: This option let you choose which properties to map.
-- `IgnoreOnInsertExpression`: This option let you ignore properties that are auto-mapped.
-
-```csharp
-context.BulkInsert(customers, options => options.ColumnInputExpression = c => new { c.CustomerID, c.Name} );
-            
-context.BulkInsert(customers, options => options.IgnoreOnInsertExpression = c => new { c.ColumnToIgnore } );
-```
-
-[Try it in EF Core](https://dotnetfiddle.net/B32EVO) | [Try it in EF6](https://dotnetfiddle.net/TUyT7A)
-
-### Insert only if the entity does not already exists
-You want to insert entities but only those that don't already exist in the database.
-
-- `InsertIfNotExists`: This option let you insert only entities that doesn't already exists.
-- `PrimaryKeyExpression`: This option let you customize the key to use to check if the entity already exists or not.
-
-```csharp
-context.BulkInsert(customers, options => {
-    options.InsertIfNotExists = true;
-    options.ColumnPrimaryKeyExpression = c => c.Code;
+// Using a lambda expression with a body (works with one or multiple options)
+context.BulkInsert(list, options =>
+{
+    options.InsertKeepIdentity = true;
+    options.ColumnPrimaryKeyExpression = x => new { x.ID };
 });
+
+// Using a `BulkOperationOption` instance
+var options = context.CreateBulkOptions<EntitySimple>();
+options.InsertKeepIdentity = true;
+options.ColumnPrimaryKeyExpression = x => new { x.ID };
+
+context.BulkInsert(list, options);
 ```
 
-[Try it in EF Core](https://dotnetfiddle.net/bNmy6f) | [Try it in EF6](https://dotnetfiddle.net/Etc2k7)
+> 💡 Tip: Using a `BulkOperationOption` instance is useful when you want to reuse the same configuration across multiple operations or keep your setup code more organized.
 
-### Insert with related child entities (Include Graph)
-You want to insert entities but also automatically insert related child entities.
+### Common Options
 
-- `IncludeGraph`: This option lets you to automatically insert all entities part of the graph.
-- `IncludeGraphBuilder`: This option lets you customize how to insert entities for a specific type.
+- Bulk Insert Behavior
+   - **InsertIfNotExists:** Set to `true` if you only want to insert entities that don’t already exist in your database.
+   - **InsertKeepIdentity:** Set to `true` if you want to insert entities with their identity value. For SQL Server, the library will automatically handle the `SET IDENTITY_INSERT [tableName] ON` and `SET IDENTITY_INSERT [tableName] OFF` commands.
+   - **InsertNotMatchedAndFormula:** Specify a hardcoded SQL if you want to add custom logic to filter which rows should be inserted.
+   - **InsertPrimaryKeyAndFormula:** Specify a hardcoded SQL if you want to add custom logic to define the primary key. This option usually only makes sense when `InsertIfNotExists = true`.
+   - **InsertStagingTableFilterFormula:** Specify a hardcoded SQL if you want to filter which rows should be inserted using a staging table.
+- Behavior
+   - **AutoTruncate:** Set to `true` if you want string values to be automatically truncated to match the maximum database length before being inserted. This option is especially useful because `SqlCommand` and `SqlBulkCopy` can behave differently when a string is too long. (See [Issue #333](https://github.com/zzzprojects/EntityFramework-Extensions/issues/333#issuecomment-1041494634))
+   - **ExplicitValueResolutionMode:** Specify how explicit values for columns (that aren’t usually expected to be set) should be handled. In EF Core, these values are always inserted. In EF Extensions, you need to tell how you want to handle them. [Learn more here](https://entityframework-extensions.net/explicit-value-resolution-mode)
+   - **IncludeGraph:** Set to `true` if you want to insert both the main entities and their related entities. For example, if you pass a list of `Order` that includes `OrderItem`, both will be inserted. Be careful: if you want to apply specific options to a related entity type, you’ll need to configure them using `IncludeGraphBuilder`.
+   - **IncludeGraphBuilder:** Required only if `IncludeGraph = true` *and* you need to customize how a related entity type is inserted. Use a lambda expression to control how each entity in the graph should be inserted — for example, to define how child entities are linked to their parent or how IDs should be propagated.
+- Properties & Columns
+   - **ColumnInputExpression:** Choose which properties should be inserted by using a lambda expression to select them. All other properties will be ignored.
+   - **ColumnInputNames:** Choose which properties should be inserted by using a list of strings to select them. All other properties will be ignored.
+   - **IgnoreOnInsertExpression:** Choose which properties should be ignored by using a lambda expression to select them. All other properties will be inserted.
+   - **IgnoreOnInsertNames:** Choose which properties should be ignored by using a list of strings to select them. All other properties will be inserted.
+   - **PrimaryKeyExpression:** Choose which properties should be part of the key by using a lambda expression. This option only works when `InsertIfNotExists = true`.
+   - **PrimaryKeyNames:** Choose which properties should be part of the key by using a list of strings. This option only works when `InsertIfNotExists = true`.
+- Optimization
+   - **AutoMapOutputDirection:** Set to `false` to disable the default output mapping. This can dramatically improve performance when you don’t need to retrieve values normally returned by the database (like identity, computed, or default values). Alternatively, you can use the [BulkInsertOptimized](/bulk-insert-optimized) method for even faster inserts.
+   - **Batch:** Customize the `BatchSize`, `BatchTimeout`, and `BatchDelayInterval` to improve performance and control how inserts are grouped and executed.
+   - **Hint:** Use `QueryHint` or `TableHintSql` to apply SQL hints for additional performance tuning.
+   - **UseTableLock:** Set to `true` to lock the destination table during the insert operation, which can improve performance by reducing row-level locks and avoiding lock escalation. This is especially useful when inserting a large number of rows.
+- Providers Specific
+   - **UsePostgreSqlInsertOnConflictDoNothing:** Set to `true` if you want to silently ignore any conflict that would otherwise trigger a constraint violation error, such as a duplicate key.
+   - **UsePostgreSqlInsertOverridingSystemValue:** Set to `true` if you want the values provided in the `INSERT` statement to take precedence over any default values defined at the database level for system columns. This is useful when you need to insert explicit values for columns like timestamps that are normally managed by the database.
+   - **UsePostgreSqlInsertOverridingUserValue:** Set to `true` if you want the values in the `INSERT` statement to override any user-defined default values set at the database level. This is helpful when you want the application's data to take priority — especially during automated or bulk inserts.
+   - **SqlBulkCopyOptions:** Specify the default options to use when `SqlBulkCopy` is used to insert directly into the destination table (SQL Server only).  
+  Default value: `(int)(DynamicSqlBulkCopyOptions.FireTriggers | DynamicSqlBulkCopyOptions.CheckConstraints)`
+- General
+   - **Audit:** Track inserted entities by using the `UseAudit` and `AuditEntries` options. [Learn more here](/audit)
+   - **FutureAction:** Batch multiple insert operations and execute them later using the `ExecuteFuture` or `ExecuteFutureAsync` methods.
+   - **Log:** Log all executed SQL statements using the `Log`, `UseLogDump`, and `LogDump` options. [Learn more here](/logging)
+   - **RowsAffected:** Use `UseRowsAffected = true`, then access `ResultInfo.RowsAffected` or `ResultInfo.RowsAffectedInserted` to get the number of entities inserted. [Learn more here](/rows-affected)
+
+## Troubleshooting
+
+### Explicit Value Not Inserted
+
+A major difference between `BulkInsert` and `SaveChanges` is how explicit values are handled.
+
+In EF6, explicit values were always ignored—even if you specified a value for a column with a default value. However, EF Core changed this behavior and now automatically inserts the value you specify.
+
+By default, our library still follows the same logic we used for EF6. But don’t worry—you can get the same behavior as EF Core by using the [ExplicitValueResolutionMode](/explicit-value-resolution-mode#explicitvalueresolutionmode) option.
+
+Here’s how you can do it:
 
 ```csharp
-context.BulkInsert(invoices, options => options.IncludeGraph = true);
+context.BulkInsert(customers, options => { 
+		options.ExplicitValueResolutionMode = Z.EntityFramework.Extensions.ExplicitValueResolutionMode.SmartDefaultValueOnBulkInsert;
+	});
 ```
-
-[Try it in EF Core](https://dotnetfiddle.net/Nd52w2) | [Try it in EF6](https://dotnetfiddle.net/geInHT)
-
-### Insert with future action
-You want to insert entities, but you want to defer the execution.
-
-By default, `BulkInsert` is an immediate operation. That means, it's executed as soon as you call the method.
-
-`FutureAction`: This option let you defer the execution of a Bulk Insert.
-`ExecuteFutureAction`: This option trigger and execute all pending `FutureAction`.
-
-```csharp
-context.FutureAction(x => x.BulkInsert(customers));
-context.FutureAction(x => x.BulkInsert(invoices, options => options.IncludeGraph = true));
-
-// ...code...
-
-context.ExecuteFutureAction();
-```
-
-[Try it in EF Core](https://dotnetfiddle.net/ltH0a4) | [Try it in EF6](https://dotnetfiddle.net/Ju3ReL)
-
-### Insert without returning identity value
-By default, the EF `BulkInsert` method already returns the identity when inserting.
-
-However, such behavior impacts performance. For example, when the identity must be returned, a temporary table is created in SQL Server instead of directly using `SqlBulkCopy` into the destination table.
-
-You can improve your performance by turning off the `AutoMapOutput` option.
-
-```csharp
-context.BulkInsert(customers, options => options.AutoMapOutputDirection = false);
-```
-
-[Try it in EF Core](https://dotnetfiddle.net/HnG2oq) | [Try it](https://dotnetfiddle.net/Ld0l03)
-
-### More scenarios
-Hundreds of scenarios have been solved and are now supported.
-
-The best way to ask for a special request or to find out if a solution for your scenario already exists is by contacting us:
-info@zzzprojects.com
-
-## Documentation
-
-### BulkInsert
-
-###### Methods
-
-| Name | Description | Example |
-| :--- | :---------- | :------ |
-| `BulkInsert<T>(items)` | Bulk insert entities in your database. | [EFCore](https://dotnetfiddle.net/n0p2IF) / [EF6](https://dotnetfiddle.net/ShIYXu) |
-| `BulkInsert<T>(items, options)` | Bulk insert entities in your database.  | [EFCore](https://dotnetfiddle.net/09b2zo) / [EF6](https://dotnetfiddle.net/NBVSTZ) |
-| `BulkInsertAsync<T>(items)` | Bulk insert entities asynchronously in your database. | [EFCore](https://dotnetfiddle.net/uYPaIS) / [EF6](https://dotnetfiddle.net/v7621p) |
-| `BulkInsertAsync<T>(items, options)` | Bulk insert entities asynchronously in your database.  | [EFCore](https://dotnetfiddle.net/eWkJco) / [EF6](https://dotnetfiddle.net/wuFZDZ) |
-| `BulkInsertAsync<T>(items, cancellationToken)` | Bulk insert entities asynchronously in your database. | [EFCore](https://dotnetfiddle.net/4iW0p6) / [EF6](https://dotnetfiddle.net/qrDSny) |
-| `BulkInsertAsync<T>(items, options, cancellationToken)` | Bulk insert entities asynchronously in your database. | [EFCore](https://dotnetfiddle.net/VkmKH2) / [EF6](https://dotnetfiddle.net/iPmJw9) |
-
-###### Options
-More options can be found here:
-
-- [Audit](https://entityframework-extensions.net/audit)
-- [Batch](https://entityframework-extensions.net/batch)
-- [Column](https://entityframework-extensions.net/column)
-- [Context Factory](https://entityframework-extensions.net/context-factory)
-- [Execute Event](https://entityframework-extensions.net/execute-event)
-- [Identity](https://entityframework-extensions.net/identity)
-- [Include Graph](https://entityframework-extensions.net/include-graph)
-- [Key](https://entityframework-extensions.net/key)
-- [Logging](https://entityframework-extensions.net/logging)
-- [Temporary Table](https://entityframework-extensions.net/temporary-table)
-- [Transaction](https://entityframework-extensions.net/transaction)
-- [Transient Error](https://entityframework-extensions.net/transient-error)
-- [SQL Server](https://entityframework-extensions.net/sql-server)
 
 ## Limitations
 
 ### Hidden Navigation (EF6 only)
 
-The `BulkInsert` doesn't use the ChangeTracker to optimize the performance unless no other alternative exists.
+The `BulkInsert` method doesn’t rely on the `ChangeTracker` by default to maximize performance — unless there’s no other option.
 
-For example, you want to insert `InvoiceItem` but there is no relation toward the parent `Invoice`. In this case, you will need to add your entities in the `ChangeTracker`. The `ChangeTracker` will be used to find the related `Invoice` for your `InvoiceItem`.
+For example, let’s say you want to insert a list of `InvoiceItem`, but there’s no direct navigation property or relation set toward the parent `Invoice`. In this case, you’ll need to add the parent entities to the `ChangeTracker`. This helps EF find and link the related `Invoice` for each `InvoiceItem`.
 
 ```csharp
 try
@@ -279,44 +205,17 @@ try
 }
 catch
 {
-    Console.WriteLine("An error is throw because the Invoice relation cannot be found.");
+    Console.WriteLine("An error is thrown because the Invoice relation cannot be found.");
 }
 
 context.Invoices.AddRange(invoices);
 
-// The ChangeTracker is used for this case
+// The ChangeTracker is used in this case
 context.BulkInsert(items);
 ```
 
-[Try it in EF6](https://dotnetfiddle.net/vKlII0)
+[Online Example](https://dotnetfiddle.net/vKlII0)
 
+## Conclusion
 
----
-
-
----
-
-
-There is various way to use the Bulk Insert method:
-
-- You can use the `IncludeGraph = true` option to insert an entire object graph (for example, an Invoice and its associated InvoiceItem)
-- You can use the `AutoMapOutputDirection = false` option to get the best possible performance by not returning value that is normally returned like the identity value
-- You can pass option by either a lambda expression or create a new instance of the `BulkOperationsOptions` class.
-
-```csharp
-// Easy to use
-context.BulkInsert(customers);
-
-// Easy to customize
-context.BulkInsert(invoices, options => options.IncludeGraph = true);
-
-// For best performance
-context.BulkInsert(customers, options => options.AutoMapOutputDirection = false);
-
-// Use options with an instance
-// var options = new BulkOperationsOptions<Customer>();
-var options = context.CreateBulkOptions(customers);
-context.BulkInsert(customers, options);
-```
-
-[Try it in EF Core](https://dotnetfiddle.net/2eVfFT) | [Try it in EF6](https://dotnetfiddle.net/bNektu)
+The `BulkInsert` method is one of our most popular features. As we showed in this article, it doesn’t just offer better performance than `SaveChanges` — it also gives you access to many options that let you insert data exactly the way you want.
