@@ -15,7 +15,8 @@
 		</li>
         <li>
             <a href="/">Getting Started with Dapper</a>
-        </li>		
+        </li>	
+		<li><a href="/dapper-and-dapper-plus">Is Dapper Plus related to Dapper?</a></li>
 		<li><a href="/dapper-vs-entity-framework">Dapper vs Entity Framework</a></li>
 		<li><a href="/database-providers">Dapper Database Providers</a></li>
 		<li>
