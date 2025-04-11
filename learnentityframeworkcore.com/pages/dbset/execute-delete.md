@@ -3,7 +3,7 @@ title: ExecuteDelete in EF Core – A Faster Way to Delete Entities
 description: Discover how to use the new ExecuteDelete method starting from EF Core 7 to delete entities more efficiently—no tracking, no SaveChanges needed.
 canonical: /dbset/execute-delete
 status: Published
-lastmod: 2025-03-27
+lastmod: 2025-04-11
 ---
 
 # EF Core Execute Delete
@@ -144,7 +144,7 @@ using (var context = new LibraryContext())
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/A5_thTxsCjY?si=IhIioXL8AplArLl1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-_by @CodingTutorialsAreGo_
+_by @CodingTutorialsAreGo ([Jasper Kent](/contributors/jasper-kent))_
 
 In this video, Jasper introduces the new `ExecuteDelete` feature added in EF Core 7. He walks you through every step—from how deletions were traditionally performed to replacing them with the new method for both single and multiple entities. He also compares the SQL generated, explains why calling `SaveChanges` is no longer required, and shows how to retrieve the number of affected rows.
 
