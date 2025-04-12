@@ -3,7 +3,7 @@ title: Is Dapper Plus related to Dapper?
 description: Learn how Dapper Plus supports the Dapper ecosystem through sponsorships, shared mindset, and free community tools 
 canonical: /dapper-and-dapper-plus
 status: Published
-lastmod: 2025-04-06
+lastmod: 2025-04-12
 ---
 
 # Is Dapper Plus related to Dapper?
@@ -40,19 +40,36 @@ But using it **inside** Dapper Plus? Bah!
 
 Yes, the two libraries are definitely related!
 
-- ✅ **Sponsorship:** 30% of our revenue goes to sponsoring Dapper. That’s $4,500 USD **every month**.
+- ✅ **Sponsorship - Dapper:** 30% of our revenue goes to sponsoring Dapper. That’s $4,500 USD **every month**.
+- ✅ **Sponsorship - Dapper Ecosystem:** Around 10% of our revenue also goes toward sponsoring third-party libraries and content creators.
 - ✅ **Mindset:** The goal behind Dapper Plus was to follow the same mindset as Dapper by extending `DbConnection`.
 - ✅ **Tutorials:** Where do you go when you need Dapper info? [Learn Dapper](https://www.learndapper.com/) and [Dapper Tutorial](https://dappertutorial.net/) — both maintained by us.
 
 ---
 
-### 🧾 Sponsorship
+### 🧾 Sponsorship - Dapper
 
 We’re proud to be a major sponsor of Dapper.
 
 In early 2024, **we** reached out directly to the Dapper team to offer financial support. They didn’t ask us — we contacted them.
 
+Our sponsorship is directly related to the following NuGet packages:
+- [Dapper](https://www.nuget.org/packages/Dapper)
+- [Dapper.StrongName](https://www.nuget.org/packages/Dapper.StrongName)
+- [Dapper.EntityFramework](https://www.nuget.org/packages/Dapper.EntityFramework)
+- [Dapper.EntityFramework.StrongName](https://www.nuget.org/packages/Dapper.EntityFramework.StrongName)
+- [Dapper.Rainbow](https://www.nuget.org/packages/Dapper.Rainbow)
+- [Dapper.SqlBuilder](https://www.nuget.org/packages/Dapper.SqlBuilder)
+
 So yes, Dapper Plus is related to Dapper because we help ensure Dapper stays professionally maintained and developer-supported by sponsorising **$4500 USD** per month.
+
+---
+
+### 🌐 Sponsorship - Dapper Ecosystem
+
+We’ve been in contact (since mid-April 2025) with four NuGet library owners to sponsor them. It’s not finalized yet, but hey — it’s coming soon! 😉
+
+So yes, Dapper Plus is directly connected to Dapper by giving back to those who actively contribute to this awesome library.
 
 ---
 
@@ -91,16 +108,16 @@ We sponsor content creators, library maintainers like Dapper, and offer several 
 
 _These websites are free to use, but they cost me **thousands of dollars** every month to keep online!_
 
-In 2025, we’re aiming to give back even more — by sponsoring creators and maintainers with over **30% of our total revenue**!
+In 2025, we’re aiming to give back even more — by sponsoring creators and maintainers with over **30% of our total revenue**, and over **40% specifically from Dapper Plus**. And who knows? We hope to increase that even more in the future! 😉
 
 **Why?**  
-I’ll be honest — I make enough to live well, and I’m just happy to share what I can with the amazing people who contribute to the .NET community.
+I’ll be honest — I make enough to live well and travel the world, and I already give two months of my personal salary to friends and family. So you can understand that I’m just happy to share what I can with the amazing people who contribute to the .NET community.
 
-Sure, we could lower our prices…  But then, it’s the community that loses — because we wouldn’t be able to support them as much.
+Sure, we could lower our prices… but in the end, it’s the community that would lose — because we wouldn’t be able to support them as much.
 
 ## Conclusion
 
-The next time someone tells you that Dapper Plus isn’t related to Dapper, just share this article with them.
+The next time someone tells you that Dapper Plus isn’t related to Dapper, just share this article with them and he will be able to take his own decision.
 
 Thanks to the few libraries we sell — like Dapper Plus — ZZZ Projects plays a major role in supporting Dapper and the .NET ecosystem as a whole.
 
@@ -111,10 +128,11 @@ But maybe it’s worth reconsidering...
 Because with those small actions, **everyone loses**:
 
 - Dapper loses sponsorship revenue  
-- Content creators and other sponsored libraries lose sponsorship revenue  
+- Sponsored libraries and content creators loses revenue
+- **You** lose some support, new features, or even new libraries that could have emerged  
 - And yes, I lose some revenue too
 
-Hey — for once, there’s a company that isn’t too greedy and truly tries to help.
+Hey — for once, here’s a company that isn’t too greedy and genuinely tries to help as much as possible!
 
 So, if you appreciate what we’re doing...  
 
