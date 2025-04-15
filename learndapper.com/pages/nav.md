@@ -18,6 +18,12 @@
         </li>	
 		<li><a href="/dapper-and-dapper-plus">Is Dapper Plus related to Dapper?</a></li>
 		<li><a href="/dapper-vs-entity-framework">Dapper vs Entity Framework</a></li>
+		<li><a href="/extensions">Extensions</a>
+			<ul class="nav-level-two">
+                <li><a href="/extensions/dapper-extensions">Dapper.Extensions</a></li>
+            </ul>
+		</li>
+		
 		<li><a href="/database-providers">Dapper Database Providers</a></li>
 		<li>
 			<a href="/dapper-query">Dapper Querying</a>

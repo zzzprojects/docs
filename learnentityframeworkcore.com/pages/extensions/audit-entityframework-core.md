@@ -1,7 +1,7 @@
 ---
 title: Audit.EntityFramework.Core
 description: An introduction to Audit.EntityFramework.Core
-canonical: /extensions
+canonical: /extensions/audit-entityframework-core
 status: Published
 lastmod: 2025-04-05
 ---
