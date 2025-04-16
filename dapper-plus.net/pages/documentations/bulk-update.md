@@ -1,10 +1,10 @@
 ---
 Title: Bulk Update | How to Quickly Update Multiple Rows in Dapper
 MetaDescription: Learn how to perform faster update in Dapper using the Bulk Update method, understand why it's essential, and explore some common scenarios.
-LastMod: 2024-10-05
+LastMod: 2025-04-13
 ---
 
-# Bulk Update: How to Quickly Update Multiple Rows in Dapper
+# Bulk Update /n How to Quickly Update Multiple Rows in Dapper
 
 The Dapper Plus `BulkUpdate` extension method enables you to quickly update multiple rows in your database. This method is up to **50x faster** than conventional Dapper update techniques and offers extensive customization with [hundreds of options](/options).
 
@@ -52,6 +52,8 @@ To get started, you should read the [Bulk Extensions Methods](/bulk-extensions-m
 - You can [chain](/bulk-extensions-methods#chaining) operations with the `AlsoBulkUpdate` and `ThenBulkUpdate` methods.
 - You can use `BulkUpdate` from a connection, transaction, or a new [Dapper Plus Context](/dapper-plus-context).
 - You can utilize the `BulkUpdate` method with multiple different [Data Sources](/data-source).
+
+Then you can learn how to [map](/mapping) your entity to save it the way you want. You can even map the same entity multiple times using a [mapping key](/mapping-key)
 
 ## Common Options / Scenarios
 

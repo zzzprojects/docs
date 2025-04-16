@@ -1,10 +1,10 @@
 ---
 Title: 3 Effective Ways to Use the Dapper Plus Context 
 MetaDescription: Learn how to use Dapper Plus Context with our comprehensive guide on 'Global Context', 'Instance Context', and 'Inheritance Context'.
-LastMod: 2024-10-08
+LastMod: 2025-04-13
 ---
 
-# 3 Effective Ways to Use the Dapper Plus Context
+# Dapper Plus Context /n 3 Effective Ways to Use the Dapper Plus Context
 
 The `DapperPlusContext` is the class where all the magic happens. All [Bulk Extension](bulk-extensions-methods) and [Single Extension](single-extensions-methods) methods executed use an instance of a `DapperPlusContext`. Even when you utilize methods through a connection or transaction, you are employing what we call the global context, which is simply a new instance of the `DapperPlusContext` stored in a static variable in the [DapperPlusManager](/dapper-plus-manager):
 

@@ -1,10 +1,10 @@
 ---
 Title: Bulk Synchronize | The Best Way in Dapper to Synchronize Multiple Rows
 MetaDescription: Learn how to perform faster synchronization in Dapper using the Bulk Synchronize method, understand why it's essential, and explore some common scenarios.
-LastMod: 2024-10-05
+LastMod: 2025-04-15
 ---
 
-# Bulk Synchronize: The Best Way in Dapper to Synchronize Multiple Rows
+# Bulk Synchronize /n  The Best Way in Dapper to Synchronize Multiple Rows
 
 The Dapper Plus `BulkSynchronize` extension method acts as a **MIRROR** operation; it makes your table exactly reflect your data source. This means it will **UPDATE** existing rows, **INSERT** new rows that do not exist in the database, and **DELETE** rows that are no longer present in your data source.
 
@@ -51,6 +51,8 @@ Here is a quick recap:
 [Online Example](https://dotnetfiddle.net/ltIqrC)
 
 This setup guides you through the initial steps to effectively use `BulkSynchronize`, emphasizing its flexibility and power in handling complex data synchronization scenarios.
+
+Then you can learn how to [map](/mapping) your entity to save it the way you want. You can even map the same entity multiple times using a [mapping key](/mapping-key)
 
 ## Common Options / Scenarios
 

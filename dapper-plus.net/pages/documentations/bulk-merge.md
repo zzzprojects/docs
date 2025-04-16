@@ -1,10 +1,10 @@
 ---
 Title: Bulk Merge | The Fastest Way in Dapper to Upsert Multiple Rows
 MetaDescription: Learn how to perform faster "add or update"/"upsert" in Dapper using the Bulk Merge method, understand why it's essential, and explore some common scenarios.
-LastMod: 2024-10-05
+LastMod: 2025-04-16
 ---
 
-# Bulk Merge: The Fastest Way in Dapper to Upsert Multiple Rows
+# Bulk Merge /n The Fastest Way in Dapper to Upsert Multiple Rows
 
 The Dapper Plus `BulkMerge` extension method performs an `Add or Update` operation, more commonly known as an [Upsert](https://en.wikipedia.org/wiki/Merge_(SQL)). This method updates existing rows and inserts non-existing rows in your database seamlessly.
 
@@ -77,6 +77,8 @@ Here is a recap:
 - **Chaining Operations**: Enhance workflow efficiency by chaining operations with the `AlsoBulkMerge` and `ThenBulkMerge` methods.
 - **Versatile Usage**: Utilize `BulkMerge` from a connection, transaction, or a new [Dapper Plus Context](/dapper-plus-context).
 - **Multiple Data Sources**: The `BulkMerge` method can be applied across various [Data Sources](/data-source), enhancing its adaptability.
+
+Then you can learn how to [map](/mapping) your entity to save it the way you want. You can even map the same entity multiple times using a [mapping key](/mapping-key)
 
 ## Common Options / Scenarios
 

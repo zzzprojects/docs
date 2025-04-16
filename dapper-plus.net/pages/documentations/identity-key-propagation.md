@@ -1,10 +1,10 @@
 ---
 Title: Master Easy Techniques to Propagate Identity and Key Values Across Your Graph 
 MetaDescription: Master Easy Techniques to Propagate Identity and Key Values Across Your Graph 
-LastMod: 2025-01-27
+LastMod: 2025-04-11
 ---
 
-# Master Easy Techniques to Propagate Identity and Key Values Across Your Graph
+# Identity Key Propagation /n Master Easy Techniques to Propagate Identity and Key Values Across Your Graph
 
 Propagating the key or identity value is often necessary when dealing with a graph scenario, such as an Order and Order Items. When you save the Order, you need to propagate the `OrderID` value to all items.
 

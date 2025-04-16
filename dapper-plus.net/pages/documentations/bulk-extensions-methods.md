@@ -1,10 +1,10 @@
 ---
 Title: The Quickest Way to Save Data: Mastering Bulk Extension Methods
 MetaDescription: Learn how to save 75x faster with Dapper Plus bulk extension methods, master bulk chaining methods, and use asynchronous bulk methods.
-LastMod: 2025-01-27
+LastMod: 2025-03-27
 ---
 
-# The Quickest Way to Save Data: Mastering Bulk Extension Methods
+# The Quickest Way to Save Data /n Mastering Bulk Extension Methods
 
 We have seen in our [Benchmark](https://dotnetfiddle.net/kz4UpX) from our getting started article that Dapper Plus was **75x faster** than the traditional way to [insert multiple rows with Dapper](https://www.learndapper.com/saving-data/insert#dapper-insert-multiple-rows), reducing saving time by **99%**.
 

@@ -1,10 +1,10 @@
 ---
 Title: Exploring Supported Data Sources in Dapper Plus: What You Need to Know 
 MetaDescription: Learn how to use Dapper Plus with strongly typed entities, Expando objects, and DataTables.
-LastMod: 2024-10-08
+LastMod: 2025-04-16
 ---
 
-# Exploring Supported Data Sources in Dapper Plus: What You Need to Know
+# Dapper Data Source /n Exploring Supported Data Sources in Dapper Plus: What You Need to Know
 
 To fully benefit from this documentation, ensure you are familiar with the [Mapping Key](/mapping-key) concept, as it plays a crucial role when working with various data sources.
 
@@ -41,6 +41,34 @@ connection.BulkInsert(products);
 [Online Example](https://dotnetfiddle.net/8lPwIb)
 
 This example shows how a class is mapped to a database table and how you can easily perform operations like [bulk insertions](/bulk-insert) using Dapper Plus.
+
+## DapperRow
+
+When using Dapper to query data without specifying a strongly typed entity, as shown previously, a list of `DapperRow` is returned instead. This type can be used like a dynamic object.
+
+Our library can retrieve the property names from the result, but it does not know the associated table name—so you’ll need to specify it manually.
+
+If you want to map through a [DapperPlusContext](https://dapper-plus.net/dapper-plus-context), you’ll need to map using the `object` type, since `DapperRow` is a private class:
+
+```csharp
+DapperPlusManager.Entity<object>("DapperRow_LegacyProduct")
+	.Table("LegacyProduct");
+	
+// INSERT all products into the "LegacyProduct" table
+connection.BulkInsert("DapperRow_LegacyProduct", dapperRows);
+```
+
+Alternatively, you can use the [UseBulkOptions](https://dapper-plus.net/options) method to specify the destination table name and any other options:
+
+```csharp
+connection.UseBulkOptions(options => {
+	options.DestinationTableName = "LegacyProduct";
+}).BulkInsert(dapperRows);
+```
+
+In the following example, we queried data from the `Product` table and inserted all rows into the `ProductLegacy` table:
+
+[Online Example](https://dotnetfiddle.net/D7TVx5)
 
 ## Expando Object / Dynamic Object
 

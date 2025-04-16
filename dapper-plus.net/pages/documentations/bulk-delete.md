@@ -1,10 +1,10 @@
 ---
 Title: Bulk Delete | The Easiest Way in Dapper to Delete Multiple Rows
 MetaDescription: Learn how to perform easier delete in Dapper using the Bulk Delete method, understand why it's essential, and explore some common scenarios.
-LastMod: 2024-10-05
+LastMod: 2025-04-16
 ---
 
-# Bulk Delete: The Easiest Way in Dapper to Delete Multiple Rows
+# Bulk Delete /n The Easiest Way in Dapper to Delete Multiple Rows
 
 The Dapper Plus `BulkDelete` extension method allows you to delete multiple rows from your database.
 
@@ -60,6 +60,8 @@ Here is a recap:
 - You can [chain](/bulk-extensions-methods#chaining-methods) operations with the `AlsoBulkDelete` and `ThenBulkDelete` methods.
 - You can use `BulkDelete` from a connection, transaction, or a new [Dapper Plus Context](/dapper-plus-context).
 - You can utilize the `BulkDelete` method with multiple different [Data Sources](/data-source).
+
+Then you can learn how to [map](/mapping) your entity to save it the way you want. You can even map the same entity multiple times using a [mapping key](/mapping-key)
 
 ## Common Options / Scenarios
 

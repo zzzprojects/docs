@@ -1,10 +1,10 @@
 ---
 Title: Bulk Insert | The Fastest Way in Dapper to Insert Multiple Rows
 MetaDescription: Learn how to perform faster inserts in Dapper using the Bulk Insert method, understand why it's essential, and explore some common scenarios.
-LastMod: 2024-10-05
+LastMod: 2025-04-15
 ---
 
-# Bulk Insert: The Fastest Way in Dapper to Insert Multiple Rows
+# Bulk Insert /n The Fastest Way in Dapper to Insert Multiple Rows
 
 The Dapper Plus `BulkInsert` extension method allows you to insert multiple rows up to **75x faster** than the traditional techniques in Dapper.
 
@@ -54,6 +54,8 @@ To get started, we recommend first reading our [Bulk Extensions Methods](/bulk-e
 - You can [chain](/bulk-extensions-methods#chaining-methods) operations with the `AlsoBulkInsert` and `ThenBulkInsert` methods.
 - You can use `BulkInsert` from a connection, transaction, or a new [Dapper Plus Context](/dapper-plus-context).
 - You can utilize the `BulkInsert` method with multiple different [Data Sources](/data-source).
+
+Then you can learn how to [map](/mapping) your entity to save it the way you want. You can even map the same entity multiple times using a [mapping key](/mapping-key)
 
 ## Common Options / Scenarios
 

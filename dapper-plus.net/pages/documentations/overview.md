@@ -1,10 +1,10 @@
 ---
 Title: What is Dapper Plus? Join Thousands of Companies Boosting Performance Worldwide
 MetaDescription: Learn what Dapper Plus is, who uses this library, why you need this library, how it helps you to develop faster, and how Dapper Plus helps Dapper.
-LastMod: 2024-09-17
+LastMod: 2025-04-16
 ---
 
-# What is Dapper Plus? Join Thousands of Companies Boosting Performance Worldwide
+# What is Dapper Plus? /n Join Thousands of Companies Boosting Performance Worldwide
 
 When I discovered [Dapper](https://www.learndapper.com/), I fell in love with this library as it was making my life so much easier. I only had to write my query and **BOOM!** Dapper was handling everything for me... From opening the connection, creating/executing the command, to mapping the result.
 

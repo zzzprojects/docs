@@ -1,10 +1,10 @@
 ---
 Title: Essentials of Mapping & Modeling: A Comprehensive Guide 
 MetaDescription: Essentials of Mapping & Modeling: A Comprehensive Guide 
-LastMod: 2025-01-16
+LastMod: 2025-03-16
 ---
 
-# Essentials of Mapping: A Comprehensive Guide
+# Essentials of Mapping /n A Comprehensive Guide
 
 To customize how your entity is saved, our library needs precise instructions on **WHAT YOU WANT**:
 

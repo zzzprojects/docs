@@ -1,10 +1,10 @@
 ---
 Title: Unlocking the Power of a Mapping Key: Map the Same Entity Type Multiple Time 
 MetaDescription: Unlocking the Power of a Mapping Key: Map the Same Entity Type Multiple Time 
-LastMod: 2024-06-27
+LastMod: 2025-04-13
 ---
 
-# Unlocking the Power of a Mapping Key: Map the Same Entity Type Multiple Times
+# Unlocking the Power of a Mapping Key /n Map the Same Entity Type Multiple Times
 
 A major problem with most modern ORMs like [EF Core](https://www.learnentityframeworkcore.com/) is that once you map your Entity Type, it's mapped that way all the time and you cannot change it.
 

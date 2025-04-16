@@ -1,10 +1,10 @@
 ---
 Title: Dapper Create Table | Use Code First approach in your application
 MetaDescription: Explore how to utilize Dapper Plus' CreateTable extension method for a 'Code First' approach in your SQL Server applications. Learn about table types, data annotations, and populating tables swiftly. Ideal for both testing scenarios and specific production use cases.
-LastMod: 2024-09-21
+LastMod: 2025-04-12
 ---
 
-# Dapper Create Table: Use Code First approach in your application
+# Dapper Create Table /n Use Code First approach in your application
 
 The Dapper Plus `CreateTable` extension method lets you create a table in a SQL Server database. The `CreateTable` method returns the name of the table created.
 
