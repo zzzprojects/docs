@@ -21,6 +21,7 @@
 		<li><a href="/extensions">Extensions</a>
 			<ul class="nav-level-two">
                 <li><a href="/extensions/dapper-extensions">Dapper.Extensions</a></li>
+				<li><a href="/extensions/microorm-dapper-repositories">MicroOrm.Dapper.Repositories</a></li>
             </ul>
 		</li>
 		

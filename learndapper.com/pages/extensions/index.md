@@ -3,7 +3,7 @@ title: Extensions for EF Core | Third Party Libraries
 description: An introduction to third-party libraries for EF Core
 canonical: /extensions
 status: Published
-lastmod: 2025-04-05
+lastmod: 2025-04-21
 ---
 
 # Extensions
@@ -23,3 +23,9 @@ A dapper extension library.
 5. Support performance monitoring.
 
 [Read more](/extensions/dapper-extensions)
+
+## MicroOrm.Dapper.Repositories
+
+MicroOrm.Dapper.Repositories is a lightweight library that extends Dapper by generating SQL for CRUD operations based on your POCO classes. It simplifies data access by using metadata attributes to build queries automatically, including support for joins, logical deletes, and pagination.
+
+[Read more](/extensions/microorm-dapper-repositories)
