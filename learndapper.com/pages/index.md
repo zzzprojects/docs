@@ -36,15 +36,15 @@ Dapper falls into a family of tools known as _micro-ORMs_. These tools perform o
 
 | | Micro ORM | ORM|
 |:--|:--|:--|
-| Map queries to objects  | <i class="fas fa-check" style="color:green;"></i>  | <i class="fas fa-check" style="color:green;"></i> |
-| Caching results    | <i class="fas fa-times" style="color:red"></i> | <i class="fas fa-check" style="color:green;"></i>|
-| Change tracking  | <i class="fas fa-times" style="color:red"></i> <sup>1</sup> | <i class="fas fa-check" style="color:green;"></i>|
-| SQL generation    | <i class="fas fa-times" style="color:red"></i> <sup>2</sup> | <i class="fas fa-check" style="color:green;"></i>|
-| Identity management | <i class="fas fa-times" style="color:red"></i> | <i class="fas fa-check" style="color:green;"></i>|
-| Association management | <i class="fas fa-times" style="color:red"></i> | <i class="fas fa-check" style="color:green;"></i>|
-| Lazy loading | <i class="fas fa-times" style="color:red"></i> | <i class="fas fa-check" style="color:green;"></i>|
-| Unit of work support | <i class="fas fa-times" style="color:red"></i> | <i class="fas fa-check" style="color:green;"></i>|
-| Database migrations | <i class="fas fa-times" style="color:red"></i> | <i class="fas fa-check" style="color:green;"></i>|
+| Map queries to objects  | ✅  | ✅ |
+| Caching results    | ❌ | ✅|
+| Change tracking  | ❌ <sup>1</sup> | ✅|
+| SQL generation    | ❌ <sup>2</sup> | ✅|
+| Identity management | ❌ | ✅|
+| Association management | ❌ | ✅|
+| Lazy loading | ❌ | ✅|
+| Unit of work support | ❌ | ✅|
+| Database migrations | ❌ | ✅|
 | | | |
 
 Dapper concentrates its efforts on the **O** and **M** of _ORM_ - **O**bject **M**apping.
