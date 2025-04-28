@@ -72,7 +72,7 @@ We’ve been in contact (since mid-April 2025) with four NuGet library owners to
 So yes, Dapper Plus is directly connected to Dapper by giving back to those who actively contribute to this awesome library.
 
 - [Dapper.Extensions.NetCore](https://www.learndapper.com/extensions/dapper-extensions): $150 USD monthly
-- [MicroOrm.Dapper.Repositories](#): $150 USD monthly
+- [MicroOrm.Dapper.Repositories](https://www.learndapper.com/extensions/microorm-dapper-repositories): $150 USD monthly
 
 ---
 
