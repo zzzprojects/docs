@@ -21,3 +21,13 @@ This extension automatically generates audit logs for your Entity Framework oper
 You can use this library to log all interactions with your `DbContext`, including detailed information about each CRUD operation made on your database.
 
 [Read more](/extensions/audit-entityframework-core)
+
+## EntityCloner.Microsoft.EntityFrameworkCore
+
+Easily clone EF Core entities—including related data—based on your model configuration. 
+
+This library resets keys and concurrency tokens, supports composite keys, and works with single entities, queries, and collections. 
+
+Perfect for duplicating data without tracking conflicts.
+
+[Read more](/extensions/entitycloner-microsoft-entityframeworkcore)

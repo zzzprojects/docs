@@ -10,7 +10,8 @@
         <li>
             <a href="/extensions">Extensions</a>
             <ul class="nav-level-two" data-display="raw-sql">
-                <li><a href="/extensions/audit-entityframework-core">Audit.EntityFramework.Core</a></li>
+                <li><a href="/extensions/audit-entityframework-core">Audit EntityFramework Core</a></li>
+				<li><a href="/extensions/entitycloner-microsoft-entityframeworkcore">EntityCloner Microsoft EntityFrameworkCore</a></li>
             </ul>
         </li>
         <li>
