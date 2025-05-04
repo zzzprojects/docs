@@ -24,6 +24,12 @@ A dapper extension library.
 
 [Read more](/extensions/dapper-extensions)
 
+## Dommel
+
+Dommel simplifies CRUD operations in Dapper by providing a set of intuitive extension methods on `IDbConnection`. It automatically generates SQL queries from your POCOs and supports LINQ expressions, async operations, multi-mapping, and customization through extensibility points.
+
+[Read more](/extensions/dommel)
+
 ## MicroOrm.Dapper.Repositories
 
 MicroOrm.Dapper.Repositories is a lightweight library that extends Dapper by generating SQL for CRUD operations based on your POCO classes. It simplifies data access by using metadata attributes to build queries automatically, including support for joins, logical deletes, and pagination.
