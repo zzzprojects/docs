@@ -28,8 +28,17 @@ Time is money, so it's normal for the original owner of the library to have othe
 
 ZZZ Projects adds value to the .NET community through sponsorship:
 
-- [Dapper](https://github.com/DapperLib/Dapper): We provide a percentage of [Dapper Plus](https://dapper-plus.net/) revenue as our library exists because of its excellent work.
-- [LINQ Dynamic](https://github.com/zzzprojects/System.Linq.Dynamic.Core): We pay [StefH](https://github.com/stefH) directly for support and maintenance.
+- Dapper
+   - [Dapper](https://github.com/DapperLib/Dapper): We provide a percentage of [Dapper Plus](https://dapper-plus.net/) revenue as our library exists because of its excellent work.
+   - [Dapper.Extensions.NetCore](https://github.com/ZeeLyn/Dapper.Extensions)
+   - [Dommel](https://github.com/henkmollema/Dommel)
+   - [MicroOrm.Dapper.Repositories](https://github.com/phnx47/dapper-repositories)   
+- EF Core
+   - [Audit.NET](https://github.com/thepirat000/Audit.NET)
+   - [EntityCloner.Microsoft.EntityFrameworkCore](https://github.com/HenkKin/EntityCloner.Microsoft.EntityFrameworkCore)
+   - [EntityFrameworkCore.Exceptions](https://github.com/Giorgi/EntityFramework.Exceptions)
+- Misc
+   - [LINQ Dynamic](https://github.com/zzzprojects/System.Linq.Dynamic.Core): We pay [StefH](https://github.com/stefH) directly for support and maintenance.
 
 If our company continues to grow in 2024/2025, we plan to sponsor 5-10 more open-source libraries that I personally use for my projects.
 
