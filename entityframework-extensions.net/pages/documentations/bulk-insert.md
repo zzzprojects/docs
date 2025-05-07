@@ -1,7 +1,7 @@
 ---
 Title: Bulk Insert in EF Core / EF6 | The Fastest Way to Insert Entities
 MetaDescription: Boost your EF Core inserts performance by up to 15x, reducing insert time by 94% with EF Extensions. Use BulkInsert to handle thousands of entities with less memory and more control. Fully supports EF Core 9 to 2 and EF6. Try the live benchmark now!
-LastMod: 2025-04-06
+LastMod: 2025-05-07
 ---
 
 # Bulk Insert /n Boost your EF Core insert performance now
@@ -147,7 +147,7 @@ context.BulkInsert(list, options);
    - **AutoTruncate:** Set to `true` if you want string values to be automatically truncated to match the maximum database length before being inserted. This option is especially useful because `SqlCommand` and `SqlBulkCopy` can behave differently when a string is too long. (See [Issue #333](https://github.com/zzzprojects/EntityFramework-Extensions/issues/333#issuecomment-1041494634))
    - **ExplicitValueResolutionMode:** Specify how explicit values for columns (that aren’t usually expected to be set) should be handled. In EF Core, these values are always inserted. In EF Extensions, you need to tell how you want to handle them. [Learn more here](https://entityframework-extensions.net/explicit-value-resolution-mode)
    - **IncludeGraph:** Set to `true` if you want to insert both the main entities and their related entities. For example, if you pass a list of `Order` that includes `OrderItem`, both will be inserted. Be careful: if you want to apply specific options to a related entity type, you’ll need to configure them using `IncludeGraphBuilder`.
-   - **IncludeGraphBuilder:** Required only if `IncludeGraph = true` *and* you need to customize how a related entity type is inserted. Use a lambda expression to control how each entity in the graph should be inserted — for example, to define how child entities are linked to their parent or how IDs should be propagated.
+   - **IncludeGraphBuilder:** Required only if `IncludeGraph = true` **and** you need to customize how a related entity type is inserted. Use a lambda expression to control how each entity in the graph should be inserted — for example, to define how child entities are linked to their parent or how IDs should be propagated.
 - Properties & Columns
    - **ColumnInputExpression:** Choose which properties should be inserted by using a lambda expression to select them. All other properties will be ignored.
    - **ColumnInputNames:** Choose which properties should be inserted by using a list of strings to select them. All other properties will be ignored.
@@ -157,7 +157,7 @@ context.BulkInsert(list, options);
    - **PrimaryKeyNames:** Choose which properties should be part of the key by using a list of strings. This option only works when `InsertIfNotExists = true`.
 - Optimization
    - **AutoMapOutputDirection:** Set to `false` to disable the default output mapping. This can dramatically improve performance when you don’t need to retrieve values normally returned by the database (like identity, computed, or default values). Alternatively, you can use the [BulkInsertOptimized](/bulk-insert-optimized) method for even faster inserts.
-   - **Batch:** Customize the `BatchSize`, `BatchTimeout`, and `BatchDelayInterval` to improve performance and control how inserts are grouped and executed.
+   - **Batch:** Customize the `BatchSize`, `BatchTimeout`, and `BatchDelayInterval` to improve performance and control how inserted entities are grouped and executed.
    - **Hint:** Use `QueryHint` or `TableHintSql` to apply SQL hints for additional performance tuning.
    - **UseTableLock:** Set to `true` to lock the destination table during the insert operation, which can improve performance by reducing row-level locks and avoiding lock escalation. This is especially useful when inserting a large number of rows.
 - Providers Specific

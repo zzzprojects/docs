@@ -1,6 +1,6 @@
 ---
 Name: Rows Affected
-LastMod: 2023-03-01
+LastMod: 2025-05-07
 ---
 
 # Rows Affected
@@ -18,6 +18,7 @@ You can find the number of rows affected in the `ResultInfo` class:
    - RowsAffectedInserted
    - RowsAffectedUpdated
    - RowsAffectedDeleted
+   - RowsAffectedSoftDeleted
 
 ```csharp
 var resultInfo = new Z.BulkOperations.ResultInfo();
