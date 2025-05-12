@@ -58,7 +58,7 @@ var connectionString = "Data Source=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCO
 using (var connection = new OracleConnection(connectionString)) 
 {    
     // Create a query that retrieves all books with an author name of "John Smith"    
-    var sql = "SELECT * FROM Books WHERE Author=@authorName";     
+    var sql = "SELECT * FROM Books WHERE Author=:authorName";     
 
     // Use the Query method to execute the query and return a list of objects    
     var books = connection.Query<Book>(sql, new {authorName="John Smith"}).ToList(); 
