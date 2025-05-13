@@ -1,7 +1,7 @@
 ---
-Title: EF Core Bulk Delete | Optimize Data Deletion for EF6 and EF Core
+Title: Bulk Delete in EF Core | Delete entities without tracking them
 MetaDescription: Efficiently delete Entity Framework data with EF Core Bulk Delete Extensions. Customize options to quickly delete large numbers of entities with ease, compatible with all EF versions including EF Core 7, 6, 5, 3, and EF6. Optimize your database operations - try it now.
-LastMod: 2025-03-18
+LastMod: 2025-05-11
 ---
 
 # Bulk Delete /n Swiftly perform delete operations on thousands of entities in EF Core
@@ -23,7 +23,30 @@ Our library also offers several other ways to delete your entities even more eas
 - [Delete by Key](/delete-by-key)
 - [Delete Range by Key](/delete-range-by-key)
 
-### Performance Comparison
+## 🔑 Key Benefits
+
+One of the main reasons people use our Bulk Delete is to **delete entities exactly the way they want** — without having to load them into memory or deal with tracking issues. You stay in control while getting top performance.
+
+- ✅ **Delete the way you want:** Use custom keys, delete related entities (graph), or target specific conditions.
+- ✅ **Extremely fast:** Delete thousands or millions of rows in seconds.
+- ✅ **No need to load entities:** Avoid change tracking — delete directly from your data.
+- ✅ **Flexible with hundreds of options:** Choose how relationships are handled, how keys are matched, and more.
+
+## 🔍 What is supported?
+
+Our library supports all the common scenarios — and almost everything you can do with EF Core and EF6!
+
+- ✅ The latest Entity Framework Core version: EF Core 9  
+- ✅ All previous EF Core versions: EF Core 2 to 8  
+- ✅ All Entity Framework versions: EF6, EF5, EF4, and EF Classic  
+- ✅ All major database providers: SQL Server, SQL Azure, PostgreSQL, MySQL, MariaDB, SQLite, and Oracle  
+- ✅ All inheritance mapping strategies: TPC, TPH, and TPT  
+- ✅ Complex types / owned entity types  
+- ✅ Enums  
+- ✅ Value converters (EF Core)  
+- ✅ And much more — even shadow properties!
+
+### 🚀 Performance Comparison
 
 | Operations      | 1,000 Entities | 2,000 Entities | 5,000 Entities |
 | :-------------- | -------------: | -------------: | -------------: |
@@ -40,15 +63,6 @@ The `BulkDelete` method is **fast** but also **flexible** to let you handle vari
 - [Delete with custom key](#delete-with-custom-key)
 - [Delete with future action](#delete-with-future-action)
 - [More scenarios](#more-scenarios)
-
-### What is supported?
-- All Entity Framework Core Version: EF Core 9, EF Core 8, EF Core 7, EF Core 6, EF Core 5, EF Core 3
-- All Entity Framework Version: EF6, EF5, EF4
-- All Inheritances (TPC, TPH, TPT)
-- Complex Type/Owned Entity Type
-- Enum
-- Value Converter (EF Core)
-- And more!
 
 ### Advantages
 - Easy to use
@@ -137,33 +151,67 @@ Hundreds of scenarios have been solved and are now supported.
 The best way to ask for a special request or to find out if a solution for your scenario already exists is by contacting us:
 info@zzzprojects.com
 
-## Documentation
+## Bulk Delete Options
 
-### BulkDelete
+### Configuring Options
 
-###### Methods
+We already saw in previous articles how to pass options to the `BulkDelete` method — but here’s a quick recap:
 
-| Name | Description | Example |
-| :--- | :---------- | :------ |
-| `BulkDelete<T>(items)` | Bulk delete entities in your database. | [EFCore](https://dotnetfiddle.net/gwc9hl) / [EF6](https://dotnetfiddle.net/4Jv1H6)|
-| `BulkDelete<T>(items, options)` | Bulk delete entities in your database.  | [EFCore](https://dotnetfiddle.net/Qek2MJ) / [EF6](https://dotnetfiddle.net/IedG1h) |
-| `BulkDeleteAsync<T>(items)` | Bulk delete entities asynchronously in your database. | [EFCore](https://dotnetfiddle.net/MJLo2d) / [EF6](https://dotnetfiddle.net/n5OhXL) |
-| `BulkDeleteAsync<T>(items, cancellationToken)` | Bulk delete entities asynchronously in your database. | [EFCore](https://dotnetfiddle.net/rRL627) / [EF6](https://dotnetfiddle.net/RfSB6I) |
-| `BulkDeleteAsync<T>(items, options, cancellationToken)` | Bulk delete entities asynchronously in your database. | [EFCore](https://dotnetfiddle.net/SZ54Px) / [EF6](https://dotnetfiddle.net/r1Hkw7) |
+```csharp
+// Using a lambda expression (only works with one option)
+context.BulkDelete(list, options => options.IncludeGraph = true);
 
-###### Options
-More options can be found here:
+// Using a lambda expression with a body (works with one or multiple options)
+context.BulkDelete(list, options =>
+{
+    options.IncludeGraph = true;
+    options.ColumnPrimaryKeyExpression = x => new { x.ID };
+});
 
-- [Audit](https://entityframework-extensions.net/audit)
-- [Batch](https://entityframework-extensions.net/batch)
-- [Column](https://entityframework-extensions.net/column)
-- [Context Factory](https://entityframework-extensions.net/context-factory)
-- [Execute Event](https://entityframework-extensions.net/execute-event)
-- [Identity](https://entityframework-extensions.net/identity)
-- [Include Graph](https://entityframework-extensions.net/include-graph)
-- [Key](https://entityframework-extensions.net/key)
-- [Logging](https://entityframework-extensions.net/logging)
-- [Temporary Table](https://entityframework-extensions.net/temporary-table)
-- [Transaction](https://entityframework-extensions.net/transaction)
-- [Transient Error](https://entityframework-extensions.net/transient-error)
-- [SQL Server](https://entityframework-extensions.net/sql-server)
+// Using a `BulkOperationOption` instance
+var options = context.CreateBulkOptions<EntitySimple>();
+options.IncludeGraph = true;
+options.ColumnPrimaryKeyExpression = x => new { x.ID };
+
+context.BulkDelete(list, options);
+```
+
+> 💡 Tip: Using a `BulkOperationOption` instance is useful when you want to reuse the same configuration across multiple operations or keep your setup code more organized.
+
+### Common Options
+
+- Bulk Delete Behavior
+   - **DeletePrimaryKeyAndFormula:** Specify a hardcoded SQL to include additional logic—along with the primary key—to check if the entity matches an existing row in the database. Only rows that also match the formula will be deleted.
+   - **DeleteStagingTableFilterFormula:** Specify a hardcoded SQL if you want to filter which rows should be deleted using a staging table.
+- Matched Behavior
+   - **DeleteMatchedAndFormula:** After matching rows by primary key, you can specify an additional SQL condition to delete only the rows that also satisfy this formula.
+   - **DeleteMatchedAndConditionExpression:**  After matching rows by primary key, you can specify additional properties using a lambda expression. All specified property values must match between the entity and the database for the row to be deleted.
+   - **DeleteMatchedAndConditionNames:** After matching rows by primary key, you can specify additional properties using a list of strings. All specified property values must match between the entity and the database for the row to be deleted.
+   - **DeleteMatchedAndOneNotConditionExpression:** After matching rows by primary key, you can specify additional properties using a lambda expression. At least one of the specified property values must differ between the entity and the database for the row to be deleted.
+   - **DeleteMatchedAndOneNotConditionNames:** After matching rows by primary key, you can specify additional properties using a list of strings. At least one of the specified property values must differ between the entity and the database for the row to be deleted.
+   - **IgnoreOnDeleteMatchedAndConditionExpression:** Use a lambda expression to select the properties you want to ignore. These properties will be excluded from the comparison performed by `DeleteMatchedAndConditionExpression`, and all other properties will be used for the match.
+   - **IgnoreOnDeleteMatchedAndConditionNames:** Use a list of strings to select the properties you want to ignore. These properties will be excluded from the comparison performed by `DeleteMatchedAndConditionNames`, and all other properties will be used for the match.
+   - **IgnoreOnDeleteMatchedAndOneNotConditionExpression:** Use a lambda expression to select the properties you want to ignore. These properties will be excluded from the comparison performed by `DeleteMatchedAndOneNotConditionExpression`, and all other properties will be used for the match.
+   - **IgnoreOnDeleteMatchedAndOneNotConditionNames:** Use a list of strings to select the properties you want to ignore. These properties will be excluded from the comparison performed by `DeleteMatchedAndOneNotConditionNames`, and all other properties will be used for the match.
+- Behavior
+   - **IncludeGraph:** Set to `true` if you want to delete both the main entities and their related entities. For example, if you pass a list of `Order` that includes `OrderItem`, both will be deleted. Be careful: if you want to apply specific options to a related entity type, you’ll need to configure them using `IncludeGraphBuilder`. Only compatible with EF Core
+   - **IncludeGraphBuilder:** Required only if `IncludeGraph = true` **and** you need to customize how a related entity type is deleted. Use a lambda expression to control how each entity in the graph should be deleted.
+- Properties & Columns
+   - **ColumnPrimaryKeyExpression:** Choose which properties should be part of the key by using a lambda expression. Only rows that match the key will be deleted.
+   - **ColumnPrimaryKeyNames:** Choose which properties should be part of the key by using a list of strings. Only rows that match the key will be deleted.
+- Optimization
+   - **Batch:** Customize the `BatchSize`, `BatchTimeout`, and `BatchDelayInterval` to improve performance and control how deleted entities are grouped and executed.
+   - **Hint:** Use `QueryHint` or `TableHintSql` to apply SQL hints for additional performance tuning.
+   - **UseTableLock:** Set to `true` to lock the destination table during the delete operation, which can improve performance by reducing row-level locks and avoiding lock escalation. This is especially useful when inserting a large number of rows.
+- General
+   - **Audit:** Track deleted entities by using the `UseAudit` and `AuditEntries` options. [Learn more here](/audit)
+   - **FutureAction:** Batch multiple delete operations and execute them later using the `ExecuteFuture` or `ExecuteFutureAsync` methods.
+   - **Log:** Log all executed SQL statements using the `Log`, `UseLogDump`, and `LogDump` options. [Learn more here](/logging)
+   - **RowsAffected:** Use `UseRowsAffected = true`, then access `ResultInfo.RowsAffected` or `ResultInfo.RowsAffectedDeleted` to get the number of entities deleted. [Learn more here](/rows-affected)
+
+
+## Conclusion
+
+The `BulkDelete` method is very powerful. One of its biggest benefits is that you don’t need to use the change tracker or retrieve your entities before deleting them (which often doesn’t make much sense anyway). The major benefit is the performance gain—but you can also delete using a custom key or even delete an entire entity graph.
+
+Perfect when you want to delete thousands of rows fast—without slowing down your app.

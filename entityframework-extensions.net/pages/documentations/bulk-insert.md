@@ -1,7 +1,7 @@
 ---
 Title: Bulk Insert in EF Core / EF6 | The Fastest Way to Insert Entities
 MetaDescription: Boost your EF Core inserts performance by up to 15x, reducing insert time by 94% with EF Extensions. Use BulkInsert to handle thousands of entities with less memory and more control. Fully supports EF Core 9 to 2 and EF6. Try the live benchmark now!
-LastMod: 2025-05-07
+LastMod: 2025-05-11
 ---
 
 # Bulk Insert /n Boost your EF Core insert performance now
@@ -34,7 +34,7 @@ One of the main reasons people use our Bulk Insert with Entity Framework is for 
 
 ## 🔍 What is supported?
 
-Our library supports all the common scenarios — and almost everything you can do with Entity Framework!
+Our library supports all the common scenarios — and almost everything you can do with EF Core and EF6!
 
 - ✅ The latest Entity Framework Core version: EF Core 9  
 - ✅ All previous EF Core versions: EF Core 2 to 8  
@@ -141,7 +141,7 @@ context.BulkInsert(list, options);
    - **InsertIfNotExists:** Set to `true` if you only want to insert entities that don’t already exist in your database.
    - **InsertKeepIdentity:** Set to `true` if you want to insert entities with their identity value. For SQL Server, the library will automatically handle the `SET IDENTITY_INSERT [tableName] ON` and `SET IDENTITY_INSERT [tableName] OFF` commands.
    - **InsertNotMatchedAndFormula:** Specify a hardcoded SQL if you want to add custom logic to filter which rows should be inserted.
-   - **InsertPrimaryKeyAndFormula:** Specify a hardcoded SQL if you want to add custom logic to define the primary key. This option usually only makes sense when `InsertIfNotExists = true`.
+   - **InsertPrimaryKeyAndFormula:** Specify a hardcoded SQL to include additional logic—along with the primary key—to check if the entity matches an existing row in the database. Only rows that also match the formula will be inserted. This option usually only makes sense when `InsertIfNotExists = true`.
    - **InsertStagingTableFilterFormula:** Specify a hardcoded SQL if you want to filter which rows should be inserted using a staging table.
 - Behavior
    - **AutoTruncate:** Set to `true` if you want string values to be automatically truncated to match the maximum database length before being inserted. This option is especially useful because `SqlCommand` and `SqlBulkCopy` can behave differently when a string is too long. (See [Issue #333](https://github.com/zzzprojects/EntityFramework-Extensions/issues/333#issuecomment-1041494634))
@@ -151,13 +151,13 @@ context.BulkInsert(list, options);
 - Properties & Columns
    - **ColumnInputExpression:** Choose which properties should be inserted by using a lambda expression to select them. All other properties will be ignored.
    - **ColumnInputNames:** Choose which properties should be inserted by using a list of strings to select them. All other properties will be ignored.
+   - **ColumnPrimaryKeyExpression:** Choose which properties should be part of the key by using a lambda expression. Only rows that match the key will be inserted. This option only works when `InsertIfNotExists = true`.
+   - **ColumnPrimaryKeyNames:** Choose which properties should be part of the key by using a list of strings. Only rows that match the key will be inserted. This option only works when `InsertIfNotExists = true`.
    - **IgnoreOnInsertExpression:** Choose which properties should be ignored by using a lambda expression to select them. All other properties will be inserted.
    - **IgnoreOnInsertNames:** Choose which properties should be ignored by using a list of strings to select them. All other properties will be inserted.
-   - **PrimaryKeyExpression:** Choose which properties should be part of the key by using a lambda expression. This option only works when `InsertIfNotExists = true`.
-   - **PrimaryKeyNames:** Choose which properties should be part of the key by using a list of strings. This option only works when `InsertIfNotExists = true`.
 - Optimization
    - **AutoMapOutputDirection:** Set to `false` to disable the default output mapping. This can dramatically improve performance when you don’t need to retrieve values normally returned by the database (like identity, computed, or default values). Alternatively, you can use the [BulkInsertOptimized](/bulk-insert-optimized) method for even faster inserts.
-   - **Batch:** Customize the `BatchSize`, `BatchTimeout`, and `BatchDelayInterval` to improve performance and control how inserted entities are grouped and executed.
+   - **Batch:** Customize the `BatchSize`, `BatchTimeout`, and `BatchDelayInterval` to improve performance and control how inserts are grouped and executed.
    - **Hint:** Use `QueryHint` or `TableHintSql` to apply SQL hints for additional performance tuning.
    - **UseTableLock:** Set to `true` to lock the destination table during the insert operation, which can improve performance by reducing row-level locks and avoiding lock escalation. This is especially useful when inserting a large number of rows.
 - Providers Specific

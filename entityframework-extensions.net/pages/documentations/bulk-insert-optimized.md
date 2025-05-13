@@ -1,7 +1,7 @@
 ---
 Title: EF Core 8 Bulk Insert Optimized | Improve your Insert Performance
 MetaDescription: Boost EF Core insert performance with BulkInsertOptimized. Easily insert large numbers of entities without outputting values for the best performance. Get hints and recommendations about what could be improved to improve insert performance - try it now.
-LastMod: 2025-03-21
+LastMod: 2025-05-11
 ---
 
 # Bulk Insert Optimized /n Instantly maximize your insert performance in EF Core 9
@@ -86,6 +86,18 @@ The "example 2" is not considered as optimized. For SQL Server, we cannot direct
 - Enum
 - Value Converter (EF Core)
 - And more!
+
+## Bulk Insert Optimized Options
+
+Please refer to the [Bulk Insert Options](/bulk-insert#bulk-insert-options) documentation
+
+## Troubleshooting
+
+Please refer to the [Bulk Insert - Troubleshooting](/bulk-insert#troubleshooting) documentation
+
+## Limitations
+
+Please refer to the [Bulk Insert - Limitations](/bulk-insert#limitations) documentation
 
 ## Conclusion
 
