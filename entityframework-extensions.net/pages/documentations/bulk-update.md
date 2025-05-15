@@ -1,7 +1,7 @@
 ---
 Title: Bulk Update in EF Core | Optimize the way you update your entities
-MetaDescription: Efficiently update Entity Framework data with EF Core Bulk Update Extensions. Customize options to update large numbers of entities with ease, compatible with all EF versions including EF Core 7, 6, 5, 3, and EF6. Optimize your database operations - try it now.
-LastMod: 2025-05-11
+MetaDescription: The BulkUpdate method is the most flexible way to update your entities in EF Core. It allows you to customize how your entities will be updated, such as by specifying a custom key, updating only a few properties, and much more. - try it now.
+LastMod: 2025-05-15
 ---
 
 # Bulk Update /n Easily customize and optimize your entity updates in EF Core now
@@ -43,6 +43,12 @@ Our library supports all the common scenarios — and almost everything you can 
 
 ### 🚀 Performance Comparison
 
+A key benefit of our library is the performance it provides — but also the fact that you **don’t need to retrieve entities from the database**, unlike what you usually do with `SaveChanges`.
+
+With our `BulkUpdate`, you can just **create the entities yourself** and **set only the properties you want to update**. That’s it!
+
+For fairness, our online benchmark **also includes retrieving entities from the database**, so the comparison remains honest and realistic.
+
 ### EF Core vs EFE
 
 | Operation                           | 1,000 Entities | 2,000 Entities | 5,000 Entities |
@@ -52,11 +58,12 @@ Our library supports all the common scenarios — and almost everything you can 
 
 👉 [Try our Online Benchmark](https://dotnetfiddle.net/sqcYkC)
 
-In other words, to update 5,000 entities, our `BulkUpdate` is about **4x faster**, reducing insert time by **75%**.
+In other words, to update 5,000 entities, our `BulkUpdate` is about **4x faster**, reducing update time by **75%**.
 
-### EF Core vs EFE + Include Graph
+If you [Include your Graph](https://entityframework-extensions.net/include-graph), the performance difference will be even greater — while only using a **small memory footprint**.
 
-👉 [Try our Online Benchmark](https://dotnetfiddle.net/JfHEL0)
+Learn more about it in our section on [Memory & Performance Improvements](https://entityframework-extensions.net/v7-100-0-0-include-graph#memory-performance-improvements).
+
 
 ### EF6 vs EFE
 
@@ -70,52 +77,6 @@ In EF6, the `SaveChanges` method sends one database round-trip for every single 
 👉 [Try our Online Benchmark](https://dotnetfiddle.net/xVwYDE)
 
 In other words, to update 5,000 entities, our `BulkUpdate` is about **30x faster**, reducing update time by **97%**.
-
-### Scenarios
-The `BulkUpdate` method is **fast** but also **flexible** to let you handle various scenarios in Entity Framework such as:
-
-- [Update and include/exclude properties](#update-and-includeexclude-properties)
-- [Update with custom key](#update-with-custom-key)
-- [Update with related child entities (Include Graph)](#update-with-related-child-entities-include-graph)
-- [Update with future action](#update-with-future-action)
-- [More scenarios](#more-scenarios)
-
-### Advantages
-- Easy to use
-- Flexible
-- Increase performance
-- Increase application responsiveness
-- Reduce database load
-- Reduce database round-trips
-
-## Getting Started
-
-### Bulk Update
-The `BulkUpdate` and `BulkUpdateAync` methods extend your `DbContext` to let you update a large number of entities in your database.
-
-```csharp
-context.BulkUpdate(customers);
-
-context.BulkUpdateAsync(customers, cancellationToken);
-```
-
-[Try it in EF Core](https://dotnetfiddle.net/zmsc2T) | [Try it in EF6](https://dotnetfiddle.net/81oBov)
-
-### Bulk Update with options
-The `options` parameter lets you use a lambda expression to customize the way entities are updated.
-
-```csharp
-context.BulkUpdate(customers, options => options.ColumnPrimaryKeyExpression = c => c.Code });
-```
-
-[Try it in EF Core](https://dotnetfiddle.net/BW6WIy) | [Try it in EF6](https://dotnetfiddle.net/yw6M79)
-
-### Why BulkUpdate is faster than SaveChanges?
-Updating thousands of entities for a file importation is a typical scenario.
-
-The `SaveChanges` method makes it quite impossible to handle this kind of situation due to the number of database round-trips required. The `SaveChanges` perform one database round-trip for every entity to update. So, if you need to update 10,000 entities, 10,000 database round-trips will be performed which is **INSANELY** slow.
-
-The `BulkUpdate` in counterpart requires the minimum database round-trips possible. For example, under the hood for SQL Server, a `SqlBulkCopy` is performed first in a temporary table, then an `UPDATE` from the temporary table to the destination table is performed which is the fastest way available.
 
 ## Real Life Scenarios
 
@@ -169,12 +130,6 @@ context.ExecuteFutureAction();
 ```
 
 [Try it in EF Core](https://dotnetfiddle.net/i9pMsP) | [Try it in EF6](https://dotnetfiddle.net/YnV5Fs)
-
-### More scenarios
-Hundreds of scenarios have been solved and are now supported.
-
-The best way to ask for a special request or to find out if a solution for your scenario already exists is by contacting us:
-info@zzzprojects.com
 
 ## Bulk Update Options
 
