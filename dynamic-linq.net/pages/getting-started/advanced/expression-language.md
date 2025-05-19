@@ -183,6 +183,20 @@ var result2 = rangeOfNumbers.AsQueryable().Where("it in @0", values).ToArray();
 
 [Try it online](https://dotnetfiddle.net/uhHUEO)
 
+### not in- Example
+You can use `not in` or `not_in_` to negate the `in` operator.
+
+```csharp
+var rangeOfNumbers = Enumerable.Range(1, 5).ToArray();
+var result1 = rangeOfNumbers.AsQueryable().Where("it not in (1, 3)").ToArray();
+
+var values = new int[] { 1, 3 };
+var result2 = rangeOfNumbers.AsQueryable().Where("it not in @0", values).ToArray();
+var result3 = rangeOfNumbers.AsQueryable().Where("it not_in @0", values).ToArray();
+```
+
+[Try it online](https://dotnetfiddle.net/e8cfOG)
+
 ### Conditional Operator- Example
 
 ```csharp
