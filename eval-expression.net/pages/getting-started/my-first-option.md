@@ -1,7 +1,7 @@
 ---
 Title: Get started with your first option with C# Eval Expression
 MetaDescription: Learn how to use options in C# Eval Expression to configure your eval context to align with your scenarios and requirements.
-LastMod: 2024-03-22
+LastMod: 2025-05-21
 ---
 
 # My First Option
@@ -90,9 +90,29 @@ Here are some suggestions for improving the grammar and simplifying the vocabula
 
 ## Use Option to Add Method
 
-In the C# Eval Expression library, it's possible to add your own method. If you can create the method in a non-dynamic way, you should always prefer this method and [register your method](/register-unregister) over creating a method dynamically.
+In the C# Eval Expression library, you can add your own method.
 
-In this example, we will create a method dynamically that is supposed to compare three numbers and use the formula from user input to determine if they are equal or not.
+If you can define the method in a non-dynamic way, you should always prefer to [register your method](/register-unregister) instead of creating it dynamically. Registered methods are faster and more secure.
+
+In this first example, we’ll create a simple custom method called `MinPlusOne` that returns the minimum value between two numbers and adds one:
+
+```csharp
+var evalContext = new EvalContext();	
+
+evalContext.AddMethod(@"
+public int MinPlusOne(int A, int B)
+{
+	return (A < B ? A : B) + 1;
+}
+");
+
+var result = evalContext.Execute<int>("MinPlusOne(Value1, Value2)", new { Value1 = 1, Value2 = 99 });
+Console.WriteLine(result); 
+```
+
+{% include component-try-it.html href='https://dotnetfiddle.net/4VXupA' %}
+
+In this second example, we go one step further. We’ll create a more advanced method dynamically, where the logic (formula) is provided by the user. This is useful when you want to inject a user-defined expression directly into a method.
 
 ```csharp
 string userInputFormula = "A == B || A == -1 || B == -1";
