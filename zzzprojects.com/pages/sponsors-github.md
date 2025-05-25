@@ -70,9 +70,9 @@ Then, simply add a "Sponsors" section to your `README.md`:
 
 [Dapper Plus](https://dapper-plus.net/) and [Entity Framework Extensions](https://entityframework-extensions.net/) are major sponsors and proud to contribute to the development of **YOUR LIBRARY NAME**.
 
-[![Dapper Plus](https://raw.githubusercontent.com/[YourUserName]/[YourRepo]/main/dapper-plus-sponsor.png)](https://dapper-plus.net/bulk-insert)
+[![Dapper Plus](https://raw.githubusercontent.com/[YourUserName]/[YourRepo]/[master or main]/dapper-plus-sponsor.png)](https://dapper-plus.net/bulk-insert)
 
-[![Entity Framework Extensions](https://raw.githubusercontent.com/[YourUserName]/[YourRepo]/main/entity-framework-extensions-sponsor.png)](https://entityframework-extensions.net/bulk-insert)
+[![Entity Framework Extensions](https://raw.githubusercontent.com/[YourUserName]/[YourRepo]/[master or main]/entity-framework-extensions-sponsor.png)](https://entityframework-extensions.net/bulk-insert)
 ```
 
 - 🔗 **Example**: [https://github.com/phnx47/dapper-repositories](https://github.com/phnx47/dapper-repositories)
