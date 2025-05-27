@@ -1,6 +1,6 @@
 ---
 Name: Eval Expression Options
-LastMod: 2024-03-22
+LastMod: 2025-05-25
 ---
 
 # How to use options with C# Eval Expression library
@@ -38,6 +38,7 @@ First, let's see all available options, and then we will explain them one by one
 | Options  | UseCaretForExponent                  | The UseCaretForExponent option lets you get or set if the caret character \`^\` should behave as an exponent operator instead of an XOR (logical exclusive OR) operator. For example, you want the following expression, \`2^3\` to return 8 (2 to the power of 3). The double caret \`^^\` (\`2^^3\`) already acts as an exponent operator whether this option is enabled or not. By default, the UseCaretForExponent value is false.                                                                                               |
 | Options  | UseEqualsAssignmentAsEqualsOperator  | The UseEqualsAssignmentAsEqualsOperator option lets you get or set if the equal assignation \`=\` should instead act like an equal operator. For example, you evaluate some math formula and would want the expression \`2+2=4\` instead of trying to make a variable assignment. By default, the UseEqualsAssignmentAsEqualsOperator value is false.                                                                                                                                                                                |
 | Options  | UseLocalCache                        | The UseLocalCache option lets you get or set if the global cache (for all eval context) or a local cache (for this eval context) should be used when we retrieve or cache the delegate created from the compile method. By default, the UseLocalCache value is false.                                                                                                                                                                                                                                                                |
+| Options  | UseNonGenericAnonymousType           | The UseNonGenericAnonymousType option lets you get or set whether a non-generic anonymous type should be used when creating an anonymous type. Enabling this option allows the anonymous type to be compatible with methods that rely on GetHashCode, such as using GroupBy with LINQ. By default, the value of UseNonGenericAnonymousType is false.                                                                                                                                                                                                                                                             |
 | Options  | UseShortCacheKey                     | The UseShortCacheKey option lets you get or set if the cache key should be shortened. Enabling that option can increase performance, but ensure to read the full \`UseShortCacheKey \` documentation before using it. By default, the UseShortCacheKey value is false.                                                                                                                                                                                                                                                               |
 | Options  | UseSmartExecuteParameterResolution   | The UseSmartExecuteParameterResolution option lets you get or set if the smart resolution should be used when passing multiple values to the execute method, like the default logic, which automatically does when only one parameter is specified. This option is very similar to the option \`IncludeMemberFromAllParameter\` but is different in the way that we also register value to know the type already. By default, the IncludeMemberFromAllParameter value is false.                                                      |
 | Options  | UseSmartTypeResolution               | The UseSmartTypeResolution option lets you get or set if some type should be found automatically without specifying the \`System\` namespace. For example, when enabled, you can automatically use \`Math.Min\`, but when disabled, you need to use\`System.Math.Min\`. By default, the UseSmartTypeResolution value is true.                                                                                                                                                                                                        |
@@ -904,6 +905,62 @@ Console.WriteLine("2 - Result: " + r2);
 ```
 
 {% include component-try-it.html href='https://dotnetfiddle.net/lMIIqT' %}
+
+## UseNonGenericAnonymousType
+
+The `UseNonGenericAnonymousType` option lets you get or set whether a non-generic anonymous type should be used when creating an anonymous type. Enabling this option allows the anonymous type to be compatible with methods that rely on `GetHashCode`, such as using GroupBy with LINQ. By default, the value of `UseNonGenericAnonymousType` is `false`.
+
+In this example, we will set the `UseNonGenericAnonymousType = true` to be able to use the anonymous type in a group by.
+
+```csharp
+// Global Context: EvalManager.DefaultContext.UseNonGenericAnonymousType = true;
+
+var context = new EvalContext();
+context.UseCache = false;
+
+var items = new List<Item>
+{
+	new Item { Name = "Pen", Color = Color.Blue },
+	new Item { Name = "Pen", Color = Color.Green },
+	new Item { Name = "Book", Color = Color.Red },
+	new Item { Name = "Book", Color = Color.Red }
+};
+
+var code = @"
+	var groups = items.GroupBy(i => new { i.Name, i.Color })
+		.Select(g => new
+		{
+			Name = g.Key.Name,
+			Color = g.Key.Color,
+			Count = g.Count()
+		})
+		.ToList();
+	foreach (var group in groups)
+	{
+		Console.WriteLine($""{group.Name}, {group.Color}, {group.Count}"");
+	}
+";
+
+try
+{
+	// 1 - The GroupBy fail to use the `GetHashCode()` method
+	var fail = context.Compile<Action<List<Item>>>(code, "items");
+	fail(items);
+}
+catch(Exception ex)
+{		
+	Console.WriteLine("1 - Exception: " + ex.Message);
+}
+		
+// 2 - however, when the anonymous type is not generic, the GroupBy is able to use the `GetHashCode()` method
+context.UseNonGenericAnonymousType = true;
+var compiled = context.Compile<Action<List<Item>>>(code, "items");
+Console.WriteLine("---");
+Console.WriteLine("2 - Result: ");
+compiled(items);
+```
+
+{% include component-try-it.html href='https://dotnetfiddle.net/VEzGOj' %}
 
 
 ## UseShortCacheKey
