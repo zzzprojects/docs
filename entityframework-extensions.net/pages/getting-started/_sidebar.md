@@ -1,21 +1,11 @@
 - Getting Started
    - [Overview](overview.md)
    - [Licensing](licensing.md)
-- Tutorials
+   - [Configuring Options](configure-options.md)
    - [Bulk SaveChanges](tutorial-bulk-savechanges.md)
    - [Bulk Operations](tutorial-bulk-operations.md)
    - [Batch Operations](tutorial-batch-operations.md)
 - Providers
-   - EF6
-      - [SQL Server](providers/ef6/sql-server-provider.md)
-      - [SQL Server Compact](providers/ef6/sql-server-compact-provider.md)
-      - [MySQL](providers/ef6/mysql-provider.md)
-      - [SQLite](providers/ef6/sqlite-provider.md)
-      - [Oracle](providers/ef6/oracle-provider.md)
-      - [PostgreSQL](providers/ef6/postgresql-provider.md)
-      - [Effort](providers/ef6/effort-provider.md)
-      - [Glimpse](providers/ef6/glimpse.md)
-      - [Entity Framework Profiler](providers/ef6/ef-profiler.md)
    - EF Core
       - [SQL Server](providers/efcore/efcore-sql-server-provider.md)
       - [SQL Server Compact](providers/efcore/efcore-sql-server-compact-provider.md)
@@ -28,3 +18,13 @@
       - [DevArt MySql](providers/efcore/efcore-devart-mysql-provider.md)
       - [DevArt Oracle](providers/efcore/efcore-devart-oracle-provider.md)
       - [Entity Framework Profiler](providers/efcore/efcore-profiler.md)
+   - EF6
+      - [SQL Server](providers/ef6/sql-server-provider.md)
+      - [SQL Server Compact](providers/ef6/sql-server-compact-provider.md)
+      - [MySQL](providers/ef6/mysql-provider.md)
+      - [SQLite](providers/ef6/sqlite-provider.md)
+      - [Oracle](providers/ef6/oracle-provider.md)
+      - [PostgreSQL](providers/ef6/postgresql-provider.md)
+      - [Effort](providers/ef6/effort-provider.md)
+      - [Glimpse](providers/ef6/glimpse.md)
+      - [Entity Framework Profiler](providers/ef6/ef-profiler.md)

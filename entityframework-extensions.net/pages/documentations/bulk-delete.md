@@ -1,7 +1,7 @@
 ---
 Title: Bulk Delete in EF Core | Delete entities without tracking them
 MetaDescription: Efficiently delete Entity Framework data with EF Core Bulk Delete Extensions. Customize options to quickly delete large numbers of entities with ease, compatible with all EF versions including EF Core 7, 6, 5, 3, and EF6. Optimize your database operations - try it now.
-LastMod: 2025-05-11
+LastMod: 2025-05-30
 ---
 
 # Bulk Delete /n Swiftly perform delete operations on thousands of entities in EF Core
@@ -155,7 +155,7 @@ info@zzzprojects.com
 
 ### Configuring Options
 
-We already saw in previous articles how to pass options to the `BulkDelete` method — but here’s a quick recap:
+We already saw in previous article [Configuring Options](/configure-options) how to pass options to the `BulkDelete` method — but here’s a quick recap:
 
 ```csharp
 // Using a lambda expression (only works with one option)

@@ -1,7 +1,7 @@
 ---
 Title: Bulk Update in EF Core | Optimize the way you update your entities
 MetaDescription: The BulkUpdate method is the most flexible way to update your entities in EF Core. It allows you to customize how your entities will be updated, such as by specifying a custom key, updating only a few properties, and much more. - try it now.
-LastMod: 2025-05-15
+LastMod: 2025-05-30
 ---
 
 # Bulk Update /n Easily customize and optimize your entity updates in EF Core now
@@ -135,7 +135,7 @@ context.ExecuteFutureAction();
 
 ### Configuring Options
 
-We already saw in previous articles how to pass options to the `BulkUpdate` method — but here’s a quick recap:
+We already saw in previous article [Configuring Options](/configure-options) how to pass options to the `BulkUpdate` method — but here’s a quick recap:
 
 ```csharp
 // Using a lambda expression (only works with one option)

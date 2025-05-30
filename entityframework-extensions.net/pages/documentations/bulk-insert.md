@@ -1,7 +1,7 @@
 ---
 Title: Bulk Insert in EF Core / EF6 | The Fastest Way to Insert Entities
 MetaDescription: Boost your EF Core inserts performance by up to 15x, reducing insert time by 94% with EF Extensions. Use BulkInsert to handle thousands of entities with less memory and more control. Fully supports EF Core 9 to 2 and EF6. Try the live benchmark now!
-LastMod: 2025-05-11
+LastMod: 2025-05-30
 ---
 
 # Bulk Insert /n Boost your EF Core insert performance now
@@ -112,7 +112,7 @@ In other words, to save 5,000 entities:
 
 ### Configuring Options
 
-We already saw in previous articles how to pass options to the `BulkInsert` method — but here’s a quick recap:
+We already saw in previous article [Configuring Options](/configure-options) how to pass options to the `BulkInsert` method — but here’s a quick recap:
 
 ```csharp
 // Using a lambda expression (only works with one option)

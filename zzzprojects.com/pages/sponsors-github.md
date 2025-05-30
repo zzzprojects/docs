@@ -80,6 +80,25 @@ Then, simply add a "Sponsors" section to your `README.md`:
 
 💡 Already have a sponsors section? Just add ours to it! Feel free to tweak the text to match your style.
 
+### 🔗 URL Tag
+
+Adding an URL tag is even better, it let us track performance. If you wish to do it, please use `utm` metadata in your sponsored links. Example:
+
+Here is an example: 
+
+```csharp
+## Sponsors
+
+[Dapper Plus](https://dapper-plus.net/?utm_source=[your_name]&utm_medium=[content_type]) and [Entity Framework Extensions](https://entityframework-extensions.net/?utm_source=[your_name]&utm_medium=[content_type]) are major sponsors and proud to contribute to the development of **YOUR LIBRARY NAME**.
+
+[![Dapper Plus](https://raw.githubusercontent.com/[YourUserName]/[YourRepo]/[master or main]/dapper-plus-sponsor.png)](https://dapper-plus.net/bulk-insert?utm_source=[your_name]&utm_medium=[content_type])
+
+[![Entity Framework Extensions](https://raw.githubusercontent.com/[YourUserName]/[YourRepo]/[master or main]/entity-framework-extensions-sponsor.png)](https://entityframework-extensions.net/bulk-insert?utm_source=[your_name]&utm_medium=[content_type])
+```
+
+- [your_name]: Usually your github or nuget username
+- [content_type]: Usually the package name
+
 ---
 
 ## Optional: Move Your Docs to Our Website
