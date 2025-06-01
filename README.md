@@ -1,13 +1,12 @@
-## Contribute
+## Sponsors
 
-The best way to contribute is by **spreading the word** about the library:
+ZZZ Projects owns and maintains **this documentation** as part of our [mission](https://zzzprojects.com/mission) to add value to the .NET community
 
- - Blog it
- - Comment it
- - Star it
- - Share it
- 
-A **HUGE THANKS** for your help.
+Through [Entity Framework Extensions](https://entityframework-extensions.net/?utm_source=zzzprojects&utm_medium=docs) and [Dapper Plus](https://dapper-plus.net/?utm_source=zzzprojects&utm_medium=docs), we actively sponsor and help key open-source libraries grow.
+
+[![Entity Framework Extensions](https://raw.githubusercontent.com/zzzprojects/docs/master/entity-framework-extensions-sponsor.png)](https://entityframework-extensions.net/bulk-insert?utm_source=zzzprojects&utm_medium=docs)
+
+[![Dapper Plus](https://raw.githubusercontent.com/zzzprojects/docs/master/dapper-plus-sponsor.png)](https://dapper-plus.net/bulk-insert?utm_source=zzzprojects&utm_medium=docs)
 
 ## More Projects
 
