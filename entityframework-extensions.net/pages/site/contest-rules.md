@@ -27,19 +27,21 @@ See below for full contest details. Participation in this contest constitutes yo
 5. On the 15th of each month until the end of the contest (undefined), one (1) eligible entrant will be selected by random draw from all eligible entries received during the Contest Period.  The odds of winning depend on the number of entries received.  
  
 6. Before being declared a winner: The selected winner will be contacted by email and notified that they won. Winner's names, feedback, company names and website URLs will be posted on this page, on our social media pages and newsletters.
- 
+
+7. All prizes must be claimed and activated within 12 months of the winner being notified. After this period, the prize will be considered forfeited and no longer valid.
+
 ### PRIZES 
-7. Grand Prize: There will be one (1) grand prize per month available to be won, consisting of a Free License between participating libraries including support & updates for one year. 
+8. Grand Prize: There will be one (1) grand prize per month available to be won, consisting of a Free License between participating libraries including support & updates for one year. 
 Prizes must be accepted as awarded and are not transferable or convertible to cash.  
 If the winner already bought a license, he/she receives a new license for the following year. Your license would be automatically renewed at the expiry date of the current library. 
 
 ### GENERAL 
-8. By entering the Contest, each participant agrees to abide by these Contest Rules. This Contest is subject to all applicable laws.  Void where prohibited by law. 
+9. By entering the Contest, each participant agrees to abide by these Contest Rules. This Contest is subject to all applicable laws.  Void where prohibited by law. 
 
-9. ZZZ Projects reserves the right to cancel, suspend, withdraw or amend this Contest in any way, without prior notice or obligation, in the event of an error, technical problem, computer virus, bugs, tampering, unauthorized intervention, fraud, technical failure or any other cause beyond our reasonable control that interferes with the proper conduct of this Contest as contemplated by these Contest Rules.  
+10. ZZZ Projects reserves the right to cancel, suspend, withdraw or amend this Contest in any way, without prior notice or obligation, in the event of an error, technical problem, computer virus, bugs, tampering, unauthorized intervention, fraud, technical failure or any other cause beyond our reasonable control that interferes with the proper conduct of this Contest as contemplated by these Contest Rules.  
 
-10. All Entries are subject to verification at any time and for any reason. ZZZ Projects reserves the right, in its sole and absolute discretion, to require proof of identity and/or eligibility.
+11. All Entries are subject to verification at any time and for any reason. ZZZ Projects reserves the right, in its sole and absolute discretion, to require proof of identity and/or eligibility.
 
-11. Any attempt or suspected attempt to use robotic, automatic, programmed, or otherwise, illicit means to enter the Contest, or any other methods not authorized by these Contest Rules shall be deemed as tampering and may disqualify you from entering, participating, winning prizes and preclude you from participating in future contests and promotions.
+12. Any attempt or suspected attempt to use robotic, automatic, programmed, or otherwise, illicit means to enter the Contest, or any other methods not authorized by these Contest Rules shall be deemed as tampering and may disqualify you from entering, participating, winning prizes and preclude you from participating in future contests and promotions.
 
-12. Your email address will only be used for follow-ups to entrant inquiries limited to the administration of the contest and not in any subsequent electronic marketing without consent. 
+13. Your email address will only be used for follow-ups to entrant inquiries limited to the administration of the contest and not in any subsequent electronic marketing without consent. 
