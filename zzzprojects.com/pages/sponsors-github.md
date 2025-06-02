@@ -68,11 +68,11 @@ Then, simply add a "Sponsors" section to your `README.md`:
 ```csharp
 ## Sponsors
 
-[Dapper Plus](https://dapper-plus.net/) and [Entity Framework Extensions](https://entityframework-extensions.net/) are major sponsors and proud to contribute to the development of **YOUR LIBRARY NAME**.
-
-[![Dapper Plus](https://raw.githubusercontent.com/[YourUserName]/[YourRepo]/[master or main]/dapper-plus-sponsor.png)](https://dapper-plus.net/bulk-insert)
+[Entity Framework Extensions](https://entityframework-extensions.net/) and [Dapper Plus](https://dapper-plus.net/) are major sponsors and proud to contribute to the development of **YOUR LIBRARY NAME**.
 
 [![Entity Framework Extensions](https://raw.githubusercontent.com/[YourUserName]/[YourRepo]/[master or main]/entity-framework-extensions-sponsor.png)](https://entityframework-extensions.net/bulk-insert)
+
+[![Dapper Plus](https://raw.githubusercontent.com/[YourUserName]/[YourRepo]/[master or main]/dapper-plus-sponsor.png)](https://dapper-plus.net/bulk-insert)
 ```
 
 - 🔗 **Example**: [https://github.com/phnx47/dapper-repositories](https://github.com/phnx47/dapper-repositories)
@@ -89,11 +89,11 @@ Here is an example:
 ```csharp
 ## Sponsors
 
-[Dapper Plus](https://dapper-plus.net/?utm_source=[your_name]&utm_medium=[content_type]) and [Entity Framework Extensions](https://entityframework-extensions.net/?utm_source=[your_name]&utm_medium=[content_type]) are major sponsors and proud to contribute to the development of **YOUR LIBRARY NAME**.
-
-[![Dapper Plus](https://raw.githubusercontent.com/[YourUserName]/[YourRepo]/[master or main]/dapper-plus-sponsor.png)](https://dapper-plus.net/bulk-insert?utm_source=[your_name]&utm_medium=[content_type])
+[Entity Framework Extensions](https://entityframework-extensions.net/?utm_source=[your_name]&utm_medium=[content_type]) and [Dapper Plus](https://dapper-plus.net/?utm_source=[your_name]&utm_medium=[content_type]) are major sponsors and proud to contribute to the development of **YOUR LIBRARY NAME**.
 
 [![Entity Framework Extensions](https://raw.githubusercontent.com/[YourUserName]/[YourRepo]/[master or main]/entity-framework-extensions-sponsor.png)](https://entityframework-extensions.net/bulk-insert?utm_source=[your_name]&utm_medium=[content_type])
+
+[![Dapper Plus](https://raw.githubusercontent.com/[YourUserName]/[YourRepo]/[master or main]/dapper-plus-sponsor.png)](https://dapper-plus.net/bulk-insert?utm_source=[your_name]&utm_medium=[content_type])
 ```
 
 - [your_name]: Usually your github or nuget username
