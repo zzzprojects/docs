@@ -18,7 +18,9 @@ Feel free to choose the one you prefer, tweak it slightly, or rotate between the
 
 ```markdown
 [EF Core is too slow](https://entityframework-extensions.net/?utm_source=[utm_source]&utm_medium=[utm_medium]&utm_campaign=[utm_campaign])? Discover how you can easily insert 14x faster (reducing saving time by 94%).
+
 Boost your performance with our method integrated within EF Core: Bulk Insert, update, delete, and merge.
+
 Join 5,000+ satisfied customers who have trusted our library since 2014.
 
 [Learn more](https://entityframework-extensions.net/?utm_source=[utm_source]&utm_medium=[utm_medium]&utm_campaign=[utm_campaign])
@@ -27,7 +29,9 @@ Join 5,000+ satisfied customers who have trusted our library since 2014.
 **Preview:**
 
 [EF Core is too slow](https://entityframework-extensions.net/?utm_source=[utm_source]&utm_medium=[utm_medium]&utm_campaign=[utm_campaign])? Discover how you can easily insert 14x faster (reducing saving time by 94%).
+
 Boost your performance with our method integrated within EF Core: Bulk Insert, update, delete, and merge.
+
 Join 5,000+ satisfied customers who have trusted our library since 2014.
 
 [Learn more](https://entityframework-extensions.net/?utm_source=[utm_source]&utm_medium=[utm_medium]&utm_campaign=[utm_campaign])
