@@ -1,7 +1,7 @@
 ---
 Title: Sponsorship GitHub - ZZZ Projects
 MetaDescription: Learn how ZZZ Projects could sponsor your GitHub repository
-LastMod: 2025-05-21
+LastMod: 2025-06-02
 ---
 
 # ZZZ Projects love your work  💖 Sponsorship Invitation

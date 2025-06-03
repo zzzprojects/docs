@@ -70,6 +70,8 @@ Pretty much anything you’re already doing — either **dedicated content** abo
 * Twitter Ads
 * YouTube Video Ads
 
+You can find some example of ads on our [sponsors ads page](/sponsors-ads)
+
 Have another idea? We’re all ears — suggest it!
 
 ---
