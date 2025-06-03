@@ -70,7 +70,7 @@ Pretty much anything you’re already doing — either **dedicated content** abo
 * Twitter Ads
 * YouTube Video Ads
 
-You can find some example of ads on our [sponsors ads page](/sponsors-ads)
+You can find some example of ads on our [sponsors ads page](https://github.com/zzzprojects/docs/blob/master/zzzprojects.com/pages/sponsors-ads.md)
 
 Have another idea? We’re all ears — suggest it!
 
