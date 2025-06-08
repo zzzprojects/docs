@@ -31,3 +31,15 @@ This library resets keys and concurrency tokens, supports composite keys, and wo
 Perfect for duplicating data without tracking conflicts.
 
 [Read more](/extensions/entitycloner-microsoft-entityframeworkcore)
+
+## EntityFrameworkCore.SqlServer.NodaTime
+
+Seamlessly integrates NodaTime types with EF Core and SQL Server.
+
+Supports advanced querying and native translation for types like `Instant`, `LocalDate`, `OffsetDateTime`, and more.
+
+Enables use of SQL functions like `DATEADD`, `DATEDIFF`, and `DATEPART` directly in LINQ queries.
+
+Ideal for developers needing precise date/time handling in modern .NET apps.
+
+[Read more](/extensions/entityframeworkcore-sqlserver-nodatime)
