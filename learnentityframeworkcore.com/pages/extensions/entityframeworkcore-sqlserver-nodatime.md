@@ -3,7 +3,7 @@ title: EntityFrameworkCore.SqlServer.NodaTime
 description: An introduction to EntityFrameworkCore.SqlServer.NodaTime
 canonical: /extensions/entityframeworkcore-sqlserver-nodatime
 status: Published
-lastmod: 2025-04-29
+lastmod: 2025-06-08
 ---
 
 # EntityFrameworkCore.SqlServer.NodaTime
