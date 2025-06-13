@@ -70,7 +70,7 @@ EF Core too slow? Insert data 14x faster and cut saving time by 94%.
 
 ---
 
-## Dapper
+## Dapper Plus
 
 ### Ads #1
 
