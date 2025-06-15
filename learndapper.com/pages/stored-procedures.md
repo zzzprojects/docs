@@ -3,12 +3,12 @@ title: Dapper Stored Procedure
 description: All Dapper querying methods allow executing stored procedures without writing extra code by specifying the commandType parameter to 'StoredProcedure'.
 canonical: /stored-procedures
 status: Published
-lastmod: 2023-08-01
+lastmod: 2025-06-15
 ---
 
 # Executing Stored Procedures With Dapper
 
-Stored procedures are a great way to encapsulate business logic and reduce the complexity of handling multiple queries. It can also improve performance by optimizing query execution. 
+Stored procedures are a great way to encapsulate business logic and reduce the complexity of handling multiple queries. They can also improve performance by optimizing query execution. 
 
  - Stored procedures also provide better security since they are isolated from the application code, making it harder to manipulate data outside of the stored procedure.
  - Stored procedures are also easier to maintain since they are centrally located and can be modified from one place. 
@@ -43,7 +43,7 @@ To begin with, we need to create a connection.
 
 Next, we need to set up the parameters that will be used to pass values into the stored procedure. We can do this using a `DynamicParameters` object and adding each parameter's values. In this case, our parameter is an `id` of type `int`. 
 
-Finally, we can execute the stored procedure using extend methods from Dapper, such as the `Execute` method and pass in our parameters. In our case, we used the [QuerySingleOrDefault](/dapper-query/selecting-single-rows) method to map the result to a `Customer` object containing all the data from the retrieved record. 
+Finally, we can execute the stored procedure using extension methods from Dapper, such as the `Execute` method and pass in our parameters. In our case, we used the [QuerySingleOrDefault](/dapper-query/selecting-single-rows) method to map the result to a `Customer` object containing all the data from the retrieved record. 
 Here is an example of how this code might look:
 
 ```csharp
@@ -79,7 +79,7 @@ The name of the stored procedure, in this case, is **GetSalesByYear**. Parameter
 
 Dapper provides access to the `CommandType` property via the `commandType` parameter included in all the various [querying methods](/dapper-query) provided by Dapper. 
 
-The next example is the equivalent to the above, but with the `CommandType` set to `StoredProcedure`:
+The next example is the equivalent of the above, but with the `CommandType` set to `StoredProcedure`:
 
 ```csharp
 var storedProcedureName = "GetSalesByYear";
@@ -88,7 +88,7 @@ var results = connection.Query(storedProcedureName, values, commandType: Command
 results.ForEach(r => Console.WriteLine($"{r.OrderID} {r.Subtotal}"));
 ```
 
-It's recommand to always set the command type to `CommandType.StoredProcedure` when using a stored procedure in Dapper for multiple reasons:
+It's recommended to always set the command type to `CommandType.StoredProcedure` when using a stored procedure in Dapper for multiple reasons:
 
 - **Code Clarity**: Using `CommandType.StoredProcedure` communicates the intent of your code more clearly.
 - **Security**: By specifying `CommandType.StoredProcedure`, you are less susceptible to SQL injection attacks because the stored procedure name and parameters are specified separately.

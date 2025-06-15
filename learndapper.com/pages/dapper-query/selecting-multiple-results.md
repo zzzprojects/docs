@@ -1,16 +1,16 @@
 ---
 title: Dapper QueryMultiple, QueryMultipleAsync
-description: The Dapper QueryMultiple method allows you to select multiple results from a database in a single query and then, after reading those results for mapping them.
+description: The Dapper QueryMultiple method allows you to select multiple results from a database in a single query and then, after reading those results, map them.
 canonical: /dapper-query/selecting-multiple-results
 status: Published
-lastmod: 2024-10-17
+lastmod: 2025-06-15
 ---
 
 # Querying Multiple Results With Dapper
 
 You can execute multiple queries in a single SQL statement using the `QueryMultiple` method (if the [database provider](/database-providers) supports it). Once executed, you can map the returned results to multiple objects using methods such as `Read<T>`, `ReadFirst<T>`, `ReadSingle<T>` and more.
 
-The Dapper `QueryMultiple` method allows you to select multiple results from a database query. That feature is very useful for selecting multiple results sets at once, thus avoiding unnecessary round trips to the database server. 
+The Dapper `QueryMultiple` method allows you to select multiple results from a database query. That feature is very useful for selecting multiple result sets at once, thus avoiding unnecessary round trips to the database server. 
 
  - The `QueryMultiple` method provides a simple way of fetching data stored in different tables or views with a single database query. 
  - By using dapper's `QueryMultiple` method, you can select multiple rows from different tables in one go, saving time and resources. 

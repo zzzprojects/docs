@@ -3,7 +3,7 @@ title: Dapper Bulk Operations
 description: The Dapper Plus library allows developers to easily perform bulk operations. It helps to optimize performance by reducing the number of database round trips.
 canonical: /bulk-operations
 status: Published
-lastmod: 2024-10-18
+lastmod: 2025-06-15
 ---
 
 # Bulk Operations With Dapper
@@ -23,7 +23,7 @@ Dapper does not provide a formal API for performing bulk inserts or other bulk o
 | ------ | ----------- |
 | [BulkInsert](/bulk-operations/bulk-insert)| Execute a Bulk Operation for inserting thousands of entities. |
 | [BulkUpdate](/bulk-operations/bulk-update)| Execute a Bulk Operation for updating thousands of entities. |
-| [BulkDelete](/bulk-operations/bulk-delete)| Execute a Bulk Operation for deletiong thousands of entities |
+| [BulkDelete](/bulk-operations/bulk-delete)| Execute a Bulk Operation for deleting thousands of entities |
 | [BulkMerge](/bulk-operations/bulk-merge)	| `UPSERT` operations. Execute a Bulk Operation for merging thousands of entities (Update existing data and insert non-existing). |
 
 ## Dapper Plus - Getting Started

@@ -3,16 +3,16 @@ title: Dapper Bulk Update
 description: The Dapper Plus BulkUpdate method allows executing bulk updates in a single database call. Performance can be improved by up 5000% and more.
 canonical: /bulk-operations/bulk-update
 status: Published
-lastmod: 2024-10-18
+lastmod: 2025-06-15
 ---
 
 # Bulk Updating Data With Dapper
 
-Dapper provides the [Execute method for updating data](/non-query#dapper-update). However, a database roundtrip is required for every data you update. The more database roundtrip you do, the longer it will take to complete all your updates.
+Dapper provides the [Execute method for updating data](/non-query#dapper-update). However, a database roundtrip is required for every data you update. The more database roundtrips you do, the longer it will take to complete all your updates.
 
 It is possible to dramatically reduce the number of database roundtrips by using the `BulkUpdate` method from the [Dapper Plus](https://dapper-plus.net/) third-party library.
 
-Performance can be **improved by up 5000%** and more depending on the provider ([Online Benchmark](https://dotnetfiddle.net/qnbq6o)).
+Performance can be **improved by up to 5000%** and more depending on the provider ([Online Benchmark](https://dotnetfiddle.net/qnbq6o)).
 
 ## Getting Started
 
@@ -27,7 +27,7 @@ Documentation: [Dapper Plus – Bulk Update](https://dapper-plus.net/bulk-update
  - The `BulkUpdate` method allows you to specify which properties to update.
  - With the `BulkUpdate` method, you can easily update thousands of records at once and make sure that your data is always up-to-date. 
 
-To perform a `BulkUpdate`, you need to pass your entities in the parameters:
+To perform a `BulkUpdate`, you need to pass your entities in the parameter:
 
 ```csharp
 // Easy to use
@@ -60,11 +60,11 @@ connection.BulkUpdate("Customer_CustomMap", customers);
 By using an instance context mapping, you can choose to map your entity type at runtime:
 
 ```csharp
-public void CustomBulkUpdate<T>(List<T> entities, List<string> propertieNames) where T : class
+public void CustomBulkUpdate<T>(List<T> entities, List<string> propertyNames) where T : class
 {
 	var context = new DapperPlusContext();
 	
-	propertieNames.ForEach(x =>
+	propertyNames.ForEach(x =>
 	{
 		context.Entity<T>().Map(x);
 	});

@@ -4,7 +4,7 @@ position: 6
 title: How to use a stored procedure to retrieve multiple returned results in Dapper?
 ---
 
-To use a stored procedure and retrieve multiple returned results, you need to use the [QueryMultiple](https://www.learndapper.com/dapper-query/selecting-multiple-results) method and read every results by either mapping it to an anoymous type or a strongly typed object:
+To use a stored procedure and retrieve multiple returned results, you need to use the [QueryMultiple](https://www.learndapper.com/dapper-query/selecting-multiple-results) method and read every result by either mapping it to an anonymous type or a strongly typed object:
 
 ```csharp
 using (var connection = new SqlConnection("connectionString"))

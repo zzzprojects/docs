@@ -3,7 +3,7 @@ title: Dapper Insert, Insert Async, Multiple Rows, Bulk Insert
 description: The Dapper Execute method allows you to insert single data or insert multiple rows. In addition, you can use Dapper Plus to BulkInsert data in your database.
 canonical: /saving-data/insert
 status: Published
-lastmod: 2023-08-01
+lastmod: 2025-06-15
 ---
 
 # Inserting Data With Dapper
@@ -19,7 +19,7 @@ In this article, we will talk about the 4 most common scenarios for inserting:
 
 ## Dapper Insert
 
-To insert in dapper, you need to use the [Execute](/non-query#dapper-execute) method with an `INSERT` statement and provide your query parameters values.
+To insert in Dapper, you need to use the [Execute](/non-query#dapper-execute) method with an `INSERT` statement and provide your query parameter values.
 
 In this example:
 
@@ -99,10 +99,10 @@ using (var connection = new SqlConnection(connectionString))
 
 ## Dapper Insert Multiple Rows
 
-For inserting multiple rows in Dapper, you have to provide a list to the `Execute` or `ExecuteAsync` method instead of a single anonymous object or entity.
+For inserting multiple rows in Dapper, you have to provide a list to the `Execute` or `ExecuteAsync` method instead of a single anonymous object or an entity.
 
 :::{.alert .alert-warning}
-**NOTE:** Passing a list doesn't insert rows in bulk. Every item will be inserted by performing a single insert statement (similar to looping on your item list to call the `Execute` method)
+**NOTE:** Passing a list doesn't insert rows in bulk. Every item will be inserted by using a single insert statement (similar to looping on your item list to call the `Execute` method)
 :::
 
 In this example:

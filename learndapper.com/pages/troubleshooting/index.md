@@ -1,14 +1,14 @@
 ---
 title: Dapper Troubleshooting
-description: Learn common issue within Dapper. What can cause them and how to solve them.
+description: Learn common issues within Dapper. What can cause them and how to solve them.
 canonical: /troubleshooting
 status: Published
-lastmod: 2024-02-22
+lastmod: 2025-06-15
 ---
 
 # Dapper Troubleshooting
 
-Learn common issues within Dapper. What can cause them and how to solve them:
+Learn common issues within Dapper. What can cause them, and how to solve them:
 
 - [The connection had been disposed](/troubleshooting/the-connection-had-been-disposed)
 

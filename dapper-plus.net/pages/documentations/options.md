@@ -1,7 +1,7 @@
 ---
 Title: 100+ Options to Improve Flexibility in Your Data Saving Operations 
 MetaDescription: 100+ Options to Improve Flexibility in Your Data Saving Operations 
-LastMod: 2025-04-16
+LastMod: 2025-06-11
 ---
 
 # 100+ Options /n Add Flexibility to Your Data Saving Operations
@@ -68,6 +68,7 @@ This section is currently under development as of 2024-09-21 and will soon be en
    - AllowDuplicateKeys
    - AllowUpdatePrimaryKeys
    - UseSmartMatchNames
+   - MatchNameFactory
    - UseTableLock
    - ValidateAllDestinationMapped
    - ValidateAllSourceMapped

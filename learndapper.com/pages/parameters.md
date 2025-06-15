@@ -1,16 +1,16 @@
 ---
 title: Dapper Parameter, SQL Injection, Anonymous and Dynamic Parameters
-description: Dapper allows specifying parameters in querying methods to avoid SQL Injection. Learn more about how to use anonymous, dynamic, string, and output parameter
+description: Dapper allows specifying parameters in querying methods to avoid SQL Injection. Learn more about how to use anonymous, dynamic, string, and output parameters
 canonical: /parameters
 status: Published
-lastmod: 2023-01-05T12:53:34Z
+lastmod: 2025-06-15
 ---
 
 # Using Parameters With Dapper
 
-The dapper parameters work by allowing you to create an object that contains all of the values and parameter types you wish to use in your Dapper query. By doing this, Dapper can automatically map each value and parameter type to fields in your database table. 
+The Dapper parameters work by allowing you to create an object that contains all of the values and parameter types you wish to use in your Dapper query. By doing this, Dapper can automatically map each value and parameter type to fields in your database table. 
 
- - Dapper parameters also help to prevent SQL injection, as the dapper will automatically recognize any attempted malicious code and throw an exception instead of executing it. 
+ - Dapper parameters also help to prevent SQL injection, as the Dapper will automatically recognize any attempted malicious code and throw an exception instead of executing it. 
  - Using dapper parameters is a great way to ensure that your applications are secure from malicious attacks while still providing an easy and efficient way to insert data into your Dapper queries. 
 
 Parameters are represented in the SQL command by placeholders, and the values are passed to the command within the `DbCommand` object's `Parameters` collection. The format of the placeholder is dependent on what the provider supports. For example, the `SqlClient` provider supports named parameters, with the parameter name prefixed with an `@` character. The `OleDb` provider supports positional parameters. Values are passed to the SQL command based on matching the order in which they have been added to the parameters collection to the order in which placeholders appear in the SQL. Parameter placeholders can be named anything as long as the placeholder names don't match database object names (columns, tables, etc.).
@@ -180,7 +180,7 @@ using (var connection = new SqlConnection(connectionString))
 
 As you can see, we created a `DbString` object with the corresponding `Email` and set it as the parameter for the query. The `IsAnsi` and `IsFixedLength` properties are used to determine the type of string we are using. We then use this parameter as part of our query, which in this case, will select the customer from the database with the corresponding `Email` value. 
 
-Overall, using the dapper string parameter feature is an excellent choice for any .NET developer looking to create highly secure and efficient applications. 
+Overall, using the Dapper string parameter feature is an excellent choice for any .NET developer looking to create highly secure and efficient applications. 
 
 ## Dapper WHERE IN Parameters
 

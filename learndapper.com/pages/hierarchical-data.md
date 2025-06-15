@@ -1,14 +1,14 @@
 ---
 title: Dapper Inheritance, TPH, TPT, TPC
-description: Dapper support all kind of complex inheritance patterns such as Table-per-Hierarchy (TPH), Table-per-Type (TPT), and Table-per-Concrete Class (TPC)
+description: Dapper supports all kinds of complex inheritance patterns such as Table-per-Hierarchy (TPH), Table-per-Type (TPT), and Table-per-Concrete Class (TPC)
 canonical: /hierarchical-data
 status: Published
-lastmod: 2023-01-05T12:52:27Z
+lastmod: 2025-06-15
 ---
 
 # Using Inheritance in Dapper
 
-There are several different ways to work with inheritance when using it to map out your database. You can use the **Table-per-Hierarchy (TPH)** pattern, the **Table-per-Type (TPT)** pattern, or the **Table-per-Concrete Class (TPC)** pattern. Each option has its advantages, so it's essential to understand their differences and how they can be used in your application.
+There are several different ways to work with inheritance when using it to map out your database. You can use the **Table-per-Hierarchy (TPH)** pattern, the **Table-per-Type (TPT)** pattern, or the **Table-per-Concrete Class (TPC)** pattern. Each option has its advantages, so it's essential to understand its differences and how they can be used in your application.
 
 ### Dapper TPH Inheritance
 
@@ -32,7 +32,7 @@ The **Table-per-Concrete Class (TPC)** pattern is the most granular approach to 
  - The advantage of this approach is that you don't need to worry about joins, and you can easily add or remove fields without affecting other types. 
  - The downside is that it requires more tables, which increases the complexity of your database structure.
 
-Whichever approach you choose to work with inheritance, make sure to understand their differences and how they will affect your application's performance and maintainability. Each option has its benefits and drawbacks, so it's important to consider your options carefully before making a decision. With the right approach, you can ensure that your database works efficiently and that data integrity is maintained. 
+Whichever approach you choose to work with inheritance, make sure to understand their differences and how they will affect your application's performance and maintainability. Each option has its benefits and drawbacks, so it's important to consider your options carefully before making a decision. With the right approach, you can ensure that your database operates efficiently and that data integrity is maintained. 
 
 ## Inheritance in Dapper
 

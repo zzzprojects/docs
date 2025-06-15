@@ -3,7 +3,7 @@ title: Dapper Bulk Delete
 description: Dapper Plus BulkDelete allows you to delete entities from the database in a single roundtrip. It eliminates multiple trips to the db for each entity to delete.
 canonical: /bulk-operations/bulk-delete
 status: Published
-lastmod: 2024-10-18
+lastmod: 2025-06-15
 ---
 
 # Bulk Deleting Data With Dapper
@@ -40,7 +40,7 @@ connection.BulkDelete(products);
 In addition to being fast, the library is very flexible and allows many scenarios. For example, you have a particular scenario that you can only delete a row if, in addition to the key, the version of the `Customer` also matches the concurrency column value:
 
 ```csharp
-// Global Mapping requires to be mapped globally only once
+// Global Mapping requires mapping globally only once
 DapperPlusManager.Entity<Customer>("Customer_VersionEqual")
 	.UseBulkOptions(x => x.DeleteMatchedAndConditionExpression = y => y.Version);
  

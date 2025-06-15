@@ -1,9 +1,9 @@
 ---
-title: Dapper Querying - Learn How Use Query Method With Dapper
-description: Dapper allows querying one or multiple rows and automatically map au the retrieved result to your model type. Learn more about available querying options.
+title: Dapper Querying - Learn How to Use Query Method With Dapper
+description: Dapper allows querying one or multiple rows and automatically map all the retrieved result to your model type. Learn more about available querying options.
 canonical: /dapper-query
 status: Published
-lastmod: 2024-10-17
+lastmod: 2025-06-15
 ---
 
 # Querying Data With Dapper

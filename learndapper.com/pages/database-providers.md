@@ -3,7 +3,7 @@ title: Dapper Database Providers - SQL Server - Oracle - MySQL - PostgreSQL
 description: Discover how to use Dapper database providers like SQL Server, MySQL, PostgreSQL, Oracle, and more on your website. Learn to install and apply these providers.
 canonical: /database-providers
 status: Published
-lastmod: 2024-10-17
+lastmod: 2025-06-15
 ---
 
 # Database Providers With Dapper
@@ -18,7 +18,7 @@ Dapper supports a variety of database providers, including the popular Microsoft
 
 ## Dapper SQL Server
 
-Using Dapper to query SQL Server is straightforward. The first step is to install [Microsoft.Data.SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient) NuGet package. You can also do it through the Nuget Package Manager Console by typing the following command.
+Using Dapper to query SQL Server is straightforward. The first step is to install [Microsoft.Data.SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient) NuGet package. You can also do it through the NuGet Package Manager Console by typing the following command.
 
 ```csharp
 PM> NuGet\Install-Package Microsoft.Data.SqlClient
@@ -81,11 +81,11 @@ var connectionString = "Data Source=D:\\DapperDB.db;";
 // Connect to the database
 using (var connection = new SQLiteConnection(connectionString))
 {
-    // Create a query that retrieves all authors"    
+    // Create a query that retrieves all authors    
     var sql = "SELECT * FROM Authors LIMIT 1;";     
 
     // Use the Query method to execute the query and return the first author
-    var author = connection.QueryFirst<Author>(sql).
+    var author = connection.QueryFirst<Author>(sql);
 }
 ```
 
@@ -103,7 +103,7 @@ var connectionString = "Server=localhost;database=DapperDB;Uid=root;Pwd=;Charset
 // Connect to the database
 using (var connection = new MySqlConnection(connectionString))
 {
-    // Create a query that retrieves all authors"    
+    // Create a query that retrieves all authors   
     var sql = "SELECT * FROM Authors";     
 
     // Use the Query method to execute the query and return a list of objects
@@ -129,7 +129,7 @@ var connectionString = "Server=127.0.0.1;Port=5432;Database=DapperDB;User Id=pos
 // Connect to the database
 using (var connection = new NpgsqlConnection(connectionString))
 {
-    // Create a query that retrieves all authors"    
+    // Create a query that retrieves all authors   
     var sql = "SELECT * FROM Authors";     
 
     // Use the Query method to execute the query and return a list of objects

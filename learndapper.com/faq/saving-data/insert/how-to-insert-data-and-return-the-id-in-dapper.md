@@ -4,7 +4,7 @@ position: 2
 title: How to insert data and return the id in Dapper?
 ---
 
-To insert data and return the id, you have 2 choices:
+To insert data and return the ID, you have 2 choices:
 
 1. Use the `Execute` method and select the identity inserted with [SCOPE_IDENTITY()](https://learn.microsoft.com/en-us/sql/t-sql/functions/scope-identity-transact-sql)
 2. Use [Dapper Plus](https://dapper-plus.net/) with the property mapped as identity or output

@@ -4,7 +4,7 @@ description: Dapper is a simple and efficient .NET library for data access and o
 keywords: dapper c#, dapper in c#, dapper nuget, what is dapper, what is dapper in .net core
 canonical: /
 status: Published
-lastmod: 2024-10-17
+lastmod: 2025-06-15
 ---
 
 # Welcome to Learn Dapper
@@ -15,12 +15,12 @@ Through this tutorial, you will also learn about Dapper Plus, a third-party libr
 
 ## What is Dapper?
 
-Dapper is an open-source object-relational mapping (ORM) library for .NET and .NET Core applications. The library allows developers quickly and easily access data from databases without the need to write tedious code. Dapper allows you to [execute raw SQL queries](/non-query), map the results to objects, and [execute stored procedures](/stored-procedures), among other things. It is available as a [NuGet package](https://dappertutorial.net/download).
+Dapper is an open-source object-relational mapping (ORM) library for .NET and .NET Core applications. The library allows developers to quickly and easily access data from databases without the need to write tedious code. Dapper allows you to [execute raw SQL queries](/non-query), map the results to objects, and [execute stored procedures](/stored-procedures), among other things. It is available as a [NuGet package](https://dappertutorial.net/download).
 
  - Dapper is lightweight and fast, making it an ideal choice for applications that require low latency and high performance. 
  - It is a simple yet powerful object mapping tool for any .NET language, such as C#, that enables developers to quickly and easily map query results from ADO.NET data readers to instances of business objects. 
  - It has excellent support for both [asynchronous and synchronous database queries](/dapper-query/index) and [batching multiple queries](/dapper-query/selecting-multiple-results) together into a single call. 
- - Additionally, dapper supports [parameterized queries](/parameters) to help protect against SQL injection attacks.
+ - Additionally, Dapper supports [parameterized queries](/parameters) to help protect against SQL injection attacks.
 
 ## Does Dapper support .NET Core?
 
@@ -55,7 +55,7 @@ Dapper concentrates its efforts on the **O** and **M** of _ORM_ - **O**bject **M
 
 ## When Should You Use Dapper?
 
-When deciding whether to use Dapper or not, one should bear in mind the primary reason for its existence - performance. The original developers of Dapper were using Entity Framework Core's predecessor - the short-lived [Linq to SQL](https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/sql/linq/). However, they found that query performance wasn't good enough for the increasing traffic that the site in question (Stack Overflow) was experiencing, [so they wrote their own micro ORM](https://samsaffron.com/archive/2011/03/30/How+I+learned+to+stop+worrying+and+write+my+own+ORM). For a comparisons, see our [Dapper vs Entity Framework (EF Core)](/dapper-vs-entity-framework) article.
+When deciding whether to use Dapper or not, one should bear in mind the primary reason for its existence - performance. The original developers of Dapper were using Entity Framework Core's predecessor - the short-lived [Linq to SQL](https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/sql/linq/). However, they found that query performance wasn't good enough for the increasing traffic that the site in question (Stack Overflow) was experiencing, [so they wrote their own micro ORM](https://samsaffron.com/archive/2011/03/30/How+I+learned+to+stop+worrying+and+write+my+own+ORM). For a comparison, see our [Dapper vs Entity Framework (EF Core)](/dapper-vs-entity-framework) article.
 
 Dapper is, therefore, a good choice in scenarios where read-only data changes frequently and is requested often. It is particularly good in stateless scenarios (e.g. the web) where there is no need to persist complex object graphs in memory for any duration.
 
@@ -130,4 +130,4 @@ git clone https://github.com/StackExchange/Dapper.git
 
 ## Conclusion
 
-In conclusion, Dapper is an excellent choice for applications that require simple and efficient data access. It is easy to use, lightweight and performant, making it a perfect option for developers who need fast data access without the overhead of more complex ORM solutions. Furthermore, Dapper is compatible with .NET Framework and .NET Core, and you can use it with any .NET language, including C#, VB.NET, and F#. Whether you are new to ORM or have experience with other libraries, Dapper is a powerful tool worth considering for your data access needs. Dapper is enriched by third-party libraries such as [Dapper Plus](https://dapper-plus.net/), which aims to provide additional features, including bulk extension methods.
+In conclusion, Dapper is an excellent choice for applications that require simple and efficient data access. It is easy to use, lightweight and performant, making it a perfect option for developers who need fast data access without the overhead of more complex ORM solutions. Furthermore, Dapper is compatible with .NET Framework and .NET Core, and you can use it with any .NET language, including C#, VB.NET, and F#. Whether you are new to ORMs or have experience with other libraries, Dapper is a powerful tool worth considering for your data access needs. Dapper is enriched by third-party libraries such as [Dapper Plus](https://dapper-plus.net/), which aims to provide additional features, including bulk extension methods.

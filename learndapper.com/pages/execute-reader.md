@@ -1,9 +1,9 @@
 ---
 title: Dapper ExecuteReader, ExecuteReaderAsync
-description: The Dapper ExecuteReader method allows to executes a SQL query and returns a DataReader containing the result set of the query as rows and columns. 
+description: The Dapper ExecuteReader method allows you to execute a SQL query and returns a DataReader containing the result set of the query as rows and columns. 
 canonical: /execute-reader
 status: Published
-lastmod: 2024-10-18
+lastmod: 2025-06-15
 ---
 
 # Executing Reader With Dapper
@@ -18,7 +18,7 @@ The `ExecuteReader` method has a variety of overloads that allow developers to s
 | param          | It represents the parameters required by SQL query or stored procedure. This parameter is optional. We can pass the parameter to SQL in anonymous type, `dynamic` object, or `Dapper.DynamicParameters` class. |
 | transaction    | It represents a database transaction. This parameter is optional if we use this method outside of a transaction. Otherwise, it is required. |
 | commandTimeout | It represents the time in seconds to wait before terminating the command execution and generating an error. The default value of this parameter is 30 seconds. This parameter is optional. |
-| commandType    | It specifies how SQL query or stored procedure should be interpreted by the data provider. The default value of this parameter is Text. This parameter is optional. |
+| commandType    | It specifies how SQL query or stored procedure should be interpreted by the data provider. The default value of this parameter is `CommandType.Text`. This parameter is optional. |
 
 ## Dapper ExecuteReader
 

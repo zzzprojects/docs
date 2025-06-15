@@ -16,7 +16,7 @@ BEGIN
 END
 ```
 
-2. Map returned data to an anonymous type or a strongly typed object:
+2. Map the returned data to an anonymous type or a strongly typed object:
 
 ```csharp
 using (var connection = new SqlConnection("connectionString"))

@@ -2,13 +2,13 @@
 title: String Parameters
 description: Dapper string parameterization helps to avoid SQL injection attacks in applications that use dynamic SQL. It also makes the code more readable by replacing raw SQL strings with parameters, which are visible and can be used for debugging purposes.
 canonical: /string-parameters
-status: 
-lastmod: 
+status: Published
+lastmod: 2025-06-15
 ---
 
 # String Parameters
 
-Using the dapper string parameter feature is a great way to protect against SQL injection. It allows developers to pass parameters directly into their queries without having to worry about manually sanitizing user input. 
+Using the Dapper string parameter feature is a great way to protect against SQL injection. It allows developers to pass parameters directly into their queries without having to worry about manually sanitizing user input. 
 
  - Each parameter is assigned a name and can be populated with data at runtime. 
  - It helps ensure that only expected values are used in the query and that malicious code can't be inserted. 
@@ -37,5 +37,5 @@ using (var connection = My.ConnectionFactory())
 
 As you can see, we created a `DbString` object with the corresponding `customerId` and set it as the parameter for the query. The `IsAnsi` and `IsFixedLength` properties are used to determine the type of string we are using. We then use this parameter as part of our query, which in this case will select the customer from the database with the corresponding `CustomerId` value. 
 
-Overall, using the dapper string parameter feature is a great choice for any .NET developer looking to create highly secure and efficient applications. 
+Overall, using the Dapper string parameter feature is a great choice for any .NET developer looking to create highly secure and efficient applications. 
 

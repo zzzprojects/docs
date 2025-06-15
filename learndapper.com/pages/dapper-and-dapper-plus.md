@@ -3,7 +3,7 @@ title: Is Dapper Plus related to Dapper?
 description: Learn how Dapper Plus supports the Dapper ecosystem through sponsorships, shared mindset, and free community tools 
 canonical: /dapper-and-dapper-plus
 status: Published
-lastmod: 2025-04-12
+lastmod: 2025-06-15
 ---
 
 # Is Dapper Plus related to Dapper?
@@ -61,7 +61,7 @@ Our sponsorship is directly related to the following NuGet packages:
 - [Dapper.Rainbow](https://www.nuget.org/packages/Dapper.Rainbow)
 - [Dapper.SqlBuilder](https://www.nuget.org/packages/Dapper.SqlBuilder)
 
-So yes, Dapper Plus is related to Dapper because we help ensure Dapper stays professionally maintained and developer-supported by sponsorising **$4500 USD** per month.
+So yes, Dapper Plus is related to Dapper because we help ensure Dapper stays professionally maintained and developer-supported by sponsoring **$4500 USD** per month.
 
 ---
 
@@ -121,7 +121,7 @@ Sure, we could lower our prices… but in the end, it’s the community that wou
 
 ## Conclusion
 
-The next time someone tells you that Dapper Plus isn’t related to Dapper, just share this article with them and he will be able to take his own decision.
+The next time someone tells you that Dapper Plus isn’t related to Dapper, just share this article with them and they will be able to take his own decision.
 
 Thanks to the few libraries we sell — like Dapper Plus — ZZZ Projects plays a major role in supporting Dapper and the .NET ecosystem as a whole.
 

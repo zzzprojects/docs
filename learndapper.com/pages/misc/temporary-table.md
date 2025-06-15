@@ -1,9 +1,9 @@
 ---
 title: Dapper Temporary Table
-description: Dapper supports temporary tables by allowing you to create, insert, and query them using the execute or querying methods. Learn more how to use temporary table
+description: Dapper supports temporary tables by allowing you to create, insert, and query them using the execute or querying methods. Learn more about how to use temporary tables
 canonical: /misc/temporary-table
 status: Published
-lastmod: 2024-10-18
+lastmod: 2025-06-15
 ---
 
 # Temporary Table With Dapper
@@ -43,7 +43,7 @@ Once you have created your temporary table, you can add data using the `INSERT` 
 ```csharp
 using (var connection = new SqlConnection(connectionString))
 {
-    await conn.Open();
+    await connection.Open();
 	
     connection.Execute(@"CREATE TABLE #tmpOrder(orderId int);");
     connection.Execute(@"INSERT INTO #tmpOrder(orderId) VALUES (1);");
@@ -58,7 +58,7 @@ Here's an improved version of the text for the "CreateTable Methods" section of 
 
 ## Dapper Plus - CreateTable Methods
 
-The [CreateTable](https://dapper-plus.net/create-table) method in Dapper Plus offers a straightforward approach to creating various types of tables directly from an entity type. It supports all type of table:
+The [CreateTable](https://dapper-plus.net/create-table) method in Dapper Plus offers a straightforward approach to creating various types of tables directly from an entity type. It supports all types of table:
 
 - Permanent Table
 - Temporary Table

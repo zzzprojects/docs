@@ -3,7 +3,7 @@ title: Dapper Relationship, SplitOn, One-To-Many, One-to-One
 description: Dapper supports mapping all kinds of relationships using the SplitOn parameter to map your One-To-Many, One-To-One, or Many-to-Many relation.
 canonical: relationships
 status: Published
-lastmod: 2023-01-05T12:53:42Zf
+lastmod: 2025-06-15
 ---
 
 # Using Relationships With Dapper
@@ -22,12 +22,12 @@ Dapper provides a feature called **Multi mapping** to map data to multiple objec
  - It supports both synchronous and asynchronous operation, allowing you to use it in various scenarios. 
  - Using Dapper, you can easily execute [stored procedures](/stored-procedures), map results to strongly typed objects or dynamic objects, and execute [bulk CRUD operations](/bulk-operations). 
  - Dapper provides extension methods that enable us to perform queries on nested objects without having to write separate SQL statements for each object. 
- - For example, you can select from multiple tables in a single dapper query. 
+ - For example, you can select from multiple tables in a single Dapper query. 
  - This makes it easier and faster to retrieve related entities without having to write complex SQL statements.
  
 ## Dapper SplitOn
 
-Dapper supports multi-mapping, which allows you to map a single row to multiple objects. It is helpful if you need to retrieve data from multiple tables in a single query.
+Dapper supports multi-mapping, which allows you to map a single row to multiple objects. This is helpful if you need to retrieve data from multiple tables in a single query.
 
  - To do this, we need to use the Dapper `splitOn` parameter when calling the `Query` method.
  - The `splitOn` parameter tells Dapper what column(s) to use to split the data into multiple objects.
@@ -77,7 +77,7 @@ public class Category
 }
 ```
 
-There is an association between the `Product`  and `Category` classes, represented by the `Category` property in the `Product` class and the `Products` property in the `Category` class. That means a one-to-many relationship. A product can have one category, and a category can have many products. 
+There is an association between the `Product`  and `Category` classes, represented by the `Category` property in the `Product` class and the `Products` property in the `Category` class. This means a one-to-many relationship. A product can have one category, and a category can have many products. 
 
 ![One To Many Relationship](/images/03-05-2019-08-18-16.png)
 

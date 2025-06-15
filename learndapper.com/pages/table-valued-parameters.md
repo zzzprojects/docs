@@ -1,9 +1,9 @@
 ---
 title: Table-Valued Parameters
-description: Table-Valued Parameter (TVP) is the new feature of Dapper that help developers to more efficiently pass a set of values to a stored procedure. When used with SQL Server, TVPs can significantly reduce the number of round trips between the application and the database. 
+description: Table-Valued Parameter (TVP) is the new feature of Dapper that helps developers to more efficiently pass a set of values to a stored procedure. When used with SQL Server, TVPs can significantly reduce the number of round trips between the application and the database. 
 canonical: /table-valued-parameters
-status: 
-lastmod: 
+status: Published
+lastmod: 2025-06-15
 ---
 
 # Table-Valued Parameters

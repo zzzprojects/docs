@@ -4,9 +4,9 @@ position: 7
 title: How to insert data using if not exists in Dapper?
 ---
 
-To insert data using if not exists, you have 2 choices:
+To insert data using "IF NOT EXISTS", you have 2 choices:
 
-1. Use the `Execute` method and `INSERT` with a `WHERE NOT EXISTS` sql statement
+1. Use the `Execute` method and `INSERT` with a `WHERE NOT EXISTS` SQL statement
 2. Use [Dapper Plus](https://dapper-plus.net/) with the `InsertIfNotExists` option
 
 **Solution 1**

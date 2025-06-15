@@ -1,9 +1,9 @@
 ---
 title: [SOLVED] - Fixing 'The connection had been disposed.'
-description: Learn how to fix the 'The connection had been disposed.' error in Dapper. Understand how using async method and non-buffered options can cause this.
+description: Learn how to fix the 'The connection had been disposed.' error in Dapper. Understand how using async methods and non-buffered options can cause this.
 canonical: /the-connection-had-been-disposed
 status: Published
-lastmod: 2024-02-23
+lastmod: 2025-06-15
 ---
 
 # The connection had been disposed.
@@ -21,8 +21,8 @@ This exception was originally thrown at this call stack:
     MySql.Data.MySqlClient.MySqlConnection.Throw(System.Exception)
     MySql.Data.MySqlClient.MySqlConnection.OpenAsync(bool, System.Threading.CancellationToken)
     Dapper.SqlMapper.QueryAsync<T>(System.Data.IDbConnection, System.Type, Dapper.CommandDefinition) in SqlMapper.Async.cs
-    Z.Dapper.Plus.Lab.Troubleshooting.ConnectionHasBeenDisposed.ConnnectionHasBeenDisposedExample.AnonymousMethod__0() in Request_ConnectionDisposed.cs
-    Z.Dapper.Plus.Lab.Troubleshooting.ConnectionHasBeenDisposed.ConnnectionHasBeenDisposedExample() in Request_ConnectionDisposed.cs
+    Z.Dapper.Plus.Lab.Troubleshooting.ConnectionHasBeenDisposed.ConnectionHasBeenDisposedExample.AnonymousMethod__0() in Request_ConnectionDisposed.cs
+    Z.Dapper.Plus.Lab.Troubleshooting.ConnectionHasBeenDisposed.ConnectionHasBeenDisposedExample() in Request_ConnectionDisposed.cs
 ```
 
 ## Async Issue
@@ -106,7 +106,7 @@ public static IEnumerable<Customer> GetCustomers()
 }
 ```
 
-Because we used the option `buffered: false`, it means that the result will not be in the memory but instead streamed. In other words, the result will be returned on demand while we are iterating over the results.
+Because we used the option `buffered: false`, it means that the result will not be in the memory but instead streamed. In other words, the results will be returned on demand while we are iterating over the results.
 
 However, in the example, the connection has been created in the `GetCustomers()` methods. So when the method returns the `IEnumerable<Customer>`, the connection has already been disposed, which leads to our `The connection had been disposed.` error.
 
@@ -177,7 +177,7 @@ Scenarios that throw the exception `The connection had been disposed.` are not r
 
 It's important to note that different providers or different versions within a provider will throw different errors or have different behavior. However, the solution will always be the same if the cause was a wrong usage of the connection. For example:
 - SQL Server: will throw instead the exception message `The ConnectionString property has not been initialized.`
-- MySQL: Started to support correctly async method starting from v8.0.33. Before this version, all queries [ran synchronously](https://bugs.mysql.com/bug.php?id=70111). So like [bgrainger commented](https://github.com/DapperLib/Dapper/issues/2036#issuecomment-1960029026), some code that was "working" correctly with previous version could start to break with more latest version.
+- MySQL: Started to support correctly async method starting from v8.0.33. Before this version, all queries [ran synchronously](https://bugs.mysql.com/bug.php?id=70111). So like [bgrainger commented](https://github.com/DapperLib/Dapper/issues/2036#issuecomment-1960029026), some code that was "working" correctly with previous version could start to break with more later version.
 
 ## Related Articles
 

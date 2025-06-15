@@ -3,7 +3,7 @@ title: Dapper Query Specific Columns
 description: All Dapper querying methods allow you to select specific columns from your tables. Only matching properties will be mapped with the result.
 canonical: /dapper-query/selecting-specific-columns
 status: Published
-lastmod: 2024-10-17
+lastmod: 2025-06-15
 ---
 
 # Querying Specific Columns With Dapper
@@ -20,7 +20,7 @@ SELECT col1, col2,  col3 FROM MyTable
 
 The above query will return a result set containing only the specified columns. That is useful when working with large tables and optimizing your queries by retrieving only the data you need. It also makes it easier to read and understand the structure of the result set. 
 
-Most examples in other tutorials used the wildcard character (`*`) to include all columns in the target table. However, more often than not, you only want to retrieve data from a subset of columns. You do this by restricting the list of columns in the SQL only to include the ones you want, but you can still pass the relevant object into the type parameter of the `Query<T>` method. Properties of the object that aren't featured in the column list will be set to their default values. 
+Most examples in other tutorials use the wildcard character (`*`) to include all columns in the target table. However, more often than not, you only want to retrieve data from a subset of columns. You do this by restricting the list of columns in the SQL only to include the ones you want, but you can still pass the relevant object into the type parameter of the `Query<T>` method. Properties of the object that aren't featured in the column list will be set to their default values. 
 
 In the following example, the `CategoryID` column in the `Product` table is not included as part of the select statement, but it is used in a filter:
 

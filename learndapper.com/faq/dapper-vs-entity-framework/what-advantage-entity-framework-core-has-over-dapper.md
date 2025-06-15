@@ -1,7 +1,7 @@
 ---
 id: 89ba0048-ad56-4552-ac20-9d6c9da51df1
 position: 9
-title: What advantage Entity Framework Core have over Dapper?
+title: What advantages Entity Framework Core have over Dapper?
 ---
 
 - **Fully Featured ORM**: EF Core provides a rich set of features such as lazy loading, change tracking, migrations, and more.

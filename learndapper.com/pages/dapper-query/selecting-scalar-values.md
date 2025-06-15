@@ -3,7 +3,7 @@ title: Dapper ExecuteScalar, ExecuteScalarAsync
 description: The Dapper ExecuteScalar method allows you to execute a query and return the first column of the first row in the result set returned by the query.
 canonical: /dapper-query/selecting-scalar-values
 status: Published
-lastmod: 2024-10-17
+lastmod: 2025-06-15
 ---
 
 # Querying Scalar Values With Dapper
@@ -64,7 +64,7 @@ Console.WriteLine($"Total products: {count}");
 
 [Online Example](https://dotnetfiddle.net/vs9BDS)
 
-You can also use the `ExecuteScalarAsync<T>` that takes a generic parameter and specify the return type explicitly.
+You can also use the `ExecuteScalarAsync<T>` that takes a generic parameter and specifies the return type explicitly.
 
 ```csharp
 var sql = "SELECT COUNT(*) FROM Product";

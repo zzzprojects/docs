@@ -3,7 +3,7 @@ title: Dapper Bulk Merge
 description: The Dapper Plus BulkMerge method allows performing UPSERT operations (update/insert) in your database and improves your performance by 5000% and more.
 canonical: /bulk-operations/bulk-merge
 status: Published
-lastmod: 2024-10-18
+lastmod: 2025-06-15
 ---
 
 # Bulk Merging Data With Dapper
@@ -12,7 +12,7 @@ A merge is equivalent to an `UPSERT` (Update/Insert) operation. Existing data in
 
 The **easiest and fastest way** to merge data is by using the [Dapper Plus](https://dapper-plus.net/) third-party library.
 
-The `BulkMerge` method makes that operation very easy to use and **improves the performance by 5000%** depending more on the provider ([Online Benchmark](https://dotnetfiddle.net/piaZmp)).
+The `BulkMerge` method makes that operation very easy to use and **improves the performance by 5000%** depending on the provider ([Online Benchmark](https://dotnetfiddle.net/piaZmp)).
 
 ## Getting Started
 
@@ -25,7 +25,7 @@ Documentation: [Dapper Plus – Bulk Merge](https://dapper-plus.net/bulk-merge)
 **Dapper Plus** `BulkMerge` helps with Bulk Merge operations for Dapper. It allows you to perform bulk inserts, updates, and deletes into the database in a single operation. 
  - It can reduce the complexity of writing multiple queries and adds an extra layer of performance optimization. 
  - It also supports batching, which helps minimize round trips to the database by grouping commands together. 
- - Additionally, it provides helpful features such as conditional merging, making creating custom logic for merging data easier. 
+ - Additionally, it provides helpful features such as conditional merging, making creating custom logic for merging data easier.
 Using the `BulkMerge` method is very simple. All you need to do is pass your entities in the parameter and let the automapping matching properties with column names:
 
 ```csharp
@@ -58,11 +58,11 @@ connection.BulkMerge("Customer_IgnoreAuditProperty", customers);
 When using a global context mapping, you need to set the mapping only once since it is global, but that’s also possible to set the mapping inside a method to specify some configuration at runtime:
 
 ```csharp
-public void CustomBulkMerge<T>(List<T> entities, List<string> propertieIgnoreOnUpdateNames) where T : class
+public void CustomBulkMerge<T>(List<T> entities, List<string> propertyIgnoreOnUpdateNames) where T : class
 {
 	var context = new DapperPlusContext();
 	
-	propertieIgnoreOnUpdateNames.ForEach(x =>
+	propertyIgnoreOnUpdateNames.ForEach(x =>
 	{
 		context.Entity<T>().IgnoreOnMergeUpdate(x);
 	});

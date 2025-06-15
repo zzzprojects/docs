@@ -3,7 +3,7 @@ title: Dapper QueryUnbufferedAsync
 description: The Dapper Query Unbuffered Async method is used to select data from your database asynchronously by loading objects on demand (unbuffered).
 canonical: /dapper-query/selecting-unbuffered-async
 status: Published
-lastmod: 2024-10-17
+lastmod: 2025-06-15
 ---
 
 # Querying Multiple Rows on Demand Asynchronously With Dapper
@@ -19,7 +19,7 @@ The method `QueryUnbufferedAsync` has 2 main purposes:
 - Selecting multiple data from your database asynchronously
 - Loading data retrieved on demand (similar to `buffered = false`)
 
-In this example, we will start by using Dapper Plus to make the setup easier by using the [CreateTable](https://dapper-plus.net/create-table) method and [BulkInsert](https://dapper-plus.net/bulk-insert) method. Then, showing how to use the `QueryUnbufferedAsync` method from Dapper in a `foreach` statement using the `await` keyword and `ConfigureAwait` method:
+In this example, we will start by using Dapper Plus to make the setup easier by using the [CreateTable](https://dapper-plus.net/create-table) method and [BulkInsert](https://dapper-plus.net/bulk-insert) method. Then,  we’ll show how to use the `QueryUnbufferedAsync` method from Dapper in a `foreach` statement using the `await` keyword and `ConfigureAwait` method:
 
 
 ```csharp

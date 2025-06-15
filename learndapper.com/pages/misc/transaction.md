@@ -1,9 +1,9 @@
 ---
 title: Dapper Transaction
-description: Dapper support transaction and allow you to commit/rollback the current transaction. Learn more about how to use transactions, transactions scope, and more.
+description: Dapper supports transaction and allow you to commit/rollback the current transaction. Learn more about how to use transactions, transactions scopes, and more.
 canonical: /misc/transaction
 status: Published
-lastmod: 2023-01-05
+lastmod: 2025-06-15
 ---
 
 # Transaction With Dapper
@@ -59,9 +59,9 @@ Using transactions in Dapper is a powerful and straightforward way to ensure tha
 
 ## Dapper Transaction Library
 
-One way to easily use transaction is through the Dapper.Transaction library.
+One way to easily use transactions is through the Dapper.Transaction library.
 
-This library is exactly like Dapper but extend the IDbTransaction interface instead and use Dapper under the hood.
+This library is exactly like Dapper but extends the IDbTransaction interface instead and use Dapper under the hood.
 
 NuGet Package: [https://www.nuget.org/packages/Dapper.Transaction/](https://www.nuget.org/packages/Dapper.Transaction/)
 

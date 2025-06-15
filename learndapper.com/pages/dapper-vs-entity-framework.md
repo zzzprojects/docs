@@ -3,7 +3,7 @@ title: Dapper vs Entity Framework (EF6 or EF Core)
 description: Learn the differences between Dapper and Entity Framework (EF6 or EF Core). Discover which ORM you should use and why.
 canonical: /dapper-vs-entity-framework
 status: Published
-lastmod: 2024-10-17
+lastmod: 2025-06-15
 ---
 
 # Dapper vs Entity Framework (EF6 or EF Core)
@@ -25,9 +25,9 @@ Many existing articles or posts you can find compare ORM over performance, compl
 
 ### So what really matters?
 
-What matter is if you prefer to have control and write your own SQL queries or give control to the ORM and use LINQ to write SQL for you.
+What matters is if you prefer to have control and write your own SQL queries or give control to the ORM and use LINQ to write SQL for you.
 
-You might or not agree to make the comparison so simple, but that is the major difference between both libraries and the main reasons why people will choose one or another:
+You might or might not agree to make the comparison so simple, but that is the major difference between both libraries and the main reasons why people will choose one or another:
 
 - **Dapper**: Give you full control over the SQL generated / uses stored procedures for everything.
 - **Entity Framework**: Allow you to code with `LINQ` and forget everything about SQL.
@@ -73,7 +73,7 @@ If your company is familiar with one ORM, stick with it. There is already enough
 
 If your company already uses both, the decision is more difficult. You either make the company choose one so it doesn't have to ask this question for every project, or you choose which one is the best for this project as the answer might be different from one project to another.
 
-If your company doesn't use any but wants to start to use only one, then in this situation, in a few scenarios such as `stored procedure`, the answer could be obvious, but in other scenarios, that should be a team decision that you stick with it.
+If your company doesn't use any but wants to start to use only one, then in this situation, in a few scenarios such as `stored procedures`, the answer could be obvious, but in other scenarios, that should be a team decision that you stick with.
 
 One last situation would be simply to force the one you prefer and go to war, so it will now be the ORM your company will use. Most people will say this is a bit of very bad advice, but after all, you are only a number in a company, so why not just enjoy the time while you are there?
 

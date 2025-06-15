@@ -3,10 +3,10 @@ title: Dapper QuerySingle, QuerySingleOrDefault, QueryFirst, QueryFirstOrDefault
 description: The Dapper QuerySingle and QueryFirst methods allow you to return a single row of data and map it to a dynamic object or the generic entity type.
 canonical: /dapper-query/selecting-single-rows
 status: Published
-lastmod: 2024-10-17
+lastmod: 2025-06-15
 ---
 
-# Querying Single Row With Dapper
+# Querying a Single Row With Dapper
 
 Dapper provides several methods for selecting a single row of data, depending on how you want to work with the data you retrieve. 
 
@@ -64,7 +64,7 @@ Console.WriteLine($"ProductID: {product.ProductID}; Name: {product.Name}");
 
 [Online Example](https://dotnetfiddle.net/Wq1NAZ)
 
-No matter what type of data you select from your database, Dapper's QuerySingle method can help make the process much simpler. With its simple syntax and parameterized queries, you'll easily select single rows of data from your database. 
+No matter what type of data you select from your database, Dapper's QuerySingle method can help make the process much simpler. With its simple syntax and parameterized queries, you'll be able to easily select single rows of data from your database. 
 
 ## Dapper QuerySingleAsync
 

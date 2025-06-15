@@ -1,7 +1,7 @@
 ---
 id: 51366921-f8ba-46cb-8d12-73ed7237019f
 position: 6
-title: What advantage Dapper have over Entity Framework Core?
+title: What advantages Dapper have over Entity Framework Core?
 ---
 
 - **Performance**: Dapper is typically more performant than EF Core due to its lightweight nature and lack of overhead.

@@ -1,16 +1,16 @@
 ---
 title: Dapper Execute, ExecuteAsync, Insert, Update, Delete
-description:  The Dapper Execute method allows executing SQL statements not returning any results besides the row affecteds for operations such as insert, update, and delete.
+description:  The Dapper Execute method allows executing SQL statements not returning any results besides the row affected for operations such as insert, update, and delete.
 canonical: /non-query
 status: Published
-lastmod: 2024-10-18
+lastmod: 2025-06-15
 ---
 
 # Executing Non-Query Commands With Dapper
 
 Dapper allows you to execute non-query commands that are not intended to return resultsets, such as `INSERT`, `UPDATE`, and `DELETE` statements. To do this, you use the `Execute` extension method of the `IDbConnection` interface, which Dapper implements.
 
-The `Execute` method takes a few different parameters;
+The `Execute` method takes a few different parameters:
 - One is the command text (the SQL query) to execute.
 - The other is a parameter object that can be an anonymous type or even a Dapper DynamicParameters object if you need to specify additional information about the parameters to use in the query.
 

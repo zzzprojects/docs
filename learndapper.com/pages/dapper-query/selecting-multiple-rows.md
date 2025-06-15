@@ -1,9 +1,9 @@
 ---
 title: Dapper Query, QueryAsync
-description: The Dapper Query and QueryAsync methods are used to select data from your database and return a list of objects or strongly typed types.
+description: The Dapper Query and QueryAsync methods are used to select data from your database and return a list of objects or strongly typed objects.
 canonical: /dapper-query/selecting-multiple-rows
 status: Published
-lastmod: 2024-10-17
+lastmod: 2025-06-15
 ---
 
 # Querying Multiple Rows With Dapper
@@ -45,7 +45,7 @@ foreach(var product in products)
 Note that there is no explicit call to open the connection in the code above. Instead, Dapper will check the state of the connection and open it if it is closed. 
 :::
 
-Working with dynamic types should ordinarily be avoided because the risk of introducing run-time errors is high. It can be easy to mistype a property name, especially as they are case-sensitive. For example, if you referred to the key column as `ProductId` instead of `ProductID`, there would be no help from Intellisense or exceptions raised. Nothing would be output to the console window at all. Therefore the recommendation is to use the `Query<T>` methods that takes a type parameter representing the data type that the query returns. 
+Working with dynamic types should ordinarily be avoided because the risk of introducing run-time errors is high. It can be easy to mistype a property name, especially as they are case-sensitive. For example, if you referred to the key column as `ProductId` instead of `ProductID`, there would be no help from Intellisense or exceptions raised. Nothing would be output to the console window at all. Therefore the recommendation is to use the `Query<T>` methods that take a type parameter representing the data type that the query returns. 
 
 The next example works with a `Product` type, which, following the table schema, has the following definition:
 

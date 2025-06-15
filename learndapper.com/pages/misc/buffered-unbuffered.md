@@ -3,7 +3,7 @@ title: Dapper Buffered and Unbuffered Queries
 description: Dive into Dapper's buffered and unbuffered queries in .NET. Discover their usage, implications on performance, pros, cons, and ideal scenarios for use.
 canonical: /misc/buffered-unbuffered
 status: Published
-lastmod: 2023-08-01
+lastmod: 2025-06-15
 ---
 
 # Buffered vs Unbuffered Queries With Dapper
@@ -76,7 +76,7 @@ The following methods support unbuffered queries:
 - [Query](/dapper-query/selecting-multiple-rows#dapper-query)
 - [QueryAsync](/dapper-query/selecting-multiple-rows#dapper-queryasync)
 - [Read](/dapper-query/selecting-multiple-results)
-- [ReadAync](/dapper-query/selecting-multiple-results)
+- [ReadAsync](/dapper-query/selecting-multiple-results)
 
 ## Conclusion
 
@@ -85,5 +85,5 @@ Generally, when using Dapper, it's best to use buffered queries for large datase
 ## Related Articles
 
 - [Querying](/dapper-query)
-- [Query / QueryAync](/dapper-query/selecting-multiple-rows)
+- [Query / QueryAsync](/dapper-query/selecting-multiple-rows)
 - [Read / ReadAsync](/dapper-query/selecting-multiple-results)
