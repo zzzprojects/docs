@@ -10,7 +10,7 @@ Name: Log
 - [LogDump](#logdump)
 
 ## Log
-Allow you to log some event happening in your database.
+Allows you to log some event happening in your database.
 
 ### Example
 ```csharp
@@ -31,7 +31,7 @@ Console.WriteLine(logger.ToString());
 Try it: [.NET Core](https://dotnetfiddle.net/qyY7ca) | [.NET Framework](https://dotnetfiddle.net/3cTgCG)
 
 ## UseLogDump
-Allow you to log in to a string (LogDump) event happening in your database.
+Allows you to log into a string (LogDump) event happening in your database.
 
 ### Example
 ```csharp
@@ -52,7 +52,7 @@ using (var bulk = new BulkOperation(connection))
 Try it: [.NET Core](https://dotnetfiddle.net/SfsxSd) | [.NET Framework](https://dotnetfiddle.net/pGrUcP)
 
 ## LogDump
-Allow you to retrieve the event happening in your database when UseLogDump is enabled.
+Allows you to retrieve the events happening in your database when UseLogDump is enabled.
 
 ### Example
 ```csharp

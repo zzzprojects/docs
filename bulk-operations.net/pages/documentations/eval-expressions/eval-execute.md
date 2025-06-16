@@ -5,22 +5,22 @@ Name: Eval.Execute
 # Eval.Execute
 
 ## Description
-You can execute C# expression at runtime using the <a href="https://eval-expression.net/" target="_blank">Eval-Expression.NET</a> library.
+You can execute a C# expression at runtime using the <a href="https://eval-expression.net/" target="_blank">Eval-Expression.NET</a> library.
 
 You can download it here: [Download](https://eval-expression.net/download)
 
 > The Eval-Expression.NET library can be activated with the Bulk Operations license. 
 
-You can specify parameter value to use in the expression from various way:
+You can specify parameter values to use in the expression in various ways:
 
 - Anonymous Type
 - Argument Position
 - Class Member
 - Dictionary
 
-Under the hood, the fist time an expression is executed, it's getting compiled and the delegate is stored in the memory before being returned and executed. All future call from the same expression will retrieve the delegate from the memory to optimize the performance.
+Under the hood, the first time an expression is executed, it's getting compiled and the delegate is stored in the memory before being returned and executed. All future calls from the same expression will retrieve the delegate from the memory to optimize the performance.
 
-Even with this optimization, if you have to evaluate the same expression multiple times, for example, in a `for` loop, we highly recommend you to use directly the delegate returning from the Compile method instead.
+Even with this optimization, if you have to evaluate the same expression multiple times, for example, in a `for` loop, we highly recommend using the delegate returned from the Compile method directly instead.
 
 ## Execute and return a strongly typed result
 You can return the result as a strongly typed type:

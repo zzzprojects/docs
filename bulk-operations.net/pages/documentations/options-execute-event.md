@@ -4,12 +4,12 @@ Name: Execute Event
 
 # Execute Event
 
-## Excecute Event Options
+## Execute Event Options
 - [BulkOperationExecuting](#bulkoperationexecuting)
 - [BulkOperationExecuted](#bulkoperationexecuted)
 
 ## BulkOperationExecuting
-Allow you to change configuration before the bulk operation is executed.
+Allows you to change configuration before the bulk operation is executed.
 
 ### Example
 ```csharp
@@ -21,7 +21,7 @@ bulk.BulkMerge(dt);
 ```
 
 ## BulkOperationExecuted
-Allow you to change configuration after the bulk operation is executed.
+Allows you to change configuration after the bulk operation is executed.
 
 ### Example
 ```csharp

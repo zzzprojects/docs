@@ -49,4 +49,4 @@ Try it: [.NET Core](https://dotnetfiddle.net/Xkn3fU) | [.NET Framework](https://
 ### Result
 
 
-We outputted the `StringBuilder` text which contains all SQL statements executed in the database.
+We output the `StringBuilder` text, which contains all SQL statements executed in the database.

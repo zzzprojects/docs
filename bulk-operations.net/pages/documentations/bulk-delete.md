@@ -51,7 +51,7 @@ The `BulkDelete` method is **fast** but also **flexible** to let you handle vari
 ## Getting Started
 
 ### Bulk Delete
-The `BulkDelete` and `BulkDeleteAync` methods your let you delete a large number of entities in your database.
+The `BulkDelete` and `BulkDeleteAsync` methods let you delete a large number of entities in your database.
  
 ```csharp
 bulk.BulkDelete(customers);
@@ -91,7 +91,7 @@ bulk.BulkDelete(customers.Take(2));
 Try it (Entity): [.NET Core](https://dotnetfiddle.net/7fr6Mk) | [.NET Framework](https://dotnetfiddle.net/yc5tqc) 
 
 ### More scenarios
-Hundred of scenarios has been solved and are now supported.
+Hundreds of scenarios have been solved and are now supported.
 
 The best way to ask for a special request or to find out if a solution for your scenario already exists is by contacting us:
 info@zzzprojects.com

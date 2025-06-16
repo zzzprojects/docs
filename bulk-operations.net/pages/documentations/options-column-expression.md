@@ -10,6 +10,6 @@ Name: Column Expression
 - [ColumnOutputExpression](#columnoutputexpression)
 - [ColumnSynchronizeDeleteKeySubsetExpression](#columnsynchronizedeletekeysubsetexpression)
 - [IgnoreOnMergeInsertExpression](#ignoreonmergeinsertexpression)
-- [IgnoreOnMergeUpdateExpression](#ignoreonmergeupdatexpression)
+- [IgnoreOnMergeUpdateExpression](#ignoreonmergeupdateexpression)
 
 _Coming Soon_

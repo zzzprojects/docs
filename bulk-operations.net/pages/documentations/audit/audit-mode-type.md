@@ -11,7 +11,7 @@ The `AuditModeType` enum represents if all properties should be included or excl
 You can include or exclude specific properties with the [ColumnMappingAuditModeType](column-mapping-audit-mode-type.md) enum.
 
 ```csharp
-// The namespace is different because the https://bulk-operations.net/ library is used under the hood..
+// The namespace is different because the https://bulk-operations.net/ library is used under the hood.
 namespace Z.BulkOperations
 {
     /// <summary>The `AuditModeType` enum represents if all properties should be included or excluded from the auditing. The default value is `AuditModeType.IncludeAll`.</summary>

@@ -5,7 +5,7 @@ Name: Update from Query
 # Update from Query
 
 ## Update From Query
-Execute an INSERT operation.
+Execute an UPDATE operation.
 
 ### Example
 ```csharp

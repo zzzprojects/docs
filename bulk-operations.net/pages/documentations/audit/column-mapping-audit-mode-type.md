@@ -17,7 +17,7 @@ namespace Z.BulkOperations
     /// <summary>The `ColumnMappingAuditModeType` enum represents if a specific property should be included or excluded from the auditing. The default value is `ColumnMappingAuditModeType.Inherit`.</summary>
     public enum ColumnMappingAuditModeType
     {
-        /// <summary>The name/value that represents if a specific property inherit from the AuditModeType (Default Value).</summary>
+        /// <summary>The name/value that represents if a specific property inherits from the AuditModeType (Default Value).</summary>
         Inherit,
 
         /// <summary>The name/value that represents if a specific property is included.</summary>

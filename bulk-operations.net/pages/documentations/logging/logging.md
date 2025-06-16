@@ -6,17 +6,17 @@ Name: Logging
 
 ## Description
 
-The Bulk Operations `Logging` feature let you log all messages of type "Information".
+The Bulk Operations `Logging` feature lets you log all messages of type "Information".
 
 
 ## Key Features
 
-- Allow to see SQL that are executed
-- Allow to see parameter & time...
+- Allows you to see SQL statements that are executed
+- Allows you to see parameters and execution time
 
 ## Getting Started
 
-There is 2 ways to use the logging features
+There are two ways to use the logging features
 
 ### Logging with an action
 

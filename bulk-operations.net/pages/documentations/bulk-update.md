@@ -9,7 +9,7 @@ Name: Bulk Update
 The `BulkUpdate` method lets you update a large number of entities in your database.
 
 ```csharp
-// easy to use
+// Easy to use
 bulk.DestinationTableName = "Customers";
 bulk.BulkUpdate(customers);
 
@@ -52,7 +52,7 @@ The `BulkUpdate` method is **fast** but also **flexible** to let you handle vari
 ## Getting Started
 
 ### Bulk Update
-The `BulkUpdate` and `BulkUpdateAync` methods your let update a large number of entities in your database.
+The `BulkUpdate` and `BulkUpdateAsync` methods let you update a large number of entities in your database.
 
 ```csharp
 bulk.BulkUpdate(customers);
@@ -87,7 +87,7 @@ You want to update your entities but only for specific properties.
 - `IgnoreOnUpdateExpression`: This option lets you ignore properties that are auto-mapped.
 
 ```csharp
-bulk.IgnoreOnUpdateExpression = c =>  new { c.ColumnToIgnore };
+bulk.IgnoreOnUpdateExpression = c => new { c.ColumnToIgnore };
 bulk.BulkUpdate(customers.Skip(2));
 ```
 Try it (Entity): [.NET Core](https://dotnetfiddle.net/1xQIi0) | [.NET Framework](https://dotnetfiddle.net/3z531u)
@@ -140,7 +140,7 @@ Try it (Entity): [.NET Core](https://dotnetfiddle.net/vycI3d) | [.NET Framework]
 Try it (DataTable): [.NET Core](https://dotnetfiddle.net/p3F8cB) | [.NET Framework](https://dotnetfiddle.net/8C7est) 
 
 ### More scenarios
-Hundred of scenarios has been solved and are now supported.
+Hundreds of scenarios have been solved and are now supported.
 
 The best way to ask for a special request or to find out if a solution for your scenario already exists is by contacting us:
 info@zzzprojects.com

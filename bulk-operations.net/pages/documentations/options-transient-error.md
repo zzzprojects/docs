@@ -9,7 +9,7 @@ Name: Transient Error
 - [RetryInterval](#retryinterval)
 
 ## RetryCount
-Allow you to set how many time the bulk operation should retry the operation when a transient error occurs.
+Allows you to set how many times the bulk operation should retry the operation when a transient error occurs.
 
 ### Example
 
@@ -22,7 +22,7 @@ bulk.BulkMerge(dt);
 ```
 
 ## RetryInterval
-Allow you to set how many time to wait before trying an operation again when a transient error occurs.
+Allows you to set how many times to wait before trying an operation again when a transient error occurs.
 
 ### Example
 

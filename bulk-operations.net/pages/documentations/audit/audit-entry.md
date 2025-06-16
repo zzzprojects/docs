@@ -26,7 +26,7 @@ namespace Z.BulkOperations
         /// <summary>Gets or sets the `Metas` property.</summary>
         public Dictionary<object, object> Metas { get; set; }
 
-        /// <summary>Gets or sets the `TableName` property..</summary>
+        /// <summary>Gets or sets the `TableName` property.</summary>
         public string TableName { get; set; }
 
         /// <summary>Gets or sets the `Values` property.</summary>

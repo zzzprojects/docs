@@ -59,7 +59,7 @@ The latest way to add the license is by using the `AddLicense` method directly i
 
 ```csharp
 string licenseName = _configuration["licenseName"]; // or any other technique you usually use to read values from the appsettings.json
-string licenseKey = _configuration["licenseKey"]; // // or any other technique you usually use to read values from the appsettings.json
+string licenseKey = _configuration["licenseKey"]; // or any other technique you usually use to read values from the appsettings.json
 
 Z.BulkOperations.LicenseManager.AddLicense(licenseName, licenseKey);
 
@@ -72,11 +72,11 @@ if (!Z.BulkOperations.LicenseManager.ValidateLicense(out licenseErrorMessage))
 ```
 
 NOTE:
-- Make sure to add the license **before making the first use of a paid method** to ensure it is applied correctly. Otherwise, an error will be thrown.
+- Make sure to add the license **before using a paid method for the first time** to ensure it is applied correctly. Otherwise, an error will be thrown.
 
 ## How can I check if my license is valid?
 
-You should always use the `ValidateLicense` method. We highly recommend it, as every time someone reported a [trial expired error](/trial#you-purchased-a-license-but-didnt-add-the-license-correctly) in their production environment, they were not using this method.
+You should always use the `ValidateLicense` method. We highly recommend it, as every time someone has reported a [trial expired error](/trial#you-purchased-a-license-but-didnt-add-the-license-correctly) in their production environment, they were not using this method.
 
 The `ValidateLicense` method allows you to validate that the license has been added correctly. If no license has been added or the license is invalid, the method will return `false`, and you can retrieve the reason in the `licenseErrorMessage` variable:
 
@@ -100,7 +100,7 @@ if (!Z.BulkOperations.LicenseManager.ValidateLicense(out licenseErrorMessage, Pr
 
 The `ERROR_005: The monthly trial period has expired...` error occurs when the license has not been added correctly to your project.
 
-You can find the most common cause and solution for this issue [here](/trial#you-purchased-a-license-but-didnt-add-the-license-correctly). This error can always be avoided by using the [ValidateLicense](/licensing#how-can-i-check-if-my-license-is-valid) method.
+You can find the most common causes and solutions for this issue [here](/trial#you-purchased-a-license-but-didnt-add-the-license-correctly). This error can always be avoided by using the [ValidateLicense](/licensing#how-can-i-check-if-my-license-is-valid) method.
 
 ## How can I get a free license for Personal or Academic purposes?
 

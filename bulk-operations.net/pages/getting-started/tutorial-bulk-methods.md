@@ -14,7 +14,7 @@ The .NET Bulk Operations library allows you to perform all operations in your da
 | <a href="/bulk-delete" target="_blank">BulkDelete</a>      | Execute a DELETE operation. |
 | <a href="/bulk-merge" target="_blank">BulkMerge</a>       | Execute a MERGE/UPSERT operation. UPDATE existing rows matching the key, and INSERT new rows. |
 | <a href="/bulk-savechanges" target="_blank">BulkSaveChanges</a> | Execute an INSERT/UPDATE/DELETE operation using the DataRowState of the DataTable. |
-| <a href="/bulk-synchronize" target="_blank">BulkSynchronize</a> | Execute a SYNCHRONIZE operation. UPDATE existing rows matching the key, INSERT new rows and DELETE records from the destination not existing in the source. |
+| <a href="/bulk-synchronize" target="_blank">BulkSynchronize</a> | Execute a SYNCHRONIZE operation. UPDATE existing rows matching the key, INSERT new rows, and DELETE records from the destination that do not exist in the source. |
 
 ### Example
 

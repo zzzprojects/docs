@@ -8,7 +8,7 @@ Name: Getting Started
 
 Like SqlBulkCopy, it allows you to perform very fast insertion in an SQL Server.
 
-Unlike SqlBulkCopy, it supports all kind of operations:
+Unlike SqlBulkCopy, it supports all kinds of operations:
 
 - Bulk Insert
 - Bulk Update
@@ -73,12 +73,12 @@ Download the <a href="/download">NuGet Package</a>
 - PostgreSQL
 - SQLite
 
-## Who use it?
+## Who uses it?
 
 Already **thousands** of companies of all sizes and kinds use it:
 
-- From start-up company with one developer
-- To fortune 100 companies with hundreds of developers
+- From start-up companies with one developer
+- To Fortune 100 companies with hundreds of developers
 
 Are you still not using it? Give it one try, and you will understand why they choose our library.
 

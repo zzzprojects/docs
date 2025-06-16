@@ -8,7 +8,7 @@ Name: Bulk Synchronize
 
 The `BulkSynchronize` extension method lets you synchronize a large number of entities in your database.
 
-A synchronize is a mirror operation from the data source to the database. All rows that match the entity key are `UPDATED`, non-matching rows that exist from the source are `INSERTED`, non-matching rows that exist in the database are `DELETED`.
+A synchronization is a mirror operation from the data source to the database. All rows that match the entity key are `UPDATED`, non-matching rows that exist from the source are `INSERTED`, non-matching rows that exist in the database are `DELETED`.
 
 ```csharp
 // Easy to use
@@ -31,7 +31,6 @@ bulk.DestinationTableName = "Customers";
 
 bulk.AutoMapKeyName = "Code";
 bulk.BulkSynchronize(dtCustomers);
-});
 ```
 Try it (DataTable): [.NET Core](https://dotnetfiddle.net/hizkul) | [.NET Framework](https://dotnetfiddle.net/RLvbF1)
 
@@ -51,7 +50,7 @@ The `BulkSynchronize` method is **fast** but also **flexible** to let you handle
 ## Getting Started
 
 ### Bulk Synchronize
-The `BulkSynchronize` and `BulkSynchronizeAync` methods let you synchronize a large number of entities in your database.
+The `BulkSynchronize` and `BulkSynchronizeAsync` methods let you synchronize a large number of entities in your database.
 
 ```csharp
 bulk.AutoMapKeyExpression = customer => customer.Code;
@@ -85,7 +84,7 @@ Try it (DataTable): [.NET Core](https://dotnetfiddle.net/RIkSIh) | [.NET Framewo
 Your entity has an identity property, but you want to force it to insert a specific value instead. The `SynchronizeKeepIdentity` option allows you to keep the identity value of your entity.
 
 ```csharp
-bulk.SynchronizeKeepidentity = true;
+bulk.SynchronizeKeepIdentity = true;
 bulk.BulkSynchronize(customers);
 ```
 Try it (Entity): [.NET Core](https://dotnetfiddle.net/Le84Fc) | [.NET Framework](https://dotnetfiddle.net/P6txGi)
@@ -103,7 +102,7 @@ You want to synchronize your entities but only for specific properties.
 bulk.IgnoreOnSynchronizeInsertExpression = c => c.UpdatedDate;
 bulk.IgnoreOnSynchronizeUpdateExpression = c => c.CreatedDate;
 bulk.AutoMapKeyExpression = customer => customer.Code;
-bulk.BulkSynchronize(customizeToSynchronize);
+bulk.BulkSynchronize(customers);
 ```
 Try it (Entity): [.NET Core](https://dotnetfiddle.net/6DBVe5) | [.NET Framework](https://dotnetfiddle.net/4u3Mxf)
 
@@ -141,7 +140,7 @@ bulk.BulkSynchronize(dtCustomers);
 Try it (DataTable): [.NET Core](https://dotnetfiddle.net/QDn8HG) | [.NET Framework](https://dotnetfiddle.net/SGkrot)  
 
 ### More scenarios
-Hundred of scenarios has been solved and are now supported.
+Hundreds of scenarios have been solved and are now supported.
 
 The best way to ask for a special request or to find out if a solution for your scenario already exists is by contacting us:
 info@zzzprojects.com

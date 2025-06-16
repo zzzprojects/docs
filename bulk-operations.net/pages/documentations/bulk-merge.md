@@ -53,7 +53,7 @@ The `BulkMerge` method is **fast** but also **flexible** to let you handle vario
 ## Getting Started
 
 ### Bulk Merge
-The `BulkMerge` and `BulkMergeAync` methods let you merge a large number of entities in your database.
+The `BulkMerge` and `BulkMergeAsync` methods let you merge a large number of entities in your database.
 
 ```csharp
 bulk.BulkMerge(customers);
@@ -112,7 +112,7 @@ Try it (Entity): [.NET Core](https://dotnetfiddle.net/amdE5y) | [.NET Framework]
 ```csharp
 var columnMapping = new ColumnMapping("CreatedDate");
                 
-columnMapping.IgnoreOnMergeUpdate = true
+columnMapping.IgnoreOnMergeUpdate = true;
                     
 bulk.ColumnMappings.Add("CustomerID", true);
 bulk.ColumnMappings.Add("UpdatedDate");
@@ -157,7 +157,7 @@ Try it (Entity): [.NET Core](https://dotnetfiddle.net/CnXzHj) | [.NET Framework]
 Try it (DataTable): [.NET Core](https://dotnetfiddle.net/Y7tDD4) | [.NET Framework](https://dotnetfiddle.net/rhq5ZM) 
 
 ### More scenarios
-Hundred of scenarios has been solved and are now supported.
+Hundreds of scenarios have been solved and are now supported.
 
 The best way to ask for a special request or to find out if a solution for your scenario already exists is by contacting us:
 info@zzzprojects.com

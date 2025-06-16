@@ -20,10 +20,10 @@ namespace Z.BulkOperations
         /// <summary>Gets or sets the `ColumnName` property.</summary>
         public string ColumnName { get; set; }
 
-        /// <summary>Gets or sets the `NewValue` property. The `NewValue` is the actual value after an insert or an update operation is executed.</summary>
+        /// <summary>Gets or sets the `NewValue` property. The `NewValue` is the actual value after an insert or update operation is executed.</summary>
         public object NewValue { get; set; }
 
-        /// <summary>Gets or sets the `OldValue` property. The `OldValue` is the previous value before an update or a delete operation is executed.</summary>
+        /// <summary>Gets or sets the `OldValue` property. The `OldValue` is the previous value before an update or delete operation is executed.</summary>
         public object OldValue { get; set; }
     }
 }

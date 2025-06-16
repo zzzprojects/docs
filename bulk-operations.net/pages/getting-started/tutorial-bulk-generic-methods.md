@@ -5,7 +5,7 @@ Name: Getting Started with Bulk Generic Methods
 # Bulk Generic Methods
 
 ## Description
-Bulk Generic Methods allow you to work with strongly type expression.
+Bulk Generic Methods allow you to work with strongly typed expressions.
 
 | Name      | Description |
 | :-------------- | :------------- |
@@ -13,7 +13,7 @@ Bulk Generic Methods allow you to work with strongly type expression.
 | <a href="/bulk-update" target="_blank">BulkUpdate</a>      | Execute an UPDATE operation. |
 | <a href="/bulk-delete" target="_blank">BulkDelete</a>      | Execute a DELETE operation. |
 | <a href="/bulk-merge" target="_blank">BulkMerge</a>       | Execute a MERGE/UPSERT operation. UPDATE existing rows matching the key, and INSERT new rows. |
-| <a href="/bulk-synchronize" target="_blank">BulkSynchronize</a> | Execute a SYNCHRONIZE operation. UPDATE existing rows matching the key, INSERT new rows and DELETE records from the destination not existing in the source.</a> |
+| <a href="/bulk-synchronize" target="_blank">BulkSynchronize</a> | Execute a SYNCHRONIZE operation. UPDATE existing rows matching the key, INSERT new rows, and DELETE records from the destination that do not exist in the source. |
 
 ### Example
 
