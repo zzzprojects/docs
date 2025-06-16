@@ -1,7 +1,7 @@
 ---
 Title: Essentials of Mapping & Modeling: A Comprehensive Guide 
 MetaDescription: Essentials of Mapping & Modeling: A Comprehensive Guide 
-LastMod: 2025-03-16
+LastMod: 2025-06-16
 ---
 
 # Essentials of Mapping /n A Comprehensive Guide
@@ -87,7 +87,7 @@ Here is a list of supported Data Annotations Attributes that our library recogni
 - **Table:** Specifies the database table that a class is mapped to.
 - **Column:** Maps a property to a column in the database.
 - **Key:** Maps the key to use for your entity
-- **DatabaseGenerated(DatabaseGeneratedOption.Identity)**: Map a property to act like an identiy
+- **DatabaseGenerated(DatabaseGeneratedOption.Identity)**: Map a property to act like an identity
 - **NotMapped:** Indicates that a property should not be mapped to any column in the database.
 
 Additional attributes are supported for features like [CreateTable](/create-table), but that is a topic for another discussion.

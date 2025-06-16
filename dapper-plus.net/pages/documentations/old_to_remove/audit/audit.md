@@ -1,6 +1,6 @@
 ---
 Name: Audit
-LastMod: 2023-02-27
+LastMod: 2025-06-16
 ---
 
 # Audit
@@ -64,4 +64,4 @@ Try it: [.NET Core](https://dotnetfiddle.net/TnH93l) | [.NET Framework](https://
 
 ### Why enabling this option decreases the performance?
 
-When enabling this options, additional SQL are required such as returning all old and new values.
+When enabling this option, additional SQL syntax is required such as returning all old and new values.

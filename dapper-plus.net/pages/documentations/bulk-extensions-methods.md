@@ -1,12 +1,12 @@
 ---
 Title: The Quickest Way to Save Data: Mastering Bulk Extension Methods
 MetaDescription: Learn how to save 75x faster with Dapper Plus bulk extension methods, master bulk chaining methods, and use asynchronous bulk methods.
-LastMod: 2025-03-27
+LastMod: 2025-06-16
 ---
 
 # The Quickest Way to Save Data /n Mastering Bulk Extension Methods
 
-We have seen in our [Benchmark](https://dotnetfiddle.net/kz4UpX) from our getting started article that Dapper Plus was **75x faster** than the traditional way to [insert multiple rows with Dapper](https://www.learndapper.com/saving-data/insert#dapper-insert-multiple-rows), reducing saving time by **99%**.
+We have seen in our [Benchmark](https://dotnetfiddle.net/kz4UpX) from our getting-started article that Dapper Plus was **75x faster** than the traditional way to [insert multiple rows with Dapper](https://www.learndapper.com/saving-data/insert#dapper-insert-multiple-rows), reducing saving time by **99%**.
 
 Our library does more than only inserting; in fact, it covers all scenarios you might have:
 
@@ -37,7 +37,7 @@ It was easy, no? Well, it will get even easier in the next section when we will 
 
 Chaining methods are a way to write code that flows. Over time, they become easier to write, read, and maintain.
 
-We offer 4 types of chaining methods:
+We offer four types of chaining methods:
 
 - **AlsoBulk[Action]:** Performs additional bulk actions at the last hierarchy level without changing the hierarchy level.
 - **ThenBulk[Action]:** Performs additional bulk actions at the last hierarchy level and moves deeper into the hierarchy level.
@@ -88,7 +88,7 @@ See the [Online Example](https://dotnetfiddle.net/hTTWb0)
 
 The `Include` method allows everything within it to move the hierarchy level but only affects what is inside the method. The `Include` method itself is not impacted and always stays at the same level (the customer).
 
-Finally, let's assume our identity value was not propagated automatically. We can use the `ThenForEach` method to propagate this value. This method can also be used to apply any other logic after an operation has been performed, such as logging the current status:
+Finally, let's assume our identity value was not propagated automatically. We can use the `ThenForEach` method to propagate this value. This method can also be used to apply other logic after an operation has been performed, such as logging the current status:
 
 ```csharp
 connection.BulkInsert(newOrders)

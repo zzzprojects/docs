@@ -1,6 +1,6 @@
 ---
 Name: Log
-LastMod: 2023-02-28
+LastMod: 2025-06-16
 ---
 
 # Log
@@ -10,7 +10,7 @@ LastMod: 2023-02-28
 The `Log` property is an action executed when a message of type "Information" happens.
 
 ```csharp
-/// <summary>Gets or sets the Log property. The `Log` property is an action executed when a message of type "Information" happens.</summary>
+/// <summary>Gets or sets the Log property. The `Log` property is an action executed when a message of type "Information" is logged.</summary>
 public Action<string> Log { get; set; }
 ```
 

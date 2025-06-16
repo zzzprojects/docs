@@ -1,7 +1,7 @@
 ---
 Title: What is Dapper Plus? Join Thousands of Companies Boosting Performance Worldwide
 MetaDescription: Learn what Dapper Plus is, who uses this library, why you need this library, how it helps you to develop faster, and how Dapper Plus helps Dapper.
-LastMod: 2025-04-16
+LastMod: 2025-06-16
 ---
 
 # What is Dapper Plus? /n Join Thousands of Companies Boosting Performance Worldwide
@@ -112,4 +112,4 @@ In this overview, we've only just begun to explore the potential of Dapper Plus.
 
 We have seen a very basic scenario and observed that our library is so user-friendly that you can [download it](/download) and start using it right away.
 
-It's now time to continue by learning the basic of Dapper Plus with our [Getting Started](getting-started) article.
+It's now time to continue by learning the basics of Dapper Plus with our [Getting Started](getting-started) article.

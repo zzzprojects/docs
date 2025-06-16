@@ -1,6 +1,6 @@
 ---
 Name: AuditModeType
-LastMod: 2023-02-27
+LastMod: 2025-06-16
 ---
 
 # AuditModeType
@@ -15,7 +15,7 @@ You can include or exclude specific properties with the [ColumnMappingAuditModeT
 // The namespace is different because the https://bulk-operations.net/ library is used under the hood..
 namespace Z.BulkOperations
 {
-    /// <summary>The `AuditModeType` enum represents if all properties should be included or excluded from the auditing. The default value is `AuditModeType.IncludeAll`.</summary>
+    /// <summary>The `AuditModeType` enum represents whether all properties should be included or excluded from the auditing. The default value is `AuditModeType.IncludeAll`.</summary>
     public enum AuditModeType
     {
         /// <summary>The name/value that represents if all entity properties are included (Default Value).</summary>

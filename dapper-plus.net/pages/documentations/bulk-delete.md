@@ -1,7 +1,7 @@
 ---
 Title: Bulk Delete | The Easiest Way in Dapper to Delete Multiple Rows
 MetaDescription: Learn how to perform easier delete in Dapper using the Bulk Delete method, understand why it's essential, and explore some common scenarios.
-LastMod: 2025-04-16
+LastMod: 2025-06-16
 ---
 
 # Bulk Delete /n The Easiest Way in Dapper to Delete Multiple Rows

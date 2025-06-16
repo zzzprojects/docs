@@ -1,6 +1,6 @@
 ---
 Name: Dapper Plus Trial Troubleshooting
-LastMod: 2024-04-11
+LastMod: 2025-06-16
 ---
 
 # Trial Period Expired
@@ -85,7 +85,7 @@ So, the solution is the same as the issue described in the section "The license 
 
 ### The current directory doesn't contain the appsettings.json file
 
-This error is more tricky and more common for `Web API` / `Windows Service` projects. The appsettings.json exists in the same directory as the executable, but the service runs in another directory. So our library doesn't find the `appsettings.json` file.
+This error is trickier and more common for `Web API` / `Windows Service` projects. The appsettings.json exists in the same directory as the executable, but the service runs in another directory. So our library doesn't find the `appsettings.json` file.
 
 In this case, you can either explicitly call the [AddLicense](/licensing#how-do-i-add-the-license-directly-in-the-code) method.
 

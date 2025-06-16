@@ -1,13 +1,13 @@
 ---
 Name: Logging
-LastMod: 2023-02-28
+LastMod: 2025-06-16
 ---
 
 # Logging
 
 ## Description
 
-The Dapper Plus `Logging` feature let you log all messages of type "Information".
+The Dapper Plus `Logging` feature lets you log all messages of type "Information".
 
 
 ## Key Features
@@ -18,7 +18,7 @@ The Dapper Plus `Logging` feature let you log all messages of type "Information"
 
 ## Getting Started
 
-There is 2 ways to use the logging features
+There are two ways to use the logging features
 
 ### Logging with an action
 

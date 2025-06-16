@@ -1,6 +1,6 @@
 ---
 Name: AuditEntry
-LastMod: 2023-02-27
+LastMod: 2025-06-16
 ---
 
 # AuditEntry
@@ -9,7 +9,7 @@ LastMod: 2023-02-27
 
 The `AuditEntry` class represents the auditing row metadata that has been modified.
 
-The auditing value metadata is a list of [AuditEntryItem](audit-entry-item.md) class.
+The auditing value metadata is a list of [AuditEntryItem](audit-entry-item.md) objects.
 
 ```csharp
 // The namespace is different because the https://bulk-operations.net/ library is used under the hood.

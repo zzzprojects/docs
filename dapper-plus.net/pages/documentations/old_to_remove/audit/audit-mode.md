@@ -1,6 +1,6 @@
 ---
 Name: AuditMode
-LastMod: 2023-02-27
+LastMod: 2025-06-16
 ---
 
 # AuditMode
@@ -44,7 +44,7 @@ namespace Z.Dapper.Plus
 
 ## Example
 
-We will demonstrate how to exclude all properties to include only specific properties.
+We will demonstrate how to exclude all properties and include only specific properties.
 
 ### Mapping
 

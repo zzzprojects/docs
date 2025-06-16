@@ -1,7 +1,7 @@
 ---
-Title: Unlocking the Power of a Mapping Key: Map the Same Entity Type Multiple Time 
-MetaDescription: Unlocking the Power of a Mapping Key: Map the Same Entity Type Multiple Time 
-LastMod: 2025-04-13
+Title: Unlocking the Power of a Mapping Key: Map the Same Entity Type Multiple Times 
+MetaDescription: Unlocking the Power of a Mapping Key: Map the Same Entity Type Multiple Times 
+LastMod: 2025-06-16
 ---
 
 # Unlocking the Power of a Mapping Key /n Map the Same Entity Type Multiple Times

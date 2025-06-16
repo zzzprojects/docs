@@ -1,7 +1,7 @@
 ---
 Title: Dapper Create Table | Use Code First approach in your application
 MetaDescription: Explore how to utilize Dapper Plus' CreateTable extension method for a 'Code First' approach in your SQL Server applications. Learn about table types, data annotations, and populating tables swiftly. Ideal for both testing scenarios and specific production use cases.
-LastMod: 2025-04-12
+LastMod: 2025-06-16
 ---
 
 # Dapper Create Table /n Use Code First approach in your application
@@ -20,7 +20,7 @@ Using the `CreateTableType` enum, you can pick the type of table:
 
 Feel free to create `Temporary` or `GlobalTemporary` tables on your production server. However, unlike EF Core's true `Code First` approach, we don't recommend using this method to create permanent tables in a production database. There are better ways to achieve that! Nevertheless, this method is excellent for quickly setting up tables for testing or on [.NET Fiddle](https://dotnetfiddle.net/).
 
-In addition, a connection must be open when creating a `Temporary` or `GlobalTemporary` table since those table only live during the connection.
+In addition, a connection must be open when creating a `Temporary` or `GlobalTemporary` table since those tables only live during the connection.
 
 ## Create Table
 
@@ -107,7 +107,7 @@ public class Customer
 
 ## Create Table and Populate
 
-Besides creating a table, you can also populate it with a list right after you make it. However this part require a valid [Dapper Plus License](/pricing) as a [Bulk Insert](/bulk-insert) is used to populate it:
+Besides creating a table, you can also populate it with a list right after you make it. However this part requires a valid [Dapper Plus License](/pricing) as a [Bulk Insert](/bulk-insert) is used to populate it:
 
 - `CreateTable<T>(this IDbConnection connection, IEnumerable<T> items, string tableName)`
 - `CreateTable<T>(this IDbConnection connection, IEnumerable<T> items, CreateTableType createTableType)`

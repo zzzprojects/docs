@@ -1,6 +1,6 @@
 ---
 Name: ColumnMappingAuditModeType
-LastMod: 2023-02-27
+LastMod: 2025-06-16
 ---
 
 # ColumnMappingAuditModeType
@@ -15,7 +15,7 @@ You can include or exclude all properties with the `Inherit` value using the [Au
 // The namespace is different because the https://bulk-operations.net/ library is used under the hood.
 namespace Z.BulkOperations
 {
-    /// <summary>The `ColumnMappingAuditModeType` enum represents if a specific property should be included or excluded from the auditing. The default value is `ColumnMappingAuditModeType.Inherit`.</summary>
+    /// <summary>The `ColumnMappingAuditModeType` enum represents whether a specific property should be included or excluded from the auditing. The default value is `ColumnMappingAuditModeType.Inherit`.</summary>
     public enum ColumnMappingAuditModeType
     {
         /// <summary>The name/value that represents if a specific property inherit from the AuditModeType (Default Value).</summary>

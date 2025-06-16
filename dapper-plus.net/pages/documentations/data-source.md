@@ -1,7 +1,7 @@
 ---
 Title: Exploring Supported Data Sources in Dapper Plus: What You Need to Know 
 MetaDescription: Learn how to use Dapper Plus with strongly typed entities, Expando objects, and DataTables.
-LastMod: 2025-04-16
+LastMod: 2025-06-16
 ---
 
 # Dapper Data Source /n Exploring Supported Data Sources in Dapper Plus: What You Need to Know
@@ -109,7 +109,7 @@ connection.BulkInsert("DataTable_Product", dtProduct);
 
 [Online Example](https://dotnetfiddle.net/qu57gL)
 
-This example demonstrates how execute a [bulk insert](/bulk-insert) operations with DataTables.
+This example demonstrates how to execute a [bulk insert](/bulk-insert) operations with DataTables.
 
 ## Conclusion
 

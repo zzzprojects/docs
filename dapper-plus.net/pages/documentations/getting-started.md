@@ -1,7 +1,7 @@
 ---
 Title: Getting Started with Dapper Plus in Under 10 Minutes
 MetaDescription: Learn the basics of Dapper Plus in under 10 minutes. Install the library, execute bulk inserts, map entities, and explore options.
-LastMod: 2024-10-05
+LastMod: 2025-06-16
 ---
 
 # Getting Started with Dapper Plus
@@ -59,7 +59,7 @@ connection.BulkInsert(orders.SelectMany(x => x.Items));
 
 [Online Examples](https://dotnetfiddle.net/0ijPFA)
 
-Nothing special in our example besides that the `OrderID` identity value has been automatically propagated to their corresponding items. See the following article if you want to know more about [propagating the identity value](/identity-key-propagation).
+Nothing special in our example besides that the `OrderID` identity value has been automatically propagated to its corresponding items. See the following article if you want to know more about [propagating the identity value](/identity-key-propagation).
 
 Let's now make our code even simpler by using what we call [chaining methods](/bulk-extensions-methods#chaining-methods), employing the same principle we usually see with LINQ:
 

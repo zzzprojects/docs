@@ -1,7 +1,7 @@
 ---
 Title: Bulk Merge | The Fastest Way in Dapper to Upsert Multiple Rows
 MetaDescription: Learn how to perform faster "add or update"/"upsert" in Dapper using the Bulk Merge method, understand why it's essential, and explore some common scenarios.
-LastMod: 2025-04-16
+LastMod: 2025-06-16
 ---
 
 # Bulk Merge /n The Fastest Way in Dapper to Upsert Multiple Rows
@@ -54,7 +54,7 @@ WHEN NOT MATCHED BY TARGET THEN
 
 **The problem** is similar to what we have observed in our [Bulk Insert Benchmark](/bulk-insert#benchmark); one database round-trip is required for every row that needs to be updated, making the entire operation significantly slower than if you use the Dapper Plus `BulkMerge` method.
 
-Additionally, the syntax is not very straightfoward, often make it very hard to write not only for new developers, but even for experienced developers (myself included, I need to check on Google/ChatGPT every time!).
+Additionally, the syntax is not very straightforward, often making it very hard to write not only for new developers, but even for experienced developers (myself included, I need to check on Google/ChatGPT every time!).
 
 Let's compare the performance of both techniques:
 

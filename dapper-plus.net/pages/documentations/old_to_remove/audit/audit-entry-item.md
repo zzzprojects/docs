@@ -1,15 +1,13 @@
 ---
 Name: AuditEntryItem
-LastMod: 2023-02-27
+LastMod: 2025-06-16
 ---
 
 # AuditEntryItem
 
 ## Description
 
-The `AuditEntryItem` class represents the auditing value metadata of a row that has been modified.
-
-The entry item is used in the [AuditEntry](audit-entry.md) class.
+The `AuditEntryItem` class represents the auditing value metadata of a row that has been modified; the entry item is used in the [AuditEntry](audit-entry.md) class.
 
 ```csharp
 // The namespace is different because the https://bulk-operations.net/ library is used under the hood.

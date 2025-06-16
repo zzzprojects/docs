@@ -1,7 +1,7 @@
 ---
 Title: Bulk Insert | The Fastest Way in Dapper to Insert Multiple Rows
 MetaDescription: Learn how to perform faster inserts in Dapper using the Bulk Insert method, understand why it's essential, and explore some common scenarios.
-LastMod: 2025-04-15
+LastMod: 2025-06-16
 ---
 
 # Bulk Insert /n The Fastest Way in Dapper to Insert Multiple Rows
@@ -23,7 +23,7 @@ The `BulkInsert` method is not only exceptionally fast but also very easy to use
 
 ## Benchmark
 
-The traditional technique to [insert multiple rows in Dapper](https://www.learndapper.com/saving-data/insert#dapper-insert-multiple-rows) require you to write your `INSERT` statement and pass a list of entities to the [execute](https://www.learndapper.com/non-query) method:
+The traditional technique to [insert multiple rows in Dapper](https://www.learndapper.com/saving-data/insert#dapper-insert-multiple-rows) requires you to write your `INSERT` statement and pass a list of entities to the [execute](https://www.learndapper.com/non-query) method:
 
 ```csharp
 connection.Execute(@"
