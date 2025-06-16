@@ -5,7 +5,7 @@ Name: Null Propagation
 
 # Null Propagation
 
-One of the features that most developers like is the null conditional operator and is used almost everywhere. But when it is used in the LINQ query (which uses EntityFramework to access a database) like as shown in the below code snippet.
+One of the features that most developers like is the null conditional operator and is used almost everywhere. But when it is used in the LINQ query (which uses EntityFramework to access a database) like the one shown in the below code snippet.
 
 ## Using Null Propagation in strongly typed LINQ-SQL
 
@@ -23,7 +23,7 @@ It throws the following exception:
 
 `Error CS8072: An expression tree lambda may not contain a null propagating operator.`
 
-Here is the solution for normal strongly typed LINQ query:
+Here is the solution for a normal strongly typed LINQ query:
 
 ```csharp
 using (var context = new EntityContext())

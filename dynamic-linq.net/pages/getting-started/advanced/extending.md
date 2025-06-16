@@ -42,7 +42,7 @@ public static class Utils
 
 This class has two simple methods:
 
-- return a integer value of 0 when the input string is null, else parse the string to an integer
+- return an integer value of 0 when the input string is null, else parse the string to an integer
 - increment an integer value by using an extension method
 
 

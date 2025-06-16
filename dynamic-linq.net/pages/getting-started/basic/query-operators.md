@@ -6,7 +6,7 @@ Name:Query Operators
 
 ## Standard Query Operators
 
-The following table lists of all Dynamic Query Operators are supported on a `IQueryable` or `IQueryable<T>`.
+The following table lists all Dynamic Query Operators that are supported on an `IQueryable` or `IQueryable<T>`.
 
 Query Operator | Return Type | Info
 :--| :- | :-
@@ -34,7 +34,7 @@ Query Operator | Return Type | Info
 [OfType](#cast_and_oftype) | IQueryable | Filters the elements based on a specified type.
 [OrderBy](basic-simple-query#ordering-results) | IOrderedQueryable or IOrderedQueryable&lt;T&gt; | Sorts the elements of a sequence in ascending or descending order according to a key.
 [Page](#page-pageresult) | IQueryable or IQueryable&lt;T&gt; | Returns the elements as paged.
-[PageResult](#page-pageresult) | PagedResult or PagedResult&lt;T&gt; | Returns the elements as paged and include the CurrentPage, PageCount, PageSize and RowCount.
+[PageResult](#page-pageresult) | PagedResult or PagedResult&lt;T&gt; | Returns the elements as paged and include the CurrentPage, PageCount, PageSize, and RowCount.
 [Reverse](#reverse) | IQueryable | Inverts the order of the elements in a sequence. [Maybe not supported in all scenarios](https://msdn.microsoft.com/library/bb738550.aspx)
 [Select](basic-simple-query#selecting-entities-and-properties) | IQueryable or IQueryable&lt;T&gt; | Projects each element of a sequence into a new form.
 [SelectMany](#selectmany) | IQueryable or IQueryable&lt;T&gt; | Projects each element of a sequence and combines the resulting sequences into one sequence.
@@ -139,7 +139,7 @@ var ofTypeBossA = context.Employees.OfType(boss);
 var ofTypeBossB = context.Employees.OfType("Test.Models.Boss");
 ```
 
-The `Cast`-operator can be used to cast a base-class to the real class. Note that this can only work if the cast is valid. 
+The `Cast` operator can be used to cast a base class to the real class. Note that this can only work if the cast is valid. 
 
 Example:
 ```csharp
@@ -147,7 +147,7 @@ var allWorkers = context.Employees.OfType(typeof(Worker));
 var castToWorkers = allWorkers.Cast(typeof(Worker));
 ```
 
-It is also possible to cast to a nullable type, in the example below the Value proeprty is cast to a nullable int.
+It is also possible to cast to a nullable type, in the example below the Value property is cast to a nullable int.
 
 ``` csharp
 var count = qry.Count("As(Value, \"int?\") != null");
@@ -227,7 +227,7 @@ var result = queryable.Select("@0.Except(@1).ToList()", list1, list2);
 
 ### First, FirstOrDefault
 
-The First and FirstOrDefault methods can be used directly on a `IQueryable` or `IQueryable<T>` like this:
+The First and FirstOrDefault methods can be used directly on an `IQueryable` or `IQueryable<T>` like this:
 
 ```csharp
 var first = context.Customers.First("c => c.City == \"Paris\"");
@@ -290,7 +290,7 @@ var result = context.Posts.GroupBy("BlogId").Select("new(Key, Sum(NumberOfReads)
 
 ### GroupByMany
 
-The GroupByMany extension method can only operate on a IEnumerable&lt;TElement&gt and can be used as a strongly typed method or as a Dynamic LINQ string expression.
+The GroupByMany extension method can only operate on an IEnumerable&lt;TElement&gt; and can be used as a strongly typed method or as a Dynamic LINQ string expression.
 
 #### GroupByMany strongly typed extension
 
@@ -352,7 +352,7 @@ var dynamicQuery = persons.AsQueryable().Join(
 
 ### Last, LastOrDefault
 
-[Maybe not supported in all scenarios](https://msdn.microsoft.com/library/bb738550.aspx)
+[May not be supported in all scenarios](https://msdn.microsoft.com/library/bb738550.aspx)
 The Last and LastOrDefault methods can be used directly on a `IQueryable` or `IQueryable<T>` like this:
 
 ```csharp
@@ -470,11 +470,11 @@ var skipped = context.Customers.ToList().AsQueryable().SkipWhile("CompanyName !=
 
 ### Sum
 
-here is an example of Dynamic LINQ on how to get the total price from all orders:
+Here is an example of Dynamic LINQ on how to get the total price from all orders:
 
 ```csharp
 var totalPriceExample1 = context.Orders.Select("Price * Amount").Sum();
-var var totalPriceExample2 = context.Orders.Sum("Price * Amount");
+var totalPriceExample2 = context.Orders.Sum("Price * Amount");
 ```
 
 [Try it online](https://dotnetfiddle.net/DaE85i)

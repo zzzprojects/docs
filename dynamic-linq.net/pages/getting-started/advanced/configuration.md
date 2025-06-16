@@ -25,7 +25,7 @@ In order to use the ParsingConfig, you will **need** to pass this config object 
 
 ## ParsingConfig
 
-It is the configuration class in System.Linq.Dynamic.Core library and it provides the following settings.
+It is the configuration class in the System.Linq.Dynamic.Core library and it provides the following settings.
 
 ### AllowNewToEvaluateAnyType
 
@@ -68,7 +68,7 @@ The default value is false.
 
 ### NumberParseCulture
 
-Set this if you want to use another number of parsing culture. The default value is InvariantCulture.
+Set this if you want to use another number-parsing culture. The default value is InvariantCulture.
 
 For example, if you set this to `CultureInfo.CreateSpecificCulture("de-DE")` and if you use a value like `3,21`, this is parsed to the decimal value `3.21`.
 
@@ -220,7 +220,7 @@ Where `result` is a `int` with value `0`.
 
 ### SupportCastingToFullyQualifiedTypeAsString
 
-Support casting to a full qualified type using a string (double quoted value). Default value is `true`.
+Support casting to a fully qualified type using a string (double quoted value). Default value is `true`.
 
 Example:
 ``` csharp
@@ -348,7 +348,7 @@ var result = customers.Where(config, "Value == \"\"\"\"");
 When set to `true`, the `OrderBy` method will only allow properties or fields to be used. Default value is `true`.
 This setting can be used to prevent SQL injection when using the `OrderBy` method.
 
-The next example throws an exception when the `OrderBy` method is called with something else then a property:
+The next example throws an exception when the `OrderBy` method is called with something else than a property:
 ``` csharp
 var result = customers.OrderBy(config, "IIF(1 == 1, 1, 0)");
 ```

@@ -20,7 +20,7 @@ The `CreateType` method creates a new data class with a given set of public prop
 - Data classes also override the `Equals` and `GetHashCode` members to implement by-value equality.
 - Data classes are created in an in-memory assembly in the current application domain.
 - All data classes inherit from `System.Linq.Dynamic.Core.DynamicClass` and are given automatically generated names that should be considered private (the names will be unique within the application domain but not across multiple invocations of the application). Note that once created, a data class stays in memory for the lifetime of the current application domain. There is currently no way to unload a dynamically created data class.
-- Optionally, you can define if you want to generate a constructor with parameters. Default set to true. Note that for Linq-to-Database objects, this needs to be set to false.
+- Optionally, you can define if you want to generate a constructor with parameters. Default is set to true. Note that for Linq-to-Database objects, this needs to be set to false.
 
 ## Example
 

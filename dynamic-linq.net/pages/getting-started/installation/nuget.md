@@ -15,7 +15,7 @@ You can also install this library using the **Package Manager Console** window b
 
 `PM> Install-Package System.Linq.Dynamic.Core`
 
-You are ready to start writing some code using the Dynamic LINQ.
+You are ready to start writing some code using Dynamic LINQ.
 
 This library can be used for
 
@@ -25,7 +25,7 @@ This library can be used for
 
 ## Install EntityFramework versions from the Dynamic LINQ Library
 
-In case you would like to have support for *Async*-operators, you need to install the correct version for your used EntityFramework version.
+In case you would like to have support for *Async*-operators, you need to install the correct version for your Entity Framework version in use.
 
 | EntityFramework version | NuGet needed |
 | :--- | :--- |

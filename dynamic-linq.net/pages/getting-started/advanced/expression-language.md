@@ -15,11 +15,11 @@ The Dynamic LINQ expression language provides a simple and convenient way of wri
 The expression language defines the following constants:
 
 - The `true` and `false` denote the values of the type `bool`.
-- The `null` denotes a null reference, and the `null` constant is of type `Object`, who is also implicitly convertible to any reference type.
+- The `null` denotes a null reference, and the `null` constant is of type `Object`, which is also implicitly convertible to any reference type.
 
 ## Identifiers
 
-An Identifier consists of a letter or underscore followed by any number of letters, digits, or underscores. In order to reference an identifier with the same spelling as a keyword, the identifier must be prefixed with a single `@` character.
+An identifier consists of a letter or underscore followed by any number of letters, digits, or underscores. In order to reference an identifier with the same spelling as a keyword, the identifier must be prefixed with a single `@` character.
 Some examples of identifiers: `x`, `Hello`, `m_1`, `@true` and `@String`.
 
 Identifiers of the form `@x`, where x is an integral number greater than or equal to zero, are used to denote the substitution values, if any, that were passed to the expression parser. For example:
@@ -120,7 +120,7 @@ The expression language allows explicit conversions using the syntax type `(_exp
 
 ## Operators
 
-The expression language supported the following operators in order of precedence from highest to lowest. Operators in the same category have equal precedence. 
+The expression language supports the following operators in order of precedence from highest to lowest. Operators in the same category have equal precedence. 
 
 In the below table, `x`, `y`, and `z` denote expressions, `T` denotes a type, and `m` denotes a member.
 

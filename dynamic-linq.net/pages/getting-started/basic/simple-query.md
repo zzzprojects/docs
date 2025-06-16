@@ -5,7 +5,7 @@ Name:Simple Query
 
 # Simple Query
 
-## Strongly typed LINQ versus Dynamic Linq
+## Strongly typed LINQ versus Dynamic LINQ
 
 When querying data using Dynamic LINQ, everything can be expressed using strings. This includes predicates, selectors, and sorting.
 
@@ -29,7 +29,7 @@ When we break down these examples:
 
 1. The context.Customers in this case is a `DbSet<Customer>`, which implements `IQueryable<T>`. This is the same starting point for both examples.
 
-2. The `Where`-predicate for Dynamic Linq is written as a string, where the same property is used (City) and the same value (Paris).
+2. The `Where` predicate for Dynamic LINQ is written as a string, where the same property is used (City) and the same value (Paris).
    
    Since the value "Paris" is a string itself, we need to escape the double quotes with a `\`. So the `"` becomes a `\"`.
 
@@ -45,7 +45,7 @@ When we break down these examples:
 Note that instead of using the query value directly in the string like `"City == \"Paris\""` you can also use [composite string formatting](https://docs.microsoft.com/en-us/dotnet/standard/base-types/composite-formatting). But instead of using the format item syntax `{n}`, you need to use `@n` (Where `n` is the index). So line 2 in the example above will become:
 
 ```csharp
-.Where("City == @0", "Paris")`
+.Where("City == @0", "Paris")
 ```
 
 And of course, it's not required to specify the value as a hard-coded value. So another valid Dynamic LINQ query example will be:
@@ -79,7 +79,7 @@ var resultDynamic = context.Customers
     .ToList();
 ```
 
-Note that instead of the `&&`-operand, you can use `and`. Also in this example you can use composite string formatting. In that case, the Dynamic LINQ will be:
+Note that instead of the `&&` operators, you can use `and`. Also in this example you can use composite string formatting. In that case, the Dynamic LINQ will be:
 
 ```csharp
 var resultDynamic = context.Customers
@@ -101,7 +101,7 @@ var resultDynamic = context.Customers
 
 Selecting entities or only the properties you need is another powerful feature of LINQ. Since the generated SQL will only return a limited set and not the whole entity, it is more useful if you only want to return a few columns.
 
-Here is an example of a strongly typed:
+Here is an example of a strongly typed query:
 
 ```csharp
 var result = context.Customers
@@ -120,7 +120,7 @@ var resultDynamic = context.Customers
 When we break down these two examples:
 
 1. The context.Customers in this case is a `DbSet<Customer>`, which implements `IQueryable<T>`. This is the same starting point for both examples.
-2. The `Select`-method for Dynamic Linq is written as a string, where the same properties are used (City and CompanyName).
+2. The `Select` method for Dynamic LINQ is written as a string, where the same properties are used (City and CompanyName).
 3. For Dynamic LINQ we need to use the `ToDynamicList()` method, because the return from the `Select` is an `IQueryable`. The result from both the strongly typed and dynamic example is the same: a list from a dynamic-generated class with two properties (City and CompanyName).
 
 [View all above examples here](https://dotnetfiddle.net/ZN3FSo)
@@ -149,7 +149,7 @@ When we break down these two examples:
 
 1. The context.Customers in this case is a `DbSet<Customer>`, which implements `IQueryable<T>`. This is the same starting point for both examples.
 2. In the strongly typed LINQ example, you need to call the `OrderBy`-method, followed by the `ThenBy`-method to sort the result; first on the City and then on the CompanyName.
-For Dynamic Linq you only need to use the `OrderBy`-method, and provide the two sort properties as a comma separated string.
+For Dynamic LINQ you only need to use the `OrderBy`-method, and provide the two sort properties as a comma separated string.
 3. The `ToList()` method for both examples will return a strongly typed list: `List<Customer>`.
 
 ## Ordering results (combining ascending and descending)
@@ -187,9 +187,9 @@ The identifiers `@x` are only used for the (constant) values in the query.
 
 
 ### Providing a comparer
-It's also possible to provide a comparer to the `OrderBy` or `ThenBy`. This can be done by providing class which implements the `IComparer<T>` interface.
+It's also possible to provide a comparer to the `OrderBy` or `ThenBy`. This can be done by providing a class that implements the `IComparer<T>` interface.
 
-An example of provising a comparer for a string property:
+An example of providing a comparer for a string property:
 ```csharp
 var result = context.Customers
     .OrderBy("City", StringComparer.OrdinalIgnoreCase)

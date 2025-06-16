@@ -7,7 +7,7 @@ Name: Blazor WebAssembly
 
 It is possible to use the Dynamic LINQ (`System.Linq.Dynamic.Core`) library in a Blazor WebAssembly client project.
 
-However you can run into the issues as described below, read further on how to fix this.
+However, you can run into the issues as described below, read further on how to fix this.
 
 
 ## Issue(s)
@@ -21,9 +21,9 @@ Operator '&&' incompatible with operand types 'Boolean' and 'Boolean' (at index 
 
 ## Solution
 
-The solution for these issue is in most cases to add the following line to the `.csproj` client project:
+The solution for these issues is in most cases to add the following line to the `.csproj` client project:
 ``` xml
 <BlazorWebAssemblyEnableLinking>false</BlazorWebAssemblyEnableLinking>
 ```
 
-If you want more fine-grained control on which assembles are linked, see [this link](https://docs.microsoft.com/en-us/aspnet/core/blazor/host-and-deploy/configure-linker?view=aspnetcore-3.1#control-linking-with-a-configuration-file).
+If you want more fine-grained control on which assemblies are linked, see [this link](https://docs.microsoft.com/en-us/aspnet/core/blazor/host-and-deploy/configure-linker?view=aspnetcore-3.1#control-linking-with-a-configuration-file).
