@@ -2,7 +2,7 @@
 PermaID: 1000186
 Title: Dapper Contrib - Learn What Is This Library and How to Use It
 MetaDescription: Unlock the power of Dapper Contrib by understanding the basics and more advanced topics of this third-party library. Learn what Dapper Contrib is, how it works, and all the documentation you need to get started.
-LastMod: 2023-10-21
+LastMod: 2025-06-16
 ---
 
 # Dapper Contrib: Discover What Is This Library and How to Use It
@@ -20,7 +20,7 @@ Dapper Contrib is a 3rd party library that extends the Dapper functionality by p
 
 Yes, Dapper Contrib is free and open source.
 
-It is released under the Appache 2.0 license: https://github.com/DapperLib/Dapper.Contrib/blob/main/License.txt
+It is released under the Apache 2.0 license: https://github.com/DapperLib/Dapper.Contrib/blob/main/License.txt
 
 ## CRUD Operations
 
@@ -31,7 +31,7 @@ CRUD operations are the basic operations that are performed on a database. CRUD 
  - Update: This operation is used to update existing records in a database table.
  - Delete: This operation is used to delete records from a database table.
 
-Dapper Contrib is simple yet very powerful and makes working with most databases. It extends the `IDbConnection` interface with additional CRUD methods.
+Dapper Contrib is simple yet very powerful and makes working with most databases easier. It extends the `IDbConnection` interface with additional CRUD methods.
 
 ## Installation
 

@@ -2,7 +2,7 @@
 PermaID: 1000173
 Title: Dapper Query - Learn How to Query Your Database and Return a List
 MetaDescription: Unlock the power of Dapper Query to optimize your C# database operations. Learn how to use Query and QueryAsync to return a list of anonymous type or strongly typed entities.
-LastMod: 2023-10-20
+LastMod: 2025-06-16
 ---
 
 # Dapper Query: Discover How to Query Your Database and Return a List
@@ -118,7 +118,7 @@ A one-to-one relationship is a relationship between two entities where each enti
 
 With the Dapper multi-mapping feature, you can easily configure the one-to-one relationship. The raw SQL query can be executed using the `Query` method and map the result to a strongly typed list with a one-to-one relation.
 
-Now let's say we want to fetch all the invoices, and also get invoice detail for each invoice. We can do this with the following code.
+Now let's say we want to fetch all the invoices, and also get invoice details for each invoice. We can do this with the following code.
 
 ```csharp
 string sql = "SELECT * FROM Invoice AS A INNER JOIN InvoiceDetail AS B ON A.InvoiceID = B.InvoiceID;";
@@ -140,17 +140,17 @@ using (var connection = My.ConnectionFactory())
 }
 ```
 
-In the above example, the input parameters are `Invoice` and an `InvoiceDetail`, and the return type is `Invoice` (`<Invoice, InvoiceDetail, Invoice>`). So we are telling the `Query` method to take an `invoice` and `invoiceDetail`, process them in some way to be defined, and return an `invoice`.
+In the above example, the input parameters are `Invoice` and `InvoiceDetail`, and the return type is `Invoice` (`<Invoice, InvoiceDetail, Invoice>`). So we are telling the `Query` method to take an `Invoice` and `InvoiceDetail`, process them in some way to be defined, and return an `invoice`.
 
 The `splitOn` argument tells Dapper to split the data on the `InvoiceID` column. Anything up to that column maps to the first parameter `Invoice`, and anything else from that column onward should be mapped to the second input parameter `InvoiceDetail`.
 
 ## Example - Query Multi-Mapping (One to Many)
 
-In a one-to-many relationship, each record in the first table can be linked to zero, one, or multiple records in the second table. For example, an order can have many orderDetail. In this case, the `OrderID` field in the `OrderDetails` table is said to be a foreign key that references the `Orders` table.
+In a one-to-many relationship, each record in the first table can be linked to zero, one, or multiple records in the second table. For example, an order can have many `OrderDetail`. In this case, the `OrderID` field in the `OrderDetails` table is said to be a foreign key that references the `Orders` table.
 
 The Dapper multi-mapping feature allows you to configure the one-to-many relationship easily. The raw SQL query can be executed using the `Query` method and map the result to a strongly typed list with one-to-many relations.
 
-To map these results to `Order` and an `OrderDetail` objects, multi-map and split on the `OrderID` column. The map function is more complex in the one-to-many scenario.
+To map these results to `Order` and `OrderDetail` objects, multi-map and split on the `OrderID` column. The map function is more complex in the one-to-many scenario.
 
 ```csharp
 string sql = "SELECT TOP 10 * FROM Orders AS A INNER JOIN OrderDetails AS B ON A.OrderID = B.OrderID;";
@@ -186,7 +186,7 @@ using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlSer
     FiddleHelper.WriteTable(list.First().OrderDetails);
 }
 ```
-In the above example, the input parameters are `Order` and an `OrderDetail`, and the return type is `Order` (`<Order, OrderDetail, Order>`). So we are telling the `Query` method to take an `order` and `orderDetail`, process them in some way to be defined, and return an `order`. It means, first map the columns to an `Order` object, then to an `OrderDetail` object, and return `IEnumerable<Order>`.
+In the above example, the input parameters are `Order` and `OrderDetail`, and the return type is `Order` (`<Order, OrderDetail, Order>`). So we are telling the `Query` method to take an `order` and `orderDetail`, process them in some way to be defined, and return an `order`. It means, first map the columns to an `Order` object, then to an `OrderDetail` object, and return `IEnumerable<Order>`.
 
 Try it: [.NET Core](https://dotnetfiddle.net/HClmCa) | [.NET Framework](https://dotnetfiddle.net/DPiy2b)
 

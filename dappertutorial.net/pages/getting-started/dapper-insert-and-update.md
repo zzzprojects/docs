@@ -1,8 +1,8 @@
 ---
 PermaID: 1000204
 Title: Dapper - Getting Started With Inserting and Updating Data
-MetaDescription: Learn how to insert and update records in your database to get started with Dapper. Follow our step-by-step Dapper tutorial for to insert and update data.
-LastMod: 2023-10-22
+MetaDescription: Learn how to insert and update records in your database to get started with Dapper. Follow our step-by-step Dapper tutorial to insert and update data.
+LastMod: 2025-06-16
 ---
 
 # Dapper: Getting Started With Inserting and Updating Data
@@ -56,7 +56,7 @@ public ActionResult Create(Customer customer)
 }
 ```
 
-Let's create a view by right-clicking on the `Create` action method in `CustomerController` and select the **Add View**. On the **Add Scaffold** dialog, choose **MVC 5 View** and click on the Add button.
+Let's create a view by right-clicking on the `Create` action method in `CustomerController` and selecting the **Add View**. On the **Add Scaffold** dialog, choose **MVC 5 View** and click on the Add button.
 
 <img src="https://raw.githubusercontent.com/zzzprojects/docs/master/dappertutorial.net/images/create-view-4.png" alt="Create view-4">
 

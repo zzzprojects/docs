@@ -2,7 +2,7 @@
 PermaID: 1000210
 Title: Dapper.Rainbow - A Getting Started Tutorial for CRUD Operations
 MetaDescription: Discover Dapper.Rainbow Library to perform CRUD operations such as Get, Insert, Update, Delete, All. Learn about Dapper.Rainbow limitations and how to install it with NuGet.
-LastMod: 2023-10-23
+LastMod: 2025-06-16
 ---
 
 # Dapper.Rainbow: A Getting Started Tutorial for CRUD Operations
@@ -35,7 +35,7 @@ More information and documentation can be found at: <a href="https://github.com/
 
 ## APIs
 
-Once you installed this library, you will need to create a new class derived from the Database<T> class which will work as a container for all the tables.
+Once you install this library, you will need to create a new class derived from the Database<T> class which will work as a container for all the tables.
 
 ```csharp
 class MyDatabase : Database<MyDatabase>

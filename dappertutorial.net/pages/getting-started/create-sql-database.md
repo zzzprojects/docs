@@ -1,8 +1,8 @@
 ---
 PermaID: 1000199
 Title: Dapper - Getting Started With Your First SQL Database
-MetaDescription: Learn how to create a SQL database and table to get started with Dapper. Follow our step-by-step Dapper tutorial with to create your first database.
-LastMod: 2023-10-22
+MetaDescription: Learn how to create a SQL database and table to get started with Dapper. Follow our step-by-step Dapper tutorial to create your first database.
+LastMod: 2025-06-16
 ---
 
 # Dapper: Getting Started With Your First SQL Database

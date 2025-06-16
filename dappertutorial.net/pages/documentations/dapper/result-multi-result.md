@@ -2,7 +2,7 @@
 PermaID: 1000181
 Title: Dapper Multi-Result Result - Learn How to Map With Multiple Results
 MetaDescription: Unlock the power of Dapper by returning a Multi-Result Result by combining queries to map multiple entity types or dynamic objects. Learn how to query your database by combining your queries in a single one and using the resultset to read all your results.
-LastMod: 2023-10-20
+LastMod: 2025-06-16
 ---
 
 # Dapper Multi-Result Result: Discover How to Map With Multiple Results
@@ -13,7 +13,7 @@ The multi-result is the ability to map a single query to multiple objects. It is
 
  - The `QueryMultiple` can be called from any object of type `IDbConnection`. 
  - It can execute multiple queries within the same command and map results.
- - It will return a resultset for each type you pass in and you can then use the `Read<T>` method on each resultset to get an `IEnumerable<T>` for that resultset.
+ - It will return a result set for each type you pass in and you can then use the `Read<T>` method on each result set to get an `IEnumerable<T>` for that result set.
 
  The following example shows how to execute two SQL statements in one round trip to the database. In the first query, we get all invoices from the `Invoices` table, and in the second query, we get all invoice items from the `InvoiceItems` table. 
 

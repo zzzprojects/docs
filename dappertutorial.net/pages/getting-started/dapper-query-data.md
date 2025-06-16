@@ -2,7 +2,7 @@
 PermaID: 1000203
 Title: Dapper - Getting Started With Querying Data
 MetaDescription: Learn how to use query record from a SQL database to get started with Dapper. Follow our step-by-step Dapper tutorial for to query data.
-LastMod: 2023-10-22
+LastMod: 2025-06-16
 ---
 
 # Dapper: Getting Started With Querying Data
@@ -29,7 +29,7 @@ Select **Add > Controller...** option.
 
 <img src="https://raw.githubusercontent.com/zzzprojects/docs/master/dappertutorial.net/images/create-controller-1.png" alt="Create controller-1">
 
-On **Add Scaffold** dialog, choose **MVC 5 Controller with read/write actions**, click on **Add** button and call it `CustomerController`.
+On **Add Scaffold** dialog, choose **MVC 5 Controller with read/write actions**, click on **Add** button, and call it `CustomerController`.
 
 In the Controller `Index` Action, let's add the following code to retrieve all the data from the Customers table.
 

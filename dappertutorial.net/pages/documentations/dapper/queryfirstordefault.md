@@ -2,7 +2,7 @@
 PermaID: 1000175
 Title: Dapper Query FirstOrDefault - Learn How to Return First Row
 MetaDescription: Unlock the power of Dapper Query FirstOrDefault to optimize your C# database operations. Learn how to use QueryFirstOrDefault and QueryFirstOrDefaultAsync to return an anonymous type or strongly typed entity.
-LastMod: 2023-10-20
+LastMod: 2025-06-16
 ---
 
 # Dapper Query FirstOrDefault: Discover How to Return First Row or Default Value
@@ -58,7 +58,7 @@ When deciding which method to use, it is important to consider the particular ne
 
 ## Example - QueryFirstOrDefault Anonymous
 
-The raw SQL query can be executed using the `QueryFirstOrDefault` method and map the first result to a dynamic list, or a default value if the sequence contains no elements to a dynamic list. 
+The raw SQL query can be executed using the `QueryFirstOrDefault` method and map the first result to a dynamic list, or a default value if the sequence contains no elements. 
 
 You could store the results of this query in a [Dapper anonymous result type](/result-anonymous) as follows:
 

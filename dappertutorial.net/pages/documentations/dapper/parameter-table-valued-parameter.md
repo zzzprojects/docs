@@ -1,14 +1,14 @@
 ---
 Title: Dapper Table-Valued Parameter - Learn About AsTableValuedParameter
 MetaDescription: Unlock the power of Dapper with Table-Valued Parameter to improve performance with 'AsTableValuedParameter'. Learn how to pass an entire table for stored procedure or function.
-LastMod: 2023-10-20
+LastMod: 2025-06-16
 ---
 
 # Dapper Table-Valued Parameter: Discover About AsTableValuedParameter
 
 ## Description
 
-A Table-Valued Parameters (TVP) is a SQL Server feature that lets you pass an entire table as an input parameter for a Stored Procedure or Function. One of the best features of Dapper is its support for table-valued parameters. 
+A Table-Valued Parameter (TVP) is a SQL Server feature that lets you pass an entire table as an input parameter for a Stored Procedure or Function. One of the best features of Dapper is its support for table-valued parameters. 
 
  - Table-valued parameters are a great way to improve performance when you're working with large amounts of data. 
  - With table-valued parameters, you can send multiple rows of data to the database in one shot. 

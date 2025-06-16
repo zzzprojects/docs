@@ -2,21 +2,21 @@
 PermaID: 1000201
 Title: Dapper Plus Bulk Update - Learn how to update multiple rows
 MetaDescription: Unlock the power of Dapper Plus with the BulkUpdate method to update multiple rows from a table. Learn how to use the simplest and fastest way to update rows from a database table without writing any SQL.
-LastMod: 2023-10-21
+LastMod: 2025-06-16
 ---
 
 # Dapper Plus Bulk Update: Discover how to update multiple rows
 
 ## Description
 
-Dapper Plus provides an extension method called [BulkUpdate](https://dapper-plus.net/bulk-update) that is used to update multiple records in a database table at once. It is the fastest and most efficient way to update entities in your database. It can update multiple entities in one database round trip
+Dapper Plus provides an extension method called [BulkUpdate](https://dapper-plus.net/bulk-update) that is used to update multiple records in a database table at once. It is the fastest and most efficient way to update entities in your database. It can update multiple entities in one database round trip.
 
  - The `BulkUpdate` method takes a list of entities as a parameter and updates each entity in the database.
  - To use the `BulkUpdate` method, you first need to create a list of entities that you want to update. 
  - Then, you can call the `BulkUpdate` method and pass in the list of entities. 
  - The method will update each entity in the database.
 
-It updates entities using **Bulk Operation** and with `BulkUpdate`, you can:
+It updates entities using **bulk operations** and with `BulkUpdate`, you can:
 
 - [Update single](#example-update-single)
 - [Update many](#example-update-many)
@@ -48,7 +48,7 @@ Try it: [.NET Core](https://dotnetfiddle.net/wUbog7) | [.NET Framework](https://
 
 ## Example - Update Many
 
-The ability to update multiple records with a single database call can significantly improve performance. It updates many entities with Bulk Operations. The following example updates a list of customers into the **Customers** table.
+The ability to update multiple records with a single database call can significantly improve performance. It updates many entities with bulk operations. The following example updates a list of customers into the **Customers** table.
 
 ```csharp
 DapperPlusManager.Entity<Customer>().Table("Customers");
@@ -58,7 +58,7 @@ using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlSer
     connection.BulkUpdate(customers);
 }    
 ```
-Try it: [.NET Core](https://dotnetfiddle.net/23NZSH) | [.NET Framework](hhttps://dotnetfiddle.net/10RLzV)
+Try it: [.NET Core](https://dotnetfiddle.net/23NZSH) | [.NET Framework](https://dotnetfiddle.net/10RLzV)
 
 ## Example - Update with relation (One to One)
 
@@ -81,7 +81,7 @@ Try it: [.NET Core](https://dotnetfiddle.net/xqbyE7) | [.NET Framework](https://
 
 ## Example - Update with relation (One to Many)
 
-Dapper Plus can also allow you to update a list of entities with a one-to-many relationship with Bulk Operation as shown in the following example.
+Dapper Plus can also allow you to update a list of entities with a one-to-many relationship with bulk operations as shown in the following example.
 
 ```csharp
 DapperPlusManager.Entity<Supplier>().Table("Suppliers").Identity(x => x.SupplierID);

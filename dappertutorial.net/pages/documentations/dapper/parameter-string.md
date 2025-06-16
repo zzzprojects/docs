@@ -2,7 +2,7 @@
 PermaID: 1000172
 Title: Dapper String Parameter - Learn How to Improve Mapping With DbString
 MetaDescription: Unlock the power of Dapper with String Parameter to improve your mapping with 'DbString'. Learn how to pass an explicit string to improve type mapping, database compatibility, and performance.
-LastMod: 2023-10-20
+LastMod: 2025-06-16
 ---
 
 # Dapper String Parameter: Discover How to Improve Mapping With DbString
@@ -11,7 +11,7 @@ LastMod: 2023-10-20
 
 The Dapper library provides different extension methods that make it easy to execute CRUD operations against a relational database. 
 
- - These extension methods are very convenient, but it does have one potential downside. 
+ - These extension methods are very convenient, but they do have one potential downside. 
  - If you're not careful, it's easy to introduce SQL injection vulnerabilities into your application when using these methods.
 
 The Dapper library provides several ways to help prevent SQL injection attacks, including parameterized queries and the use of the `DbString` class. 

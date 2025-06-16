@@ -2,7 +2,7 @@
 PermaID: 1000206
 Title: Dapper.FastCrud - A Getting Started Tutorial for CRUD Operations
 MetaDescription: Discover Dapper.FastCrud Library to perform CRUD operations such as Get, Find, Insert, Update, Delete, Count. Learn about Dapper.FastCrud limitations and how to install it with NuGet.
-LastMod: 2024-08-30
+LastMod: 2025-06-16
 ---
 
 # Dapper.FastCrud: A Getting Started Tutorial for CRUD Operations
@@ -26,7 +26,7 @@ PM> Install-Package Dapper.FastCrud
 
 ## Features
 
-- This library package contains both .NET 4.5 and 4.6 DLLs, and one of them will be installed only based on the target framework selected in your project.
+- This library package contains both .NET 4.5 and 4.6 DLLs, and one of them will be installed based on the target framework selected for your project.
 - **Dapper.FastCrud** can support SQLSever, LocalDB, SQLite, MySQL, MariaDB, and PostgreSQL etc.
 - Composite primary keys mapping. 
 - Multiple entity mappings are supported

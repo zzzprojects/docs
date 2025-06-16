@@ -2,7 +2,7 @@
 PermaID: 1000177
 Title: Dapper Query Single - Learn How to Return a Single Result Row
 MetaDescription: Unlock the power of Dapper Query Single to optimize your C# database operations. Learn how to use QuerySingle and QuerySingleAsync to return an anonymous type or strongly typed entity.
-LastMod: 2023-10-20
+LastMod: 2025-06-16
 ---
 
 # Dapper Query Single: Discover How to Return a Single Result Row
@@ -11,7 +11,7 @@ LastMod: 2023-10-20
 
 The `QuerySingle` extension method returns the instance of the specified type with the first record fetched from the database table, otherwise, it will throw an exception if no records are returned by the query.
 
- - The most basic usage of `QuerySingle` is to provide only the id column as the parameter. 
+ - The most basic usage of `QuerySingle` is to provide only the ID column as the parameter. 
  - In this case, Dapper will automatically map the result to an object of type `T`. 
  - `QuerySingle` is a very useful operation when you need to retrieve only a single row from the database.
 
@@ -63,7 +63,7 @@ When deciding which method to use, it is important to consider the particular ne
 
 ## Example - QuerySingle Anonymous
 
-The raw SQL query can be executed using the `QuerySingle` method which maps the first result to a dynamic list and throws an exception if there is not exactly one element in the sequence. 
+The raw SQL query can be executed using the `QuerySingle` method, which maps the first result to a dynamic list and throws an exception if there is not exactly one element in the sequence. 
 
 You could store the results of this query in a [Dapper anonymous result type](/result-anonymous) as follows:
 

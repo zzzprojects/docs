@@ -2,7 +2,7 @@
 PermaID: 1000207
 Title: Dapper Execute Scalar - Learn How to Return a Scalar Value
 MetaDescription: Unlock the power of Dapper Execute Scalar to optimize your C# database operations. Learn how to use ExecuteScalar and ExecuteScalarAsync to return a strongly typed scalar value.
-LastMod: 2023-10-20
+LastMod: 2025-06-16
 ---
 
 # Dapper Execute Scalar: Discover How to Return a Scalar Value
@@ -11,7 +11,7 @@ LastMod: 2023-10-20
 
 The `ExecuteScalar` is an extension method that can be called from any object of type `IDbConnection`. 
 
- - It allows you to execute SQL statements or Stored Procedures and returned a scalar value on the first column of the first row in the Result Set. 
+ - It allows you to execute SQL statements or Stored Procedures and return a scalar value on the first column of the first row in the Result Set. 
  - If the Result Set contains more than one column or row, it takes only the first column of the first row, all other values will be ignored. 
  - If the Result Set is empty it will return a `Null` reference. 
  - It is very useful to use with aggregate functions like `Count(*)` or `Sum()` etc. 

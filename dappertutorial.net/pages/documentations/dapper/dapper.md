@@ -2,7 +2,7 @@
 PermaID: 1000167
 Title: Dapper - Learn What is Dapper and Why You Should Use it
 MetaDescription: Unlock the power of Dapper by understanding the basics and more advanced topics. Learn what Dapper is, how it works, and all the documentation you need to get started.
-LastMod: 2023-10-20
+LastMod: 2025-06-16
 ---
 
 # Dapper: Discover What is Dapper and Why You Should Use it
@@ -11,18 +11,18 @@ LastMod: 2023-10-20
 
 Dapper is a micro-ORM created by the team behind Stack Overflow. Dapper is a simple object mapper for .NET and owns the title of **King of Micro ORM** in terms of speed and is virtually as fast as using a raw ADO.NET data reader. An ORM is an Object Relational Mapper responsible for mapping between a database and a programming language.
 
-  - Dapper is a popular open source Object-Relational Mapping (ORM) Library for .NET.
+  - Dapper is a popular open-source Object-Relational Mapping (ORM) Library for .NET.
   - It makes it easy to work with data in your application by mapping objects to tables in a database. 
   - Dapper is fast, reliable, and well-tested and has been used in production by some of the world's largest companies for many years.
   - It is very easy to use and has a lot of features that make it a powerful tool for data access. 
 
 ## Is Dapper faster than Entity Framework?
 
-Yes, Dapper is faster than Entity Framework for CRUD operation (querying and saving) due to its simplicity. Unlike EF Core, it doesn't have to add all complexity, such as tracking values, writing inefficient SQL queries, and supporting features like lazy loading and all inheritance by default.
+Yes, Dapper is faster than Entity Framework for CRUD operations (querying and saving) due to its simplicity. Unlike EF Core, it doesn't have to add all the complexity, such as tracking values, writing inefficient SQL queries, and supporting features like lazy loading and inheritance by default.
 
 However, EF Core is relatively very fast as well. The question about which ORM is the best for you should be more about if you want to write most of your SQL query (Dapper) or if you prefer to write LINQ and have EF Core write the SQL query for you.
 
-For a better comparisons, see [Dapper vs Entity Framework (EF6 or EF Core)](https://www.learndapper.com/dapper-vs-entity-framework)
+For a better comparison, see [Dapper vs Entity Framework (EF6 or EF Core)](https://www.learndapper.com/dapper-vs-entity-framework)
 
 ## How does Dapper work?
 
@@ -38,7 +38,7 @@ When using Dapper, all you need is a connection string and a POCO, and then it i
 
 ## Is Dapper case sensitive or insensitive?
 
-Dapper is case insensitive when mapping column to property. It doesn't matter if the column name returned is `CustomerID` or `customerid`. In both cases, it will be mapped to the right property, such as `CustomerId`, no matter the casing.
+Dapper is case insensitive when mapping columns to properties. It doesn't matter if the column name returned is `CustomerID` or `customerid`. In both cases, it will be mapped to the right property, such as `CustomerId`, no matter the casing.
 
 ## Installation
 
@@ -65,9 +65,9 @@ Dapper works with any .NET project. This means that it can be used with the foll
  - .NET Framework 4.6.1 and above
  - .NET Standard 2.0 and above
 
-_(Older version is also supported by using older version of Dapper)_
+_(Older versions of .NET Framework are also supported by using older versions of Dapper)_
 
-Dapper also requires to add a provider package such as:
+Dapper also requires adding a provider package such as:
 
 - Microsoft.Data.SqlClient (for SQL Server)
 - System.Data.SqlClient (alternative for SQL Server)
@@ -83,11 +83,11 @@ Once you have installed the required NuGet packages, you can start using Dapper 
 
 Dapper extension methods can be used to perform various operations in the database, such as fetching data, inserting records, updating records, and deleting records.
 
-Dapper will extend your `IDbConnection` interface with multiple methods and some of the most commonly used dapper extension methods.
+Dapper will extend your `IDbConnection` interface with multiple methods and some of the most commonly used Dapper extension methods.
 
 - [Execute](/execute): It can execute a command one or multiple times.
 - [ExecuteReader](/execute-reader): It can execute a command and return a reader.
-- [Executescalar](/execute-scalar): It can execute a command and return a scalar value.
+- [ExecuteScalar](/execute-scalar): It can execute a command and return a scalar value.
 - [Query](/query): Used to fetch data from the database.
 - [QueryFirst](/queryfirst): It can execute a query and map the first result.
 - [QueryFirstOrDefault](/queryfirstordefault): It can execute a query and map the first result, or a default value if the sequence contains no elements.
@@ -98,7 +98,7 @@ Dapper will extend your `IDbConnection` interface with multiple methods and some
 ```csharp
 string sqlOrderDetails = "SELECT TOP 5 * FROM OrderDetails;";
 string sqlOrderDetail = "SELECT * FROM OrderDetails WHERE OrderDetailID = @OrderDetailID;";
-string sqlCustomerInsert = "INSERT INTO Customers (CustomerName) Values (@CustomerName);";
+string sqlCustomerInsert = "INSERT INTO Customers (CustomerName) VALUES (@CustomerName);";
 
 using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServerW3Schools()))
 {
@@ -118,7 +118,7 @@ Try it: [.NET Core](https://dotnetfiddle.net/FghvFq) | [.NET Framework](https://
 
 ## Parameter
 
-Dapper supports many different parameter types. Execute and queries method can use parameters from multiple different ways:
+Dapper supports many different parameter types. Execute and query methods can use parameters in multiple different ways:
 
 - [Anonymous](/parameter-anonymous): Useful for simple queries where you don't need to create a separate class to represent your data.
 - [Dynamic](/parameter-dynamic): Useful for when you need to create a dynamic list of parameters, or when you need to dynamically change the value of a parameter.
@@ -152,7 +152,7 @@ connection.Query<Invoice>(sql, new {Code = new DbString {Value = "Invoice_1", Is
 
 ## Result
 
-When using Dapper, you can map your query results to objects in several ways. The result returned by the queries method can be mapped to multiple types:
+When using Dapper, you can map your query results to objects in several ways. The result returned by the query methods can be mapped to multiple types:
 
 - [Anonymous](/result-anonymous): Allow you to store the results of a SQL query in an anonymous type.
 - [Strongly Typed](/result-strongly-typed): Allow you to store the results of a SQL query in a strongly typed manner.
@@ -181,10 +181,10 @@ Try it: [.NET Core](https://dotnetfiddle.net/VPwBKR) | [.NET Framework](https://
 
 ## Utilities
 
-In addition, to the ability to execute multiple statements in a single round trip to the server, Dapper also provides some additional functionalities that can greatly improve performance in some scenarios. 
+In addition to the ability to execute multiple statements in a single round trip to the server, Dapper also provides some additional functionalities that can greatly improve performance in some scenarios. 
 
 - [Async](async): Dapper also provides an Async (asynchronous) version of extension methods
-- [Buffered](buffered): A buffered query return the entire reader at once
+- [Buffered](buffered): A buffered query returns the entire reader at once
 - [Transaction](transaction): Support the transaction and TransactionScope
 - [Stored Procedure](stored-procedure): Has built-in support for caching stored procedures.
 

@@ -1,15 +1,15 @@
 ---
 PermaID: 1000176
 Title: Dapper Multiple - Learn How to Return Multiple Results by Batching
-MetaDescription: Unlock the power of Dapper Query Multiple to optimize your C# database operations. Learn how to use QueryMultiple and QueryMultipleAsync to return a GridReader and use it to return an anonymous type, strongly type entities, or a scalar value.
-LastMod: 2023-10-20
+MetaDescription: Unlock the power of Dapper Query Multiple to optimize your C# database operations. Learn how to use QueryMultiple and QueryMultipleAsync to return a GridReader and use it to return an anonymous type, strongly typed entities, or a scalar value.
+LastMod: 2025-06-16
 ---
 
 # Dapper Multiple: Discover How to Return Multiple Results by Batching SQL
 
 ## Description
 
-The `QueryMultiple` is an extension method of the `IDbConnection` interface. It executes multiple queries within the same command and maps the results to strong entities. 
+The `QueryMultiple` is an extension method of the `IDbConnection` interface. It executes multiple queries within the same command and maps the results to strongly typed entities. 
 
 ### Parameters
 

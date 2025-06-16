@@ -2,7 +2,7 @@
 PermaID: 1000198
 Title: Dapper Plus Bulk Delete - Learn how to delete multiple rows
 MetaDescription: Unlock the power of Dapper Plus with the BulkDelete method to delete multiple rows from a table. Learn how to use the simplest and fastest way to delete rows from a database table without writing any SQL.
-LastMod: 2023-10-21
+LastMod: 2025-06-16
 ---
 
 # Dapper Plus Bulk Delete: Discover how to delete multiple rows
@@ -11,7 +11,7 @@ LastMod: 2023-10-21
 
 The [BulkDelete](https://dapper-plus.net/bulk-delete) method allows you to delete multiple entities in one database call. It is useful when you want to delete a large number of records from a table. You can use the `BulkDelete` method to delete all records from a table, or you can specify a filter condition to only delete certain records. 
 
-It deletes entities using Bulk Operation. With `BulkDelete`, you can:
+It deletes entities using bulk operations. With `BulkDelete`, you can:
 
 - [Delete single](#example-delete-single)
 - [Delete many](#example-delete-many)
@@ -36,7 +36,7 @@ Try it: [.NET Core](https://dotnetfiddle.net/cAcidj) | [.NET Framework](https://
 
 ## Example - Delete Many
 
-The `BulkDelete` method can delete multiple records with a single database call which can significantly improve performance by deleting multiple entities with Bulk Operation. The following example deletes a list of customers from the **Customers** table.
+The `BulkDelete` method can delete multiple records with a single database call which can significantly improve performance by deleting multiple entities with bulk operations. The following example deletes a list of customers from the **Customers** table.
 
 ```csharp
 DapperPlusManager.Entity<Customer>().Table("Customers").Key("CustomerID");
@@ -69,7 +69,7 @@ Try it: [.NET Core](https://dotnetfiddle.net/jLDQj3) | [.NET Framework](https://
 
 ## Example - Delete with relation (One to Many)
 
-Dapper Plus also allows you to delete a list of entities with a one-to-many relationship with Bulk Operation as shown in the following example.
+Dapper Plus also allows you to delete a list of entities with a one-to-many relationship with bulk operations as shown in the following example.
 
 ```csharp
 DapperPlusManager.Entity<Supplier>().Table("Suppliers").Identity(x => x.SupplierID);

@@ -1,11 +1,11 @@
 ---
 PermaID: 1000165
-Title: Dapper Async Methods - Learn How Execute Query Asynchronously
+Title: Dapper Async Methods - Learn How to Execute Query Asynchronously
 MetaDescription: Unlock the power of Dapper by using Async Methods. Learn how to use methods such as 'ExecuteAsync' and 'QueryAsync' in your async methods.
-LastMod: 2023-10-20
+LastMod: 2025-06-16
 ---
 
-# Dapper Async Methods: Discover How Execute Query Asynchronously
+# Dapper Async Methods: Discover How to Execute Query Asynchronously
 
 ## Description
 
@@ -28,7 +28,7 @@ Dapper extends the `IDbConnection` interface with the following Async (asynchron
 The `ExecuteAsync` method can execute a query one or multiple times asynchronously and return the number of affected rows. The following example shows how to use the `ExecuteAsync` method by inserting a customer 
 
 ```csharp
-string sql = "INSERT INTO Customers (CustomerName) Values (@CustomerName);";
+string sql = "INSERT INTO Customers (CustomerName) VALUES (@CustomerName);";
 
 using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServerW3Schools()))
 {
@@ -36,7 +36,7 @@ using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlSer
 
 	Console.WriteLine(affectedRows);
 	
-	var customers = await connection.QueryAsync<Customer>("Select * FROM CUSTOMERS WHERE CustomerName = 'Mark'").ConfigureAwait(false);
+	var customers = await connection.QueryAsync<Customer>("SELECT * FROM CUSTOMERS WHERE CustomerName = 'Mark'").ConfigureAwait(false);
 	
 	FiddleHelper.WriteTable(customers);
 }

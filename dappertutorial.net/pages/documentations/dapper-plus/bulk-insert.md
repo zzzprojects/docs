@@ -2,14 +2,14 @@
 PermaID: 1000199
 Title: Dapper Plus Bulk Insert - Learn how to insert multiple rows
 MetaDescription: Unlock the power of Dapper Plus with the BulkInsert method to insert multiple rows from a table. Learn how to use the simplest and fastest way to insert rows from a database table without writing any SQL.
-LastMod: 2023-10-21
+LastMod: 2025-06-16
 ---
 
 # Dapper Plus Bulk Insert: Discover how to insert multiple rows
 
 ## Description
 
-Dapper Plus provides an extension method called [BulkInsert](https://dapper-plus.net/bulk-insert) which is a high-performance bulk insert command for Dapper. It can insert multiple rows into a database table at once. It inserts entities using the **Bulk Operation**.
+Dapper Plus provides an extension method called [BulkInsert](https://dapper-plus.net/bulk-insert) which is a high-performance bulk insert command for Dapper. It can insert multiple rows into a database table at once. It inserts entities using **bulk operations**.
 
 It is faster than standard insert because it reduces the number of database round trips. `BulkInsert` can also be used to load data from a file or stream.
 
@@ -39,7 +39,7 @@ Try it: [.NET Core](https://dotnetfiddle.net/jPJxKl) | [.NET Framework](https://
 
 ## Example - Insert Many
 
-The ability to insert multiple records with a single database call can significantly improve performance. It inserts many entities with Bulk Operation. The following example inserts a list of customers into the **Customers** table.
+The ability to insert multiple records with a single database call can significantly improve performance. It inserts many entities with bulk operations. The following example inserts a list of customers into the **Customers** table.
 
 ```csharp
 DapperPlusManager.Entity<Customer>().Table("Customers"); 
@@ -72,7 +72,7 @@ Try it: [.NET Core](https://dotnetfiddle.net/9EwA7g) | [.NET Framework](https://
 
 ## Example - Insert with relation (One to Many)
 
-Dapper Plus can insert a list of entities with a one-to-many relationship with Bulk Operation as shown in the following example.
+Dapper Plus can insert a list of entities with a one-to-many relationship with bulk operations as shown in the following example.
 
 ```csharp    
 DapperPlusManager.Entity<Supplier>().Table("Suppliers").Identity(x => x.SupplierID); 

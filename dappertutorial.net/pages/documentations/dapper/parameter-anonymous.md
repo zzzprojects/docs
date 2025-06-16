@@ -2,14 +2,14 @@
 PermaID: 1000169
 Title: Dapper Anonymous Type Parameter - Learn How to Avoid SQL Injection
 MetaDescription: Unlock the power of Dapper with Anonymous Type Parameter to avoid SQL Injection. Learn how to easily pass your parameter without worrying about user input.
-LastMod: 2023-10-20
+LastMod: 2025-06-16
 ---
 
 # Dapper Anonymous Type Parameter: Discover How to Avoid SQL Injection
 
 ## Description
 
-Dapper make it simple & safe (SQL Injection) to use parameter by supporting anonymous type. 
+Dapper makes it simple & safe (SQL Injection) to use parameters by supporting anonymous types. 
 
  - Anonymous parameters are used in cases where you don't want to hardcode the parameter names in your query. 
  - This can be useful if you want to dynamically build a query, or if you want to avoid SQL injection attacks. 
@@ -29,14 +29,14 @@ using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlSer
 
 	Console.WriteLine(affectedRows);
 	
-	// Only for see the Insert.
+	// Only to see the Insert.
 	var customer = connection.Query<Customer>("SELECT * FROM CUSTOMERS WHERE CustomerName = 'Mark'").ToList();
 
 	FiddleHelper.WriteTable(customer);
 }
 ```
 
-In the example above, we use the [Execute](/execute) to insert a customer named "Mark". We use an anonymous parameter for the `CustomerName` value. We also use the [Query](/query) method to return all customer with the name `Mark`.
+In the example above, we use the [Execute](/execute) to insert a customer named "Mark". We use an anonymous parameter for the `CustomerName` value. We also use the [Query](/query) method to return all customers with the name `Mark`.
 
 Try it: [.NET Core](https://dotnetfiddle.net/wNl0G3) | [.NET Framework](https://dotnetfiddle.net/Z1iRIQ)
 
@@ -64,7 +64,7 @@ using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlSer
 
 Try it: [.NET Core](https://dotnetfiddle.net/df2ZDH) | [.NET Framework](https://dotnetfiddle.net/fvRKsY)
 
-To insert, multiple record, you can also use the [Dapper Plus - BulkInsert](https://dappertutorial.net/bulk-insert) methods
+To insert multiple records, you can also use the [Dapper Plus - BulkInsert](https://dappertutorial.net/bulk-insert) methods
 
 You can also use anonymous parameters with the [Query](/query) and [QueryFirst](/queryfirst) methods. 
 

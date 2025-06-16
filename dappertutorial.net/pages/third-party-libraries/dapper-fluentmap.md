@@ -2,7 +2,7 @@
 PermaID: 1000207
 Title: Dapper.FluentMap - A Getting Started Tutorial for Mapping
 MetaDescription: Discover Dapper.FluentMap Library to map with manual mapping and convention-based mapping. Learn about Dapper.FluentMap limitations and how to install it with NuGet.
-LastMod: 2023-10-23
+LastMod: 2025-06-16
 ---
 
 # Dapper.FluentMap: A Getting Started Tutorial for Mapping
@@ -11,7 +11,7 @@ LastMod: 2023-10-23
 
 **Dapper.FluentMap** is a small library that allows you to fluently map properties of your domain classes to the database columns. This library functionality is similar to Entity Framework Fluent API and keeps your domain classes clean of mapping attributes.
 
- - It is straightforward to set up, just create a map class for each of your domain model and database model classes, and configure the mappings using the fluent API. 
+ - It is straightforward to set up; just create a map class for each of your domain model and database model classes, and configure the mappings using the fluent API. 
  - Once you have done that, you can use **Dapper.FluentMap** to automatically map your classes to each other.
  - By default, Dapper will map an object's properties to columns with the same name. 
  - However, sometimes you might want to map an object's properties to columns with different names. 

@@ -2,7 +2,7 @@
 PermaID: 1000204
 Title: Dapper.Contrib - A Getting Started Tutorial for CRUD Operations
 MetaDescription: Discover Dapper.Contrib Library to perform CRUD operations such as Get, GetAll, Insert, Update, Delete, DeleteAll. Learn about Dapper.Contrib limitations and how to install it with NuGet.
-LastMod: 2023-10-23
+LastMod: 2025-06-16
 ---
 
 # Dapper.Contrib: A Getting Started Tutorial for CRUD Operations
@@ -18,9 +18,9 @@ LastMod: 2023-10-23
 
 ## Why should you use Dapper Contrib?
 
-Using **Dapper.Contrib** is a personal choice. It allows the developer to save time using the existing method that will generate **SQL** instead of writing it.
+Using **Dapper.Contrib** is a personal choice. It allows the developer to save time using the existing method that generates **SQL** instead of writing it.
 
-One of the biggest advantages of **Dapper.Contrib** is the ability to track your entities and identify if changes have been made if you retrieve entities with the `Get` or `GetAll` methods.
+One of the biggest advantages of **Dapper.Contrib** is the ability to track your entities and identify if changes have been made when you retrieve entities with the `Get` or `GetAll` methods.
 
 So, if there is any change and you call the `Update` method, it will generate the SQL and update only those properties that have been changed.
 
@@ -38,7 +38,7 @@ More information and documentation can be found at: <a href="https://github.com/
 
 ## APIs
 
-Once you install this library then, the following extension methods will automatically add to `DbConnection`:
+Once you install this library, the following extension methods will automatically be added to `DbConnection`:
 
 - [Get](/get)
 - [GetAll](/getall)
@@ -99,7 +99,7 @@ Unfortunately, there is no proper documentation available for this library, but 
 
 There is no support for composite key mapping.
 
-**Dapper.Contrib** has an `Update` extension method, and `SQLiteConnection` also exposes an `Update` event that clashes with each other. But you can easily resolve the clash by using any of the following ways:
+**Dapper.Contrib** has an `Update` extension method, and `SQLiteConnection` also exposes an `Update` event that clashes with each other. But you can easily resolve the clash by using any of the following techniques:
 
 - Pass a type parameter to the Update method
 
@@ -115,7 +115,7 @@ var isSuccess = SqlMapperExtensions.Update(connection, new InvoiceContrib {Invoi
 
 ### Support
 
-This library is supported regularly, and you will get your answers within the next few days. <a href="https://github.com/DapperLib/Dapper.Contrib/issues">https://github.com/DapperLib/Dapper.Contrib/issues</a>
+This library is supported regularly, and you will receive your answers within the next few days. <a href="https://github.com/DapperLib/Dapper.Contrib/issues">https://github.com/DapperLib/Dapper.Contrib/issues</a>
 
 ## Related Articles
 

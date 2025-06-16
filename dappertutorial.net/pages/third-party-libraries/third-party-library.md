@@ -2,20 +2,20 @@
 PermaID: 1000213
 Title: Dapper - An Overview of Third-Party Libraries
 MetaDescription: Discover third-party libraries to perform CRUD operations, Bulk Operations, mapping, and use dapper through the `IDbTransaction` interface. Learn about their limitations and how to install them with NuGet.
-LastMod: 2024-08-30
+LastMod: 2025-06-16
 ---
 
 # Dapper: An Overview of Third-Party Libraries
 
-In this article will get a quick overview of all the most popular third-party libraries that you can use with `Dapper`.
+In this article, we will get a quick overview of all the most popular third-party libraries that you can use with `Dapper`.
 
-You can also find more library on the [Awesome Dapper List](https://github.com/zzzprojects/awesome-dapper)
+You can also find more libraries on the [Awesome Dapper List](https://github.com/zzzprojects/awesome-dapper)
 
 ## Why should you use a Third Party Library?
 
 Dapper is a King of Micro ORM in terms of performance when querying data, but a lot of essential features/helpers are missing for some application scenarios.
 
-Let's say, for example, you want to quickly updates thousands of entities at once. You can sure create your SQL and logic, but you can also use a library that has been exactly built for this ([Dapper Plus](https://dapper-plus.net/)), which also contains hundreds of options to customize your update statement the way you want.
+Let's say, for example, you want to quickly update thousands of entities at once. You can sure create your SQL and logic, but you can also use a library that has been exactly built for this ([Dapper Plus](https://dapper-plus.net/)), which also contains hundreds of options to customize your update statement the way you want.
 
 Using a third-party library has several benefits, including the following:
 

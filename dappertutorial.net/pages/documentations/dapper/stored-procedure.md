@@ -1,11 +1,11 @@
 ---
 PermaID: 1000184
-Title: Dapper Stored Procedure - Learn How Execute Stored Procedure (SP)
+Title: Dapper Stored Procedure - Learn How to Execute Stored Procedure (SP)
 MetaDescription: Unlock the power of Dapper by using Stored Procedure. Learn how to use stored procedure with input and output parameters for your CRUD operations.
-LastMod: 2023-10-20
+LastMod: 2025-06-16
 ---
 
-# Dapper Stored Procedure: Discover How Execute Stored Procedure (SP)
+# Dapper Stored Procedure: Discover How to Execute Stored Procedure (SP)
 
 ## Description
 

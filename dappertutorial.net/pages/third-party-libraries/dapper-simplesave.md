@@ -2,14 +2,14 @@
 PermaID: 1000212
 Title: Dapper.SimpleSave - A Getting Started Tutorial for CRUD Operations
 MetaDescription: Discover Dapper.SimpleSave Library to perform CRUD operations such as Create, CreateAll, Update, UpdateAll, Delete, DeleteAll, SoftDelete, SoftDeleteAll. Learn about Dapper.SimpleSave limitations and how to install it with NuGet.
-LastMod: 2023-10-23
+LastMod: 2025-06-16
 ---
 
 # Dapper.SimpleSave: A Getting Started Tutorial for CRUD Operations
 
 ## Overview
 
-**Dapper.SimpleSave** is a small library package that adds basic CRUD operations to Dapper. Dapper easily retrieves data from the database when a single object is involved, but when you are dealing with complex hierarchies, then dapper is not very helpful. 
+**Dapper.SimpleSave** is a small library package that adds basic CRUD operations to Dapper. Dapper easily retrieves data from the database when a single object is involved, but when you are dealing with complex hierarchies, then Dapper is not very helpful. 
 
 This is where **Dapper.SimpleSave** comes in and saves complex objects to the database in a very simple way.
 

@@ -2,7 +2,7 @@
 PermaID: 1000205
 Title: DapperExtensions - A Getting Started Tutorial for CRUD Operations
 MetaDescription: Discover DapperExtensions Library to perform CRUD operations such as Get, GetList, Insert, Update, Delete, Count. Learn about DapperExtensions limitations and how to install it with NuGet.
-LastMod: 2023-02-20
+LastMod: 2025-06-16
 ---
 
 # DapperExtensions: A Getting Started Tutorial for CRUD Operations
@@ -35,7 +35,7 @@ More information can be found at: <a href="https://github.com/tmsmith/Dapper-Ext
 
 ## APIs
 
-Once you installed this library then the following extension methods will automatically add to `DbConnection`:
+Once you install this library, the following extension methods will automatically be added to `DbConnection`:
 
 - Get
 - GetList

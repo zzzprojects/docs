@@ -2,7 +2,7 @@
 PermaID: 1000200
 Title: Dapper Plus Bulk Merge - Learn how to upsert multiple rows
 MetaDescription: Unlock the power of Dapper Plus with the BulkMerge method to insert or update multiple rows from a table. Learn how to use the simplest and fastest way to upsert rows from a database table without writing any SQL.
-LastMod: 2023-10-21
+LastMod: 2025-06-16
 ---
 
 # Dapper Plus Bulk Merge: Discover how to upsert multiple rows
@@ -23,7 +23,7 @@ With `BulkMerge`, you can:
 - [Merge with relation (One to One)](#example-merge-with-relation-one-to-one)
 - [Merge with relation (One to Many)](#example-merge-with-relation-one-to-many)
 
-Bulk Merge helps you merge your entities in a single command. This can come in handy for various reasons, such as reducing database roundtrips or improving performance by avoiding entity lookups.
+Bulk Merge helps you merge your entities in a single command. This can come in handy for various reasons, such as reducing database round trips or improving performance by avoiding entity lookups.
 
 ## Example - Merge Single
 
@@ -44,7 +44,7 @@ Try it: [.NET Core](https://dotnetfiddle.net/MVW9uO) | [.NET Framework](https://
 
 ## Example - Merge Many
 
-The `BulkMerge` method can merge multiple records with a single database call can significantly improve performance. It merges multiple entities with Bulk Operation. The following example merges a list of customers into the **Customers** table.
+The `BulkMerge` method can merge multiple records with a single database call can significantly improve performance. It merges multiple entities with bulk operations. The following example merges a list of customers into the **Customers** table.
 
 ```csharp
 DapperPlusManager.Entity<Customer>().Table("Customers"); 
@@ -78,7 +78,7 @@ Try it: [.NET Core](https://dotnetfiddle.net/1lGd5X) | [.NET Framework](https://
 
 ## Example - Merge with relation (One to Many)
 
-Dapper Plus also allows you to merge a list of entities with a one-to-many relationship with Bulk Operation as shown in the following example.
+Dapper Plus also allows you to merge a list of entities with a one-to-many relationship with bulk operations as shown in the following example.
 
 ```csharp
 DapperPlusManager.Entity<Supplier>().Table("Suppliers").Identity(x => x.SupplierID);

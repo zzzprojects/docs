@@ -2,7 +2,7 @@
 PermaID: 1000170
 Title: Dapper Dynamic Parameter - Learn How to Add Parameter on Demand
 MetaDescription: Unlock the power of Dapper with Dynamic Parameter to add value on demand. Learn how to pass any amount of parameters at runtime.
-LastMod: 2023-10-20
+LastMod: 2025-06-16
 ---
 
 # Dapper Dynamic Parameter: Discover How to Add Parameter on Demand
@@ -23,7 +23,7 @@ Here is an example of how to use anonymous parameters with Dapper:
 
 ### Single
 
-You can use dynamic parameters with Dapper's [Execute method](/execut)). Here's an example of how to use dynamic parameters with Dapper's `Execute` method in which we will [insert](/execute#example-execute-insert) a single record. 
+You can use dynamic parameters with Dapper's [Execute method](/execute). Here's an example of how to use dynamic parameters with Dapper's `Execute` method in which we will [insert](/execute#example-execute-insert) a single record. 
 
 ```csharp
 var sql = "EXEC Invoice_Insert";
@@ -82,7 +82,7 @@ using (var connection = My.ConnectionFactory())
 
 As you can see, using dynamic parameters with Dapper is very simple. It can make your code more flexible and easier to work with. Give it a try and see how it can help you in your projects.
 
-To insert, multiple record, you can also use the [Dapper Plus - BulkInsert](https://dappertutorial.net/bulk-insert) methods
+To insert multiple records, you can also use the [Dapper Plus - BulkInsert](https://dappertutorial.net/bulk-insert) methods
 
 ## Related Articles
 

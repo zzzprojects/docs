@@ -2,14 +2,14 @@
 PermaID: 1000166
 Title: Dapper Buffered and Unbuffered Query
 MetaDescription: Unlock the power of Dapper by using Buffered and Unbuffered Query. Learn how to return the entire reader at once or load an object on demand by streaming the result.
-LastMod: 2023-10-20
+LastMod: 2025-06-16
 ---
 
 # Dapper Buffered and Unbuffered Query
 
 ## Description
 
-Dapper provides two different ways to execute queries against your database: via a "buffered" or "unbuffered" approach. When you use the buffered approach, Dapper will execute the query and then buffer the entire resultset in memory before returning control to you. 
+Dapper provides two different ways to execute queries against your database: via a "buffered" or "unbuffered" approach. When you use the buffered approach, Dapper will execute the query and then buffer the entire result set in memory before returning control to you. 
 
  - It is convenient if you want to work with the data in memory, for example, to perform some calculations. 
  - If you are only interested in a small subset of the data, or if you want to avoid loading too much data into memory at once, you can use the unbuffered approach. 

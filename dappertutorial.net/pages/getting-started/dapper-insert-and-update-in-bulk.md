@@ -1,8 +1,8 @@
 ---
 PermaID: 1000205
 Title: Dapper - Getting Started With Inserting and Updating Data in Bulk
-MetaDescription: Learn how to bulk insert and bulk update records in your database to get started with Dapper. Follow our step-by-step Dapper tutorial for to insert and update data in bulk.
-LastMod: 2023-10-22
+MetaDescription: Learn how to bulk insert and bulk update records in your database to get started with Dapper. Follow our step-by-step Dapper tutorial to insert and update data in bulk.
+LastMod: 2025-06-16
 ---
 
 # Dapper: Getting Started With Inserting and Updating Data in Bulk
@@ -40,7 +40,7 @@ Try it: [.NET Core](https://dotnetfiddle.net/GjoUpm) | [.NET Framework](https://
 
 ## Bulk Update
 
-The [Dapper BulkUpdate](/bulk-update) method allows to `UPDATE` a larger number of entities in a database table or a view. You can use this action to update multiple records at the same time, which can be useful when you need to make changes to a large number of records.
+The [Dapper BulkUpdate](/bulk-update) method allows you to `UPDATE` a larger number of entities in a database table or a view. You can use this action to update multiple records at the same time, which can be useful when you need to make changes to a large number of records.
 
 ```csharp
 using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServer()))
@@ -56,7 +56,7 @@ Try it: [.NET Core](https://dotnetfiddle.net/JZfSWN) | [.NET Framework](https://
 
 ## Bulk Delete
 
-The [Dapper BulkDelete](/bulk-delete) method allows to `DELETE` a larger number of entities in a database table or a view. It allows you to delete multiple items at the same time. 
+The [Dapper BulkDelete](/bulk-delete) method allows you to `DELETE` a larger number of entities in a database table or a view. It allows you to delete multiple items at the same time. 
 
 ```csharp
 using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServer()))
@@ -71,7 +71,7 @@ Try it: [.NET Core](https://dotnetfiddle.net/jTjPId) | [.NET Framework](https://
 
 ## Bulk Merge
 
-The [Dapper BulkMerge](/bulk-merge) method allows to `MERGE` a larger number of entities in a database table or a view. The `BulkMerge` method can be used to merge an object into the database, similar to an `UPSERT` operation. 
+The [Dapper BulkMerge](/bulk-merge) method allows you to `MERGE` a larger number of entities in a database table or a view. The `BulkMerge` method can be used to merge an object into the database, similar to an `UPSERT` operation. 
 
 
  - UPSERT refers to operations that update or insert data into a database table. 

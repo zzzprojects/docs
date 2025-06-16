@@ -2,7 +2,7 @@
 PermaID: 1000200
 Title: Dapper - Getting Started With a Step-by-Step Tutorial
 MetaDescription: Learn how to use Dapper, the popular lightweight ORM for .NET, with our easy-to-follow step-by-step tutorial for beginners. Discover how to create database connections, execute queries, and map database results to .NET objects with Dapper.
-LastMod: 2023-10-22
+LastMod: 2025-06-16
 ---
 
 # Dapper: Getting Started With a Step-by-Step Tutorial
@@ -150,7 +150,7 @@ Generally, we create a **View** with the same name as an Action method, so let's
 </table>
 ```
 
-Let's run your application and specify the following Url.
+Let's run your application and specify the following URL.
 
 ```csharp
 http://localhost:55016/Customer/

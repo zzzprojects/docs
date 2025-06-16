@@ -2,7 +2,7 @@
 PermaID: 1000191
 Title: Dapper Contrib Write - Use Data Annotation to Specify Readonly Column
 MetaDescription: Unlock the power of Dapper Contrib by using 'Write' Data Annotation. Learn how to specify whether a property should be writable in the database.
-LastMod: 2023-10-21
+LastMod: 2025-06-16
 ---
 
 # Dapper Contrib Write: Use Data Annotation to Specify Readonly Column
@@ -11,7 +11,7 @@ LastMod: 2023-10-21
 
 The `Write` attribute specifies whether a field is writable or not in the database. 
 
- - It must be applied to any properties that we do not want a column in a database table. 
+ - It must be applied to any properties that we do not want to have a column in a database table. 
  - For example, you might have a property in your entity class, but it does not need to be stored. 
  - You can apply the `Write` attribute to a property that you do not want to create a column of in the database.
 

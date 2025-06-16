@@ -2,7 +2,7 @@
 PermaID: 1000168
 Title: Dapper Execute - Learn How to Execute Stored Procedure and SQL
 MetaDescription: Unlock the power of Dapper Execute to optimize your C# database operations. Learn how to use Execute and ExecuteAsync with a stored procedure, insert, update, and delete SQL statements.
-LastMod: 2023-10-20
+LastMod: 2025-06-16
 ---
 
 # Dapper Execute: Discover How to Execute Stored Procedure and SQL
@@ -13,7 +13,7 @@ Dapper has an `Execute` extension method that can be used to execute a query or 
 
 The `Execute` method takes several parameters and the first two parameters are the most important.
 
- - The first parameter is the sql statement or stored procedure name
+ - The first parameter is the SQL statement or stored procedure name
  - The second parameter is an object that represents the parameters that will be passed to the query/stored procedure
 
 Here is an example of how to use the `Execute` method.
@@ -55,7 +55,7 @@ The `Execute` method takes a SQL query as a string and an optional object parame
 
 The `Execute` method also takes optional parameters for transaction, command timeout, and command type.
 
-The following table shows the different parameters of an Execute method.
+The following table shows the different parameters of the Execute method.
 
 | Name | Description |
 | :--- | :---------- |
@@ -128,7 +128,7 @@ using (var connection = My.ConnectionFactory())
 
 In the above example, a stored procedure named "Invoice_Insert" will be called three times. 
 
-In this example, we also [passed parameter to Dapper with a List](/parameter-anonymous#many)
+In this example, we also [passed parameters to Dapper with a List](/parameter-anonymous#many)
 
 ## Example - Execute INSERT
 

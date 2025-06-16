@@ -2,7 +2,7 @@
 PermaID: 1000185
 Title: Dapper Transaction - Learn How to Manage your Transaction
 MetaDescription: Unlock the power of Dapper by using Transaction. Learn how to use a transaction when saving data and completing it with 'Commit' or 'Rollback'.
-LastMod: 2023-10-20
+LastMod: 2025-06-16
 ---
 
 # Dapper Transaction: Discover How to Manage your Transaction
@@ -20,7 +20,7 @@ Using Dapper's transaction support is very simple.
  3. Then, you execute all the operations that you want to be part of the transaction using this `IDbConnection` object. 
  4. Finally, you call `IDbTransaction.Commit()` or `IDbTransaction.Rollback()` to complete the transaction.
 
-Dapper support the transaction and TransactionScope
+Dapper supports transactions and TransactionScope
 
 ## Transaction
 
@@ -82,7 +82,7 @@ using (var transaction = new TransactionScope())
 
 It's a simple library to make it easier to work with a transaction.
 
-Everything `Dapper` support, `Dapper Transaction` supports it as well (It's only a new extension method calling Dapper)
+Everything `Dapper` supports, `Dapper Transaction` supports as well. (It's only new extension methods that call Dapper)
 
 NuGet: https://www.nuget.org/packages/Dapper.Transaction/
 
