@@ -2,7 +2,7 @@
 Permalink: articles/carloscds-ef6-code-first
 Title: Using Entity Framework Code First to map POCO classes to the database
 MetaDescription: Learn how to use Entity Framework Code First to map POCO classes to a database and generate the database from the classes. This article covers installation, creating a project, inserting data, and reverse engineering an existing database.
-LastMod: 2023-02-24
+LastMod: 2025-06-17
 tags: carloscds article code-first
 OriginalLink: https://carloscds.net/2012/01/entityframework-codefirst/
 CreatedDate: 2012-01-07
@@ -51,7 +51,7 @@ namespace EFCodeFirst
 }
 ```
 
-The secret here is `DBSet<>`, as it maps our class to the database and links it to an object, which we will use to do the operations with the DB.
+The secret here is `DbSet<>`, as it maps our class to the database and links it to an object, which we will use to perform the operations with the DB.
 
 See the code for the `Group` class:
 
@@ -122,11 +122,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-EFCodeFirst namespace
+namespace EFCodeFirst
 {
     class Program
     {
-        static  void Main ( string [] args)
+        static  void Main (string [] args)
         {
             var db = new Context();
 
@@ -153,9 +153,9 @@ EFCodeFirst namespace
             var datas = from p in db.Products
                         select p;
 
-            foreach (var data in data)
+            foreach (var data in datas)
             {
-                Console.WriteLine("{0, -30} - {1}" , line.Group.Name, line.Description);
+                Console.WriteLine("{0, -30} - {1}" , data.Group.Name, data.Description);
             }
         }
     }
@@ -197,8 +197,6 @@ The first option is precisely the one that shows the graphic model, let's see it
 
 ## I already have a database, and I want to use Code First
 
-I already have a database, and I want to use Code First:
-
 If you already have a database, EF Power Tools allows you to reverse engineer and generate the context and classes, to do this right-click on your Solution in Visual Studio and choose Entity Framework from the menu:
 
 <img src="https://carloscds.net/wp-content/uploads/2012/01/image_thumb9_thumb1_thumb6.png" width="442" height="202" alt="Entity Framework Code first-6">
@@ -209,7 +207,7 @@ This option generates all classes and relationships of your model, just inform w
 
 Don't forget to add Entity Framework Code First with NuGet before doing reverse engineering.
 
-## When to use Designer or CodeFirst:
+## When to use Designer or Code First:
 
 That is a very complicated question. I would say that if you use only one database and need to work with Stored Procedures, it is better to use the Designer, mainly because Code First does not yet support procedures natively.
 

@@ -2,7 +2,7 @@
 PermaID: 1000053
 Title: Entity Framework Relationships - Learn which relation is supported
 MetaDescription: Unlock the power of Entity Framework by using relationships available to specify the relation within your entities. What about the many-to-many, one-to-many, and one-to-one relation and how to use it in your model.
-LastMod: 2023-02-25
+LastMod: 2025-06-17
 Tags: model relationship
 ---
 
@@ -10,7 +10,7 @@ Tags: model relationship
 
 In the context of relational databases, a relationship exists between two relational database tables when one table has a foreign key that references the primary key of the other table. In Entity Framework, a relationship defines how two entities relate to each other.
 
-Entity framework supports three types of relationships.
+Entity Framework supports three types of relationships.
 
  - <a href="{{ site.github.url }}/one-to-one-relationship">One-to-One</a>
  - <a href="{{ site.github.url }}/one-to-many-relationship">One-to-Many</a>

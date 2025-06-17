@@ -2,7 +2,7 @@
 PermaID: 1000057
 Title: Entity Framework Stored Procedure - Learn How to Use SP in LINQ
 MetaDescription: Unlock the power of Entity Framework by using a stored procedure to keep the logic in your database. Learn the advantages of using a stored procedure and how to use them.
-LastMod: 2023-02-26
+LastMod: 2025-06-17
 Tags: query stored-procedure raw-sql
 ---
 
@@ -10,7 +10,7 @@ Tags: query stored-procedure raw-sql
 
 ## What is Stored Procedure?
 
-A stored procedure a SQL code that you can save so that the code can be reused over and over again.
+A stored procedure is a SQL code that you can save so that the code can be reused over and over again.
 
  - If you have an SQL query that you write over and over again, save it as a stored procedure, and then call it to execute it.
  - You can also pass parameters to a stored procedure so that the stored procedure can act based on the parameter value(s) that is passed.
@@ -71,7 +71,7 @@ BEGIN
 END
 ```
 
-When it is executed, It will return a specific book record from Books table based on `BookId = 2` passed as a parameter.
+When it is executed, It will return a specific book record from `Books` table based on `BookId = 2` passed as a parameter.
 
 ```csharp
 using (var context = new BookStore())

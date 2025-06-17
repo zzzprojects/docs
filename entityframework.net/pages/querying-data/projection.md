@@ -2,7 +2,7 @@
 PermaID: 1000059
 Title: Entity Framework Projection - Learn How to Return Anonymous Type
 MetaDescription: Unlock the power of Entity Framework by using projection only to return data you will use in an anonymous type. Learn how to increase your performance by only querying the data you need.
-LastMod: 2023-02-26
+LastMod: 2025-06-17
 Tags: query
 ---
 
@@ -12,11 +12,11 @@ A projection is just a way of mapping one set of properties to another. In Entit
 
  - Projection queries improve the efficiency of your application because only specific fields are retrieved from your database.
  - It is used to create a query that selects from a set of entities in your model but returns results that are of a different type.
- - When you have the data, you can project or filter it as you want the data before output.
+ - When you have the data, you can project or filter it as you want before output.
 
 ## Anonymous Type
 
-Anonymous types provide an easy way to create a new type without initializing them. In the following example, the projection query load the authors data into this Anonymous Type.
+Anonymous types provide an easy way to create a new type without initializing them. In the following example, the projection query loads the authors' data into this Anonymous Type.
 
 ```csharp
 var authors = context.Authors

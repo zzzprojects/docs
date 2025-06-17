@@ -2,7 +2,7 @@
 Permalink: articles/carloscds-ef6-logging-sql-commands
 Title: Migrating to Entity Framework 6: New Features to Explore
 MetaDescription: Learn about the new features of Entity Framework 6 and how to migrate from version 5. In this article, we explore the command log feature to see what happens under the hood.
-LastMod: 2023-02-24
+LastMod: 2025-06-17
 tags: carloscds article logging
 OriginalLink: https://carloscds.net/2013/09/entity-framework-6gerando-log-dos-comandos-sql/
 CreatedDate: 2013-09-02
@@ -26,7 +26,7 @@ Creating a new Console Application project:
 
 <img src="https://www.carloscds.net/wp-content/uploads/2013/09/SNAGHTML476eb602_thumb2.png" width="532" height="369" alt="Create console application project">
 
-After creating our project, we will add the Entity Framework through the [Nuget](https://nuget-tutorial.net/) window, which is in Tools -> Library Packager Manager -> `Packager Manager Console` and inside it, we will execute the command below:
+After creating our project, we will add the Entity Framework through the [Nuget](https://nuget-tutorial.net/) window, which is in Tools -> Library Package Manager -> `Package Manager Console` and inside it, we will execute the command below:
 
 ```package-manager
 PM> Install-Package EntityFramework –Pre
@@ -78,7 +78,7 @@ class Program
         db.Clients.Add(cli);
         db.SaveChanges();
 
-        var clients =   from c in db.Cliente
+        var clients =   from c in db.Clients
                         select c;
   
         foreach(var c in clients)

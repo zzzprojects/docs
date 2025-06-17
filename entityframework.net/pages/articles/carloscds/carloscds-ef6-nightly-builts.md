@@ -2,7 +2,7 @@
 Permalink: articles/carloscds-ef6-nightly-builts
 Title: Installing and Accessing Entity Framework 6 Nightly Builds
 MetaDescription: Learn how to install Entity Framework 6 and access its nightly builds to explore its new features before they are officially released. Access the latest version and explore its source code.
-LastMod: 2023-02-24
+LastMod: 2025-06-17
 tags: carloscds article nightly-built
 OriginalLink: https://carloscds.net/2013/08/entity-framework-6trabalhando-com-os-nightly-builds/
 CreatedDate: 2013-08-18
@@ -14,16 +14,16 @@ CreatedUserLink: https://carloscds.net/
 
 Now returning to write more about the Entity Framework, we are waiting for the new version 6 (still with no definitive date to be released) that will bring very significant improvements, and we will explore some of them in the next articles.
 
-The first thing is how to install EF 6 on a project. Usually, you use the Nuget Package Console to add EF to your project, with the following command: (open the Tools -> Library Package Manager -> `Package Manager Console`)
+The first thing is how to install EF 6 on a project. Usually, you use the NuGet Package Console to add EF to your project, with the following command: (open the Tools -> Library Package Manager -> `Package Manager Console`)
 
 ```package-manager
-PM> InstallPackage EntityFramework
+PM> Install-Package EntityFramework
 ```
 
 But it will install EF 5, which is the latest production version, released alongside Visual Studio 2012 and .Net 4.5. But if you want to install EF 6 in a project, you will have to use the following command:
 
 ```package-manager
-PM> InstallPackage EntityFramework -Pre
+PM> Install-Package EntityFramework -Pre
 ```
 
 That will install the latest published version of EF 6, which is currently Alpha 1. Cool, this allows you to work with EF 6 and explore some very interesting features, but we don't want this, we want the cool things not yet published.

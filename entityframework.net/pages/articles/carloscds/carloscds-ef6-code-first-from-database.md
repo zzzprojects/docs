@@ -2,7 +2,7 @@
 Permalink: articles/carloscds-ef6-code-first-from-database
 Title: How to Reverse Engineer Tables and Views with EF Code First
 MetaDescription: Learn how to choose specific tables and views to read with EF Code First using the reverse engineering feature in Visual Studio 2013 Update 2.
-LastMod: 2023-02-24
+LastMod: 2025-06-17
 tags: carloscds article code-first power-tools reverse-engineering
 OriginalLink: https://carloscds.net/2014/07/entityframework-lendo-seu-banco-de-dados-com-o-visual-studio-2013-update-2/
 CreatedDate: 2014-02-07
@@ -74,6 +74,6 @@ public partial class Product
 }
 ```  
  
-See that the class was generated, and Data Annotations was created.
+See that the class was generated, and Data Annotations were created.
 
-Now just use EntityFramework Code First!
+Now just use Entity Framework Code First!

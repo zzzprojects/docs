@@ -1,8 +1,8 @@
 ---
 PermaID: 1000126
 Title: Entity Framework ConcurrencyCheck Data Annotations
-MetaDescription: Unlock the power of Entity Framework by using the ConcurrencyCheck Annotations. Learn What a concurrency check and how to specify this attribute is.
-LastMod: 2023-02-24
+MetaDescription: Unlock the power of Entity Framework by using the ConcurrencyCheck Annotations. Learn What a concurrency check is and how to specify this attribute.
+LastMod: 2025-06-17
 Tags: code-first fluent-api data-annotations
 ---
 

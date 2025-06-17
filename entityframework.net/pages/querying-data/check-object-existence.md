@@ -2,7 +2,7 @@
 PermaID: 1000082
 Title: Entity Framework Check Object Existence
 MetaDescription: Unlock the power of Entity Framework by understanding how you can check if an entity already exists.
-LastMod: 2023-02-26
+LastMod: 2025-06-17
 Tags: query
 ---
 
@@ -10,7 +10,7 @@ Tags: query
 
 ## How to check if an object exists in the database?
 
-What is the best way performance wise to check if the object exists in the database. 
+What is the best way performance-wise to check if the object exists in the database?
 
 ### StackOverflow Related Questions
 

@@ -2,7 +2,7 @@
 PermaID: 1000061
 Title: Entity Framework Join - Learn How to Combine Entities Using LINQ
 MetaDescription: Unlock the power of Entity Framework by joining multiple entities in your LINQ query. Learn how to join your entities and load all data you need.
-LastMod: 2023-02-26
+LastMod: 2025-06-17
 Tags: query
 ---
 
@@ -10,8 +10,8 @@ Tags: query
 
 In SQL, a `JOIN` clause is used to combine data from two or more tables, based on a related column between them. Similarly, in Entity Framework, the LINQ `Join` is used to load data from two or more tables. 
 
- - It is always advisable to use navigational properties instead of LINQ `Join` to query the target data. 
- - But if the entities do not have any navigational properties defined on them, then you will need the `Join` operators 
+ - It is always advisable to use navigation properties instead of LINQ `Join` to query the target data. 
+ - But if the entities do not have any navigation properties defined on them, then you will need the `Join` operators.
  - It can also be used to fine-tune the generated queries for performance benefits.
 
 The following query combines `Authors` and `Books` tables using the `Join()` method.

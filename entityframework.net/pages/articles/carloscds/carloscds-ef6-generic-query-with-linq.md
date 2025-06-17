@@ -2,7 +2,7 @@
 Permalink: articles/carloscds-ef6-generic-query-with-linq
 Title: Creating Generic Queries with LINQ in Entity Framework 4
 MetaDescription: Learn how to create reusable codes by creating a generic query method using LINQ in Entity Framework 4. This article provides examples and code snippets to help you get started.
-LastMod: 2023-02-24
+LastMod: 2025-06-17
 tags: carloscds article linq query
 OriginalLink: https://carloscds.net/2010/07/consultas-genricas-com-linq/
 CreatedDate: 2010-07-19
@@ -14,7 +14,7 @@ CreatedUserLink: https://carloscds.net/
 
 In the concept of object orientation, we always have in mind to create codes that can be reused within the application or even in different applications. In this context, I have been asked how it is possible to use `LINQ`, which is totally object-oriented and strongly typed, and still create reusable codes.
 
-Taking advantage of this situation, I will show how it is possible to create a query method using `LINQ`, which is used to query practically any entity (table) of your model. We will create a completely generic query, and one of the possible places that you can use this type of method, it is in a consultation routine that you call throughout your system, for example.
+Taking advantage of this situation, I will show how it is possible to create a query method using `LINQ`, which is used to query practically any entity (table) of your model. We will create a completely generic query, and one of the possible places that you can use this type of method, it is in a query routine that you call throughout your system, for example.
 
 For our example, let's create a very simple console project, remembering that we will use Visual Studio 2010 with Entity Framework 4:
 
@@ -70,7 +70,7 @@ foreach (DbDataRecord data in datas)
 }
 ```
 
-And to end an example with conditional query:
+And to end an example with a conditional query:
 
 ```csharp
 var datas = Query("SELECT c.ProductName, c.UnitPrice, c.Categories.CategoryName FROM Products AS c WHERE c.UnitPrice < 10" , ctx);
@@ -81,4 +81,4 @@ foreach (DbDataRecord data in datas)
 }
 ```
 
-I believe that this simple example can help in the development of your application and also show the amount of existing features in Entity Framework 4.
+I believe that this simple example can help in the development of your application and also show the number of existing features in Entity Framework 4.

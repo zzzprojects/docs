@@ -2,7 +2,7 @@
 PermaID: 1000074
 Title: Entity Framework Mock - Learn How to Fake EF DbContext for Unit Tests 
 MetaDescription: Unlock the power of Entity Framework by Mocking your DbContext for your unit tests. Learn how to make your data and which library is available for EF.
-LastMod: 2023-02-25
+LastMod: 2025-06-17
 Tags: getting-started mock
 ---
 
@@ -20,9 +20,9 @@ Entity Framework isn't unit test friendly, so how to mock Entity Framework's DbC
 
 ## Answer
 
- - When writing tests for your application it is often desirable to avoid hitting the real database, because you will face a lot of problems such as creation, perfomance, interdependences etc. 
- - The preferable approach is to mock corresponding database.
- - To create objects through mock, it needs to perform many settings, especially for test scenarios where queries are made and mocking up test data can be a lot of work.
+ - When writing tests for your application it is often desirable to avoid hitting the real database, because you will face a lot of problems such as creation, performance, interdependences etc. 
+ - The preferable approach is to mock the corresponding database.
+ - To create objects through mocking, it needs to perform many settings, especially for test scenarios where queries are made and mocking up test data can be a lot of work.
 
 The best approach for unit testing Entity Framework is mocking in memory by using third party libraries such as Entity Framework Effort etc.
 
@@ -47,7 +47,7 @@ The term Transient refers to the lifecycle of the underlying in-memory database.
 
 ### Moq
 
-Moq is the only mocking library for .NET developed from scratch to take full advantage of .NET Linq expression trees and lambda expressions, which makes it the most productive, type-safe and refactoring-friendly mocking library available.
+Moq is the only mocking library for .NET developed from scratch to take full advantage of .NET LINQ expression trees and lambda expressions, which makes it the most productive, type-safe and refactoring-friendly mocking library available.
 
 
 ```csharp

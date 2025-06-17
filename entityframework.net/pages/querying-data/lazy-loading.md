@@ -2,7 +2,7 @@
 PermaID: 1000060
 Title: Entity Framework Lazy Loading - Learn How to Load Entities on Demand
 MetaDescription: Unlock the power of Entity Framework by loading related entities automatically on demand. Learn how lazy loading can help you to save development time by automatically including related entities when you need to use them.
-LastMod: 2023-02-26
+LastMod: 2025-06-17
 Tags: query lazy-loading
 ---
 
@@ -10,11 +10,11 @@ Tags: query lazy-loading
 
 In Lazy loading, an entity or collection of entities is automatically loaded from the database when a property referring to that entity/entities is accessed for the first time. 
 
- - Lazy loading means delaying the loading of related data until you specifically request for it.
+ - Lazy loading means delaying the loading of related data until you specifically request it.
  - The related data is transparently loaded from the database when the navigation property is accessed.
  - It is enabled by default in Entity Framework, and you don't need to do anything. 
 
-In the following example, the 'Author' entity contains the collection of `Books`. The context first loads the author entity data from the database, and then it will load the collection of books when we access the `Books` navigational property.
+In the following example, the 'Author' entity contains the collection of `Books`. The context first loads the author entity data from the database, and then it will load the collection of books when we access the `Books` navigation property.
 
 ```csharp
 using (var context = new BookStore())
@@ -35,7 +35,7 @@ SELECT TOP (1)
     FROM [dbo].[Authors] AS [c]
 ```
 
-When the navigational property `Books` in `Author` class is accessed, it will send the following query to fetch all the books related to that author.
+When the navigation property `Books` in `Author` class is accessed, it will send the following query to fetch all the books related to that author.
 
 ```csharp
 SELECT 
@@ -54,7 +54,7 @@ SELECT
 
 Lazy loading is enabled by default, but you can disable lazy loading for a particular entity or a context. 
 
- - Do not make a navigational property virtual, if you want to turn off lazy loading for a particular property. 
+ - Do not make a navigation property virtual, if you want to turn off lazy loading for a particular property. 
  - If you want to turn off lazy loading for all entities in the context, set its configuration property to false.
 
 ```csharp

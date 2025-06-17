@@ -1,12 +1,12 @@
 ---
 PermaID: 1000077
-Title: Entity Framework Use LINQ Dynamically - Learn How Use LINQ at Runtime
+Title: Entity Framework Use LINQ Dynamically - Learn How to Use LINQ at Runtime
 MetaDescription: Unlock the power of Entity Framework by using Dynamic LINQ at runtime. Learn how to specify where clause or order by clause at runtime.
-LastMod: 2023-02-26
+LastMod: 2025-06-17
 Tags: query linq linq-dynamic
 ---
 
-# Entity Framework Use LINQ Dynamically: Discover How Use LINQ at Runtime
+# Entity Framework Use LINQ Dynamically: Discover How to Use LINQ at Runtime
 
 ## How to use LINQ dynamically? 
 
@@ -20,7 +20,7 @@ For example, we have a very simple case where we want to sort customers, but we 
 
 ## Answer
 
-One way to sort the customers is that you could write big switch statements that are depending on the user input and wrote a different lambda expression for each case of the switch statement that would set the ORDER BY and that's difficult and becomes difficult to maintain in the long run too.
+One way to sort the customers is that you could write big switch statements that are depending on the user input and write a different lambda expression for each case of the switch statement that would set the ORDER BY and that's difficult and becomes difficult to maintain in the long run too.
 
 ### Dynamic Query Library
 

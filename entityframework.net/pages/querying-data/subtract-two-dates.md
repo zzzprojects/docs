@@ -1,8 +1,8 @@
 ---
 PermaID: 1000078
-Title: Entity Framework Subtract Two Dates - Lean How to Use Date in LINQ
+Title: Entity Framework Subtract Two Dates - Learn How to Use Date in LINQ
 MetaDescription: Unlock the power of Entity Framework by understanding how to use LINQ query to subtract date. Learn how to use an expression to their full potential.
-LastMod: 2023-02-26
+LastMod: 2025-06-17
 Tags: query
 ---
 
@@ -33,7 +33,7 @@ when you execute the above code, then it will throw the following exception.
 
 ## Answer
 
-The easiet way to subtract two dates using LINQ is to define a `DateTime` variable that represents the old date, then use that `DateTime` variable in where portion of the LINQ query.
+The easiest way to subtract two dates using LINQ is to define a `DateTime` variable that represents the old date, then use that `DateTime` variable in where portion of the LINQ query.
 
 
 ```csharp

@@ -2,7 +2,7 @@
 Permalink: articles/carloscds-ef6-code-first-migrations
 Title: Understanding Entity Framework Code First Migrations
 MetaDescription: Learn how to use Entity Framework Code First Migrations and choose the best mode to manage your database updates.
-LastMod: 2023-02-24
+LastMod: 2025-06-17
 tags: carloscds article migration
 OriginalLink: https://carloscds.net/2012/07/entity-framework-code-firstmigrations/
 CreatedDate: 2012-07-15
@@ -14,7 +14,7 @@ CreatedUserLink: https://carloscds.net/
 
 One of the great features of Entity Framework Code First is the process of automatically updating the database through the feature called `Migrations`.
 
-Migrations allow you, who already work with CodeFirst, to generate manageable updates in your database, or if you prefer, let Migrations itself take care of everything automatically, keeping your database always up to date with your classes.
+Migrations allow you, who already work with Code First, to generate manageable updates in your database, or if you prefer, let Migrations itself take care of everything automatically, keeping your database always up to date with your classes.
 
 In practice, we have two ways of working with Migrations:
 
@@ -100,7 +100,7 @@ Update-DataBase - script - generates a script with SQL commands to be executed o
 For our example, we will run:
 
 ```nuget-console
-Add-Migrations "CreateDatabase”
+Add-Migrations "CreateDatabase"
 Update-DataBase
 ```
 

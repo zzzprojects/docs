@@ -1,8 +1,8 @@
 ---
 PermaID: 1000064
 Title: Entity Framework Basic Query - Learn How To Make Basic Queries
-MetaDescription: Unlock the power of Entity Framework by understanding what a LINQ query and how to use it is. Learn how to get started by creating your first LINQ query and how to use it.
-LastMod: 2023-02-26
+MetaDescription: Unlock the power of Entity Framework by understanding what a LINQ query is and how to use it Learn how to get started by creating your first LINQ query and how to use it.
+LastMod: 2025-06-17
 Tags: query
 ---
 

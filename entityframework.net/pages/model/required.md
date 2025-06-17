@@ -1,8 +1,8 @@
 ---
 PermaID: 1000117
 Title: Entity Framework Required Data Annotation
-MetaDescription: Unlock the power of Entity Framework by using the Required Data Annotations. Learn how to set this attribute to specify is mandatory that the property have a value.
-LastMod: 2023-02-25
+MetaDescription: Unlock the power of Entity Framework by using the Required Data Annotations. Learn how to set this attribute to specify it is mandatory that the property has a value.
+LastMod: 2025-06-17
 Tags: code-first fluent-api data-annotations
 ---
 

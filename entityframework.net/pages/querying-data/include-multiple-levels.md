@@ -2,17 +2,17 @@
 PermaID: 1000092
 Title: Entity Framework Include Multiple Levels
 MetaDescription: Unlock the power of Entity Framework by including multiple levels of related entities in your LINQ query. Learn how to use the Include method in more advanced scenarios.
-LastMod: 2023-02-26
+LastMod: 2025-06-17
 Tags: query include
 ---
 
 # Entity Framework Include Multiple Levels
 
-## How to Include multiple levels? 
+## How to include multiple levels? 
 
 Eager loading is the process whereby a query for one type of entity also loads related entities as part of the query. Eager loading is achieved by use of the Include method. 
 
-The Include() method works quite well for Lists on objects, but what if there is a need for multiple levels of depth. For example, Customer contains a list of invoices and each invoice then contains a list of items.
+The Include() method works quite well for lists of objects, but what if there is a need for multiple levels of depth. For example, Customer contains a list of invoices and each invoice then contains a list of items.
 ### StackOverflow Related Questions
 
  - [Entity Framework - Include Multiple Levels of Properties](https://stackoverflow.com/questions/10822656/entity-framework-include-multiple-levels-of-properties)
@@ -58,7 +58,7 @@ using (var context = new EntityContext())
 
 ### Entity Framework Core
 
-EF Core has a new extension method **ThenInclude()**. You can drill down thru relationships to include multiple levels of related data using the ThenInclude method.
+EF Core has a new extension method **ThenInclude()**. You can drill down through relationships to include multiple levels of related data using the ThenInclude method.
 
 
 ```csharp
@@ -66,7 +66,7 @@ using (var context = new MyContext())
 {
     var customers = context.Customers
             .Include(i => i.Invoices)
-                .ThenInclude(it => it.Items))
+                .ThenInclude(it => it.Items)
             .ToList();
 }
 ```

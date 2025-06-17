@@ -1,8 +1,8 @@
 ---
 Permalink: articles/carloscds-ef6-creating-index
 Title: How to Create Index in Database with Entity Framework Code First
-MetaDescription: Learn how to create index in EntityFramework using the Migrations feature. By adding the Index attribute in the class property, you can improve the performance of your queries.
-LastMod: 2023-02-24
+MetaDescription: Learn how to create an index in Entity Framework using the Migrations feature. By adding the Index attribute in the class property, you can improve the performance of your queries.
+LastMod: 2025-06-17
 tags: carloscds article index code-first
 OriginalLink: https://carloscds.net/2014/07/criando-ndices-no-entity-framework-codefirst/
 CreatedDate: 2014-07-01
@@ -12,7 +12,7 @@ CreatedUserLink: https://carloscds.net/
 
 # How to Create Index in Database with Entity Framework Code First
 
-As of EntityFramework version 6.1, it is possible to create `index` in the database, specifying this directly in the classes in the source code. This creation of the indexes is carried out through the `Index` attribute directly to the class property. But beware: this is only possible using EntityFramework's Migrations feature.
+As of Entity Framework version 6.1, it is possible to create `index` in the database, specifying this directly in the classes in the source code. This creation of the indexes is carried out through the `Index` attribute directly on the class property. But beware: this is only possible using EntityFramework's Migrations feature.
 
 To demonstrate this feature, let's create a Console project in Visual Studio and add the Entity Framework Code First using the [NuGet](https://nuget-tutorial.net/) package.
 
@@ -110,7 +110,7 @@ public partial class CreateDatabase : DbMigration
 }
 ```
 
-See the command `.Index(t => t.name, name: "My_Index")`. He is the one who will create the index when we apply the change to the database, but before creating the database, we must not forget the connection string of must be in app.config or web.config (in the case of web applications). Let's add the line with the connection:
+See the command `.Index(t => t.Name, name: "My_Index")`. It is the one who will create the index when we apply the change to the database, but before creating the database, we must not forget that the connection string must be in app.config or web.config (in the case of web applications). Let's add the line with the connection:
 
 ```xml
 <connectionStrings>
@@ -132,4 +132,4 @@ There, our database was created with the index we determined. See the Management
 
 Instead of creating the database directly, you can also add the `–Script` parameter to the `Update-Database` to generate the script for your database.
 
-You can now add index creation to your EntityFramework projects and thus improve the performance of your queries.
+You can now add index creation to your Entity Framework projects and thus improve the performance of your queries.

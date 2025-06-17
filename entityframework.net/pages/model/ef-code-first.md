@@ -1,8 +1,8 @@
 ---
 PermaID: 1000106
 Title: Entity Framework Code First - Learn How to Use this Approach
-MetaDescription: Unlock the power of Entity Framework by understanding how the code first approach work. Learn what this approach is and how to get started.
-LastMod: 2023-02-24
+MetaDescription: Unlock the power of Entity Framework by understanding how the code first approach works. Learn what this approach is and how to get started.
+LastMod: 2025-06-17
 Tags: code-first model
 ---
 
@@ -19,8 +19,8 @@ In Entity Framework, code first was introduced in Entity Framework 4.1. Code Fir
 Code-First APIs will create the database on the fly based on your entity classes and configuration. It can also update the database if the model changes, using a feature called Code First Migrations.
 
  - Code First is a very popular approach and has full control over the code rather than database activity. 
- - In this approach, we can do all the database operations from the code and manual changes to database have been lost and everything is depending on the code.
- - In this you need to create POCO entities as data model.
+ - In this approach, we can do all the database operations from the code and manual changes to the database will be lost and everything depends on the code.
+ - In this approach, you need to create POCO entities as the data model.
 
 ## Initial Model & Database Using Code First Approach
 

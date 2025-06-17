@@ -1,8 +1,8 @@
 ---
 PermaID: 1000105
 Title: Entity Framework Database First - Learn How to Use this Approach
-MetaDescription: Unlock the power of Entity Framework by understanding how the database first approach work. Learn what this approach is and how to get started.
-LastMod: 2023-02-24
+MetaDescription: Unlock the power of Entity Framework by understanding how the database first approach works. Learn what this approach is and how to get started.
+LastMod: 2025-06-17
 Tags: database-first model
 ---
 
@@ -17,7 +17,7 @@ When you start learning Entity Framework, you will also often see the term **Ent
 In the Entity Framework, the Database First Approach provides an alternative to the Code First by creating POCO classes from the existing database.
 
  - Database first approach is used when a database is ready; then Entity Framework will complete its duty and create POCO entities for you
- - If you already had a designed database and you don't want to do extra efforts, then you can go with this approach.
+ - If you already had a designed database and you don't want to make extra effort, then you can go with this approach.
  - You can modify the database manually and update the model from a database. 
  - So, we can say, entity framework can create your model classes based on tables and columns from the relational database.
 
@@ -30,7 +30,7 @@ In the [Code First](/ef-code-first), we have created a database from a DbContext
 
 Let's create a new empty project and add the EntityFramework NuGet package which is explained in the [Code First](/ef-code-first) approach.
  
-We will use of Entity Framework Designer, which is included as part of Visual Studio, to create our model.
+We will use the Entity Framework Designer, which is included as part of Visual Studio, to create our model.
 
 Right click on the project in Solution Explorer and choose `Add > New Item...` option.
 
@@ -121,7 +121,7 @@ You can see that `AuthorName` property is added to the model, now we need to upd
 
 <img src="https://raw.githubusercontent.com/zzzprojects/EntityFramework-FAQ/master/docs2/images/database-first8.png" alt="Database-first-8">
 
-To update the table field changes in the BookStore.tt file, right on BookStore.tt file and choose **Run Custom Tool**.
+To update the table field changes in the BookStore.tt file, right-click on BookStore.tt file and choose **Run Custom Tool**.
 
 ```csharp
 //------------------------------------------------------------------------------

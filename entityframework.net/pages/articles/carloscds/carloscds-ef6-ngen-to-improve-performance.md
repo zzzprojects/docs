@@ -2,7 +2,7 @@
 Permalink: articles/carloscds-ef6-ngen-to-improve-performance
 Title: Title: Improve Entity Framework Performance with NGen
 MetaDescription: Learn how to use NGen to pre-compile Entity Framework assemblies and improve the performance of your .NET applications.
-LastMod: 2023-02-24
+LastMod: 2025-06-17
 tags: carloscds article ngen
 OriginalLink: https://carloscds.net/2014/04/melhorando-a-performance-do-entity-framework-com-ngen/
 CreatedDate: 2014-04-21
@@ -38,7 +38,7 @@ Now let's reverse engineer the `Northwind` database, but you can use any other d
 
 Now I will choose the database and generate the classes.
 
-To show the difference in performance, I will create a simple query in EF, and to mark the time, we will use the class StopWatch (). See below:
+To show the difference in performance, I will create a simple query in EF, and to mark the time, we will use the class StopWatch(). See below:
 
 ```csharp
 static void Main(string[] args)
@@ -58,7 +58,7 @@ static void Main(string[] args)
     
     clock.Stop();
 
-    Console.WriteLine("\n\nQuery Time: {0} segs.\n\n", clock.Elapsed.TotalSeconds);
+    Console.WriteLine("\n\nQuery Time: {0} secs.\n\n", clock.Elapsed.TotalSeconds);
 }
 ```
 

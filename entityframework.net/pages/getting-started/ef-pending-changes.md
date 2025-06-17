@@ -2,7 +2,7 @@
 PermaID: 1000131
 Title: Entity Framework Pending Changes - Learn How to See Tracked Entries
 MetaDescription: Unlock the power of Entity Framework by understanding how to look at your pending changes. Learn how to use the change tracker to retrieve DbEntityEntry from the Entries method.
-LastMod: 2023-02-25
+LastMod: 2025-06-17
 Tags: getting-started migration
 ---
 
@@ -20,7 +20,7 @@ Sometimes when I execute SaveChanges(), the Entity Framework performs unexpected
 
 ## Answer
 
-Entity Framework has a `ChangeTracker` property in DbContext class which provides access to features of the context that deal with change tracking of entities..
+Entity Framework has a `ChangeTracker` property in DbContext class which provides access to features of the context that deal with change tracking of entities.
 
 
 ```csharp

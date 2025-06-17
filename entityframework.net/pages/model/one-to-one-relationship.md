@@ -2,7 +2,7 @@
 PermaID: 1000054
 Title: Entity Framework One-to-One Relationships
 MetaDescription: Unlock the power of Entity Framework by using one-to-one to specify your entities relationship. Learn what this relationship is and how to use it in your model.
-LastMod: 2023-02-25
+LastMod: 2025-06-17
 Tags: model relationship
 ---
 
@@ -76,7 +76,7 @@ public class AuthorBiography
 
 [Try it](https://dotnetfiddle.net/LISWtb)
 
-In this case, the `AuthorBiography` is depending on `Author`, so the `AuthorBiographyId` property is a primary as well as a foreign key.
+In this case, the `AuthorBiography` is dependent on `Author`, so the `AuthorBiographyId` property is a primary as well as a foreign key.
 
 ### Using Fluent API
 

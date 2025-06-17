@@ -2,7 +2,7 @@
 PermaID: 1000088
 Title: Entity Framework Table Per Hierarchy (TPH)
 MetaDescription: Unlock the power of Entity Framework by using table per hierarchy inheritance. Learn what a TPH is and how to use this approach.
-LastMod: 2023-02-25
+LastMod: 2025-06-17
 Tags: model inheritance tph
 ---
 
@@ -92,7 +92,7 @@ TPH has one major problem, Columns for properties declared by subclasses will be
 
  - For example, Code First created a (DATETIME, NULL) column to map HireDate property in Teacher class and EnrollmentDate in Student class.
  - Teacher instance won't have an EnrollmentDate property; the EnrollmentDate field must be NULL for that row.
- - Similarly, student instance won't have a HiretDate property, so HiretDate field must be NULL for that row.
+ - Similarly, student instance won't have a HireDate property, so HireDate field must be NULL for that row.
 
 #### View Generated SQL
 

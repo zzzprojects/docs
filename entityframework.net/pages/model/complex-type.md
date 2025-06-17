@@ -1,8 +1,8 @@
 ---
 PermaID: 1000127
 Title: Entity Framework ComplexType Data Annotations
-MetaDescription: Unlock the power of Entity Framework by using the ComplexType Data Annotations. Learn what a complex type and how to specify this attribute is.
-LastMod: 2023-02-24
+MetaDescription: Unlock the power of Entity Framework by using the ComplexType Data Annotations. Learn what a complex type is and how to specify this attribute.
+LastMod: 2025-06-17
 Tags: code-first fluent-api data-annotations
 ---
 
@@ -16,7 +16,7 @@ The Complex types are non-scalar properties of entity types that enable scalar p
  - Complex type properties cannot be null. 
  - Scalar properties of complex objects can be null.
 
-In the following example, we have added an `Address` class and decorate it with `ComplexType` attribute.
+In the following example, we have added an `Address` class and decorated it with `ComplexType` attribute.
 
 ```csharp
 public class Author

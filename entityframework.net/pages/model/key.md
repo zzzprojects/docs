@@ -1,16 +1,16 @@
 ---
 PermaID: 1000121
-Title: Entity Framework Key Data Annotation - Learn How to use Key Attribute
+Title: Entity Framework Key Data Annotation - Learn How to Use Key Attribute
 MetaDescription: Unlock the power of Entity Framework by using the Key Data Annotations. Learn how to set this attribute to specify which properties are your primary key columns.
-LastMod: 2023-02-24
+LastMod: 2025-06-17
 Tags: code-first fluent-api data-annotations
 ---
 
-# Entity Framework Key Data Annotation: Discover How to use Key Attribute
+# Entity Framework Key Data Annotation: Discover How to Use Key Attribute
 
 The `Key` attribute can be applied to a property to make it a key property in an entity class and the corresponding column to a primary key column in the database. 
 
- - The default Code First convention look for a property named **"Id"**, or a combination of **"class name"** and **"Id"**, such as **BookId**. 
+ - The default Code First convention looks for a property named **"Id"**, or a combination of **"class name"** and **"Id"**, such as **BookId**. 
  - This property will map to a primary key column in the database.
 
 ```csharp
@@ -27,7 +27,7 @@ public class Category
 }
 ```
 
-The `Book` class follow the default code first conventions, and the name of the key field in the `Category` class does not meet the Entity Framework naming convention for entity keys.
+The `Book` class follows the default code first conventions, and the name of the key field in the `Category` class does not meet the Entity Framework naming convention for entity keys.
 
  - If code first does not find a property that matches the default convention, it will throw an exception because Entity Framework requires a key property. 
  - The `Key` attribute overrides this default convention, you can use the key annotation to specify which property is to be used as the EntityKey.

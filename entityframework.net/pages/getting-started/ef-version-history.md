@@ -1,14 +1,14 @@
 ---
 PermaID: 1000101
 Title: Entity Framework Version History - Learn What Has Been Changed
-MetaDescription: Unlock the power of Entity Framework by knowing what changes have been made on every version. Learn about the EF release note and everything that has been changed through versions.
-LastMod: 2023-02-25
+MetaDescription: Unlock the power of Entity Framework by knowing what changes have been made on every version. Learn about the EF release notes and everything that has been changed through versions.
+LastMod: 2025-06-17
 Tags: getting-started
 ---
 
 # Entity Framework Version History: Discover What Has Been Changed
 
-The first two versions of Entity Framework shipped with the .NET Framework and had versions numbers that aligned with the version of the framework that they were included in (3.5 and 4). Later, this EF started shipping independently through [NuGet](https://www.nuget.org)
+The first two versions of Entity Framework shipped with the .NET Framework and had version numbers that aligned with the version of the framework in which they were included in (3.5 and 4). Later, this EF started shipping independently through [NuGet](https://www.nuget.org)
 
 ## EF6
 

@@ -2,7 +2,7 @@
 PermaID: 1000058
 Title: Entity Framework Raw SQL Query - Learn How to Execute Plain Text SQL 
 MetaDescription: Unlock the power of Entity Framework by replacing complex LINQ queries by plain text SQL. Learn how to write your own SQL can save you time and increase your query performance.
-LastMod: 2023-02-26
+LastMod: 2025-06-17
 Tags: query raw-sql
 ---
 
@@ -52,7 +52,7 @@ The results returned from `Database.SqlQuery` will never be tracked by the conte
 
 ## Database.ExecuteSqlCommand
 
-The `Database.ExecuteSqlCommnad` method is useful in executing non-query database commands, such as the Insert, Update and Delete command.
+The `Database.ExecuteSqlCommand` method is useful in executing non-query database commands, such as the Insert, Update and Delete command.
 
 ```csharp
 using (var context = new BookStore())

@@ -2,7 +2,7 @@
 PermaID: 1000055
 Title: Entity Framework One-to-Many Relationships
 MetaDescription: Unlock the power of Entity Framework by using one-to-many to specify your entities relationship. Learn what this relationship is and how to use it in your model.
-LastMod: 2023-02-25
+LastMod: 2025-06-17
 Tags: model relationship
 ---
 
@@ -31,7 +31,7 @@ public class Book
 
 ## Configure One-to-Many Relationship
 
-In EF6, most of the times you don't need to configure the one-to-many relationship because one-to-many relationship conventions cover all combinations. You can establish a one-to-many relationship by using any of the following code first conventions.
+In EF6, most of the time you don't need to configure the one-to-many relationship because one-to-many relationship conventions cover all combinations. You can establish a one-to-many relationship by using any of the following code first conventions.
 
 ### Code First Conventions
 
@@ -121,7 +121,7 @@ public class Book
 
 [Try it](https://dotnetfiddle.net/moGbUs)
 
-All these conventions produces the same result in the database.
+All these conventions produce the same result in the database.
 
 ### Using Fluent API
 

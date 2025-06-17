@@ -2,7 +2,7 @@
 PermaID: 1000089
 Title: Entity Framework Table Per Concrete (TPC)
 MetaDescription: Unlock the power of Entity Framework by using table per concrete inheritance. Learn what a TPC is and how to use this approach.
-LastMod: 2023-02-25
+LastMod: 2025-06-17
 Tags: model inheritance tpc
 ---
 
@@ -78,12 +78,12 @@ public class EntityContext : DbContext
 
 #### Important Note:
 
- - SQL Server's `int` identity columns don't work very well together with TPC since there will be duplicate entity keys when inserting in subclasses tables with all having the same identity seed.
+ - SQL Server's `int` identity columns don't work very well together with TPC since there will be duplicate entity keys when inserting into subclasses tables with all having the same identity seed.
  - Therefore, to solve this, either a spread seed (where each table has its initial seed value) will be needed, or a mechanism other than SQL Server's int identity should be used.
  - So in this example, we need to take the responsibility of providing unique keys when inserting records into the database.
  - We can switch off identity simply by placing `DatabaseGenerated` attribute on the primary key property and pass `DatabaseGeneratedOption.None` to its constructor.
 
-`EntityMappingConfiguration` class has **MapInheritedProperties** method which is responsible for all the mapping. Our TPC mapping is ready, and we can try adding new records to the database.
+`EntityMappingConfiguration` class has the **MapInheritedProperties** method which is responsible for all the mapping. Our TPC mapping is ready, and we can try adding new records to the database.
 
 
 

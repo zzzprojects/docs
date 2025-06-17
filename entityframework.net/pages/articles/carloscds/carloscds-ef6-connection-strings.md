@@ -2,7 +2,7 @@
 Permalink: articles/carloscds-ef6-connection-strings
 Title: Managing Connection Strings in Entity Framework Code First
 MetaDescription: Learn how to store connection strings and providers in Entity Framework Code First for C# with Visual Studio 2010. Explore three different ways to specify connection strings and providers.
-LastMod: 2023-02-24
+LastMod: 2025-06-17
 tags: carloscds article connection-string
 OriginalLink: https://carloscds.net/2011/08/ef-codefirstgerenciando-as-strings-de-conexo/
 CreatedDate: 2011-08-08
@@ -12,7 +12,7 @@ CreatedUserLink: https://carloscds.net/
 
 # Managing Connection Strings in Entity Framework Code First
 
-Today we're going to talk a little bit about managing connection strings in Entity Framework Code First, a very simple and quick way to create a relational object mapping in C # with Visual Studio 2010.
+Today we're going to talk a little bit about managing connection strings in Entity Framework Code First, a very simple and quick way to create a relational object mapping in C# with Visual Studio 2010.
 
 If you still don't know EF Code First, see my [post](/articles/carloscds-ef6-code-first).
 
@@ -25,7 +25,7 @@ using System.Linq;
 using System.Text;
 using System.Data.Entity;
  
-namespace EFExemple
+namespace EFExample
 {
     public class ContextExample : DbContext
     {
@@ -92,7 +92,7 @@ ContextExample ctx = new ContextExample("EFExample-MySql");
 
 ## Option 3: Specify a DbConnection
 
-`DBConnection` is the class that creates connections for EF Code First, in this case, you can generate the connection string more dynamically, and it does not need to be stored in an `app.config` or `web.config` file, which would leave the string more exposed. This mechanism is interesting when you want to encrypt the string, see:
+`DbConnection` is the class that creates connections for EF Code First, in this case, you can generate the connection string more dynamically, and it does not need to be stored in an `app.config` or `web.config` file, which would leave the string more exposed. This mechanism is interesting when you want to encrypt the string, see:
 
 ```csharp
 public class ContextExample : DbContext

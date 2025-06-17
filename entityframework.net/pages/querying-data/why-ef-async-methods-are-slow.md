@@ -1,8 +1,8 @@
 ---
 PermaID: 1000132
 Title: Entity Framework Why Async Methods are Slow - Learn Why They Are Slow
-MetaDescription: Unlock the power of Entity Framework by understanding how async method can make your query be executed slower. Learn the drawback of using an async method and how it can affect your performance.
-LastMod: 2023-02-26
+MetaDescription: Unlock the power of Entity Framework by understanding how async methods can make your query execute more slowly. Learn the drawbacks of using async methods and how they can affect your performance.
+LastMod: 2025-06-17
 Tags: query performance
 ---
 
@@ -25,6 +25,6 @@ The asynchronous version will always be slower than the synchronous version when
  - It happens because the asynchronous solution allows the thread that was allocated to handle the request to go back to the pool and handle other requests, whereas the synchronous solution forces the thread to sit there and do nothing while it waits for the asynchronous operation to complete. 
  - There is overhead in structuring the program in a way that allows the thread to be freed up to do other work, but the advantage is the ability of that thread to do another job. 
  - If your program has no other work for that thread, then it ends up being a net loss.
- - Async/await saves time only when the job is I/O-bound. Any application's job that is CPU-bound will introduce some performance hits. 
+ - Async/await saves time only when the job is I/O-bound. Any CPU-bound application will introduce some performance hits. 
  - That's because if you have some computations that take 10s on your CPU(s), then adding async/await will add X extra time to that 10s for task creation, scheduling and synchronization to get the job done.
- - The performance often hits due to introducing async/await are not that large especially if you are careful not to overdo it.
+ - The performance hits due to introducing async/await are often not that large, especially if you are careful not to overdo it.

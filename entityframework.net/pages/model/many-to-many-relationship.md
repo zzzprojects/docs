@@ -1,8 +1,8 @@
 ---
 PermaID: 1000056
 Title: Entity Framework Many-to-Many Relationships
-MetaDescription: Unlock the power of Entity Framework by using many-to-many to specify your entities relationship. Learn what this relationship is and how to use it in your model.
-LastMod: 2023-02-25
+MetaDescription: Unlock the power of Entity Framework by using many-to-many to specify your entities relationship. Learn what this relationship is and how to use it in your models.
+LastMod: 2025-06-17
 Tags: model relationship
 ---
 
@@ -32,11 +32,11 @@ Every record in the books table is linked to one or more category records, and e
 
 ## Configure Many-to-Many relationship
 
-The many-to-many relationship creates join table because relational database systems usually don't allow a many-to-many relationship between two tables. The join table will have a composite primary key consisting combination of the primary key of both tables.
+The many-to-many relationship creates a join table because relational database systems usually don't allow a many-to-many relationship between two tables. The join table will have a composite primary key consisting of a combination of the primary key of both tables.
 
 ### Code First Conventions
 
-Code First default convention creates the join table to handle the many-to-many relationship when a collection navigation properties are added in both entities.
+Code First default convention creates the join table to handle the many-to-many relationship when collection navigation properties are added in both entities.
 
  - For example, the `Book` class should include collection navigation property of type `Category`, and the `Category` class should contain a collection navigation property of type `Book`
  - It will create a many-to-many relationship between them without any configuration.
@@ -100,7 +100,7 @@ It will create `Books`, `Categories` and `BookCategories` tables in the database
 
 ### Using Fluent API
 
-The many-to-may relationship can be achieved using `HasMany` and `WithMany` methods.
+The many-to-many relationship can be achieved using `HasMany` and `WithMany` methods.
 
  - The default conventions for many-to-many relationships creates a joining table with the default naming conventions.
  - You can customize a joining table name and column names using Fluent API.

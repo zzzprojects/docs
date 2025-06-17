@@ -2,7 +2,7 @@
 Permalink: articles/carloscds-ef6-harnessing-your-database
 Title: Using Entity Framework Power Tools for Code First Development
 MetaDescription: Learn how to generate classes and contexts for an existing database using Entity Framework Power Tools, a Visual Studio extension.
-LastMod: 2023-02-24
+LastMod: 2025-06-17
 tags: carloscds article power-tools
 OriginalLink: https://carloscds.net/2014/04/entityframeworkapoveitando-seu-banco-de-dados-com-powertools/
 CreatedDate: 2014-04-21
@@ -12,7 +12,7 @@ CreatedUserLink: https://carloscds.net/
 
 # Using Entity Framework Power Tools for Code First Development
 
-When a company decides to adopt an ORM tool (Relational Object Mapping - in our case EntityFramework), a big paradigm break begins, as you will no longer access the database directly (`Select`, `Insert`, `Update`, `Delete`, etc.), and will start to work only with classes and objects. That makes development much easier and more productive since you don't have to worry about the commands that go to the database, as this is ORM's job.
+When a company decides to adopt an ORM tool (Relational Object Mapping - in our case Entity Framework), a big paradigm break begins, as you will no longer access the database directly (`Select`, `Insert`, `Update`, `Delete`, etc.), and will start to work only with classes and objects. That makes development much easier and more productive since you don't have to worry about the commands that go to the database, as this is the ORM's job.
 
 But what about when you already have a database ready? That always generates another discussion. After all, you can build a new database, take advantage of the process and improve everything, or reuse the existing database structure and include only the ORM? You want to hear something very common: you are creating a new functionality or a new project, and you decide to use Entity Framework, but you need to read and write data from the current database. How to make it? Write the POCO classes by hand? Obviously not, because for this, several tools can do this for you, and one that we are going to present today is Entity Framework Power Tools.
 
@@ -22,7 +22,7 @@ To get started you need to download Power Tools using Visual Studio extensions m
 
 In my case, it is already installed. But, if yours is not already, click the "Install" button and you're done! Now let's create a project to explore the features.
 
-Let's start by creating a Console project and adding EntityFramework through NuGet:
+Let's start by creating a Console project and adding Entity Framework through NuGet:
 
 <img src="https://carloscds.net/wp-content/uploads/2014/04/SNAGHTML434d0ea_thumb.png" width="716" height="410" alt="Database with Power Tools-2">
 
@@ -57,7 +57,7 @@ Now let's right-click on our context: `NorthwindContext.cs`:
 
 <img src="https://carloscds.net/wp-content/uploads/2014/04/image_thumb12.png" width="633" height="125" alt="Database with Power Tools-8">
 
-See that we now have other options, which are related to the database that was mapped. As we are working with Code First, we do not have a visual diagram of our database. But with the help of Power Tools, by clicking on the first option: View Entity Data Model (Read-only), you can graphically visualize how your database is doing. , see below:
+See that we now have other options, which are related to the database that was mapped. As we are working with Code First, we do not have a visual diagram of our database. But with the help of Power Tools, by clicking on the first option: View Entity Data Model (Read-only), you can graphically visualize how your database is doing. See below:
 
 <img src="https://carloscds.net/wp-content/uploads/2014/04/image_thumb13.png" width="605" height="460" alt="Database with Power Tools-9">
 

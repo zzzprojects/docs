@@ -2,7 +2,7 @@
 Permalink: articles/carloscds-ef6-power-tools
 Title: How to Install Entity Framework Power Tools in Visual Studio 2015
 MetaDescription: Learn how to install Entity Framework Power Tools in Visual Studio 2015 with this step-by-step guide. Don't miss out on this useful tool for EF Code First.
-LastMod: 2023-02-24
+LastMod: 2025-06-17
 tags: carloscds article power-tools
 OriginalLink: https://carloscds.net/2015/12/entity-framework-powertool-no-visual-studio-2015/
 CreatedDate: 2015-12-21
@@ -14,7 +14,7 @@ CreatedUserLink: https://carloscds.net/
 
 If you use EF Code First a lot like me and are already in Visual Studio 2015, you must have missed EF Power Tools. Unfortunately, it has not yet been ported to this version of Visual Studio.
 
-But calm down, there is a way to install the current version in VS 2015. To do this, first, download the [Visual Studio Galery](https://marketplace.visualstudio.com/items?itemName=EntityFrameworkTeam.EntityFrameworkPowerToolsBeta4) component. See in the image below that it does not support VS 2015:
+But calm down, there is a way to install the current version in VS 2015. To do this, first, download the [Visual Studio Gallery](https://marketplace.visualstudio.com/items?itemName=EntityFrameworkTeam.EntityFrameworkPowerToolsBeta4) component. See in the image below that it does not support VS 2015:
 
 <img src="https://carloscds.net/wp-content/uploads/2015/12/image_thumb.png" width="468" height="219" alt="Entity Framework Power Tools Beta 4">
 
@@ -34,9 +34,9 @@ Now we are going to open the file `extension.vsixmanifest`, because that is wher
 
 Change the file and save it, it will look like this:
 
-<img src="https://carloscds.net/wp-content/uploads/2015/12/image_thumb2.png" width="482" height="305" alt="Visual Studio powerr tools">
+<img src="https://carloscds.net/wp-content/uploads/2015/12/image_thumb2.png" width="482" height="305" alt="Visual Studio power tools">
 
-Now we need to compress everything again. Let's do this and naming it `EFPowerToolsVS2015.zip`. Don't forget to delete the original file first (which we renamed to `.ZIP`). We will now have the following list of files:
+Now we need to compress everything again. Let's do this and name it `EFPowerToolsVS2015.zip`. Don't forget to delete the original file first (which we renamed to `.ZIP`). We will now have the following list of files:
 
 <img src="https://carloscds.net/wp-content/uploads/2015/12/image_thumb3.png" width="215" height="240" alt="EFPowerToolsVS2015">
 

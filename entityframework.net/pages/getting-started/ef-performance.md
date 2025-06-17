@@ -1,12 +1,12 @@
 ---
 PermaID: 1000073
-Title: Entity Framework Improve Performance - Learn What Cause EF to be Slow
+Title: Entity Framework Improve Performance - Learn What Causes EF to be Slow
 MetaDescription: Unlock the power of Entity Framework by understanding what can cause performance issues. Learn what causes your application to be slow and solutions to fix it.
-LastMod: 2023-02-25
+LastMod: 2025-06-17
 Tags: getting-started performance
 ---
 
-# Entity Framework Improve Performance: Discover What Cause EF to be Slow
+# Entity Framework Improve Performance: Discover What Causes EF to be Slow
 
 ## Improve Entity Framework Performance
 
@@ -15,7 +15,7 @@ Tags: getting-started performance
 
 ### Problem
 
- - It's too easy to fall into a Entity Framework performance pitfall.
+ - It's too easy to fall into an Entity Framework performance pitfall.
  - Sooner or later, many developers make some mistakes which may impact the application performance severely.
 
 ### Performance Cheat Sheet
@@ -34,6 +34,6 @@ Tags: getting-started performance
 
 ### Recommendation
 
-Have you read all theses articles? Great! Read them all a second or a third time if necessary.
+Have you read all these articles? Great! Read them all a second or a third time if necessary.
 
 These articles are still under development. We recommend you to subscribe to our [newsletter](https://mailchi.mp/zzzprojects/entity-framework-extensions-newsletter) to stay updated.
