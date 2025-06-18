@@ -2,19 +2,19 @@
 PermaID: 1000038
 Title: Entity Framework Stored Procedure - Learn How to Query Entities
 MetaDescription: Unlock the power of Entity Framework by understanding how to use a stored procedure to query your entities. Learn how to create a query to retrieve data from your database through a SP.
-LastMod: 2023-02-28
+LastMod: 2025-06-18
 Tags: saving stored procedure
 ---
 
 # Entity Framework Stored Procedure: Discover How to Query Entities
 
-## How to work with stored procedure within Entity Framework? 
+## How to work with a stored procedure within Entity Framework? 
 
-How to call a Stored Procedure from Entity Framework?
+How to call a stored procedure from Entity Framework?
 
 ### StackOverflow Related Questions
 
- - [How to call Stored Procedures with EntityFramework?](https://stackoverflow.com/questions/14264750/how-to-call-stored-procedures-with-entityframework)
+ - [How to call stored procedures with EntityFramework?](https://stackoverflow.com/questions/14264750/how-to-call-stored-procedures-with-entityframework)
  - [Insertion order of multiple records in Entity Framework](https://stackoverflow.com/questions/39062972/execute-stored-procedure-using-entity-framework)
 
 ## Answer
@@ -35,7 +35,7 @@ CREATE TABLE [dbo].[Blogs] (
 );
 ``` 
 
-Select New Query and enter the following code in T-SQL editor to add a stored procedure in your database, which will return the blog based on its Id.
+Select "New Query" and enter the following code in the T-SQL editor to add a stored procedure in your database, which will return the blog based on its Id.
 
 
 ```csharp
@@ -55,13 +55,13 @@ END
 GO
 ``` 
 
-The `GetBlog` stored procedure take `BlogId` as a parameter and will return the Blog.
+The `GetBlog` stored procedure takes `BlogId` as a parameter and will return the Blog.
 
-Execute the SQL command, and you will see a stored procedure **"GetBlog"** is added to your database. Execute the query and refresh your database
+Execute the SQL command, and you will see a stored procedure **"GetBlog"** is added to your database. Execute the query and refresh your database.
 
 <img src="https://raw.githubusercontent.com/zzzprojects/EntityFramework-FAQ/master/docs/images/stored-procedure-in-db.png" alt="Stored procedure">
 
-Let's add create a new project and add new item select ADO.NET Entity Data Model. Use EF Designer from database and EF will generate all the required classes for you. You can simply call the GetBlog stored procedure using context.
+Let's create a new project, then add a new item and select "ADO.NET Entity Data Model." Use EF Designer from database and EF will generate all the required classes for you. You can simply call the GetBlog stored procedure using context.
 
 
 ```csharp

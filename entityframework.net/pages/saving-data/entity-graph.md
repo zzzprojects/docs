@@ -2,13 +2,13 @@
 PermaID: 1000043
 Title: Entity Framework Entity Graph - Learn Added or Modified State
 MetaDescription: Unlock the power of Entity Framework by using Track Graph to add, attach, or update tracked entities. Learn how to use the 'TrackGraph' method to specify if an entity should be tracked or not.
-LastMod: 2023-02-27
+LastMod: 2025-06-18
 Tags: saving graph
 ---
 
 # Entity Framework Entity Graph: Discover Added or Modified State
 
-In Entity Framework, `DbSet`provides `Add and `Attach` methods for entity graph-traversal and determine whether an entity should be marked as Added (to insert), Modified (to update), Unchanged (do nothing), or Deleted (to delete).
+In Entity Framework, `DbSet` provides `Add` and `Attach` methods for entity graph-traversal and determine whether an entity should be marked as Added (to insert), Modified (to update), Unchanged (do nothing), or Deleted (to delete).
 
  - These methods work well for individual entities or in cases where you don't mind all properties being included in an UPDATE statement whether they were changed or not.
  - But it is not that easy to update an entity graph in the disconnected scenario, and it needs careful design consideration.
@@ -41,7 +41,7 @@ Book book = new Book()
 };
 ```
 
-The following `InsertOrUpdate` method saves the book entity graph which includes the related `Author` and `Categories entities. 
+The following `InsertOrUpdate` method saves the book entity graph which includes the related `Author` and `Categories` entities. 
 
 ```csharp
 public static void InsertOrUpdate(Book book)

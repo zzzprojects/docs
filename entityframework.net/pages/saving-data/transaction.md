@@ -1,8 +1,8 @@
 ---
 PermaID: 1000039
 Title: Entity Framework Transaction - Learn How it Works with SaveChanges
-MetaDescription: Unlock the power of Entity Framework by understanding how to use transactions with SaveChanges. Learn how the SaveChanges methods use a transaction under the hoods.
-LastMod: 2023-02-28
+MetaDescription: Unlock the power of Entity Framework by understanding how to use transactions with SaveChanges. Learn how the SaveChanges methods use a transaction under the hood.
+LastMod: 2025-06-18
 Tags: saving transaction
 ---
 
@@ -17,7 +17,7 @@ In Entity Framework, when you call SaveChanges() to insert, delete, or update da
 ## Default Behaviour
 
  - In Entity Framework, `SaveChanges` automatically starts a transaction and commits or rolls it back.
- - It means the Entity Framework maintains a transaction for the multiple entity inserts, update and delete in a single `SaveChanges()` method. 
+ - It means the Entity Framework maintains a transaction for the multiple entity inserts, updates, and deletes in a single `SaveChanges()` method. 
  - When we execute another operation, the Entity Framework creates a new transaction.
 
 The following example saves two author entities by calling `SaveChanges()` for each entity.

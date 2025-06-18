@@ -2,7 +2,7 @@
 PermaID: 1000071
 Title: Entity Framework DetectChanges - Learn How to Improve Performance
 MetaDescription: Unlock the power of Entity Framework by understanding how to improve the DetectChanges method performance. Learn why the method is slow and how you can overcome this limitation.
-LastMod: 2023-02-28
+LastMod: 2025-06-18
 Tags: saving performance
 ---
 
@@ -10,7 +10,7 @@ Tags: saving performance
 
 ## How to Improve Entity Framework DetectChanges Performance?
 
-When you track multiple entities in your context, then your application will suffer from performance issues causing by Entity Framework DetectChanges method.
+When you track multiple entities in your context, then your application will suffer from performance issues caused by the Entity Framework DetectChanges method.
 
 
 ```csharp
@@ -46,7 +46,7 @@ When adding/modifying multiple entities, split your logic into numerous batches 
 
 #### Why?
 
-More tracking entities your context contains, slower the DetectChanges method is!
+The more tracked entities your context contains, the slower the DetectChanges method is!
 
 #### Performance Comparisons
 
@@ -99,12 +99,12 @@ context.SaveChanges();
 
 ### Reduce the number of DetectChanges
 
-When adding multiple entities, you should always use Entity Framework AddRange once with a list instead of calling various time the Add method.
+When adding multiple entities, you should always use Entity Framework AddRange once with a list instead of calling the Add method multiple times.
 
 #### Why?
 
- - The Add method DetectChanges after every records added.
- - The AddRange method DetectChanges after all records is added.
+ - The Add method DetectChanges after every record added.
+ - The AddRange method DetectChanges after all records are added.
 
 #### Performance Comparisons
 
@@ -144,22 +144,22 @@ using (var context = new EntityContext())
     context.Customers.AddRange(list);
 	
     // 4. SaveChanges
-    ctx.SaveChanges();
+    context.SaveChanges();
     
     // 5. Done!
 }
 ```
 [Try it online](https://dotnetfiddle.net/gPXbQ8)
 
-### SET AutoDetectChanges to false
+### SET AutoDetectChangesEnabled to false
 
-When adding multiple entities, if you cannot use AddRange, set Entity Framework AutoDetectChanges to false
+When adding multiple entities, if you cannot use AddRange, set Entity Framework AutoDetectChangesEnabled to false
 
 #### Why?
 
- - The Add method DetectChanges after every records added.
+ - The Add method DetectChanges after every record added.
 
-By disabling AutoDetectChanges, the DetectChanges method will only be invoked when you do it.
+By disabling AutoDetectChangesEnabled, the DetectChanges method will only be invoked when you do it.
 
 #### Performance Comparisons
 

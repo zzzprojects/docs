@@ -2,15 +2,15 @@
 PermaID: 1000046
 Title: Entity Framework Change Tracker - Learn How to Use all Entity State
 MetaDescription: Unlock the power of Entity Framework by using Change Tracker, understanding how it works, and the possible state of an entity entry. Learn about the possible state such as 'Added', 'Unchanged', 'Modified', 'Deleted', 'Detached' and their behaviors.
-LastMod: 2023-02-27
+LastMod: 2025-06-18
 Tags: saving change-tracking
 ---
 
 # Entity Framework Change Tracker: Discover How to Use all Entity State
 
-By default, Entity Framework tracks changes of the loaded entities during the life-time of the context. 
+By default, Entity Framework tracks changes of the loaded entities during the lifetime of the context. 
 
- - The Change Tracking tracks changes when you add new records, update or delete the existing records.
+ - The Change Tracker tracks changes when you add new records, update or delete the existing records.
  - These track changes are lost if they are not saved before the DbContext object is destroyed.
  - The entity must have a primary key property to be tracked by the context. 
 
@@ -79,7 +79,7 @@ using (var context = new BookStore())
 
 ## Deleted State
 
-The following example shows the tracking of deleted author entity.
+The following example shows the tracking of an author entity that is removed.
 
 ```csharp
 using (var context = new BookStore())
@@ -116,7 +116,7 @@ using (var context = new BookStore())
 
 ## Detached State
 
-The following example shows the tracking of deleted author entity.
+The following example shows the tracking of a detached author entity.
 
 ```csharp
 Author author;

@@ -1,12 +1,12 @@
 ---
 PermaID: 1000045
-Title: Entity Framework Concurrency - Learn Implement Optimistic Concurrency 
+Title: Entity Framework Concurrency - Learn How to Implement Optimistic Concurrency 
 MetaDescription: Unlock the power of Entity Framework by using Concurrency and what to do when a concurrency error happens. Learn how to use a concurrency column and how to handle concurrency conflict.
-LastMod: 2023-02-27
+LastMod: 2025-06-18
 Tags: saving concurrency
 ---
 
-# Entity Framework Concurrency: Discover Implement Optimistic Concurrency
+# Entity Framework Concurrency: Discover How to Implement Optimistic Concurrency
 
 The situations in which multiple processes or users access or change the same data in a database at the same time.
 

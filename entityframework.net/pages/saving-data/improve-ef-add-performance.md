@@ -2,7 +2,7 @@
 PermaID: 1000072
 Title: Entity Framework Add - Learn How to Improve Add Performance 
 MetaDescription: Unlock the power of Entity Framework by understanding how to improve the Add method performance. Learn why the method is slow and how you can overcome this limitation.
-LastMod: 2023-02-28
+LastMod: 2025-06-18
 Tags: saving performance
 ---
 
@@ -46,11 +46,11 @@ Using the **Add** method in a loop is usually a poor practice which impacts your
 
 ### Use AddRange over Add (Recommended)
 
-When adding multiple entities, you should always use Entity Framework AddRange once with a list instead of calling multiple time the Add method.
+When adding multiple entities, you should always use Entity Framework AddRange once with a list instead of calling multiple times the Add method.
 
 #### Why?
 
- - The Add method DetectChanges after every records added.
+ - The Add method DetectChanges after every record added.
  - The AddRange method DetectChanges after all records are added.
 
 #### Performance Comparisons
@@ -85,29 +85,29 @@ using (var context = new EntityContext())
         // ...code...
     
         // 2. ADD entity to the list
-    	list.Add(customer);
+        list.Add(customer);
     }
 	
     // 3. USE AddRange with the list		
     context.Customers.AddRange(list);
 	
     // 4. SaveChanges
-    ctx.SaveChanges();
+    context.SaveChanges();
     
     // 5. Done!
 }
 ```
 [Try it online](https://dotnetfiddle.net/gPXbQ8)
 
-### SET AutoDetectChanges to false
+### SET AutoDetectChangesEnabled to false
 
-When adding multiple entities, if you cannot use AddRange, set Entity Framework AutoDetectChanges to false
+When adding multiple entities, if you cannot use AddRange, set Entity Framework AutoDetectChangesEnabled to false
 
 #### Why?
 
- - The Add method DetectChanges after every records added.
+ - The Add method DetectChanges after every record added.
 
-By disabling AutoDetectChanges, the DetectChanges method will only be invoked when you do it.
+By disabling AutoDetectChangesEnabled, the DetectChanges method will only be invoked when you do it.
 
 #### Performance Comparisons
 
@@ -162,7 +162,7 @@ This solution is not recommended. When adding multiple entities, split entities 
 
 #### Why?
 
-More tracking entities your context contains, slower the DetectChanges method is! So by reducing the number of entities by context, you improve the performance.
+The more tracked entities your context contains, slower the DetectChanges method is! So by reducing the number of entities by context, you improve the performance.
 
 #### Performance Comparisons
 

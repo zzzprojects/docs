@@ -2,7 +2,7 @@
 PermaID: 1000083
 Title: Entity Framework Retrieve Inserted Id - Learn about IDENTITY
 MetaDescription: Unlock the power of Entity Framework by understanding how to retrieve the inserted id after you insert an entity. Learn how an identity column works.
-LastMod: 2023-02-28
+LastMod: 2025-06-18
 Tags: saving identity
 ---
 
@@ -19,7 +19,7 @@ I have a problem with Entity Framework in Asp.net. I want to get the Id value wh
 
 ## Answer
 
-It is pretty easy. If you are using DB generated Ids (like `IDENTITY` in MS SQL) you just need to add entity to the contexct and call SaveChanges on that context. Id will be automatically filled for you.
+It is pretty easy. If you are using DB generated Ids (like `IDENTITY` in MS SQL) you just need to add entity to the context and call SaveChanges on that context. Id will be automatically filled for you.
 
 
 ```csharp

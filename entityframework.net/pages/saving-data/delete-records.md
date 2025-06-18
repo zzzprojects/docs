@@ -2,7 +2,7 @@
 PermaID: 1000110
 Title: Entity Framework Delete Records - Learn How to Delete your Entities
 MetaDescription: Unlock the power of Entity Framework by understanding how to delete your records. Learn how to delete entities with savechanges or delete thousands of entities with bulk delete.
-LastMod: 2023-02-27
+LastMod: 2025-06-18
 Tags: saving delete
 ---
 
@@ -10,7 +10,7 @@ Tags: saving delete
 
 ## How to Bulk Delete?
 
-Deleting entities using a custom key from file importation is a typical scenario. Despite the ChangeTracker being outstanding to track what's modified, it lacks in term of scalability and flexibility.
+Deleting entities using a custom key from file importation is a typical scenario. Despite the ChangeTracker being outstanding to track what's modified, it lacks in terms of scalability and flexibility.
 
 SaveChanges requires one database round-trip for every entity to delete. So if you need to remove 10000 entities, then 10000 database round-trips will be performed which is **INSANELY** slow.
 
@@ -38,7 +38,7 @@ All rows that match the entity key are considered as existing and are **DELETED*
 
 |Operations	|1,000 Entities	|2,000 Entities	|5,000 Entities|
 |:--------- |:------------- |:------------- |:------------ |
-|SaveChange |1,000 ms	    |2,000 ms	    |5,000 ms      |
+|SaveChanges |1,000 ms	    |2,000 ms	    |5,000 ms      |
 |BulkDelete	|45 ms	        |50 ms	        |60 ms         |
 
 [Learn more](https://entityframework-extensions.net/bulk-delete)

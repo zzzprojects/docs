@@ -2,7 +2,7 @@
 PermaID: 1000042
 Title: Entity Framework Identity Insert - Learn How to use IDENTITY_INSERT
 MetaDescription: Unlock the power of Entity Framework by using Identity Insert to explicitly insert a value in a database. Learn how to use the `SET IDENTITY_INSERT` SQL to allow inserting an explicit value.
-LastMod: 2023-02-27
+LastMod: 2025-06-18
 Tags: saving insert identity
 ---
 
@@ -55,7 +55,7 @@ Unfortunately, when `SaveChanges` is called the explicit identity value is ignor
 
 [Try it](https://dotnetfiddle.net/DiyoRQ)
 
-The solution is to create a new context class which will inherit our main context class and overrides the `OnModelCreating`. 
+The solution is to create a new context class which will inherit our main context class and override the `OnModelCreating`. 
 
 ```csharp
 public class TempBookStore : BookStore

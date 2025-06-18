@@ -2,7 +2,7 @@
 PermaID: 1000040
 Title: Entity Framework Stored Procedure - Learn How to Save Entities
 MetaDescription: Unlock the power of Entity Framework by understanding how to use a stored procedure to save your entities. Learn how to insert, update, and delete your entities using a stored procedure.
-LastMod: 2023-02-28
+LastMod: 2025-06-18
 Tags: saving stored procedure
 ---
 
@@ -22,9 +22,9 @@ IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id =
 BEGIN
     EXEC dbo.sp_executesql @statement = N'
     CREATE PROCEDURE [dbo].[CreateAuthor]
-        @FirstName Varchar(50),
-        @LastName Varchar(50),
-        @Address Varchar(100)
+        @FirstName VARCHAR(50),
+        @LastName VARCHAR(50),
+        @Address VARCHAR(100)
     AS
     INSERT INTO dbo.Authors(
         [FirstName],

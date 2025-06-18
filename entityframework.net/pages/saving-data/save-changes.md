@@ -1,17 +1,17 @@
 ---
 PermaID: 1000041
-Title: Entity Framework SaveChanges - Learn to Save Entities in a Database
-MetaDescription: Unlock the power of Entity Framework by understanding how the save changes method work. Learn how to insert, update, and delete your entities and persist all changes.
-LastMod: 2023-02-28
+Title: Entity Framework SaveChanges - Learn How to Save Entities in a Database
+MetaDescription: Unlock the power of Entity Framework by understanding how the SaveChanges method works. Learn how to insert, update, and delete your entities and persist all changes.
+LastMod: 2025-06-18
 Tags: saving
 ---
 
-# Entity Framework SaveChanges: Discover to Save Entities in a Database
+# Entity Framework SaveChanges: Discover How to Save Entities in a Database
 
 In Entity Framework, the `DbContext.SaveChanges` method saves all changes made in the context of the database. 
 
  - You can add, modify, and remove data using your context and entity classes.
- - `SaveChanges` method automatically call `DetectChanges` method to discover any changes to entity instances before saving to the underlying database. 
+ - `SaveChanges` method automatically calls `DetectChanges` method to discover any changes to entity instances before saving to the underlying database. 
 
 ## Adding Data
 
@@ -35,7 +35,7 @@ using (var context = new BookStore())
 
 ## Updating Data
 
-When you made changes to any existing entity, or simply modify the values assigned to properties and then call `SaveChanges`, it will update the data into a database.
+When you make changes to any existing entity, or simply modify the values assigned to properties and then call `SaveChanges`, it will update the data into a database.
 
 ```csharp
 using (var context = new BookStore())

@@ -2,7 +2,7 @@
 PermaID: 1000052
 Title: Entity Framework Preserve Insert Order - Learn How it Works
 MetaDescription: Unlock the power of Entity Framework by understanding how the insert order works. Learn how the saving order works and why this issue will never be solved.
-LastMod: 2023-02-28
+LastMod: 2025-06-18
 Tags: saving
 ---
 
@@ -31,11 +31,11 @@ But it inserts them in a random order. To insert them in the same order, I have 
 There is no way you can specify a save order in EF6 or EF7. The issue is not resolved in EF7 since this is not an issue.
 
  - The order will be the same if the predecessor are the same (which will likely rarely happen).
- - When you call `SaveChanges`, all entities are ordered from an internal order in the method `ProduceDynamicCommands` then sorted again by the method `TryTopologicalSort` which loop to add command with no predecessor left (if you add A and B and A depend of B, then B will be inserted before A)
+ - When you call `SaveChanges`, all entities are ordered from an internal order in the method `ProduceDynamicCommands` then sorted again by the method `TryTopologicalSort` which loop to add command with no predecessor left (if you add A and B and A depends on B, then B will be inserted before A)
 
 You are left to insert by batch addition.
 
-Since it take you 3 seconds to perform your insert, I will assume you have thousands of entities and performing bulk insert may improve your performance to reduce the 10 seconds to less then maybe the intial 3 seconds!
+Since it takes you 3 seconds to perform your insert, I will assume you have thousands of entities and performing bulk insert may improve your performance to reduce the 10 seconds to less than maybe the initial 3 seconds!
 
 Here is a library called [Entity Framework Extensions (EFE)](https://entityframework-extensions.net/) I can recommend. It is PAID but support everything:
 

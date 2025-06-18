@@ -1,12 +1,12 @@
 ---
 PermaID: 1000044
-Title: Entity Framework Entity Disconnected - Learn Track Untracked Entities
+Title: Entity Framework Entity Disconnected - Learn How to Track Untracked Entities
 MetaDescription: Unlock the power of Entity Framework by using Entity Disconnected to improve performance and track entities back in the change tracker. Learn what is considered a disconnected entity and how to track it back.
-LastMod: 2023-02-27
+LastMod: 2025-06-18
 Tags: saving disconnected
 ---
 
-# Entity Framework Entity Disconnected: Discover Track Untracked Entities
+# Entity Framework Entity Disconnected: Discover How to Track Untracked Entities
 
 ## Introduction
 

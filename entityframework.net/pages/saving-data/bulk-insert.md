@@ -2,7 +2,7 @@
 PermaID: 1000048
 Title: Entity Framework Bulk Insert - Learn to Insert Thousands of Entities
 MetaDescription: Unlock the power of Entity Framework by using Bulk Insert to improve performance dramatically by using bulk operations. Learn what bulk operations are, why you should use it and how easily you can implement it in your project.
-LastMod: 2023-02-27
+LastMod: 2025-06-18
 Tags: saving insert bulk-insert
 ---
 
@@ -11,11 +11,11 @@ Tags: saving insert bulk-insert
 When you want to insert hundreds, thousands, or millions of entities using `SaveChanges()` method, you will notice that your application performance is INSANELY slow. 
 
  - The `SaveChanges()` requires one database round-trip for every entity to insert. 
- - For example, if you need to insert 10000 entities, then 10000 database round-trips will be performed and your application suffers from performances issues.
+ - For example, if you need to insert 10000 entities, then 10000 database round-trips will be performed and your application suffers from performance issues.
 
 ## BulkInsert
 
-Entity Framework Classic provides an extension method `BulkInsert()` which requires the minimum database round-trips as compared to `SaveChanges()`. 
+Entity Framework Classic provides an extension method `BulkInsert()` which requires fewer database round-trips as compared to `SaveChanges()`. 
 
 ### Performance Comparisons
 
@@ -26,7 +26,7 @@ Entity Framework Classic provides an extension method `BulkInsert()` which requi
 
 ### Example
 
-The following example, add list of authors to the database using `BulkInsert` method.
+The following example, adds a list of authors to the database using the `BulkInsert` method.
  
 ```csharp
 using (var context = new BookStore())

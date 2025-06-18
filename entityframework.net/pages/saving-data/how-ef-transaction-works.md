@@ -1,12 +1,12 @@
 ---
 PermaID: 1000037
-Title: Entity Framework Transaction - Learn How Managing a Trans When Saving
-MetaDescription: Unlock the power of Entity Framework by using Transaction to handle the rollback logic when an error happens. Learn what a transaction is, how to start it, and to commit it when the save what as success or to rollback it.
-LastMod: 2023-02-27
+Title: Entity Framework Transaction - Learn How to Manage a Transaction When Saving
+MetaDescription: Unlock the power of Entity Framework by using Transaction to handle the rollback logic when an error happens. Learn what a transaction is, how to start it, and to commit it when the save was successful or to roll it back.
+LastMod: 2025-06-18
 Tags: saving transaction
 ---
 
-# Entity Framework Transaction: Discover How Managing a Trans When Saving
+# Entity Framework Transaction: Discover How to Manage a Transaction When Saving
 
 ## How Entity Framework Transaction Works?  
 

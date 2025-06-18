@@ -2,7 +2,7 @@
 PermaID: 1000068
 Title: Entity Framework SaveChanges - Learn How to Improve Save Performance
 MetaDescription: Unlock the power of Entity Framework by understanding how to improve the SaveChanges method performance. Learn why the method is slow and how you can overcome this limitation.
-LastMod: 2023-02-28
+LastMod: 2025-06-18
 Tags: saving performance
 ---
 
@@ -42,12 +42,12 @@ using (var ctx = new CustomerContext())
 
 [Entity Framework Extensions](https://entityframework-extensions.net/) library adds the BulkSaveChanges extension method to the DbContext. It performs save operations 10 to 50 times faster. 
 
-All changes made in the context are persisted in the database but way faster by reducing the number of database round-trip required!
+All changes made in the context are persisted in the database but way faster by reducing the number of database round-trips required!
 
 BulkSaveChanges supports everything:
 
  - Association (One to One, One to Many, Many to Many, etc.)
- - Complex Type
+ - Complex Types
  - Enum
  - Inheritance (TPC, TPH, TPT)
  - Navigation Property
@@ -85,6 +85,6 @@ EntityFrameworkManager.DefaultEntityFrameworkPropagationValue = false;
 ```
 [Try it online](https://dotnetfiddle.net/NxeEId)
 
-When turning off this option, the library does no longer use the methods from Entity Framework but internal methods from our [Entity Framework Extensions](https://entityframework-extensions.net/) library.
+When turning off this option, the library no longer uses the methods from Entity Framework but internal methods from our [Entity Framework Extensions](https://entityframework-extensions.net/) library.
 
 [Learn more](https://entityframework-extensions.net/improve-bulk-savechanges)

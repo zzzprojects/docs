@@ -2,7 +2,7 @@
 PermaID: 1000086
 Title: Entity Framework Fastest Way To Insert - Improve Save Performance
 MetaDescription: Unlock the power of Entity Framework by using the fastest way to insert in a database. Learn about bulk insert and how to insert thousands of entities in a fraction of a second. 
-LastMod: 2023-02-27
+LastMod: 2025-06-18
 Tags: saving insert bulk-insert
 ---
 
@@ -10,7 +10,7 @@ Tags: saving insert bulk-insert
 
 ## What's the fastest way to insert?
 
-When you want to insert hundreds, thousands, or millions of entities, and your application suffers from performances issues.
+When you want to insert hundreds, thousands, or millions of entities, and your application suffers from performance issues.
 
 ### StackOverflow Related Questions
 
@@ -27,7 +27,7 @@ There are many solutions to insert many records in the fastest way, but the most
 
 |Operations	|1,000 Entities	|2,000 Entities	|5,000 Entities|
 |:--------- |:------------- |:------------- |:------------ |
-|SaveChange |1,000 ms	    |2,000 ms	    |5,000 ms      |
+|SaveChanges |1,000 ms	    |2,000 ms	    |5,000 ms      |
 |BulkInsert	|6 ms	        |10 ms	        |15 ms         |
 
 #### Steps to use BulkInsert
