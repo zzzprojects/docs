@@ -1,16 +1,16 @@
 ---
 PermaID: 1000100
-Title: Entity Framework Fluent API - Learn How to Map Without Annonation
+Title: Entity Framework Fluent API - Learn How to Map Without Annotation
 MetaDescription: Unlock the power of Entity Framework by learning how to use fluent API to map your entity to your model.
-LastMod: 2023-02-19
+LastMod: 2025-06-18
 Tags: code-first fluent-api
 ---
 
-# Entity Framework Fluent API: Discover How to Map Without Annonation
+# Entity Framework Fluent API: Discover How to Map Without Annotation
 
 When working with Entity Framework Code First the default behavior is to map your POCO classes to tables using a set of conventions baked into EF. 
 
- - Fluent API specify the model configuration that you can with data annotations as well as some additional functionality that can not be possible with data annotations. 
+ - Fluent API specifies the model configuration that you can define with data annotations as well as some additional functionality that is not possible with data annotations. 
  - We can configure many different things by using it because it provides more configuration options than data annotation attributes.
  - Data annotations and the fluent API can be used together, but precedence of **Fluent API > data annotations > default conventions**.
 

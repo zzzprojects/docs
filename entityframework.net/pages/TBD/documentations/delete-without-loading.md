@@ -2,11 +2,11 @@
 PermaID: 1000109
 Title: Entity Framework Delete Without Loading - Learn to Batch Delete
 MetaDescription: Unlock the power of Entity Framework by learning how to delete entities without loading them in the context.
-LastMod: 2023-02-19
+LastMod: 2025-06-18
 Tags: save delete batch-delete
 ---
 
-# Entity Framework Delete Without Loading: Discover to Batch Delete
+# Entity Framework Delete Without Loading: Discover How to Batch Delete
 
 ## How to delete without loading entities in the context? 
 
@@ -36,9 +36,9 @@ context.Customers.Where(x => x.CustomerID == customerId).DeleteFromQuery();
 
 ### Performance Comparisons
 
-|Operations	     |1,000 Entitie  |2,000 Entities |5,000 Entities|
+|Operations	     |1,000 Entities  |2,000 Entities |5,000 Entities|
 |:-------------- |:------------- |:------------- |:------------ |
-|SaveChange      |1,000 ms	     |2,000 ms	     |5,000 ms      |
+|SaveChanges      |1,000 ms	     |2,000 ms	     |5,000 ms      |
 |DeleteFromQuery |1 ms	         |1 ms	         |1 ms          |
 
 [Learn more](https://entityframework-extensions.net/delete-from-query)

@@ -2,7 +2,7 @@
 PermaID: 1000084
 Title: Unlock the power of Entity Framework by learning how to improve your insert performance efficiently.
 MetaDescription: 
-LastMod: 2023-02-19
+LastMod: 2025-06-18
 Tags: save insert bulk-insert
 ---
 
@@ -10,7 +10,7 @@ Tags: save insert bulk-insert
 
 ## How to do a Bulk Insert?
 
-Inserting thousand of entities for an initial load or a file importation is a typical scenario. 
+Inserting thousands of entities for an initial load or a file import is a typical scenario. 
 
 **SaveChanges** method makes it quite impossible to handle this kind of situation directly from Entity Framework due to the number of database round-trips required.
 

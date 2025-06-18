@@ -1,12 +1,12 @@
 ---
 PermaID: 1000104
-Title: Entity Framework DbSet - Learn What is a DbSet and How to Use it
+Title: Entity Framework DbSet - Learn What a DbSet Is and How to Use It
 MetaDescription: Unlock the power of Entity Framework by learning how a dbset works and which methods you can use.
-LastMod: 2023-02-19
+LastMod: 2025-06-18
 Tags: model dbset
 ---
 
-# Entity Framework DbSet: Discover What is a DbSet and How to Use it
+# Entity Framework DbSet: Discover What a DbSet Is and How to Use It
 
 In Entity Framework, the DbSet class represents an entity set that can be used for the database operation, such as create, read, update, and delete.
 
@@ -51,17 +51,17 @@ The following are the most commonly used methods.
 
  - It attaches the given entity to the context. 
  - State of the attached will be marked as Unchanged. 
- - It means calling Savechanges on the context will not affect the database
+ - It means calling SaveChanges on the context will not affect the database
 
 ### AsNoTracking()
 
- - It is an extension method where the returned entities are not be tracked by the context. 
+ - It is an extension method where the returned entities are not tracked by the context. 
  - It means that if you want to save the entities, you need to attach them to the context and set the state correctly.
 
 ### Create()
 
  - It creates and returns a new instance of an entity. 
- - This entity is not added or attached to set.
+ - This entity is not added or attached to the set.
 
 ### Find
 

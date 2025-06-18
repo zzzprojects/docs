@@ -1,12 +1,12 @@
 ---
 PermaID: 1000129
-Title: Entity Framework Connection String - Learn How to Setup it
-MetaDescription: Unlock the power of Entity Framework by learning how to setup your connection string in your project.
-LastMod: 2023-02-18
+Title: Entity Framework Connection String - Learn How to Set It Up
+MetaDescription: Unlock the power of Entity Framework by learning how to set up your connection string in your project.
+LastMod: 2025-06-18
 Tags: connection-string
 ---
 
-# Entity Framework Connection String: Discover How to Setup it
+# Entity Framework Connection String: Discover How to Set It Up
 
 A connection string contains initialization information that is passed as a parameter from a data provider to a data source.
 
@@ -15,7 +15,7 @@ A connection string contains initialization information that is passed as a para
 
 Typically an Entity Framework application uses a class derived from DbContext. 
 
- - This derived class will call one of the constructors on the base DbContext class to connect to a database, and that is, how a connection string is found/used.
+ - This derived class will call one of the constructors on the base DbContext class to connect to a database, and that is how a connection string is found/used.
  -  It creates a connection string for the database using either SQL Express or LocalDB. If both are installed, SQL Express will be used.
 
 ## By Convention
@@ -33,7 +33,7 @@ public class BookContext : DbContext
 }
 ```
 
-In this example, DbContext uses the namespace qualified name of your derived context class .i.e `EFDemo.BookContext` as the database name.
+In this example, DbContext uses the namespace qualified name of your derived context class, i.e., `EFDemo.BookContext` as the database name.
 
 ## Specify Database Name
 

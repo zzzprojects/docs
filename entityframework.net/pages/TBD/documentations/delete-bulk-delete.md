@@ -1,8 +1,8 @@
 ---
 PermaID: 1000112
 Title: Entity Framework Bulk Delete - Learn How to Improve Delete Performance 
-MetaDescription: Unlock the power of Entity Framework by learning how to delete in bulk your entities in the database.
-LastMod: 2023-02-18
+MetaDescription: Unlock the power of Entity Framework by learning how to bulk delete your entities in the database.
+LastMod: 2025-06-18
 Tags: save delete bulk-delete
 ---
 
@@ -26,11 +26,11 @@ context.BulkDelete(customers, options => options.ColumnPrimaryKeyExpression = cu
 ## Purpose
 `Deleting` entities using a custom key from file importation is a typical scenario.
 
-Despite the `ChangeTracker` being outstanding to track what's modified, it lacks in term of scalability and flexibility.
+Despite the `ChangeTracker` being outstanding to track what's modified, it lacks in terms of scalability and flexibility.
 
 `SaveChanges` requires one database round-trip for every entity to `delete`. So if you need to `delete` 10000 entities, then 10000 database round-trips will be performed which is **INSANELY** slow.
 
-`BulkDelete` in counterpart offers great customization and requires the minimum database round-trips as possible.
+`BulkDelete`, on the other hand, offers great customization and requires the fewest database round-trips possible.
 
 ## Performance Comparisons
 

@@ -2,7 +2,7 @@
 PermaID: 1000079
 Title: Entity Framework LINQ Queries - Learn the Basics About Querying
 MetaDescription: Unlock the power of Entity Framework by learning how to make LINQ queries to your database.
-LastMod: 2023-02-19
+LastMod: 2025-06-18
 Tags: query linq
 ---
 
@@ -220,7 +220,7 @@ using (var context = new BookStore())
 
 ## Any
 
-You can use the **Any** method to determines whether a sequence contains any elements.
+You can use the **Any** method to determine whether a sequence contains any elements.
 
 ```csharp
 using (var context = new BookStore())

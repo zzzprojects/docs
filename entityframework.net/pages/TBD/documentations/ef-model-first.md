@@ -2,7 +2,7 @@
 PermaID: 1000103
 Title: Entity Framework EF Model First - Learn How to Use Model First
 MetaDescription: Unlock the power of Entity Framework by learning how to map using a model-first approach.
-LastMod: 2023-02-19
+LastMod: 2025-06-18
 Tags: model mode-first
 ---
 
@@ -19,7 +19,7 @@ Model First allows you to create a new model using the Entity Framework Designer
 
 Let's create a new empty project and add the EntityFramework NuGet package which is explained in the [Code First](/ef-code-first) approach.
  
-We will use of Entity Framework Designer, which is included as part of Visual Studio, to create our model.
+We will use the Entity Framework Designer, which is included as part of Visual Studio, to create our model.
 
 Right click on the project in Solution Explorer and choose `Add > New Item...` option.
 
@@ -29,7 +29,7 @@ Select Data from the left menu and then `ADO.NET Entity Data Model`.
 
 <img src="https://raw.githubusercontent.com/zzzprojects/EntityFramework-FAQ/master/docs2/images/model-first2.png" alt="Model first-2">
 
-Enter **BookStore** as the name and click **Add**. This launches the Entity Data Model Wizard. Select **Empty FF Designer model** and click **Finish**.
+Enter **BookStore** as the name and click **Add**. This launches the Entity Data Model Wizard. Select **Empty EF Designer model** and click **Finish**.
 
 The Entity Framework Designer is opened with a blank model. Now we can start adding entities, properties, and associations to the model.
 
@@ -71,7 +71,7 @@ You will be asked if you want to create a new database, select **Yes**.
 
 <img src="https://raw.githubusercontent.com/zzzprojects/EntityFramework-FAQ/master/docs2/images/model-first9.png" alt="Model first-9">
 
-Select **Next* and the **Entity Framework Designer** will calculate a script to create the database schema.
+Select **Next** and the **Entity Framework Designer** will calculate a script to create the database schema.
 
 <img src="https://raw.githubusercontent.com/zzzprojects/EntityFramework-FAQ/master/docs2/images/model-first10.png" alt="Model first-10">
 

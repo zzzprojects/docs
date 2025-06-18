@@ -2,7 +2,7 @@
 PermaID: 1000098
 Title: Entity Framework Migration - Learn How to Update your Database Schema
 MetaDescription: Unlock the power of Entity Framework by learning how to use migrations to update your database.
-LastMod: 2023-02-18
+LastMod: 2025-06-18
 Tags: code-first migration
 ---
 
@@ -99,7 +99,7 @@ Now let's change your model by adding another property to the `Book` class.
 public DateTime Date { get; set;}
 ``` 
 
-Now If you rerun your application, you would get an `InvalidOperationException`. 
+Now if you rerun your application, you would get an `InvalidOperationException`. 
 
 > The model backing the 'BlogContext' context has changed since the database was created. Consider using Code First Migrations to update the database (https://go.microsoft.com/fwlink/?LinkId=238269).
 
@@ -182,7 +182,7 @@ Let's add another property to your domain class.
 public string Publisher { get; set; }
 ```
 
-Run the the following command in Package Manager Console.
+Run the following command in Package Manager Console.
 
 ```csharp
 `Add-Migration AddPublisher`

@@ -2,7 +2,7 @@
 PermaID: 1000075
 Title: Entity Framework Merge Records - Learn How to Upsert Entities
 MetaDescription: Unlock the power of Entity Framework by learning how to merge/upsert your entities in the database.
-LastMod: 2023-02-19
+LastMod: 2025-06-18
 Tags: save merge bulk-merge
 ---
 
@@ -10,14 +10,14 @@ Tags: save merge bulk-merge
 
 ## How to Bulk Merge?
 
-If you have a data (list of entities) which have both new and old records. **SaveChanges** requires one database round-trip to check if the entity already exist and one round-trip to insert or update the entity. 
+If you have data (list of entities) which have both new and old records. **SaveChanges** requires one database round-trip to check if the entity already exists and one round-trip to insert or update the entity. 
 
-if you save 10,000 entities, 20,000 database round-trip will be performed which is **INSANELY** slow.  
+If you save 10,000 entities, 20,000 database round-trips will be performed which is **INSANELY** slow.  
 
 ### StackOverflow Related Questions
 
  - [MERGE in Entity Framework](https://stackoverflow.com/questions/5842125/merge-in-entity-framework?noredirect=1&lq=1)
- - [How can I use use Entity Framework to do a MERGE when I don't know if the record exists?](https://stackoverflow.com/questions/23916453/how-can-i-use-use-entity-framework-to-do-a-merge-when-i-dont-know-if-the-record)
+ - [How can I use Entity Framework to do a MERGE when I don't know if the record exists?](https://stackoverflow.com/questions/23916453/how-can-i-use-use-entity-framework-to-do-a-merge-when-i-dont-know-if-the-record)
 
 ## Answer
 
@@ -26,7 +26,7 @@ if you save 10,000 entities, 20,000 database round-trip will be performed which 
 
 ```csharp
 // Easy to use
-ctx.BulkMerge(list);
+context.BulkMerge(list);
 
 // Easy to customize
 context.BulkMerge(customers, options => 

@@ -1,8 +1,8 @@
 ---
 PermaID: 1000050
 Title: Entity Framework AddOrUpdate - Learn How to Add or Update an Entity
-MetaDescription: Unlock the power of Entity Framework by learning what's the add or update method and how to use it.
-LastMod: 2023-02-18
+MetaDescription: Unlock the power of Entity Framework by learning what the add or update method is and how to use it.
+LastMod: 2025-06-18
 Tags: save add-or-update
 ---
 
@@ -22,7 +22,7 @@ using (var context = new BookStore())
         new Author() { FirstName = "Steve", LastName = "John" }
     };
     
-    foreach(var author in list)
+    foreach (var author in list)
     {
         context.Entry(author).State = author.AuthorId == 0 ?
             EntityState.Added :
