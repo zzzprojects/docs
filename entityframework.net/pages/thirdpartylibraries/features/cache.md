@@ -1,16 +1,16 @@
 ---
 PermaID: 1000020
-Title: Entity Framework Cache - Learn who support this features
+Title: Entity Framework Cache - Learn who supports this feature
 MetaDescription: Unlock the power of Entity Framework by learning which libraries support the Query Cache feature.
-LastMod: 2023-02-21
+LastMod: 2025-06-19
 Tags: third-party-feature
 ---
 
-# Entity Framework Cache: Discover who support this features
+# Entity Framework Cache: Discover who supports this feature
 
 ## Introduction
 
-Cache library allow you to cache the result of a LINQ query, usually in the memory, and re-use the cached result for subsequent calls.
+Cache library allows you to cache the result of a LINQ query, usually in the memory, and re-use the cached result for subsequent calls.
 
 ## Why Cache?
 
@@ -18,7 +18,7 @@ Cache library allow you to cache the result of a LINQ query, usually in the memo
 
  - Cache read-only table like countries and states
  - Cache rarely modified table (most libraries allow cache expiration)
- - Cache information related to the user logged
+ - Cache information related to the logged-in user
 
 ## Google Related Searches
 
@@ -37,7 +37,7 @@ Cache library allow you to cache the result of a LINQ query, usually in the memo
 // using Z.EntityFramework.Plus; // Don't forget to include this.
 var ctx = new EntitiesContext();
 
-// The first call perform a database round trip
+// The first call performs a database round trip
 var countries1 = ctx.Countries.FromCache().ToList();
 
 // Subsequent calls will take the value from the memory instead
@@ -52,7 +52,7 @@ var countries2 = ctx.Countries.FromCache().ToList();
 |[Z.EntityFramework.Plus](/ef-plus)	|FREE	|EF5<br>EF6<br>EF Core|	< 1 Day	|Yes    |Audit<br>Batch Delete<br>Batch Update<br>Cache<br>Deferred Query<br>Filter<br>Future<br>Include Filter<br>Include Optimized|
 |[EntityFramework.Cache](/ef-cache)	|FREE	|EF6	|< 2 Days	|No	    | Cache |
 
-## Unsuported Libraries
+## Unsupported Libraries
 
 Use these libraries at your risk!
 

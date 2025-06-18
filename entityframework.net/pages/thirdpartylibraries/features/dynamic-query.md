@@ -1,16 +1,16 @@
 ---
 PermaID: 1000018
-Title: Entity Framework Dynamic LINQ - Learn who support this features
+Title: Entity Framework Dynamic LINQ - Learn who supports this feature
 MetaDescription: Unlock the power of Entity Framework by learning which libraries support the Dynamic LINQ feature.
-LastMod: 2023-02-21
+LastMod: 2025-06-19
 Tags: third-party-feature
 ---
 
-# Entity Framework Dynamic LINQ: Discover who support this features
+# Entity Framework Dynamic LINQ: Discover who supports this feature
 
 ## Introduction
 
-Dynamic Query allows you to perform dynamic where clause, select, order by, with string expression at runtime.
+Dynamic Query allows you to perform dynamic where clause, select, and order by clauses using string expression at runtime.
 
 ## Why Dynamic Query?
 

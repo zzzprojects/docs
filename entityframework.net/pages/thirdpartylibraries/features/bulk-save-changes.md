@@ -1,12 +1,12 @@
 ---
 PermaID: 1000022
-Title: Entity Framework BulkSaveChanges - Learn who support this features
+Title: Entity Framework BulkSaveChanges - Learn who supports this feature
 MetaDescription: Unlock the power of Entity Framework by learning which libraries support the BulkSaveChanges feature.
-LastMod: 2023-02-21
+LastMod: 2025-06-19
 Tags: third-party-feature
 ---
 
-# Entity Framework BulkSaveChanges: Discover who support this features
+# Entity Framework BulkSaveChanges: Discover who supports this feature
 
 ## Introduction
 
@@ -16,11 +16,11 @@ BulkSaveChanges allows you to improve EF performance by saving multiple entities
 
 For **HUGE** performance gains, Entity Framework makes one database round-trip for each entity to insert/update/delete. 
 
-So if you want to save (add, modify or remove) 10,000 entities, 10,000 database round trip will be required which is **INSANELY** slow. To use BulkSaveChanges, you will need to use a third-party library.
+So if you want to save (add, modify or remove) 10,000 entities, 10,000 database round-trips will be required, which is **INSANELY** slow. To use BulkSaveChanges, you will need to use a third-party library.
 
 |Operations	|1,000 Entities	|2,000 Entities	|5,000 Entities|
 |:----------|:----------|:----------|:----------|
-|BulKSaveChanges	|90 ms	|150 ms	|350 ms|
+|BulkSaveChanges	|90 ms	|150 ms	|350 ms|
 |SaveChanges	|1,000 ms	|2,000 ms	|5,000 ms|
 
 ## Google Related Searches

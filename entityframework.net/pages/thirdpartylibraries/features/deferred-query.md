@@ -1,12 +1,12 @@
 ---
 PermaID: 1000019
-Title: Entity Framework Deferred Query - Learn who support this features
+Title: Entity Framework Deferred Query - Learn who supports this feature
 MetaDescription: Unlock the power of Entity Framework by learning which libraries support the Deferred Query feature.
-LastMod: 2023-02-21
+LastMod: 2025-06-19
 Tags: third-party-feature
 ---
 
-# Entity Framework Deferred Query: Discover who support this features
+# Entity Framework Deferred Query: Discover who supports this feature
 
 ## Introduction
 
@@ -14,7 +14,7 @@ Deferred Query allows you to defer immediate query execution from a LINQ method,
 
 ## Why Deferred Query?
 
-### Common scenario:
+### Common scenarios:
 
  - Allow other third-party libraries to use LINQ immediate method
 

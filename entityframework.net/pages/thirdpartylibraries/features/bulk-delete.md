@@ -1,12 +1,12 @@
 ---
 PermaID: 1000025
-Title: Entity Framework Bulk Delete - Learn who support this features
+Title: Entity Framework Bulk Delete - Learn who supports this feature
 MetaDescription: Unlock the power of Entity Framework by learning which libraries support the Bulk Delete feature.
-LastMod: 2023-02-21
+LastMod: 2025-06-19
 Tags: third-party-feature
 ---
 
-# Entity Framework Bulk Delete: Discover who support this features
+# Entity Framework Bulk Delete: Discover who supports this feature
 
 ## Introduction
 
@@ -16,7 +16,7 @@ BulkDelete allows you to improve EF performance by deleting multiple entities wi
 
 For **HUGE** performance gains, Entity Framework makes one database round-trip for each entity to delete. 
 
-So if you want to modify 10,000 entities, 10,000 database round trip will be required which is **INSANELY** slow. To use BulkDelete, you will need to use a third-party library.
+So if you want to modify 10,000 entities, 10,000 database round-trips will be required, which is **INSANELY** slow. To use BulkDelete, you will need to use a third-party library.
 
 |Operations	|1,000 Entities	|2,000 Entities	|5,000 Entities|
 |:----------|:----------|:----------|:----------|

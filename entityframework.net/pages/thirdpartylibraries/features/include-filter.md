@@ -1,12 +1,12 @@
 ---
 PermaID: 1000015
-Title: Entity Framework Include Filter - Learn who support this features
+Title: Entity Framework Include Filter - Learn who supports this feature
 MetaDescription: Unlock the power of Entity Framework by learning which libraries support the Include Filter feature.
-LastMod: 2023-02-21
+LastMod: 2025-06-19
 Tags: third-party-feature
 ---
 
-# Entity Framework Include Filter: Discover who support this features
+# Entity Framework Include Filter: Discover who supports this feature
 
 ## Introduction
 

@@ -1,18 +1,18 @@
 ---
 PermaID: 1000026
-Title: Entity Framework Batch Update - Learn who support this features
+Title: Entity Framework Batch Update - Learn who supports this feature
 MetaDescription: Unlock the power of Entity Framework by learning which libraries support the Batch Update feature.
-LastMod: 2023-02-21
+LastMod: 2025-06-19
 Tags: third-party-feature
 ---
 
-# Entity Framework Batch Update: Discover who support this features
+# Entity Framework Batch Update: Discover who supports this feature
 
 ## Introduction
 
 Batch Update allows you to improve EF performance by updating multiple records in a database from a LINQ Query without loading entities.
 
-## Why Batch Delete?
+## Why Batch Update?
 
 For **HUGE** performance gains, everything is executed on the database side. To use batch update, you will need to use a third-party library.
 
@@ -43,7 +43,7 @@ ctx.Users.Where(x => x.LastLoginDate < DateTime.Now.AddYears(-2))
 |[Z.EntityFramework.Classic](/ef-classic)	|FREE/PRO	|EF6|< 1 Day	|Yes	| Bulk SaveChanges<br>Bulk Insert<br>Bulk Update<br>Bulk Delete<br>Bulk Merge<br>Batch Delete<br>Batch Update<br>Cache<br>Deferred Query<br>Future|
 |[Z.EntityFramework.Plus](/ef-plus)	|FREE	|EF5<br>EF6<br>EF Core|	< 1 Day	|Yes    |Audit<br>Batch Delete<br>Batch Update<br>Cache<br>Deferred Query<br>Filter<br>Future<br>Include Filter<br>Include Optimized|
 
-## Unsuported Libraries
+## Unsupported Libraries
 
 Use these libraries at your risk!
 

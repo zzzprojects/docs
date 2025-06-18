@@ -1,16 +1,16 @@
 ---
 PermaID: 1000016
-Title: Entity Framework Future - Learn who support this features
+Title: Entity Framework Future - Learn who supports this feature
 MetaDescription: Unlock the power of Entity Framework by learning which libraries support the Query Future feature.
-LastMod: 2023-02-21
+LastMod: 2025-06-19
 Tags: third-party-feature
 ---
 
-# Entity Framework Future: Discover who support this features
+# Entity Framework Future: Discover who supports this feature
 
 ## Introduction
 
-Future feature allows you to batches multiple LINQ queries to be executed in one SQL Command to perform only a single database round trip.
+Future feature allows you to batch multiple LINQ queries to be executed in one SQL Command to perform only a single database round trip.
 
 ## Why using Future with Entity Framework?
 
@@ -47,7 +47,7 @@ var states = futureStates.ToList();
 |[Z.EntityFramework.Classic](/ef-classic)	|FREE/PRO	|EF6|< 1 Day	|Yes	| Bulk SaveChanges<br>Bulk Insert<br>Bulk Update<br>Bulk Delete<br>Bulk Merge<br>Batch Delete<br>Batch Update<br>Cache<br>Deferred Query<br>Future|
 |[Z.EntityFramework.Plus](/ef-plus)	|FREE	|EF5<br>EF6<br>EF Core|	< 1 Day	|Yes    |Audit<br>Batch Delete<br>Batch Update<br>Cache<br>Deferred Query<br>Filter<br>Future<br>Include Filter<br>Include Optimized|
 
-## Unsuported Libraries
+## Unsupported Libraries
 
 Use this library at your risk!
 

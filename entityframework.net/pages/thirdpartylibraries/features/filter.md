@@ -1,12 +1,12 @@
 ---
 PermaID: 1000017
-Title: Entity Framework Filter - Learn who support this features
+Title: Entity Framework Filter - Learn who supports this feature
 MetaDescription: Unlock the power of Entity Framework by learning which libraries support the Query Filter feature.
-LastMod: 2023-02-21
+LastMod: 2025-06-19
 Tags: third-party-feature
 ---
 
-# Entity Framework Filter: Discover who support this features
+# Entity Framework Filter: Discover who supports this feature
 
 ## Introduction
 
@@ -19,7 +19,7 @@ Filter allows you to filter data from the DbContext with predefined filters.
  - Default Ordering
  - Logical Data Partitioning
  - Multi-Tenancy
- - Soft Deleted
+ - Soft Delete
  - Security Access
 
 ## Google Related Searches
@@ -51,7 +51,7 @@ var list = ctx.Posts.ToList();
 |[Z.EntityFramework.Plus](/ef-plus)	|FREE	|EF5<br>EF6<br>EF Core|	< 1 Day	|Yes    |Audit<br>Batch Delete<br>Batch Update<br>Cache<br>Deferred Query<br>Filter<br>Future<br>Include Filter<br>Include Optimized|
 |[EntityFramework.DynamicFilters](/ef-dynamic-filters)	|FREE	|EF6	|< 2 Days	|Yes    |Filter |
 
-## Unsuported Libraries
+## Unsupported Libraries
 
 Use this library at your risk!
 

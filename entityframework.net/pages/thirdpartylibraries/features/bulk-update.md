@@ -1,12 +1,12 @@
 ---
 PermaID: 1000021
-Title: Entity Framework Bulk Update - Learn who support this features
+Title: Entity Framework Bulk Update - Learn who supports this feature
 MetaDescription: Unlock the power of Entity Framework by learning which libraries support the Bulk Update feature.
-LastMod: 2023-02-21
+LastMod: 2025-06-19
 Tags: third-party-feature
 ---
 
-# Entity Framework Bulk Update: Discover who support this features
+# Entity Framework Bulk Update: Discover who supports this feature
 
 ## Introduction
 
@@ -16,7 +16,7 @@ BulkUpdate allows you to improve EF performance by updating multiple entities wi
 
 For **HUGE** performance gains, Entity Framework makes one database round-trip for each entity to update. 
 
-So if you want to modify 10,000 entities, 10,000 database round trip will be required which is **INSANELY** slow. To use BulkUpdate, you will need to use a third-party library.
+So if you want to modify 10,000 entities, 10,000 database round-trips will be required, which is **INSANELY** slow. To use BulkUpdate, you will need to use a third-party library.
 
 |Operations	|1,000 Entities	|2,000 Entities	|5,000 Entities|
 |:----------|:----------|:----------|:----------|

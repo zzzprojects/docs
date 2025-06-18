@@ -1,12 +1,12 @@
 ---
 PermaID: 1000028
-Title: Entity Framework Audit - Learn who support this features
+Title: Entity Framework Audit - Learn who supports this feature
 MetaDescription: Unlock the power of Entity Framework by learning which libraries support the Audit feature.
-LastMod: 2023-02-21
+LastMod: 2025-06-19
 Tags: third-party-feature
 ---
 
-# Entity Framework Audit: Discover who support this features
+# Entity Framework Audit: Discover who supports this feature
 
 ## Introduction
 
@@ -69,7 +69,7 @@ foreach(var entry in entries)
 |[Audit.NET](/audit-net)	|FREE	|EF6<br>EF Core	|< 1 Day	|Yes    |Audit  |
 |[Microsoft.EntityFrameworkCore.AutoHistory](/auto-history)	|FREE	|EF Core	|< 1 Day	|No	    | Audit |
 
-## Unsuported Libraries
+## Unsupported Libraries
 
 Use these libraries at your risk!
 

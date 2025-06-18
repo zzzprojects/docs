@@ -1,12 +1,12 @@
 ---
 PermaID: 1000024
-Title: Entity Framework Bulk Insert - Learn who support this features
+Title: Entity Framework Bulk Insert - Learn who supports this feature
 MetaDescription: Unlock the power of Entity Framework by learning which libraries support the Bulk Insert feature.
-LastMod: 2023-02-21
+LastMod: 2025-06-19
 Tags: third-party-feature
 ---
 
-# Entity Framework Bulk Insert: Discover who support this features
+# Entity Framework Bulk Insert: Discover who supports this feature
 
 ## Introduction
 
@@ -16,7 +16,7 @@ BulkInsert allows you to improve EF performance by inserting multiple entities w
 
 For **HUGE** performance gains, Entity Framework makes one database round-trip for each entity to insert. 
 
-So if you want to add 10,000 entities, 10,000 database round trip will be required which is **INSANELY** slow. To use BulkInsert, you will need to use a third-party library.
+So if you want to add 10,000 entities, 10,000 database round-trips will be required, which is **INSANELY** slow. To use BulkInsert, you will need to use a third-party library.
 
 |Operations	|1,000 Entities	|2,000 Entities	|5,000 Entities|
 |:----------|:----------|:----------|:----------|
@@ -57,7 +57,7 @@ context.BulkInsert(list, bulk => bulk.BatchSize = 100);
 |:----------|:----------|:----------|:----------|:----------|:----------|
 |[Z.EntityFramework.Extensions](/ef-extensions)	|PRO	|EF6	|< 1 Day	|Yes	| Bulk SaveChanges<br>Bulk Insert<br>Bulk Update<br>Bulk Delete<br>Bulk Merge|
 
-## Unsuported Libraries
+## Unsupported Libraries
 
 Use these libraries at your risk!
 

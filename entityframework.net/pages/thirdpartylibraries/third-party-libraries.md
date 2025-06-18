@@ -1,6 +1,7 @@
 ---
 PermaID: 1000002
 Name: Third Party Libraries
+LastMod: 2025-06-19
 Tags: third-party-feature third-party-library
 ---
 
@@ -8,13 +9,13 @@ Tags: third-party-feature third-party-library
 
 ## Introduction
 
-Entity Framework **Third Party Libraries** allow you to extend EF functionality which is not available in the official Entity Framework library, for example, auditing, caching, and filtering etc. 
+Entity Framework **Third Party Libraries** allow you to extend EF functionality which is not available in the official Entity Framework library, for example, auditing, caching, filtering, and more. 
 
 ## Why we need Third Party Libraries?
 
-Entity Framework is great, but a lot of essential features is missing for some application scenarios.
+Entity Framework is great, but a lot of essential features are missing for some application scenarios.
 
-The only way to achieve is either create code for this kind of scenario or use a library which fully or partially cover them.
+The only way to achieve this is either to create code for this kind of scenario or use a library which fully or partially covers them.
 
 ## Supported Libraries
 
@@ -31,7 +32,7 @@ The only way to achieve is either create code for this kind of scenario or use a
 |[EntityFramework.DynamicFilters](/ef-dynamic-filters)	|FREE	|EF6<br>EF Core	|< 2 Days	|Yes    |Filter |
 |[Microsoft.EntityFrameworkCore.AutoHistory](/auto-history)	|FREE	|EF Core	|< 1 Day	|No	    | Audit |
 
-## Unsuported Libraries
+## Unsupported Libraries
 
 Use these libraries at your risk!
 
