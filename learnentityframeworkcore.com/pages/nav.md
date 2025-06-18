@@ -13,6 +13,7 @@
                 <li><a href="/extensions/audit-entityframework-core">Audit EntityFramework Core</a></li>
 				<li><a href="/extensions/entitycloner-microsoft-entityframeworkcore">EntityCloner Microsoft EntityFrameworkCore</a></li>
 				<li><a href="/extensions/entityframeworkcore-sqlserver-nodatime">EntityFrameworkCore SqlServer NodaTime</a></li>
+				<li><a href="/extensions/entityframeworkcore-sqlite-nodatime">EntityFrameworkCore SQLite NodaTime</a></li>
             </ul>
         </li>
         <li>

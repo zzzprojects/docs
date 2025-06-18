@@ -43,3 +43,9 @@ Enables use of SQL functions like `DATEADD`, `DATEDIFF`, and `DATEPART` directly
 Ideal for developers needing precise date/time handling in modern .NET apps.
 
 [Read more](/extensions/entityframeworkcore-sqlserver-nodatime)
+
+## EntityFrameworkCore.Sqlite.NodaTime
+
+**EntityFrameworkCore.Sqlite.NodaTime** is a library that adds support for NodaTime types when using SQLite with Entity Framework Core. With a simple `UseNodaTime()` configuration, developers can store and query temporal data like `Instant`, `LocalDateTime`, and `LocalDate` directly in SQLite. It automatically translates NodaTime properties and methods into optimized SQL expressions, making it easy to work with date and time values in a robust and type-safe way.
+
+[Read more](/extensions/entityframeworkcore-sqlite-nodatime)
