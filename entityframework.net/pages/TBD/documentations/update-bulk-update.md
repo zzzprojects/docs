@@ -1,12 +1,12 @@
 ---
 PermaID: 1000036
-Title: Entity Framework Bulk Update - Learn How to Improve Update Perfomance
+Title: Entity Framework Bulk Update - Learn How to Improve Update Performance
 MetaDescription: Unlock the power of Entity Framework by learning how to update your entities in bulk in the database.
-LastMod: 2023-02-18
+LastMod: 2025-06-18
 Tags: save update bulk-update
 ---
 
-# Entity Framework Bulk Update: Discover How to Improve Update Perfomance
+# Entity Framework Bulk Update: Discover How to Improve Update Performance
 
 ## Definition
 `UPDATE` all entities in the database.
@@ -26,7 +26,7 @@ context.BulkUpdate(customers, options => options.ColumnPrimaryKeyExpression = cu
 
 `Updating` entities using a custom key from file importation is a typical scenario.
 
-Despite the `ChangeTracker` being outstanding to track what's modified, it lacks in term of scalability and flexibility.
+Despite the `ChangeTracker` being outstanding to track what's modified, it lacks in terms of scalability and flexibility.
 
 `SaveChanges` requires one database round-trip for every entity to `update`. So if you need to `update` 10000 entities, then 10000 database round-trips will be performed which is **INSANELY** slow.
 

@@ -12,9 +12,9 @@ The Migrations feature enables you to change the data model and deploy your chan
 
 Migrations provide a set of tools that allow:
 
- - Create an initial database that works with your EF model
- - Generating migrations to keep track of changes you make to your EF model
- - Keep your database up to date with those changes
+- Create an initial database that works with your EF model
+- Generating migrations to keep track of changes you make to your EF model
+- Keep your database up to date with those changes
 
 ## Initial Model & Database Using Code First Approach
 
@@ -103,10 +103,10 @@ Now if you rerun your application, you would get an `InvalidOperationException`.
 
 > The model backing the 'BlogContext' context has changed since the database was created. Consider using Code First Migrations to update the database (https://go.microsoft.com/fwlink/?LinkId=238269).
 
-It's time to start using Code First Migrations. There are two kinds of Migration;
+It's time to start using Code First Migrations. There are two kinds of Migrations;
 
- - Automated Migration
- - Code-based Migration
+- Automated Migration
+- Code-based Migration
 
 ### Automated Migration
 
@@ -172,9 +172,9 @@ Now EF will automatically take care of the migration when you change the domain 
 
 In Code First Migrations, you need to execute the following commands in the Package Manager Console.
 
- - **Enable-Migrations**: Enables the migration in your project.
- - **Add-Migration**: It creates a new migration based on changes you have made to your model since the last migration was created.
- - **Update-Database** It applies any pending migrations to the database.
+- **Enable-Migrations**: Enables the migration in your project.
+- **Add-Migration**: It creates a new migration based on changes you have made to your model since the last migration was created.
+- **Update-Database** It applies any pending migrations to the database.
 
 Let's add another property to your domain class.
 

@@ -1,12 +1,12 @@
 ---
 PermaID: 1000096
-Title: Entity Framework PostgreSQL - Learn About this Provider 
+Title: Entity Framework PostgreSQL - Learn More About this Provider 
 MetaDescription: Unlock the power of Entity Framework by learning how to use PostgreSQL providers in your project.
-LastMod: 2023-02-18
+LastMod: 2025-06-18
 Tags: provider postgresql
 ---
 
-# Entity Framework PostgreSQL: Discover About this Provider
+# Entity Framework PostgreSQL: Discover More About this Provider
 
 ## Introduction
 
@@ -14,9 +14,9 @@ Tags: provider postgresql
 
 #### How to Use PostgreSQL Database Provider
 
-To use PostgreSQL database provider, the first step is to install [Npgsql.EntityFramework](https://www.nuget.org/packages/Npgsql.EntityFramework/) NuGet package. 
+To use the PostgreSQL database provider, the first step is to install [Npgsql.EntityFramework](https://www.nuget.org/packages/Npgsql.EntityFramework/) NuGet package. 
 
-Now to use Entity Framework with PostgreSQL database, add connection string and PostgreSQL provider for EF6 in configuration sections of `App.config` file
+Now to use Entity Framework with the PostgreSQL database, add the connection string and the PostgreSQL provider for EF6 in the configuration sections of the `App.config` file
 
 ```csharp
 <connectionStrings>

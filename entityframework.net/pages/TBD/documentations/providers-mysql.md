@@ -1,12 +1,12 @@
 ---
 PermaID: 1000097
-Title: Entity Framework MySQL - Learn About this Provider
+Title: Entity Framework MySQL - Learn More About this Provider
 MetaDescription: Unlock the power of Entity Framework by learning how to use MySQL providers in your project.
-LastMod: 2023-02-18
+LastMod: 2025-06-18
 Tags: provider mysql
 ---
 
-# Entity Framework MySQL: Discover About this Provider
+# Entity Framework MySQL: Discover More About this Provider
 
 ## Introduction
 
@@ -14,14 +14,14 @@ You can also use `MySQL Connector/Net` which integrates support for Entity Frame
 
 ## Requirements
 
- - [Install Connector/Net](https://dev.mysql.com/doc/connector-net/en/connector-net-installation-windows.html)
- - [MySQL Server 5.5 or higher](https://dev.mysql.com/downloads/)
+- [Install Connector/Net](https://dev.mysql.com/doc/connector-net/en/connector-net-installation-windows.html)
+- [MySQL Server 5.5 or higher](https://dev.mysql.com/downloads/)
 
 ## How to Use MySQL Database Provider
 
-To use MySQL database provider, the first step is to install [MySql.Data.Entity](https://www.nuget.org/packages/MySql.Data.Entity/7.0.7-m61) NuGet package.
+To use the MySQL database provider, the first step is to install [MySql.Data.Entity](https://www.nuget.org/packages/MySql.Data.Entity/7.0.7-m61) NuGet package.
 
-Now to use Entity Framework with MySQL database, configure Connector/NET support for EF6 by adding connection string and the Connector/NET provider for EF6 in configuration sections of `App.config` file. 
+Now to use Entity Framework with the MySQL database, configure Connector/NET support for EF6 by adding the connection string and the Connector/NET provider for EF6 in configuration sections of `App.config` file. 
 
 ```csharp
 <connectionStrings>

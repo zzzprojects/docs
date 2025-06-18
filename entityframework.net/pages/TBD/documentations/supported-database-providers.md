@@ -1,16 +1,16 @@
 ---
 PermaID: 1000095
-Title: Entity Framework Supported Database Providers - Learn About Providers
+Title: Entity Framework Supported Database Providers - Learn More About Providers
 MetaDescription: Unlock the power of Entity Framework by learning how to use database providers in your project.
-LastMod: 2023-02-18
+LastMod: 2025-06-18
 Tags: provider
 ---
 
-# Entity Framework Supported Database Providers: Discover About Providers
+# Entity Framework Supported Database Providers: Discover More About Providers
 
-## What database provider are supported in Entity Framework?  
+## What database providers are supported in Entity Framework?  
 
-Data Provider is a set of libraries that are used to connect to a database, executing commands, and retrieving results. For example, SQL data provider for SQL, Oracle data provider for Oracle, OLE DB data provider for access, excel or mysql, etc. 
+A Data Provider is a set of libraries that are used to connect to a database, execute commands, and retrieve results. For example, SQL data provider for SQL, Oracle data provider for Oracle, OLE DB data provider for Access, Excel or MySQL, etc. 
 
 Entity Framework uses a provider model to allow EF to be used to access many different databases.
 
