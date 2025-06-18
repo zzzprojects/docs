@@ -1,12 +1,12 @@
 ---
 PermaID: 1000155
-Title: Entity Framework One or more validation error were detected Exception
+Title: Entity Framework One or more validation errors were detected Exception
 MetaDescription: Learn about the One or more validation errors were detected during model generation. EntityType has no key defined. Define the key for this EntityType exception.
-LastMod: 2023-02-20
+LastMod: 2025-06-19
 Tags: troubleshooting
 ---
 
-# Entity Framework: One or more validation error were detected Exception
+# Entity Framework: One or more validation errors were detected Exception
 
 ## Exception: One or more validation errors were detected during model generation. EntityType has no key defined. Define the key for this EntityType.
 
@@ -35,7 +35,7 @@ public class Customer
 ```
 [Try it online](https://dotnetfiddle.net/CW86Cn)
 
-All EF models need a key, so make sure that your model class contains key.
+All EF models need a key, so make sure that your model class contains a key.
 
 
 ```csharp

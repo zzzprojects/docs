@@ -2,7 +2,7 @@
 PermaID: 1000159
 Title: Entity Framework LINQ to Entities does not recognize the method
 MetaDescription: Learn about the LINQ to Entities does not recognize the method exception.
-LastMod: 2023-02-20
+LastMod: 2025-06-19
 Tags: troubleshooting linq
 ---
 
@@ -10,7 +10,7 @@ Tags: troubleshooting linq
 
 ## Exception: LINQ to Entities does not recognize the method 
 
-It is the most common exception occurs when working with entity framework and converting data inside IQueryable result for filtering. 
+It is the most common exception that occurs when working with entity framework and converting data inside IQueryable result for filtering. 
 
 ```csharp
 using (var context = new CustomerContext())

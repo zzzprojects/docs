@@ -2,7 +2,7 @@
 PermaID: 1000158
 Title: Entity Framework Unable to create a constant value Exception
 MetaDescription: Learn about the Unable to create a constant value of type [Object]. Only primitive types or enumeration types are supported in this context exception.
-LastMod: 2023-02-20
+LastMod: 2025-06-19
 Tags: troubleshooting
 ---
 
@@ -23,7 +23,7 @@ using (var context = new CustomerContext())
 ```
 [Try it online](https://dotnetfiddle.net/vsVdHW)
 
-In this example, entity framework is trying to convert a whole customer object equality into a database query. 
+In this example, Entity Framework is trying to convert a whole customer object equality into a database query. 
 
 ### StackOverflow Related Questions
 
@@ -32,7 +32,7 @@ In this example, entity framework is trying to convert a whole customer object e
 
 ## Solution
 
-The easiest solution to handle this exception is to query data in entity framework queries using constant values, much like SQL queries by comparing the IDs of the object and not the object itself in Where method.
+The easiest solution to handle this exception is to query data in Entity Framework queries using constant values, much like SQL queries by comparing the IDs of the object and not the object itself in Where method.
 
 ```csharp
 using (var context = new CustomerContext())

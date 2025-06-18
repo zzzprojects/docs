@@ -2,7 +2,7 @@
 PermaID: 1000157
 Title: Entity Framework The specified type member is not supported Exception
 MetaDescription: Learn about The specified type member '[ColumnName]' is not supported in LINQ to Entities Exception exception. 
-LastMod: 2023-02-20
+LastMod: 2025-06-19
 Tags: troubleshooting
 ---
 
@@ -10,7 +10,7 @@ Tags: troubleshooting
 
 ## Exception: The specified type member '[ColumnName]' is not supported in LINQ to Entities Exception 
 
-Entity Framework can't filter data based on a property on the server side which is not a part of the table schema. It means that Entity Framework can't convert not mapped a property to SQL.
+Entity Framework can't filter data based on a property on the server side which is not a part of the table schema. It means that Entity Framework can't convert a property that is not mapped to SQL.
 
 The following example is trying to filter the customers on TotalInvoices, but the TotalInvoices property is not mapped to database.
 

@@ -2,7 +2,7 @@
 PermaID: 1000161
 Title: Entity Framework There is already an open DataReader Exception
 MetaDescription: Learn about the There is already an open DataReader associated with this Command which must be closed first exception.
-LastMod: 2023-02-20
+LastMod: 2025-06-19
 Tags: troubleshooting data-reader
 ---
 
@@ -49,7 +49,7 @@ This can happen if you execute a query while iterating over the results from ano
 
 ### Solution 2
 
-Adding .ToList() to the collection using in foreach loop will likely solve the problem.
+Adding .ToList() to the collection used in the foreach loop will likely solve the problem.
 
 
 ```csharp

@@ -2,7 +2,7 @@
 PermaID: 1000153
 Title: Entity Framework The entity cannot be constructed in a LINQ Exception
 MetaDescription: Learn about The entity cannot be constructed in a LINQ to Entities query exception.
-LastMod: 2023-02-20
+LastMod: 2025-06-19
 Tags: troubleshooting
 ---
 
@@ -10,7 +10,7 @@ Tags: troubleshooting
 
 ## Exception: The entity cannot be constructed in a LINQ to Entities query
 
-In Entity Framework, mapped entities represent database tables, and Entity Framework doesn't allow to project on a mapped entity in a LINQ to Entities query.  If you project on a mapped entity, then it will partially load an entity, which is not a valid state. EF won't have any clue how to handle when the entity is updated. 
+In Entity Framework, mapped entities represent database tables, and Entity Framework doesn't allow projecting on a mapped entity in a LINQ to Entities query.  If you project on a mapped entity, then it will partially load an entity, which is not a valid state. EF won't have any clue how to handle it when the entity is updated.
 
 ```csharp
 using (var context = new CustomerContext())
@@ -28,7 +28,7 @@ using (var context = new CustomerContext())
 ### StackOverflow Related Questions
 
  - [The entity cannot be constructed in a LINQ to Entities query](https://stackoverflow.com/questions/5325797/the-entity-cannot-be-constructed-in-a-linq-to-entities-query)
- - ["The entity or complex type cannot be constructed in a LINQ to Entities query" in Controler](https://stackoverflow.com/questions/31920656/the-entity-or-complex-type-cannot-be-constructed-in-a-linq-to-entities-query-i)
+ - ["The entity or complex type cannot be constructed in a LINQ to Entities query" in Controller](https://stackoverflow.com/questions/31920656/the-entity-or-complex-type-cannot-be-constructed-in-a-linq-to-entities-query-i)
 
 ## Solution
 

@@ -2,7 +2,7 @@
 PermaID: 1000160
 Title: Entity Framework The object cannot be deleted Exception
 MetaDescription: Learn about The object cannot be deleted because it was not found in the ObjectStateManager exception.
-LastMod: 2023-02-20
+LastMod: 2025-06-19
 Tags: troubleshooting state-manager
 ---
 
@@ -35,7 +35,7 @@ In the above example, the customer entity is fetched in one DbContext instance, 
 
 ## Solution
 
-To avoid the above exception, make sure that either entity is fetched and deleted in the same DbContext instance or an entity is attached to the context before removing it.
+To avoid the above exception, make sure that either the entity is fetched and deleted in the same DbContext instance or an entity is attached to the context before removing it.
  
 ### Use Same DbContext Instance
 
