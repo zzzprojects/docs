@@ -2,7 +2,7 @@
 PermaID: 1000163
 Title: Entity Framework Cache - Learn How to Cache Your Query Result
 MetaDescription: Unlock the power of Entity Framework by understanding how to cache your query result. Learn how using a cache can dramatically improve your query performance.
-LastMod: 2023-02-22
+LastMod: 2025-06-19
 Tags: third-party-library
 ---
 
@@ -19,7 +19,7 @@ This library is filling the gap by enabling caching of query results for Entity 
 
 ## Configuration
 
-To use EntityFramework.Cache in your application, you need first configure EF using code-based configuration. 
+To use EntityFramework.Cache in your application, you need to first configure EF using code-based configuration. 
 
 
 ```csharp

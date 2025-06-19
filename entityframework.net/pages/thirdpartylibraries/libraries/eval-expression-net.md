@@ -2,7 +2,7 @@
 PermaID: 1000005
 Title: Eval Expression.NET - Learn How to Execute Dynamic LINQ
 MetaDescription: Unlock the power of Entity Framework by executing dynamic Linq at runtime. Learn how to execute dynamic where clause and order clause from user input.
-LastMod: 2023-02-22
+LastMod: 2025-06-19
 Tags: third-party-library
 ---
 
@@ -10,7 +10,7 @@ Tags: third-party-library
 
 ## Definition
 
-The **Eval-Expression.NET** library allows evaluating, compiling and executing C# code and expression at runtime.
+The **Eval-Expression.NET** library allows evaluating, compiling and executing C# code and expressions at runtime.
 
 It supports nearly everything including:
 

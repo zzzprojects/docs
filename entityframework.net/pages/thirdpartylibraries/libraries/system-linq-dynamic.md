@@ -1,8 +1,8 @@
 ---
 PermaID: 1000004
 Title: Entity Framework Dynamic LINQ - Learn How to Execute Dynamically
-MetaDescription: Unlock the power of Entity Framework by evaluating LINQ expression at runtime. Learn how to execute dynamic where clause and order clause from user input.
-LastMod: 2023-02-22
+MetaDescription: Unlock the power of Entity Framework by evaluating LINQ expressions at runtime. Learn how to execute dynamic where clause and order clause from user input.
+LastMod: 2025-06-19
 Tags: third-party-library
 ---
 

@@ -2,7 +2,7 @@
 PermaID: 1000007
 Title: Entity Framework Plus - Learn About the Most Popular Libraries
 MetaDescription: Unlock the power of Entity Framework by discovering new methods to use with EF6. Learn to extend EF6 by adding functionalities like auditing and batching.
-LastMod: 2023-02-22
+LastMod: 2025-06-19
 Tags: third-party-library
 ---
 
@@ -32,7 +32,7 @@ Tags: third-party-library
 
 ## Batch Operations
 
-Batch Operations method allow performing **UPDATE** or **DELETE** operation directly in the database using a LINQ Query without loading entities in the context.
+Batch Operations methods allow performing **UPDATE** or **DELETE** operations directly in the database using a LINQ Query without loading entities in the context.
 
 Everything is executed on the database side to let you get the best performance available.
 
@@ -40,7 +40,7 @@ Everything is executed on the database side to let you get the best performance 
 ```csharp
 // using Z.EntityFramework.Plus; // Don't forget to include this.
 
-// DELETE all users which has been inactive for 2 years
+// DELETE all users who have been inactive for 2 years
 ctx.Users.Where(x => x.LastLoginDate < DateTime.Now.AddYears(-2))
          .Delete();
 
@@ -51,7 +51,7 @@ ctx.Users.Where(x => x.LastLoginDate < DateTime.Now.AddYears(-2))
 
 ## Audit
 
-Allow to track changes easily, exclude/include entity or property, and autosave audit entries in the database.
+Allows tracking changes easily, exclude/include entity or property, and autosave audit entries in the database.
 
 
 ```csharp
@@ -74,7 +74,7 @@ foreach(var entry in entries)
 }
 ```
 
-AutoSave audit in your database
+Autosave audit in your database
 
 
 ```csharp

@@ -2,7 +2,7 @@
 PermaID: 1000013
 Title: Entity Framework AuditDbContext - Learn How to Perform Auditing
 MetaDescription: Unlock the power of Entity Framework by understanding how to audit your context. Learn how to audit inserted, updated, and deleted entities and save them in a log file or a database.
-LastMod: 2023-02-22
+LastMod: 2025-06-19
 Tags: third-party-library
 ---
 
@@ -12,7 +12,7 @@ Tags: third-party-library
 
 **AuditDbContext** provides entity change auditing for Entity Framework POCO entities. It lets you easily implement change auditing on your application entities.
 
-Instead of using Entity Frameworks DbContext you derive your context from AuditDbContext, which will automatically write change audit records to the database for the registered audit types whenever SaveChanges is called.
+Instead of using the Entity Framework DbContext you derive your context from AuditDbContext, which will automatically write change audit records to the database for the registered audit types whenever SaveChanges is called.
 
 ## Implementation
 
@@ -39,7 +39,7 @@ public class CustomerAudit : AuditEntity
 }
 ```
 
-Derive you context from AuditDbContext.
+Derive your context from AuditDbContext.
 
 
 ```csharp
@@ -54,7 +54,7 @@ public class Context : AuditDbContext
 }
 ```
 
-Register the audit types either through app.config. Add each of you auditable classes with their audit entity to the config file.
+Register the audit types either through App.config. Add each of your auditable classes with their audit entity to the config file.
 
 
 ```csharp

@@ -2,7 +2,7 @@
 PermaID: 1000011
 Title: Entity Framework AutoHistory - Learn How to Perform Auditing
 MetaDescription: Unlock the power of Entity Framework by understanding how to audit your context. Learn how to audit inserted, updated, and deleted entities and save them in a log file or a database.
-LastMod: 2023-02-22
+LastMod: 2025-06-19
 Tags: third-party-library
 ---
 
@@ -10,13 +10,13 @@ Tags: third-party-library
 
 ## Definition
 
-**Microsoft.EntityFrameworkCore.AutoHistory** is a plugin for Microsoft.EntityFrameworkCore to support automatically recording data changes history.
+**Microsoft.EntityFrameworkCore.AutoHistory** is a plugin for Microsoft.EntityFrameworkCore to support automatically recording data change history.
 
-AutoHistory records all the data changing history in a table named `AutoHistories`, this table will recording data UPDATE, DELETE history.
+AutoHistory records all the data change history in a table named `AutoHistories`, this table will record data UPDATE, DELETE history.
 
 ## Enable AutoHistory
 
-To enable the automatic recording change history, override the **OnModelCreating** method in your DbContext class and call **EnableAutoHistory()** extension method with ModelBuilder object.
+To enable the automatic recording of change history, override the **OnModelCreating** method in your DbContext class and call **EnableAutoHistory()** extension method with ModelBuilder object.
 
 
 ```csharp

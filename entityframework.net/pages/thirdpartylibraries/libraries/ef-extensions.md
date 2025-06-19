@@ -1,17 +1,17 @@
 ---
 PermaID: 1000000
-Title: Entity Framework Extensions - Learn About new Bulk Extensions Methods
+Title: Entity Framework Extensions - Learn new Bulk Extensions Methods
 MetaDescription: Unlock the power of Entity Framework by understanding how you can use bulk operations in your project. Learn how to improve your saving performance dramatically.
-LastMod: 2023-02-22
+LastMod: 2025-06-19
 Tags: third-party-library
 ---
 
-# Entity Framework Extensions: Discover About new Bulk Extensions Methods
+# Entity Framework Extensions: Discover new Bulk Extensions Methods
 ## Definition
 
-**Entity Framework Extensions** is a library that dramatically improves EF performances by using bulk and batch operations.
+**Entity Framework Extensions** is a library that dramatically improves EF performance by using bulk and batch operations.
 
-People using this library often report performance enhancement by 50x times and more!
+People using this library often report performance enhancement by 50 times and more!
 
 ```csharp
 // Easy to use
@@ -64,7 +64,7 @@ context.BulkSaveChanges(bulk => bulk.BatchSize = 100);
 
 ## Bulk Operations Methods
 
-Bulk operation methods give you additional flexibility by allowing to customize options such as primary key, columns, include childs entities and more.
+Bulk operation methods give you additional flexibility by allowing you to customize options such as primary key, columns, including child entities, and more.
 
 They are also faster than **BulkSaveChanges** since they don't use the ChangeTracker and doesn't call the **DetectChanges** method.
 

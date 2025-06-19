@@ -2,7 +2,7 @@
 PermaID: 1000012
 Title: Entity Framework Audit.NET - Learn How to Perform Auditing
 MetaDescription: Unlock the power of Entity Framework by understanding how to audit your context. Learn how to audit inserted, updated, and deleted entities and save them in a log file or a database.
-LastMod: 2023-02-22
+LastMod: 2025-06-19
 Tags: third-party-library
 ---
 
@@ -37,7 +37,7 @@ using (AuditScope.Create("Order:Update", () => order))
 
 ## Discard Option
 
-The AuditScope object has a Discard() method to allow the user to discard an event under specific condition.
+The AuditScope object has a Discard() method to allow the user to discard an event under a specific condition.
 
 For example, if you want to avoid saving the audit event when an exception is thrown:
 
@@ -52,7 +52,7 @@ using (var scope = AuditScope.Create("SomeEvent", () => someTarget))
     }
     catch (Exception ex)
     {
-        //If an exception is thown, discard the audit event
+        //If an exception is thrown, discard the audit event
         scope.Discard();
     }
 }

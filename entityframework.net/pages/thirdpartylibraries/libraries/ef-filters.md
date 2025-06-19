@@ -2,7 +2,7 @@
 PermaID: 1000008
 Title: Entity Framework Filters - Learn How to Filter Your Query
 MetaDescription: Unlock the power of Entity Framework by understanding how to filter your query automatically. Learn how to pre-filter your query to handle advanced scenarios such as tenant id.
-LastMod: 2023-02-22
+LastMod: 2025-06-19
 Tags: third-party-library
 ---
 
@@ -66,7 +66,7 @@ Filters are also defined against a set of entities that match a type (interface 
 
 ```csharp
 modelBuilder.Conventions.Add(
-    FilterConvention.Create<IAgencyEntity, int>("Agency", (e, agencyId) => e.AgencyId == agencyId);
+    FilterConvention.Create<IAgencyEntity, int>("Agency", (e, agencyId) => e.AgencyId == agencyId));
 ```
 
 ### Enable Filters

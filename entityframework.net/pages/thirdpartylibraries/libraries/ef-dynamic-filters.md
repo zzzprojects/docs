@@ -2,7 +2,7 @@
 PermaID: 1000010
 Title: Entity Framework Dynamic Filters - Learn How to Filter Your Query
 MetaDescription: Unlock the power of Entity Framework by understanding how to filter your query automatically. Learn how to pre-filter your query to handle advanced scenarios such as tenant id.
-LastMod: 2023-02-22
+LastMod: 2025-06-19
 Tags: third-party-library
 ---
 
@@ -10,7 +10,7 @@ Tags: third-party-library
 
 ## Definition
 
-**Entity Framework Dynamic Filters** is a library that Creates global and scoped filters for Entity Framework queries.
+**Entity Framework Dynamic Filters** is a library that creates global and scoped filters for Entity Framework queries.
 
 The filters are automatically applied to every query and can be used to support use cases such as Multi-Tenancy, Soft Deletes, Active/Inactive, etc.
 
@@ -29,7 +29,7 @@ Filters can be defined on a specific entity class or an interface by providing a
 modelBuilder.Filter("IsDeleted", (ISoftDelete d) => d.IsDeleted, false);
 ```
 
-This filter will apply to all classes that implements ISoftDelete.
+This filter will apply to all classes that implement ISoftDelete.
 
 ## Enabling and Disabling Filters
 

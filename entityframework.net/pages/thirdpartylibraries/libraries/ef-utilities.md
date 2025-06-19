@@ -1,12 +1,12 @@
 ---
 PermaID: 1000006
-Title: Entity Framework Utilities - Learn New Methods to Extends EF6
+Title: Entity Framework Utilities - Learn New Methods to Extend EF6
 MetaDescription: Unlock the power of Entity Framework by discovering new methods to use with EF6. Learn to extend EF6 by adding some functionalities, such as batching.
-LastMod: 2023-02-22
+LastMod: 2025-06-19
 Tags: third-party-library
 ---
 
-# Entity Framework Utilities: Discover New Methods to Extends EF6
+# Entity Framework Utilities: Discover New Methods to Extend EF6
 
 ## Definition
 
@@ -18,7 +18,7 @@ Entity Framework is quite fast in many cases, but doing CRUD operations over man
 
 ### Update Single Value
 
-A simpler API for working with disconnected entities and only updating single values. It is useful if you want to update a value on an entity without roundtripping the database. A typical use case could be to update the number of reads of a blogpost. 
+A simpler API for working with disconnected entities and only updating single values. It is useful if you want to update a value on an entity without roundtripping the database. A typical use case could be to update the number of reads of a blog post. 
 
 
 ```csharp
@@ -33,7 +33,7 @@ using (var db = new YourDbContext())
 
 The standard EF Include is slow to use. The reason is that it cross joins the child records against the parent which means you load a significant amount of duplicate data. It means more data to transfer, more data to parse, more memory etc.
 
-Include EFU, on the other hand, runs two parallel queries and stitch the data together in memory.
+Include EFU, on the other hand, runs two parallel queries and stitches the data together in memory.
 
 
 ```csharp
@@ -108,7 +108,7 @@ EFBatchOperation.For(db, db.Comments).UpdateAll(commentsFromDb, x => x.ColumnsTo
 
 ### EF 4-5
 
- - You need to manually select any of the O.1.x packages as the later packages are for EF V6.
+ - You need to manually select any of the 0.1.x packages as the later packages are for EF V6.
 
 ### EF 6
 
