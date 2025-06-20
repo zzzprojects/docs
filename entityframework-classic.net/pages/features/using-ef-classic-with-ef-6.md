@@ -5,7 +5,7 @@ Name: Using EF Classic with EF 6
 # Using EF Classic with EF 6
 
 ## Description
-In some special scenario, you might want to use EF Classic in the same project as EF6.
+In some special scenarios, you might want to use EF Classic in the same project as EF6.
 
 By default, it doesn't work since both libraries are the same library (Entity Framework) so share similar code which leads to reference conflict.
 
@@ -14,11 +14,11 @@ To make it work, you need to:
 - Use another config section for entity framework classic
 
 ## Extern Alias
-Using [extern alias](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/extern-alias) allow solving namespace issue when two libraries use the same fully-qualified type names.
+Using [extern alias](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/extern-alias) allows solving a namespace issue when two libraries use the same fully-qualified type names.
 
 Usually, you choose one of them to keep the `global` alias (can be accessed without specifying the extern alias) and you specify an alias for the other. You can also use an alias for both libraries.
 
-We recommend following alias name:
+We recommend following alias names:
 - Entity Framework 6: `EF6`
 - Entity Framework Classic: `EFClassic`
 
@@ -37,7 +37,7 @@ using EFClassic::System.Data.Entity;
 ```
 
 ## Config Section
-We recommend to use the `entityFrameworkClassic` section name in your config file.
+We recommend using the `entityFrameworkClassic` section name in your config file.
 
 ```csharp
 <?xml version="1.0" encoding="utf-8"?>
@@ -62,7 +62,7 @@ We recommend to use the `entityFrameworkClassic` section name in your config fil
 </configuration>
 ```
 
-and specify the name to the `EntityFrameworkManager` for EF Classic:
+and specify the name for the `EntityFrameworkManager` for EF Classic:
 
 ```csharp
 EntityFrameworkManager.ConfigSectionName = "entityFrameworkClassic";

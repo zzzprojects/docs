@@ -11,7 +11,7 @@ NuGet: Z.EntityFramework.Classic.Npgsql
 
 ## Configuration
 
-- In the defaultConnectionFactory: `EntityFramework6.Npgsql` must be replace by `Z.EntityFramework.Classic.Npgsql`
+- In the defaultConnectionFactory: `EntityFramework6.Npgsql` must be replaced by `Z.EntityFramework.Classic.Npgsql`
 - In the provider: `EntityFramework6.Npgsql` must be replaced by `Z.EntityFramework.Classic.Npgsql`
 
 From

@@ -8,7 +8,7 @@ CanonicalLink: https://entityframework-extensions.net/bulk-update
 ## Description
 The **EF Bulk Update** feature lets you update thousands of entities in your database efficiently.
 
-This feature is provided by the library [EF Extensions](https://entityframework-extensions.net/bulk-update) _(Included with EF Classic)_. EF Extensions is used by over 2000 customers all over the world and supports all Entity Framework version (EF4, EF5, EF6, EF Core, EF Classic).
+This feature is provided by the library [EF Extensions](https://entityframework-extensions.net/bulk-update) _(Included with EF Classic)_. EF Extensions is used by over 2000 customers all over the world and supports all Entity Framework versions (EF4, EF5, EF6, EF Core, EF Classic).
 
 ```csharp
 // Easy to use
@@ -28,14 +28,14 @@ Try it: [NET Core](https://dotnetfiddle.net/EIjAFh) | [NET Framework](https://do
 
 Try it: [NET Core](https://dotnetfiddle.net/8BnXFR) | [NET Framework](https://dotnetfiddle.net/RAuYhO)
 
-> HINT: Performance may differ from a database to another. A lot of factors might affect the benchmark time such as index, column type, latency, throttling, etc.
+> HINT: Performance may differ from one database to another. A lot of factors might affect the benchmark time such as index, column type, latency, throttling, etc.
 
 ### Why BulkUpdate is faster than SaveChanges?
-Updating thousands of entities for a file importation is a typical scenario.
+Updating thousands of entities for a file import is a typical scenario.
 
-The `SaveChanges` method makes it quite impossible to handle this kind of situation due to the number of database round-trips required. The `SaveChanges` perform one database round-trip for every entity to update. So, if you need to update 10,000 entities, 10,000 database round-trips will be performed which is **INSANELY** slow.
+The `SaveChanges` method makes it quite impossible to handle this kind of situation due to the number of database round-trips required. The `SaveChanges` performs one database round-trip for every entity to update. So, if you need to update 10,000 entities, 10,000 database round-trips will be performed which is **INSANELY** slow.
 
-The `BulkUpdate` in counterpart requires the minimum database round-trips possible. For example, under the hood of SQL Server, a `SqlBulkCopy` is performed first in a temporary table, then an `UPDATE` from the temporary table to the destination table is performed which is the most effective tactic available.
+The `BulkUpdate` on the other hand requires the minimum database round-trips possible. For example, under the hood of SQL Server, a `SqlBulkCopy` is performed first in a temporary table, then an `UPDATE` from the temporary table to the destination table is performed which is the most effective tactic available.
 
 ## Real-Life Scenarios
 
@@ -48,7 +48,7 @@ context.BulkUpdate(customers, options => options.ColumnPrimaryKeyExpression = cu
 Try it: [NET Core](https://dotnetfiddle.net/8ZuEW4) | [NET Framework](https://dotnetfiddle.net/dMGZcV)
 
 ## Bulk Update specific columns
-You need to update a list of `Customer` but only update some specific columns such as FirstName and LastName. The [ColumnInputExpression](https://entityframework-extensions.net/column#column-input) option let you choose the columns to update.
+You need to update a list of `Customer` but only update some specific columns such as FirstName and LastName. The [ColumnInputExpression](https://entityframework-extensions.net/column#column-input) option lets you choose the columns to update.
 
 ```csharp
 context.BulkUpdate(customers, options => { 

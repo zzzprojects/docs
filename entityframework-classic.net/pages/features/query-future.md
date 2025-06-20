@@ -40,16 +40,16 @@ Try it: [NET Core](https://dotnetfiddle.net/vMGvuy) | [NET Framework](https://do
 
 ### QueryFutureEnumerable<TEntityType>
   
-The `QueryFutureEnumerable<TEntityType>` inherit from the `IEnumerable<T>` interfaces.
+The `QueryFutureEnumerable<TEntityType>` inherits from the `IEnumerable<T>` interface.
 
 ###### Methods
 
 | Name | Description | Example |
 | :--- | :---------- | :------ |
-| `ToArrayAsync()` | Converts this object to an array asynchronous. | [NET Core](https://dotnetfiddle.net/MljKoE) / [NET Framework](https://dotnetfiddle.net/pg1rnj) |
-| `ToArrayAsync(CancellationToken cancellationToken)` | Converts this object to an array asynchronous. | [NET Core](https://dotnetfiddle.net/EbmY1e) / [NET Framework](https://dotnetfiddle.net/RBEL7B)|
-| `ToListAsync()` | Converts this object to a list asynchronous. | [NET Core](https://dotnetfiddle.net/DGqyL1) / [NET Framework](https://dotnetfiddle.net/JYXOMi) |
-| `ToListAsync(CancellationToken cancellationToken)` | Converts this object to a list asynchronous. | [NET Core](https://dotnetfiddle.net/enqN1i) / [NET Framework](https://dotnetfiddle.net/RQkqUb) |
+| `ToArrayAsync()` | Converts this object to an array asynchronously. | [NET Core](https://dotnetfiddle.net/MljKoE) / [NET Framework](https://dotnetfiddle.net/pg1rnj) |
+| `ToArrayAsync(CancellationToken cancellationToken)` | Converts this object to an array asynchronously. | [NET Core](https://dotnetfiddle.net/EbmY1e) / [NET Framework](https://dotnetfiddle.net/RBEL7B)|
+| `ToListAsync()` | Converts this object to a list asynchronously. | [NET Core](https://dotnetfiddle.net/DGqyL1) / [NET Framework](https://dotnetfiddle.net/JYXOMi) |
+| `ToListAsync(CancellationToken cancellationToken)` | Converts this object to a list asynchronously. | [NET Core](https://dotnetfiddle.net/enqN1i) / [NET Framework](https://dotnetfiddle.net/RQkqUb) |
   
 ### QueryFutureValue<TResult>
   

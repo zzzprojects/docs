@@ -43,7 +43,7 @@ All these features are **free** and can be used in a commercial application:
    - [Effort (In Memory Provider)](provider-effort-inmemory.md)
 
 ## Enterprise Features
-All these features require to purchase a license:
+All these features require purchasing a license:
 
 - [Batch SaveChanges](batch-save-changes.md)
 - [Bulk SaveChanges](bulk-save-changes.md)
@@ -55,4 +55,4 @@ All these features require to purchase a license:
 - [C# Eval Expression](csharp-eval-function.md)
 
 ## Future Features
-This library is still under development. You can expect a lot of more features in future months.
+This library is still under development. You can expect a lot more features in future months.

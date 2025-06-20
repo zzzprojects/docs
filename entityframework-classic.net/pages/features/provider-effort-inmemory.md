@@ -18,7 +18,7 @@ To use Effort, you need to create a transient connection and use it for your con
 
 ```csharp
 var connection = Effort.DbConnectionFactory.CreateTransient();
-var context = new EntityContext(connection));
+var context = new EntityContext(connection);
 ```
 
 ## Examples

@@ -46,7 +46,7 @@ Try it: [NET Core](https://dotnetfiddle.net/FYIYZ8) | [NET Framework](https://do
 ## Limitations
 
 ### DbQuery
-Chaining includes only work if the first include call is from a `DbQuery`. If you used some LINQ and the query is currently an `IQueryable`, you can use the method `AsDbQuery` to tell the compiler that's a `DbQuery`.
+Chaining includes only work if the first include call is from a `DbQuery`. If you used some LINQ and the query is currently an `IQueryable`, you can use the method `AsDbQuery` to tell the compiler that it is a `DbQuery`.
 This restriction is currently required to avoid some side impact with queries that are not directly using the `DbQuery` class.
 
 ```csharp

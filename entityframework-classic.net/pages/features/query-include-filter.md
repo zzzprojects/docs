@@ -6,7 +6,7 @@ Name: Query Include Filter
 
 ## Description
 
-The **EF Query Include Filter** feature let you filter related entities that will be included.
+The **EF Query Include Filter** feature lets you filter related entities that will be included.
 
 For example, you want to load your customers and their invoices, but only related invoices that are not soft deleted.
 
@@ -48,7 +48,7 @@ In this example, we performed an `IncludeFilter` on the `Invoices` level, and on
 // using Z.EntityFramework.Plus; // Don't forget to include this.
 var context = new EntityContext()
 
-// LOAD customers and related active invoices and InvoiceItems[NEEDGOODWORD!!!].
+// LOAD customers and related active invoices and InvoiceItems.
 var customers = context.Customers.IncludeFilter(x => x.Invoices.Where(y => !y.IsSoftDeleted))
 				.IncludeFilter(x => x.Invoices.Where(y => !y.IsSoftDeleted)
 							   .Select(y => y.InvoiceItems
@@ -98,7 +98,7 @@ var customers = context.Customers.IncludeFilter(x => x.Invoices.Where(y => !y.Is
 Try it: [NET Core](https://dotnetfiddle.net/a5b9FM) | [NET Framework](https://dotnetfiddle.net/AmqKb0)
 
 ### Include with security access
-You need to load a post and include related comments, but only related comments the current role have access.
+You need to load a post and include related comments, but only related comments the current role has access to.
 
 ```csharp
 // myRoleID = 1; // Administrator
@@ -129,8 +129,8 @@ Try it: [NET Core](https://dotnetfiddle.net/iYKloB) | [NET Framework](https://do
 ###### Methods
 | Name | Description | Example |
 | :--- | :---------- | :------ |
-| `IncludeFilter<TEntityType, TRelatedEntity>(this IQueryable<TEntityType> query, Expression<Func<TEntityType, IEnumerable<TRelatedEntity>>> filter)` | An `IQueryable<TEntityType>` extension method that includes and filter a collection of related entities. | [NET Core](https://dotnetfiddle.net/deYDiM) / [NET Framework](https://dotnetfiddle.net/72nPzP) |
-| `IncludeFilter<TEntityType, TRelatedEntity>(this IQueryable<TEntityType> query, Expression<Func<TEntityType, TRelatedEntity>> filter)` | An `IQueryable<TEntityType>` extension method that includes and filter a single related entities. | [NET Core](https://dotnetfiddle.net/rv3yeQ) / [NET Framework](https://dotnetfiddle.net/BpUD4q) |
+| `IncludeFilter<TEntityType, TRelatedEntity>(this IQueryable<TEntityType> query, Expression<Func<TEntityType, IEnumerable<TRelatedEntity>>> filter)` | An `IQueryable<TEntityType>` extension method that includes and filters a collection of related entities. | [NET Core](https://dotnetfiddle.net/deYDiM) / [NET Framework](https://dotnetfiddle.net/72nPzP) |
+| `IncludeFilter<TEntityType, TRelatedEntity>(this IQueryable<TEntityType> query, Expression<Func<TEntityType, TRelatedEntity>> filter)` | An `IQueryable<TEntityType>` extension method that includes and filters a single related entity. | [NET Core](https://dotnetfiddle.net/rv3yeQ) / [NET Framework](https://dotnetfiddle.net/BpUD4q) |
 
 ## Limitations
 
@@ -152,10 +152,10 @@ var context = new EntityContext()
 
 context.Invoices.ToList();
 
-// The Invoices automatically contain all InvoiceItems [NEEDGOODWORD!!!] even without using the "Include" method.
+// The Invoices automatically contain all InvoiceItems even without using the "Include" method.
 context.InvoiceItems.ToList();
 
-// Trying to load only one InvoiceItems [NEEDGOODWORD!!!] will obviously not work either.
+// Trying to load only one InvoiceItem will obviously not work either.
 context.Invoices.IncludeFilter(x => x.InvoiceItems.Take(1)).ToList();
 ```
 

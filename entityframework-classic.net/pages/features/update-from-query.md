@@ -26,7 +26,7 @@ context.Customers.Where(x => x.ID == userId).UpdateFromQuery(x => new Customer {
 Try it: [NET Core](https://dotnetfiddle.net/8JuppD) | [NET Framework](https://dotnetfiddle.net/gSJJeh)
 
 ## Purpose
-`Updating` entities using `SaveChanges` normally require to load them first in the `ChangeTracker`. These additional round-trips are often not necessary.
+`Updating` entities using `SaveChanges` normally requires loading them first in the `ChangeTracker`. These additional round-trips are often not necessary.
 
 `UpdateFromQuery` gives you access to directly execute an `UPDATE` statement in the database and provide a **HUGE** performance improvement.
 

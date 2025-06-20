@@ -6,7 +6,7 @@ CanonicalLink: https://entityframework-extensions.net/bulk-delete
 # Bulk Delete
 
 ## Description
-The **EF Bulk Delete** feature let you delete thousands of entities in your database efficiently.
+The **EF Bulk Delete** feature lets you delete thousands of entities in your database efficiently.
 
 This feature is provided by the library [EF Extensions](https://entityframework-extensions.net/bulk-delete) _(Included with EF Classic)_. EF Extensions is used by over 2000 customers all over the world and supports all Entity Framework versions (EF4, EF5, EF6, EF Core, EF Classic).
 
@@ -40,7 +40,7 @@ The `BulkDelete` in counterpart requires the minimum database round-trips possib
 ## Real Life Scenarios
 
 ## Bulk Delete with custom key
-You need to delete a list of `Customer` but you dont have the IDs, you only have the unique customer codes. The [ColumnPrimaryKeyExpression](https://entityframework-extensions.net/column#column-primary-key) let you to choose the key to use.
+You need to delete a list of `Customer` but you don't have the IDs, you only have the unique customer codes. The [ColumnPrimaryKeyExpression](https://entityframework-extensions.net/column#column-primary-key) lets you choose the key to use.
 
 ```csharp
 context.BulkDelete(customers, options => options.ColumnPrimaryKeyExpression = customer => customer.Code);

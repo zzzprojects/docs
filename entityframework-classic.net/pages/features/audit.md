@@ -6,7 +6,7 @@ CanonicalLink: https://entityframework-extensions.net/audit
 # Audit
 
 ## Description
-The **EF Audit** feature allows you to create an audit trail of all changes that occured when saving in Entity Framework. 
+The **EF Audit** feature allows you to create an audit trail of all changes that occurred when saving in Entity Framework. 
 
 The audit trail can be automatically saved in a database or log file.
 
@@ -42,7 +42,7 @@ public static void Main()
 ```
 Try it: [NET Core](https://dotnetfiddle.net/dxUhEK) | [NET Framework](https://dotnetfiddle.net/1kVazO) 
 
-This feature allows you to handle various scenario such as:
+This feature allows you to handle various scenarios such as:
 - [Saving audit trail in a database](#saving-audit-trail-in-a-database)
 - [Saving audit trail in a log file](#saving-audit-trail-in-a-log-file)
 - [Saving audit trail in a different database](#saving-audit-trail-in-a-different-database)
@@ -68,7 +68,7 @@ This feature allows you to handle various scenario such as:
 ### Community vs Enterprise
 The `Audit` feature is free to use in the **Community** version.
 
-The **Enterprise** version offer performance enhancement by automatically saving audit entries using the `BulkInsert`.
+The **Enterprise** version offers performance enhancement by automatically saving audit entries using the `BulkInsert`.
 
 ## Getting Started
 
@@ -170,7 +170,7 @@ Try it: [NET Core](https://dotnetfiddle.net/riY7U3) | [NET Framework](https://do
 ### AutoSave Set
 To automatically save the audit trail in your database, you need to specify the `DbSet<>` in which audit entries will be added then saved.
 
-One of those following set must be added to your context:
+One of those following sets must be added to your context:
 
 | Name | Description | Example |
 | :--- | :---------- | :------ |
@@ -222,7 +222,7 @@ Try it: [NET Core](https://dotnetfiddle.net/Y3F4EY) | [NET Framework](https://do
 ## Real Life Scenarios
 
 ### Saving audit trail in a database
-Your application need to keep an audit trail of all changes in a database. You can automatically save the audit trail by specifying an `AutoSaveSet`.
+Your application needs to keep an audit trail of all changes in a database. You can automatically save the audit trail by specifying an `AutoSaveSet`.
 
 ```csharp
 public class EntityContext : DbContext
@@ -275,7 +275,7 @@ public static void Main()
 Try it: [NET Core](https://dotnetfiddle.net/vsoPmT) | [NET Framework](https://dotnetfiddle.net/8fBiZj)
 
 ### Saving audit trail in a log file
-Your application need to keep an audit trail of all changes in a log file. You can automatically save the audit trail in a log file by specifying an `AutoSaveAction`.
+Your application needs to keep an audit trail of all changes in a log file. You can automatically save the audit trail in a log file by specifying an `AutoSaveAction`.
 
 
 ```csharp
@@ -333,7 +333,7 @@ public static void Main()
 Try it: [NET Core](https://dotnetfiddle.net/ONWxZL) | [NET Framework](https://dotnetfiddle.net/1JvBQ8)
 
 ### Saving audit trail in a different database
-Your application need to keep an audit trail of all changes in a different database. You can automatically save the audit trail in a different database file by specifying an `AutoSaveAction`.
+Your application needs to keep an audit trail of all changes in a different database. You can automatically save the audit trail in a different database file by specifying an `AutoSaveAction`.
 
 ```csharp
 public class EntityContext : DbContext
@@ -384,7 +384,7 @@ public static void Main()
 Try it: [NET Core](https://dotnetfiddle.net/b9dTrD) | [NET Framework](https://dotnetfiddle.net/JMVLsE)
 
 ### Displaying audit trail history
-Your application need to display the audit trail of all changes in a user interface. If your audit trail is saved in a database, you can retrieve and display audit entries by using your audit `DbSet<>`.
+Your application needs to display the audit trail of all changes in a user interface. If your audit trail is saved in a database, you can retrieve and display audit entries by using your audit `DbSet<>`.
 
 ```csharp
 // Display
@@ -441,7 +441,7 @@ The `AuditManager` allows you to configure how the audit trail will be created, 
 | `ExcludeProperty<TEntityType>(Expression<Func<TEntityType, object>> propertySelector)` | Excludes specified properties of a `TEntityType` type from the audit. Key properties are never excluded. | [NET Core](https://dotnetfiddle.net/qNo0IN) / [NET Framework](https://dotnetfiddle.net/BlIDQY) |
 | `ExcludePropertyUnchanged()` | Excludes all properties value unchanged from the audit. Key values are never excluded. | [NET Core](https://dotnetfiddle.net/DGAmuk) / [NET Framework](https://dotnetfiddle.net/9Aw0vq) |
 | `ExcludePropertyUnchanged<TEntityType>()` | Excludes all properties value unchanged of a `TEntityType` type from the audit. Key values are never excluded. | [NET Core](https://dotnetfiddle.net/fgvDZY) / [NET Framework](https://dotnetfiddle.net/EKOk3a) |
-| `ExcludePropertyUnchanged(Func<object, bool> predicate)` | Excludes all properties value that satistfy the predicate from the audit. Key values are never excluded. | [NET Core](https://dotnetfiddle.net/wUaFws) / [NET Framework](https://dotnetfiddle.net/qhTX5h) |
+| `ExcludePropertyUnchanged(Func<object, bool> predicate)` | Excludes all properties value that satisfy the predicate from the audit. Key values are never excluded. | [NET Core](https://dotnetfiddle.net/wUaFws) / [NET Framework](https://dotnetfiddle.net/qhTX5h) |
 | `IncludeEntity()` | Includes all entities in the audit. | [NET Core](https://dotnetfiddle.net/qm0ZFS) / [NET Framework](https://dotnetfiddle.net/r0Rq73) |
 | `IncludeEntity<TEntityType>()` | Includes all entities of `TEntityType` type in the audit. | [NET Core](https://dotnetfiddle.net/GqRgNq) / [NET Framework](https://dotnetfiddle.net/rjhUQb) |
 | `IncludeEntity(Func<object, bool> predicate)` | Includes all entities that satisfy the predicate in the audit. | [NET Core](https://dotnetfiddle.net/DvNJiW) / [NET Framework](https://dotnetfiddle.net/TdqHmK)  |
@@ -455,7 +455,7 @@ The `AuditManager` allows you to configure how the audit trail will be created, 
 | `IncludeProperty<TEntityType>(Expression<Func<TEntityType, object>> propertySelector)` | Includes specified properties of a `TEntityType` type in the audit. | [NET Core](https://dotnetfiddle.net/QdwTJd) / [NET Framework](https://dotnetfiddle.net/c7YrfX) |
 | `IncludePropertyUnchanged()` | Includes all property values unchanged in the audit. | [NET Core](https://dotnetfiddle.net/aa0gRO) / [NET Framework](https://dotnetfiddle.net/RPfZEl) |
 | `IncludePropertyUnchanged<TEntityType>()` | Includes all property values unchanged of a `TEntityType` type in the audit. | [NET Core](https://dotnetfiddle.net/ul8tCJ) / [NET Framework](https://dotnetfiddle.net/bYmNVq) |
-| `IncludePropertyUnchanged(Func<object, bool> predicate)` | Includes all property values that satistfy the predicate in the audit. | [NET Core](https://dotnetfiddle.net/Up4qJT) / [NET Framework](https://dotnetfiddle.net/HpJ5mz) |
+| `IncludePropertyUnchanged(Func<object, bool> predicate)` | Includes all property values that satisfy the predicate in the audit. | [NET Core](https://dotnetfiddle.net/Up4qJT) / [NET Framework](https://dotnetfiddle.net/HpJ5mz) |
 | `UseIncludeDataAnnotation(bool value)` | Exclude all entities and properties from the Audit. Only entities and properties with `Include` data annotations or specified with the fluent API will be included. | [NET Core](https://dotnetfiddle.net/4ffqFm) / [NET Framework](https://dotnetfiddle.net/mGBM7i) |
 
 ###### Methods (Soft Delete)
@@ -467,7 +467,7 @@ The `AuditManager` allows you to configure how the audit trail will be created, 
 
 ### Audit
 
-The `Audit` class provide information about the audit trail.
+The `Audit` class provides information about the audit trail.
 
 ###### Properties
 
@@ -483,7 +483,7 @@ The `AuditEntry` class contains information about the entry and a list of `Audit
 
 ###### Properties (Mapped)
 
-This properties values are saved in a database.
+These properties values are saved in a database.
 
 | Name | Description | Example |
 | :--- | :---------- | :------ |
@@ -498,7 +498,7 @@ This properties values are saved in a database.
 
 ###### Properties (Unmapped)
 
-This properties values are only accessible via the `LastAudit` property.
+These properties values are only accessible via the `LastAudit` property.
 
 | Name | Description | Example |
 | :--- | :---------- | :------ |
@@ -529,8 +529,8 @@ These property values are saved in a database.
 | `AuditEntryID` | Gets or sets the `AuditEntryID`. | [NET Core](https://dotnetfiddle.net/tRQHR2) / [NET Framework](https://dotnetfiddle.net/kJzQ6i) |
 | `RelationName` | Gets or sets the relation name. Only available for `RelationshipAdded` and `RelationshipDeleted` state | [NET Core](https://dotnetfiddle.net/VDJMnu) / [NET Framework](https://dotnetfiddle.net/LTd809) |
 | `PropertyName` | Gets or sets the property name. | [NET Core](https://dotnetfiddle.net/1x8YYl) / [NET Framework](https://dotnetfiddle.net/oYqqV0) |
-| `OldValue` | Gets or sets the old value formatted as string. Avalable for `Modified`, `Deleted`, and `RelationshipDeleted` state. | [NET Core](https://dotnetfiddle.net/rpZJnR) / [NET Framework](https://dotnetfiddle.net/hNUCx6) |
-| `NewValue` | Gets or sets the new value formatted as string. Avalable for `Insert`, `Modified`, and `RelationshipModified` state. | [NET Core](https://dotnetfiddle.net/sE9q1l) / [NET Framework](https://dotnetfiddle.net/lrGw9a) |
+| `OldValue` | Gets or sets the old value formatted as string. Available for `Modified`, `Deleted`, and `RelationshipDeleted` state. | [NET Core](https://dotnetfiddle.net/rpZJnR) / [NET Framework](https://dotnetfiddle.net/hNUCx6) |
+| `NewValue` | Gets or sets the new value formatted as string. Available for `Insert`, `Modified`, and `RelationshipModified` state. | [NET Core](https://dotnetfiddle.net/sE9q1l) / [NET Framework](https://dotnetfiddle.net/lrGw9a) |
 
 ###### Properties (Unmapped)
 
@@ -604,7 +604,7 @@ Coming soon...
 ## Limitations
 
 ### Bulk Operations & Batch Operations
-All operations that doesn't use the `ChangeTracker` (required to create the audit trail) are currently not supported:
+All operations that don't use the `ChangeTracker` (required to create the audit trail) are currently not supported:
 - [Bulk Insert](/bulk-insert)
 - [Bulk Update](/bulk-update)
 - [Bulk Delete](/bulk-delete)

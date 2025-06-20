@@ -31,8 +31,8 @@
 - Providers
    - [Effort (In Memory)](provider-effort-inmemory.md)
    - [SQL Server](provider-sql-server.md)
-   - [SqlServer Compact](provider-sqlserver-compact.md)
-   - [MySql](provider-mysql.md)
+   - [SQL Server Compact](provider-sqlserver-compact.md)
+   - [MySQL](provider-mysql.md)
    - [PostgreSQL](provider-postgresql.md)
 - Utilities
    - [Attach & Attach Range](attach.md)

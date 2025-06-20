@@ -23,23 +23,23 @@ Try it: [NET Core](https://dotnetfiddle.net/9Z8Cr9) | [NET Framework](https://do
 
 | Operations      | 1,000 Entities | 2,000 Entities | 5,000 Entities |
 | :-------------- | -------------: | -------------: | -------------: |
-| SaveChanges     | 4,000 ms       | Too long...     | Way way too long... |
+| SaveChanges     | 4,000 ms       | Too long...     | Way, way too long... |
 | BulkMerge       | 80 ms          | 110 ms         | 170 ms         |
 
 Try it: [NET Core](https://dotnetfiddle.net/3d1KUv) | [NET Framework](https://dotnetfiddle.net/L1yqaL)
 
-> HINT: Performance may differ from a database to another. A lot of factors might affect the benchmark time such as index, column type, latency, throttling, etc.
+> HINT: Performance may differ from one database to another. A lot of factors might affect the benchmark time such as index, column type, latency, throttling, etc.
 
 ### Why BulkMerge is faster than AddOrUpdate + SaveChanges?
 Merging thousands of entities for a file importation is a typical scenario.
 
-The `AddOrUpdate` method performs a database round-trip for every entity to check if it already exists. The `DetectChanges` change method is also called for every entity which makes this method even slower (it's like using the `Add` method instead of `AddRange`).
+The `AddOrUpdate` method performs a database round-trip for every entity to check if it already exists. The `DetectChanges` method is also called for every entity which makes this method even slower (it's like using the `Add` method instead of `AddRange`).
 
 The `SaveChanges` method performs one database round-trip for every entity to update.
 
 So if you need to merge 10,000 entities, 20,000 database round-trips will be performed + 10,000 `DetectChanges` calls which is **INSANELY** slow.
 
-The `BulkMerge` in counterpart requires the minimum database round-trips possible. For example, under the hood of SQL Server, a `SqlBulkCopy` is performed first in a temporary table, then a `MERGE` from the temporary table to the destination table is performed which is the most effective tactic available.
+The `BulkMerge` on the other hand requires the minimum database round-trips possible. For example, under the hood of SQL Server, a `SqlBulkCopy` is performed first in a temporary table, then a `MERGE` from the temporary table to the destination table is performed which is the most effective tactic available.
 
 ## Real-Life Scenarios
 
@@ -52,7 +52,7 @@ context.BulkMerge(customers, options => options.ColumnPrimaryKeyExpression = cus
 Try it: [NET Framework](https://dotnetfiddle.net/xItcSY) | [NET Core](https://dotnetfiddle.net/XJLfKe)
 
 ## Bulk Merge specific columns
-You need to update a list of `Customer` but only update some specific columns such as FirstName and LastName. The [ColumnInputExpression](https://entityframework-extensions.net/column#column-input) option let you to choose columns to update.
+You need to update a list of `Customer` but only update some specific columns such as FirstName and LastName. The [ColumnInputExpression](https://entityframework-extensions.net/column#column-input) option lets you choose columns to update.
 
 ```csharp
 context.BulkMerge(customers, options => { 
@@ -64,8 +64,8 @@ Try it: [NET Core](https://dotnetfiddle.net/ServiU) | [NET Framework](https://do
 
 ## Bulk Merge specific columns on Update or Insert
 You need to update a list of `Customer` but only save the `CreatedDate` on insert and save the `ModifiedDate` on update.
-- The [IgnoreOnMergeInsert](https://entityframework-extensions.net/column#ignore-on-merge-insert) option let you ignore column when an insert is performed.
-- The [IgnoreOnMergeUpdate](https://entityframework-extensions.net/column#ignore-on-merge-insert) option let you ignore column when an update is performed.
+- The [IgnoreOnMergeInsert](https://entityframework-extensions.net/column#ignore-on-merge-insert) option lets you ignore columns when an insert is performed.
+- The [IgnoreOnMergeUpdate](https://entityframework-extensions.net/column#ignore-on-merge-update) option lets you ignore columns when an update is performed.
 
 ```csharp
 context.BulkMerge(customers, options => { 

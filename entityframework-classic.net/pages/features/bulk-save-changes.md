@@ -33,7 +33,7 @@ Try it: [NET Core](https://dotnetfiddle.net/8Rc5Eg) | [NET Framework](https://do
 
 Try it: [NET Core](https://dotnetfiddle.net/cIGiKE) | [NET Framework](https://dotnetfiddle.net/Ad1bmZ)
 
-> HINT: Performance may differ from a database to another. A lot of factors might affect the benchmark time such as index, column type, latency, throttling, etc.
+> HINT: Performance may differ from one database to another. A lot of factors might affect the benchmark time such as index, column type, latency, throttling, etc.
 
 ### Why BulkSaveChanges is faster than SaveChanges?
 

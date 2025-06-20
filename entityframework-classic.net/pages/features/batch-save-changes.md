@@ -14,7 +14,7 @@ context.BatchSaveChanges();
 ```
 Try it: [NET Core](https://dotnetfiddle.net/nRotN4) | [NET Framework](https://dotnetfiddle.net/dJK5Vr)
 
-> HINT: We recommend to always use `BatchSaveChanges` over `SaveChanges` or enable the option `UseBatchForSaveChanges`.
+> HINT: We recommend to always using `BatchSaveChanges` over `SaveChanges` or enable the option `UseBatchForSaveChanges`.
 
 ## Performance Comparison
 
@@ -73,9 +73,9 @@ Try it: [NET Core](https://dotnetfiddle.net/ciy7du) | [NET Framework](https://do
 
 | Name | Description | Example |
 | :--- | :---------- | :------ |
-| `BatchSaveChanges()` | Saves all changes made in this context to the underlying database by combining sql command generated. | [NET Core](https://dotnetfiddle.net/uiFeW9) / [NET Framework](https://dotnetfiddle.net/mtICR7) |
-| `BatchSaveChangesAsync()` | Saves all changes asynchronously made in this context to the underlying database by combining sql command generated. | [NET Core](https://dotnetfiddle.net/wg4syB) / [NET Framework](https://dotnetfiddle.net/E8LJmC) |
-| `BatchSaveChangesAsync(cancellationToken)` | Saves all changes asynchronously made in this context to the underlying database by combining sql command generated. | [NET Core](https://dotnetfiddle.net/MFO4J9) / [NET Framework](https://dotnetfiddle.net/1PLKzr) |
+| `BatchSaveChanges()` | Saves all changes made in this context to the underlying database by combining SQL commands generated. | [NET Core](https://dotnetfiddle.net/uiFeW9) / [NET Framework](https://dotnetfiddle.net/mtICR7) |
+| `BatchSaveChangesAsync()` | Saves all changes asynchronously made in this context to the underlying database by combining SQL commands generated. | [NET Core](https://dotnetfiddle.net/wg4syB) / [NET Framework](https://dotnetfiddle.net/E8LJmC) |
+| `BatchSaveChangesAsync(cancellationToken)` | Saves all changes asynchronously made in this context to the underlying database by combining SQL commands generated. | [NET Core](https://dotnetfiddle.net/MFO4J9) / [NET Framework](https://dotnetfiddle.net/1PLKzr) |
 
 ## Limitations
 - All providers that don't support multi statements such as SQL Compact and Effort will automatically use `SaveChanges` instead.

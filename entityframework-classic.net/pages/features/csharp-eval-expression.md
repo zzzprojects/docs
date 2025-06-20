@@ -12,7 +12,7 @@ var result = Eval.Execute("X + Y", new { X = 1, Y = 2 }); // return 3
 ```
 Try it: [NET Core](https://dotnetfiddle.net/SCrswb) | [NET Framework](https://dotnetfiddle.net/W9TwcP)
 
-This feature is provided by the library [C# Eval Epression](https://eval-expression.net/) _(Included with EF Classic)_.
+This feature is provided by the library [C# Eval Expression](https://eval-expression.net/) _(Included with EF Classic)_.
 
 ## Real-Life Scenarios
 

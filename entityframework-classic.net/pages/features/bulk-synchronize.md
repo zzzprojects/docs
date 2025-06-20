@@ -8,7 +8,7 @@ CanonicalLink: https://entityframework-extensions.net/bulk-synchronize
 ## Description
 The **EF Bulk Synchronize** feature lets you synchronize the database with the source.
 
-A synchronize is a mirror operation from the data source to the database. All rows that match the entity key are `UPDATED`, non-matching rows that exist from the source are `INSERTED`, non-matching rows that exist in the database are `DELETED`.
+A synchronization is a mirror operation from the data source to the database. All rows that match the entity key are `UPDATED`, non-matching rows that exist from the source are `INSERTED`, non-matching rows that exist in the database are `DELETED`.
 
 The database table becomes a mirror of the entity list provided.
 

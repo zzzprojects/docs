@@ -26,11 +26,11 @@ However, some features like **Query Cache** and **Query Future** cannot be used 
 | `DeferredFirst` | QueryDeferred extension method. Returns the first element of a sequence. | [NET Core](https://dotnetfiddle.net/crZUfE) / [NET Framework](https://dotnetfiddle.net/VNtEF2) |
 | `DeferredFirstOrDefault` | QueryDeferred extension method. Returns the first element of a sequence, or a default value if the sequence contains no elements. | [NET Core](https://dotnetfiddle.net/IAurZU) / [NET Framework](https://dotnetfiddle.net/MEM6Ub) |
 | `DeferredLongCount` | QueryDeferred extension method. Returns an Int64 that represents how many elements in a sequence satisfy a condition. | [NET Core](https://dotnetfiddle.net/3zjKYj) / [NET Framework](https://dotnetfiddle.net/0wPWSF) |
-| `DeferredMax` | QueryDeferred extension method. Returns the maximum value in a sequence | [NET Core](https://dotnetfiddle.net/rF8RDF) / [NET Framework](https://dotnetfiddle.net/9GljhW) |
-| `DeferredMin` | QueryDeferred extension method. Returns the minimum value in a sequence | [NET Core](https://dotnetfiddle.net/IskFgT) / [NET Framework](https://dotnetfiddle.net/8h3Fjt) |
-| `DeferredSingle` | QueryDeferred extension method. Returns the minimum value in a sequence of Single values. | [NET Core](https://dotnetfiddle.net/sPXcC1) / [NET Framework](https://dotnetfiddle.net/YmhLeU) |
-| `DeferredSingleOrDefault` | QueryDeferred extension method. Returns the minimum value in a sequence of nullable Single values. | [NET Core](https://dotnetfiddle.net/C4KZbM) / [NET Framework](https://dotnetfiddle.net/8k6V4Q) |
-| `DeferredSum` | QueryDeferred extension method. Computes the sum of a sequence | [NET Core](https://dotnetfiddle.net/U4TEb1) / [NET Framework](https://dotnetfiddle.net/ugoMmG) |
+| `DeferredMax` | QueryDeferred extension method. Returns the maximum value in a sequence. | [NET Core](https://dotnetfiddle.net/rF8RDF) / [NET Framework](https://dotnetfiddle.net/9GljhW) |
+| `DeferredMin` | QueryDeferred extension method. Returns the minimum value in a sequence. | [NET Core](https://dotnetfiddle.net/IskFgT) / [NET Framework](https://dotnetfiddle.net/8h3Fjt) |
+| `DeferredSingle` | QueryDeferred extension method. Returns a single element. | [NET Core](https://dotnetfiddle.net/sPXcC1) / [NET Framework](https://dotnetfiddle.net/YmhLeU) |
+| `DeferredSingleOrDefault` | QueryDeferred extension method. Returns a single element, or a default value if the sequence contains no elements. | [NET Core](https://dotnetfiddle.net/C4KZbM) / [NET Framework](https://dotnetfiddle.net/8k6V4Q) |
+| `DeferredSum` | QueryDeferred extension method. Computes the sum of a sequence. | [NET Core](https://dotnetfiddle.net/U4TEb1) / [NET Framework](https://dotnetfiddle.net/ugoMmG) |
 
 ## Real-Life Scenarios
 ### Query Cache
@@ -45,18 +45,18 @@ You want to cache the customer count (immediate method) with the [Query Cache](q
 You want to return the customer count (immediate method) with a paged list using the [Query Future](query-future) feature. You can defer the customer count with the `DeferredCount` method.
 
 ```csharp
-// Not do Select
-var futurValue = context.Customers.DeferredCount().FutureValue();
+// Do not select
+var futureValue = context.Customers.DeferredCount().FutureValue();
 
 context.Customers.Add(new Customer() { Name = "Customer_D", Description = "Description"});
 context.SaveChanges();    
 
 // SELECT COUNT(1) FROM Customers
-Console.WriteLine("Count Customer is : " +   futurValue.Value);    
+Console.WriteLine("Count Customer is : " +   futureValue.Value);    
 ```
 Try it: [NET Core](https://dotnetfiddle.net/I7kZ13) | [NET Framework](https://dotnetfiddle.net/OshIRK)
 
-## Documnentation
+## Documentation
 
 ### QueryDeferred<TResult>
 
@@ -64,7 +64,7 @@ Try it: [NET Core](https://dotnetfiddle.net/I7kZ13) | [NET Framework](https://do
 | Name | Description | Example |
 | :--- | :---------- | :------ |
 | `Execute()` | Execute the deferred expression and return the result. | [NET Core](https://dotnetfiddle.net/dHXqhH) / [NET Framework](https://dotnetfiddle.net/byuQpD) |
-| `ExecuteAsync()` | Execute asynchrounously the deferred expression and return the result. | [NET Core](https://dotnetfiddle.net/Qm0RnT) / [NET Framework](https://dotnetfiddle.net/eK16Eh) |
-| `ExecuteAsync(CancellationToken cancellationToken)` | Execute asynchrounously the deferred expression and return the result.  | [NET Core](https://dotnetfiddle.net/JmBS0R) / [NET Framework](https://dotnetfiddle.net/80edw0)  |
+| `ExecuteAsync()` | Execute asynchronously the deferred expression and return the result. | [NET Core](https://dotnetfiddle.net/Qm0RnT) / [NET Framework](https://dotnetfiddle.net/eK16Eh) |
+| `ExecuteAsync(CancellationToken cancellationToken)` | Execute asynchronously the deferred expression and return the result.  | [NET Core](https://dotnetfiddle.net/JmBS0R) / [NET Framework](https://dotnetfiddle.net/80edw0)  |
 
 

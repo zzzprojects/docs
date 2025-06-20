@@ -26,7 +26,7 @@ Try it: [NET Core](https://dotnetfiddle.net/aqSHME) | [NET Framework](https://do
 ### Include boss and add them in the returned list
 Like the `Include` method, by default, the entity from the hierarchy is materialized but not part of the returned list.
 
-The option `FlatListRecursionLevel` let you include boss in returned list. Use `Int.MaxValue` to return all levels.
+The option `FlatListRecursionLevel` lets you include the boss in the returned list. Use `Int.MaxValue` to return all levels.
 - `FlatListRecursionLevel = 0`: will return employee only.
 - `FlatListRecursionLevel = 1`: will return employee with direct boss.
 - `FlatListRecursionLevel = 2`: will return employee with direct boss and their boss.
@@ -65,7 +65,7 @@ var employees = context.Employees.Where(x => x.Name.StartsWith("Employee_"))
 Try it: [NET Core](https://dotnetfiddle.net/8fnlLh) | [NET Framework](https://dotnetfiddle.net/PwnmRp)
 
 ### Include boss, but with custom mapping
-If your entity doesn't have navigation property toward boss or employee, it's impossible to use the join expression.
+If your entity doesn't have a navigation property toward the boss or employee, it's impossible to use the join expression.
 
 The `ColumnMappings` option lets you specify the mapping. Careful, the column name and not the property name must be used.
 
@@ -81,7 +81,7 @@ Try it: [NET Core](https://dotnetfiddle.net/GscK5d) | [NET Framework](https://do
 ### Include boss, but with an inverse navigation
 If your entity has only a reference to a list of employees and no navigation property towards the boss, it's impossible to use the `JoinExpression` to include the boss.
 
-The `InverseMapping` option let you specify a join expression toward employee but to inverse it. So, instead of retrieving their employees, you will retrieve the boss.
+The `InverseMapping` option lets you specify a join expression toward the employee and invert it. So, instead of retrieving their employees, you will retrieve the boss.
 
 ```csharp
 var employees = context.Employees.Where(x => x.Name.StartsWith("Employee_"))
@@ -108,7 +108,7 @@ Try it: [NET Core](https://dotnetfiddle.net/5gEGTo) | [NET Framework](https://do
 | Name | Description | Example |
 | :--- | :---------- | :------ |
 | `ColumnMappings` | Gets or sets the column mappings. | [NET Core](https://dotnetfiddle.net/iLnDRJ) / [NET Framework](https://dotnetfiddle.net/eQCHEe) |
-| `FlatListRecursionLevel` | Gets or sets the flat list recursion level. Default = 0 which return only item from the query. | [NET Core](https://dotnetfiddle.net/0Azi58) / [NET Framework](https://dotnetfiddle.net/052avY) |
+| `FlatListRecursionLevel` | Gets or sets the flat list recursion level. Default = 0 which returns only items from the query. | [NET Core](https://dotnetfiddle.net/0Azi58) / [NET Framework](https://dotnetfiddle.net/052avY) |
 | `InverseMapping` | Gets or sets a value indicating whether the mapping is inversed. | [NET Core](https://dotnetfiddle.net/1ro9yj) / [NET Framework](https://dotnetfiddle.net/zte9Uw) |
 | `JoinExpression` | Gets or sets the join expression. | [NET Core](https://dotnetfiddle.net/nwZuaG) / [NET Framework](https://dotnetfiddle.net/HE8Nzz) |
 | `MaxRecursion` | Gets or sets the maximum recursion to perform. Default = 10. | [NET Core](https://dotnetfiddle.net/qcxXvb) / [NET Framework](https://dotnetfiddle.net/YA2C3g) |
@@ -116,4 +116,4 @@ Try it: [NET Core](https://dotnetfiddle.net/5gEGTo) | [NET Framework](https://do
 
 ## Limitations
 
-- Support SQL Server only
+- Supports SQL Server only

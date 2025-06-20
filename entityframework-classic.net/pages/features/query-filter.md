@@ -24,11 +24,11 @@ var list = context.Customers.ToList();
 ```
 Try it: [NET Core](https://dotnetfiddle.net/g1XRz1) | [NET Framework](https://dotnetfiddle.net/aDsTWW)
 
-The filter is applied in the database and application side:
+The filter is applied on the database side and application side:
 - **Database side**: Whenever possible, the filter is applied in the SQL query.
 - **Application side**: The filter is always applied to the query result.
 
-This feature allows to exclude or include specific entities to handle scenarios such as:
+This feature allows you to exclude or include specific entities to handle scenarios such as:
 - [Soft Delete](#soft-delete)
 - [Multi-Tenancy](#multi-tenancy)
 - [Logical Data Partitioning](#logical-data-partitioning)
@@ -41,9 +41,9 @@ All cases are supported:
 - Many to Many
 - Etc.
 
-### Advantage
+### Advantages
 
-- Centralize logic in **Query Filter** instead of adding it on every queries
+- Centralize logic in **Query Filter** instead of adding it on every query
 - Reduce the chance of missing a filter when creating a new query
 - Improve code readability
 - Improve development productivity
@@ -72,7 +72,7 @@ var list = context.Customers.ToList();
 Try it: [NET Core](https://dotnetfiddle.net/cgSy5d) | [NET Framework](https://dotnetfiddle.net/7cKY2x)
 
 ### Instance Query Filter
-You can create an **Instance Query Filter** after a context instance has been created. This filter will be specific to this context instance. If your context instance already has query filter both filters will be enabled.
+You can create an **Instance Query Filter** after a context instance has been created. This filter will be specific to this context instance. If your context instance already has a query filter both filters will be enabled.
 
 ```csharp
 using (var context = new EntityContext())
@@ -89,7 +89,7 @@ using (var context = new EntityContext())
 Try it: [NET Core](https://dotnetfiddle.net/S2tCDX) | [NET Framework](https://dotnetfiddle.net/qjRFbZ)
 
 ### Enable/Disable Query Filter
-You can enable/disable your **Query Filter** with the `Enable()`, `Disable()`, `EnableFilter(id)`, and `DisableFilder(id)` methods.
+You can enable/disable your **Query Filter** with the `Enable()`, `Disable()`, `EnableFilter(id)`, and `DisableFilter(id)` methods.
 
 ```csharp
 using (var context = new EntityContext())
@@ -118,7 +118,7 @@ using (var context = new EntityContext())
 	
 	// QueryFilterManager.DisableFilter(string id)
 	{
-		// DOC: You can enable/disable your `QueryFilter` with the `Enable()`, `Disable()`, `EnableFilter(id)`, and `DisableFilder(id)` methods.
+		// DOC: You can enable/disable your `QueryFilter` with the `Enable()`, `Disable()`, `EnableFilter(id)`, and `DisableFilter(id)` methods.
 		context.Configuration.QueryFilter.DisableFilter(QueryFilterType.SoftDelete.ToString());
 
 		// SELECT * FROM Customers
@@ -129,7 +129,7 @@ using (var context = new EntityContext())
 
 	// QueryFilterManager.EnableFilter(string id)
 	{
-		// DOC: You can enable/disable your `QueryFilter` with the `Enable()`, `Disable()`, `EnableFilter(id)`, and `DisableFilder(id)` methods.
+		// DOC: You can enable/disable your `QueryFilter` with the `Enable()`, `Disable()`, `EnableFilter(id)`, and `DisableFilter(id)` methods.
 		context.Configuration.QueryFilter.EnableFilter(QueryFilterType.SoftDelete.ToString());
 
 		// SELECT * FROM Customers WHERE IsActive = 1

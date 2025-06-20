@@ -7,7 +7,7 @@ Name: Attach & AttachRange
 ## Description
 To improve the performance, you can now use `AttachRange` when attaching multiple entities. The performance gain is similar to `Add vs AddRange` (DetectChanges is called only once in `AddRange` and `AttachRange`).
 
-To improve the flexibility, we added an over that let you attach an entity by specifing the `EntityState`.
+To improve the flexibility, we added an overload that lets you attach an entity by specifying the `EntityState`.
 
 ## Attach
 

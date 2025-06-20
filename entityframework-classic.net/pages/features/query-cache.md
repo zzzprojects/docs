@@ -8,7 +8,7 @@ Name: Query Cache
 
 Caching entities or query results to improve an application's performance is a very frequent scenario.
 
-Caching is very simple to understand, the first time a query is invoked, data are retrieved from the database and stored in the memory before being returned. All future calls will retrieve data from the memory to avoid making additional database round trips which drastically increases an application's performance.
+Caching is very simple to understand, the first time a query is invoked, data is retrieved from the database and stored in the memory before being returned. All future calls will retrieve data from the memory to avoid making additional database round trips which drastically increases an application's performance.
 
 To use caching, simply append to the query "Cache" method before using an immediate resolution method like "ToList()" or "FirstOrDefault()".
 
@@ -17,7 +17,7 @@ To use caching, simply append to the query "Cache" method before using an immedi
 Return the query result from the cache. If the query is not cached yet, it will be materialized and cached before being returned.
 
 ```csharp
-// The first call perform a database round trip
+// The first call performs a database round trip
 var countries1 = context.Countries.Cache().ToList();
 
 // Subsequent calls will take the value from the memory instead
@@ -33,7 +33,7 @@ Return the query result from the cache. If the query is not cached yet, the quer
 **CacheAsync** methods are available starting from .NET Framework 4.5 and support all the same options as "Cache" methods.
 
 ```csharp
-// The first call perform a database round trip
+// The first call performs a database round trip
 var countries1 = await context.Countries.CacheAsync().ConfigureAwait(false);
 
 // Subsequent calls will take the value from the memory instead
@@ -105,7 +105,7 @@ Query Cache is very flexible and lets you have full control over the cache.
 You can use your own cache:
 
 ```csharp
-// Cache must inherit from Sytem.Runtime.Caching.ObjectCache
+// Cache must inherit from System.Runtime.Caching.ObjectCache
 QueryCacheManager.Cache = MemoryCache.Default;
 ```
 
