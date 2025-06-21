@@ -7,7 +7,7 @@ OriginalLink: https://www.fixedbuffer.com/acceso-a-datos-con-entity-framework-co
 CreatedDate: 2018-09-18
 CreatedUserName: JorTurFer
 CreatedUserLink: https://www.fixedbuffer.com/
-LastMod: 2023-02-20
+LastMod: 2025-06-20
 ---
 
 # Making data access easy with Entity Framework Core
@@ -35,17 +35,17 @@ In it, we have 2 relationships 1 to many:
 1. A teacher may teach several courses.
 2. Each course can have several students.
 
-In this case, I will use a MySql database for the example, since it is a free database.
+In this case, I will use a MySQL database for the example, since it is a free database.
 
 Being clear about the model, let's go to the problem!
 
 ## Creating the solution
 
-The first thing will be to create a console project in c # and .NET Framework (or .NET Core, whichever is preferred):
+The first thing will be to create a console project in C# and .NET Framework (or .NET Core, whichever is preferred):
 
 <img src="https://www.FixedBuffer.com/wp-content/uploads/2018/09/consola-.net-full-1.jpg" alt="console .net full">
 
-### packages
+### Packages
 
 With the project created, we are going to download the Entity Framework Core packages via NuGet:
 
@@ -75,7 +75,7 @@ PM-> Install-Package Pomelo.EntityFrameworkCore.MySql -Version 2.1.2
 Once we have everything installed, we will execute the generation of the context. For that, we will use the command `scaffold` in the Package Manager Console (No, the Entity Framework Core does not have an interface. But it does not require more than a few commands, come on, it will not be tough).
 
 ```package-manager
-PM->scaffold-dbcontext "Server=localhost;Database=postefcore;Uid=root;Pwd=root;" Pomelo.EntityFrameworkCore.Mysql -outputdir Models -context PostDbContext
+PM->scaffold-dbcontext "Server=localhost;Database=postefcore;Uid=root;Pwd=root;" Pomelo.EntityFrameworkCore.MySql -outputdir Models -context PostDbContext
 ```
 
 Let's analyze the arguments:
@@ -84,7 +84,7 @@ Let's analyze the arguments:
 2. -outputdir
 3. -context
 
-In `dbcontext`, we are passing the context that we want to use. We will use a connection string and an Entity Framework Core provider for that. In this case, Pomelo.EntityFrameworkCore.Mysql, if we used another, we would have to indicate it here.
+In `dbcontext`, we are passing the context that we want to use. We will use a connection string and an Entity Framework Core provider for that. In this case, Pomelo.EntityFrameworkCore.MySql, if we used another, we would have to indicate it here.
 
 In `outputdir` we indicate the path in our project where we want it to create the necessary classes to function.
 
@@ -97,10 +97,10 @@ Once the execution finishes, we will see something like this in our project:
 In case what we want is to update the model because we have made changes to the db, we would do it with the following command:
 
 ```package-manager
-PM->scaffold-dbcontext "Server=localhost;Database=postefcore;Uid=root;Pwd=root;" Pomelo.EntityFrameworkCore.Mysql -outputdir Models -context PostDbContext -force
+PM->scaffold-dbcontext "Server=localhost;Database=postefcore;Uid=root;Pwd=root;" Pomelo.EntityFrameworkCore.MySql -outputdir Models -context PostDbContext -force
 ```
 
-In this case, we have added the `-force` argument so that it overrides what is there.
+In this case, we have added the `-force` argument so that it overwrites what is there.
 
 You can read more about the arguments [here](https://docs.microsoft.com/ef/core/miscellaneous/cli/powershell).
 
@@ -136,11 +136,11 @@ using (PostDbContext context = new PostDbContext())
 }
 ```
 
-Although the tables require IDs for the relationships, and the query is not run until `SaveChanges()` is called, the Entity Framework Core is capable of storing the relationships and assigning the corresponding IDs. This way, we avoid having to make a query to obtain the teacher's ID, before adding it to a course, or the id of a course before adding it to a student. That is a great advantage, since it avoids the need for a function or two queries to the database. On the other hand, when we execute the call to `SaveChanges()`, Entity Framework Core fills the ids data with the values ​​that have been assigned in the database.
+Although the tables require IDs for the relationships, and the query is not run until `SaveChanges()` is called, the Entity Framework Core is capable of storing the relationships and assigning the corresponding IDs. This way, we avoid having to make a query to obtain the teacher's ID, before adding it to a course, or the ID of a course before adding it to a student. That is a great advantage, since it avoids the need for a function or two queries to the database. On the other hand, when we execute the call to `SaveChanges()`, Entity Framework Core fills the IDs data with the values ​​that have been assigned in the database.
 
 ### Reading data
 
-Now, we are going to read data taking advantage of the navigation properties. With it, we are going to get a teacher. With the teacher, we will get all his students without having to execute several queries or a long `inner join`. For that, we execute the following code:
+Now, we are going to read data taking advantage of the navigation properties. With it, we are going to get a teacher. With the teacher, we will get all his students without having to execute several queries or a long `INNER JOIN`. For that, we execute the following code:
 
 ```csharp
 using (PostDbContext context = new PostDbContext())
@@ -166,14 +166,14 @@ Here is the console result:
 
 ```console
 The student Juan receives the Mathematics course, taught by Pedro
-The Jorge student receives the Mathematics course, taught by Pedro
-The Sandra student receives the Language course, taught by Pedro
-The Andrea student receives the Language course, taught by Pedro
+The student Jorge receives the Mathematics course, taught by Pedro
+The student Sandra receives the Language course, taught by Pedro
+The student Andrea receives the Language course, taught by Pedro
 ```
 
 Which we see coincides with the data we have entered, thus giving us this ORM a level of abstraction that can greatly facilitate our lives. Not to mention the possibility of doing all of this asynchronously. All this transparently to us, and without any additional effort.
 
-It should be noted that although I have not expressly indicated it, the Entity Framework Core allows us to work with the tables in the database using LinQ. In this way, we can work with the database without using SQL statements, with a strongly typed tool.
+It should be noted that although I have not expressly indicated it, the Entity Framework Core allows us to work with the tables in the database using LINQ. In this way, we can work with the database without using SQL statements, with a strongly typed tool.
 
 In the [next post](/articles/fixedbuffer-ef-core-data-access-easy-2), we will talk about the `Code First` option, and we will delve into the benefits of using an Entity Framework Core.
 

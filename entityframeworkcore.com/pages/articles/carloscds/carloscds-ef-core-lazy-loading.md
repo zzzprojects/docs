@@ -7,7 +7,7 @@ OriginalLink: https://carloscds.net/2018/07/ef-core-lazy-loading/
 CreatedDate: 2018-07-02
 CreatedUserName: Carlos dos Santos
 CreatedUserLink: https://carloscds.net/
-LastMod: 2023-02-20
+LastMod: 2025-06-20
 ---
 
 # Exploring the Benefits and Limitations of Lazy Loading in EF Core
@@ -26,7 +26,7 @@ When we have relationships in our data model, for example, a `Customer` with `Or
 
 But this can make everything very slow, as we can have several customers, with several orders, and the orders also have other relationships, such as products, sellers, etc.
 
-For data loading to be faster, lazy loading  is employed and the related data is retrieved only if they are consulted, or triggered.
+For data loading to be faster, lazy loading is employed and the related data is retrieved only if it is consulted, or triggered.
 
 To demonstrate this in practice, let's create a new [Visual Studio Code project](https://code.visualstudio.com/) console project, and to make this even more fun, let's do everything on the command line:
 
@@ -38,7 +38,7 @@ dotnet add package Microsoft.EntityFrameworkCore.SqlServer
 
 These commands will create a `.NET Core` console project and add the EF Core and SQL Server provider.
 
-I will use the `Northwind` database for this example (I will put the script on Git)
+I will use the `Northwind` database for this example (I will put the script on Gist)
 
 Now that we have the project, let's create two classes: `Customer` and `Order` (If you prefer, you can reverse engineer using this other [article](/articles/carloscds-ef-core-power-tools)):
 
@@ -60,9 +60,9 @@ And the result of the execution:
 
 <img src="https://carloscds.net/wp-content/uploads/2018/07/2018-07-02_13-02-17-300x225.png" width="401" height="301" alt="LazyLoading-1"/>
 
-See that all customers have ZERO Orders. That is because LazyLoading is still disabled!
+See that all customers have ZERO Orders. That is because Lazy Loading is still disabled!
 
-So let's enable LazyLoading by adding a new package to our project:
+So let's enable Lazy Loading by adding a new package to our project:
 
 ```dotnet-console
 dotnet add package Microsoft.EntityFrameworkCore.Proxies

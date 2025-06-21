@@ -7,7 +7,7 @@ OriginalLink: https://www.fixedbuffer.com/entity-framework-core-3-0-que-novedade
 CreatedDate: 2019-10-22
 CreatedUserName: JorTurFer
 CreatedUserLink: https://www.fixedbuffer.com/
-LastMod: 2023-02-20
+LastMod: 2025-06-20
 ---
 
 # A Look at the Most Important Features of Entity Framework Core 3.0
@@ -16,7 +16,7 @@ _Reading time: 4 minutes_
 
 <img src="https://www.fixedbuffer.com/wp-content/uploads/2018/09/EFCore.png" alt="The picture shows the Entity Framework Core logo">
 
-A few weeks ago, since version 3.0 of .Net Core was released, and it has brought us many new features: C # 8, expanded support in Windows, performance improvements, [Worker Services](https://www.fixedbuffer.com/worker-service-como-crear-un-servicio-net-core-3-multiplataforma/) ... And of course, it also brings us a new version of Entity Framework Core.
+A few weeks ago, since version 3.0 of .NET Core was released, and it has brought us many new features: C# 8, expanded support in Windows, performance improvements, [Worker Services](https://www.fixedbuffer.com/worker-service-como-crear-un-servicio-net-core-3-multiplataforma/) ... And of course, it also brings us a new version of Entity Framework Core.
 
 There are many new features that this new release brings us, which provide us with performance improvements, but also changes in design. In this post, we are going to see some of the most important features of this new version, although I recommend that you take a look at the [complete list](https://docs.microsoft.com/ef/core/what-is-new/ef-core-3.0/) of changes that Entity Framework Core 3.0 brings (and also the list of [breaking changes](https://docs.microsoft.com/ef/core/what-is-new/ef-core-3.0/breaking-changes)).
 
@@ -26,7 +26,7 @@ The SQL statement generation engine has been improved, previously, queries that 
 
 ## Restriction of client evaluation
 
-In previous versions, if a query could not be translated into SQL, what was known as a client evaluation was performed. That means that a query with the maximum possible filters applied was going to be executed in the database, and those that cannot be translated were applied on client-side itself at the cost of fetching the raw data and processing it in our application. Imagine this code (obtained from the official documentation):
+In previous versions, if a query could not be translated into SQL, what was known as a client evaluation was performed. That means that a query with the maximum possible filters applied was going to be executed in the database, and those that cannot be translated were applied on the client side itself at the cost of fetching the raw data and processing it in our application. Imagine this code (obtained from the official documentation):
 
 ```csharp
 public static string StandardizeUrl(string url)
@@ -55,14 +55,14 @@ Although this can sometimes be useful, if the table gets large, it will be a gre
 ```csharp
 var blogs = context.Blogs
     .Where(blog => blog.Date > DateTime.Now.AddYears(-1))
-    .AsEnumerable() // Explicitely tell that the query is not longer queryable
+    .AsEnumerable() // Explicitly tell that the query is no longer queryable
     .Where(blog => StandardizeUrl(blog.Url).Contains("dotnet"))
     .ToList();
 ```
 
-## C # 8 support
+## C# 8 support
 
-The new version of C # brings us many improvements and new APIs, including [IAsyncEnumerable](https://docs.microsoft.com/en-gb/dotnet/api/system.collections.generic.iasyncenumerable-1?view=netcore-3.1), which together with `await foreach`, will allow us to improve the speed at which queries are executed, since we are going to process the data as they become available. Thanks to C # in Entity Framework Core 3.0, we can do something like this:
+The new version of C# brings us many improvements and new APIs, including [IAsyncEnumerable](https://docs.microsoft.com/en-gb/dotnet/api/system.collections.generic.iasyncenumerable-1?view=netcore-3.1), which together with `await foreach`, will allow us to improve the speed at which queries are executed, since we are going to process the data as they become available. Thanks to C# in Entity Framework Core 3.0, we can do something like this:
 
 ```csharp
 var orders = 
@@ -70,7 +70,7 @@ var orders =
   where o.Status == OrderStatus.Pending
   select o;
 
-await foreach(var o in orders.AsAsyncEnumerable())
+await foreach (var o in orders.AsAsyncEnumerable())
 {
     Process(o);
 }
@@ -84,10 +84,10 @@ A major design change is that .NET Core no longer has a built-in toolset for wor
 dotnet tool install --global dotnet-ef
 ```
 
-## It is developed for .Net Standard 2.1
+## It is developed for .NET Standard 2.1
 
 This new version of Entity Framework Core, is developed complying with .NET Standard 2.1, this is what allows it to have great performance improvements. Still, it limits the platforms where it can be used, **.NET Core 3.0 is compatible with .NET Standard 2.1, but .NET Framework is not supported**, so if you need to use it in .NET Framework, you will not be able to use Entity Framework Core 3.0.
 
 ## Conclusion
 
-The truth is that the changes offered by this new version are not limited to this. I wanted to highlight those that, in my opinion, are the most important or necessary to take into account if you come from working with previous versions. Still, I highly recommend that you take a look at the new [features](https://docs.microsoft.com/ef/core/what-is-new/ef-core-3.0/) and above all, the [list of changes that do not they are backward compatible](https://docs.microsoft.com/ef/core/what-is-new/ef-core-3.0/breaking-changes)  . You will see that this is a very interesting new version with many improvements.
+The truth is that the changes offered by this new version are not limited to this. I wanted to highlight those that, in my opinion, are the most important or necessary to take into account if you come from working with previous versions. Still, I highly recommend that you take a look at the new [features](https://docs.microsoft.com/ef/core/what-is-new/ef-core-3.0/) and above all, the [list of changes that are not backward compatible](https://docs.microsoft.com/ef/core/what-is-new/ef-core-3.0/breaking-changes)  . You will see that this is a very interesting new version with many improvements.

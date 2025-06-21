@@ -7,16 +7,16 @@ OriginalLink: https://carloscds.net/2020/02/injecao-de-depenencia-em-c-bonus/
 CreatedDate: 2020-02-27
 CreatedUserName: Carlos dos Santos
 CreatedUserLink: https://carloscds.net/
-LastMod: 2023-02-20
+LastMod: 2025-06-20
 ---
 
 # How to Use Dependency Injection with EF Core: In-Memory Database and Invoking Dependencies
 
-In the last article in this series, I will show you two straightforward things: first, how to use the EntityFramework Core in memory and how to invoke an injected dependency without using the class constructor!
+In the last article in this series, I will show you two straightforward things: first, how to use the Entity Framework Core in memory and how to invoke an injected dependency without using the class constructor!
 
-But why wouldn't you inject the dependency on the constructor, as I showed in the previous articles? Well, sometimes, it is necessary to use alternative mechanisms to simplify the development and have access to the objects!
+But why wouldn't you inject the dependency in the constructor, as I showed in the previous articles? Well, sometimes, it is necessary to use alternative mechanisms to simplify the development and have access to the objects!
 
-## EntityFramework Core
+## Entity Framework Core
 
 For many years I wrote about EF, but as there was a long delay in the development of EF Core, I ended up using other ORMs in my projects. But now EF Core is fascinating, and I went back to using it on a massive project!
 
@@ -34,7 +34,7 @@ _For this example we are going to create an ASP.NET Core WebAPI project._
 
 The first thing we will do is create a class (table) and the context. 
 
-We will have a simple `Client` class :
+We will have a simple `Client` class:
 
 <script src="https://gist.github.com/carloscds/d224f094c8470ce181b87a291b967a5d.js"></script><noscript>View the code on <a href="https://gist.github.com/carloscds/d224f094c8470ce181b87a291b967a5d">Gist</a>.</noscript>
 
@@ -52,7 +52,7 @@ Now let's configure the services in the Startup class:
 
 <script src="https://gist.github.com/carloscds/583f0053d807d2597b2c81c3e352c8c5.js"></script><noscript>View the code on <a href="https://gist.github.com/carloscds/583f0053d807d2597b2c81c3e352c8c5">Gist</a>.</noscript>
 
-See that we are adding a context with the option `UseInMemoryDataBase()`
+See that we are adding a context with the option `UseInMemoryDatabase()`.
 
 To use this method, you will need the following Entity packages:
 
@@ -61,15 +61,15 @@ Microsoft.EntityFrameworkCore
 Microsoft.EntityFrameworkCore.InMemory
 ```
 
-The `InMemory` package allows you to have a database in memory. See that you can exchange `UseInMemoryDataBase()` for `UseSqlServer()` or any other database provider, and everything is still working!
+The `InMemory` package allows you to have a database in memory. See that you can exchange `UseInMemoryDatabase()` for `UseSqlServer()` or any other database provider, and everything is still working!
 
 When I write unit tests, I create an `InMemory()` context, and in the real application, I use a database! That makes my job much easier!
 
-So we are injecting an Entity Framework context into our project through `AddDbContext()`, and also two other classes: `IHttpContextAccessor` and `IsendEmail` (`IEnvioEmail`), using Singleton and Scoped, which I showed in the <a href="https://carloscds.net/2020/02/injecao-de-dependencia-em-c-parte-2/" target="_blank">previous article<a/>.
+So we are injecting an Entity Framework context into our project through `AddDbContext()`, and also two other classes: `IHttpContextAccessor` and `ISendEmail` (`IEnvioEmail`), using Singleton and Scoped, which I showed in the <a href="https://carloscds.net/2020/02/injecao-de-dependencia-em-c-parte-2/" target="_blank">previous article<a/>.
 
 `IHttpContextAccessor` allows us to access the ASP.NET Core Http Context anywhere it is injected, and `IEnvioEmail` is an example class that I created to simulate the sending of email.
 
-See here the interface `IEnvioEmail` and the class `EnviarEmail` :
+See here the interface `IEnvioEmail` and the class `EnvioEmail`:
 
 <script src="https://gist.github.com/carloscds/d5d758d937cf41c021a9abc81aa53ae2.js"></script><noscript>View the code on <a href="https://gist.github.com/carloscds/d5d758d937cf41c021a9abc81aa53ae2">Gist</a>.</noscript>
 
@@ -113,11 +113,11 @@ Let's understand:
 
 `_httpContextAccessor` is the application's Http context, which has `HttpContext` and `Request`, which is the request for the page.
 
-We use `RequestServices.GetServices<IEnvioEmail>()` which basically "asks" for the dependency injector to "give" us the object corresponding to the `IEnvioEmail` interface.
+We use `RequestServices.GetService<IEnvioEmail>()` which basically "asks" for the dependency injector to "give" us the object corresponding to the `IEnvioEmail` interface.
 
 That is very cool because you are "injecting" an object by hand. You are taking an object that is already created and bringing it to the variable `email`.
 
-And now, let use the email!
+And now, let's use the email!
 
 Running the application, we will have the following result:
 
@@ -125,14 +125,14 @@ Running the application, we will have the following result:
 
 Now calling the email:
 
-<img src="https://carloscds.net/wp-content/uploads/2020/02/image-7.png" alt="RequestServices.GetServices<IEnvioEmail>">
+<img src="https://carloscds.net/wp-content/uploads/2020/02/image-7.png" alt="RequestServices.GetService<IEnvioEmail>">
 
 ## Conclusion
 
 The dependency injection mechanism allows us to simplify development greatly! But use with care, as everything in excess is harmful!
 
-Special thanks to my friend <a href="https://ralms.net/" target="_blank">Rafael Almeida</a>, with whom I "argue" frequently about EntityFramework!!! These discussions have already generated improvements in EF Core, such as `WithNoLock()`.
+Special thanks to my friend <a href="https://ralms.net/" target="_blank">Rafael Almeida</a>, with whom I "argue" frequently about Entity Framework!!! These discussions have already generated improvements in EF Core, such as `WithNoLock()`.
 
-As always, the example code is on my <a href="https://github.com/carloscds/CSharpSamples/tree/master/InjecaoDependenciaDiretaEF" target="_blank">Github<a/>.
+As always, the example code is on my <a href="https://github.com/carloscds/CSharpSamples/tree/master/InjecaoDependenciaDiretaEF" target="_blank">GitHub</a>.
 
 Hugs, and see you soon!

@@ -7,7 +7,7 @@ OriginalLink: https://www.fixedbuffer.com/entity-framework-core-2/
 CreatedDate: 2018-09-25
 CreatedUserName: JorTurFer
 CreatedUserLink: https://www.fixedbuffer.com/
-LastMod: 2023-02-20
+LastMod: 2025-06-20
 ---
 
 # Making Data Access Easy with Entity Framework Core (Part 2)
@@ -24,14 +24,14 @@ Let's have the objective clear, by means of the «Code First» option we are goi
 
 <img src="https://www.FixedBuffer.com/wp-content/uploads/2018/09/modelo.jpg" alt="DB model" width="608" height="219">
 
-In it we have 2 relationships 1 to many:
+In it we have 2 relationships one-to-many:
 
 - A teacher may teach several courses.
 - Each course can have several students.
 
 ## Creating the solution in Visual Studio
 
-First, let's create the project, only this time, it will be a Net Core console project:
+First, let's create the project, only this time, it will be a .NET Core console project:
 
 <img src="https://www.FixedBuffer.com/wp-content/uploads/2018/09/consola-.net-core.jpg" alt=".net core console" width="955" height="655">
 
@@ -61,7 +61,7 @@ PM-> Install-Package Pomelo.EntityFrameworkCore.MySql -Version 2.1.2
 
 ## Creating the solution in DotNet CLI
 
-One of the advantages of NET Core is that it allows us to execute its actions from the command line, with that, we get all the functionality on platforms like Linux. In this case, we will use Powershell. To create a project, we will create a folder and navigate to it with:
+One of the advantages of .NET Core is that it allows us to execute its actions from the command line, with that, we get all the functionality on platforms like Linux. In this case, we will use Powershell. To create a project, we will create a folder and navigate to it with:
 
 ```console
 mkdir PostEntityCore
@@ -98,9 +98,9 @@ namespace PostCore.Data
         public int IdAlumno { get; set; } //Clave primaria
         public string Nombre { get; set; } 
         public DateTime Nacimiento { get; set; }
-        public int IdCurso { get; set; } //Campo clave foranea
+        public int IdCurso { get; set; } //Campo clave foránea
 
-        //Entity Framewrok Core
+        //Entity Framework Core
         public Cursos Curso { get; set; } //Objeto de navegación virtual EFC
     }
 }
@@ -113,7 +113,7 @@ namespace PostCore.Data
 {
     public class Cursos
     {
-        //Inicializamos el objeto de navegacion virtual de Entity Framework Core
+        //Inicializamos el objeto de navegación virtual de Entity Framework Core
         public Cursos()
         {
             Alumnos = new HashSet();
@@ -123,9 +123,9 @@ namespace PostCore.Data
         public int IdCurso { get; set; } //Clave primaria
         public string Nombre { get; set; }
         public string Ciudad { get; set; }
-        public int IdProfesor { get; set; } //Campo clave foranea
+        public int IdProfesor { get; set; } //Campo clave foránea
 
-        //Entity Framewrok Core
+        //Entity Framework Core
         public Profesores Profesor { get; set; } //Objeto de navegación virtual EFC
         public ICollection Alumnos { get; set; } //Objeto de navegación virtual EFC
     }
@@ -139,7 +139,7 @@ namespace PostCore.Data
 {
     public class Profesores
     {
-        //Inicializamos el objeto de navegacion virtual de Entity Framework Core
+        //Inicializamos el objeto de navegación virtual de Entity Framework Core
         public Profesores()
         {
             Cursos = new HashSet();
@@ -148,7 +148,7 @@ namespace PostCore.Data
         public int IdProfesor { get; set; } //Clave primaria
         public string Nombre { get; set; }
 
-        //Entity Framewrok Core
+        //Entity Framework Core
         public ICollection Cursos { get; set; } //Objeto de navegación virtual EFC
     }
 }
@@ -161,22 +161,22 @@ namespace PostCore.Data
     //Heredamos de DbContext nuestro contexto
     class PostDbContext : DbContext
     {
-        //Constructor sin parametros
+        //Constructor sin parámetros
         public PostDbContext()       
         {
         }
 
-        //Constructor con parametros para la configuracion
+        //Constructor con parámetros para la configuración
         public PostDbContext(DbContextOptions options)
         : base(options)
         {
         }
 
-        //Sobreescribimos el metodo OnConfiguring para hacer los ajustes que queramos en caso de
-        //llamar al constructor sin parametros
+        //Sobreescribimos el método OnConfiguring para hacer los ajustes que queramos en caso de
+        //llamar al constructor sin parámetros
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            //En caso de que el contexto no este configurado, lo configuramos mediante la cadena de conexion
+            //En caso de que el contexto no esté configurado, lo configuramos mediante la cadena de conexión
             if (!optionsBuilder.IsConfigured) 
             {
                 optionsBuilder.UseMySql("Server=localhost;Database=postefcore;Uid=root;Pwd=root;");
@@ -204,7 +204,7 @@ We will explain the commands:
 
 `add-migration`: With this command, we will generate the migration that we will launch to the database. This command has 2 parameters:
 
-1. {name}: With this parameter, we will indicate the name that we want to indicate to the migration, in addition, it is mandatory.
+1. {name}: With this parameter, we will indicate the name that we want to give to the migration, in addition, it is mandatory.
 2. -Context {context}: In case you have more than one data context in our program, we will indicate which of the contexts is using this parameter. If we only have one data context, it is not mandatory to use it.
 
 `remove-migration`: With this command, we will remove the last migration that we have generated. It can be used several times consecutively to eliminate migrations from the last to the first.
@@ -334,7 +334,7 @@ In case you don't have Visual Studio, we will launch the project from the dotnet
 dotnet run --project PostCore
 ```
 
-## Notice to boaters
+## Note to readers
 In case we do not want to store the migrations, they can be deleted from the project by deleting them as a file, or simply with:
 
 - PM -> remove-migration
@@ -343,7 +343,7 @@ In case we do not want to store the migrations, they can be deleted from the pro
 But every time we want to create a new migration and apply it, the previous migration will not exist, so we will have to drop the database by
 
 - PM-> drop-database -Context PostDbContext
-- CLI-> dotnet ef database dtop -c PostDbContext
+- CLI-> dotnet ef database drop -c PostDbContext
 
 Assuming with it the consequent loss of data. Otherwise, the update will throw an error indicating that the tables already exist in the database.
 
@@ -354,7 +354,7 @@ protected override void Up(MigrationBuilder migrationBuilder)
 protected override void Down(MigrationBuilder migrationBuilder)
 ```
 
-These two methods will be executed during database updates ("Up" when applying a migration and "Down" when removing it). We should be sure that if, for example, we want to change how we store the data of a name, unifying two columns. We make a new column be generated, the data is migrated from the previous ones to the new one, and then the previous ones are deleted, so that we do not have a loss of data. In any case, whenever the migration has the possibility of a loss of information, the Entity Framework Core will notify us with the message:
+These two methods will be executed during database updates ("Up" when applying a migration and "Down" when removing it). We should be sure that if, for example, we want to change how we store the data of a name, unifying two columns. We let a new column be generated, the data is migrated from the previous ones to the new one, and then the previous ones are deleted, so that we do not have a loss of data. In any case, whenever the migration has the possibility of a loss of information, the Entity Framework Core will notify us with the message:
 
 <img src="https://www.FixedBuffer.com/wp-content/uploads/2018/09/mensaje.png" alt="Entity Framework Core">
 
