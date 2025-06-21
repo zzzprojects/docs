@@ -19,7 +19,7 @@ Download the [NuGet Package](/download)
 
 ## Config Change
 
-A new library name, a new assembly name, a new public Token!
+A new library name, a new assembly name, a new public token!
 
 If you are using an existing config file, you will need to change some references:
 

@@ -5,12 +5,12 @@ Name: Getting Started with Licensing
 # Licensing
 
 ## Community Version
-The community version doesn't require licensing and can be used forever including commercial application.
+The community version doesn't require licensing and can be used forever including commercial applications.
 
 ## Evaluation Period
 - You can evaluate the library for several months before purchasing it.
 - The latest version always contains a trial that expires at the **end of the month**. 
-- You can extend your trial for several months by downloading the latest version at the begining of every month.
+- You can extend your trial for several months by downloading the latest version at the beginning of every month.
 
 ## How can I purchase the library?
 - You can purchase the library [here](pricing)

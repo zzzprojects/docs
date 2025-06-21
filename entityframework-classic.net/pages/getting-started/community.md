@@ -5,7 +5,7 @@ Name: Getting Started with Community Version
 # Community
 
 ## Description
-Like Entity Framework 6, the EF Classic community version is 100% free, can be used in commercial application, and is royalty free. The enterprise version has additional features.
+Like Entity Framework 6, the EF Classic community version is 100% free, can be used in commercial applications, and is royalty free. The enterprise version has additional features.
 
 When using EF Classic community, it's recommended (optional) to specify it to make sure an error is thrown when an enterprise feature is used.
 
