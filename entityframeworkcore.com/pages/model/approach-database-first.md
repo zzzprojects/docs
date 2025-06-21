@@ -2,7 +2,7 @@
 permaid: 1000215
 Title: EF Core Database First - Learn How to Create Model From Database
 MetaDescription: Unlock the power of EF Core with Database First approach to create your model from an existing database. Learn about the advantages of this approach and how to use the database first.
-LastMod: 2023-02-21
+LastMod: 2025-06-21
 tags: database-first model approach
 ---
 
@@ -15,7 +15,7 @@ In the previous article, we have seen the migrations to create a database from a
 
 Let's create a new empty project and add all the required packages for EF core which is explained in the [Code First](/approach-code-first) approach. 
 
-<img src="https://raw.githubusercontent.com/zzzprojects/EntityFrameworkCore/master/docs/images/database-first1.png" alt="Database firstl">
+<img src="https://raw.githubusercontent.com/zzzprojects/EntityFrameworkCore/master/docs/images/database-first1.png" alt="Database First #1">
 
 Now we need to run the `scaffold-dbcontext` command with just the required parameters.
 
@@ -25,7 +25,7 @@ The provider and connection parameters are required, the provider is Microsoft.E
 
 When you run this command, a bunch of new files is added in the Solution Explorer. 
 
-<img src="https://raw.githubusercontent.com/zzzprojects/EntityFrameworkCore/master/docs/images/database-first2.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/EntityFrameworkCore/master/docs/images/database-first2.png" alt="Database First #2">
 
 Now let's look at the new DbContext class. 
 

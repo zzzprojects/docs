@@ -1,8 +1,8 @@
 ---
 permaid: 1000227
 Title: EF Core Oracle - Learn how to install and use this provider
-MetaDescription: Unlock the power of EF Core using the Oracle Provider. Learn how to use an oracle database and which providers to install for entity framework core.
-LastMod: 2023-02-22
+MetaDescription: Unlock the power of EF Core using the Oracle Provider. Learn how to use an Oracle database and which providers to install for Entity Framework Core.
+LastMod: 2025-06-21
 tags: provider connection
 ---
 
@@ -15,7 +15,7 @@ The Oracle .NET team has announced they are planning to release a first-party pr
  - The EF team has produced a sample [EF Core provider](https://github.com/aspnet/EntityFrameworkCore/blob/dev/samples/OracleProvider/README.md) for Oracle databases. 
  - The purpose of the project is not to produce an EF Core provider owned by Microsoft, but to help us identify gaps in EF Core's relational and base functionality which we need to address in order to better support Oracle, and to jumpstart the development of other Oracle providers for EF Core by either Oracle or third parties.
 
-## Thrid Party Provider
+## Third Party Provider
 
 `Devart.Data.Oracle.EFCore` is a third party database provider and allows Entity Framework Core to be used with Oracle database. To use this database provider, the first step is to install [Devart.Data.Oracle.EFCore](https://www.nuget.org/packages/Devart.Data.Oracle.EFCore/) NuGet package. Let's consider a simple model which contains three entities.
 
@@ -78,7 +78,7 @@ Run the following command in Package Manager Console.
 
 `PM> Add-Migration Initial` 
 
-This command scaffold a migration to create the initial set of tables for your model. When it is executed successfully, then run the following command.
+This command scaffolds a migration to create the initial set of tables for your model. When it is executed successfully, then run the following command.
 
 `PM> Update-Database`
 

@@ -2,7 +2,7 @@
 permaid: 1000222
 Title: EF Core NuGet - Learn Where and How to Install the Package
 MetaDescription: Unlock the power of EF Core by getting started to download the package. Learn which NuGet package to download and how to install it in your project.
-LastMod: 2023-02-21
+LastMod: 2025-06-21
 tags: getting-started nuget download
 ---
 
@@ -10,7 +10,7 @@ tags: getting-started nuget download
 
 ## Install EF Core
 
-Entity Framework Core is a free and open source, and it can be installed through NuGet. 
+Entity Framework Core is a free and open source library, and it can be installed through NuGet. 
 
 <div class="row">
     <div class="col-lg-6">
@@ -25,13 +25,13 @@ Entity Framework Core is a free and open source, and it can be installed through
     </div>
 </div>
 
-When you install Microsoft.EntityFrameworkCore, you will discover that it is the absolute core of EF Core and it doesn't have additional logic that won't apply to all scenarios. 
+When you install Microsoft.EntityFrameworkCore, you will discover that it is the absolute core of EF Core and it does not have additional logic that does not apply to all scenarios. 
 
 For example, EF Core will need to know what database or datastore you plan on working with and those providers are in individual packages. 
 
-To bring EF Core, it is easier to start by targeting the datastore you are going to be working with and let NuGet's dependencies pull in the rest, including the base Entity Framework Core package. 
+To get started with EF Core, it is easier to start by targeting the datastore you are going to be working with and let NuGet's dependencies pull in the rest, including the base Entity Framework Core package. 
 
-For SQL Server Local DB, which is installed with Visual Studio, we need to install **Microsoft.EntityFrameworkCore.SqlServer** and will get all the packages required for EF Core.
+For SQL Server Local DB, which is installed with Visual Studio, we need to install **Microsoft.EntityFrameworkCore.SqlServer** and we will get all the packages required for EF Core.
 
 <div class="row">
     <div class="col-lg-6">

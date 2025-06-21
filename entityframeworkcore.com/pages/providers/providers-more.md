@@ -2,13 +2,13 @@
 permaid: 1000225
 Title: EF Core Providers - Learn how to install and use those providers
 MetaDescription: Unlock the power of EF Core using available database providers. Learn about Pomelo, SQL Compact, Firebird and more.
-LastMod: 2023-02-22
+LastMod: 2025-06-21
 tags: provider connection
 ---
 
 # EF Core Providers: Discover how to install and use those providers
 
-A variety of sources builds EF Core providers and all of them are not maintained as part of the Entity Framework Core Project. Below are some more providers available for EF Core
+A variety of sources builds EF Core providers and all of them are not maintained as part of the Entity Framework Core Project. Below are several more providers available for EF Core
 
 You can find the full provider list supported here: <a href="https://docs.microsoft.com/en-us/ef/core/providers/" target="_blank">https://docs.microsoft.com/en-us/ef/core/providers/</a>
 
@@ -24,7 +24,7 @@ NuGet Url: [Pomelo.EntityFrameworkCore.MySql](https://www.nuget.org/packages/Pom
 
 ### Pomelo.EntityFrameworkCore.MyCat
 
-Pomelo.EntityFrameworkCore.MyCat is an Entity Framework Core provider and optimized for MyCat (An open source MySQL cluster proxy which based on Cobar)
+Pomelo.EntityFrameworkCore.MyCat is an Entity Framework Core provider and optimized for MyCat (an open source MySQL cluster proxy which is based on Cobar)
 
 #### Install
 
@@ -84,7 +84,7 @@ NuGet Url: [IBM.EntityFrameworkCore](https://www.nuget.org/packages/IBM.EntityFr
 
 ### Devart.Data.PostgreSql.EFCore
 
-It is a third party database provider and allows Entity Framework Core to be used with PostgreSql database.
+It is a third party database provider and allows Entity Framework Core to be used with PostgreSQL database.
 
 #### Install
 

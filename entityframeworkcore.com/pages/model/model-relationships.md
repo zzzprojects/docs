@@ -1,14 +1,14 @@
 ---
 permaid: 1000221
-Title: EF Core Relationships - Learn About Existing Relation in Your Entity
-MetaDescription: Unlock the power of EF Core with Relationships by understanding all different types. Learn about one-to-one, one-to-many, and many-to-many relationship.
-LastMod: 2023-02-21
+Title: EF Core Relationships - Learn Existing Relationships in Your Entity
+MetaDescription: Unlock the power of EF Core with Relationships by understanding all different types. Learn about one-to-one, one-to-many, and many-to-many relationships.
+LastMod: 2025-06-21
 tags: code-first relationship fluent-mapping
 ---
 
-# EF Core Relationships: Discover About Existing Relation in Your Entity
+# EF Core Relationships: Discover Existing Relationships in Your Entity
 
-In relational databases, a relationship exists between two tables through foreign keys. A Foreign Key is a column or combination of columns that are used to establish and enforce a link between the data in those two tables. Entity framework Core supports three types of relationships;
+In relational databases, a relationship exists between two tables through foreign keys. A Foreign Key is a column or combination of columns that are used to establish and enforce a link between the data in those two tables. Entity Framework Core supports three types of relationships:
 
  - One-to-Many
  - One-to-One
@@ -36,7 +36,7 @@ public class Book
 }
 ```
 
-The `Author` class contains a **Books** navigation property which is a list of Book objects, while the `Book` class also has a navigation property **Author**. Most of the time, one-to-many relationships in an Entity Framework Core model follow conventions and require no additional configuration. Now when you run the migration, you will see the following code in migration file which will create the database.
+The `Author` class contains a **Books** navigation property which is a list of Book objects, while the `Book` class also has a navigation property **Author**. Most of the time, one-to-many relationships in an Entity Framework Core model follow conventions and require no additional configuration. Now when you run the migration, you will see the following code in the migration file which will create the database.
 
 
 ```csharp
@@ -99,7 +99,7 @@ Now if your model does not follow the default conventions, the Fluent API can be
 
 
 ```csharp
-protected override void OnModelCreating(Modelbuilder modelBuilder)
+protected override void OnModelCreating(ModelBuilder modelBuilder)
 {
     modelBuilder.Entity<Author>()
         .HasMany(a => a.Books)
@@ -119,7 +119,7 @@ public class Author
     public string Name { get; set; }
     public AuthorBiography Biography { get; set; }
 }
-+-
+
 public class AuthorBiography
 {
     public int AuthorBiographyId { get; set; }
@@ -132,7 +132,7 @@ public class AuthorBiography
 }
 ```
 
-The `Author` class contains a **Biography** navigation property and the `AuthorBiography` class has a navigation property **Author**. Now when you run the migration, you will see the following code in migration file which will create the database.
+The `Author` class contains a **Biography** navigation property and the `AuthorBiography` class has a navigation property **Author**. Now when you run the migration, you will see the following code in the migration file which will create the database.
 
 
 ```csharp
@@ -248,7 +248,7 @@ public class BookCategory
 }
 ```
 
-The Book and BookCategory have one-to-many relationship and Category and BookCategory have also one-to-many relationship. Now we need to configure the relationship using Fluent API.
+The Book and BookCategory have a one-to-many relationship and Category and BookCategory also have a one-to-many relationship. Now we need to configure the relationship using Fluent API.
 
 
 ```csharp
@@ -280,7 +280,7 @@ public class MyContext : DbContext
 }
 ```
 
-Now when you run the migration, you will see the following code in migration file which will create three tables in the database.
+Now when you run the migration, you will see the following code in the migration file which will create three tables in the database.
 
 
 ```csharp

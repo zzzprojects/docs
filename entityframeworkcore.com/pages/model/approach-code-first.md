@@ -2,7 +2,7 @@
 permaid: 1000214
 Title: EF Core Code First - Learn How to Create Model From Code
 MetaDescription: Unlock the power of EF Core with Code First approach to create your model from your entity. Learn about the advantages of this approach and how to use code first.
-LastMod: 2023-02-21
+LastMod: 2025-06-21
 tags: code-first model approach migration command-line
 ---
 
@@ -10,7 +10,7 @@ tags: code-first model approach migration command-line
 
 If you have used Entity Framework in the past, you will probably have heard about the **Code First** approach. 
 
- - Code First workflow begins with classes that describe the conceptual model and then Entity Framework generate a database from that model automatically.  
+ - Code First workflow begins with classes that describe the conceptual model and then Entity Framework generates a database from that model automatically.  
  - Code first approach offers most control over the final appearance of the application code and the resulting database.
 
 To start using Entity Framework, use the following steps;
@@ -67,7 +67,7 @@ Once these packages are installed, run the following command in Package Manager 
 
  - `Add-Migration Initial` 
 
-This command scaffold a migration to create the initial set of tables for your model. When it is executed successfully, then run the following command.
+This command scaffolds a migration to create the initial set of tables for your model. When it is executed successfully, then run the following command.
 
  - `Update-Database` to apply the new migration to the database. This command creates the database before applying migrations.
  

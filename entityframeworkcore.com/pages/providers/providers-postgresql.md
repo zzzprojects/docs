@@ -1,8 +1,8 @@
 ---
 permaid: 1000228
 Title: EF Core PostgreSQL - Learn how to install and use this provider
-MetaDescription: Unlock the power of EF Core using the PostgreSQL Provider. Learn how to use a PostgreSQL database and which providers to install for entity framework core.
-LastMod: 2023-02-22
+MetaDescription: Unlock the power of EF Core using the PostgreSQL Provider. Learn how to use a PostgreSQL database and which providers to install for Entity Framework Core.
+LastMod: 2025-06-21
 tags: provider connection
 ---
 
@@ -15,7 +15,7 @@ tags: provider connection
 
 ## Npgsql.EntityFrameworkCore.PostgreSQL
 
-`Npgsql.EntityFrameworkCore.PostgreSQL` is an Entity Framework Core provider built on top of Npgsql. It allows you to use the EF Core O/RM with PostreSQL. It mostly behaves like any other EFCore provider (e.g. SQL Server) 
+`Npgsql.EntityFrameworkCore.PostgreSQL` is an Entity Framework Core provider built on top of Npgsql. It allows you to use the EF Core O/RM with PostgreSQL. It mostly behaves like any other EFCore provider (e.g. SQL Server) 
 
 ### How to Use Npgsql.EntityFrameworkCore.PostgreSQL Provider
 

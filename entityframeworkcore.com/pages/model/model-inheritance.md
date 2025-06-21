@@ -2,7 +2,7 @@
 permaid: 1000220
 Title: EF Core Inheritance - Learn About TPC, TPH, and TPT Pattern
 MetaDescription: Unlock the power of EF Core with Inheritance by understanding different approaches. Learn about TPC (Table Per Concrete), TPH (Table Per Hierarchy), and TPT (Table Per Type) approaches.
-LastMod: 2023-02-21
+LastMod: 2025-06-21
 tags: code-first inheritance fluent-mapping
 ---
 
@@ -75,7 +75,7 @@ public class MyContext : DbContext
 }
 ```
 
-Now to create a database using migrations from your model, run the following two command in Package Manager Console.
+Now to create a database using migrations from your model, run the following two commands in Package Manager Console.
 
 `PM> Add-Migration init`
 `PM> Update-Database`

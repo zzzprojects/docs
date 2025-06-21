@@ -2,7 +2,7 @@
 permaid: 1000223
 Title: EF Core Overview - Learn What is EF Core and Why You Should Use it
 MetaDescription: Unlock the power of EF Core by understanding the basics and more advanced topics of this library. Learn what EF Core is, how it works, and all the documentation you need to get started.
-LastMod: 2024-08-30
+LastMod: 2025-06-21
 tags: getting-started history
 ---
 
@@ -18,7 +18,7 @@ Entity Framework Core is a lightweight, extensible and cross-platform version of
 
 ## History
 
- - EF team has made some significant changes over Entity Framework 6 and called it EF7, but later they rename it to EF Core.
+ - EF team has made some significant changes over Entity Framework 6 and called it EF7, but later they renamed it to EF Core.
  - EF Core was first released in late June of 2016 after over 2 years of effort, this first version was followed by a great amount of change with EF Core 2, which was released a year later along with .NET Core and ASP.NET Core. 
  - EF Core 2 is seen by many as the first solid version, although EF Core 1 is still supported.
 
@@ -41,7 +41,7 @@ Entity Framework Core supports many database providers to access different datab
  - SQL Compact
  - In-memory
 
-More provider can be found here: <a href="https://docs.microsoft.com/en-us/ef/core/providers/" target="_blank">https://docs.microsoft.com/en-us/ef/core/providers/</a>
+More providers can be found here: <a href="https://docs.microsoft.com/en-us/ef/core/providers/" target="_blank">https://docs.microsoft.com/en-us/ef/core/providers/</a>
 
 ## EF Core 2 New Features
 
@@ -59,7 +59,7 @@ More provider can be found here: <a href="https://docs.microsoft.com/en-us/ef/co
 
 ##### Mappings
 
- - Mapping database scalar functions to method stub so that they can be used in LINQ queries and translated to SQL.
+ - Mapping database scalar functions to method stubs so that they can be used in LINQ queries and translated to SQL.
  - In EF Core 1, there was no support for value objects, but now in EF Core 2, we have something better that replaces complex types and it's called owned entities. 
 
 ##### Table Splitting

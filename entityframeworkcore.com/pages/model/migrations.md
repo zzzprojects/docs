@@ -2,7 +2,7 @@
 permaid: 1000216
 Title: EF Core Migrations - Learn How to Use Common Command Line
 MetaDescription: Unlock the power of EF Core with Migrations to understand existing command lines. Learn how to add a migration, update your database, and delete a migration.
-LastMod: 2023-02-21
+LastMod: 2025-06-21
 tags: code-first migration command-line
 ---
 
@@ -10,7 +10,7 @@ tags: code-first migration command-line
 
 Migrations provide a way to incrementally apply schema changes to the database to keep it in sync with your EF Core model while preserving existing data in the database.
 
- - When start developing your applications, you will most likely see changes in your model with change in requirements. 
+ - When you start developing your applications, you will most likely see changes in your model with changes in requirements. 
  - When there is a change in a model, we need to keep the database in sync with the model. 
  - The migrations feature enables you to make changes to your model and then propagate those changes to your database schema.
 
@@ -78,7 +78,7 @@ The initial migration commands will add three files to your project under the **
 
  - **_InitialCreate.cs:** It is the main migrations file which the operations necessary to apply the migration in `Up()` method and to revert it to `Down()` method.
  - **_InitialCreate.Designer.cs:** It is migrations metadata file and contains information used by EF.
- - **MyContextModelSnapshot.cs:** It is the snapshot of your model, and it used to determine what changed when adding the next migration.
+ - **MyContextModelSnapshot.cs:** It is the snapshot of your model, and it is used to determine what changed when adding the next migration.
 
 Now to apply the migration to the database to create the schema, run the following command.
 

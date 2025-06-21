@@ -2,16 +2,16 @@
 permaid: 1000217
 Title: EF Core Data Annotations - Learn Attribute to Map Entity To Model
 MetaDescription: Unlock the power of EF Core with Data Annotations by mapping your entity to your model with attributes. Learn about the advantages of this approach and all possible data annotations.
-LastMod: 2023-02-21
+LastMod: 2025-06-21
 tags: code-first data-annotation fluent-mapping
 ---
 
 # EF Core Data Annotations: Discover Attribute to Map Entity To Model
 
-In .NET Framework, data annotation add extra meaning to the data by adding attribute tags. It is used to configure the classes which will highlight the most commonly needed configurations.
+In .NET Framework, data annotations add extra meaning to the data by adding attribute tags. It is used to configure the classes which will highlight the most commonly needed configurations.
 
  - Data Annotations attributes are .NET attributes which can be applied to an entity class or properties to override default CodeFirst conventions in EF6 and EF Core.
- - The advantage of using Data Annotation feature is that by applying Data Attributes, we can manage the data definition in a single place and do not need re-write the same rules in multiple places.
+ - The advantage of using Data Annotation feature is that by applying Data Attributes, we can manage the data definition in a single place and do not need to rewrite the same rules in multiple places.
  - It can be used in a number of .NET applications, such as ASP.NET MVC which allows these applications to leverage the same annotations for client-side validations.
 
 The mostly used Data Annotations attributes are as follows;
@@ -150,7 +150,7 @@ public class Person
 
 #### ForeignKey
 
-You can use the **Data ForeignKey** attribute to configure which property should be used as the foreign key property for a given relationship.
+You can use the **ForeignKey** attribute to configure which property should be used as the foreign key property for a given relationship.
 
 
 ```csharp

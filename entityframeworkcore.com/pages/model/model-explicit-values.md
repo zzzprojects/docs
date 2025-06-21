@@ -2,11 +2,11 @@
 permaid: 1000218
 Title: EF Core Explicit Values - Learn What Happen When You Specify Value
 MetaDescription: Unlock the power of EF Core with Explicit Values to understand how property will react when a value is specified. Learn what it means to specify a value explicitly and how EF Core will save it.
-LastMod: 2023-02-21
+LastMod: 2025-06-21
 tags: code-first fluent-mapping model
 ---
 
-# EF Core Explicit Values: Discover What Happen When You Specify Value
+# EF Core Explicit Values: Discover What Happens When You Specify Value
 
 ## Explicit Values for Generated Properties
 
@@ -37,7 +37,7 @@ protected override void OnModelCreating(ModelBuilder modelBuilder)
 }
 ```
 
-Now everytime a new order is added to the database, the OrderDate property will be set to the CLR default value for `DateTime`, but if you to set the explicit value of OrderDate for any particular order, let's say 20-Dec-2017.
+Now every time a new order is added to the database, the OrderDate property will be set to the CLR default value for `DateTime`, but if you want to set the explicit value of OrderDate for any particular order, let's say 20-Dec-2017.
 
 
 ```csharp

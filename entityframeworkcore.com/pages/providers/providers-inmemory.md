@@ -1,8 +1,8 @@
 ---
 permaid: 1000224
 Title: EF Core InMemory - Learn how to install and use this provider
-MetaDescription: Unlock the power of EF Core using the Oracle Provider. Learn how to use an oracle database and which providers to install for entity framework core.
-LastMod: 2023-02-22
+MetaDescription: EF Core InMemory - Learn how to install and use this provider
+LastMod: 2025-06-21
 tags: provider connection
 ---
 
@@ -13,7 +13,7 @@ tags: provider connection
 `Microsoft.EntityFrameworkCore.InMemory` is an in-memory database provider for Entity Framework Core. It is useful when you want to test components using something that approximates connecting to the real database, without the overhead of actual database operations.
 
  - The advantage of in-memory provider is that you can test the code of your application against an in-memory database instead of installing and configuring the real database.
- - It is a general purpose database, designed strictly for the testing purpose of your application's code and not a relational database.
+ - It is a general-purpose database, designed strictly for the testing purposes of your application's code and not a relational database.
 
 #### How to Use InMemory Provider
 
@@ -93,7 +93,7 @@ using (var context = new MyContext(options))
 
 #### Limitations
 
-InMemory is a general purpose database provider for testing and is not designed for a relational database.
+InMemory is a general-purpose database provider for testing and is not designed for a relational database.
 
  - InMemory will allow you to save data that would violate referential integrity constraints in a relational database.
  - If you use DefaultValueSql(string) for a property in your model, this is a relational database API and will not affect when running against InMemory.

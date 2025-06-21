@@ -1,8 +1,8 @@
 ---
 permaid: 1000230
 Title: EF Core SQLite - Learn how to install and use this provider
-MetaDescription: Unlock the power of EF Core using the SQLite Provider. Learn how to use an SQLite database and which providers to install for entity framework core.
-LastMod: 2023-02-22
+MetaDescription: Unlock the power of EF Core using the SQLite Provider. Learn how to use an SQLite database and which providers to install for Entity Framework Core.
+LastMod: 2025-06-21
 tags: provider connection
 ---
 
@@ -15,7 +15,7 @@ tags: provider connection
 
 ## Microsoft.EntityFrameworkCore.Sqlite
 
-`Microsoft.EntityFrameworkCore.Sqlite` database provider allows Entity Framework Core to be used with to be used with SQLite. The provider is maintained as part of the [Entity Framework Core](https://github.com/aspnet/EntityFrameworkCore) Project.
+`Microsoft.EntityFrameworkCore.Sqlite` database provider allows Entity Framework Core to be used with SQLite. The provider is maintained as part of the [Entity Framework Core](https://github.com/aspnet/EntityFrameworkCore) Project.
 
 ### How to Use Microsoft.EntityFrameworkCore.Sqlite Provider
 
@@ -87,7 +87,7 @@ Run the following command in Package Manager Console.
 
 `PM> Add-Migration Initial` 
 
-This command scaffold a migration to create the initial set of tables for your model. When it is executed successfully, then run the following command.
+This command scaffolds a migration to create the initial set of tables for your model. When it is executed successfully, then run the following command.
 
 `PM> Update-Database`
 
@@ -123,7 +123,7 @@ The SQLite provider has some migrations limitations, and mostly these limitation
    - DropColumn
    - DropForeignKey
    - DropPrimaryKey
-   - DropUniqueConstrain
+   - DropUniqueConstraint
    - RenameColumn
    
 ## Devart.Data.SQLite.EFCore

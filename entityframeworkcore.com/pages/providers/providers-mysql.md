@@ -1,8 +1,8 @@
 ---
 permaid: 1000226
 Title: EF Core MySQL - Learn how to install and use this provider
-MetaDescription: Unlock the power of EF Core using the MySQL Provider. Learn how to use an MySQL database and which providers to install for entity framework core.
-LastMod: 2023-02-22
+MetaDescription: Unlock the power of EF Core using the MySQL Provider. Learn how to use a MySQL database and which providers to install for Entity Framework Core.
+LastMod: 2025-06-21
 tags: provider connection
 ---
 
@@ -26,7 +26,7 @@ You can also use `MySQL Connector/Net` which integrates support for Entity Frame
 
 ### How to Use MySQL Database Provider
 
-To use MySQL database provider, the first step is to install [MySql.Data.EntityFrameworkCore](https://www.nuget.org/packages/MySql.Data.EntityFrameworkCore/) NuGet package. Let's consider a simple model which contains three entities.
+To use the MySQL database provider, the first step is to install [MySql.Data.EntityFrameworkCore](https://www.nuget.org/packages/MySql.Data.EntityFrameworkCore/) NuGet package. Let's consider a simple model which contains three entities.
 
 Now to use Entity Framework Core with MySQL database, override the OnConfiguring method in the context class and set the MySQL data provider using `UseMySQL` method. 
 
@@ -41,7 +41,7 @@ protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 ### Limitations
 
  - The MySQL Connector/Net implementation of EF Core has no support for Memory-Optimized Tables yet.
- - The following table shows Maximum Length of strings types supported by the MySQL Connector/Net implementation of EF Core.
+ - The following table shows maximum length of string types supported by the MySQL Connector/Net implementation of EF Core.
 
 
 |Data Type	            |Maximum Length	|.NET Type      |
@@ -64,7 +64,7 @@ protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 
 To use `Devart.Data.MySql.EFCore` provider, the first step is to install the [Devart.Data.MySql.EFCore](https://www.nuget.org/packages/Devart.Data.MySql.EFCore/) NuGet package. 
 
-Now to use Entity Framework Core with SQLite database, override the OnConfiguring method in the context class and set the SQLite data provider using `UseMySql` method. 
+Now to use Entity Framework Core with MySQL database, override the OnConfiguring method in the context class and set the MySQL data provider using `UseMySql` method. 
 
 
 ```csharp

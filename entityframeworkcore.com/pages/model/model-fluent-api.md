@@ -2,13 +2,13 @@
 permaid: 1000219
 Title: EF Core Fluent API - Learn How to Map Entity To Model Using Code
 MetaDescription: Unlock the power of EF Core with Fluent API by mapping your entity to your model with code. Learn about the advantages of this approach and how to use the model builder.
-LastMod: 2023-02-21
+LastMod: 2025-06-21
 tags: code-first fluent-mapping model
 ---
 
 # EF Core Fluent API: Discover How to Map Entity To Model Using Code
 
-Fluent API specify the model configuration that you can with data annotations as well as some additional functionality that can not be possible with data annotations. 
+Fluent API specifies the model configuration that you can with data annotations as well as some additional functionality that is not possible with data annotations. 
 
  - In Entity Framework Core, the ModelBuilder class acts as a Fluent API.
  - We can configure many different things by using it because it provides more configuration options than data annotation attributes.
