@@ -1,12 +1,12 @@
 ---
 permaid: 1000252
-Title: EF Core Stored Procedure - Learn How to use SP to Save Entities
-MetaDescription: Unlock the power of EF Core by using Stored Procedure to save entities by keeping the logic in your database. Learn how to create stored procedure and map your entities to it when saving them.
-LastMod: 2023-02-24
+Title: EF Core Stored Procedure - Learn How to Use SP to Save Entities
+MetaDescription: Unlock the power of EF Core by using Stored Procedure to save entities by keeping the logic in your database. Learn how to create a stored procedure and map your entities to it when saving them.
+LastMod: 2025-06-22
 tags: save stored-procedure sql
 ---
 
-# EF Core Stored Procedure: Discover How to use SP to Save Entities
+# EF Core Stored Procedure: Discover How to Use SP to Save Entities
 
 ## Introduction
 

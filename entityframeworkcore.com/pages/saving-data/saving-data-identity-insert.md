@@ -1,18 +1,18 @@
 ---
 permaid: 1000249
-Title: EF Core Identity Insert - Lean How Explicitly  Insert Identity Value
+Title: EF Core Identity Insert - Learn How to Explicitly Insert an Identity Value
 MetaDescription: Unlock the power of EF Core by using Identity Insert to explicitly insert a value in a database. Learn how to use the `SET IDENTITY_INSERT` SQL to allow inserting an explicit value.
-LastMod: 2023-02-24
+LastMod: 2025-06-22
 tags: save identity
 ---
 
-# EF Core Identity Insert: Discover How Explicitly  Insert Identity Value
+# EF Core Identity Insert: Discover How to Explicitly Insert an Identity Value
 
 ## Introduction
 
-When you have a primary key field such as Id or CustomerId with IDENTITY switched on it works beautifully you insert data in Entity Framework but is some cases, you might need to insert explicit values into a SQL Server IDENTITY column. To do so, you need to enable IDENTITY_INSERT before calling SaveChanges() manually.
+When you have a primary key field such as Id or CustomerId with IDENTITY switched on it works beautifully you insert data in Entity Framework but in some cases, you might need to insert explicit values into a SQL Server IDENTITY column. To do so, you need to enable IDENTITY_INSERT before calling SaveChanges() manually.
 
-Let's say you want to a create a new customer with explicit CusomterId value. 
+Let's say you want to create a new customer with explicit CustomerId value. 
 
 
 ```csharp

@@ -2,7 +2,7 @@
 permaid: 1000244
 Title: EF Core Cascade Delete - Learn How to Auto Delete Child Entities 
 MetaDescription: Unlock the power of EF Core by using Cascade Delete to automatically delete child-related entities without any additional code. Learn how you can make sql server delete entities implicitly.
-LastMod: 2023-02-24
+LastMod: 2025-06-22
 tags: save delete
 ---
 
@@ -21,7 +21,7 @@ The OnDelete method takes a DeleteBehavior enum as a parameter:
  - **Restrict:** Dependents are unaffected
  - **SetNull:** The foreign key values in dependent rows should update to NULL
 
-Setting a foreign key value to null is not valid if the foreign key is not nullable. The following example set a foreign key field to null when the principal is deleted.
+Setting a foreign key value to null is not valid if the foreign key is not nullable. The following example sets a foreign key field to null when the principal is deleted.
 
 ```csharp
 using (var context = new MyContext())
@@ -31,12 +31,12 @@ using (var context = new MyContext())
         modelBuilder.Entity<Invoice>()
             .HasOne(i => i.Customer)
             .WithMany(c => c.Invoices)
-            .OnDelete(DeleteBehavior.SetNull+-*);
+            .OnDelete(DeleteBehavior.SetNull);
     }
 }
 ```
 
-The following example configures the relationship as required and specify that dependant rows are deleted when the principal is deleted.
+The following example configures the relationship as required and specifies that dependent rows are deleted when the principal is deleted.
 
 ```csharp
 using (var context = new MyContext())

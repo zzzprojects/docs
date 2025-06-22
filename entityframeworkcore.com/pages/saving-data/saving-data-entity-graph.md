@@ -1,12 +1,12 @@
 ---
 permaid: 1000248
-Title: EF Core Track Graph - Learn How set Entity in Added or Modified State
+Title: EF Core Track Graph - Learn How to Set an Entity in Added or Modified State
 MetaDescription: Unlock the power of EF Core by using Track Graph to add, attach, or update tracked entities. Learn how to use the 'TrackGraph' method to specify if an entity should be tracked or not.
-LastMod: 2023-02-24
+LastMod: 2025-06-22
 tags: saveg graph
 ---
 
-# EF Core Track Graph: Discover How set Entity in Added or Modified State
+# EF Core Track Graph: Discover How to Set an Entity in Added or Modified State
 
 ## Introduction
 
@@ -19,10 +19,10 @@ Entity Framework Core provides different methods, like `Add`, `Attach`, and `Upd
 
 `TrackGraph` method is designed for use in disconnected scenarios where entities are retrieved using one instance of the context and then changes are saved using a different instance of the context.
 
- - It starts tracking an entity and any entities that are reachable by traversing it's navigation properties. 
+ - It starts tracking an entity and any entities that are reachable by traversing its navigation properties. 
  - Traversal is recursive, so the navigation properties of any discovered entities will also be scanned. 
  - The specified callback is called for each discovered entity and must set the State that each entity should be tracked in. If no state is set, the entity remains untracked.
- - If an entity is discovered that is already tracked by the context, that entity is not processed and it's navigation properties are not traversed.
+ - If an entity is discovered that is already tracked by the context, that entity is not processed and its navigation properties are not traversed.
 
 Here is a simple object graph.
 

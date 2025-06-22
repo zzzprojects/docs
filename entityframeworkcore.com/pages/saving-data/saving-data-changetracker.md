@@ -2,7 +2,7 @@
 permaid: 1000245
 Title: EF Core Change Tracker - Learn How it Works and Possible States
 MetaDescription: Unlock the power of EF Core by using Change Tracker, understanding how it works, and the possible state of an entity entry. Learn about the possible state such as 'Added', 'Unchanged', 'Modified', 'Deleted', 'Detached' and their behaviors.
-LastMod: 2023-02-24
+LastMod: 2025-06-22
 tags: save change-tracker
 ---
 
@@ -10,7 +10,7 @@ tags: save change-tracker
 
 ## Introduction
 
-`ChangeTracker` class provides access to change tracking information and operations for entity instances the context is tracking. In EF Core, the DbContext includes the ChangeTracker class, and it starts tracking of all the entities as soon as it is retrieved using DbContext.
+`ChangeTracker` class provides access to change tracking information and operations for entity instances the context is tracking. In EF Core, the DbContext includes the ChangeTracker class, and it starts tracking all the entities as soon as they are retrieved using DbContext.
 
 The Change Tracker tracks an entity using any of the following states: 
 
@@ -65,7 +65,7 @@ using (var context = new MyContext())
 
 ### Detached
 
-If the entity or entities created or retrieved out of the scope of the current DbContext instance, then it will be marked as Detached.
+If the entity or entities are created or retrieved outside the scope of the current DbContext instance, then it will be marked as Detached.
 
 
 ```csharp
@@ -82,7 +82,7 @@ using (var context = new MyContext())
 }
 ```
 
-The entities are not being tracked by an existing DbContext instance are also called disconnected entities.
+Entities that are not being tracked by an existing DbContext instance are also called disconnected entities.
 
 ### Modified
     

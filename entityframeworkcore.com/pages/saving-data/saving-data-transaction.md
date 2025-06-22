@@ -1,8 +1,8 @@
 ---
 permaid: 1000253
 Title: EF Core Transaction - Learn How to Manage a Transaction When Saving
-MetaDescription: Unlock the power of EF Core by using Transaction to handle the rollback logic when an error happens. Learn what a transaction is, how to start it, and to commit it when the save what as success or to rollback it.
-LastMod: 2023-02-24
+MetaDescription: Unlock the power of EF Core by using Transaction to handle the rollback logic when an error happens. Learn what a transaction is, how to start it, and to commit it when the save was a success or to rollback it.
+LastMod: 2025-06-22
 tags: save transaction
 ---
 

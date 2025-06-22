@@ -2,7 +2,7 @@
 permaid: 1000243
 Title: EF Core Bulk Insert - Learn How to Insert Thousands of Entities
 MetaDescription: Unlock the power of EF Core by using Bulk Insert to improve performance dramatically by using bulk operations. Learn what bulk operations are, why you should use it and how easily you can implement it in your project.
-LastMod: 2023-02-24
+LastMod: 2025-06-22
 tags: save insert bulk-insert
 ---
 
@@ -10,13 +10,13 @@ tags: save insert bulk-insert
 
 ## Introduction
 
-When you want to insert hundreds, thousands, or millions of entities using `SaveChanges()` method, you will notice that your application performance is **INSANELY** slow. Because `SaveChanges()` requires one database round-trip for every entity to insert. So if you need to insert 10000 entities, then 10000 database round-trips will be performed and your application suffers from performances issues.
+When you want to insert hundreds, thousands, or millions of entities using `SaveChanges()` method, you will notice that your application performance is **INSANELY** slow. Because `SaveChanges()` requires one database round-trip for every entity to insert. So if you need to insert 10000 entities, then 10000 database round-trips will be performed and your application suffers from performance issues.
 
-Entity Framework Core has made great improvement and is way faster than EF6, but your application performance can even faster than that by using a 3rd party library [Entity Framework Extensions](https://entityframework-extensions.net/).
+Entity Framework Core has made great improvements and is way faster than EF6, but your application performance can be even faster than that by using a 3rd party library [Entity Framework Extensions](https://entityframework-extensions.net/).
 
 ### BulkInsert
 
-Entity Framework Extensions provides an extension method [BulkInsert](https://entityframework-extensions.net/bulk-insert) which requires the minimum database round-trips as compared to `SaveChanges()`. By example under the hood for SQL Server, a simple `SqlBulkCopy` could be performed.
+Entity Framework Extensions provides an extension method [BulkInsert](https://entityframework-extensions.net/bulk-insert) which requires the minimum database round-trips as compared to `SaveChanges()`. For example, under the hood for SQL Server, a simple `SqlBulkCopy` could be performed.
 
 #### Performance Comparisons
 

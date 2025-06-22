@@ -2,7 +2,7 @@
 permaid: 1000247
 Title: EF Core Entity Disconnected - Learn How to Track Untracked Entities
 MetaDescription: Unlock the power of EF Core by using Entity Disconnected to improve performance and track entities back in the change tracker. Learn what is considered a disconnected entity and how to track it back.
-LastMod: 2023-02-24
+LastMod: 2025-06-22
 tags: save change-tracker disconnected
 ---
 
@@ -19,7 +19,7 @@ A DbContext instance automatically tracks entities returned from the database, a
 
 It is necessary to determine whether to insert or update an entity. The value of an automatically generated key can often be used to determine whether an entity needs to be inserted or updated.
 
- - If the key has not been set, then the entity must be new and needs inserting. 
+ - If the key has not been set, then the entity must be new and needs to be inserted.
  - On the other hand, if the key value has been set, then it must have already been previously saved and now needs updating. 
 
 

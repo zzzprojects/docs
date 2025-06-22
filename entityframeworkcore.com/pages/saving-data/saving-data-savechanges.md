@@ -2,7 +2,7 @@
 permaid: 1000250
 Title: EF Core SaveChanges - Learn How to Save Entities in a Database
 MetaDescription: Unlock the power of EF Core by using SaveChanges to save all entities in a database. Learn how to persist data by adding, updating, and deleting them.
-LastMod: 2023-02-24
+LastMod: 2025-06-22
 tags: save savechanges
 ---
 
@@ -33,7 +33,7 @@ using (var context = new MyContext())
 
 #### Updating Data
 
-When you made changes to any existing entity, or simply modify the values assigned to properties and then call SaveChanges, it will update the data into a database.
+When you make changes to any existing entity, or simply modify the values assigned to properties and then call SaveChanges, it will update the data in the database.
 
 
 ```csharp
