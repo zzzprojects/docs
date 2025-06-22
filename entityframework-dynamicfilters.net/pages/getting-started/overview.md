@@ -6,7 +6,7 @@ Name: Overview
 
 ## Description
 
-**EntityFramework Dynamic Filters** is a library that Creates global and scoped filters for Entity Framework queries.
+**EntityFramework Dynamic Filters** is a library that creates global and scoped filters for Entity Framework queries.
 
 The filters are automatically applied to every query and can be used to support use cases such as Multi-Tenancy, Soft Deletes, Active/Inactive, etc.
 
@@ -20,7 +20,7 @@ Download the <a href="/download">NuGet Package</a>
 - Entity Framework 6.x
 
 ## How It Works?
-The library can be easily installed through <a href="/installing">NuGet</a> which will add extensions methods automatically to DbContext and DbModelBuilder classes to access **Dynamic Filters**.
+The library can be easily installed through <a href="/installing">NuGet</a> which will add extension methods automatically to DbContext and DbModelBuilder classes to access **Dynamic Filters**.
 
 - Filters are defined in DbContext.OnModelCreating().
 - Filters can be created using boolean LINQ expressions.
@@ -28,7 +28,7 @@ The library can be easily installed through <a href="/installing">NuGet</a> whic
 
 ## Enabling and Disabling Filters
 
-Filter can be easily disabled by using the DbContext.DisableFilter extension method. To disable a filter globally, use DbModelBuilder.DisableFilterGlobally method after it is created in OnModelCreating
+Filters can be easily disabled by using the DbContext.DisableFilter extension method. To disable a filter globally, use DbModelBuilder.DisableFilterGlobally method after it is created in OnModelCreating
 
 
 ```csharp
@@ -63,7 +63,7 @@ modelBuilder.Filter("IsDeleted", (ISoftDelete d) => d.IsDeleted, false);
 
 ```
 
-This filter will apply to all classes that implements ISoftDelete.
+This filter will apply to all classes that implement ISoftDelete.
 
 ### Delegate Expressions
 
@@ -116,7 +116,7 @@ modelBuilder.Filter("BlogEntryFilter",
 
 A parameter is created for each condition with parameter names "accountID" and "isDeleted".
 
-The LINQ syntax support the Contains() operator on Enumerable<T> to generate SQL "in" clauses:
+The LINQ syntax supports the Contains() operator on Enumerable<T> to generate SQL "in" clauses:
 
 
 ```csharp

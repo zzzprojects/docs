@@ -6,7 +6,7 @@ Name: SetFilterGlobalParameterValue
 
 ## Description
 
-SetFilterGlobalParameterValue sets the parameter value for a filter with global scope.  If a scoped parameter value is not found, this value will be used.
+SetFilterGlobalParameterValue sets the parameter value for a filter with global scope. If a scoped parameter value is not found, this value will be used.
 
 
 ```csharp

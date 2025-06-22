@@ -6,7 +6,7 @@ Name: SetFilterScopedParameterValue
 
 ## Description
 
-The `SetFilterScopedParameterValue` sets the parameter for a filter within the current DbContext scope.  Once the DbContext is disposed, this parameter will no longer be in scope and will be removed.
+The `SetFilterScopedParameterValue` sets the parameter for a filter within the current DbContext scope. Once the DbContext is disposed, this parameter will no longer be in scope and will be removed.
 
 
 ```csharp

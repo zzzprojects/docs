@@ -15,6 +15,6 @@ context.DisableAllFilters();
 
 ```
 
-Disabling a globally enabled filters will apply only to that DbContext and it will not affect any other DbContext instances.
+Disabling globally enabled filters will apply only to that DbContext and it will not affect any other DbContext instances.
 
 

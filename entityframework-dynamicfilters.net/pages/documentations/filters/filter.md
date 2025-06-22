@@ -6,7 +6,7 @@ Name: Filter
 
 ## Description
 
-Filter add a filter to a single entity. You can filter the query with a predicate to exclude certain data. Filter values can be provided in the following different ways:
+Filter adds a filter to a single entity. You can filter the query with a predicate to exclude certain data. Filter values can be provided in the following different ways:
 
  - Specific Value
  - Delegate Expressions
@@ -24,7 +24,7 @@ modelBuilder.Filter("IsDeleted", (ISoftDelete d) => d.IsDeleted, false);
 
 ```
 
-This filter will apply to all classes that implements ISoftDelete.
+This filter will apply to all classes that implement ISoftDelete.
 
 ### Delegate Expressions
 
@@ -77,7 +77,7 @@ modelBuilder.Filter("BlogEntryFilter",
 
 A parameter is created for each condition with parameter names "accountID" and "isDeleted".
 
-The LINQ syntax support the Contains() operator on Enumerable<T> to generate SQL "in" clauses:
+The LINQ syntax supports the Contains() operator on Enumerable<T> to generate SQL "in" clauses:
 
 
 ```csharp

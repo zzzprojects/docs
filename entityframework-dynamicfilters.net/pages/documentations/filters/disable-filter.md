@@ -6,7 +6,7 @@ Name: DisableAllFilters
 
 ## Description
 
-DisableFilter selectively disable the filter which is globally enabled. 
+DisableFilter selectively disables the filter which is globally enabled. 
 
 
 ```csharp

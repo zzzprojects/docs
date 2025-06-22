@@ -8,7 +8,7 @@ Name: PreventAllDisabledFilterConditions
 
 Prevent the inclusion of conditions in the sql query used to enable/disable filters. This will completely prevent the ability to enable & disable filters globally throughout the application.
 
-If you never require the need to enable or disable filters at any time during the application life cycle, you can prevent this condition entirely.
+If you never require the need to enable or disable filters at any time during the application lifecycle, you can prevent this condition entirely.
 
 
 ```csharp
