@@ -6,7 +6,7 @@ Name: Export Data to Csv Files
 
 ## Description
 
-Creating a CSV file could be tiresome, **Effort** provides an easy-to-use program, called [**Effort.CsvTool**](https://github.com/zzzprojects/EntityFramework-Effort/tree/master/Main/Source/misc/Effort.CsvTool) that export the current state of your entire database into CSV files that Effort can consume. 
+Creating a CSV file could be tiresome; **Effort** provides an easy-to-use program, called [**Effort.CsvTool**](https://github.com/zzzprojects/EntityFramework-Effort/tree/master/Main/Source/misc/Effort.CsvTool) that exports the current state of your entire database into CSV files that Effort can consume. 
 
 It is a GUI based tool.
 
@@ -22,7 +22,7 @@ This tool supports the following database providers.
  - SqlClient Data Provider
  - Microsoft SQL Server Compact Data Provider
 
-The provider can be selected from Provider dropdown list, and you can set different properties value for any provider such as connection string of your database etc.
+The provider can be selected from the Provider dropdown list, and you can set different property values for any provider such as the connection string of your database, etc.
 
 <img src="https://raw.githubusercontent.com/zzzprojects/EntityFramework-Effort/master/docs/images/csv-tool-2.png" alt="csv tool-2">
 

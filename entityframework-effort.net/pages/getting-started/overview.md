@@ -8,7 +8,7 @@ Name: Getting Started
 Effort (**E**ntity **F**ramework **F**ake **O**bjectContext **R**ealization **T**ool) is the official `In Memory` provider for Entity Framework Classic. It creates a fake or mock database that allows you to test the Business Logic Layer (BLL) without worrying about your Data Access Layer (DAL).
 
  - It is basically an ADO.NET provider that executes all the data operations on a lightweight in-process main memory database instead of a traditional external database. 
- - It provides some intuitive helper methods that makes this provider easy to use with ObjectContext or DbContext classes. 
+ - It provides some intuitive helper methods that make this provider easy to use with ObjectContext or DbContext classes. 
  - A simple addition to existing code might be enough to create data-driven tests that can run without the presence of the external database.
 
 The term **Transient** refers to the lifecycle of the underlying in-memory database. 
@@ -22,7 +22,7 @@ To use Effort, you need to create a transient connection and use it for your con
 
 ```csharp
 var connection = Effort.DbConnectionFactory.CreateTransient();
-var context = new EntityContext(connection));
+var context = new EntityContext(connection);
 ```
 
 ## Examples
@@ -119,7 +119,7 @@ Effort provides a [tool](/export-data-to-csv) to export all your tables easily t
 
 {% include template-example.html %} 
 ```csharp
-IDataLoader loader = new CsvDataLoader("C:\PathOfTheCsvFiles");
+IDataLoader loader = new CsvDataLoader(@"C:\PathOfTheCsvFiles");
  
 using(NorthwindEntities context = 
     ObjectContextFactory.CreateTransient<NorthwindEntities>(loader))

@@ -30,6 +30,6 @@ id,name,birthdate,reportto,storages,photo
 "MHS","Michael ""h4x0r"" Smith",05/12/1975,,"","ZzVlKyszZjQ5M2YzNA=="
 ```
 
-The first line contains the name of the table fields, and the remaining lines represent a data row.
+The first line contains the names of the table fields, and the remaining lines represent a data row.
 
 

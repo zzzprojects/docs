@@ -51,7 +51,7 @@ public void Initialize()
 }
 ```
 
-The first test method verifies if an entity exist with a specific Id.
+The first test method verifies if an entity exists with a specific Id.
 
 ### ProductExist Test Method
 ```csharp
@@ -96,6 +96,6 @@ public void DeleteProduct()
 
 ```
 
-The data component is initialized like in the previous test and requested to delete the Product entity whose Id is 1. Then the component is requested to retrieve the same entity. The test pass if the entity does not exist.
+The data component is initialized like in the previous test and requested to delete the Product entity whose Id is 1. Then the component is requested to retrieve the same entity. The test passes if the entity does not exist.
 
 If the initial data contains the requested record, the tests will pass regardless of the order of execution. This is possible because every test starts consistently with the same initial data. The data manipulation done by a test does not affect the data context of another test. 

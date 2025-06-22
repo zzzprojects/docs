@@ -44,7 +44,7 @@ The **CachingDataLoader** was designed to speed up the initialization process by
 
  - If the wrapped data loader is specified with a specific configuration the first time, the CachingDataLoader will pull the required data from the wrapped data loader. 
  - As a side effect, this data is going to be cached in the memory. 
- - If the **CachingDataLoader** was initialized to wrap the same kind of data loader with the same configuration again, then the data will be retrieved from the previously create a cache, the wrapped data loader will not be utilized.
+ - If the **CachingDataLoader** was initialized to wrap the same kind of data loader with the same configuration again, then the data will be retrieved from the previously created cache, the wrapped data loader will not be utilized.
 
 {% include template-example.html %} 
 ```csharp
