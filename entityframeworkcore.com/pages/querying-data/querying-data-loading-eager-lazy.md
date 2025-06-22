@@ -1,8 +1,8 @@
 ---
 permaid: 1000239
 Title: EF Core Eager and Lazy Loading - Learn How to Load Data on Demand
-MetaDescription: Unlock the power of EF Core by understanding Eager and Lazy Loading, and their advantages when to use it. Learn why, when, and how to use lazy loading approach over eager loading.
-LastMod: 2023-02-23
+MetaDescription: Unlock the power of EF Core by understanding Eager and Lazy Loading, and their advantages and when to use them. Learn why, when, and how to use the lazy loading approach over eager loading.
+LastMod: 2025-06-22
 tags: query loading
 ---
 

@@ -2,7 +2,7 @@
 permaid: 1000233
 Title: EF Core Client and Server Side Evaluation
 MetaDescription: Unlock the power of EF Core by understanding the difference between Client and Server Side Evaluation. Learn when a client-side evaluation is required and why most of the time, a server-side evaluation is preferred.
-LastMod: 2023-02-23
+LastMod: 2025-06-22
 tags: query client-side
 ---
 
@@ -59,6 +59,6 @@ protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 }
 ```
 
-Now configuration is added in the `DbContext.OnConfiguring` to throw an exception. If a poorly performing query is found, it will throw the following exception with a warning.
+New configuration is added in the `DbContext.OnConfiguring` to throw an exception. If a poorly performing query is found, it will throw the following exception with a warning.
 
 <img src="https://raw.githubusercontent.com/zzzprojects/EntityFrameworkCore/master/docs/images/evaluation-client-server.png" alt="Evaluation client server">

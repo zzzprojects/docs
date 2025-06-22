@@ -1,8 +1,8 @@
 ---
 permaid: 1000241
 Title: EF Core Raw SQL Queries - Learn How to Execute Plain Text SQL
-MetaDescription: Unlock the power of EF Core by using Raw SQL Queries to execute any plain text sql instead of using LINQ. Learn how to use sql text can help you to improve readability when a LINQ query becomes too much complex.
-LastMod: 2023-02-23
+MetaDescription: Unlock the power of EF Core by using Raw SQL Queries to execute any plain text sql instead of using LINQ. Learn how to use SQL text can help you to improve readability when a LINQ query becomes too complex.
+LastMod: 2025-06-22
 tags: query sql
 ---
 
@@ -56,7 +56,7 @@ using (var context = new MyContext())
 
 ### Limitations
 
-In Entity Framework Core there are some limitaions, so make sure you know them when using raw SQL queries.
+In Entity Framework Core there are some limitations, so make sure you know them when using raw SQL queries.
 
  - The SQL query specified in `FromSql()` method must return data for all properties of the entity type.
  - The column names in the result set must match the column names that properties are mapped to. 

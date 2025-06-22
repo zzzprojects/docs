@@ -2,7 +2,7 @@
 permaid: 1000234
 Title: EF Core Global Filter - Learn How to Filter your Query Globally
 MetaDescription: Unlock the power of EF Core by using Global Filter to filter all your queries globally. Learn how a global filter can help to simplify your LINQ query and support scenarios such as a tenant id.
-LastMod: 2023-02-23
+LastMod: 2025-06-22
 tags: query filter
 ---
 
@@ -16,7 +16,7 @@ Entity Framework Core 2.0 introduces global query filters that can be applied to
  - It means that entity framework automatically adds the filter in the where clause before executing the LINQ queries. 
  - Usually, Global query filters are applied in `OnModelCreating` method of context. 
 
-Here is a simple model which contains only one entity i.e., Customer
+Here is a simple model which contains only one entity, i.e., Customer
 
 
 ```csharp
@@ -52,7 +52,7 @@ The expression passed in HasQueryFilter method is automatically applied to any L
 
 <img src="https://raw.githubusercontent.com/zzzprojects/EntityFrameworkCore/master/docs/images/global-filters.png" alt="Global filters">
 
-One record is soft deleted already, and the `IsDeleted` column contains a **True** value for that record. Now if we retrieve all the all the customers from the database using the LINQ query.
+One record is soft deleted already, and the `IsDeleted` column contains a **True** value for that record. Now if we retrieve all the customers from the database using the LINQ query.
 
 
 ```csharp
@@ -64,7 +64,7 @@ using (var context = new MyContext())
 
 We will get only three records, but in the database, we have four records, Because the global filter has filtered records and returns only those records whose `IsDeleted` column contains **False** value.
 
-In some cases, we do not need these filters to be applied, we can also disable filter for individual LINQ queries using the `IgnoreQueryFilters()` method.
+In some cases, we do not need these filters to be applied, we can also disable filters for individual LINQ queries using the `IgnoreQueryFilters()` method.
 
 
 ```csharp

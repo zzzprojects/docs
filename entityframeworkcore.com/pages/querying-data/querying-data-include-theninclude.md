@@ -2,7 +2,7 @@
 permaid: 1000235
 Title: EF Core Include - Learn How to Retrieve Related Objects in LINQ
 MetaDescription: Unlock the power of EF Core by using Include and ThenInclude to retrieve related entities. Learn how including related objects help to simplify your LINQ query.
-LastMod: 2023-02-23
+LastMod: 2025-06-22
 tags: query include
 ---
 
@@ -10,7 +10,7 @@ tags: query include
 
 ## Include 
 
-The `Include` method specifies the related objects to include in the query results. It can be used to retrieve some information from the database and also want to include related entities. Now let's say we have a simple model which contains three entities.
+The `Include` method specifies the related objects to include in the query results. It can be used to retrieve some information from the database and also to include related entities. Now let's say we have a simple model which contains three entities.
 
 
 ```csharp

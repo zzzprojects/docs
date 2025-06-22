@@ -2,13 +2,13 @@
 permaid: 1000232
 Title: EF Core Query - Learn the Basics about Querying a Database in LINQ
 MetaDescription: Unlock the power of EF Core by understanding how queries in LINQ work to understand the basics and more advanced concepts. Learn how to use LINQ and all possibilities it offers.
-LastMod: 2023-02-23
+LastMod: 2025-06-22
 tags: query getting-started
 ---
 
 # EF Core Query: Discover the Basics about Querying a Database in LINQ
 
-Entity Framework Core uses Language Integrate Query (LINQ) to query data from the database. 
+Entity Framework Core uses Language Integrated Query (LINQ) to query data from the database. 
 
  - LINQ allows you to use C# (or your .NET language of choice) to write strongly typed queries based on your derived context and entity classes.
  - Querying in Entity Framework Core remains the same as in EF 6 to load entities from the database. 
@@ -29,7 +29,7 @@ public class Customer
 
 ## Load All data
 
-The following example load all the data from `Customers` table.
+The following example loads all the data from `Customers` table.
 
 ```csharp
 using (var context = new MyContext())
@@ -40,7 +40,7 @@ using (var context = new MyContext())
 
 ## Load a Single Entity
 
-The following example load a single record from `Customers` table based on `CustomerId`.
+The following example loads a single record from `Customers` table based on `CustomerId`.
 
 ```csharp
 using (var context = new MyContext())

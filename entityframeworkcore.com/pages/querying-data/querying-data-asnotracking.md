@@ -1,12 +1,12 @@
 ---
 permaid: 1000231
-Title: EF Core AsNoTracking - Learn what you should not track all queries
+Title: EF Core AsNoTracking - Learn why you should not track all queries
 MetaDescription: Unlock the power of EF Core by using AsNoTracking to improve performance when returning entities. Learn why not tracking entities that don't need to be tracked could improve your querying performance.
-LastMod: 2023-02-23
+LastMod: 2025-06-22
 tags: query change-tracker disconnected
 ---
 
-# EF Core AsNoTracking: Discover what you should not track all queries
+# EF Core AsNoTracking: Discover why you should not track all queries
 
 ## Introduction
 
@@ -29,7 +29,7 @@ using (var context = new MyContext())
 
 ## No-tracking
 
-No tracking query executes quickly because there is no need to setup change tracking information. It is useful when the results are used in a read-only scenario.
+No tracking query executes quickly because there is no need to set up change tracking information. It is useful when the results are used in a read-only scenario.
 
 You can convert a query to a no-tracking query by using `AsNoTracking()` method.
 

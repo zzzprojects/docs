@@ -1,8 +1,8 @@
 ---
 permaid: 1000240
 Title: EF Core Projection - Learn How to Return an Anonymous Type in LINQ
-MetaDescription: Unlock the power of EF Core by using Projection to return anonymous types. Learn how projection can help you to improve your query performance by returning fewer data.
-LastMod: 2023-02-23
+MetaDescription: Unlock the power of EF Core by using Projection to return anonymous types. Learn how projection can help you to improve your query performance by returning less data.
+LastMod: 2025-06-22
 tags: query projection
 ---
 
