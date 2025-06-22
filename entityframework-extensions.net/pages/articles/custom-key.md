@@ -1,6 +1,6 @@
 ---
 Name: Use Custom Key
-LastMod: 2023-02-25
+LastMod: 2025-06-22
 ---
 
 # Use Custom Key
@@ -11,7 +11,7 @@ You want to perform a Bulk Operation (BulkUpdate, BulkDelete, or BulkMerge) but 
 For example, you want to perform a BulkUpdate on a customer list but using the customer "Code" instead of the "CustomerID" for the key.
 
 ## Solution
-You can specify the column to use for the key with the **ColumnPrimaryKeyExpression** options.
+You can specify the column to use for the key with the **ColumnPrimaryKeyExpression** option.
 
 ### Example
 
@@ -44,7 +44,7 @@ This error happens because the key is used in more than one row in the source
 
 The code "001" is here more than once with a different name.
 
-You can allow duplicate key with the **AllowDuplicateKeys** options.
+You can allow duplicate keys with the **AllowDuplicateKeys** option.
 
 
 ```csharp

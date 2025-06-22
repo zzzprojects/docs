@@ -1,6 +1,6 @@
 ---
 Name: Fastest Way to Insert
-LastMod: 2023-02-25
+LastMod: 2025-06-22
 ---
 
 # Fastest Way to Insert
@@ -21,14 +21,14 @@ Some of these solutions are good, some lead to side impacts and none of them fix
 
 So, if you have 5000 entities to insert, 5000 database round-trips will be executed which is **INSANELY** slow.
 
-A very common mistake is believing the AddRange method perform a Bulk Insert. Using the AddRange method greatly improve the performance because it calls the DetectChanges method only once after all entities are added to the change tracker. However, the SaveChanges method will still make one database round-trip per entity.
+A very common mistake is believing the AddRange method performs a Bulk Insert. Using the AddRange method greatly improves the performance because it calls the DetectChanges method only once after all entities are added to the change tracker. However, the SaveChanges method will still make one database round-trip per entity.
 
 ### Solution
 To solve the performance problem, you need to reduce the number of database round-trips, and this is exactly what Entity Framework Extensions made by ZZZ Projects do by providing the BulkInsert method and all other bulk operations:
 
 -	[BulkSaveChanges](#ef-bulksavechanges)
 -	[BulkInsert](#ef-bulkinsert)
--	[BullUpdate](#ef-bulkupdate)
+-	[BulkUpdate](#ef-bulkupdate)
 -	[BulkDelete](#ef-bulkdelete)
 -	[BulkMerge](#ef-bulkmerge)
 
@@ -71,7 +71,7 @@ There are multiple options available such as:
 
 -	Custom Column
 -	Disabled output value for better performance
--	Insert only entities that don't already exists
+-	Insert only entities that don't already exist
 -	Keep Identity Value
 
 Bulk Insert is faster than BulkSaveChanges. However, Bulk Insert doesn't use the Change Tracker so identity value propagation may differ. If you need to perform multiple bulk operations with some relation, it's recommended to use BulkSaveChanges instead.
@@ -154,7 +154,7 @@ ctx.BulkMerge(list);
 ctx.BulkMerge(list, options =>
 {
     options.ColumnInputExpression = x => new { x.Code, x.CreatedDate, x.UpdatedDate };
-    options.IgnoreOnMergeInsertExpression = x => new { x. UpdatedDate };
+    options.IgnoreOnMergeInsertExpression = x => new { x.UpdatedDate };
     options.IgnoreOnMergeUpdateExpression = x => new { x.ID, x.CreatedDate };
     options.ColumnPrimaryKeyExpression = x => new { x.Code };
     options.AutoMapOutputDirection = false;

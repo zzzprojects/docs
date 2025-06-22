@@ -1,6 +1,6 @@
 ---
 Name: Benchmark
-LastMod: 2023-02-25
+LastMod: 2025-06-22
 ---
 
 # Benchmark
@@ -13,8 +13,6 @@ The performance issue may be caused by some common mistakes:
 
 - Forget to JIT compile the library
 - Include method not related to the test
-
-
 
 ## Forget to JIT compile the library
 In C#, the code is compiled into IL by the compiler. Then when needed, the IL is compiled just-in-time (JIT) into the native assembly language of the host machine.
@@ -35,12 +33,12 @@ The Add method was taking 99,9% of the total time while BulkSaveChanges only 0,1
 | Operations | 100 Entities | 1,000 Entities | 10,000 Entities |
 | :--------- | -----------: | -------------: | --------------: |
 | Add             | 15 ms        | 1,050 ms       | 105,000 ms      |
-| BulKSaveChanges | 40 ms        | 90ms           | 400 ms     |
+| BulkSaveChanges  | 40 ms        | 90ms           | 400 ms     |
 
 
 The Add method doesn't affect the performance when adding 100 entities, but if you make your test with 10,000 entities:
  - Add: 99.6%
- - BulkSaveChanges: 0,4%
+ - BulkSaveChanges: 0.4%
 
 ### Solution
 Include only the method you want to benchmark.

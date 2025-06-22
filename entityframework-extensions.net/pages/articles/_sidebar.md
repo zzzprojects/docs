@@ -15,7 +15,7 @@
    - [v7.100.0.0 - Include Graph](v7-100-0-0-include-graph.md)
    - [v7.17.0.0 - EF Core 7](v7-17-0-0-bulk-insert-update-delete.md)
 - Articles
-   - [Exception - Unknow Error 258](exception-unknown-error-258.md)
+   - [Exception - Unknown Error 258](exception-unknown-error-258.md)
    - [Improving Performance of BulkMerge with WhereBulkContains](improving-performance-of-bulkmerge-with-wherebulkcontains.md)
 - Misc
    - [EFCore-Pinned Versioning](efcore-pinned-versioning.md)

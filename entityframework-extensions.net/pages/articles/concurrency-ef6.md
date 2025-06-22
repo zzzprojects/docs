@@ -1,14 +1,14 @@
 ---
 Name: Concurrency EF6
-LastMod: 2023-02-25
+LastMod: 2025-06-22
 ---
 
 # Concurrency (EF 6)
 
 ## Problem
-Your model have concurrency entity and you must resolve optimistic concurrency using a pattern.
+Your model has a concurrency entity, and you must resolve optimistic concurrency using a pattern.
 
-Concurrency exceptions normally happens on:
+Concurrency exceptions normally happen on:
 - BulkSaveChanges
 - BulkUpdate
 
@@ -84,8 +84,6 @@ You merge properties from database and client entity.
 
 
 ```csharp
-public void BulkSaveChanges_CustomResolution(CurrentContext ctx)
-        {
 public void BulkSaveChanges_CustomResolution(CurrentContext ctx)
 {
 
@@ -197,7 +195,7 @@ public void BulkUpdate_CustomResolution<T>(CurrentContext ctx, List<T> list) whe
             if (entry is EntitySimple_Concurrency)
             {
                 var clientEntry = (EntitySimple_Concurrency) entry;
-                var databaseEntry = ctx.EntitySimple_Concurrencys.Single(x => x.ID == clientEntry.ID);
+                var databaseEntry = ctx.EntitySimple_Concurrencies.Single(x => x.ID == clientEntry.ID);
 
                 // merge properties like you want
                 clientEntry.IntColumn = databaseEntry.IntColumn;

@@ -1,6 +1,6 @@
 ---
 Name: Concurrency EF Core
-LastMod: 2023-02-25
+LastMod: 2025-06-22
 ---
 
 # Concurrency (EF Core)
@@ -9,7 +9,7 @@ LastMod: 2023-02-25
 
 Your model has a concurrency property, and you must resolve optimistic concurrency using a pattern.
 
-Concurrency exceptions happens on:
+Concurrency exceptions happen on:
 - BulkSaveChanges
 - BulkUpdate
 - BulkDelete
@@ -71,7 +71,7 @@ For this solution ensures that your concurrency property value is updated with t
 
 ### Client Wins
 
-If you wish to keep the current value, there is two choice:
+If you wish to keep the current value, there are two choices:
 
 - Only update the concurrency property with the database value (See Database Wins && Custom Resolution solution)
 - Use the `AllowConcurrency = false` option. When enabled, the `BulkSaveChanges` will no longer check if there is some concurrency error.

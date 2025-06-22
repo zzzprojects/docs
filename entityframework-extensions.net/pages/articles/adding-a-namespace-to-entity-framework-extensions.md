@@ -1,7 +1,7 @@
 ---
 Title: Adding a Namespace to Entity Framework Extensions
 MetaDescription: Learn how to add a namespace to extension methods from Entity Framework Extensions
-LastMod: 2024-08-23
+LastMod: 2025-06-22
 ---
 
 # Adding a Namespace to Entity Framework Extensions
@@ -12,7 +12,7 @@ When we created this library, our primary goal was to make Entity Framework Exte
 
 Is this approach ideal? Is it a mistake? There are certainly arguments on both sides, with valid pros and cons. However, one thing is clear from our perspective: the library has functioned without requiring namespaces since we created it in 2014, and changing this behavior now would result in major breaking changes for all our customers.
 
-In this article, we will walk through the steps to add a namespace to Entity Framework Extensions for EF Core by using an [extern alias](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/extern-alias) and adding a single file to your projet.
+In this article, we will walk through the steps to add a namespace to Entity Framework Extensions for EF Core by using an [extern alias](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/extern-alias) and adding a single file to your project.
 
 **NOTE:** This solution is currently available only for EF Core. If there is sufficient demand, we may extend similar support for EF6.
 

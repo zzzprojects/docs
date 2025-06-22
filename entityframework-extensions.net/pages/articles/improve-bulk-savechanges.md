@@ -1,6 +1,6 @@
 ---
 Name: Improve BulkSaveChanges
-LastMod: 2023-02-25
+LastMod: 2025-06-22
 ---
 
 # Improve BulkSaveChanges
@@ -8,7 +8,7 @@ LastMod: 2023-02-25
 ## Introduction
 BulkSaveChanges is already very fast. But you can make it even faster by simply turning off the "EntityFrameworkPropagation" options.
 
-While the performance will be significantly increased, this option works with  99,9% of models. Unfortunately, we cannot turn this option on by default for backward compatibility until we make it work with all models. This option is not recommended for context that use Lazy Loading.
+While the performance will be significantly increased, this option works with 99.9% of models. Unfortunately, we cannot turn this option on by default for backward compatibility until we make it work with all models. This option is not recommended for context that use Lazy Loading.
 
 We are currently working on the next major version which will have even better performances!
 
@@ -43,11 +43,11 @@ ctx.BulkSaveChanges(false);
 
 For SQL Server, performance improvement is around 2x faster.
 
-For some provider like SQLite, performance improvement can be as high as 10x faster.
+For some providers like SQLite, performance improvement can be as high as 10x faster.
 
 ### Unsupported Scenario
 
-- There is too many cross-reference tables, and the library is not able to create a saving strategy. You will receive an error on the first use.
+- There are too many cross-reference tables, and the library is not able to create a saving strategy. You will receive an error on the first use.
 - An entity uses a temporary generated GUID when adding (not empty), but the GUID is replaced later by the GUID generated in the database. Data will be correctly inserted, but entities may still have the temporary GUID for relation not using navigation property.
 
 ## Why turning off Entity Framework Propagation is faster?

@@ -1,7 +1,7 @@
 ---
 Title: v7.100.0.0 - IncludeGraph Performance and Memory Improvement
 MetaDescription: Learn starting from the v7.100.0.0 how the new IncludeGraph consumes around 20% of the memory that its predecessor did and can perform bulk operations 5 times faster.
-LastMod: 2023-11-16
+LastMod: 2025-06-22
 ---
 
 # v7.100.0.0 Breaking Changes: IncludeGraph 
@@ -34,7 +34,7 @@ context.BulkInsert(list, options => {
 
 The revamped `IncludeGraph` offers a substantial reduction in memory consumption and significant performance enhancements across various scenarios.
 
-These improvements are primarily due from minimizing the dependence of our library on certain EF Core methods. For instance, the `LegacyIncludeGraph` was generating commands similarly to the `SaveChanges` method, but the new `IncludeGraph` has been redesigned to generate commands in a more optimized manner. By reducing the number of commands generated, we've significantly reduced the memory footprint and simultaneously enhanced performance.
+These improvements are primarily due to minimizing the dependence of our library on certain EF Core methods. For instance, the `LegacyIncludeGraph` was generating commands similarly to the `SaveChanges` method, but the new `IncludeGraph` has been redesigned to generate commands in a more optimized manner. By reducing the number of commands generated, we've significantly reduced the memory footprint and simultaneously enhanced performance.
 
 To demonstrate, consider a scenario with 2000 invoices and 10,000 invoice items:
 
@@ -44,11 +44,11 @@ To demonstrate, consider a scenario with 2000 invoices and 10,000 invoice items:
 
 <img src="https://raw.githubusercontent.com/zzzprojects/docs/master/entityframework-extensions.net/images/include-graph-memory-performance-comparisons.png" alt="Memory & Performance Comparisons" loading="lazy">
 
-Though the improvement might seem marginal initially, the new `IncludeGraph` take **94 MB**, while the `LegacyIncludeGraph` take **128 MB**. However, if we remove the **70MB** required to create the context and entities by not related to this option, it means that the `IncludeGraph` take only **24 MB** while the `LegacyIncludeGraph` take **58 MB**. So the new `IncludeGraph` took only **40%** of the memory compared to `LegacyIncludeGraph` and the difference becomes even more noticeable as the number of entities rises.
+Though the improvement might seem marginal initially, the new `IncludeGraph` takes **94 MB**, while the `LegacyIncludeGraph` takes **128 MB**. However, if we remove the **70MB** required to create the context and entities but not related to this option, it means that the `IncludeGraph` takes only **24 MB** while the `LegacyIncludeGraph` takes **58 MB**. So the new `IncludeGraph` took only **40%** of the memory compared to `LegacyIncludeGraph` and the difference becomes even more noticeable as the number of entities rises.
 
 In addition, the improvement in the performance was twice as fast which is another benefit of the new `IncludeGraph`.
 
-Due to .NET Fiddle's memory constraints, we cannot showcasing examples with a larger number of entities online. However, based on our tests, here's what you can expect:
+Due to .NET Fiddle's memory constraints, we cannot showcase examples with a larger number of entities online. However, based on our tests, here's what you can expect:
 
 **10k invoices, 50k InvoiceItem**:
 
@@ -64,7 +64,7 @@ Due to .NET Fiddle's memory constraints, we cannot showcasing examples with a la
 | Memory | 400 MB | 2000 MB | 1800 MB |
 | Performance | 10s | 48s | 58s |
 
-From these observations, the `LegacyIncludeGraph` consumes marginally more memory compared to `SaveChanges`, but offer better performance.
+From these observations, the `LegacyIncludeGraph` consumes marginally more memory compared to `SaveChanges`, but offers better performance.
 
 The new `IncludeGraph` consumes around **20% of the memory** that its predecessor did and can perform bulk operations **5 times faster**. This memory savings can be even more significant in projects that often use bulk operations, as the garbage collector now has fewer objects to manage.
 
@@ -108,7 +108,7 @@ public class Customer
 }
 ```
 
-In this example, we've set a default SQL value (`50`) for the `MaximumRequestPerDay` property of the `Customer` class. For the customer **ZZZ Projects**, we have set the `MaximumRequestPerDay` value to `100`, and for the customer **Jonathan Magnan**, we have no specified any value for the `MaximumRequestPerDay` property.
+In this example, we've set a default SQL value (`50`) for the `MaximumRequestPerDay` property of the `Customer` class. For the customer **ZZZ Projects**, we have set the `MaximumRequestPerDay` value to `100`, and for the customer **Jonathan Magnan**, we have not specified any value for the `MaximumRequestPerDay` property.
 
 When the model is aware of a SQL default value, a method like `BulkInsert(customers)` will ignore the `MaximumRequestPerDay` property during insertion, regardless of whether a value has been specified. It will always let the database use the default value.
 

@@ -1,6 +1,6 @@
 ---
 Name: Improving Performance of BulkMerge with WhereBulkContains
-LastMod: 2023-09-27
+LastMod: 2025-06-22
 ---
 
 # Improving Performance of BulkMerge with WhereBulkContains
@@ -23,7 +23,7 @@ context.BulkMerge(importPickDatas, options => {
 
 In his case, he had to merge over 1 million rows in a table containing over 1 billion rows, and the process took more than 30 minutes to complete.
 
-He asked us to look at his scenario and provide some guidance or recommendations about optimizing this process to reduce the overall execution time. After a few back and forth to better understand his scenario, we found the cause and 2 solutions.
+He asked us to look at his scenario and provide some guidance or recommendations about optimizing this process to reduce the overall execution time. After a few  back-and-forths to better understand his scenario, we found the cause and 2 solutions.
 
 ## Cause
 
@@ -163,7 +163,7 @@ There is no batch when using the [WhereBulkContains](/where-bulk-contains). All 
 
 ## Solution 3 - Sync Properties from Database Values
 
-A new solution is now available when using Entity Framework Plus. The feature [SyncPropertiesFromDatabaseValues](https://entityframework-plus.net/ef-core-sync-properties-from-database-values) let you synchronizes one or more properties from your list by retriving the database values.
+A new solution is now available when using Entity Framework Plus. The feature [SyncPropertiesFromDatabaseValues](https://entityframework-plus.net/ef-core-sync-properties-from-database-values) lets you synchronize one or more properties from your list by retrieving the database values.
 
 It's very similar to the solution #2, but way easier to implement:
 

@@ -1,6 +1,6 @@
 ---
 Name: Use Custom Column
-LastMod: 2023-02-25
+LastMod: 2025-06-22
 ---
 
 # Use Custom Column
@@ -11,7 +11,7 @@ You want to perform a Bulk Operation (BulkInsert, BulkUpdate, BulkDelete, or Bul
 For example, you want to perform a BulkUpdate on a customer list but only UPDATE the name and email properties.
 
 ## Solution
-You can specify the column on which the operation should be performed with the **ColumnInputExpression** options.
+You can specify the column on which the operation should be performed with the **ColumnInputExpression** option.
 
 ### Example
 

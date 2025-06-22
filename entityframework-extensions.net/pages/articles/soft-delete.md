@@ -1,12 +1,12 @@
 ---
 Name: Soft Delete
-LastMod: 2023-02-25
+LastMod: 2025-06-22
 ---
 
 # Soft Delete
 
 ## Problem
-You want to soft delete some entities currently in deleted state with BulkSaveChanges.
+You want to soft delete some entities currently in a deleted state with BulkSaveChanges.
 
 
 ```csharp
@@ -50,7 +50,7 @@ using (var ctx = new CurrentContext())
 ```
 
 ## Problem
-You want to soft delete some entities currently in deleted state with BulkDelete.
+You want to soft delete some entities currently in a deleted state with BulkDelete.
 
 
 ```csharp

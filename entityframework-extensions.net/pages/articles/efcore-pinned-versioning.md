@@ -1,13 +1,13 @@
 ---
 Name: EFCore-Pinned Versioning
-LastMod: 2023-09-12
+LastMod: 2025-06-22
 ---
 
 # EFCore-Pinned Versioning
 
 The EFCore-Pinned Versioning is the specific versioning conventions used by both [Entity Framework Extensions](https://entityframework-extensions.net/) and [Entity Framework Plus](https://entityframework-plus.net/) libraries.
 
-To make the explanation below simpler, we will only provide example with [Entity Framework Extensions](https://entityframework-extensions.net/) also named **EFE**.
+To make the explanation below simpler, we will only provide examples with [Entity Framework Extensions](https://entityframework-extensions.net/) also named **EFE**.
 
 ## What is EFCore-Pinned Versioning?
 
@@ -27,7 +27,7 @@ The [efcore-version] directly corresponds to the EF Core version:
 - `6.x.y.z`: For **EFE** using `EF Core 6` 
 - `5.x.y.z`: For **EFE** using `EF Core 5` 
 
-Incrementing the `x` value typically indicates a major release, which often indicate of a breaking changes.
+Incrementing the `x` value typically indicates a major release, which often indicates a breaking change.
 
 **NOTE:** On NuGet, when the `[patch]` value is `0`, it doesn't appear in the version number. For example, a release like `7.100.0.0` will be displayed on NuGet as `7.100.0`. Keep this in mind when comparing version numbers between our release notes and NuGet listings.
 
@@ -81,9 +81,9 @@ While we can't pinpoint every library's exact versioning strategy, several third
 The [Entity Framework Extensions](https://entityframework-extensions.net/) library introduced a breaking change in its [release on 2023-09-12](https://github.com/zzzprojects/EntityFramework-Extensions/releases/tag/7.100.0.0). Highlighted features of this release included:
 
 - The formal adoption of **EFCore-Pinned Versioning**.
-- A major breaking changes within the [IncludeGraph feature](https://entityframework-extensions.net/v7-100-0-0-include-graph).
+- A major breaking change within the [IncludeGraph feature](https://entityframework-extensions.net/v7-100-0-0-include-graph).
 
-These modifications was including a breacking changes, consequently requiring the major version being incremented to `100` resulting in the release of the following packages:
+These modifications included a breaking change, consequently requiring the major version to be incremented to `100` resulting in the release of the following packages:
 
 - [v7.100.0.0](https://www.nuget.org/packages/Z.EntityFramework.Extensions.EFCore/7.100.0.0): for **EFE** using `EF Core 7`
 - [v6.100.0.0](https://www.nuget.org/packages/Z.EntityFramework.Extensions.EFCore/6.100.0.0): for **EFE** using `EF Core 6`

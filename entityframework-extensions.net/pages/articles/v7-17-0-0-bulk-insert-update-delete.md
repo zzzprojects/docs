@@ -1,14 +1,14 @@
 ---
 Title: v7.17.0.0 - Bulk Insert Improvement for EF Core 7
 MetaDescription: Learn what is new in Entity Framework Extensions for EF Core 7 and what the Microsoft new features called BulkUpdate and BulkDelete really are.
-LastMod: 2023-11-30
+LastMod: 2025-06-22
 ---
 
 # EF Extensions for EF Core 7 - What is New?
 
 [EF Core 7](https://github.com/dotnet/efcore/releases/tag/v7.0.0) was finally released on November 8, 2022, along with some new features and confusion.
 
-Entity Framework Extensions officially start to support EF Core 7 starting from v7.17.0.0
+Entity Framework Extensions officially starts to support EF Core 7 starting from v7.17.0.0
 
 If you are confused with our versioning, please refer to [EFCore-Pinned Versioning](/efcore-pinned-versioning) convention.
 
@@ -19,7 +19,7 @@ Through the year, multiple improvements have been made to our [EF Core Bulk Inse
 - Major IncludeGraph revamp (better performance with less memory usage) ([v7.100.0](/v7-100-0-0-include-graph))
 - Added QueryHint option for SQL Server ([v7.21.1](https://github.com/zzzprojects/EntityFramework-Extensions/releases/tag/7.21.1))
 - Removed Newtonsoft.Json dependency ([v7.20.0](https://github.com/zzzprojects/EntityFramework-Extensions/releases/tag/7.20.0))
-- Performance Improvement for `Owned` and `Shadow` value ([v7.18.3](https://github.com/zzzprojects/EntityFramework-Extensions/releases/tag/7.18.3))
+- Performance Improvement for `Owned` and `Shadow` values ([v7.18.3](https://github.com/zzzprojects/EntityFramework-Extensions/releases/tag/7.18.3))
 - Added support to [TPC](https://www.learnentityframeworkcore.com/inheritance/table-per-concrete) ([v7.18.1](https://github.com/zzzprojects/EntityFramework-Extensions/releases/tag/7.18.1))
 - Added support to entity type with nullable owned types ([v7.17.0](https://github.com/zzzprojects/EntityFramework-Extensions/releases/tag/7.17.0))
 
@@ -55,6 +55,6 @@ So be careful when seeing that EF Core supports bulk operations, as a lot of art
 
 ## Conclusion
 
-EF Core 7 is a big success for the Microsoft Team. They worked hard indeed to add support for `TPC` (Table Per Hierarchy), which we believe was the hardest inheritance to add and to improve the performance overall. The only negative point was to promote their 2 new methods as `BulkUpdate` and `BulkDelete`. 
+EF Core 7 is a big success for the Microsoft Team. They worked hard indeed to add support for `TPC` (Table Per Concrete), which we believe was the hardest inheritance to add and to improve the performance overall. The only negative point was to promote their 2 new methods as `BulkUpdate` and `BulkDelete`. 
 
 As for ZZZ Projects, making sure that [Entity Framework Extensions](https://entityframework-extensions.net/) support EF Core 7 was also a big challenge as we kept learning new features that we were not even aware were supported. However, our library is improving daily, making it the most advanced and customizable library for bulk operations.
