@@ -1,6 +1,6 @@
 ---
 Name: PreBulkInsert
-LastMod: 2023-03-01
+LastMod: 2025-06-23
 ---
 
 # PreBulkInsert
@@ -28,4 +28,4 @@ EntityFrameworkManager.PreBulkInsert = (ctx, obj) =>
 
 [Try it in EF Core](https://dotnetfiddle.net/sdkwxW) | [Try it in EF6](https://dotnetfiddle.net/9JUluL) 
 
-In the `PreBulkInsert` event, the `CreatedDate` property is set to `DateTime.Now` before the data is inserted to the database.
+In the `PreBulkInsert` event, the `CreatedDate` property is set to `DateTime.Now` before the data is inserted into the database.

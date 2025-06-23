@@ -1,6 +1,6 @@
 ---
 Name: PreBulkSaveChanges
-LastMod: 2023-03-01
+LastMod: 2025-06-23
 ---
 
 # PreBulkSaveChanges
@@ -20,11 +20,11 @@ EntityFrameworkManager.PreBulkSaveChanges = ctx =>
 
     foreach (var change in modifiedEntities)
     {
-        if (objectStateEntry.State == EntityState.Added)
+        if (change.State == EntityState.Added)
         {
             change.CurrentValues["CreatedDate"] = DateTime.Now;
         }
-        else if (objectStateEntry.State == EntityState.Modified)
+        else if (change.State == EntityState.Modified)
         {
             change.CurrentValues["ModifiedDate"] = DateTime.Now;
         }
@@ -34,4 +34,4 @@ EntityFrameworkManager.PreBulkSaveChanges = ctx =>
 
 [Try it in EF Core](https://dotnetfiddle.net/5Zj4gQ) | [Try it in EF6](https://dotnetfiddle.net/3nTyrH)
 
-In the `PreBulkSaveChanges` event, the `CreatedDate` for new customers and `ModifiedDate` property for existing customers is set to `DateTime.Now` before the data is saved to the database.
+In the `PreBulkSaveChanges` event, the `CreatedDate` for new customers and the `ModifiedDate` property for existing customers are set to `DateTime.Now` before the data is saved into the database.
