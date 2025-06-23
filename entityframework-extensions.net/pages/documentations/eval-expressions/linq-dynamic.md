@@ -1,6 +1,6 @@
 ---
 Name: LINQ Dynamic
-LastMod: 2023-02-28
+LastMod: 2025-06-23
 ---
 
 # LINQ Dynamic
@@ -13,7 +13,7 @@ You can download it here: [Download](https://eval-expression.net/download)
 > The Eval-Expression.NET library can be activated with the Entity Framework Extensions license. 
 
 ## LINQ Dynamic - Predicate
-You can use any LINQ method that support predicate with a dynamic C# expression:
+You can use any LINQ method that supports predicate with a dynamic C# expression:
 
 - Deferred
    - OrderByDescendingDynamic
