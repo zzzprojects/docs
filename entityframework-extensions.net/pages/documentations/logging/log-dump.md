@@ -1,6 +1,6 @@
 ---
 Name: LogDump
-LastMod: 2023-03-01
+LastMod: 2025-06-23
 ---
 
 # LogDump
@@ -48,4 +48,4 @@ Try it: [.NET Core](https://dotnetfiddle.net/4MdLDi) | [.NET Framework](https://
 
 ### Result
 
-We outputted the `StringBuilder` text which contains all SQL statements executed in the database.
+We output the `StringBuilder` text which contains all SQL statements executed in the database.
