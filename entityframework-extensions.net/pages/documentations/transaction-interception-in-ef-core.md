@@ -1,7 +1,7 @@
 ---
 Permalink: transaction-interception-in-ef-core
 Name: Transaction Interception
-LastMod: 2023-03-01
+LastMod: 2025-06-23
 ---
 
 # Transaction Interception
@@ -71,7 +71,7 @@ public class EFTransactionInterceptor : DbTransactionInterceptor
 }
 ```
 
-This code writes connection information on the Console Window. The `DbConnectionInterceptionContext` currently have the following properties: 
+This code writes connection information on the Console Window. The `DbTransactionInterceptionContext` currently has the following properties: 
 
  - DbContext
  - EventData which contains all information about this event.

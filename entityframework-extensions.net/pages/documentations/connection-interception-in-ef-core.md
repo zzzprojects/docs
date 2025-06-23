@@ -1,7 +1,7 @@
 ---
 Permalink: connection-interception-in-ef-core
 Name: Connection Interception
-LastMod: 2023-03-01
+LastMod: 2025-06-23
 ---
 
 # Connection Interception
@@ -64,7 +64,7 @@ public class EFConnectionInterceptor : DbConnectionInterceptor
 }
 ```
 
-This code writes connection information on the Console Window. The `DbConnectionInterceptionContext` currently have the following properties: 
+This code writes connection information on the Console Window. The `DbConnectionInterceptionContext` currently has the following properties: 
 
  - DbContext
  - EventData which contains all information about this event.

@@ -1,7 +1,7 @@
 ---
 Title: Bulk Update in EF Core | Optimize the way you update your entities
 MetaDescription: The BulkUpdate method is the most flexible way to update your entities in EF Core. It allows you to customize how your entities will be updated, such as by specifying a custom key, updating only a few properties, and much more. - try it now.
-LastMod: 2025-05-30
+LastMod: 2025-06-23
 ---
 
 # Bulk Update /n Easily customize and optimize your entity updates in EF Core now
@@ -92,7 +92,7 @@ context.BulkUpdate(customers, options => options.IgnoreOnUpdateExpression = c =>
 [Try it in EF Core](https://dotnetfiddle.net/Enr2KP) | [Try it in EF6](https://dotnetfiddle.net/R43wS0)
 
 ### Update with custom key
-You want to update entities, but you don't have the primary key. The `ColumnPrimaryKeyExpression` let you use as a key any property or combination of properties.
+You want to update entities, but you don't have the primary key. The `ColumnPrimaryKeyExpression` lets you use as a key any property or combination of properties.
 
 ```csharp
 context.BulkUpdate(customers, options => options.ColumnPrimaryKeyExpression = c => c.Code);    
@@ -115,10 +115,10 @@ context.BulkUpdate(invoices, options => options.IncludeGraph = true);
 ### Update with future action
 You want to update entities, but you want to defer the execution.
 
-By default, `BulkUpdate` is an immediate operation. That mean, it's executed as soon as you call the method.
+By default, `BulkUpdate` is an immediate operation. That means, it's executed as soon as you call the method.
 
 `FutureAction`: This option lets you defer the execution of a Bulk Update.
-`ExecuteFutureAction`: This option trigger and execute all pending `FutureAction`.
+`ExecuteFutureAction`: This option triggers and executes all pending `FutureAction`.
 
 ```csharp
 context.FutureAction(x => x.BulkUpdate(customers));

@@ -1,7 +1,7 @@
 ---
 Permalink: command-interception-in-ef-core
 Name: What is Command Interception
-LastMod: 2023-03-01
+LastMod: 2025-06-23
 ---
 
 # What is Command Interception
@@ -9,7 +9,7 @@ LastMod: 2023-03-01
 The high-level goal for the interception feature is to allow external code to observe and potentially intercept EF operations. 
 
  - Anytime Entity Framework sends a command to the database this command can be intercepted by application code.
- - Using this approach, you can capture a lot more information transiently without having to untidy your code.
+ - Using this approach, you can capture a lot more information transiently without having to mess up your code.
  - EF6 provides a dedicated logging API that can make it easier to do logging. 
  - In this article, we will cover how to use the Entity Framework's interception feature directly for logging.
 
@@ -23,7 +23,7 @@ To get this feature in your EF Core, install the [Z.EntityFramework.Extensions.E
 PM> Install-Package Z.EntityFramework.Extensions.EFCore
 ```
 
-The DbCommandInteceptor in EF Core is very similar to EF6. 
+The DbCommandInterceptor in EF Core is very similar to EF6. 
 
  - You will need to create a class that implements DbCommandInterceptor.
  - You will also need to override the virtual methods that you want to intercept 
@@ -105,7 +105,7 @@ public class EFCommandInterceptor : DbCommandInterceptor
 }
 ```
 
-This code writes commands and queries on the Console Window. The `DbCommandInterceptionContext` currently have the following properties: 
+This code writes commands and queries on the Console Window. The `DbCommandInterceptionContext` currently has the following properties: 
 
  - DbContext
  - Result (populated only on "Executed" event) 

@@ -1,6 +1,6 @@
 ---
 Name: Insert from Query
-LastMod: 2024-08-07
+LastMod: 2025-06-23
 ---
 
 # Insert from Query
@@ -25,7 +25,7 @@ context.Customers
 ## Purpose
 `Inserting` entities using `SaveChanges` normally requires loading them first in the `ChangeTracker` if you want to copy existing ones. These additional round-trips are often not necessary.
 
-`InsertFromQuery` gives you access to directly execute an `INSERT` statement in the database and provide a **HUGE** performance improvement.
+`InsertFromQuery` gives you access to directly execute an `INSERT` statement in the database and provides a **HUGE** performance improvement.
 
 ## Performance Comparisons
 
