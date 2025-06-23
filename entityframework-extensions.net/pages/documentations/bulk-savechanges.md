@@ -1,7 +1,7 @@
 ---
 Title: EF Core Bulk SaveChanges | Optimize Data Saving for EF6 and EF Core
 MetaDescription: Efficiently save Entity Framework changes with EF Core Bulk SaveChanges Extensions. Quickly save large numbers of changes with customizable options for all EF versions, including EF Core 7, 6, 5, 3, and EF6. Optimize your database operations - try it now.
-LastMod: 2025-03-20
+LastMod: 2025-06-23
 ---
 
 # Bulk SaveChanges /n Supercharge your EF Core SaveChanges by adding 'Bulk'
@@ -44,19 +44,19 @@ context.BulkSaveChanges(options => options.BatchSize = 100);
 - Easy to use
 - Flexible
 - Increase performance
-- Increase application responsivness
+- Increase application responsiveness
 - Reduce database load
 - Reduce database round-trips
 
 ### FAQ
 
 #### Why BulkSaveChanges is faster than SaveChanges?
-The `SaveChanges` method makes it quite slow/impossible to handle a scenario that requires to save a lot of entities due to the number of database round-trips required. The `SaveChanges` perform one database round-trip for every entity to insert. So, if you need to insert 10,000 entities, 10,000 database round-trips will be performed which is **INSANELY** slow.
+The `SaveChanges` method makes it quite slow/impossible to handle a scenario that requires to save a lot of entities due to the number of database round-trips required. The `SaveChanges` performs one database round-trip for every entity to insert. So, if you need to insert 10,000 entities, 10,000 database round-trips will be performed which is **INSANELY** slow.
 
 The `BulkSaveChanges` in counterpart requires the minimum number of database round-trips possible. By using Bulk Operations, fewer commands are executed which lead to better performance.
 
 ### Why BulkSaveChanges update all columns by default (EF6 only)?
-The `BulkSaveChanges` try to combine most commands in a single operation. Updating different columns from an action to another will require generating different SQL and being executed in several database round-trips.
+The `BulkSaveChanges` tries to combine most commands in a single operation. Updating different columns from an action to another will require generating different SQL and being executed in several database round-trips.
 
 That's still possible to have the same behavior of `SaveChanges` by disabling the option `ForceUpdateUnmodifiedValues`:
 
@@ -70,7 +70,7 @@ For `EF Core`, this option is not available. Only columns that have a modificati
 Whenever you have more than one entity to save. The `BulkSaveChanges` is almost as fast as the `SaveChanges` for one entity, but becomes way faster as the number of entities to save grows.
 
 #### When should I use BulkSaveChanges over BatchSaveChanges?
-`BatchSaveChanges` become slower and slower in comparisons to `BulkSaveChanges` when the number of entities to save grows due to the `ChangeTracker`.
+`BatchSaveChanges` become slower and slower in comparison to `BulkSaveChanges` when the number of entities to save grows due to the `ChangeTracker`.
 
 After a few thousands of entities, we recommend using `BulkSaveChanges` which is a more scalable solution.
 

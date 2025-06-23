@@ -1,14 +1,14 @@
 ---
 Title: EFCore BulkExtensions | Bulk Insert, Update, Delete, Merge, Upsert
 MetaDescription: Learn how to use EFCore BulkExtensions to boost your CRUD operations performance. Discover how to save entities faster and by using less memory. Try it now.
-LastMod: 2024-08-30
+LastMod: 2025-06-23
 ---
 
 # EFCore BulkExtensions
 
 ## What is EFCore BulkExtensions?
 
-**BulkExtensions** are extension methods added to **EFCore** to enhance your CRUD operation performance and reduce the memory usage in your application. Bulk Methods has been created to be very easy to use and easy to customize.
+**BulkExtensions** are extension methods added to **EFCore** to enhance your CRUD operation performance and reduce the memory usage in your application. Bulk Methods have been created to be very easy to use and easy to customize.
 
 Here is an example that [Bulk Insert in EF Core](https://entityframework-extensions.net/bulk-insert) a list of `Invoice` and related `InvoiceItems` by using the [IncludeGraph](https://entityframework-extensions.net/include-graph) option:
 
@@ -16,7 +16,7 @@ Here is an example that [Bulk Insert in EF Core](https://entityframework-extensi
 context.BulkInsert(invoices, options => { options.IncludeGraph = true});
 ```
 
-The [Bulk Insert](https://entityframework-extensions.net/bulk-insert) method is not only faster than using the `SaveChanges` method but also [reduces the memory consumption](https://entityframework-extensions.net/v7-100-0-0-include-graph#memory-performance-improvements)
+The [Bulk Insert](https://entityframework-extensions.net/bulk-insert) method is not only faster than using the `SaveChanges` method but also [reduces memory consumption](https://entityframework-extensions.net/v7-100-0-0-include-graph#memory-performance-improvements)
 
 
 **10k invoices, 50k InvoiceItem**:
@@ -35,7 +35,7 @@ The [Bulk Insert](https://entityframework-extensions.net/bulk-insert) method is 
 
 Using **BulkExtensions** can improve your performance by more than **5 times faster** and with the benefit of using around **20% of the memory** of what **SaveChanges** requires.
 
-## Which EFCore BulkExtensions method are supported?
+## Which EFCore BulkExtensions methods are supported?
 
 - [Bulk SaveChanges](/bulk-savechanges)
 - [Bulk Insert](/bulk-insert)
@@ -68,7 +68,7 @@ The [EF Core Bulk Insert](/bulk-insert) extension method is the main method of o
 
 The most common options used are:
 
-- **AutoMapOutputDirection**: This option allows to optimize performance by not returning outputting values such as identity values.
+- **AutoMapOutputDirection**: This option allows you to optimize performance by not returning output values such as identity values.
 - **InsertIfNotExists**: This option ensures only new entities that don't already exist in the database are inserted.
 - **InsertKeepIdentity**: This option allows the insertion of specific values into an identity column from your entities.
 - **IncludeGraph**: This option enables the insertion of entities along with all related entities found in the entity graph, maintaining the relationships.
@@ -86,7 +86,7 @@ await context.BulkInsertAsync(customers);
 
 ## Bulk SaveChanges
 
-The [EF Core Bulk SaveChanges](/bulk-savechanges) extension method allows you to replace the `SaveChanges` method to improve your saving performance. The only difference between both methods is the `BulkSaveChange` inserts, updates, and deletes data faster!
+The [EF Core Bulk SaveChanges](/bulk-savechanges) extension method allows you to replace the `SaveChanges` method to improve your saving performance. The only difference between both methods is the `BulkSaveChanges` method inserts, updates, and deletes data faster!
 
 ```csharp
 // context.SaveChanges();
@@ -140,7 +140,7 @@ await context.BulkDeleteAsync(customers);
 
 ## Bulk Merge / Upsert
 
-The [EF Core Bulk Merge](/bulk-merge) extension method allows you to add or update data in your database in bulk. People often search for this feature on other names, such as `Upsert`, `AddOrUpdate`, or `InsertOrUpdate` bulk extensions.
+The [EF Core Bulk Merge](/bulk-merge) extension method allows you to add or update data in your database in bulk. People often search for this feature under other names, such as `Upsert`, `AddOrUpdate`, or `InsertOrUpdate` bulk extensions.
 
 The most common options used are:
 
@@ -217,7 +217,7 @@ The `WhereBulkNotContains` is a deferred method (so it doesn't materialize entit
 var list1 = context.Customers.WhereBulkContains(ids).ToList();
 var list2 = context.Customers.WhereBulkContains(list, key => new { x.Email, x.PhoneNumber });
 
-var list2 = await context.Customers.WhereBulkContains(ids).ToListAsync();
+var list3 = await context.Customers.WhereBulkContains(ids).ToListAsync();
 ```
 
 ## Conclusion

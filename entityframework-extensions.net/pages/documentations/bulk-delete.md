@@ -1,7 +1,7 @@
 ---
 Title: Bulk Delete in EF Core | Delete entities without tracking them
 MetaDescription: Efficiently delete Entity Framework data with EF Core Bulk Delete Extensions. Customize options to quickly delete large numbers of entities with ease, compatible with all EF versions including EF Core 7, 6, 5, 3, and EF6. Optimize your database operations - try it now.
-LastMod: 2025-05-30
+LastMod: 2025-06-23
 ---
 
 # Bulk Delete /n Swiftly perform delete operations on thousands of entities in EF Core
@@ -75,7 +75,7 @@ The `BulkDelete` method is **fast** but also **flexible** to let you handle vari
 ## Getting Started
 
 ### Bulk Delete
-The `BulkDelete` and `BulkDeleteAync` methods extend your `DbContext` to let you delete a large number of entities in your database.
+The `BulkDelete` and `BulkDeleteAsync` methods extend your `DbContext` to let you delete a large number of entities in your database.
 
 ```csharp
 context.BulkDelete(customers);
@@ -86,7 +86,7 @@ context.BulkDeleteAsync(customers, cancellationToken);
 [Try it in EF Core](https://dotnetfiddle.net/EO0Z1R) | [Try it in EF6](https://dotnetfiddle.net/10nw7a)
 
 ### Bulk Delete with options
-The `options` parameter let you use a lambda expression to customize the way entities are deleted.
+The `options` parameter lets you use a lambda expression to customize the way entities are deleted.
 
 ```csharp
 context.BulkDelete(customers, options => options.BatchSize = 100);
@@ -99,12 +99,12 @@ Deleting thousands of entities for a file importation is a typical scenario.
 
 The `SaveChanges` method makes it quite impossible to handle this kind of situation due to the number of database round-trips required. The `SaveChanges` performs one database round-trip for every entity to delete. So, if you need to delete 10,000 entities, 10,000 database round-trips will be performed which is **INSANELY** slow.
 
-The `BulkDelete` in counterpart requires the minimum number of database round-trips possible. For example, under the hood for SQL Server, a `SqlBulkCopy` is performed first in a temporary table, then a `DELETE` from the temporary table to the destination table is performed which is the fastest way available.
+The `BulkDelete` by contrast requires the minimum number of database round-trips possible. For example, under the hood for SQL Server, a `SqlBulkCopy` is performed first in a temporary table, then a `DELETE` from the temporary table to the destination table is performed which is the fastest way available.
 
 ## Real Life Scenarios
 
 ### Delete with custom key
-You want to delete entities, but you don't have the primary key. The `ColumnPrimaryKeyExpression` let you use as a key any property or combination of properties.
+You want to delete entities, but you don't have the primary key. The `ColumnPrimaryKeyExpression` lets you use any property or combination of properties as a key.
 
 ```csharp
 context.BulkDelete(customers, options => options.ColumnPrimaryKeyExpression = c => c.Code);    
@@ -115,7 +115,7 @@ context.BulkDelete(customers, options => options.ColumnPrimaryKeyExpression = c 
 ### Delete with related child entities (Include Graph)
 You want to delete entities but also automatically delete related child entities.
 
-- `IncludeGraph`: This option lets you to automatically delete all entities part of the graph.
+- `IncludeGraph`: This option lets you automatically delete all entities part of the graph.
 - `IncludeGraphBuilder`: This option lets you customize how to delete entities for a specific type.
 
 ```csharp
@@ -124,15 +124,15 @@ context.BulkDelete(invoices, options => options.IncludeGraph = true);
 
 [Try it in EF Core](https://dotnetfiddle.net/SHM63t)
 
-NOTE: Only support EF Core 3+
+NOTE: Only supported in EF Core 3+
 
 ### Delete with future action
 You want to delete entities, but you want to defer the execution.
 
 By default, `BulkDelete` is an immediate operation. That means, it's executed as soon as you call the method.
 
-`FutureAction`: This option let you defer the execution of a Bulk Delete.
-`ExecuteFutureAction`: This option trigger and execute all pending `FutureAction`.
+`FutureAction`: This option lets you defer the execution of a Bulk Delete.
+`ExecuteFutureAction`: This option triggers and executes all pending `FutureAction`.
 
 ```csharp
 context.FutureAction(x => x.BulkDelete(customers1));

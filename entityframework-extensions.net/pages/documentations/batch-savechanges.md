@@ -1,6 +1,6 @@
 ---
 Name: Batch SaveChanges
-LastMod: 2023-03-01
+LastMod: 2025-06-23
 ---
 
 # Batch SaveChanges
@@ -18,7 +18,7 @@ For a limited time, the **BatchSaveChanges** is offered in a standalone version 
 
 The Entity Framework `BatchSaveChanges` method is the fastest way to save a few or hundreds of entities.
 
-The same sql in the same order as `SaveChanges` is used but batched in fewer commands to increase the performance.
+The same SQL in the same order as `SaveChanges` is used but batched in fewer commands to increase the performance.
 
 ```csharp
 var affectedRows = context.BatchSaveChanges();
@@ -76,19 +76,19 @@ The `SaveChanges` method makes 1 database round-trip for every **1** entity to s
 The `BatchSaveChanges` method makes 1 database round-trip for every **25** entities to save (Default Value).
 
 So, if you need to save **100** entities:
-- The `SaveChanges` method will execute **100** sql commands.
-- The `BatchSaveChanges` method will execute **4** sql commands.
+- The `SaveChanges` method will execute **100** SQL commands.
+- The `BatchSaveChanges` method will execute **4** SQL commands.
 
-The same sql in the same order as `SaveChanges` is used but batched in fewer commands to increase the performance.
+The same SQL in the same order as `SaveChanges` is used but batched in fewer commands to increase the performance.
 
 ### Is BatchSaveChanges as fast as SaveChanges with one entity?
 
-Under the hood, `BatchSaveChanges` use `SaveChanges` to save **1** entity (so, as fast!), but will outperform it by batching commands in all other cases.
+Under the hood, `BatchSaveChanges` uses `SaveChanges` to save **1** entity (so, as fast!), but will outperform it by batching commands in all other cases.
 
 We always recommend to use BatchSaveChanges.
 
 ### What is the difference between BatchSaveChanges and BulkSaveChanges?
-For a few hundreds of entities or less, the **BatchSaveChanges** offers better performance then **BulkSaveChanges**.
+For a few hundreds of entities or less, the **BatchSaveChanges** offers better performance than **BulkSaveChanges**.
 
 However, the **BulkSaveChanges** is a more scalable method. So, it becomes faster than **BatchSaveChanges** when you start to save thousands of entities.
 
@@ -100,6 +100,6 @@ However, the **BulkSaveChanges** is a more scalable method. So, it becomes faste
 
 | Name | Description | Example |
 | :--- | :---------- | :------ |
-| `BatchSaveChanges()` | Saves all changes made in this context to the underlying database by combining sql command generated. | [Try it](https://dotnetfiddle.net/kCl8oB) |
-| `BatchSaveChangesAsync()` | Saves all changes asynchronously made in this context to the underlying database by combining sql command generated. | [Try it](https://dotnetfiddle.net/RF1oec) |
-| `BatchSaveChangesAsync(cancellationToken)` | Saves all changes asynchronously made in this context to the underlying database by combining sql command generated. | [Try it](https://dotnetfiddle.net/gYTj7w) |
+| `BatchSaveChanges()` | Saves all changes made in this context to the underlying database by combining SQL commands generated. | [Try it](https://dotnetfiddle.net/kCl8oB) |
+| `BatchSaveChangesAsync()` | Saves all changes asynchronously made in this context to the underlying database by combining SQL commands generated. | [Try it](https://dotnetfiddle.net/RF1oec) |
+| `BatchSaveChangesAsync(cancellationToken)` | Saves all changes asynchronously made in this context to the underlying database by combining SQL commands generated. | [Try it](https://dotnetfiddle.net/gYTj7w) |

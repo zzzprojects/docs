@@ -1,7 +1,7 @@
 ---
 Title: Bulk Merge in EF Core / EF6 | Add or Update (Upsert) your entities
 MetaDescription: Efficiently add or update Entity Framework data with EF Core Bulk Merge Extensions. Perform upsert operations on large numbers of entities with customizable options for all EF versions, including EF Core 7, 6, 5, 3, and EF6. Optimize your database operations - try it now.
-LastMod: 2025-05-30
+LastMod: 2025-06-23
 ---
 
 # Bulk Merge /n Easily perform add or update (Upsert) operations in EF Core
@@ -77,7 +77,7 @@ The `BulkMerge` method is **fast** but also **flexible** to let you handle vario
 ## Getting Started
 
 ### Bulk Merge
-The `BulkMerge` and `BulkMergeAync` methods extend your `DbContext` to let you merge a large number of entities in your database.
+The `BulkMerge` and `BulkMergeAsync` methods extend your `DbContext` to let you merge a large number of entities in your database.
 
 ```csharp
 context.BulkMerge(customers);
@@ -88,10 +88,10 @@ context.BulkMergeAsync(customers, cancellationToken);
 [Try it in EF Core](https://dotnetfiddle.net/GqKIoc) | [Try it in EF6](https://dotnetfiddle.net/0Ba6ZB)
 
 ### Bulk Merge with options
-The `options` parameter let you use a lambda expression to customize the way entities are inserted or updated.
+The `options` parameter lets you use a lambda expression to customize the way entities are inserted or updated.
 
 ```csharp
-context.BulkMerge(customers, options => options.ColumnPrimaryKeyExpression = c => c.Code });
+context.BulkMerge(customers, options => options.ColumnPrimaryKeyExpression = c => c.Code);
 ```
 
 [Try it in EF Core](https://dotnetfiddle.net/Lzbh2H) | [Try it in EF6](https://dotnetfiddle.net/JsHWWm)
@@ -99,13 +99,13 @@ context.BulkMerge(customers, options => options.ColumnPrimaryKeyExpression = c =
 ### Why BulkMerge is faster than SaveChanges?
 Merging thousands of entities for a file importation is a typical scenario.
 
-The `AddOrUpdate` method performs a database round-trip for every entity to check if it already exists. The `DetectChanges` change method is also called for every entity which makes this method even slower (it's like using the `Add` method instead of `AddRange`).
+The `AddOrUpdate` method performs a database round-trip for every entity to check if it already exists. The `DetectChanges` method is also called for every entity which makes this method even slower (it's like using the `Add` method instead of `AddRange`).
 
 The `SaveChanges` method performs one database round-trip for every entity to update.
 
 So, if you need to merge 10,000 entities, 20,000 database round-trips will be performed + 10,000 `DetectChanges` calls which is **INSANELY** slow.
 
-The `BulkMerge` in counterpart requires the minimum number of database round-trips possible. For example, under the hood for SQL Server, a `SqlBulkCopy` is performed first in a temporary table, then a `MERGE` from the temporary table to the destination table is performed which is the fastest way available.
+The `BulkMerge` in contrast requires the minimum number of database round-trips possible. For example, under the hood for SQL Server, a `SqlBulkCopy` is performed first in a temporary table, then a `MERGE` from the temporary table to the destination table is performed which is the fastest way available.
 
 ## Real Life Scenarios
 
@@ -123,8 +123,8 @@ You want to merge your entities but only for specific properties.
 
 - `ColumnInputExpression`: This option lets you choose which properties to map.
 - `ColumnIgnoreExpression`: This option lets you ignore properties that are auto-mapped.
-- `IgnoreOnMergeInsertExpression`: This option let you ignore properties only for the `INSERT` part.
-- `IgnoreOnMergeUpdateExpression`: This option let you ignore properties only for the `UPDATE` part.
+- `IgnoreOnMergeInsertExpression`: This option lets you ignore properties only for the `INSERT` part.
+- `IgnoreOnMergeUpdateExpression`: This option lets you ignore properties only for the `UPDATE` part.
 
 ```csharp
 context.BulkMerge(customers, options => options.ColumnInputExpression = c => new { c.CustomerID, c.Name} );
@@ -135,7 +135,7 @@ context.BulkMerge(customers, options => options.IgnoreOnMergeUpdateExpression = 
 [Try it in EF Core](https://dotnetfiddle.net/mogvhA) | [Try it in EF6](https://dotnetfiddle.net/l6NLDA)
 
 ### Merge with custom key
-You want to merge entities, but you don't have the primary key. The `ColumnPrimaryKeyExpression` let you use as a key any property or combination of properties.
+You want to merge entities, but you don't have the primary key. The `ColumnPrimaryKeyExpression` lets you use as a key any property or combination of properties.
 
 ```csharp
 context.BulkMerge(customers, options => options.ColumnPrimaryKeyExpression = c => c.Code);    
@@ -158,10 +158,10 @@ context.BulkMerge(invoices, options => options.IncludeGraph = true);
 ### Merge with future action
 You want to merge entities, but you want to defer the execution.
 
-By default, `BulkMerge` is an immediate operation. That mean, it's executed as soon as you call the method.
+By default, `BulkMerge` is an immediate operation. That means, it's executed as soon as you call the method.
 
 `FutureAction`: This option lets you defer the execution of a Bulk Merge.
-`ExecuteFutureAction`: This option trigger and execute all pending `FutureAction`.
+`ExecuteFutureAction`: This option triggers and executes all pending `FutureAction`.
 
 ```csharp
 context.FutureAction(x => x.BulkMerge(customers));
@@ -214,7 +214,7 @@ context.BulkMerge(list, options);
    - **IgnoreOnMergeUpdate:** Set to `false` if you want to ignore the update phase part of the merge operation.
    - **MergeKeepIdentity:** Set to `true` if you want to insert entities with their identity value. For SQL Server, the library will automatically handle the `SET IDENTITY_INSERT [tableName] ON` and `SET IDENTITY_INSERT [tableName] OFF` commands.
    - **MergeNotMatchedAndFormula:** Specify a hardcoded SQL if you want to add custom logic to filter which rows should be inserted during the insert phase part of the merge operation.
-   - **MergePrimaryKeyAndFormula:** Specify a hardcoded SQL to include additional logic—along with the primary key—to check if the entity matches an existing row in the database. Only rows that also match the formula will be updated, all others rows will be inserted.
+   - **MergePrimaryKeyAndFormula:** Specify a hardcoded SQL to include additional logic—along with the primary key—to check if the entity matches an existing row in the database. Only rows that also match the formula will be updated, all other rows will be inserted.
    - **MergeStagingTableFilterFormula:** Specify a hardcoded SQL if you want to filter which rows should be merged (added or updated) using a staging table.
 - Coalesce Behavior
    - **OnMergeUpdateUseCoalesce:** For each property, during the update phase of a merge operation, if the source value is `null`, the destination value will stay unchanged. This behaves like `ISNULL(StagingTable.ColumnName, DestinationTable.ColumnName)` in SQL Server.
@@ -245,8 +245,8 @@ context.BulkMerge(list, options);
    - **ColumnInputOutputNames:** Choose which properties should be merged (added or updated)  **and** outputted by using a list of strings to select them. All other properties will be ignored.
    - **ColumnOutputExpression:** Choose which properties should be outputted after the merge by using a lambda expression to select them.
    - **ColumnOutputNames:** Choose which properties should be outputted after the merge by using a lambda expression to select them.
-   - **ColumnPrimaryKeyExpression:** Choose which properties should be part of the key by using a lambda expression. Only rows that match the key will be updated, all others rows will be inserted.
-   - **ColumnPrimaryKeyNames:** Choose which properties should be part of the key by using a list of strings. Only rows that match the key will be updated, all others rows will be inserted.
+   - **ColumnPrimaryKeyExpression:** Choose which properties should be part of the key by using a lambda expression. Only rows that match the key will be updated, all other rows will be inserted.
+   - **ColumnPrimaryKeyNames:** Choose which properties should be part of the key by using a list of strings. Only rows that match the key will be updated, all other rows will be inserted.
    - **OnMergeInsertInputExpression:** Choose which properties using a lambda expression should be inserted during the insert phase of the merge operation. This option doesn't affect properties that will be updated.
    - **OnMergeInsertInputNames:** Choose which properties using a list of strings should be inserted during the insert phase of the merge operation. This option doesn't affect properties that will be updated.
    - **OnMergeUpdateInputExpression:** Choose which properties using a lambda expression should be updated during the updated phase of the merge operation. This option doesn't affect properties that will be inserted.

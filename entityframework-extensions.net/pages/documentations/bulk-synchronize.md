@@ -1,7 +1,7 @@
 ---
 Title: Bulk Synchronize in EF Core | Add or update or delete operations
 MetaDescription: Efficiently synchronize Entity Framework data with EF Core Bulk Synchronize Extensions. Easily update, insert and delete large numbers of entities with customizable options for all EF versions, including EF Core 7, 6, 5, 3, and EF6. Optimize your database operations - try it now.
-LastMod: 2025-05-30
+LastMod: 2025-06-23
 ---
 
 # Bulk Synchronize /n Directly execute add, update, and delete operations to mirror data in EF Core
@@ -82,7 +82,7 @@ context.BulkSynchronizeAsync(customers, cancellationToken);
 [Try it in EF Core](https://dotnetfiddle.net/la3HQL) | [Try it in EF6](https://dotnetfiddle.net/yPs4WF)
 
 ### Bulk Synchronize with options
-The `options` parameter let you use a lambda expression to customize the way entities are synchronized.
+The `options` parameter lets you use a lambda expression to customize the way entities are synchronized.
 
 ```csharp
 context.BulkSynchronize(customers, options => options.BatchSize = 100);
@@ -136,7 +136,7 @@ context.BulkSynchronize(customers, options => {
 Learn more here: https://entityframework-extensions.net/column-synchronize-delete-key-subset-expression
 
 ### Synchronize with custom key
-You want to synchronize entities, but you don't have the primary key. The `ColumnPrimaryKeyExpression` let you use as a key any property or combination of properties.
+You want to synchronize entities, but you don't have the primary key. The `ColumnPrimaryKeyExpression` lets you use any property or combination of properties as a key.
 
 ```csharp
 context.BulkSynchronize(customers, options => options.ColumnPrimaryKeyExpression = c => c.Code);    
@@ -150,7 +150,7 @@ You want to synchronize entities, but you want to defer the execution.
 By default, `BulkSynchronize` is an immediate operation. That means, it's executed as soon as you call the method.
 
 `FutureAction`: This option lets you defer the execution of a Bulk Synchronize.
-`ExecuteFutureAction`: This option trigger and execute all pending `FutureAction`.
+`ExecuteFutureAction`: This option triggers and executes all pending `FutureAction`.
 
 ```csharp
 context.FutureAction(x => x.BulkSynchronize(customers));
@@ -177,18 +177,18 @@ We already saw in previous article [Configuring Options](/configure-options) how
 
 ```csharp
 // Using a lambda expression (only works with one option)
-context.BulkSynchronize(list, options => options.SynchronizeKeepidentity = true);
+context.BulkSynchronize(list, options => options.SynchronizeKeepIdentity = true);
 
 // Using a lambda expression with a body (works with one or multiple options)
 context.BulkSynchronize(list, options =>
 {
-    options.SynchronizeKeepidentity = true;
+    options.SynchronizeKeepIdentity = true;
     options.ColumnPrimaryKeyExpression = x => new { x.ID };
 });
 
 // Using a `BulkOperationOption` instance
 var options = context.CreateBulkOptions<EntitySimple>();
-options.SynchronizeKeepidentity = true;
+options.SynchronizeKeepIdentity = true;
 options.ColumnPrimaryKeyExpression = x => new { x.ID };
 
 context.BulkSynchronize(list, options);
@@ -201,12 +201,12 @@ context.BulkSynchronize(list, options);
 - Bulk Synchronize Behavior
    - **ColumnSynchronizeDeleteKeySubsetExpression:** Use a lambda expression to define an additional key, so that only a subset of the table is synchronized — instead of synchronizing the entire table.
    - **ColumnSynchronizeDeleteKeySubsetNames:** Use a list of strings to define an additional key, so that only a subset of the table is synchronized — instead of synchronizing the entire table.
-   - **ColumnSynchronizeDeleteKeySubsetFormula:** Use an hardcoded SQL to define an additional key, so that only a subset of the table is synchronized — instead of synchronizing the entire table.
+   - **ColumnSynchronizeDeleteKeySubsetFormula:** Use a hardcoded SQL to define an additional key, so that only a subset of the table is synchronized — instead of synchronizing the entire table.
    - **SynchronizeSoftDeleteFormula:** Use a hardcoded SQL statement to define how the row should be updated for a soft delete instead of being hard deleted.
    - **SynchronizeIgnoreInsert:** Set to `false` if you want to ignore the insert phase part of the synchronize operation.
    - **SynchronizeIgnoreUpdate:** Set to `false` if you want to ignore the update phase part of the synchronize operation.
    - **SynchronizeOnlyDelete:** Set to `true` to perform only the delete phase part of the synchronize operation. So the insert and update phase will be ignored.
-   - **SynchronizeKeepidentity:** Set to `true` if you want to insert entities with their identity value. For SQL Server, the library will automatically handle the `SET IDENTITY_INSERT [tableName] ON` and `SET IDENTITY_INSERT [tableName] OFF` commands.
+   - **SynchronizeKeepIdentity:** Set to `true` if you want to insert entities with their identity value. For SQL Server, the library will automatically handle the `SET IDENTITY_INSERT [tableName] ON` and `SET IDENTITY_INSERT [tableName] OFF` commands.
    - **SynchronizeNotMatchedAndFormula:** Specify a hardcoded SQL if you want to add custom logic to filter which rows should be inserted during the insert phase part of the synchronize operation.
    - **SynchronizePrimaryKeyAndFormulaMerge:** Specify a hardcoded SQL to include additional logic—along with the primary key—to check if the entity matches an existing row in the database. Only rows that also match the formula will be updated, all others rows will be inserted.
    - **SynchronizePrimaryKeyAndFormulaDelete:** Specify a hardcoded SQL to include additional logic—along with the primary key—to check if the entity matches an existing row in the database. Only rows that also match the formula will be deleted.
@@ -236,7 +236,7 @@ context.BulkSynchronize(list, options);
    - **ColumnInputOutputExpression:** Choose which properties should be synchronized (added or updated)  **and** outputted by using a lambda expression to select them. All other properties will be ignored.
    - **ColumnInputOutputNames:** Choose which properties should be synchronized (added or updated)  **and** outputted by using a list of strings to select them. All other properties will be ignored.
    - **ColumnOutputExpression:** Choose which properties should be outputted after the synchronize by using a lambda expression to select them.
-   - **ColumnOutputNames:** Choose which properties should be outputtedafter the synchronize by using a lambda expression to select them.
+   - **ColumnOutputNames:** Choose which properties should be outputted after the synchronize by using a lambda expression to select them.
    - **ColumnPrimaryKeyExpression:** Choose which properties should be part of the key by using a lambda expression. Only rows that match the key will be updated, all others rows will be inserted.
    - **ColumnPrimaryKeyNames:** Choose which properties should be part of the key by using a list of strings. Only rows that match the key will be updated, all others rows will be inserted.
    - **OnSynchronizeInsertInputExpression:** Choose which properties using a lambda expression should be inserted during the insert phase of the synchronize operation. This option doesn't affect properties that will be updated.

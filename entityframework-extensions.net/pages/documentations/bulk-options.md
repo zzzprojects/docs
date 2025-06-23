@@ -1,7 +1,7 @@
 ---
 Title: Bulk Options for Bulk Extensions | Customize Your Saving Experience
 MetaDescription: Learn how to customize your EF6 and EF Core Bulk Extensions by customizing methods with bulk options. Over 100 options are available to cover any scenario - try it now.
-LastMod: 2023-11-16
+LastMod: 2025-06-23
 ---
 
 # Bulk Options
@@ -18,10 +18,10 @@ Passing options through a fluent API is recommended in Entity Framework Extensio
 You can pass 1 option by directly setting it or use braces to pass multiple options, such as
 
 ```csharp
-// only work with 1 option
+// only works with 1 option
 context.BulkInsert(invoices, options => options.IncludeGraph = true);
 
-// work with multiple options
+// works with multiple options
 context.BulkInsert(invoices, options => { options.IncludeGraph = true });
 context.BulkInsert(invoices, options => { 
     options.IncludeGraph = true;
