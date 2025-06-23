@@ -1,13 +1,13 @@
 ---
 Name: Coalesce
-LastMod: 2023-02-28
+LastMod: 2025-06-23
 ---
 
 # Coalesce
 
 ## Description
 
-The `Coalesce` option lets you keep the destination value if the source value is null. This option is equivalent of doing a `ISNULL(StagingTable.ColumnName, DestinationTable.ColumnName)` in SQL Server.
+The `Coalesce` option lets you keep the destination value if the source value is null. This option is the equivalent of doing an `ISNULL(StagingTable.ColumnName, DestinationTable.ColumnName)` in SQL Server.
 
 ### Example
 
@@ -23,16 +23,16 @@ context.BulkMerge(customers, options =>
 
 A company uses Entity Framework and imports customers with the `BulkMerge` method to insert new customers and update existing customers.
 
-However, there is a particularity. The customer data to import doesn't contain all values (some are null).  For some columns, we want to keep the destination value if the source value is null.
+However, there is a peculiarity. The customer data to import doesn't contain all values (some are null).  For some columns, we want to keep the destination value if the source value is null.
 
 In summary:
 
-- When the source `Email IS NULL`, the destination value is keep
+- When the source `Email IS NULL`, the destination value is kept
 - When the source `Email IS NOT NULL`, the destination value is updated
 
 ## Solution
 
-The`Coalesce` option have 3 solutions to this problem:
+The `Coalesce` option has 3 solutions to this problem:
 
 - [On[Action]UseCoalesce](#onactionusecoalesce)
 - [CoalesceOn[Action]Expression](#coalesceonactionexpression)

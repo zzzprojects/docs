@@ -1,13 +1,13 @@
 ---
 Name: Coalesce Destination
-LastMod: 2023-02-28
+LastMod: 2025-06-23
 ---
 
 # Coalesce Destination
 
 ## Description
 
-The `CoalesceDestination` option lets you update the destination value if the value is null in the database. This option is equivalent of doing a `ISNULL(DestinationTable.ColumnName, StagingTable.ColumnName)` in SQL Server.
+The `CoalesceDestination` option lets you update the destination value if the value is null in the database. This option is the equivalent of doing an `ISNULL(DestinationTable.ColumnName, StagingTable.ColumnName)` in SQL Server.
 
 ### Example
 
@@ -23,16 +23,16 @@ context.BulkMerge(customers, options =>
 
 A company uses Entity Framework and imports customers with the `BulkMerge` method to insert new customers and update existing customers.
 
-However, there is a particularity. Only null values for customer columns need to be updated; otherwise, we keep the current database values.
+However, there is a peculiarity. Only null values for customer columns need to be updated; otherwise, we keep the current database values.
 
 In summary:
 
 - When the destination `Email IS NULL`, the destination value is updated
-- When the destination `Email IS NOT NULL`, the destination value is keep
+- When the destination `Email IS NOT NULL`, the destination value is kept
 
 ## Solution
 
-The`CoalesceDestination` option have 3 solutions to this problem:
+The `CoalesceDestination` option has 3 solutions to this problem:
 
 - [On[Action]UseCoalesceDestination](#onactionusecoalescedestination)
 - [CoalesceDestinationOn[Action]Expression](#coalescedestinationonactionexpression)

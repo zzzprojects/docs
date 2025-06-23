@@ -1,6 +1,6 @@
 ---
 Name: Matched and Formula
-LastMod: 2023-02-28
+LastMod: 2025-06-23
 ---
 
 # Matched and Formula
@@ -36,7 +36,7 @@ In summary:
 
 ## Solution
 
-The`MatchedAndFormula` have 1 solution to this problem:
+The `MatchedAndFormula` has 1 solution to this problem:
 
 - [[Action]MatchedAndFormula](#actionmatchedandformula)
 

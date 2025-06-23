@@ -1,13 +1,13 @@
 ---
 Name: Delete Matched and Condition
-LastMod: 2023-02-28
+LastMod: 2025-06-23
 ---
 
 # Delete Matched and Condition
 
 ## Description
 
-The `DeleteMatchedAndCondition` option lets you perform or skip the delete action, depending on if all values from the source and destination are equals for properties specified.
+The `DeleteMatchedAndCondition` option lets you perform or skip the delete action, depending on if all values from the source and destination are equal for properties specified.
 
 ### Example
 
@@ -23,16 +23,16 @@ context.BulkDelete(customers, options =>
 
 A company uses Entity Framework and needs to delete customers with the `BulkDelete` method.
 
-However, there is a particularity. The delete should only happen if the version in the database is equal as the one coming from the importation.
+However, there is a particularity. The delete should only happen if the version in the database is equal to the one coming from the importation.
 
 In summary:
 
-- If the `Version` value are equal, the customer can be deleted
-- If the `Version` value are not equal, the customer cannot be deleted
+- If the `Version` value is equal, the customer can be deleted
+- If the `Version` value is not equal, the customer cannot be deleted
 
 ## Solution
 
-The`DeleteMatchedAndCondition` option have 4 solutions to this problem:
+The `DeleteMatchedAndCondition` option has 4 solutions to this problem:
 
 - [DeleteMatchedAndConditionExpression](#deletematchedandconditionexpression)
 - [DeleteMatchedAndConditionNames](#deletematchedandconditionnames)

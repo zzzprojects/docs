@@ -1,6 +1,6 @@
 ---
 Name: Delete Matched and one NOT Condition
-LastMod: 2023-02-28
+LastMod: 2025-06-23
 ---
 
 # Delete Matched and one NOT Condition
@@ -23,16 +23,16 @@ context.BulkDelete(customers, options =>
 
 A company uses Entity Framework and needs to delete customers with the `BulkDelete` method.
 
-However, there is a particularity. The delete should only happen if the version in the database is not equal as the one coming from the importation.
+However, there is a particularity. The delete should only happen if the version in the database is not equal to the one coming from the importation.
 
 In summary:
 
-- If the `Version` value are equal, the customer cannot be deleted
-- If the `Version` value are not equal, the customer can be deleted
+- If the `Version` value is equal, the customer cannot be deleted
+- If the `Version` value is not equal, the customer can be deleted
 
 ## Solution
 
-The`DeleteMatchedAndOneNotCondition` option have 4 solutions to this problem:
+The `DeleteMatchedAndOneNotCondition` option has 4 solutions to this problem:
 
 - [DeleteMatchedAndOneNotConditionExpression](#deletematchedandonenotconditionexpression)
 - [DeleteMatchedAndOneNotConditionNames](#deletematchedandonenotconditionnames)

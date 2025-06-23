@@ -1,6 +1,6 @@
 ---
 Name: Matched and Condition
-LastMod: 2023-02-28
+LastMod: 2025-06-23
 ---
 
 # Matched and Condition
@@ -9,14 +9,14 @@ LastMod: 2023-02-28
 
 ## Description
 
-The `MatchedAndCondition` option lets you perform or skip the update action, depending on if all values from the source and destination are equals for properties specified.
+The `MatchedAndCondition` option lets you perform or skip the update action, depending on if all values from the source and destination are equal for properties specified.
 
 ### Example
 
 ```csharp
 context.BulkMerge(customers, options => 
 {
-	// ON UPDATE, modify customers that has the same `IsLocked` value (always "false" on the source)
+	// ON UPDATE, modify customers that have the same `IsLocked` value (always "false" on the source)
 	options.MergeMatchedAndConditionExpression = x => new { x.IsLocked };
 });
 
@@ -31,13 +31,13 @@ However, there is a particularity. The customer has a column `IsLocked` in the d
 - When `IsLocked = 0`, the customer can be updated
 - When `IsLocked = 1`, the customer cannot be updated
 
-All customers to import have the value `IsLocked = true; // 0`, so the update action should only be performed when both `IsLocked` values (source and destination) are equals.
+All customers to import have the value `IsLocked = true; // 0`, so the update action should only be performed when both `IsLocked` values (source and destination) are equal.
 
 **Note**: We cannot use the `PrimaryKey` option in this scenario. Otherwise, when performing a `BulkMerge`, it will consider the locked customer as a new customer instead of an existing one and insert it.
 
 ## Solution
 
-The`MatchedAndCondition` option has 4 solutions to this problem:
+The `MatchedAndCondition` option has 4 solutions to this problem:
 
 - [[Action]MatchedAndConditionExpression](#actionmatchedandconditionexpression)
 - [[Action]MatchedAndConditionNames](#actionmatchedandconditionnames)
@@ -51,7 +51,7 @@ Use this option if you prefer to specify with an expression which properties you
 ```csharp
 context.BulkMerge(customers, options => 
 {
-	// ON UPDATE, modify customers that has the same `IsLocked` value (always "false" on the source)
+	// ON UPDATE, modify customers that have the same `IsLocked` value (always "false" on the source)
 	options.MergeMatchedAndConditionExpression = x => new { x.IsLocked };
 });
 ```
@@ -69,7 +69,7 @@ Use this option if you prefer to specify a list of property names you want to in
 ```csharp
 context.BulkMerge(customers, options => 
 {
-	// ON UPDATE, modify customers that has the same `IsLocked` value (always "false" on the source)
+	// ON UPDATE, modify customers that have the same `IsLocked` value (always "false" on the source)
 	options.MergeMatchedAndConditionNames = new List<string>() { nameof(Customer.IsLocked) };
 });
 ```
@@ -87,7 +87,7 @@ Use this option if you prefer to specify with an expression which properties you
 ```csharp
 context.BulkMerge(customers, options => 
 {
-	// ON UPDATE, modify customers that has the same `IsLocked` value (always "false" on the source) (by excluding other properties)
+	// ON UPDATE, modify customers that have the same `IsLocked` value (always "false" on the source) (by excluding other properties)
 	options.IgnoreOnMergeMatchedAndConditionExpression = x => new { x.CustomerID, x.Name, x.Email, x.Note };
 });
 ```
@@ -105,7 +105,7 @@ Use this option if you prefer to specify a list of property names you want to ex
 ```csharp
 context.BulkMerge(customers, options => 
 {
-	// ON UPDATE, modify customers that has the same `IsLocked` value (always "false" on the source) (by excluding other properties)
+	// ON UPDATE, modify customers that have the same `IsLocked` value (always "false" on the source) (by excluding other properties)
 	options.IgnoreOnMergeMatchedAndConditionNames = new List<string>() { nameof(Customer.CustomerID), nameof(Customer.Name), nameof(Customer.Email), nameof(Customer.Note) };
 });
 ```

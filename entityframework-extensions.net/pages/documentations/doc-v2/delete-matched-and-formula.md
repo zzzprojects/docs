@@ -1,6 +1,6 @@
 ---
 Name: Delete Matched and Formula
-LastMod: 2023-02-28
+LastMod: 2025-06-23
 ---
 
 # Delete Matched and Formula
@@ -26,7 +26,7 @@ context.BulkDelete(customers, options =>
 
 A company uses Entity Framework and needs to delete customers with the `BulkDelete` method.
 
-However, there is a particularity. The delete should only happen if the version in the database is equal or lower as the one coming from the importation.
+However, there is a particularity. The delete should only happen if the version in the database is equal to or lower than the one coming from the importation.
 
 In summary:
 
@@ -35,7 +35,7 @@ In summary:
 
 ## Solution
 
-The`DeleteMatchedAndFormula` option have 1 solutions to this problem:
+The `DeleteMatchedAndFormula` option has 1 solution to this problem:
 
 - [DeleteMatchedAndFormula](#deletematchedandformula)
 

@@ -1,6 +1,6 @@
 ---
 Name: Matched and one NOT Condition
-LastMod: 2023-02-28
+LastMod: 2025-06-23
 ---
 
 # Matched and one NOT Condition
@@ -9,14 +9,14 @@ LastMod: 2023-02-28
 
 ## Description
 
-The `MatchedAndOneNotCondition` option lets you perform or skip the update action, depending on if at least one value from the source is different than the destination for properties specified.
+The `MatchedAndOneNotCondition` option lets you perform or skip the update action, depending on if at least one value from the source is different from the destination for properties specified.
 
 ### Example
 
 ```csharp
 context.BulkMerge(customers, options => 
 {
-	// ON UPDATE, modify the customer if a values for "Name" or "Email" is different
+	// ON UPDATE, modify the customer if a value for "Name" or "Email" is different
 	options.MergeMatchedAndOneNotConditionExpression = x => new { x.Name, x.Email };
 });
 
@@ -28,16 +28,16 @@ A company uses Entity Framework and needs to import customers with the `BulkMerg
 
 However, there is a particularity. The `Note` column is not really important and should not trigger an update action if this is the only value that has been modified.
 
-The update action should only be performed if another values such as the `Name` or `Email` has been modified.
+The update action should only be performed if other values such as the `Name` or `Email` have been modified.
 
 In summary:
 
-- If the `Name` or `Email` value is different to the database, the customer can be updated
+- If the `Name` or `Email` value is different from the database, the customer can be updated
 - If the `Name` or `Email` value is equal to the database, the customer cannot be updated
 
 ## Solution
 
-The`MatchedAndOneNotCondition` option have 4 solutions to this problem:
+The `MatchedAndOneNotCondition` option has 4 solutions to this problem:
 
 - [[Action]MatchedAndOneNotConditionExpression](#actionmatchedandonenotconditionexpression)
 - [[Action]MatchedAndOneNotConditionNames](#actionmatchedandonenotconditionnames)
@@ -51,7 +51,7 @@ Use this option if you prefer to specify with an expression which properties you
 ```csharp
 context.BulkMerge(customers, options => 
 {
-	// ON UPDATE, modify the customer if a values for "Name" or "Email" is different
+	// ON UPDATE, modify the customer if a value for "Name" or "Email" is different
 	options.MergeMatchedAndOneNotConditionExpression = x => new { x.Name, x.Email };
 });
 ```
@@ -69,7 +69,7 @@ Use this option if you prefer to specify a list of property names you want to in
 ```csharp
 context.BulkMerge(customers, options => 
 {
-	// ON UPDATE, modify the customer if a values for "Name" or "Email" is different
+	// ON UPDATE, modify the customer if a value for "Name" or "Email" is different
 	options.MergeMatchedAndOneNotConditionNames = new List<string>() { nameof(Customer.Name), nameof(Customer.Email) };
 });
 ```
@@ -87,7 +87,7 @@ Use this option if you prefer to specify with an expression which properties you
 ```csharp
 context.BulkMerge(customers, options => 
 {
-	// ON UPDATE, modify the customer if a values for "Name" or "Email" is different (by excluding other properties)
+	// ON UPDATE, modify the customer if a value for "Name" or "Email" is different (by excluding other properties)
 	options.IgnoreOnMergeMatchedAndOneNotConditionExpression = x => new { x.Note };
 });
 ```
@@ -105,7 +105,7 @@ Use this option if you prefer to specify a list of property names you want to ex
 ```csharp
 context.BulkMerge(customers, options => 
 {
-	// ON UPDATE, modify the customer if a values for "Name" or "Email" is different (by excluding other properties)
+	// ON UPDATE, modify the customer if a value for "Name" or "Email" is different (by excluding other properties)
 	options.IgnoreOnMergeMatchedAndOneNotConditionNames = new List<string>() { nameof(Customer.Note) };
 });
 ```
