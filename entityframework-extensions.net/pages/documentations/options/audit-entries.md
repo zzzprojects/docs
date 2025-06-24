@@ -1,6 +1,6 @@
 ---
 Name: AuditEntries
-LastMod: 2023-03-01
+LastMod: 2025-06-23
 ---
 
 # AuditEntries
@@ -9,10 +9,10 @@ LastMod: 2023-03-01
 
 The `AuditEntries` property stores auditing metadata about `INSERTED`, `UPDATED`, and `DELETED` rows and values.
 
-This option requires to set the [UseAudit](use-audit.md) property to `true`.
+This option requires setting the [UseAudit](use-audit.md) property to `true`.
 
 ```csharp
-/// <summary>Gets or sets the `AuditEntries` property. The `AuditEntries` property stores auditing metadata about `INSERTED`, `UPDATED`, and `DELETED` rows and values. This option requires to set the [UseAudit](use-audit.md) property to `true`.</summary>
+/// <summary>Gets or sets the `AuditEntries` property. The `AuditEntries` property stores auditing metadata about `INSERTED`, `UPDATED`, and `DELETED` rows and values. This option requires setting the [UseAudit](use-audit.md) property to `true`.</summary>
 public bool AuditEntries { get; set; }
 ```
 
@@ -48,4 +48,4 @@ Try it: [.NET Core](https://dotnetfiddle.net/) | [.NET Framework](https://dotnet
 
 ### Result
 
-We outputted all `AuditEntry` and `AuditEntryItem` auditing metadata.
+We output all `AuditEntry` and `AuditEntryItem` auditing metadata.

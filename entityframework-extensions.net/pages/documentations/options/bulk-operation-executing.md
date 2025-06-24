@@ -1,12 +1,12 @@
 ---
 Name: BulkOperationExecuting
-LastMod: 2023-03-01
+LastMod: 2025-06-23
 ---
 
 # BulkOperationExecuting
 
 ## Description
-Gets or sets an action to execute `before` the bulk operation is executed.
+Gets or sets an action to execute before the bulk operation is executed.
 
 
 ```csharp
@@ -16,4 +16,4 @@ context.BulkSaveChanges(options => {
 ```
 
 ## Purpose
-This event allows you to check or change some options that have been automatically added when none is specified such as Batch Size, Column Mapping, Timeout, etc.
+This event allows you to check or change some options that have been automatically added when none are specified such as Batch Size, Column Mapping, Timeout, etc.

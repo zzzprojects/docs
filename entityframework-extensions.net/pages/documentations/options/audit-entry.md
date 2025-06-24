@@ -1,6 +1,6 @@
 ---
 Name: AuditEntry
-LastMod: 2023-03-01
+LastMod: 2025-06-23
 ---
 
 # AuditEntry
@@ -27,7 +27,7 @@ namespace Z.BulkOperations
         /// <summary>Gets or sets the `Metas` property.</summary>
         public Dictionary<object, object> Metas { get; set; }
 
-        /// <summary>Gets or sets the `TableName` property..</summary>
+        /// <summary>Gets or sets the `TableName` property.</summary>
         public string TableName { get; set; }
 
         /// <summary>Gets or sets the `Values` property.</summary>
@@ -64,4 +64,4 @@ Try it: [.NET Core](https://dotnetfiddle.net/) | [.NET Framework](https://dotnet
 
 ### Result
 
-We outputted all `AuditEntry` and `AuditEntryItem` auditing metadata.
+We output all `AuditEntry` and `AuditEntryItem` auditing metadata.

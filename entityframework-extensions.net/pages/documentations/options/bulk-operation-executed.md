@@ -1,12 +1,12 @@
 ---
 Name: BulkOperationExecuted
-LastMod: 2023-03-01
+LastMod: 2025-06-23
 ---
 
 # BulkOperationExecuted
 
 ## Description
-Gets or sets an action to execute `after` the bulk operation is executed.
+Gets or sets an action to execute after the bulk operation is executed.
 
 
 ```csharp
@@ -16,7 +16,7 @@ context.BulkSaveChanges(options => {
 ```
 
 ## Purpose
-For some options such as `Audit`, values must be taken directly from the `Bulk Operations` after it's executed. This `event` allows you to take this kind of information.
+For some options such as `Audit`, values must be taken directly from the bulk operation after it's executed. This event allows you to take this kind of information.
 
 
 ```csharp

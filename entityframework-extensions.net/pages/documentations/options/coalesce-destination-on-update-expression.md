@@ -1,13 +1,13 @@
 ---
 Name: Coalesce Destination OnUpdate Expression
-LastMod: 2023-03-01
+LastMod: 2025-06-23
 ---
 
 # Coalesce Destination OnUpdate Expression
 
 ## Description
 
-The `CoalesceDestinationOnUpdateExpression` is the inverse of `CoalesceOnUpdateExpression`, it allows you to update the new value if the database value is null otherwise keep the database value when `BulkUpdate` method is executed.
+The `CoalesceDestinationOnUpdateExpression` is the inverse of `CoalesceOnUpdateExpression`. It allows you to update the new value if the database value is null otherwise, it keeps the database value when the `BulkUpdate` method is executed.
 
 The following example will update only those columns for which the value is null in the database for the specified properties.
 
@@ -20,7 +20,7 @@ using (var context = new EntityContext())
     context.BulkUpdate(list, options => 
     {
         options.CoalesceDestinationOnUpdateExpression = c => new {c.CustomerID, c.Name, c.Description};
-    });				  BulkUpdate
+    });
 }
 ```
 

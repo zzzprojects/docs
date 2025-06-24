@@ -1,13 +1,13 @@
 ---
 Name: ColumnMappingAuditModeType
-LastMod: 2023-03-01
+LastMod: 2025-06-23
 ---
 
 # ColumnMappingAuditModeType
 
 ## Description
 
-The `ColumnMappingAuditModeType` enum represents if a specific property should be included or excluded from the auditing. The default value is `ColumnMappingAuditModeType.Inherit`.
+The `ColumnMappingAuditModeType` enum represents whether a property should be included or excluded from the auditing. The default value is `ColumnMappingAuditModeType.Inherit`.
 
 You can include or exclude all properties with the `Inherit` value using the [AuditModeType](audit-mode-type.md) enum.
 
@@ -15,10 +15,10 @@ You can include or exclude all properties with the `Inherit` value using the [Au
 // The namespace is different because the https://bulk-operations.net/ library is used under the hood.
 namespace Z.BulkOperations
 {
-    /// <summary>The `ColumnMappingAuditModeType` enum represents if a specific property should be included or excluded from the auditing. The default value is `ColumnMappingAuditModeType.Inherit`.</summary>
+    /// <summary>The `ColumnMappingAuditModeType` enum represents whether a property should be included or excluded from the auditing. The default value is `ColumnMappingAuditModeType.Inherit`.</summary>
     public enum ColumnMappingAuditModeType
     {
-        /// <summary>The name/value that represents if a specific property inherit from the AuditModeType (Default Value).</summary>
+        /// <summary>The name/value that represents whether a property inherits from the AuditModeType (Default Value).</summary>
         Inherit,
 
         /// <summary>The name/value that represents if a specific property is included.</summary>
@@ -92,4 +92,4 @@ Try it: [.NET Core](https://dotnetfiddle.net/) | [.NET Framework](https://dotnet
 
 ### Result
 
-We outputted all `AuditEntryItem` auditing metadata. The only information that appears is about the `CustomerID` and `Name` property.
+We output all `AuditEntryItem` auditing metadata. The only information that appears is about the `CustomerID` and `Name` property.

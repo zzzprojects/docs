@@ -1,6 +1,6 @@
 ---
 Name: AllowDuplicateKeys
-LastMod: 2023-03-01
+LastMod: 2025-06-23
 ---
 
 # AllowDuplicateKeys
@@ -34,7 +34,7 @@ Try it: [EF Core](https://dotnetfiddle.net/DoD5hE) | [EF6](https://dotnetfiddle.
 ## Purpose
 In a rare scenario such as importing a file, a key may be used in multiple rows.
 
-In some provider such as SQL Server, the statement created by our library (`Merge`) makes it impossible to use with some duplicate keys.
+In some providers, such as SQL Server, the statement created by our library (`Merge`) makes it impossible to use with some duplicate keys.
 
 By enabling this option, only the latest key is used instead.
 

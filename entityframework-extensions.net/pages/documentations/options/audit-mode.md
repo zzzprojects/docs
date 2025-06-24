@@ -1,6 +1,6 @@
 ---
 Name: AuditMode
-LastMod: 2023-03-01
+LastMod: 2025-06-23
 ---
 
 # AuditMode
@@ -11,7 +11,7 @@ The `AuditMode` property allows you to exclude or include properties from the au
 
 ## Example
 
-We will demonstrate how to exclude all properties to include only specific properties.
+We will demonstrate how to exclude all properties and include only specific properties.
 
 ### Mapping
 
@@ -71,4 +71,4 @@ Try it: [.NET Core](https://dotnetfiddle.net/cArNZn) | [.NET Framework](https://
 
 ### Result
 
-We outputted all `AuditEntryItem` auditing metadata. The only information that appears is about the `CustomerID` and `Name` property.
+We output all `AuditEntryItem` auditing metadata. The only information that appears is about the `CustomerID` and `Name` property.

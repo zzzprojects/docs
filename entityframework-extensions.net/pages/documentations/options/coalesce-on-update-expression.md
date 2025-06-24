@@ -1,13 +1,13 @@
 ---
 Name: Coalesce OnUpdate Expression
-LastMod: 2023-03-01
+LastMod: 2025-06-23
 ---
 
 # Coalesce OnUpdate Expression
 
 ## Description
 
-The `CoalesceOnUpdateExpression` allows you to not update any column in if the specified value is `null` and its database value is not null when `BulkUpdate` method is executed.
+The `CoalesceOnUpdateExpression` allows you to not update any column if the specified value is `null` and its database value is not null when `BulkUpdate` method is executed.
 
 The following example will update only those columns in which the specified value is not null.
 
@@ -26,5 +26,5 @@ using (var context = new EntityContext())
 
 Try it: [EF Core](https://dotnetfiddle.net/WRNrqj) | [EF6](https://dotnetfiddle.net/lJagVr)
 
- - It will update only `Name` and `Active` columns because the new specified values are null.
- - The new value for `Description` is so it will not update the `Description` column.
+ - It will update only `Name` and `IsActive` columns because the new specified values are not null.
+ - The new value for `Description` is null so it will not update the `Description` column.

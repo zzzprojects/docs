@@ -1,6 +1,6 @@
 ---
 Name: AuditEntryItem
-LastMod: 2023-03-01
+LastMod: 2025-06-23
 ---
 
 # AuditEntryItem
@@ -58,4 +58,4 @@ Try it: [.NET Core](https://dotnetfiddle.net/) | [.NET Framework](https://dotnet
 
 ### Result
 
-We outputted all `AuditEntry` and `AuditEntryItem` auditing metadata.
+We output all `AuditEntry` and `AuditEntryItem` auditing metadata.

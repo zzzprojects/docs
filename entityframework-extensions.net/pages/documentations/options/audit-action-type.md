@@ -1,6 +1,6 @@
 ---
 Name: AuditActionType
-LastMod: 2023-03-01
+LastMod: 2025-06-23
 ---
 
 # AuditActionType
@@ -58,7 +58,7 @@ Try it: [.NET Core](https://dotnetfiddle.net/) | [.NET Framework](https://dotnet
 
 ### Result
 
-We outputted `AuditEntries` by the `AuditActionType` value:
+We output `AuditEntries` by the `AuditActionType` value:
 
 - `AuditActionType.Insert`: Will display the **1** new customer
 - `AuditActionType.Update`: Will display the **2** existing customers

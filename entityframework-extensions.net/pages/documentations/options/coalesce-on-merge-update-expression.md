@@ -1,6 +1,6 @@
 ---
 Name: Coalesce OnMergeUpdate Expression
-LastMod: 2023-03-01
+LastMod: 2025-06-23
 ---
 
 # Coalesce OnMergeUpdate Expression
@@ -27,5 +27,5 @@ using (var context = new EntityContext())
 
 Try it: [EF Core](https://dotnetfiddle.net/Sy3rfx) | [EF6](https://dotnetfiddle.net/JOrTfP)
 
- - It will update only `Name` and `Active` columns because the new specified values are null.
+ - It will update only `Name` and `IsActive` columns because the new specified values are not null.
  - The new value for `Description` is null so it will not update the `Description` column.

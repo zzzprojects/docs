@@ -1,13 +1,13 @@
 ---
 Name: Coalesce Destination OnMergeUpdate Expression
-LastMod: 2023-03-01
+LastMod: 2025-06-23
 ---
 
 # Coalesce Destination OnMergeUpdate Expression
 
 ## Description
 
-The `CoalesceDestinationOnMergeUpdateExpression` is the inverse of `CoalesceOnMergeUpdateExpression`, it allows you to update the new value if the database value is null otherwise it keeps the database value when `BulkMerge` method is executed.
+The `CoalesceDestinationOnMergeUpdateExpression` is the inverse of `CoalesceOnMergeUpdateExpression`. It allows you to update the new value if the database value is null, otherwise it keeps the database value when the `BulkMerge` method is executed.
 
 The following example will update only those columns for which the value is null in the database for the specified properties.
 
