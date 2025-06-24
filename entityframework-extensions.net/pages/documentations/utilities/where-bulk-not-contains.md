@@ -1,6 +1,6 @@
 ---
 Name: How to filter entities not contained from an existing list with Entity Framework?
-LastMod: 2023-03-01
+LastMod: 2025-06-24
 ---
 
 # How to filter entities not contained from an existing list with Entity Framework?
@@ -21,9 +21,9 @@ var customers = context.Customers.WhereBulkNotContains(deserializedCustomers);
 
 Filtering entities by excluding all items from an existing list can sometimes be very useful.
 
-For example, you deserialize a JSON file into a list of `Customer` with the `CustomerID` populated, and you want to retrieve customers not contained in this list to deleted them.
+For example, you deserialize a JSON file into a list of `Customer` with the `CustomerID` populated, and you want to retrieve customers not contained in this list to delete them.
 
-A frequent solution is using the `!Contains` method to retrieves those customers such as:
+A frequent solution is using the `!Contains` method to retrieve those customers such as:
 
 ```csharp
 var customerIds = deserializedCustomers.Select(x => x.CustomerID).ToList();
@@ -34,7 +34,7 @@ However, this solution has several limitations, as explained [here](/where-bulk-
 
 The `WhereBulkNotContains` method has many advantages:
  - Allow using any list type (basic type, entity type, anonymous type, expando object)
- - Allow using an unlimited amount of items.
+ - Allow using an unlimited number of items.
  - Allow specifying a custom join with one or many properties.
 
 ## FAQ

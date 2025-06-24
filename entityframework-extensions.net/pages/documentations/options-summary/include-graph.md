@@ -1,11 +1,11 @@
 ---
 Name: Include Graph
-LastMod: 2024-02-05
+LastMod: 2025-06-24
 ---
 
 # Include Graph
 
-The `BulkOperation.IncludeGraph` option allow you to `INSERT/UPDATE/MERGE` entities by including the child entities graph. 
+The `BulkOperation.IncludeGraph` option allows you to `INSERT/UPDATE/MERGE` entities by including the child entities graph. 
 
 In the following example, the `IncludeGraph` is enabled and the list of `Invoice` is added to the database using `BulkInsert`.
 
@@ -44,7 +44,7 @@ using (var context = new EntityContext())
  - It will insert a list of invoices including all the invoices items for each invoice.
 
 ## IncludeGraphOperationBuilder
-The `IncludeGraphOperationBuilder` let you customize the bulk operations by entity type.
+The `IncludeGraphOperationBuilder` lets you customize the bulk operations by entity type.
 
 While some options such as `BatchSize` are copied through the graph, all operations related to columns need to be specified in the `IncludeGraphOperationBuilder` since it depends from a type to another.
 
@@ -110,6 +110,6 @@ Read more: [Context Factory](context-factory)
 ### Why do I received an error that asks me to use unsafe mode?
 The unsafe mode is required when some proxy entities are found in the graph.
 To retrieve all information, we need to detach temporary proxy type from the current context before re-attaching them.
-There is currently no known issue about this technic, but we prefer to force people to understand that some unsafe code is currently done under the hood by our library.
+There is currently no known issue about this technique, but we prefer to force people to understand that some unsafe code is currently done under the hood by our library.
 
 {% include section-faq-end.html %}

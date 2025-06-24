@@ -1,13 +1,13 @@
 ---
 Name: Delete By Key
-LastMod: 2023-03-01
+LastMod: 2025-06-24
 ---
 
 # Delete By Key
 
 The `DeleteByKey` is a `DbSet<TEntity>` extension method that deletes an entity by using the value from an existing entity or directly key values. 
 
- - It is a direct operation and doesn't require to call SaveChanges.
+ - It is a direct operation and doesn't require calling SaveChanges.
  - The entity must exist in the database before this method is called.
  
 ```csharp
@@ -20,7 +20,7 @@ context.Customers.DeleteByKey(customer);
  
 [Try it](https://dotnetfiddle.net/AtVQZj)
  
-In this example, the first customer is deleted by specifying its key and then another customer is deleted based on an entity itself from the database. 
+In this example, the first customer is deleted by specifying its key, and then another customer is deleted based on the entity itself from the database. 
 
 ## Anonymous Type
 

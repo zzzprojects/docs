@@ -1,6 +1,6 @@
 ---
 Name: Identity
-LastMod: 2023-03-01
+LastMod: 2025-06-24
 ---
 
 # Identity
@@ -9,4 +9,4 @@ LastMod: 2023-03-01
 |:-----------------------------------|:----------------------------------------------------------------------|
 |[InsertKeepIdentity](../options/insert-keep-identity.md)  | Gets or sets if the source identity value should be preserved on `Insert`. When not specified, identity values are assigned by the destination. |
 |[MergeKeepIdentity](../options/merge-keep-identity.md)  | Gets or sets if the source identity value should be preserved on `Merge`. When not specified, identity values are assigned by the destination. |
-|[SynchronizeKeepIdentity](../options/synchronize-keep-identity.md)  | if the source identity value should be preserved on `Synchronize`. When not specified, identity values are assigned by the destination.|
+|[SynchronizeKeepIdentity](../options/synchronize-keep-identity.md)  | Gets or sets if the source identity value should be preserved on `Synchronize`. When not specified, identity values are assigned by the destination.|

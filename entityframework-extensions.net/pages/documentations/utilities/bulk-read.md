@@ -1,6 +1,6 @@
 ---
 Name: How to read entities contained from an existing list with Entity Framework?
-LastMod: 2023-03-01
+LastMod: 2025-06-24
 ---
 
 # How to read entities contained from an existing list with Entity Framework?
@@ -23,7 +23,7 @@ Reading entities using an existing list is a common scenario.
 
 For example, you deserialize a JSON file into a list of `Customer` with the `CustomerID` and a few other properties populated. Then you want to retrieve those customers from the database to update those properties.
 
-A frequent solution is using the LINQ `Contains` method to retrieves those customers such as:
+A frequent solution is using the LINQ `Contains` method to retrieve those customers such as:
 
 ```csharp
 var customerIDs = deserializedCustomers.Select(x => x.CustomerID).ToList();
@@ -34,7 +34,7 @@ This solution works great most of the time. However, in some scenarios, you will
 
 The `BulkRead` method has many advantages:
  - Allow using any list type (basic type, entity type, anonymous type, expando object)
- - Allow using an unlimited amount of items
+ - Allow using an unlimited number of items
  - Allow specifying a custom join with one or many properties
 
 ## FAQ

@@ -1,17 +1,17 @@
 ---
 Name: Audit
-LastMod: 2023-03-01
+LastMod: 2025-06-24
 ---
 
 # Audit
 
 ## Description
 
-The EFE audit feature allows you to track changes of all modifications that happened in the database during the Bulk Operations. Also, it lets you create a history of who modified a table, what was an old value and a new value.
+The EFE audit feature allows you to track changes of all modifications that happened in the database during the Bulk Operations. Also, it lets you create a history of who modified a table, what the old value was and the new value was.
 
 ## Key Features
 
-- Allow getting a history of modification
+- Allow getting a history of modifications
 - Allow storing the history in a database or log file
 - Allow tracking who, what, when a modification occurred
 - Allow knowing what the old and the new value are
@@ -43,7 +43,7 @@ Try it: [.NET Core](https://dotnetfiddle.net/) | [.NET Framework](https://dotnet
 | Name                               | Description                                                           |
 |:-----------------------------------|:----------------------------------------------------------------------|
 |[UseAudit](../options/use-audit.md)  | Gets or sets the `UseAudit` property. When the `UseAudit` property is `true`, the [AuditEntries](../options/audit-entries.md) property stores auditing metadata about `INSERTED`, `UPDATED`, and `DELETED` rows and values. |
-|[AuditEntries](../options/audit-entries.md)  | Gets or sets the `AuditEntries` property. The `AuditEntries` property stores auditing metadata about `INSERTED`, `UPDATED`, and `DELETED` rows and values. This option requires to set the [UseAudit](../options/use-audit.md) property to `true`. |
+|[AuditEntries](../options/audit-entries.md)  | Gets or sets the `AuditEntries` property. The `AuditEntries` property stores auditing metadata about `INSERTED`, `UPDATED`, and `DELETED` rows and values. This option requires setting the [UseAudit](../options/use-audit.md) property to `true`. |
 
 ## Methods
 
@@ -65,4 +65,4 @@ Try it: [.NET Core](https://dotnetfiddle.net/) | [.NET Framework](https://dotnet
 
 ### Why enabling this option decreases the performance?
 
-When enabling this option, additional SQL are required such as returning all old and new values.
+When enabling this option, additional SQL statements are required such as returning all old and new values.

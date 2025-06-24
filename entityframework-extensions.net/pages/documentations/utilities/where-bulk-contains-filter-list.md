@@ -1,6 +1,6 @@
 ---
 Name: How do you filter a list to return only items from the list that match a row in the database?
-LastMod: 2024-01-16
+LastMod: 2025-06-24
 ---
 
 # How do you filter a list to return only items from the list that match a row in the database?
@@ -12,11 +12,11 @@ The `WhereBulkContainsFilterList` method lets you filter a list by only returnin
 ### Example
 
 ```csharp
-// return all customers from the 'deserializedCustomers' that exists in the database
+// return all customers from the 'deserializedCustomers' that exist in the database
 var existingCustomers = context.Customers.WhereBulkContainsFilterList(deserializedCustomers).ToList();
 
 // from the existing list, you can retrieve all non-existing customers by excluding existing ones without fetching the database this time.
-var notExistingCustomers = deserializedCustomers.Exclude(existingCustomer);
+var notExistingCustomers = deserializedCustomers.Exclude(existingCustomers);
 ```
 
 ## Scenario
@@ -26,11 +26,11 @@ Filtering a list to know which items already exist or not can sometimes be very 
 For example, let's say that you want to split the `insert` and `update` logic as they have very different application rules. Instead of using the [Bulk Merge](/bulk-merge) method, you can now split the list with existing and non-existing items and use the [Bulk Insert](/bulk-insert) and [Bulk Update](/bulk-update) methods from both lists.
 
 ```csharp
-// return all customers from the 'deserializedCustomers' that exists in the database
+// return all customers from the 'deserializedCustomers' that exist in the database
 var existingCustomers = context.Customers.WhereBulkContainsFilterList(deserializedCustomers).ToList();
 
 // from the existing list, you can retrieve all non-existing customers by excluding them without fetching the database this time.
-var notExistingCustomers = deserializedCustomers.Exclude(existingCustomer);
+var notExistingCustomers = deserializedCustomers.Exclude(existingCustomers);
 
 context.BulkInsert(notExistingCustomers);
 context.BulkUpdate(existingCustomers);
@@ -46,7 +46,7 @@ context.BulkUpdate(existingCustomers);
 
 The most basic scenario is passing a list to the `WhereBulkContainsFilterList` method.
 
-The `WhereBulkContainsFilterList` method will filter the list to return only item that exists in the database.
+The `WhereBulkContainsFilterList` method will filter the list to return only items that exist in the database.
 
 ```csharp
 // The `JOIN` statement will use the default entity key if none is provided (CustomerID)

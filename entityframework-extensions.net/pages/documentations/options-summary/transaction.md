@@ -1,6 +1,6 @@
 ---
 Name: Transaction
-LastMod: 2023-03-01
+LastMod: 2025-06-24
 ---
 
 # Transaction
@@ -27,7 +27,7 @@ catch
 [Try it in EF Core](https://dotnetfiddle.net/SS0Ki0) | [Try it in EF6](https://dotnetfiddle.net/Igr6zU)
 
 ## Bulk Operations
-Bulk Operations such as BulkInsert, BulkUpdate, BulkDelete doesn't use a transaction by default. This is your responsibility to handle.
+Bulk Operations such as BulkInsert, BulkUpdate, BulkDelete don't use a transaction by default. This is your responsibility to handle.
 
 If you start a transaction within Entity Framework, Bulk Operations will honor it.
 

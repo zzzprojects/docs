@@ -1,6 +1,6 @@
 ---
 Name: Context Factory
-LastMod: 2023-03-01
+LastMod: 2025-06-24
 ---
 
 # Context Factory
@@ -16,7 +16,7 @@ Having a default context constructor or specifying a context factory is only req
 Having a default context constructor or specifying a context factory is always required.
 
 ## Context Factory
-The context factory is a function `Func<DbContext, DbContext>` that provides the current DbContext as a parameter and require to return a new DbContext.
+The context factory is a function `Func<DbContext, DbContext>` that provides the current DbContext as a parameter and is required to return a new DbContext.
 The current DbContext is passed in a parameter in case you need to create a working context that depends on the current context configuration or type.
 
 ```csharp
@@ -59,7 +59,7 @@ EntityFrameworkManager.ContextFactory = context =>
 {% include component-try-it.html href='https://dotnetfiddle.net/fyTeS7' %}
 
 ## Default Constructor
-If your context has a default constructor, you might now need to specify a context factory.
+If your context has a default constructor, you might not need to specify a context factory.
 
 
 ```csharp

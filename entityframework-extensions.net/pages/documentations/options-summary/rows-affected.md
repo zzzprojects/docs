@@ -1,6 +1,6 @@
 ---
 Name: Rows Affected
-LastMod: 2025-05-07
+LastMod: 2025-06-24
 ---
 
 # Rows Affected
@@ -9,7 +9,7 @@ LastMod: 2025-05-07
 
 Getting the number of rows affected might be useful to know how many entities have been inserted, for example.
 
-It's possible to get this information by enabling the option `UseRowsAffected = true`. Enabling this option is required since it slightly decrease the performance.
+It's possible to get this information by enabling the option `UseRowsAffected = true`. Enabling this option is required since it slightly decreases the performance.
 
 You can find the number of rows affected in the `ResultInfo` class:
 

@@ -1,6 +1,6 @@
 ---
 Name: How to filter entities contained from an existing list with Entity Framework?
-LastMod: 2024-10-15
+LastMod: 2025-06-24
 ---
 
 # How to filter entities contained from an existing list with Entity Framework?
@@ -40,18 +40,18 @@ However, this solution has some limitations such as:
 - The list of `ids` is limited due to SQL limitations
 - It doesn't support surrogate key (more than one key) or other complex scenarios
 
-The `WhereBulkContains` method lets you filter a query by including all entities from the list. It's doesn't have any of the `Contains` method limitations.
+The `WhereBulkContains` method lets you filter a query by including all entities from the list. It doesn't have any of the `Contains` method limitations.
 
 ## FAQ
 
 - [How to use the method WhereBulkContains?](#how-to-use-the-method-wherebulkcontains)
 - [What kind of list is supported?](#what-kind-of-list-is-supported)
 - [Can I use WhereBulkContains after a Where?](#can-i-use-wherebulkcontains-after-a-where)
-- [Can I use the WhereBulkContains method with millions of items?](#can-i-use-the-wherebulkcontains-with-million-of-items)
+- [Can I use the WhereBulkContains method with millions of items?](#can-i-use-the-wherebulkcontains-method-with-millions-of-items)
 - [How can I use a custom key?](#how-can-i-use-a-custom-key)
 - [Can I use WhereBulkContains with Batch Operations?](#can-i-use-wherebulkcontains-with-batch-operations)
 - [What are Contains method limitations?](#what-are-contains-method-limitations)
-- [Do WhereBulkContains faster than Contains method?](#do-wherebulkcontains-faster-than-contains-method)
+- [Is WhereBulkContains faster than the Contains method?](#is-wherebulkcontains-faster-than-the-contains-method)
 - [What is the difference between the method WhereBulkContains, WhereBulkNotContains, and BulkRead?](#what-is-the-difference-between-the-method-wherebulkcontains-wherebulknotcontains-and-bulkread)
 - [What are the limitations?](#what-are-the-limitations)
 
@@ -129,7 +129,7 @@ var customers = context.Customers.Where(x => x.CustomerID >= 2).WhereBulkContain
 
 [Try it](https://dotnetfiddle.net/A7eSmW)
 
-## Can I use the WhereBulkContains with million of items?
+## Can I use the WhereBulkContains method with millions of items?
 
 Yes, you can use the `WhereBulkContains` method with an unlimited amount of items.
 
@@ -188,7 +188,7 @@ public static List<T> GetFromGenericContains<T>(List<T> items) where T : class
 
 ## What are Contains method limitations?
 
-Has said previously, the `Contains` method already work great but also have his own limitations:
+As stated previously, the `Contains` method already works great but also has its own limitations:
 
 - It only supports basic types like `int` or `guid`
 - The list of `ids` is limited due to SQL limitations
@@ -196,11 +196,11 @@ Has said previously, the `Contains` method already work great but also have his 
 
 The `WhereBulkContains` doesn't have any of those limitations.
 
-## Do WhereBulkContains faster than Contains method?
+## Is WhereBulkContains faster than the Contains method?
 
 In most scenarios, the answer will probably be no. The `Contains` method is faster due to simply using a very basic `IN (...)` statement.
 
-The `WhereBulkContains` method is also very fast, but the main advantage is his flexibility by supporting:
+The `WhereBulkContains` method is also very fast, but the main advantage is its flexibility by supporting:
 
 - An unlimited amount of items
 - Any kind of list
@@ -220,7 +220,7 @@ As for the `BulkRead` method, under the hood calls the `WhereBulkContains` metho
 var customers = context.Customers.WhereBulkContains(deserializedCustomers).ToList();
 ```
 
-So all three methods are very similar but serve different purpose.
+So all three methods are very similar but serve different purposes.
 
 ## What are the limitations?
 

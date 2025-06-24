@@ -1,22 +1,22 @@
 ---
 Name: How do you filter a list to return only items from the list that match no row in the database?
-LastMod: 2024-01-23
+LastMod: 2025-06-24
 ---
 
 # How do you filter a list to return only items from the list that match no row in the database?
 
 ## Description
 
-The `WhereBulkNotContainsFilterList` method lets you filter a list by only returning items from the list that doesn't exists in the database. It's the invese of the [WhereBulkContainsFilterList](/where-bulk-contains-filter-list) method.
+The `WhereBulkNotContainsFilterList` method lets you filter a list by only returning items from the list that don’t exist in the database. It's the inverse of the [WhereBulkContainsFilterList](/where-bulk-contains-filter-list) method.
 
 ### Example
 
 ```csharp
-// return all customers from the 'deserializedCustomers' that doesn't exist in the database
-var existingCustomers = context.Customers.WhereBulkNotContainsFilterList(deserializedCustomers).ToList();
+// return all customers from the 'deserializedCustomers' that don’t exist in the database
+var notExistingCustomers = context.Customers.WhereBulkNotContainsFilterList(deserializedCustomers).ToList();
 
 // from the existing list, you can retrieve all existing customers by excluding non-existing ones without fetching the database this time.
-var notExistingCustomers = deserializedCustomers.Exclude(existingCustomer);
+var existingCustomers = deserializedCustomers.Exclude(notExistingCustomers);
 ```
 
 ## Scenario
@@ -26,11 +26,11 @@ Filtering a list to know which items already exist or not can sometimes be very 
 For example, let's say that you want to split the `insert` and `update` logic as they have very different application rules. Instead of using the [Bulk Merge](/bulk-merge) method, you can now split the list with existing and non-existing items and use the [Bulk Insert](/bulk-insert) and [Bulk Update](/bulk-update) methods from both lists.
 
 ```csharp
-// return all customers from the 'deserializedCustomers' that exists in the database
+// return all customers from the 'deserializedCustomers' that exist in the database
 var notExistingCustomers = context.Customers.WhereBulkNotContainsFilterList(deserializedCustomers).ToList();
 
 // from the existing list, you can retrieve all non-existing customers by excluding them without fetching the database this time.
-var existingCustomers = deserializedCustomers.Exclude(existingCustomer);
+var existingCustomers = deserializedCustomers.Exclude(notExistingCustomers);
 
 context.BulkInsert(notExistingCustomers);
 context.BulkUpdate(existingCustomers);
@@ -46,7 +46,7 @@ context.BulkUpdate(existingCustomers);
 
 The most basic scenario is passing a list to the `WhereBulkNotContainsFilterList` method.
 
-The `WhereBulkNotContainsFilterList` method will filter the list to return only item that doesn't exists in the database.
+The `WhereBulkNotContainsFilterList` method will filter the list to return only items that don’t exist in the database.
 
 ```csharp
 // The `JOIN` statement will use the default entity key if none is provided (CustomerID)
@@ -68,10 +68,10 @@ The `WhereBulkNotContainsFilterListAsync` method is also supported.
 
 ## What is the difference between the method WhereBulkNotContainsFilterList and WhereBulkNotContains?
 
-The `WhereBulkNotContainsFilterList` method is similar to the `WhereNotBulkContains` method, but what is returned is very different.
+The `WhereBulkNotContainsFilterList` method is similar to the `WhereBulkNotContains` method, but what is returned is very different.
 
-- The `WhereBulkContainsFilterList` method returns items from the list that match no row in the database.
-- The `WhereBulkContains` method returns entities from the database that match no item in the list
+- The `WhereBulkNotContainsFilterList` method returns items from the list that match no row in the database.
+- The `WhereBulkNotContains` method returns entities from the database that match no item in the list
 
 So, the method you use depends on whether you want to filter the current list or instead return entities from the database.
 
