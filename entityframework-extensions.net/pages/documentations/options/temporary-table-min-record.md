@@ -1,6 +1,6 @@
 ---
 Name: TemporaryTableMinRecord
-LastMod: 2023-03-01
+LastMod: 2025-06-24
 ---
 
 # TemporaryTableMinRecord
@@ -18,4 +18,4 @@ context.BulkSaveChanges(options =>
 ```
 
 ## Purpose
-Our library is smart but finding the `META` number is very hard since there is a lot of factors. Increasing the default value may improve the performance.
+Our library is smart but finding the `optimal` number is very hard since there are a lot of factors. Increasing the default value may improve the performance.

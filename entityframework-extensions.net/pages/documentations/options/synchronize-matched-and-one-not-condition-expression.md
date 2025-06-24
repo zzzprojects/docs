@@ -1,6 +1,6 @@
 ---
 Name: SynchronizeMatched AndOneNotCondition Expression
-LastMod: 2023-03-01
+LastMod: 2025-06-24
 ---
 
 # SynchronizeMatched AndOneNotCondition Expression
@@ -26,7 +26,7 @@ using (var context = new EntityContext())
 
     context.BulkSynchronize(customers, options => 
     {
-        options.SynchronizeMatchedAndOneNotConditionExpression  = c => new {c.CustomerID, c.ModifiedDate };
+        options.SynchronizeMatchedAndOneNotConditionExpression = c => new {c.CustomerID, c.ModifiedDate };
     });
 }
 ```

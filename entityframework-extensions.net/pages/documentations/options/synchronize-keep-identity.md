@@ -1,6 +1,6 @@
 ---
 Name: SynchronizeKeepIdentity
-LastMod: 2023-03-01
+LastMod: 2025-06-24
 ---
 
 # SynchronizeKeepIdentity
@@ -19,12 +19,12 @@ using (var context = new EntityContext())
     list.ForEach(x => x.IdentityInt += 100 );
     list.Add( new Customer() { CustomerID = 3, IdentityInt = 4, Name ="Customer_C" });
 
-    context.BulkMerge(list, options => options.SynchronizeKeepidentity = true);
+    context.BulkMerge(list, options => options.SynchronizeKeepIdentity = true);
 }
 ```
 Try it: [EF Core](https://dotnetfiddle.net/z3gbGG) | [EF6](https://dotnetfiddle.net/JBYGfz)
 
 ## Purpose
-The `SynchronizeKeepIdentity` option let you keep the source identity value when `synchronizing`.
+The `SynchronizeKeepIdentity` option lets you keep the source identity value when `synchronizing`.
 
 For example, when importing a file, you may want to keep the value specified.

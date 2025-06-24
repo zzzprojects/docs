@@ -1,13 +1,13 @@
 ---
 Name: RetryCount
-LastMod: 2023-03-01
+LastMod: 2025-06-24
 ---
 
 # RetryCount
 
 ## Description
 
-Gets or sets the maximum number of operations retry when a transient error occurs.
+Gets or sets the maximum number of operation retries when a transient error occurs.
 
 ```csharp
 context.BulkSaveChanges(options => {
@@ -18,7 +18,7 @@ context.BulkSaveChanges(options => {
 ## Purpose
 A transient error is a temporary error that is likely to disappear soon. That rarely happens but they might occur!
 
-These options allow to reduce a bulk operation fail by making them retry when a transient error occurs.
+This option helps reduce a bulk operation failure by retrying it when a transient error occurs.
 
 ## FAQ
 

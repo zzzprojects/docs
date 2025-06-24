@@ -1,6 +1,6 @@
 ---
 Name: Log
-LastMod: 2023-03-01
+LastMod: 2025-06-24
 ---
 
 # Log
@@ -25,12 +25,12 @@ Try it: [EF Core](https://dotnetfiddle.net/MsB5QE) | [EF6](https://dotnetfiddle.
 
 Notice that `BulkOperation.Log` is set to `Console.WriteLine`. This is all that is needed to log database events to the console. 
 
-Another example which will log all the information to a `StringBuilder`.
+Another example that will log all the information to a `StringBuilder`.
 
 ```csharp
 StringBuilder logger = new StringBuilder();
 
-context.BulkSaveChanges(options =>StringBuilder
+context.BulkSaveChanges(options =>
 {
     options.Log += s => logger.AppendLine(s);
 });

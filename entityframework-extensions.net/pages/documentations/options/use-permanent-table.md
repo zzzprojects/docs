@@ -1,6 +1,6 @@
 ---
 Name: UsePermanentTable
-LastMod: 2023-03-01
+LastMod: 2025-06-24
 ---
 
 # UsePermanentTable
@@ -18,4 +18,4 @@ context.BulkSaveChanges(options =>
 ```
 
 ## Purpose
-This option can be useful when for some rare reasons, you don't have access to the `tempdb` database.
+This option can be useful when, for some rare reason, you don't have access to the `tempdb` database.

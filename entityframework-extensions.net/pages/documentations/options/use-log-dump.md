@@ -1,6 +1,6 @@
 ---
 Name: UseLogDump
-LastMod: 2023-03-01
+LastMod: 2025-06-24
 ---
 
 # UseLogDump
@@ -27,4 +27,4 @@ context.BulkSaveChanges(options =>
 Try it: [EF Core](https://dotnetfiddle.net/jIz1br) | [EF6](https://dotnetfiddle.net/Z2klLQ)
 
 ## Purpose
-Getting database `log` can often be useful for debugging and see what has been executed under the hood by the library.
+Getting database `log` can often be useful for debugging and seeing what has been executed under the hood by the library.

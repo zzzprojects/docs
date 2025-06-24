@@ -1,13 +1,13 @@
 ---
 Name: TemporaryTableUseTableLock
-LastMod: 2023-03-01
+LastMod: 2025-06-24
 ---
 
 # TemporaryTableUseTableLock
 
 ## Description
 
-Gets or sets if the temporary table must be locked when inserting records into it.
+Gets or sets whether the temporary table must be locked when inserting records into it.
 
 
 ```csharp

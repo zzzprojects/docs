@@ -1,6 +1,6 @@
 ---
 Name: TemporaryTableInsertBatchSize
-LastMod: 2023-03-01
+LastMod: 2025-06-24
 ---
 
 # TemporaryTableInsertBatchSize
@@ -18,4 +18,4 @@ context.BulkSaveChanges(options =>
 ```
 
 ## Purpose
-Increasing the default value may improve the performance. Since the temporary table doesn't contain index and trigger and it's normally locked during the insert, you may use a very high value.
+Increasing the default value may improve the performance. Since the temporary table doesn't contain indexes and triggers and it's normally locked during the insert, you may use a very high value.

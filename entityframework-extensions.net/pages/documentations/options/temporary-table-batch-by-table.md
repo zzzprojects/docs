@@ -1,13 +1,13 @@
 ---
 Name: TemporaryTableBatchByTable
-LastMod: 2023-03-01
+LastMod: 2025-06-24
 ---
 
 # TemporaryTableBatchByTable
 
 ## Description
 
-Gets or sets the number of batches a temporary table can contain. This option may create multiple temporary tables when the number of batches to execute exceeds the limit specified.
+Gets or sets the number of batches that a temporary table can contain. This option may create multiple temporary tables when the number of batches to execute exceeds the limit specified.
 
 
 ```csharp

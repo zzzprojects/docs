@@ -1,13 +1,13 @@
 ---
 Name: MergeKeepIdentity
-LastMod: 2023-03-01
+LastMod: 2025-06-24
 ---
 
 # MergeKeepIdentity
 
 ## Description
 
-The `BulkOperation.InsertKeepIdentity` sets if the source identity value should be preserved on `Merge`. When not specified, identity values are assigned by the destination.
+The `BulkOperation.InsertKeepIdentity` sets whether the source identity value should be preserved on `Merge`. When not specified, identity values are assigned by the destination.
 
 In the following example, the `MergeKeepIdentity` is enabled and the specified value for `IdentityInt` column will be stored in the database instead of the database generated values on `MERGE` operation.
 
@@ -29,4 +29,4 @@ Try it: [EF Core](https://dotnetfiddle.net/MZuywh) | [EF6](https://dotnetfiddle.
 ## Purpose
 The `MergeKeepIdentity` option lets you keep the source identity value when `merging`.
 
-By example, when importing a file, you may want to keep the specified value.
+For example, when importing a file, you may want to keep the specified value.

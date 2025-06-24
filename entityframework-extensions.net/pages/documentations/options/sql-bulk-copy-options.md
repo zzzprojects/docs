@@ -1,6 +1,6 @@
 ---
 Name: SqlBulkCopyOptions
-LastMod: 2023-03-01
+LastMod: 2025-06-24
 ---
 
 # SqlBulkCopyOptions
@@ -18,4 +18,4 @@ context.BulkSaveChanges(options =>
 ```
 
 ## Purpose
-Modifying the SqlBulkCopyOptions to include for example `TableLock` may increase significantly the performance.
+Modifying the SqlBulkCopyOptions to include for example `TableLock` may significantly increase performance.

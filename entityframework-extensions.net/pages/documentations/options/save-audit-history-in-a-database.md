@@ -1,16 +1,16 @@
 ---
 Name: Save Audit History in a Database
-LastMod: 2023-03-01
+LastMod: 2025-06-24
 ---
 
 # Save Audit History in a Database
 
-When you are working with certain projects, you might need to track each change made to your database. In this article, we will implement the audit feature using Entity Framework to keep track of entity objects when we insert/modified/delete them.
+When you are working with certain projects, you might need to track each change made to your database. In this article, we will implement the audit feature using Entity Framework to keep track of entity objects when we insert/modify/delete them.
 
-To keep things simple, we want to save the following details information in a database.
+To keep things simple, we want to save the following detailed information in a database.
 
  - **Id:** Unique log id.
- - **Action:** Action name, such Insert, Delete and Update
+ - **Action:** Action name, such as Insert, Delete, and Update
  - **TableName:** Name of the table
  - **Values:** All column name, old value & new value separated by the pipe "|" characters. Could be a XML, JSON or any other desired format. 
  - **Date:** DateTime of the operation

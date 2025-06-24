@@ -1,15 +1,15 @@
 ---
 Name: InsertKeepIdentity
-LastMod: 2023-03-01
+LastMod: 2025-06-24
 ---
 
 # InsertKeepIdentity
 
 ## Description
 
-The `InsertKeepIdentity` options sets if the source identity value should be preserved on `Insert`. When not specified, identity values are assigned by the destination.
+The `InsertKeepIdentity` option sets if the source identity value should be preserved on `Insert`. When not specified, identity values are assigned by the destination.
 
-In the following example, the `InsertKeepIdentity` is enabled and the specified value for `IdentityInt` column will be stored in the database instead of the database generated values on `INSERT` operation. 
+In the following example, the `InsertKeepIdentity` is enabled and the specified value for the `IdentityInt` column will be stored in the database instead of the database-generated values on the `INSERT` operation. 
 ```csharp
 List<Customer> list =  new List<Customer>() 
 {
@@ -27,6 +27,6 @@ Try it: [EF Core](https://dotnetfiddle.net/klcb9Y) | [EF6](https://dotnetfiddle.
 
 ## Purpose
 
-The `InsertKeepIdentity` option let you keep the source identity value when `inserting`.
+The `InsertKeepIdentity` option lets you keep the source identity value when `inserting`.
 
 For example, when importing a file, you may want to keep the value specified.
