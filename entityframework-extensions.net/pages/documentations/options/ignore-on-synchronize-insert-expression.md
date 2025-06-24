@@ -1,6 +1,6 @@
 ---
 Name: Ignore OnSynchronizeInsert Expression
-LastMod: 2023-03-01
+LastMod: 2025-06-24
 ---
 
 # Ignore OnSynchronizeInsert Expression
@@ -9,7 +9,7 @@ LastMod: 2023-03-01
 
 The `IgnoreOnSynchronizeInsertExpression` allows you to ignore some columns when the `BulkSynchronize` method executes the `insert` statement and these columns will only be used in `update` statement.
 
-The following example ignores the `ModifiedDate` property in insertion and will be considered when updating the records.
+The following example ignores the `ModifiedDate` property during insertion, but it will be considered when updating the records.
 
 ```csharp
 using (var context = new EntityContext())
@@ -46,5 +46,5 @@ using (var context = new EntityContext())
 Try it: [EF Core](https://dotnetfiddle.net/1rzvYC) | [EF6](https://dotnetfiddle.net/bCXqPB)
 
  - It updates all the columns of existing records.
- - It will insert data of new records in all the columns except for the `ModifiedDate` column because `ModifiedDate` property is specified in `IgnoreOnSynchronizeInsertExpression`. 
+ - It will insert data for new records in all the columns except for the `ModifiedDate` column because the `ModifiedDate` property is specified in `IgnoreOnSynchronizeInsertExpression`. 
  - It will also delete non-matching rows that exist in the database.

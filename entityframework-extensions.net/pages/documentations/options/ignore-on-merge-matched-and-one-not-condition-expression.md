@@ -1,6 +1,6 @@
 ---
 Name: Ignore OnMergeMatched AndOneNotCondition Expression
-LastMod: 2023-03-01
+LastMod: 2025-06-24
 ---
 
 # Ignore OnMergeMatched AndOneNotCondition Expression
@@ -10,7 +10,7 @@ LastMod: 2023-03-01
 The `IgnoreOnMergeMatchedAndOneNotConditionExpression` is the inverse of `MergeMatchedAndNotConditionExpression` 
 
  - The `MergeMatchedAndNotConditionExpression` allows you to perform only the `UPDATE` in the `BulkMerge` if the specified property value is not equal to the database value. 
- - So by default, all columns are included in `IgnoreOnMergeMatchedAndOneNotConditionExpression` but not the one you choose to ignore.
+ - So by default, all columns are included in `IgnoreOnMergeMatchedAndOneNotConditionExpression` except the ones you choose to ignore.
 
 The following example updates all those records in which the `ModifiedDate` property is not equal to database value. It ignores the properties specified in `IgnoreOnMergeMatchedAndOneNotConditionExpression` if their value is equal to the database or not.
 

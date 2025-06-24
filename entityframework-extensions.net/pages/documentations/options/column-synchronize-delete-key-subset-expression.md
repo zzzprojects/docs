@@ -1,13 +1,13 @@
 ---
 Name: Column Synchronize DeleteKey Subset Expression
-LastMod: 2023-03-01
+LastMod: 2025-06-24
 ---
 
 # Column Synchronize DeleteKey Subset Expression
 
 ## Description
 
-The `ColumnSynchronizeDeleteKeySubsetExpression` allows you to synchronize (insert/update/delete) only a part of the tables by specifying a key.
+The `ColumnSynchronizeDeleteKeySubsetExpression` allows you to synchronize (insert/update/delete) only part of the table by specifying a key.
 
 The following example synchronizes customers of `Type` equal to "1" by specifying the customer name as a key. 
 
@@ -27,7 +27,7 @@ using (var context = new EntityContext())
 
 Try it: [EF Core](https://dotnetfiddle.net/clr84M) | [EF6](https://dotnetfiddle.net/y5snLt)
 
-A synchronize is a mirror operation from the data source to the database. All rows that match the entity key are `UPDATED`, non-matching rows that exist from the source are `INSERTED`, non-matching rows that exist in the database are `DELETED`.
+A synchronization is a mirror operation from the data source to the database. All rows that match the entity key are `UPDATED`, non-matching rows that exist from the source are `INSERTED`, non-matching rows that exist in the database are `DELETED`.
 
  - It updates the record of **Carson** as it is already in the database 
  - It inserts **Alexander** record because it is not available in the database.

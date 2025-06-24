@@ -1,6 +1,6 @@
 ---
 Name: Ignore OnSynchronizeMatched AndCondition Expression
-LastMod: 2023-03-01
+LastMod: 2025-06-24
 ---
 
 # Ignore OnSynchronizeMatched AndCondition Expression
@@ -10,9 +10,9 @@ LastMod: 2023-03-01
 The `IgnoreOnSynchronizeMatchedAndConditionExpression` is the inverse of `SynchronizeMatchedAndConditionExpression`.
 
  - The `SynchronizeMatchedAndConditionExpression` allows you to perform the bulk synchronize operation if the specified property value is not equal to the database value.
- - So by default, all columns are included in `IgnoreOnSynchronizeMatchedAndConditionExpression` but not the one you choose to ignore.
+ - So by default, all columns are included in `IgnoreOnSynchronizeMatchedAndConditionExpression` except the ones you choose to ignore.
 
-The following example updates all those records in which the `CreatedDate` property is equal to database value and ignore the specified properties in `IgnoreOnUpdateMatchedAndConditionExpression` if their value is equal to the database or not.
+The following example updates all those records in which the `CreatedDate` property is equal to database value and ignores the specified properties in `IgnoreOnSynchronizeMatchedAndConditionExpression`, whether their value is equal to the database or not.
 
 ```csharp
 using (var context = new EntityContext())

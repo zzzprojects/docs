@@ -1,6 +1,6 @@
 ---
 Name: Ignore OnInsert Expression
-LastMod: 2023-03-01
+LastMod: 2025-06-24
 ---
 
 # Ignore OnInsert Expression
@@ -29,4 +29,4 @@ using (var context = new EntityContext())
 
 Try it: [EF Core](https://dotnetfiddle.net/JfhEKv) | [EF6](https://dotnetfiddle.net/RljtrO)
 
- - It will insert data in all the columns except for the `ModifiedDate` column because `ModifiedDate` property is specified in `IgnoreOnInsertExpression`. 
+ - It will insert data in all columns except for the `ModifiedDate` column because the `ModifiedDate` property is specified in `IgnoreOnInsertExpression`. 

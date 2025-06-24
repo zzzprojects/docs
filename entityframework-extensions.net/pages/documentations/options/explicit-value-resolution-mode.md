@@ -1,7 +1,7 @@
 ---
 Title: How EFE Bulk Extensions Handle Explicit Values in EF Core
 MetaDescription: How EFE Bulk Extensions Handle Explicit Values in EF Core
-LastMod: 2025-02-12
+LastMod: 2025-06-24
 ---
 
 # How EFE Bulk Extensions Handle Explicit Values in EF Core
@@ -56,7 +56,7 @@ To increase flexibility, starting from [version 8.103.09.0](https://github.com/z
 - **SmartDefaultValueOnBulkMergeInsert:** Same as the `SmartDefaultValueOnBulkInsert` but for the "INSERT" part of the merge.
 - **SmartPartialResolutionOnBulkMergeInsert:** Same as the `SmartPartialResolutionOnBulkInsert` but for the "INSERT" part of the merge.
 
-For the `AlwaysKeepValueOnInsert`, `AlwaysKeepValueOnUpdate`, and `AlwaysKeepValueOnInsertOrUpdate` states, they force all our bulk extensions to always takes values from the entity regardless of whether an explicit value is specified.
+For the `AlwaysKeepValueOnInsert`, `AlwaysKeepValueOnUpdate`, and `AlwaysKeepValueOnInsertOrUpdate` states, they force all our bulk extensions to always take values from the entity regardless of whether an explicit value is specified.
 
 For the `SmartDefaultValueOnBulkInsert` and `SmartPartialResolutionOnBulkInsert` states, applicable only to [BulkInsert](https://entityframework-extensions.net/bulk-insert) and [BulkInsertOptimized](https://entityframework-extensions.net/bulk-insert-optimized), these states enable our library to split a single insert into multiple insert statements. For example, if you have two entities, one with an explicit value and another without, and call the `BulkInsert` method, two insert statements will be created:
 

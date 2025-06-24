@@ -1,6 +1,6 @@
 ---
 Name: Ignore OnUpdate Expression
-LastMod: 2023-03-01
+LastMod: 2025-06-24
 ---
 
 # Ignore OnUpdate Expression
@@ -9,7 +9,7 @@ LastMod: 2023-03-01
 
 The `IgnoreOnUpdateExpression` allows you to ignore some columns when the `BulkUpdate` method is executed.
 
-The following example ignores the `CreatedDate` property when bulk update operation is performed.
+The following example ignores the `CreatedDate` property when a bulk update operation is performed.
 
 ```csharp
 using (var context = new EntityContext())
@@ -37,4 +37,4 @@ using (var context = new EntityContext())
 
 Try it: [EF Core](https://dotnetfiddle.net/JdDCHB) | [EF6](https://dotnetfiddle.net/rKFA73)
 
- - It will update data in all the columns except for the `CreatedDate` column because `CreatedDate` property is specified in `IgnoreOnUpdateExpression`. 
+ - It will update data in all the columns except for the `CreatedDate` column because the `CreatedDate` property is specified in `IgnoreOnUpdateExpression`. 

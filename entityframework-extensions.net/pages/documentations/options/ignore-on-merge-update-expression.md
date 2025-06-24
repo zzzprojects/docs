@@ -1,13 +1,13 @@
 ---
 Name: Ignore OnMergeUpdate Expression
-LastMod: 2023-03-01
+LastMod: 2025-06-24
 ---
 
 # Ignore OnMergeUpdate Expression
 
 ## Description
 
-The `IgnoreOnMergeUpdateExpression` allows you to ignore some columns when the `BulkMerge` method executes the `update` statement and these columns will only be used in `insert` statement.
+The `IgnoreOnMergeUpdateExpression` allows you to ignore some columns when the `BulkMerge` method executes the `update` statement, and these columns will only be used in the `insert` statement.
 
 The following example ignores the `Name` and `IsActive` properties while updating the records and will be considered during insertion.
 

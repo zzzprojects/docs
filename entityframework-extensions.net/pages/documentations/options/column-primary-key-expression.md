@@ -1,6 +1,6 @@
 ---
 Name: Column PrimaryKey Expression
-LastMod: 2023-03-01
+LastMod: 2025-06-24
 ---
 
 # Column PrimaryKey Expression
@@ -25,4 +25,4 @@ using (var context = new EntityContext())
 ```
 Try it: [EF Core](https://dotnetfiddle.net/FZFpec) | [EF6](https://dotnetfiddle.net/L1Wvep)
 
-It will update those records for which the `Login` and `Password` already exist in the database and all the new records will be inserted to the database. 
+It will update those records for which the `Login` and `Password` already exist in the database and all the new records will be inserted into the database. 

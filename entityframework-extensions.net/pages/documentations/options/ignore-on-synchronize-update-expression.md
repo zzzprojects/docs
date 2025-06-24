@@ -1,6 +1,6 @@
 ---
 Name: Ignore OnSynchronizeUpdate Expression
-LastMod: 2023-03-01
+LastMod: 2025-06-24
 ---
 
 # Ignore OnSynchronizeUpdate Expression
@@ -45,6 +45,6 @@ using (var context = new EntityContext())
 
 Try it: [EF Core](https://dotnetfiddle.net/kXoLcy) | [EF6](https://dotnetfiddle.net/ebEAZa)
 
- - It updates all the columns of an existing records except for the `CreatedDate` column because `CreatedDate` property is specified in `IgnoreOnSynchronizeUpdateExpression`. 
+ - It updates all the columns of existing records except for the `CreatedDate` column because the `CreatedDate` property is specified in `IgnoreOnSynchronizeUpdateExpression`. 
  - It will insert non-matching rows that exist in the source (`customers` list).
  - It will also delete non-matching rows that exist in the database.
