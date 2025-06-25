@@ -1,7 +1,7 @@
 ---
 Title: ZZZ Projects: Adding Value to the .NET Community
 MetaDescription: Learn how ZZZ Projects contributes to the .NET community through sponsorship, free products, online tutorials, and AI tools.
-LastMod: 2024-08-22
+LastMod: 2025-06-25
 ---
 
 # Mission: A Business Devoted to Adding Value to the .NET Community
@@ -30,17 +30,27 @@ ZZZ Projects adds value to the .NET community through sponsorship:
 
 - Dapper
    - [Dapper](https://github.com/DapperLib/Dapper): We provide a percentage of [Dapper Plus](https://dapper-plus.net/) revenue as our library exists because of its excellent work.
+   - [Dapper.EntityFramework](https://www.nuget.org/packages/Dapper.EntityFramework)
+   - [Dapper.Rainbow](https://www.nuget.org/packages/Dapper.Rainbow)
+   - [Dapper SqlBuilder](https://www.nuget.org/packages/Dapper.SqlBuilder)
    - [Dapper.Extensions.NetCore](https://github.com/ZeeLyn/Dapper.Extensions)
    - [Dommel](https://github.com/henkmollema/Dommel)
    - [MicroOrm.Dapper.Repositories](https://github.com/phnx47/dapper-repositories)   
 - EF Core
    - [Audit.NET](https://github.com/thepirat000/Audit.NET)
+   - [EFLocalDb](https://github.com/SimonCropp/LocalDb)
    - [EntityCloner.Microsoft.EntityFrameworkCore](https://github.com/HenkKin/EntityCloner.Microsoft.EntityFrameworkCore)
+   - [EntityFrameworkCore.Sqlite.NodaTime](https://github.com/khellang/EFCore.Sqlite.NodaTime)
+   - [EntityFrameworkCore.SqlServer.NodaTime](https://github.com/StevenRasmussen/EFCore.SqlServer.NodaTime)
    - [EntityFrameworkCore.Exceptions](https://github.com/Giorgi/EntityFramework.Exceptions)
-- Misc
-   - [LINQ Dynamic](https://github.com/zzzprojects/System.Linq.Dynamic.Core): We pay [StefH](https://github.com/stefH) directly for support and maintenance.
+   - [GraphQL.EntityFramework](https://github.com/SimonCropp/GraphQL.EntityFramework)
+   - [LINQ Dynamic](https://github.com/zzzprojects/System.Linq.Dynamic.Core)
+- High Contributors
+   - [StefH](https://www.nuget.org/profiles/sheyenrath): He supports **247 packages** with over **450 million** total downloads
+   - [Simmoncropp](https://www.nuget.org/profiles/simoncropp): He supports **247 packages** with over **450 million** total downloads
+   - [Khellang](https://www.nuget.org/profiles/khellang): He supports **30 packages** with over **225 million** downloads
 
-If our company continues to grow in 2024/2025, we plan to sponsor 5-10 more open-source libraries that I personally use for my projects.
+If our company continues to grow in 2025/2026, we plan to sponsor 5-10 more open-source libraries that I personally use for my projects.
 
 ## Free Products & Features
 

@@ -1,6 +1,6 @@
 ---
 Name: EF Core - DevArt Oracle Provider
-LastMod: 2023-02-27
+LastMod: 2025-06-25
 ---
 
 # EF Core - DevArt Oracle Provider
@@ -14,7 +14,7 @@ The dotConnect for Oracle is a high-performance ORM enabled data provider for Or
 
 Let's create a new application using the **Console App (.NET Framework)** template and install [Z.EntityFramework.Extensions.EFCore](https://www.nuget.org/packages/Z.EntityFramework.Extensions.EFCore/). 
 
-**Entity Framework Extensions (EFE)** library is available as a nuget package and you can install it using **Nuget Package Manager**.
+**Entity Framework Extensions (EFE)** library is available as a NuGet package and you can install it using **NuGet Package Manager**.
 
 In the **Package Manager Console** window, enter the following command.
 
@@ -22,19 +22,19 @@ In the **Package Manager Console** window, enter the following command.
 PM> Install-Package Z.EntityFramework.Extensions.EFCore
 ```
 
-You can also install EFE by right-clicking on your project in Solution Explorer and select **Manage Nuget Packages...**. 
+You can also install EFE by right-clicking on your project in Solution Explorer and selecting **Manage NuGet Packages...**. 
 
 <img src="https://raw.githubusercontent.com/zzzprojects/docs/master/entityframework-extensions.net/images/efcore-devart-oracle-1.png" alt="EFcore devart Oracle">
 
-Search for **Z.EntityFramework.Extensions** and install the latest version by pressing the install button. It will also install [Microsoft.EntityFrameworkCore](https://www.nuget.org/packages/Z.EntityFramework.Extensions.EFCore/), it doesn't have additional logic that won't apply to all scenarios.
+Search for **Z.EntityFramework.Extensions** and install the latest version by pressing the install button. It will also install [Microsoft.EntityFrameworkCore](https://www.nuget.org/packages/Z.EntityFramework.Extensions.EFCore/), which doesn't have additional logic that won't apply to all scenarios.
 
-For example, EF Core will need to know what database or datastore you plan on working with and those providers are in individual packages.
+For example, EF Core will need to know what database or datastore you plan on working with and who those providers are in individual packages.
 
 ## Register EF Core Provider
 
-For DevArt Oracle, first, we need to install [dotConnect for Oracle Professional Trial](https://www.devart.com/dotconnect/oracle/download.html) to start your 30 days trial period.
+For DevArt Oracle, first, we need to install [dotConnect for Oracle Professional Trial](https://www.devart.com/dotconnect/oracle/download.html) to start your 30-day trial period.
 
-Once the installation is completed then install [Devart.Data.Oracle.EFCore](https://www.nuget.org/packages/Devart.Data.Oracle.EFCore) in your project using **Package Manager Console** window. It will get all the packages required for EF Core.
+Once the installation is completed, install [Devart.Data.Oracle.EFCore](https://www.nuget.org/packages/Devart.Data.Oracle.EFCore) in your project using **Package Manager Console** window. It will get all the packages required for EF Core.
 
 ```csharp
 PM> Install-Package Devart.Data.Oracle.EFCore
@@ -44,7 +44,7 @@ Now, you are ready to start your application.
  
 ## Create Data Model
  
-Model is a collection of classes to interact with the database.
+The model is a collection of classes to interact with the database.
 
  - A model stores data that is retrieved according to the commands from the Controller and displayed in the View.
  - It can also be used to manipulate the data to implement the business logic.
@@ -114,7 +114,7 @@ Once these packages are installed, run the following command in **Package Manage
 Add-Migration Initial
 ```
 
-This command scaffold a migration to create the initial set of tables for your model. When it is executed successfully, then run the following command.
+This command scaffolds a migration to create the initial set of tables for your model. When it is executed successfully, then run the following command.
 
 ```csharp
 Update-Database

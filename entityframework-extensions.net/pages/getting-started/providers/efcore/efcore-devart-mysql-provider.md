@@ -1,6 +1,6 @@
 ---
 Name: EF Core - DevArt MySQL Provider
-LastMod: 2023-02-27
+LastMod: 2025-06-25
 ---
 
 # EF Core - DevArt MySQL Provider
@@ -14,7 +14,7 @@ The dotConnect for MySQL is an enhanced ORM-enabled data provider for MySQL that
 
 Let's create a new application using the **Console App (.NET Framework)** template and install [Z.EntityFramework.Extensions.EFCore](https://www.nuget.org/packages/Z.EntityFramework.Extensions.EFCore/). 
 
-**Entity Framework Extensions (EFE)** library is available as a nuget package and you can install it using **Nuget Package Manager**.
+**Entity Framework Extensions (EFE)** library is available as a NuGet package and you can install it using **NuGet Package Manager**.
 
 In the **Package Manager Console** window, enter the following command.
 
@@ -22,7 +22,7 @@ In the **Package Manager Console** window, enter the following command.
 PM> Install-Package Z.EntityFramework.Extensions.EFCore
 ```
 
-You can also install EFE by right-clicking on your project in Solution Explorer and select **Manage Nuget Packages...**. 
+You can also install EFE by right-clicking on your project in Solution Explorer and selecting **Manage NuGet Packages...**. 
 
 <img src="https://raw.githubusercontent.com/zzzprojects/docs/master/entityframework-extensions.net/images/efcore-devart-mysql-1.png" alt="EFcore devart mysql">
 
@@ -32,7 +32,7 @@ For example, EF Core will need to know what database or datastore you plan on wo
 
 ## Register EF Core Provider
 
-For DevArt MySql, first, we need to install [dotConnect for MySQL Professional Trial](https://www.devart.com/dotconnect/mysql/download.html) to start your 30 days trial period.
+For DevArt MySQL, first, we need to install [dotConnect for MySQL Professional Trial](https://www.devart.com/dotconnect/mysql/download.html) to start your 30-day trial period.
 
 Once the installation is completed, install [Devart.Data.MySql.EFCore](https://www.nuget.org/packages/Devart.Data.MySql.EFCore) in your project using **Package Manager Console** window. It will get all the packages required for EF Core.
 
@@ -44,7 +44,7 @@ Now, you are ready to start your application.
  
 ## Create Data Model
  
-Model is a collection of classes to interact with the database.
+The model is a collection of classes to interact with the database.
 
  - A model stores data that is retrieved according to the commands from the Controller and displayed in the View.
  - It can also be used to manipulate the data to implement the business logic.
@@ -114,7 +114,7 @@ Once these packages are installed, run the following command in **Package Manage
 Add-Migration Initial
 ```
 
-This command scaffold a migration to create the initial set of tables for your model. When it is executed successfully, run the following command.
+This command scaffolds a migration to create the initial set of tables for your model. When it is executed successfully, run the following command.
 
 ```csharp
 Update-Database

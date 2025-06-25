@@ -1,6 +1,6 @@
 ---
 Name: EF Core - PostgreSQL Provider
-LastMod: 2023-02-27
+LastMod: 2025-06-25
 ---
 
 # EF Core - PostgreSQL Provider
@@ -9,13 +9,13 @@ PostgreSQL is a general-purpose and object-relational database management system
 
  - PostgreSQL has been proven to be highly scalable both in the sheer quantity of data it can manage and in the number of concurrent users it can accommodate. 
  - It allows you to add custom functions developed using different programming languages such as C/C++, Java, etc.
- - PostgreSQL requires very minimum maintained efforts because of its stability.
+ - PostgreSQL requires very minimal maintenance efforts because of its stability.
 
 ## Install EFE Core
 
 Let's create a new application using the **Console App (.NET Framework)** template and install [Z.EntityFramework.Extensions.EFCore](https://www.nuget.org/packages/Z.EntityFramework.Extensions.EFCore/). 
 
-**Entity Framework Extensions (EFE)** library is available as a nuget package and you can install it using **Nuget Package Manager**.
+**Entity Framework Extensions (EFE)** library is available as a NuGet package and you can install it using **NuGet Package Manager**.
 
 In the **Package Manager Console** window, enter the following command.
 
@@ -23,7 +23,7 @@ In the **Package Manager Console** window, enter the following command.
 PM> Install-Package Z.EntityFramework.Extensions.EFCore
 ```
 
-You can also install EFE by right-clicking on your project in Solution Explorer and select **Manage Nuget Packages...**. 
+You can also install EFE by right-clicking on your project in Solution Explorer and selecting **Manage NuGet Packages...**. 
 
 <img src="https://raw.githubusercontent.com/zzzprojects/docs/master/entityframework-extensions.net/images/efcore-postgresql-1.png" alt="EFcore postgresql">
 
@@ -41,9 +41,9 @@ PM> Install-Package Npgsql.EntityFrameworkCore.PostgreSQL
 
 Now, you are ready to start your application.
  
- ## Create Data Model
+## Create Data Model
  
- Model is a collection of classes to interact with the database.
+The model is a collection of classes to interact with the database.
 
  - A model stores data that is retrieved according to the commands from the Controller and displayed in the View.
  - It can also be used to manipulate the data to implement the business logic.
@@ -113,7 +113,7 @@ Once these packages are installed, run the following command in **Package Manage
 Add-Migration Initial
 ```
 
-This command scaffold a migration to create the initial set of tables for your model. When it is executed successfully, then run the following command.
+This command scaffolds a migration to create the initial set of tables for your model. When it is executed successfully, then run the following command.
 
 ```csharp
 Update-Database
