@@ -1,6 +1,6 @@
 ---
 Name: EF6 - Oracle Provider
-LastMod: 2023-02-27
+LastMod: 2025-06-25
 ---
 
 # EF6 - Oracle Provider
@@ -14,7 +14,7 @@ Oracle Database is the first database designed for enterprise grid computing, th
 
 Let's create a new application using the **Console App (.NET Framework)** template and install [Z.EntityFramework.Extensions](https://www.nuget.org/packages/Z.EntityFramework.Extensions/). 
 
-**Entity Framework Extensions (EFE)** library is available as a nuget package and you can install it using **Nuget Package Manager**.
+**Entity Framework Extensions (EFE)** library is available as a NuGet package and you can install it using **NuGet Package Manager**.
 
 In the **Package Manager Console** window, enter the following command.
 
@@ -22,11 +22,11 @@ In the **Package Manager Console** window, enter the following command.
 PM> Install-Package Z.EntityFramework.Extensions
 ```
 
-You can also install EFE by right-clicking on your project in Solution Explorer and select **Manage Nuget Packages...**. 
+You can also install EFE by right-clicking on your project in Solution Explorer and selecting **Manage NuGet Packages...**. 
 
-<img src="https://raw.githubusercontent.com/zzzprojects/docs/master/entityframework-extensions.net/images/postgresql-1.png" alt="Postgresql">
+<img src="https://raw.githubusercontent.com/zzzprojects/docs/master/entityframework-extensions.net/images/postgresql-1.png" alt="PostgreSQL">
 
-Search for **Z.EntityFramework.Extensions** and install the latest version by pressing the install button. 
+Search for **Z.EntityFramework.Extensions** and install the latest version by pressing the Install button. 
 
 ## Register EF Provider
 
@@ -97,9 +97,9 @@ Note that often if the EF provider is installed from NuGet, then the NuGet packa
 
 You are now ready to start your application.
  
- ## Create Data Model
+## Create Data Model
  
- Model is a collection of classes to interact with the database.
+The model is a collection of classes to interact with the database.
 
  - A model stores data that is retrieved according to the commands from the Controller and displayed in the View.
  - It can also be used to manipulate the data to implement the business logic.
@@ -132,7 +132,7 @@ The database context class provides the main functionality to coordinate Entity 
 
  - You create this class by deriving from the `System.Data.Entity.DbContext` class. 
  - In your code, you specify which entities are included in the data model. 
- - You can also customize certain Entity Framework behavior. 
+ - You can also customize certain Entity Framework behaviors. 
 
 So, let's add a new `BookStore` class which will inherit the `DbContext` class.
 
@@ -166,7 +166,7 @@ public BookStore() : base("OracleDbContext")
 {
 }
 ```
-So, let's open the application `App.config` file and add a connectionStrings element.
+So, let's open the application `App.config` file and add a `connectionStrings` element.
 
 ```csharp
 <connectionStrings>
@@ -233,7 +233,7 @@ using (var context = new BookStore())
         }
     };
 
-    //IncludeGraph allow you to INSERT/UPDATE/MERGE entities by including the child entities graph.
+    //IncludeGraph allows you to INSERT/UPDATE/MERGE entities by including the child entities graph.
     context.BulkInsert(authors, options => options.IncludeGraph = true );
 }
 

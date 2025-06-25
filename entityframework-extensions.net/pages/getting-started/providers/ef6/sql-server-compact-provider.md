@@ -1,6 +1,6 @@
 ---
 Name: EF6 - SQL Server Compact Provider
-LastMod: 2023-02-27
+LastMod: 2025-06-25
 ---
 
 # EF6 - SQL Server Compact Provider
@@ -14,7 +14,7 @@ Microsoft SQL Server Compact (SQL CE) is a compact relational database produced 
 
 Let's create a new application using the **Console App (.NET Framework)** template and install [Z.EntityFramework.Extensions](https://www.nuget.org/packages/Z.EntityFramework.Extensions/). 
 
-**Entity Framework Extensions (EFE)** library is available as a nuget package and you can install it using **Nuget Package Manager**.
+**Entity Framework Extensions (EFE)** library is available as a NuGet package and you can install it using **NuGet Package Manager**.
 
 In the **Package Manager Console** window, enter the following command.
 
@@ -22,7 +22,7 @@ In the **Package Manager Console** window, enter the following command.
 PM> Install-Package Z.EntityFramework.Extensions
 ```
 
-You can also install EFE by right-clicking on your project in Solution Explorer and select **Manage Nuget Packages...**. 
+You can also install EFE by right-clicking on your project in Solution Explorer and selecting **Manage NuGet Packages...**. 
 
 <img src="https://raw.githubusercontent.com/zzzprojects/docs/master/entityframework-extensions.net/images/sql-compact-1.png" alt="SQL compact">
 
@@ -78,9 +78,9 @@ Note that often if the EF provider is installed from NuGet, then the NuGet packa
 
  You are now ready to start your application.
  
- ## Create Data Model
+## Create Data Model
  
- Model is a collection of classes to interact with the database.
+The model is a collection of classes to interact with the database.
 
  - A model stores data that is retrieved according to the commands from the Controller and displayed in the View.
  - It can also be used to manipulate the data to implement the business logic.
@@ -143,7 +143,7 @@ public BookStore() : base("BookStoreContext")
 
 If you don't specify a connection string or the name of one explicitly, Entity Framework assumes that the connection string name is the same as the class name. The default connection string name in this example would then be `BookStore`.
 
-### Connectionn String
+### Connection String
 
 So, let's open the application `App.config` file and add a connectionStrings element.
 

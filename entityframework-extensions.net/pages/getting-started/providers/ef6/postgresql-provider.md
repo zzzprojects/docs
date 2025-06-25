@@ -1,6 +1,6 @@
 ---
 Name: EF6 - PostgreSQL Provider
-LastMod: 2023-02-27
+LastMod: 2025-06-25
 ---
 
 # EF6 - PostgreSQL Provider
@@ -9,13 +9,13 @@ PostgreSQL is a general-purpose and object-relational database management system
 
  - PostgreSQL has been proven to be highly scalable both in the sheer quantity of data it can manage and in the number of concurrent users it can accommodate. 
  - It allows you to add custom functions developed using different programming languages such as C/C++, Java, etc.
- - PostgreSQL requires very minimum maintained efforts because of its stability.
+ - PostgreSQL requires very minimal maintenance efforts because of its stability.
 
 ## Install EFE
 
 Let's create a new application using the **Console App (.NET Framework)** template and install [Z.EntityFramework.Extensions](https://www.nuget.org/packages/Z.EntityFramework.Extensions/). 
 
-**Entity Framework Extensions (EFE)** library is available as a nuget package and you can install it using **Nuget Package Manager**.
+**Entity Framework Extensions (EFE)** library is available as a NuGet package and you can install it using **NuGet Package Manager**.
 
 In the **Package Manager Console** window, enter the following command.
 
@@ -23,7 +23,7 @@ In the **Package Manager Console** window, enter the following command.
 PM> Install-Package Z.EntityFramework.Extensions
 ```
 
-You can also install EFE by right-clicking on your project in Solution Explorer and select **Manage Nuget Packages...**. 
+You can also install EFE by right-clicking on your project in Solution Explorer and selecting **Manage NuGet Packages...**. 
 
 <img src="https://raw.githubusercontent.com/zzzprojects/docs/master/entityframework-extensions.net/images/postgresql-1.png" alt="postgresql-1">
 
@@ -37,7 +37,7 @@ EF providers can be registered using either code-based configuration or in the a
 PM> Install-Package EntityFramework6.Npgsql
 ```
 
-Similarly, you can also install [EntityFramework6.Npgsql](https://www.nuget.org/packages/EntityFramework6.Npgsql/) by right-clicking on your project in Solution Explorer and select **Manage Nuget Packages...**. 
+Similarly, you can also install [EntityFramework6.Npgsql](https://www.nuget.org/packages/EntityFramework6.Npgsql/) by right-clicking on your project in Solution Explorer and select **Manage NuGet Packages...**. 
 
 <img src="https://raw.githubusercontent.com/zzzprojects/docs/master/entityframework-extensions.net/images/postgresql-2.png" alt="postgresql-2">
 
@@ -78,9 +78,9 @@ Note that often if the EF provider is installed from NuGet, then the NuGet packa
 
  You are now ready to start your application.
  
- ## Create Data Model
+## Create Data Model
  
- Model is a collection of classes to interact with the database.
+The model is a collection of classes to interact with the database.
 
  - A model stores data that is retrieved according to the commands from the Controller and displayed in the View.
  - It can also be used to manipulate the data to implement the business logic.
@@ -113,7 +113,7 @@ The database context class provides the main functionality to coordinate Entity 
 
  - You create this class by deriving from the `System.Data.Entity.DbContext` class. 
  - In your code, you specify which entities are included in the data model. 
- - You can also customize certain Entity Framework behavior. 
+ - You can also customize certain Entity Framework behaviors. 
 
 So, let's add a new `BookStore` class which will inherit the `DbContext` class.
 
@@ -148,7 +148,7 @@ public BookStore() : base(nameOrConnectionString: "Default")
 
 If you don't specify a connection string or the name of one explicitly, Entity Framework assumes that the connection string name is the same as the class name.
 
-### Connectionn String
+### Connection String
 
 Now, we need to configure our PostgreSQL database, so let's open the application `App.config` file and add a connectionStrings element.
 
@@ -168,7 +168,7 @@ Now, to create a database using migrations from your model, run the following co
 Add-Migration Initial
 ```
 
-This command scaffold a migration to create the initial set of tables for your model. When it is executed successfully, then run the following command.
+This command scaffolds a migration to create the initial set of tables for your model. When it is executed successfully, then run the following command.
 
 ```csharp
 Update-Database
@@ -218,7 +218,7 @@ using (var context = new BookStore())
         }
     };
 
-    //IncludeGraph allow you to INSERT/UPDATE/MERGE entities by including the child entities graph.
+    //IncludeGraph allows you to INSERT/UPDATE/MERGE entities by including the child entities graph.
     context.BulkInsert(authors, options => options.IncludeGraph = true );
 }
 

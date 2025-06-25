@@ -1,6 +1,6 @@
 ---
 Name: EF6 - SQLite Provider
-LastMod: 2023-02-27
+LastMod: 2025-06-25
 ---
 
 # EF6 - SQLite Provider
@@ -14,7 +14,7 @@ SQLite is a software library that implements a self-contained, serverless, zero-
 
 Let's create a new application using the **Console App (.NET Framework)** template and install [Z.EntityFramework.Extensions](https://www.nuget.org/packages/Z.EntityFramework.Extensions/). 
 
-**Entity Framework Extensions (EFE)** library is available as a nuget package and you can install it using **Nuget Package Manager**.
+**Entity Framework Extensions (EFE)** library is available as a NuGet package and you can install it using **NuGet Package Manager**.
 
 In the **Package Manager Console** window, enter the following command.
 
@@ -22,7 +22,7 @@ In the **Package Manager Console** window, enter the following command.
 PM> Install-Package Z.EntityFramework.Extensions
 ```
 
-You can also install EFE by right-clicking on your project in Solution Explorer and select **Manage Nuget Packages...**. 
+You can also install EFE by right-clicking on your project in Solution Explorer and selecting **Manage NuGet Packages...**. 
 
 <img src="https://raw.githubusercontent.com/zzzprojects/docs/master/entityframework-extensions.net/images/sqlite-1.png" alt="sqlite-1">
 
@@ -71,7 +71,7 @@ Note that often if the EF provider is installed from NuGet, then the NuGet packa
 
  You are now ready to start your application.
  
- ## Create SQLite Database
+## Create SQLite Database
 
 Unlike MS SQL Server, [Sqlite](https://system.data.sqlite.org) doesn't support Migration so we can't create a new database from code, we have to manually create it.
 
@@ -100,9 +100,9 @@ CREATE TABLE "Books" (
  
  Click on the highlighted button to create `Authors` and `Books` tables. It is not Code First because we have to create the database ourselves but we want to illustrate how Entity Framework for SQLite works. 
  
- ## Create Data Model
+## Create Data Model
  
- Model is a collection of classes to interact with the database.
+The model is a collection of classes to interact with the database.
 
  - A model stores data that is retrieved according to the commands from the Controller and displayed in the View.
  - It can also be used to manipulate the data to implement the business logic.
@@ -165,9 +165,9 @@ public BookStore() : base("BookStoreContext")
 }
 ```
 
-### Connectionn String
+### Connection String
 
-Let's open the application `App.config` file and add a connectionStrings element.
+Let's open the application `App.config` file and add a `connectionStrings` element.
 
 ```csharp
 <connectionStrings>

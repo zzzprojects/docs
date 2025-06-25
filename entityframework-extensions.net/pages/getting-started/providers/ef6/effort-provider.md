@@ -1,6 +1,6 @@
 ---
 Name: EF6 - Effort Provider
-LastMod: 2023-02-27
+LastMod: 2025-06-25
 ---
 
 # EF6 - Effort Provider
@@ -9,13 +9,13 @@ Effort (Entity Framework Fake ObjectContext Realization Tool) is the official In
 
  - It creates a fake or mock database that allows you to test the Business Logic Layer (BLL) without worrying about your Data Access Layer (DAL).
  - It is an ADO.NET provider that executes all the data operations on a lightweight in-process main memory database instead of a traditional external database.
- - PostgreSQL requires very minimum maintained efforts because of its stability.
+ - PostgreSQL requires very minimal maintenance effort because of its stability.
 
 ## Install EFE
 
 Let's create a new application using the **Console App (.NET Framework)** template and install [Z.EntityFramework.Extensions](https://www.nuget.org/packages/Z.EntityFramework.Extensions/). 
 
-**Entity Framework Extensions (EFE)** library is available as a nuget package and you can install it using **Nuget Package Manager**.
+**Entity Framework Extensions (EFE)** library is available as a NuGet package and you can install it using **NuGet Package Manager**.
 
 In the **Package Manager Console** window, enter the following command.
 
@@ -23,7 +23,7 @@ In the **Package Manager Console** window, enter the following command.
 PM> Install-Package Z.EntityFramework.Extensions
 ```
 
-You can also install EFE by right-clicking on your project in Solution Explorer and select **Manage Nuget Packages...**. 
+You can also install EFE by right-clicking on your project in Solution Explorer and selecting **Manage NuGet Packages...**. 
 
 <img src="https://raw.githubusercontent.com/zzzprojects/docs/master/entityframework-extensions.net/images/effort-1.png" alt="Effort 1">
 
@@ -47,7 +47,7 @@ You are now ready to start your application.
  
 ## Create Data Model
  
- Model is a collection of classes to interact with the database.
+The model is a collection of classes to interact with the database.
 
  - A model stores data that is retrieved according to the commands from the Controller and displayed in the View.
  - It can also be used to manipulate the data to implement the business logic.
@@ -107,12 +107,12 @@ Now, we are done with the required classes, to use Effort, you need to create a 
 ```csharp
 DbConnection connection = Effort.DbConnectionFactory.CreateTransient();
 Z.EntityFramework.Extensions.EntityFrameworkManager.ContextFactory = context => new EntityContext(connection);
-var context = new EntityContext(connection));
+var context = new EntityContext(connection);
 ```
 
 We are using a special connection, so we also need to let [Z.EntityFramework.Extensions](https://entityframework-extensions.net) library also know how to create a context by setting the `EntityFrameworkManager.ContextFactory`. 
 
-Now, let's add some authors and books records to the database and then retrieve it.
+Now, let's add some author and book records to the database and then retrieve it.
 
 ```csharp
 DbConnection connection = Effort.DbConnectionFactory.CreateTransient();
@@ -132,7 +132,7 @@ using (var context = new EntityContext(connection))
             Books = new List<Book>()
             {
                 new Book { Title = "Introduction to Machine Learning"},
-                new Book { Title = "Advanced Topics in Machine Learning"}
+                new Book { Title = "Advanced Topics in Machine Learning"},
                 new Book { Title = "Introduction to Computing"}
             }
         },
@@ -180,4 +180,4 @@ using (var context = new EntityContext())
 }
 ```
 
-If you run the application, you will see that authors entities are successfully inserted into the database.
+If you run the application, you will see that author entities are successfully inserted into the database.

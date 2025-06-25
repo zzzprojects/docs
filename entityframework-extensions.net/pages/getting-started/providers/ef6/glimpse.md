@@ -1,6 +1,6 @@
 ---
 Name: EF6 - Glimpse
-LastMod: 2023-02-27
+LastMod: 2025-06-25
 ---
 
 # EF6 - Glimpse
@@ -14,7 +14,7 @@ Glimpse is a web debugging and diagnostics tool used to gain a better understand
 
 Let's create a new application using the **ASP.NET Web Application (.NET Framework)** template and install [Z.EntityFramework.Extensions](https://www.nuget.org/packages/Z.EntityFramework.Extensions/). 
 
-**Entity Framework Extensions (EFE)** library is available as a nuget package and you can install it using **Nuget Package Manager**.
+**Entity Framework Extensions (EFE)** library is available as a NuGet package and you can install it using **NuGet Package Manager**.
 
 In the **Package Manager Console** window, enter the following command.
 
@@ -22,7 +22,7 @@ In the **Package Manager Console** window, enter the following command.
 PM> Install-Package Z.EntityFramework.Extensions
 ```
 
-You can also install EFE by right-clicking on your project in Solution Explorer and select **Manage Nuget Packages...**. 
+You can also install EFE by right-clicking on your project in Solution Explorer and selecting **Manage NuGet Packages...**. 
 
 <img src="https://raw.githubusercontent.com/zzzprojects/docs/master/entityframework-extensions.net/images/glimpse-1.png" alt="Glimpse-1">
 
@@ -110,7 +110,7 @@ public BookStore() : base("BookStoreContext")
 
 If you don't specify a connection string or the name of one explicitly, Entity Framework assumes that the connection string name is the same as the class name. The default connection string name in this example would then be `BookStore`, the same as what you're specifying explicitly.
 
-### Connectionn String
+### Connection String
 
 In this tutorial, we will be using `LocalDB`, so let's open the application Web.config file and add a connectionStrings element.
 
