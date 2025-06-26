@@ -1,6 +1,6 @@
 ---
 Name: Foreign Key Constraint Troubleshooting
-LastMod: 2023-02-26
+LastMod: 2025-06-26
 ---
 
 # Foreign Key Constraint
@@ -26,7 +26,7 @@ using (var ctx = new MyEntities())
 
 ### Cause
 
-One cause could simply be a wrong save order provided by either Entity Framework or EFE Library.
+One cause could simply be a wrong save order provided by either Entity Framework or the EFE Library.
 
 ### Cause Source
 The main reason that could cause this issue is disabling AutoDetectChanges and not enabling it before the SaveChanges/BulkSaveChanges.
@@ -37,7 +37,7 @@ In addition, there is no reason why this code should disable DetectChanges. Sinc
 
 ### Solution
 
-1. ADD the line AutoDectectChangesEnabled = true; before BulkSaveChanges
+1. ADD the line AutoDetectChangesEnabled = true; before BulkSaveChanges
 2. CALL ctx.ChangeTracker.DetectChanges();
 3. REMOVE the line AutoDetectChangesEnabled = false;
 

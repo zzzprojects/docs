@@ -1,6 +1,6 @@
 ---
 Name: Out of Memory Troubleshooting
-LastMod: 2023-02-26
+LastMod: 2025-06-26
 ---
 
 # Out of Memory
@@ -14,7 +14,7 @@ You execute a method from the Entity Framework Extensions library, and the follo
 ## Cause
 That error is caused when the library consumes too much memory.
 
-Most of the time, this error is caused by some methods used from `Entity Framework` for command generations that will be used later by our library.
+Most of the time, this error is caused by some methods used from `Entity Framework` for command generation that will be used later by our library.
 
 ### Solution
 Turning off Entity Framework Propagation

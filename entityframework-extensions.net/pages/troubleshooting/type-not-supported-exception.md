@@ -1,6 +1,6 @@
 ---
 Name: Type not Supported Troubleshooting
-LastMod: 2023-02-26
+LastMod: 2025-06-26
 ---
 
 # Type not Supported
@@ -13,7 +13,7 @@ You execute a method from the Entity Framework Extensions library, and the follo
 
 ### Cause
 
-For some provider, we may have missed a few types. They are added on demand.
+For some providers, we may have missed a few types. They are added on demand.
 
 ### Solution
 Contact our support team with the provider & type name: <a href="mailto:info@zzzprojects.com">info@zzzprojects.com</a>

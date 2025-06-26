@@ -1,13 +1,13 @@
 ---
 Name: Entity Framework Extensions Trial Troubleshooting
-LastMod: 2024-04-11
+LastMod: 2025-06-26
 ---
 
 # Trial Period Expired
 
 Every month, we offer a new trial that expires at the end of this month or the next.
 
-However, when the trial period is expired, the following exception is thrown:
+However, when the trial period has expired, the following exception is thrown:
 
 > ERROR_005: The monthly trial period is expired (date: [date], version = [version]). You can extend your trial by downloading the latest version at the beginning of every month. More information can be found here: https://entityframework-extensions.net/trial
 

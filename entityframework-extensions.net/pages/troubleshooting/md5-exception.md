@@ -1,11 +1,11 @@
 ---
 Name: MD5 Exception Troubleshooting
-LastMod: 2023-11-21
+LastMod: 2025-06-26
 ---
 
 # MD5 Exception
 
-**NOTE**: Since 2020, the default generation is FIPS by default. So, this error only happens with old license key.
+**NOTE**: Since 2020, the default encryption is FIPS-compliant by default. So, this error only happens with old license keys.
 
 ## Problem
 
@@ -15,7 +15,7 @@ This implementation is not part of the Windows Platform FIPS validated cryptogra
 
 ### Cause
 
-The default algorithm to validate the license key & name is not supported with FIPS enabled.
+The default algorithm to validate the license key and name is not supported with FIPS enabled.
 
 ### Solution
 

@@ -1,6 +1,6 @@
 ---
 Name: DbUpdateConcurrency Troubleshooting
-LastMod: 2023-02-26
+LastMod: 2025-06-26
 ---
 
 # DbUpdateConcurrency
@@ -15,7 +15,7 @@ You execute a method from the Entity Framework Extensions library, and the follo
 
 ### Cause
 
-Another thread have already performed the operation.
+Another thread has already performed the operation.
 
 ### Solution
 
@@ -111,7 +111,7 @@ public void BulkSaveChanges_CustomResolution(CurrentContext ctx)
                 var databaseEntity = (EntitySimple_Concurrency) databaseValues.ToObject();
 
                 // Choose an initial set of resolved values. In this case we 
-                // make the default be the values currently in the database. 
+                // make the default value the values currently in the database.
                 var resolvedEntity = (EntitySimple_Concurrency) databaseValues.ToObject();
 
                 // Have the user choose what the resolved values should be

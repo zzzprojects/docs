@@ -1,6 +1,6 @@
 ---
 Name: DbBulkOperationConcurrency Troubleshooting
-LastMod: 2023-02-26
+LastMod: 2025-06-26
 ---
 
 # DbBulkOperationConcurrency
@@ -76,7 +76,7 @@ public void BulkUpdate_CustomResolution<T>(CurrentContext ctx, List<T> list) whe
             if (entry is EntitySimple_Concurrency)
             {
                 var clientEntry = (EntitySimple_Concurrency) entry;
-                var databaseEntry = ctx.EntitySimple_Concurrencys.Single(x => x.ID == clientEntry.ID);
+                var databaseEntry = ctx.EntitySimple_Concurrencies.Single(x => x.ID == clientEntry.ID);
 
                 // merge properties like you want
                 clientEntry.IntColumn = databaseEntry.IntColumn + 303;
