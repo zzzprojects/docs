@@ -6,7 +6,7 @@ Name: Getting Started
 
 ## Introduction
 
-As a web developer, if you have ever worked on enterprise applications using entity framework, many times you need to pass a group of records in stored procedure using user-defined table type. But Entity framework does not support user-defined type by default. To support user-defined type in entity framework, we can use the EntityFrameworkExtras NuGet package.
+As a web developer, if you have ever worked on enterprise applications using Entity Framework, many times you need to pass a group of records in stored procedure using user-defined table type. But Entity Framework does not support user-defined type by default. To support user-defined type in entity framework, we can use the EntityFrameworkExtras NuGet package.
 
 ## What is the User Defined Table Type?
 
@@ -19,7 +19,7 @@ The User-Defined Table Types (UDTTs) and Table-Valued Parameters (TVPs) were fir
 
 EntityFrameworkExtras provides some useful additions to Entity Framework such as executing Stored Procedures with User-Defined Table Types and Output Parameters.
 
-## Nuget Packages
+## NuGet Packages
 
 - Entity Framework Core - [https://www.nuget.org/packages/EntityFrameworkExtras.EFCore/](https://www.nuget.org/packages/EntityFrameworkExtras.EFCore/)
 - Entity Framework 6 - [https://www.nuget.org/packages/EntityFrameworkExtras.EF6/](https://www.nuget.org/packages/EntityFrameworkExtras.EF6/)
@@ -32,7 +32,7 @@ We are going to create a new Console application using Visual Studio 2019. The n
 
 <img src="/images/entityframeworkextras/create-a-new-project.png" alt="Create a new project">
 
-Select the **Console App (.NET Framework)** template and click the**Next** button.
+Select the **Console App (.NET Framework)** template and click the **Next** button.
 
 <img src="/images/entityframeworkextras/configure-your-new-project.png" alt="configure your new project">
 
@@ -46,7 +46,7 @@ To install **EntityFrameworkExtras**, right-click on the **EntityFrameworkExtras
 
 <img src="/images/entityframeworkextras/nuget-package-manager.png" alt="NuGet package manager">
 
-Search EntityFrameworkExtras and install EntityFrameworkExtras.EF6 NuGet package.
+Search **EntityFrameworkExtras** and install **EntityFrameworkExtras.EF6** NuGet package.
 
 <img src="/images/entityframeworkextras/preview-changes.png" alt="Preview changes">
  
@@ -93,7 +93,7 @@ CREATE TYPE [dbo].[CustomerUDT] AS TABLE (
     [Age]  INT            NULL);
 ```
 
-The above user-defined table type has Name and Age columns.
+The above user-defined table type has `Name` and `Age` columns.
 
 ## Create Class for User-defined Table Type
 
@@ -117,7 +117,7 @@ public class CustomerUDT
 
 ## Create Stored Procedure
 
-Now create a stored procedure that uses the above-mentioned user-defined table type as a parameter. The below code snippet will define @UserDefinedTableParameter as parameters and it is a user-defined table type parameter.
+Now create a stored procedure that uses the above-mentioned user-defined table type as a parameter. The below code snippet will define @UserDefinedTableParameter as a parameter, and it is a user-defined table type parameter.
 
 ```sql
 CREATE PROCEDURE CustomerInsertWithUDT 
