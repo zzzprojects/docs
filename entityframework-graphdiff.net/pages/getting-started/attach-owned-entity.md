@@ -6,7 +6,7 @@ Name: Attach Owned Entity
 
 An owned entity can be described as **being a part of**, when updating a graph then GraphDiff also changes owned entities with its owner.
 
- - The child entity is a part of the aggregate and will be updated, added or removed if changed in the parent's navigational property. 
+ - The child entity is a part of the aggregate and will be updated, added or removed if changed in the parent's navigation property. 
  - Owned entity or a collection of owned entities must be specified in the **OwnedEntity()** or **OwnedCollection()** method respectively.
 
 ## Add Entity to Parent

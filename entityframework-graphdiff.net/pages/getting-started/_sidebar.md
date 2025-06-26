@@ -1,5 +1,5 @@
 - [Overview](overview.md)
-- [Iniitial Post](initial-post.md)
+- [Initial Post](initial-post.md)
 - [Attach Single Entity](attach-single-entity.md)
 - [Attach Owned Entity](attach-owned-entity.md)
 - [Attach Associated Entity](attach-associated-entity.md)

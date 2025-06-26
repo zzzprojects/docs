@@ -6,7 +6,7 @@ Name: Getting Started
 
 **GraphDiff** is a library that allows the automatic update of a detached graph using Entity Framework code first.
 
-Provide DbContext extension methods, that allow you to save an entire detached Model/Entity, with child Entities and Lists, to the database without writing the code to do it.
+It provides DbContext extension methods that allow you to save an entire detached model/entity, with child entities and lists, to the database without writing the code to do it.
 
 ```csharp
 using (var context = new TestDbContext())  
@@ -28,7 +28,7 @@ GraphDiff deals with two types of entity relations;
 ## Owned Entity 
 
  - An owned entity can be described as **being a part of**, when updating a graph then GraphDiff also changes owned entities with its owner.
- - The child entity is a part of the aggregate and will be updated, added or removed if changed in the parent's navigational property.
+ - The child entity is a part of the aggregate and will be updated, added or removed if changed in the parent's navigation property.
 
 [Learn more](/attach-owned-entity.md)
 

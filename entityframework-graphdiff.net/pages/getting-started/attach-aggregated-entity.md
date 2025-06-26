@@ -4,7 +4,7 @@ Name: Attach Aggregated Entity
 
 ## Description
 
-GraphDiff is capable of mapping changes from an aggregate root to the database. The aggregate root is a bunch of models which are handled by one unit when updating/adding/deleting.
+GraphDiff is capable of mapping changes from an aggregate root to the database. The aggregate root is a group of models which are handled by one unit when updating/adding/deleting.
 
 For example, to add different associated and owned entities simultaneously to the parent entity.
 

@@ -77,12 +77,12 @@ public class Child
 You can choose which navigation to use; otherwise, the first one found will be used (in this case `A`).
 
 ```csharp
-context.UpdateGraph(entity, map => map.AssociatedCollection(c => c.Children, x => x.B)
+context.UpdateGraph(entity, map => map.AssociatedCollection(c => c.Children, x => x.B));
 ```
 
 ## Change Associated Entity
 
-Any change in an associated entity will not be saved with parent's navigation property. 
+Any change in an associated entity will not be saved with the parent's navigation property. 
 
 ```csharp
 var node = new TestNode
