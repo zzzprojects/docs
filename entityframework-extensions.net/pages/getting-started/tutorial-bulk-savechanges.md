@@ -1,6 +1,6 @@
 ---
 Name: Getting Started with BulkSaveChanges
-LastMod: 2023-02-27
+LastMod: 2025-06-26
 ---
 
 # Bulk SaveChanges
@@ -9,7 +9,7 @@ LastMod: 2023-02-27
 
 [BulkSaveChanges](bulk-savechanges) method is the upgraded version of `SaveChanges`.
 
-All changes made in the context are persisted in the database but way faster by reducing the number of database round-trip required!
+All changes made in the context are persisted in the database but way faster by reducing the number of database round-trips required!
 
 BulkSaveChanges supports everything:
 
@@ -35,9 +35,9 @@ context.BulkSaveChanges(bulk => bulk.BatchSize = 100);
 ```
 
 ## Purpose
-Using the `ChangeTracker` to detect and persist change automatically is great! However, it leads very fast to some problem when multiples entities need to be saved.
+Using the `ChangeTracker` to detect and persist change automatically is great! However, it leads very fast to some problems when multiple entities need to be saved.
 
-`SaveChanges` method makes a database round-trip for every change. So if you need to insert 10000 entities, then 10000 database round-trip will be performed which is INSANELY slow.
+`SaveChanges` method makes a database round-trip for every change. So if you need to insert 10000 entities, then 10000 database round-trips will be performed which is INSANELY slow.
 
 `BulkSaveChanges` works exactly like `SaveChanges` but reduces the number of database round-trips required to greatly help to improve the performance.
 

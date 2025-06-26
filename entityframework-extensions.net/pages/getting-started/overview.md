@@ -1,15 +1,15 @@
 ---
 Name: Getting Started
-LastMod: 2024-08-30
+LastMod: 2025-06-26
 ---
 
 # Overview
 
 ## Definition
 
-**Entity Framework Extensions** is a library that dramatically improves EF performances by using bulk and batch operations.
+**Entity Framework Extensions** is a library that dramatically improves EF performance by using bulk and batch operations.
 
-People using this library often report performance enhancement by 50x times and more!
+People using this library often report performance enhancement by 50x and more!
 
 The library is installed through <a href="/download">NuGet</a>. Extension methods are added automatically to your DbContext.
 
@@ -61,15 +61,15 @@ Download the <a href="/download">NuGet Package</a>
 ## Purpose
 Entity Framework is reputed to be very slow when saving multiple entities! The performance issue is mainly due to the **DetectChanges** method and the number of database round-trip.
 
-By example for SQL Server, for every entity you save, a database round-trip must be performed. So, if you need to insert 10000 entities, then 10000 database round-trips will be performed which makes the process **INSANELY** slow.
+For example for SQL Server, for every entity you save, a database round-trip must be performed. So, if you need to insert 10000 entities, then 10000 database round-trips will be performed which makes the process **INSANELY** slow.
 
-Entity Framework Extensions in counterpart only requires a few database round-trips which greatly helps to improve the performance.
+Entity Framework Extensions, by contrast, only requires a few database round-trips which greatly helps to improve the performance.
 
 ## BulkSaveChanges Method
 
 **BulkSaveChanges** method is the upgraded version of **SaveChanges**.
 
-All changes made in the context are persisted in the database but way faster by reducing the number of database round-trip required!
+All changes made in the context are persisted in the database but way faster by reducing the number of database round-trips required!
 
 BulkSaveChanges supports everything:
 
@@ -103,9 +103,9 @@ context.BulkSaveChanges(bulk => bulk.BatchSize = 100);
 
 ## Bulk Operations Methods
 
-Bulk operation methods give you additional flexibility by allowing to customize options such as primary key, columns, include childs entities and more.
+Bulk operation methods give you additional flexibility by allowing to customize options such as primary key, columns, include child entities and more.
 
-They are also faster than **BulkSaveChanges** since they don't use the ChangeTracker and doesn't call the **DetectChanges** method.
+They are also faster than **BulkSaveChanges** since they don't use the ChangeTracker and don't call the **DetectChanges** method.
 
 Bulk Operations Available:
 
@@ -124,8 +124,9 @@ context.BulkDelete(list);
 context.BulkMerge(list);
 
 // Easy to customize
-context.BulkMerge(customers, options => 
-	options.ColumnPrimaryKeyExpression = customer => customer.Code; });
+context.BulkMerge(customers, options => {
+	options.ColumnPrimaryKeyExpression = customer => customer.Code; 
+});
 ```
 
 ### Performance Comparisons
@@ -140,7 +141,7 @@ context.BulkMerge(customers, options =>
 
 ## Batch Operations Methods
 
-Batch Operations method allow to perform **UPDATE** or **DELETE** operation directly in the database using a LINQ Query without loading entities in the context.
+Batch Operations methods allow you to perform **UPDATE** or **DELETE** operations directly in the database using a LINQ Query without loading entities in the context.
 
 Everything is executed on the database side to let you get the best performance available.
 

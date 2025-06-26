@@ -1,21 +1,21 @@
 ---
 Name: Getting Started Introduction
-LastMod: 2023-02-27
+LastMod: 2025-06-26
 ---
 
 # Introduction
 
 ## Introduction
-Entity Framework Extensions allow you to improve dramatically your save operations performance.
+Entity Framework Extensions allow you to dramatically improve the performance of your save operations.
 
 It's easy to use, and easy to customize.
 
 ## Bulk SaveChanges
 The BulkSaveChanges works like SaveChanges but way faster.
 
-BulkSaveChanges use Bulk Operations to save all entities in the Change Tracker efficiently instead of performing a database round-trip for every entity like SaveChanges does.
+BulkSaveChanges uses Bulk Operations to save all entities in the Change Tracker efficiently instead of performing a database round-trip for every entity like SaveChanges does.
 
-BulkSaveChanges support everything:
+BulkSaveChanges supports everything:
 
 - Complex Types
 - Inheritance (TPC, TPH, TPT)
@@ -34,7 +34,7 @@ listToModify.ForEach(x => x.DateModified = DateTime.Now); // modify
 ctx.BulkSaveChanges();
 
 // Easy to customize
-context.BulkSaveChanges(bulk => bulk.BatchSize = 100);
+ctx.BulkSaveChanges(bulk => bulk.BatchSize = 100);
 ```
 ### Performance Comparisons
 
@@ -45,7 +45,7 @@ context.BulkSaveChanges(bulk => bulk.BatchSize = 100);
 
 ## Bulk Operations
 
-Bulk Operations method provide you some flexibility by allowing some customization and performance enhancement.
+Bulk Operations methods provide you with some flexibility by allowing some customization and performance enhancement.
 
 All common methods are supported:
 
@@ -68,8 +68,8 @@ ctx.BulkDelete(list);
 ctx.BulkMerge(list);
 
 // Easy to customize
-context.BulkMerge(customers, 
-   bulk => bulk.ColumnPrimaryKeyExpression = customer => customer.Code; });
+ctx.BulkMerge(customers, 
+   bulk => bulk.ColumnPrimaryKeyExpression = customer => customer.Code);
 ```
 
 ### Performance Comparisons
@@ -84,7 +84,7 @@ context.BulkMerge(customers,
 
 ## FromQuery Operations
 
-FromQuery method allows you to execute UPDATE or DELETE statements without loading entities in the context.
+The FromQuery method allows you to execute UPDATE or DELETE statements without loading entities in the context.
 
 ### Example
 

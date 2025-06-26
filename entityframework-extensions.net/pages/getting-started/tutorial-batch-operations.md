@@ -1,12 +1,12 @@
 ---
 Name: Getting Started with Batch Operations
-LastMod: 2023-02-27
+LastMod: 2025-06-26
 ---
 
 # Batch Operations
 
 ## Definition
-Batch Operations method allows to perform `UPDATE` or `DELETE` operations directly in the database using a LINQ Query without loading entities in the context.
+Batch Operations methods allow you to perform `UPDATE` or `DELETE` operations directly in the database using a LINQ Query without loading entities in the context.
 
 Everything is executed on the database side to let you get the best performance available.
 
@@ -28,7 +28,7 @@ context.Customers
 ```
 
 ## Purpose
-Updating or deleting data with SaveChanges requires to load data first which significantly reduces application performance.
+Updating or deleting data with SaveChanges requires loading data first which significantly reduces application performance.
 
 It also becomes kind of weird to have to load an entity after deleting it.
 

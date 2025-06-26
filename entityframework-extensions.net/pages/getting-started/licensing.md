@@ -1,7 +1,7 @@
 ---
 Title: Entity Framework Extensions Licensing
 MetaDescription: Learn about how to add the license from the code or config file for the Entity Framework Extensions library. Learn how to validate the license was correctly added.
-LastMod: 2024-04-11
+LastMod: 2025-06-26
 ---
 
 # Licensing
@@ -68,7 +68,7 @@ The latest way to add the license is by using the `AddLicense` method directly i
 
 ```csharp
 string licenseName = _configuration["licenseName"]; // or any other technique you usually use to read values from the appsettings.json
-string licenseKey = _configuration["licenseKey"]; // // or any other technique you usually use to read values from the appsettings.json
+string licenseKey = _configuration["licenseKey"]; // or any other technique you usually use to read values from the appsettings.json
 
 Z.EntityFramework.Extensions.LicenseManager.AddLicense(licenseName, licenseKey);
 
