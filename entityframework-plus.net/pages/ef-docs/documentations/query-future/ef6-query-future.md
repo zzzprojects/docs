@@ -85,7 +85,7 @@ var futureMinPrice = ctx.Products.DeferredMin(x => x.Prices).FutureValue<int>();
 int maxPrice = futureMaxPrice.Value;
 
 // The future query is already resolved and contains the result
-int maxPrice = futureMinPrice.Value;
+int minPrice = futureMinPrice.Value;
 
 ```
 
@@ -144,11 +144,11 @@ Client and all related information (order, invoice, etc.) must be loaded.
 // using Z.EntityFramework.Plus; // Don't forget to include this.
 var ctx = new EntitiesContext();
 
-var futureClient = ctx.Clients.DeferredFirst(x => x.ClientID = myClientID)
+var futureClient = ctx.Clients.DeferredFirst(x => x.ClientID == myClientID)
                                  .FutureValue();
-var futureOrders = ctx.Orders.Where(x => x.ClientID = myClientID).Future();
-var futureOrderDetails = ctx.OrderDetails.Where(x => x.ClientID = myClientID).Future();
-var futureInvoices = ctx.Invoices.Where(x => x.ClientID = myClientID).Future();
+var futureOrders = ctx.Orders.Where(x => x.ClientID == myClientID).Future();
+var futureOrderDetails = ctx.OrderDetails.Where(x => x.ClientID == myClientID).Future();
+var futureInvoices = ctx.Invoices.Where(x => x.ClientID == myClientID).Future();
 
 // ONE database round trip is required
 var client = futureClient.Value;
@@ -167,7 +167,7 @@ The first ten posts must be returned but you also need to know the total numbers
 var ctx = new EntitiesContext();
 
 var futurePost = ctx.Posts.OrderBy(x => x.CreatedDate).Take(10).Future()
-var futurePostCount = ctx.Post.DeferredCount().FutureValue();
+var futurePostCount = ctx.Posts.DeferredCount().FutureValue();
 
 // ONE database round trip is required
 var post = futurePost.ToList();

@@ -16,14 +16,14 @@ You need to audit only a subset of your entities and you need to exclude/include
 
 ## Exclude/Include by Entity Type
 
-You can exclude or include audit entry by using entity type with the 4 followings methods:
+You can exclude or include audit entry by using entity type with the 4 following methods:
 
 - `Exclude(Func<object, bool>)`: Exclude all entities with the same entity type as the excluded entity.
 - `Exclude<T>()`: Exclude entities of type "T" or derived from type "T".
 - `Include(Func<object, bool>)`: Include all entities with the same entity type as the excluded entity.
 - `Include<T>()`: Include entities of type "T" or derived from type "T".
 
-The result weither an entity type is excluded or included is cached for better performance.
+The result whether an entity type is excluded or included is cached for better performance.
 
 {% include template-example.html %} 
 ```csharp
@@ -45,7 +45,7 @@ ctx.SaveChanges(audit);
 
 ## Exclude/Include by Entity Instance
 
-You can exclude or include by entity instance with the 2 followings method:
+You can exclude or include by entity instance with the 2 following methods:
 
 - `ExcludeByInstance(Func<object, bool>)`: Exclude the current entity.
 - `IncludeByInstance(Func<object, bool>)`: Include the current entity.
@@ -71,12 +71,12 @@ ctx.SaveChanges(audit);
 
 ## Exclude/Include by Entity Entry
 
-You can exclude or include by entity entry with the 2 followings method:
+You can exclude or include by entity entry with the 2 following methods:
 
 - `ExcludeByEntry(Func<ObjectStateEntry, bool>`: Exclude the current entity.
 - `IncludeByEntry(Func<ObjectStateEntry, bool>`: Include the current entity.
 
-Excluding/Including by entry entry give you additional flexibility as you have access to the `EntityState` and more information.
+Excluding/Including by entity entry gives you additional flexibility as you have access to the `EntityState` and more information.
 
 {% include template-example.html %} 
 ```csharp

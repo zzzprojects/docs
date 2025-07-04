@@ -32,7 +32,7 @@ SELECT [p].[ProductID], [p].[Description], [p].[Name]
 FROM [Products] AS [p] WITH (NOLOCK)
 ```
 
-## Supported SQL Server TableHint
+## Supported SQL Server TableHints
 
 You can specify hints directly as a string, for example:
 

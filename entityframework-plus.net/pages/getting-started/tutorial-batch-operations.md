@@ -6,7 +6,7 @@ Name: Getting Started with Batch Operations
 
 ## Batch Delete
 
-Deletes multiples rows in a single database roundtrip and without loading entities in the context.
+Deletes multiple rows in a single database roundtrip and without loading entities in the context.
 
 {% include template-example.html %} 
 ```csharp
@@ -31,7 +31,7 @@ Try it: [EF Core](https://dotnetfiddle.net/KMgmZs) | [EF6](https://dotnetfiddle.
 
 ## Batch Update
 
-Updates multiples rows using an expression in a single database roundtrip and without loading entities in the context.
+Updates multiple rows using an expression in a single database roundtrip and without loading entities in the context.
 
 {% include template-example.html %} 
 ```csharp

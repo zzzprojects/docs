@@ -8,9 +8,9 @@ Name: Query Cache
 
 ## Description
 
-Caching entities or query results to improve an application's performance is a very frequent scenario. Major ORM like NHibernate had this feature for a long time but, unfortunately for Entity Framework users, second level caching is only available through third party libraries.
+Caching entities or query results to improve an application's performance is a very frequent scenario. Major ORMs like NHibernate had this feature for a long time but, unfortunately for Entity Framework users, second-level caching is only available through third-party libraries.
 
-Caching is very simple to understand, the first time a query is invoked, data are retrieved from the database and stored in the memory before being returned. All future calls will retrieve data from the memory to avoid making additional database round trips which drastically increases an application's performance.
+Caching is very simple to understand, the first time a query is invoked, data is retrieved from the database and stored in memory before being returned. All future calls will retrieve data from memory to avoid making additional database round trips which drastically increases an application's performance.
 
 **EF+ Query Cache** opens up all caching features for Entity Framework users.
 
@@ -22,10 +22,10 @@ To use caching, simply append to the query "FromCache" method before using an im
 // using Z.EntityFramework.Plus; // Don't forget to include this.
 var ctx = new EntitiesContext();
 
-// The first call perform a database round trip
+// The first call performs a database round trip
 var countries1 = ctx.Countries.FromCache().ToList();
 
-// Subsequent calls will take the value from the memory instead
+// Subsequent calls will take the value from memory instead
 var countries2 = ctx.Countries.FromCache().ToList();
 
 ```
@@ -86,7 +86,7 @@ var count = ctx.Customers.DeferredCount().FromCache();
 ```
 [Try it](https://dotnetfiddle.net/V0G6pe)
 
-Query Deferred supports all Queryable extension methods and overloads.
+Query Deferred supports all queryable extension methods and overloads.
 
 ### Query Primitive Value
 
@@ -125,7 +125,7 @@ QueryCacheManager.ExpireTag("countries");
 
 ### Expiration
 
-All common caching features like absolute expiration, sliding expiration, removed callback are supported.
+All common caching features like absolute expiration, sliding expiration, removal callback are supported.
 
 {% include template-example.html %} 
 ```csharp
@@ -171,28 +171,28 @@ context.Customers.FromCache().ToList();
 ## Real Life Scenarios
 
  - Caching read-only data like application configuration.
- - Caching data that can only be modified via an importation like states & countries and make all cache entries related expired once the importation is completed (Tag Expiration).
+ - Caching data that can only be modified via an import like states & countries and make all related cache entries expire once the import is completed (Tag Expiration).
  - Caching data that are frequently accessed but rarely modified like comments and expire the tag when a new comment is added or after one hour without any access (Tag Expiration & Sliding Expiration).
  - Caching statistics that don't require to be live like client count and expire them every hour (Absolute Expiration).
 
 ## Behind the code
 
-When **FromCache** is invoked, The QueryCacheManager returns the result if a cache entry exists for the cache key. If no cache entry exists, the query is materialized then cached in the memory using the cache key before being returned. If a cache tag is specified, the cache key is also stored in a concurrent dictionary for all tags.
+When **FromCache** is invoked, the QueryCacheManager returns the result if a cache entry exists for the cache key. If no cache entry exists, the query is materialized then cached in memory using the cache key before being returned. If a cache tag is specified, the cache key is also stored in a concurrent dictionary for all tags.
 
  - **The Cache:** The memory cache is used by default.
 
- - **The Cache Key:** The cache key is created by combining a cache prefix, all cache tags and the query expression.
+ - **The Cache Key:** The cache key is created by combining a cache prefix, all cache tags, and the query expression.
 
  - **The Query Materialized:** The query is materialized by either using "ToList()" method or "Execute()" method for query deferred.
 
 ## Conclusion
 
-As we have seen, EF+ Query Cache follows a good architecture principle:
+As we have seen, EF+ Query Cache follows a good architectural principle:
 
- - **Flexible:** Tag & Cache Options make it possible to use Query Cache in a various number of scenarios.
+ - **Flexible:** Tag & Cache Options make it possible to use Query Cache in a variety of scenarios.
  - **Extensible:** If there is something missing, the library creates your own extension method or your own cache to overcome the problem.
  - **Maintainable:** The easy to use API, documentation and available source code allows new developers to quickly understand this feature.
- - **Scalable:** Caching gets only better as the number of user/traffic grows by drastically reducing database round trip.
+ - **Scalable:** Caching gets only better as the number of users/traffic grows by drastically reducing database round trips.
 
 Need help getting started? [info@zzzprojects.com](mailto:info@zzzprojects.com)
 

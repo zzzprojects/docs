@@ -11,7 +11,7 @@ You want to use DataAnnotations.
 
 ## Solution
 
-Following DataAnnotations is available:
+The following DataAnnotations are available:
 
  - AuditDisplay
  - AuditExclude

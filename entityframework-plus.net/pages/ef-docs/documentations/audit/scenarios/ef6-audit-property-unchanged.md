@@ -12,9 +12,9 @@ You need to keep track of all changed and unchanged properties
 
 ## Solution
 
-You can choose to ignore or not property unchanged with IgnorePropertyUnchanged.
+You can choose whether or not to ignore unchanged properties with `IgnorePropertyUnchanged`.
 
-By default, properties unchanged are ignored unless it's part of the primary key.
+By default, properties unchanged are ignored unless they're part of the primary key.
 
 {% include template-example.html %} 
 ```csharp

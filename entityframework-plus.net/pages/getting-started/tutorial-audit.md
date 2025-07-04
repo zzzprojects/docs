@@ -6,7 +6,7 @@ Name: Getting Started with Audit
 
 ## Description
 
-Allow to easily track changes, exclude/include entity or property and auto save audit entries in the database.
+Allows you to easily track changes, exclude/include entities or properties and automatically save audit entries in the database.
 
 ### Support:
 

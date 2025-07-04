@@ -12,7 +12,7 @@ There are two types of IQueryable extension methods:
 
 Deferred Methods: The query expression is modified but the query is not resolved (Select, Where, etc.).
 Immediate Methods: The query expression is modified and the query is resolved (Count, First, etc.).
-However, some third party features like **Query Cache** and **Query Future** cannot be used directly with Immediate Method since the query is already resolved.
+However, some third-party features like **Query Cache** and **Query Future** cannot be used directly with Immediate Methods since the query is already resolved.
 
 **EF+ Query Deferred** provides more flexibility to other features.
 
@@ -28,7 +28,7 @@ var count = ctx.Customers.FromCache().Count();
 ```
 [Try it](https://dotnetfiddle.net/WgpFfH)
 
-Here comes in play the deferred query which acts exactly like deferred methods, by modifying the query expression without resolving it.
+Here comes into play the deferred query which acts exactly like deferred methods, by modifying the query expression without resolving it.
 
 {% include template-example.html %} 
 ```csharp
@@ -108,16 +108,16 @@ var count = countDeferred.Execute();
 
 ## Real Life Scenarios
 
-EF Query Deferred brings advantages to other third party features:
+EF Query Deferred brings advantages to other third-party features:
 
- - Allows to use Immediate Method with EF+ Query Cache.
- - Allows to use Immediate Method with EF+ Query Future.
- - Allows to use Immediate Method with YOUR own features.
+ - Allows using Immediate Methods with EF+ Query Cache.
+ - Allows using Immediate Methods with EF+ Query Future.
+ - Allows using Immediate Methods with YOUR own features.
 
 ## Behind the code
 When a deferred method is used, the query expression is created exactly like a non-deferred method but instead of invoking the execute method from the query provider, a new instance of a class QueryDeferred<TResult> is created using the query and the expression.
 
-The QueryDeferred instance has methods to either execute the expression from the query provider or let a third party library use the object query.
+The QueryDeferred instance has methods to either execute the expression from the query provider or let a third-party library use the object query.
 
 ## Conclusion
 

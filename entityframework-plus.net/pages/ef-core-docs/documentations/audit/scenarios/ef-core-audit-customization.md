@@ -46,7 +46,7 @@ ctx.SaveChanges(audit);
 // Globally
 AuditManager.DefaultConfiguration
             .AuditEntryFactory = args => 
-			    new CustomAuditEntry() { IpAdress = address };
+			    new CustomAuditEntry() { IpAddress = address };
 
 AuditManager.DefaultConfiguration
             .AuditEntryPropertyFactory = args => 
@@ -56,7 +56,7 @@ AuditManager.DefaultConfiguration
 var audit = new Audit();
 audit.CreatedBy = "ZZZ Projects"; // Optional
 audit.Configuration.AuditEntryFactory = args => 
-			    new CustomAuditEntry() { IpAdress = address };
+			    new CustomAuditEntry() { IpAddress = address };
 
 audit.Configuration.AuditEntryPropertyFactory = args => 
 			    new CustomAuditEntryProperty() { CustomField = value };

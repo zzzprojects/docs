@@ -92,7 +92,7 @@ using (var ctx = new Entities())
     ctx.SaveChanges(audit);
 }
 
-public Static AuditEntry Import(Z.EntityFramework.Plus.AuditEntry entry)
+public static AuditEntry Import(Z.EntityFramework.Plus.AuditEntry entry)
 {
     var customAuditEntry = new AuditEntry
     {
@@ -109,7 +109,7 @@ public Static AuditEntry Import(Z.EntityFramework.Plus.AuditEntry entry)
     return customAuditEntry;
 }
 
-public Static AuditEntryProperty Import(Z.EntityFramework.Plus.AuditEntryProperty property)
+public static AuditEntryProperty Import(Z.EntityFramework.Plus.AuditEntryProperty property)
 {
     var customAuditEntry = new AuditEntryProperty
     {
@@ -142,7 +142,7 @@ public class EntityContext : DbContext
 	{
 		var audit = new Audit();
 		audit.PreSaveChanges(this);
-		var rowAffecteds = base.SaveChanges();
+		var rowsAffected = base.SaveChanges();
 		audit.PostSaveChanges();
 
 		if (audit.Configuration.AutoSavePreAction != null)
@@ -151,7 +151,7 @@ public class EntityContext : DbContext
 			base.SaveChanges();
 		}
 
-		return rowAffecteds;
+		return rowsAffected;
 	}
 
 	public override Task<int> SaveChangesAsync()
@@ -163,7 +163,7 @@ public class EntityContext : DbContext
 	{
 		var audit = new Audit();
 		audit.PreSaveChanges(this);
-		var rowAffecteds = await base.SaveChangesAsync(cancellationToken).ConfigureAwait(false);
+		var rowsAffected = await base.SaveChangesAsync(cancellationToken).ConfigureAwait(false);
 		audit.PostSaveChanges();
 
 		if (audit.Configuration.AutoSavePreAction != null)
@@ -172,7 +172,7 @@ public class EntityContext : DbContext
 			await base.SaveChangesAsync(cancellationToken).ConfigureAwait(false);
 		}
 
-		return rowAffecteds;
+		return rowsAffected;
 	}
 }
 

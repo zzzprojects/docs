@@ -10,7 +10,7 @@ Name: Audit
 
 Entity Framework saves entities in a database but doesn't let you easily track changes, for example, a history of all modifications and their author in an audit table.
 
-**EF+ Audit** easily tracks changes, exclude/include entity or property and auto save audit entries in the database.
+**EF+ Audit** easily tracks changes, excludes/includes entities or properties, and automatically saves audit entries in the database.
 
 
 {% include template-example.html %} 
@@ -54,9 +54,9 @@ foreach(var entry in entries)
 
 Why only my key is added when updating my entity?
 
-This issue often happens for MVC user. They create a new entity through HttpPost values and force the state to "Modified", the context is not aware of the original value and use the current value instead. So, every property has the original value == current value and our auditing only log the key since all other values are equals.
+This issue often happens for MVC users. They create a new entity through HttpPost values and force the state to "Modified", the context is not aware of the original value and use the current value instead. So, every property has the original value == current value and our auditing only logs the key since all other values are equal.
 
-We recommend setting the **IgnorePropertyUnchanged **to false to log every property.
+We recommend setting **IgnorePropertyUnchanged** to false to log every property.
 
 Here is an example of this issue: [Issues #8](https://github.com/zzzprojects/EntityFramework-Plus/issues/8)
 

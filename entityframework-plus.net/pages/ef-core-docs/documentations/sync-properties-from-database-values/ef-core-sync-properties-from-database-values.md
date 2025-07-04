@@ -27,7 +27,7 @@ using (var context = new EntityContext())
 }
 ```
 
-In this example, we want to [bulk merge (Upsert)](https://entityframework-extensions.net/bulk-merge) a list of products. However, the method `GetProductToImport` only provides information like the `Sku`, `Name`, and `Description`. The importation currently doesn't know the `ProductID` as it's coming from an external database.
+In this example, we want to [bulk merge (Upsert)](https://entityframework-extensions.net/bulk-merge) a list of products. However, the method `GetProductToImport` only provides information like the `Sku`, `Name`, and `Description`. The import currently doesn't know the `ProductID` as it's coming from an external database.
 
 Since the `Sku` is unique to a product, we can use it as our key to retrieve the `ProductID`.
 

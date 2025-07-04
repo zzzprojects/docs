@@ -105,7 +105,7 @@ The **Executing** property intercepts the DbCommand with an action before being 
 
 // using Z.EntityFramework.Plus; // Don't forget to include this.
 
-string commandText
+string commandText;
 var date = DateTime.Now.AddYears(-2);
 ctx.Users.Where(x => x.LastLoginDate < date)
          .Delete(x => { x.Executing = command => commandText = command.CommandText; });

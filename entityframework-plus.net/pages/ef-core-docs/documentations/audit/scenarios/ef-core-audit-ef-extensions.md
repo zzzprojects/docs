@@ -9,7 +9,7 @@ If you are using Entity Framework Extensions, it is still possible to use the EF
 
 However, it will only work with BulkSaveChanges.
 
-Other Bulk Operations (BulkInsert, BulkUpdate, BulkDelete, and BulkMerge) doesn't use the Change Tracker so, there is nothing to track!
+Other Bulk Operations (BulkInsert, BulkUpdate, BulkDelete, and BulkMerge) don't use the Change Tracker so, there is nothing to track!
 
 ## BulkSaveChanges + AutoSave
 

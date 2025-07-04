@@ -7,11 +7,11 @@ Name: LINQ Dynamic
 
 ## Description
 
-**LINQ Dynamic** in Entity Framework is supported through the [Eval-Expression.NET](https://eval-expression.net/linq-dynamic) Library. That feature is free to use even for commercial library.
+**LINQ Dynamic** in Entity Framework is supported through the [Eval-Expression.NET](https://eval-expression.net/linq-dynamic) Library. That feature is free to use even for commercial use.
 
 ## Predicate
 
-All LINQ predicate methods are supported. A string expression which return a Boolean function can be used as parameter.
+All LINQ predicate methods are supported. A string expression which returns a Boolean function can be used as a parameter.
 
 - Deferred
    - OrderByDescendingDynamic
@@ -55,7 +55,7 @@ var list = context.Customers.SelectDynamic(x => "x.Name").ToList();
 
 ## Execute
 
-The Execute method is the LINQ Dynamic ultimate methods which let you evaluate and execute a dynamic expression and return the result.
+The Execute method is the LINQ Dynamic ultimate method which lets you evaluate and execute a dynamic expression and return the result.
 
  - Execute
  - Execute< TResult >

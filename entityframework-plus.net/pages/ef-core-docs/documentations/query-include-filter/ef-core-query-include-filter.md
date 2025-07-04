@@ -31,7 +31,7 @@ var list = ctx.Orders.IncludeFilter(x => x.Items.Where(y => !y.IsSoftDeleted)
 IncludeFilter method works the same as "Include" method but lets you use LINQ Queryable extension methods as part of the query to filter related entities.
 
  - [Load one level](#load-one-level)
- - [Load multiple level](#load-multiple-level)
+ - [Load multiple levels](#load-multiple-level)
  
 ### Load one level
 
@@ -47,7 +47,7 @@ var blogs = ctx.Blogs.IncludeFilter(x => x.Posts.Where(y => !y.IsSoftDeleted)).T
 ```
 [Try it](https://dotnetfiddle.net/1unMtl)
 
-### Load multiple level
+### Load multiple levels
 
 {% include template-example.html %} 
 ```csharp
@@ -81,7 +81,7 @@ Paging (Include a range of related entities)
 // using Z.EntityFramework.Plus; // Don't forget to include this.
 var ctx = new EntitiesContext();
 
-// LOAD posts and most threading comments.
+// LOAD posts and most trending comments.
 var posts= ctx.Posts.IncludeFilter(x => x.Comments
                                          .OrderByDescending(y => y.ThreadingScore)
                                          .Take(10))
@@ -171,10 +171,10 @@ Entity Framework already does all the job by linking related entities to the pa
  - Cannot be mixed with projection
  - Cannot be mixed with Include (Include doesn't support projection)
  - Cannot be mixed with IncludeOptimized
- - Many to Many relation:
+ - Many to Many relationship:
    - Not supported yet
  - Relationship:
-   - Entities will contain all previously loaded related entities even if the Query does not return them. It's a limitation due to how Entity Framework relation work.
+   - Entities will contain all previously loaded related entities even if the Query does not return them. It's a limitation due to how Entity Framework relationships work.
 
 {% include template-example.html %} 
 ```csharp

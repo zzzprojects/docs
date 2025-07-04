@@ -7,7 +7,7 @@ Name: Audit - Retrieve AuditEntries for specific item
 
 ## Problem
 
-You want to retrieve all AuditEntry for a specific item.
+You want to retrieve all AuditEntries for a specific item.
 
 ## Solution
 

@@ -10,7 +10,7 @@ Name: Getting Started with LINQ Dynamic
 
 ### Predicate
 
-All LINQ predicate methods are supported. A string expression which return a Boolean function can be used as parameter.
+All LINQ predicate methods are supported. A string expression which returns a Boolean function can be used as a parameter.
 
  - Deferred
  - SkipWhile
