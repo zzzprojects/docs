@@ -1,6 +1,6 @@
 ---
 Name: Compile Method
-LastMod: 2024-04-09
+LastMod: 2025-07-04
 ---
 
 # How to use the Compile Method?
@@ -185,7 +185,7 @@ var list1 = compiledList1(2, 4, 6);
 
 The C# Eval library doesn't have `CompileAsync` methods. Under the hood, we compile the expression which the [Expression<TDelegate>.Compile method](https://learn.microsoft.com/en-us/dotnet/api/system.linq.expressions.expression-1.compile), which doesn't have a `CompileAsync` method either.
 
-However, the `Compile` method support `Async` expression, but the task needs to be handled on the [Execute](/eval-execute#execute-async) part and not the compile part:
+However, the `Compile` method supports `Async` expressions, but the task needs to be handled on the [Execute](/eval-execute#execute-async) part and not the compile part:
 
 1. **Return a task from the delegate:** `Eval.Compile<Func<Task>>(code)`
 2. **Handle the task** using `await` in the code
@@ -210,7 +210,7 @@ var text2 = compiled2(fileName);
 
 ## Conclusion
 
-In conclusion, you can call the `Compile` method in 24 different ways, but if you understand the concept, they all look very similar, and we can resume them to this: Do you want to use the `Compile` method:
+In conclusion, you can call the `Compile` method in 24 different ways, but if you understand the concept, they all look very similar, and we can sum them up like this: Do you want to use the `Compile` method:
 
 - With an instance or a global context
 - With or without a delegate/parameter type

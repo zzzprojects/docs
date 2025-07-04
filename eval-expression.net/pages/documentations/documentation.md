@@ -1,11 +1,11 @@
 ---
 Name: Documentation
-LastMod: 2024-03-22
+LastMod: 2025-07-04
 ---
 
 # Documentation
 
-Are you using the C# Eval Expression Library for a long time, or are you currently evaluating it and want to try it? In both cases, reading that documentation and coming back from time to time is very important to ensure you can exploit our library's full potential with every one of your projects.
+Are you using the C# Eval Expression Library for a long time, or are you currently evaluating it and want to try it? In both cases, reading the documentation and coming back from time to time is very important to ensure you can exploit our library's full potential with every one of your projects.
 
 ## Methods
 
@@ -15,17 +15,17 @@ Our C# expression evaluator can be split into 3 categories of methods:
 - [Compile Methods](/eval-compile)
 - [Helper Methods](/helper-methods)
 
-Execute methods is the most critical section to understand as they allow you to execute an expression directly, such as:
+Execute methods are the most critical section to understand as they allow you to execute an expression directly, such as:
 
 ```csharp
 ```
 
-Compile methods are also very important to take your time to read the documentation as they allow you to compile a C# expression and re-use the delegate later:
+Compile methods are also very important so take the time to read the documentation as they allow you to compile a C# expression and re-use the delegate later:
 
 ```csharp
 ```
 
-Helper methods are different kinds of methods that either can help you for other purposes, such as the `Tokenize` method, or help you with your current evaluation, such as the `AddMethod` method:
+Helper methods are different kinds of methods that either can help with other purposes, such as the `Tokenize` method, or help you with your current evaluation, such as the `AddMethod` method:
 
 ```csharp
 ```
@@ -53,7 +53,7 @@ In this section, you will learn about the static EvalManager and what it's for:
 
 ## Options
 
-The C# Eval library is very flexible and allows you to customize the evaluation of an expression. For example, it allows you to choose if members are case sensitives, the maximum allowed loop, and more.
+The C# Eval library is very flexible and allows you to customize the evaluation of an expression. For example, it allows you to choose if members are case sensitive, the maximum allowed loop, and more.
 
 - [Options](/options)    
 
@@ -70,6 +70,6 @@ Understanding register methods is essential as, by default, our library is unawa
 
 ## Internal Dictionary
 
-We do not recommend playing with what we consider `internal` dictionary. Still, since those dictionaries are `public` as some people have complex scenarios that are the only way to make it works, they also deserve their part in our documentation:
+We do not recommend playing with what we consider `internal` dictionary. Still, since those dictionaries are `public` as some people have complex scenarios that are the only way to make it work, they also deserve their part in our documentation:
 
 - [Internal Dictionary](/internal-dictionary)

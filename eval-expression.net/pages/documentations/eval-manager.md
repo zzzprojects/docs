@@ -1,6 +1,6 @@
 ---
 Name: Eval Manager
-LastMod: 2024-03-22
+LastMod: 2025-07-04
 ---
 
 # Eval Manager
@@ -30,8 +30,8 @@ The default context is used in static methods:
 - [Eval.Execute](eval-execute)
 - [Eval.Compile](eval-compile)
 - [LINQ Dynamic](linq-dynamic)
-- [string".Execute](string-extensions#stringexecute)
-- [string".Compile](string-extensions#stringcompile)
+- [string.Execute](string-extensions#stringexecute)
+- [string.Compile](string-extensions#stringcompile)
 
 ### Example
 ```csharp

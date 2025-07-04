@@ -1,12 +1,12 @@
 ---
 Title: Get started with your first option with C# Eval Expression
 MetaDescription: Learn how to use options in C# Eval Expression to configure your eval context to align with your scenarios and requirements.
-LastMod: 2025-05-21
+LastMod: 2025-07-04
 ---
 
 # My First Option
 
-In this article, we will only see a few options, but you can find all the [options here](/options). Understanding how [register methods](https://eval-expression.net/register-unregister) work will also help you understand better.
+In this article, we will only cover a few options, but you can find all the [options here](/options). Understanding how [register methods](https://eval-expression.net/register-unregister) work will also help you understand better.
 
 We will mix how options are added by either the default context, a local context, or a new static context. All three techniques are valid, and which one is recommended depends on what you want to achieve.
 

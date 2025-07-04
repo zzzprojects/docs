@@ -1,21 +1,21 @@
 ---
 Title: Compile C# Code at Runtime - Get Started with your First Compilation
 MetaDescription: Learn how to compile a C# expression at runtime with parameter, return type, and from a dynamic string expression.
-LastMod: 2024-03-22
+LastMod: 2025-07-04
 ---
 
 # My First Compilation
 
 In this tutorial, we will assume that you have read and understood the concept we introduced in the [My First Evaluation](/my-first-evaluation) tutorial. If you have not read it, make sure you start with this previous tutorial, as we might skip the explanation of a few concepts.
 
-So what is the major difference between executing and compiling a dynamic code?
+So what is the major difference between executing and compiling dynamic code?
 
 - The `Compile` method will compile the expression into a method
-- The `Execute` method call the `Compile` method under the hood and then execute the returned compiled method.
+- The `Execute` method calls the `Compile` method under the hood and then executes the returned compiled method.
 
-When executing the same expression with the `Execute` method multiple times, it is fast as we retrieve the compiled method from the cache. However, it still takes some time, as we need to create a cache key that has a performance cost. So when you need to execute multiple times the same expression, you should store the compiled method in a local or static variable.
+When executing the same expression with the `Execute` method multiple times, it is fast as we retrieve the compiled method from the cache. However, it still takes some time, as we need to create a cache key that has a performance cost. So when you need to execute the same expression multiple times, you should store the compiled method in a local or static variable.
 
-How much faster? Using directly the compiled method returned from the `Compile` can be 1000x more quickly than using the `Execute` method. It surely doesn't make any difference if you are only looping on 10 items, as both ways, it will take nearly 0ms. However, if you need to evaluate millions of items, it makes a massive difference between a few milliseconds and seconds.
+How much faster? Using directly the compiled method returned from the `Compile` can be 1000x quicker than using the `Execute` method. It surely doesn't make any difference if you are only looping on 10 items, as both ways, it will take nearly 0ms. However, if you need to evaluate millions of items, it makes a massive difference between a few milliseconds and seconds.
 
 {% include component-try-it.html href='https://dotnetfiddle.net/W2qpBX' %}
 
@@ -149,7 +149,7 @@ for(int i = 0; i < 4; i++)
 
 All the `Compile` methods we learned in previous examples use the global `EvalContext`. You can learn more about why and when you should use an instance context in the [EvalContext](/eval-context) documentation.
 
-In this example, we will create an instance context, add a new extension method named `GreaterThan` and use the `Compile` method. Then after we will loop to show only item in our list that currently have a higher value than the current position in our loop.
+In this example, we will create an instance context, add a new extension method named `GreaterThan` and use the `Compile` method. Then after we will loop to show only items in our list that currently have a higher value than the current position in our loop.
 
 ```csharp
 var list = new List<int>() { 1, 2, 3, 4 };		

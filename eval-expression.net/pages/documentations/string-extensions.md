@@ -1,12 +1,12 @@
 ---
 Name: String Extensions Methods
-LastMod: 2024-03-22
+LastMod: 2025-07-04
 ---
 
 # String Extensions Methods
 
 ## Description
-Extend the String class with methods to Execute & Compile C# expression.
+Extend the String class with methods to Execute & Compile C# expressions.
 
 Under the hood, string extensions use the default context to execute and compile expressions.
 ```csharp

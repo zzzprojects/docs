@@ -1,6 +1,6 @@
 ---
 Name: Compile & Execute Methods
-LastMod: 2024-03-22
+LastMod: 2025-07-04
 ---
 
 # Compile & Execute Methods
@@ -53,10 +53,10 @@ var context = new EvalContext();
 string code = "Price * Quantity";
 var compiled = context.Compile<Func<OrderItem, decimal>>(code);
 
-decimal totals = 0;
+decimal total = 0;
 foreach(var item in list)
 {
-    totals += compiled(item);
+    total += compiled(item);
 }
 ```
 {% include component-try-it.html href='https://dotnetfiddle.net/00YSGK' %}

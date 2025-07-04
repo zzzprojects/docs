@@ -1,6 +1,6 @@
 ---
 Name: RegisterDefaultAliasSafe vs RegisterDefaultAliasUnsafe
-LastMod: 2024-03-22
+LastMod: 2025-07-04
 ---
 
 # RegisterDefaultAliasSafe vs RegisterDefaultAliasUnsafe
@@ -15,7 +15,7 @@ context.UnregisterAll();
 context.RegisterDefaultAliasSafe();
 ```
 
-If you want to be 100% safe and make sure that nothing is exploited, ensure that you use the [SafeMode](/options#safemode) options instead, which restrict the user to only what you want him to see/use. 
+If you want to be 100% safe and make sure that nothing is exploited, ensure that you use the [SafeMode](/options#safemode) options instead, which restrict the user to only what you want them to see/use. 
 
 
 ## RegisterDefaultAliasSafe
@@ -308,7 +308,7 @@ namespace Z.Expressions
                 RegisterType(typeof(SHA1));
                 RegisterType(typeof(TripleDES));
 
-                // System.Security.Cruptography.X509Certificates
+                // System.Security.Cryptography.X509Certificates
                 RegisterType(typeof(X509Store));
 
                 // System.Security.Principal

@@ -1,14 +1,14 @@
 ---
 Title: Getting Started with C# Eval Expression | C# Expression Evaluator
 MetaDescription: Learn about what the C# Eval Expression library is and what is an expression evaluator. Learn how to evaluate string code dynamically and why you should do it.
-LastMod: 2024-03-22
+LastMod: 2025-07-04
 ---
 
 # Overview
 
 ## What is the C# Eval Expression library?
 
-The C# Eval Expression library is the most powerful and flexible expression evaluator you can find. It supports nearly all the C# languages and gets improved every year. The library also has multiple built-in logic to make it easier on your side to work and evaluate C# dynamic expressions.
+The C# Eval Expression library is the most powerful and flexible expression evaluator you can find. It supports nearly all the C# language and gets improved every year. The library also has multiple built-in logic to make it easier on your side to work and evaluate C# dynamic expressions.
 
 Do not worry if that is still unclear because we will explain and cover more about what this library can do in this getting started section. But in a simple example, it allows you to do something like this:
 
@@ -30,9 +30,9 @@ C# Eval Expression is compatible with .NET, .NET Core and .NET Framework:
 
 ## What is an expression evaluator?
 
-An expression evaluator is a library that allows executing an expression and getting the result. That is especially useful for math expressions, but you can also use the advantage of an expression evaluator in various amount of scenarios, such as:
+An expression evaluator is a library that allows executing an expression and getting the result. That is especially useful for math expressions, but you can also use the advantage of an expression evaluator in a variety of scenarios, such as:
 
-- Applying dynamically validation rules 
+- Applying dynamic validation rules 
 - Filtering dynamically a report (users enter their own filtering/ordering logic)
 - Setting different environments by user
 - Or even within a Discord bot to let it return a result of an expression
@@ -64,9 +64,9 @@ The C# Eval Expression library supports nearly everything from basic keywords to
 - LINQ Methods
 - Method Overloads
 
-The library also has multiple built-in logic. For example, the library automatically calls the `ToList` method when the return type is an `IEnumerable,` but the return expected is a list. 
+The library also has multiple built-in logic. For example, the library automatically calls the `ToList` method when the return type is an `IEnumerable`, but the return expected is a list. 
 
-Also, some new useful keywords, such as `break all` has been added. All loops will be `break` instead of only the current loop.
+Also, some new useful keywords, such as `break all` have been added. All loops will be `break` instead of only the current loop.
 
 ## Is C# Eval Expression free?
 

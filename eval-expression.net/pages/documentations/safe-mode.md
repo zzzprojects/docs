@@ -1,12 +1,12 @@
 ---
 Name: Safe Mode Option
-LastMod: 2024-03-22
+LastMod: 2025-07-04
 ---
 
 # Safe Mode Option
 
 ### Problem
-You want to allow your users to create and evaluate some generic expression. However, you need to limit access on what user can do!
+You want to allow your users to create and evaluate some generic expression. However, you need to limit access on what the user can do!
 
 ### Solution
 Use the **SafeMode** property.

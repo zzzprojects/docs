@@ -1,11 +1,11 @@
 ---
 Name: Register & Unregister Methods
-LastMod: 2024-03-22
+LastMod: 2025-07-04
 ---
 
 # How to use  Register & Unregister Methods in C# Eval Expression library
 
-In the C# Eval Expression, the library is unaware of any namespace, class, method, or anything else besides what has been registered by default. Even if we included a lot of namespace and objects by default such as `System.Linq`, `DataTable`, and `Math` for most basic cases, that is often not enough, and you need to register or even unregister on your side what is missing.
+In the C# Eval Expression, the library is unaware of any namespace, class, method, or anything else besides what has been registered by default. Even if we included a lot of namespaces and objects by default such as `System.Linq`, `DataTable`, and `Math` for most basic cases, that is often not enough, and you need to register or even unregister on your side what is missing.
 
 ## Register Methods
 
@@ -14,13 +14,13 @@ The `Register` methods allow you to add types, methods, properties, fields, valu
 | Name                               | Description                                                                                                                                                                                                                                                                                                             |
 | ---------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | RegisterAlias                      | The RegisterAlias method registers an alias for a variable, constant, method or type name. For example, if you register the alias "mymath" for the class "System.Math", you can now create an expression such as "mymath.Min(1, 2)".                                                                             |
-| RegisterAssembly                   | The RegisterAssembly method register all types from the assemblies provided.                                                                                                                                                                                                                                             |
-| RegisterAutoAddMissingTypeAssembly | The RegisterAutoAddMissingTypeAssembly method register assemblies in which the option \`AutoAddMissingTypes\` or \`RetryAndThrowMissingTypes\` is allowed to retrieve types.                                                                                                                                            |
-| RegisterDefaultAliasSafe           | The RegisterDefaultAliasSafe method register types, members and extensions methods of all safe types consired safe (Array, Dictionary, List, Tuple, etc.). You can find the complete list here:                                                                                          |
-| RegisterDefaultAliasUnsafe         | The RegisterDefaultAliasUnsafe method register types , members and extension methods of some type that might be considered most unsafe such as (Console, DirectionInfo, FileInfo, etc.). You can find the complete list here:                                                            |
-| RegisterDomainAssemblies           | The RegisterDomainAssemblies method registers all types from all assemblies in loaded in the current domain. This method is only supported in the .NET Framework.                                                                                   |
+| RegisterAssembly                   | The RegisterAssembly method registers all types from the assemblies provided.                                                                                                                                                                                                                                             |
+| RegisterAutoAddMissingTypeAssembly | The RegisterAutoAddMissingTypeAssembly method registers assemblies in which the option \`AutoAddMissingTypes\` or \`RetryAndThrowMissingTypes\` is allowed to retrieve types.                                                                                                                                            |
+| RegisterDefaultAliasSafe           | The RegisterDefaultAliasSafe method registers types, members and extension methods of all safe types considered safe (Array, Dictionary, List, Tuple, etc.). You can find the complete list here:                                                                                          |
+| RegisterDefaultAliasUnsafe         | The RegisterDefaultAliasUnsafe method registers types , members and extension methods of some types that might be considered more unsafe such as (Console, DirectioryInfo, FileInfo, etc.). You can find the complete list here:                                                            |
+| RegisterDomainAssemblies           | The RegisterDomainAssemblies method registers all types from all assemblies loaded in the current domain. This method is only supported in the .NET Framework.                                                                                   |
 | RegisterExtensionMethod           | The RegisterExtensionMethod method registers all extension methods from the types or method list provided.                                                                                                                                                                                                             |
-| RegisterGlobalConstant             | The RegisterGlobalConstant method registers a global constant value. The constant value is shared across all evaluations but cannot be modified (not writeable).                                                                                                                                                        |
+| RegisterGlobalConstant             | The RegisterGlobalConstant method registers a global constant value. The constant value is shared across all evaluations but cannot be modified (not writable).                                                                                                                                                        |
 | RegisterGlobalVariable             | The RegisterGlobalVariable method registers a global variable value. This variable value is shared across all evaluations and can be modified.                                                                                                                                                                          |
 | RegisterKeyword                    | The RegisterKeyword method registers a keyword for the specified extension methods. For example, if you register the keyword "isin" for the extension method "IsIn", you can now create an expression such as "x isin list".                                                                                            |
 | RegisterLocalVariable              | The RegisterLocalVariable method registers a local variable value. This variable value is not shared across all evaluations and can be modified. In other words, the value is only modified for the current evaluation and doesn't impact the other evaluations.                                                        |
@@ -30,7 +30,7 @@ The `Register` methods allow you to add types, methods, properties, fields, valu
 | RegisterStaticMember               | The RegisterStaticMember method registers all static members from the types or members list provided. A member is a Property, Field or Method.                                                                                                                                                                          |
 | RegisterStaticMethod               | The RegisterStaticMethod method registers all static methods from the types or fields list provided.                                                                                                                                                                                                                    |
 | RegisterStaticProperty             | The RegisterStaticProperty method registers all static properties from the types or properties list provided.                                                                                                                                                                                                           |
-| RegisterType                       | The RegisterType method registers all types provided. The method also register extension methods from types but doesn't registers other static member. For example, if you register the type "Z.MyNamespace.MyClass", you can now create an expression such as "new MyClass()" or any extension methods from this type. |
+| RegisterType                       | The RegisterType method registers all types provided. The method also registers extension methods from types but doesn't register other static members. For example, if you register the type "Z.MyNamespace.MyClass", you can now create an expression such as "new MyClass()" or any extension methods from this type. |
 
 ## Unregister Methods
 
@@ -39,7 +39,7 @@ The `Unregister` methods allows you to remove types, members, and anything else 
 | Name                                 | Description                                                                                                                                                                       |
 | ------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | UnregisterAlias                      | The UnregisterAlias method unregisters an alias for a variable, constant, static method or type name.                                                                             |
-| UnregisterAll                        | The UnregisterAll method unregister everything (alias, keyword, member, type and more).                                                                                           |
+| UnregisterAll                        | The UnregisterAll method unregisters everything (alias, keyword, member, type and more).                                                                                           |
 | UnregisterAssembly                   | The UnregisterAssembly method unregister all types from the assemblies provided.                                                                                                  |
 | UnregisterAutoAddMissingTypeAssembly | The UnregisterAutoAddMissingTypeAssembly method unregisters assemblies in which the option \`AutoAddMissingTypes\` or \`RetryAndThrowMissingTypes\` is allowed to retrieve types. |
 | UnregisterExtensionMethod            | The UnregisterExtensionMethod method unregisters all extension methods from the types or method list provided.                                                                    |
@@ -53,7 +53,7 @@ The `Unregister` methods allows you to remove types, members, and anything else 
 | UnregisterStaticMember               | The UnregisterStaticMember method unregisters all static fields from the types or fields list provided.                                                                           |
 | UnregisterStaticMethod               | The UnregisterStaticMethod method unregisters all static methods from the types or fields list provided.                                                                          |
 | UnregisterStaticProperty             | The UnregisterStaticProperty method unregisters all static properties from the types or properties list provided.                                                                 |
-| UnregisterType                       | The UnregisterType method unregisters all types provided. The method also unregister extension methods from types                                                                 |
+| UnregisterType                       | The UnregisterType method unregisters all types provided. The method also unregisters extension methods from types                                                                 |
 
 You will find examples for `Unregister` methods inside their corresponding `Register` methods.
 
@@ -63,21 +63,21 @@ The `IsRegistered` method allows you to check if a type, member, or anything els
 
 | Name                                   | Description                                                                                                                                                                                      |
 | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| IsRegisteredAlias                      | The IsRegisteredAlias method return true if the alias or the alias for a specific name provided is registered.                                                                                   |
-| IsRegisteredAssembly                   | The IsRegisteredAssembly method return true if all types from the assembly provided is registered.                                                                                               |
-| IsRegisteredAutoAddMissingTypeAssembly | The IsRegisteredAutoAddMissingTypeAssembly method return true if the assembly is part in which the option \`AutoAddMissingTypes\` or \`RetryAndThrowMissingTypes\` is allowed to retrieve types. |
-| IsRegisteredExtensionMethod            | The IsRegisteredExtensionMethod method return true if all extension methods from the type or extension method provided is registered.                                                            |
-| IsRegisteredGlobalConstant             | The IsRegisteredGlobalConstant method return true if the global constant name or the global constant name with the value provided is registered.                                                 |
-| IsRegisteredGlobalVariable             | The IsRegisteredGlobalVariable method return true if the global variable name or the global variable name with the value provided is registered.                                                 |
-| IsRegisteredKeyword                    | The IsRegisteredKeyword method return true if the keyword provided is registered.                                                                                                                |
-| IsRegisteredLocalVariable              | The IsRegisteredLocalVariable method return true if the local variable name or the local variable name with the value provided is registered.                                                    |
-| IsRegisteredMember                     | The IsRegisteredMember method return true if all instance members from the type or member provided is registered.                                                                                |
-| IsRegisteredNamespace                  | The IsRegisteredNamespace method return true if all types in the assembly under the specified namespaces provided is registered.                                                                 |
-| IsRegisteredStaticField                | The IsRegisteredStaticField method return true if all static fields from the type or field provided is registered.                                                                               |
-| IsRegisteredStaticMember               | The IsRegisteredStaticMember method return true if all static members from the type or member provided is registered.                                                                            |
-| IsRegisteredStaticMethod               | The IsRegisteredStaticMethod method return true if all static methods from the type or method provided is registered.                                                                            |
-| IsRegisteredStaticProperty             | The IsRegisteredStaticProperty method return true if all static properties from the type or property provided is registered.                                                                     |
-| IsRegisteredType                       | The IsRegisteredType method return true if the type or type name provided is registered.                                                                                                         |
+| IsRegisteredAlias                      | The IsRegisteredAlias method returns true if the alias or the alias for a specific name provided is registered.                                                                                   |
+| IsRegisteredAssembly                   | The IsRegisteredAssembly method returns true if all types from the assembly provided is registered.                                                                                               |
+| IsRegisteredAutoAddMissingTypeAssembly | The IsRegisteredAutoAddMissingTypeAssembly method returns true if the assembly is part in which the option \`AutoAddMissingTypes\` or \`RetryAndThrowMissingTypes\` is allowed to retrieve types. |
+| IsRegisteredExtensionMethod            | The IsRegisteredExtensionMethod method returns true if all extension methods from the type or extension method provided is registered.                                                            |
+| IsRegisteredGlobalConstant             | The IsRegisteredGlobalConstant method returns true if the global constant name or the global constant name with the value provided is registered.                                                 |
+| IsRegisteredGlobalVariable             | The IsRegisteredGlobalVariable method returns true if the global variable name or the global variable name with the value provided is registered.                                                 |
+| IsRegisteredKeyword                    | The IsRegisteredKeyword method returns true if the keyword provided is registered.                                                                                                                |
+| IsRegisteredLocalVariable              | The IsRegisteredLocalVariable method returns true if the local variable name or the local variable name with the value provided is registered.                                                    |
+| IsRegisteredMember                     | The IsRegisteredMember method returns true if all instance members from the type or member provided is registered.                                                                                |
+| IsRegisteredNamespace                  | The IsRegisteredNamespace method returns true if all types in the assembly under the specified namespaces provided is registered.                                                                 |
+| IsRegisteredStaticField                | The IsRegisteredStaticField method returns true if all static fields from the type or field provided is registered.                                                                               |
+| IsRegisteredStaticMember               | The IsRegisteredStaticMember method returns true if all static members from the type or member provided is registered.                                                                            |
+| IsRegisteredStaticMethod               | The IsRegisteredStaticMethod method returns true if all static methods from the type or method provided is registered.                                                                            |
+| IsRegisteredStaticProperty             | The IsRegisteredStaticProperty method returns true if all static properties from the type or property provided is registered.                                                                     |
+| IsRegisteredType                       | The IsRegisteredType method returns true if the type or type name provided is registered.                                                                                                         |
 
 You will find examples for `IsRegistered` methods inside their corresponding `Register` methods.
 
@@ -115,7 +115,7 @@ Console.WriteLine("3 - Result: " + r3);
 // Unregister the "mymath" alias
 context.UnregisterAlias("mymath");
 
-// Check that the alias "mymath" has been succesfully unregistered
+// Check that the alias "mymath" has been successfully unregistered
 var r4 = context.IsRegisteredAlias("mymath");
 Console.WriteLine("4 - Result: " + r4);
 ```
@@ -124,7 +124,7 @@ Console.WriteLine("4 - Result: " + r4);
 
 ## RegisterAssembly
 
-The RegisterAssembly method register all types from the assemblies provided.
+The RegisterAssembly method registers all types from the assemblies provided.
 
 In this example, we will register our assembly to be able to use the `Program.AddDemo` static methods. Afterward, we will use the method `IsRegisteredAssembly` to check that the assembly was indeed registered, the method `UnregisterAssembly` to unregister the assembly, and finally, check again with the method `IsRegisteredAssembly` that the assembly has been successfully unregistered.
 
@@ -148,7 +148,7 @@ public class Program
 		// Unregister the assembly
 		context.UnregisterAssembly(typeof(Program).Assembly);
 		
-		// Check if the assembly has been succesfully unregistered
+		// Check if the assembly has been successfully unregistered
 		var r3 = context.IsRegisteredAssembly(typeof(Program).Assembly);
 		Console.WriteLine("3 - Result: " + r3);		
 	}
@@ -164,9 +164,9 @@ public class Program
 
 ## RegisterAutoAddMissingTypeAssembly
 
-The RegisterAutoAddMissingTypeAssembly method register assemblies in which the option `AutoAddMissingTypes` or `RetryAndThrowMissingTypes` is allowed to retrieve types.
+The RegisterAutoAddMissingTypeAssembly method registers assemblies in which the option `AutoAddMissingTypes` or `RetryAndThrowMissingTypes` is allowed to retrieve types.
 
-In this example, we will use the same logic as we did with the `RegisterAssembly` method. The major difference between both methods is types when using `RegisterAutoAddMissingTypeAssembly` are only added to the expression if needed, and it requires either the option [AutoAddMissingTypes](/options#autoaddmissingtypes) or [RetryAndThrowMissingTypes](/options#retryandthrowmissingtypes) to works.
+In this example, we will use the same logic as we did with the `RegisterAssembly` method. The major difference between both methods is types when using `RegisterAutoAddMissingTypeAssembly` are only added to the expression if needed, and it requires either the option [AutoAddMissingTypes](/options#autoaddmissingtypes) or [RetryAndThrowMissingTypes](/options#retryandthrowmissingtypes) to work.
 
 ```csharp
 public class Program
@@ -189,7 +189,7 @@ public class Program
 		// Unregister the assembly
 		context.UnregisterAutoAddMissingTypeAssembly(typeof(Program).Assembly);
 		
-		// Check if the assembly is registered has been succesfully unregistered
+		// Check if the assembly is registered has been successfully unregistered
 		var r3 = context.IsRegisteredAutoAddMissingTypeAssembly(typeof(Program).Assembly);
 		Console.WriteLine("3 - Result: " + r3);		
 	}
@@ -205,9 +205,9 @@ public class Program
 
 ## RegisterDefaultAliasSafe
 
-The RegisterDefaultAliasSafe method register types, members and extensions methods of all safe types consired safe (Array, Dictionary, List, Tuple, etc.). You can find the complete list here:
+The RegisterDefaultAliasSafe method registers types, members and extension methods of all safe types considered safe (Array, Dictionary, List, Tuple, etc.). You can find the complete list here:
 
-In this example, we will unregister all types and then register only types included in the `RegisterDefaultAliasSafe` methods. First, we will create a dictionary that is part of the registered types. Then we will try to create a `DataTable` but it will fail as our library exclude it by default as we flag this object unsafe due to method such as `Load` and `WriteXml`.
+In this example, we will unregister all types and then register only types included in the `RegisterDefaultAliasSafe` methods. First, we will create a dictionary that is part of the registered types. Then we will try to create a `DataTable` but it will fail as our library excludes it by default as we flag this object unsafe due to method such as `Load` and `WriteXml`.
 
 ```csharp
 // Global Context: EvalManager.DefaultContext.RegisterDefaultAliasSafe();
@@ -238,7 +238,7 @@ To learn more and see what contains this method, see [Register Default Alias Saf
 
 ## RegisterDefaultAliasUnsafe
 
-The RegisterDefaultAliasUnsafe method register types , members and extension methods of some type that might be considered most unsafe such as (Console, DirectionInfo, FileInfo, etc.). You can find the complete list here:
+The RegisterDefaultAliasUnsafe method registers types , members and extension methods of some types that might be considered more unsafe such as (Console, DirectoryInfo, FileInfo, etc.). You can find the complete list here:
 
 In this example, we will unregister all types and then register only types included in the `RegisterDefaultAliasUnsafe` methods. In fact, all types from the `RegisterDefaultAliasUnsafe` are already registered by default, but we still do it for demo purposes. First, we will create a dictionary that is part of the registered types. Then we will create a `DataTable`, but unlike when using the method `RegisterDefaultAliasSafe`, this time, the code will successfully work as the `DataTable` is part of the types registered this time.
 
@@ -266,7 +266,7 @@ To learn more and see what contains this method, see [Register Default Alias Saf
 
 ## RegisterDomainAssemblies
 
-The RegisterDomainAssemblies method registers all types from all assemblies in loaded in the current domain. This method is only supported in the .NET Framework.
+The RegisterDomainAssemblies method registers all types from all assemblies loaded in the current domain. This method is only supported in the .NET Framework.
 
 In this example, we will register all assemblies found and use our method `Program.AddDemo`. Keep in mind that using this method registers all types from all assemblies found, which for most scenarios is overkill, so we normally recommend only registering types or assemblies that you really need for the compilation.
 
@@ -319,7 +319,7 @@ public class Program
 		// Unregister the extension methods
 		context.UnregisterExtensionMethod(typeof(Extensions));
 		
-		// Check if the extension methods has been succesfully unregistered
+		// Check if the extension methods have been successfully unregistered
 		var r3 = context.IsRegisteredExtensionMethod(typeof(Extensions));
 		Console.WriteLine("3 - Result: " + r3);
 	}
@@ -338,9 +338,9 @@ public static class Extensions
 
 ## RegisterGlobalConstant
 
-The RegisterGlobalConstant method registers a global constant value. The constant value is shared across all evaluations but cannot be modified (not writeable).
+The RegisterGlobalConstant method registers a global constant value. The constant value is shared across all evaluations but cannot be modified (not writable).
 
-In this example, we will first register the constant 'x' with the value equal to 1. First, we will execute a simple addition expression that will work. Then, we will try to assign a new value to our constant 'x', which will fail since a constant is not writeable. Finally, we will use the `IsRegisteredGlobalConstant` and `UnregisterGlobalConstant` methods to show the constant was registered and successfully unregistered.
+In this example, we will first register the constant 'x' with the value equal to 1. First, we will execute a simple addition expression that will work. Then, we will try to assign a new value to our constant 'x', which will fail since a constant is not writable. Finally, we will use the `IsRegisteredGlobalConstant` and `UnregisterGlobalConstant` methods to show the constant was registered and successfully unregistered.
 
 ```csharp
 // Global Context: EvalManager.DefaultContext.RegisterGlobalConstant("x", 1)
@@ -368,7 +368,7 @@ Console.WriteLine("3 - Result: " + r3);
 // Unregister the constant "x"
 context.UnregisterGlobalConstant("x");
 
-// Check if the constant "x" has been succesfully unregistered
+// Check if the constant "x" has been successfully unregistered
 var r4 = context.IsRegisteredGlobalConstant("x");
 Console.WriteLine("4 - Result: " + r4);
 ```
@@ -402,7 +402,7 @@ Console.WriteLine("3 - Result: " + r3);
 // Unregister the global variable "x"
 context.UnregisterGlobalVariable("x");
 
-// Check if the global variable "x" has been succesfully unregistered
+// Check if the global variable "x" has been successfully unregistered
 var r4 = context.IsRegisteredGlobalVariable("x"); // return false
 Console.WriteLine("4 - Result: " + r4);
 ```
@@ -440,7 +440,7 @@ public class Program
 		// Unregister the keyword "isin"
 		context.UnregisterKeyword("isin");
 		
-		// Check if the keyword "isin" has been succesfully unregistered
+		// Check if the keyword "isin" has been successfully unregistered
 		var r3 = context.IsRegisteredKeyword("isin"); // return false
 		Console.WriteLine("3 - Result: " + r3);
 	}
@@ -482,7 +482,7 @@ Console.WriteLine("3 - Result: " + r3);
 // Unregister the local variable "x"
 context.UnregisterLocalVariable("x");
 
-// Check if the local variable "x" has been succesfully unregistered
+// Check if the local variable "x" has been successfully unregistered
 var r4 = context.IsRegisteredLocalVariable("x"); // return false
 Console.WriteLine("4 - Result: " + r4);
 ```
@@ -531,7 +531,7 @@ public class Program
 		// Unregister all members of the type `Customer`
 		context.UnregisterMember(typeof(Customer));
 		
-		// Check if all members of the type `Customer` has been succesfully unregistered
+		// Check if all members of the type `Customer` has been successfully unregistered
 		var r4 = context.IsRegisteredMember(typeof(Customer)); // return false
 		Console.WriteLine("4 - Result: " + r4);
 	}
@@ -585,7 +585,7 @@ public class Program
 		// Unregister all members of the namespace "Z"
 		context.UnregisterNamespace(typeof(Program).Assembly, "Z2");
 		
-		// Check if all members of the namespace "Z" has been succesfully unregistered
+		// Check if all members of the namespace "Z" has been successfully unregistered
 		var r4 = context.IsRegisteredNamespace(typeof(Program).Assembly, "Z2"); // return false
 		Console.WriteLine("4 - Result: " + r4);
 	}
@@ -639,7 +639,7 @@ public class Program
 		// Unregister all static fields of the type `Program`
 		context.UnregisterStaticField(typeof(Program));
 		
-		// Check if all static fields of the type `Program` has been succesfully unregistered
+		// Check if all static fields of the type `Program` has been successfully unregistered
 		var r3 = context.IsRegisteredStaticField(typeof(Program)); // return false
 		Console.WriteLine("3 - Result: " + r3);
 	}
@@ -678,7 +678,7 @@ public class Program
 		// Unregister all static members of the type `Program`
 		context.UnregisterStaticMember(typeof(Program));
 		
-		// Check if all static members of the type `Program` has been succesfully unregistered
+		// Check if all static members of the type `Program` has been successfully unregistered
 		var r3 = context.IsRegisteredStaticMember(typeof(Program)); // return false
 		Console.WriteLine("3 - Result: " + r3);
 	}
@@ -723,7 +723,7 @@ public class Program
 		// Unregister all static methods of the type `Program`
 		context.UnregisterStaticMethod(typeof(Program));
 		
-		// Check if all static methods of the type `Program` has been succesfully unregistered
+		// Check if all static methods of the type `Program` has been successfully unregistered
 		var r3 = context.IsRegisteredStaticMethod(typeof(Program)); // return false
 		Console.WriteLine("3 - Result: " + r3);
 	}
@@ -766,7 +766,7 @@ public class Program
 		// Unregister all static properties of the type `Program`
 		context.UnregisterStaticProperty(typeof(Program));
 		
-		// Check if all static properties of the type `Program` has been succesfully unregistered
+		// Check if all static properties of the type `Program` has been successfully unregistered
 		var r3 = context.IsRegisteredStaticProperty(typeof(Program)); // return false
 		Console.WriteLine("3 - Result: " + r3);
 	}
@@ -779,7 +779,7 @@ public class Program
 
 ## RegisterType
 
-The RegisterType method registers all types provided. The method also register extension methods from types but doesn't registers other static member. For example, if you register the type "Z.MyNamespace.MyClass", you can now create an expression such as "new MyClass()" or any extension methods from this type.
+The RegisterType method registers all types provided. The method also registers extension methods from types but doesn't register other static members. For example, if you register the type "Z.MyNamespace.MyClass", you can now create an expression such as "new MyClass()" or any extension methods from this type.
 
 In this example, we will register the type `MyClassHelper` and the type `MyExtensions` to register his extension methods. In the first expression, we will use our class and our extension methods with a simple arithmetic operation. Then we will demonstrate how to use the method `IsRegisteredType` and `UnregisterType` with our `MyClassHelper` to validate if the type is currently registered and to unregister it.
 
@@ -808,7 +808,7 @@ public class Program
 		// Unregister the type `MyClassHelper`
 		context.UnregisterType(typeof(MyClassHelper));
 		
-		// Check the type `MyClassHelper` has been succesfully unregistered
+		// Check the type `MyClassHelper` has been successfully unregistered
 		var r3 = context.IsRegisteredType(typeof(MyClassHelper)); // return false
 		Console.WriteLine("3 - Result: " + r3);
 	}

@@ -1,12 +1,12 @@
 ---
 Title: What to Read Next to Learn about the C# Eval Expression Library
 MetaDescription: Learn what you can do to learn more about the C# Eval Expression library by subscribing to the newsletter, reading the docs, or by simply contacting us.
-LastMod: 2024-03-22
+LastMod: 2025-07-04
 ---
 
 ## What to read next?
 
-Congratulation! You completed our getting started section, but as you can expect, there is much more to learn to master this library.
+Congratulations! You completed our getting started section, but as you can expect, there is much more to learn to master this library.
 
 You can continue your journey with:
 

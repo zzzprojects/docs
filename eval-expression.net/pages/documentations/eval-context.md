@@ -1,6 +1,6 @@
 ---
 Name: Eval Context
-LastMod: 2024-03-22
+LastMod: 2025-07-04
 ---
 
 # What is the Eval Context?
@@ -67,7 +67,7 @@ See the [Options](/options) documentation for more information and examples.
 
 ### 2. Register / Unregister Methods
 
-By default, a context doesn't know about types, variables, and constants in your project and referenced projects. So if you have a `Customer` type and when to use it in your expression, you must first register it.
+By default, a context doesn't know about types, variables, and constants in your project and referenced projects. So if you have a `Customer` type and want to use it in your expression, you must first register it.
 
 Here is a short list of what you can register in the context:
 
@@ -107,4 +107,4 @@ The `EvalContext` is the class controlling almost all the logic in the C# Eval E
 - Compile your code
 - And more
 
-By itself, the `EvalContext` is very easy to use. The most question/problem we receive is when a developer modifies the global context when he should have created an instance context, so make sure to understand this section correctly.
+By itself, the `EvalContext` is very easy to use. The most common question/problem we receive is when a developer modifies the global context when he should have created an instance context, so make sure to understand this section correctly.

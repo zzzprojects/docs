@@ -1,6 +1,6 @@
 ---
 Name: Helper methods
-LastMod: 2024-03-22
+LastMod: 2025-07-04
 ---
 
 # Helper Methods
@@ -10,9 +10,9 @@ List
 - AddMethod
 - Tokenize
 
-## AddMehod
+## AddMethod
 
-As the name specifies, the `AddMethod` allow you to add a method or extension method to the context. Then you can use this method to evaluate or compile your C# expression.
+As the name specifies, the `AddMethod` allows you to add a method or extension method to the context. Then you can use this method to evaluate or compile your C# expression.
 
 
 For example, let's add a C# method that will add 2 numbers:
@@ -21,7 +21,7 @@ For example, let's add a C# method that will add 2 numbers:
 
 ```
 
-Let's take another example and assume that you let your user filter a report, but one of your users would like to filter by age. Obviously, he can already do it through our library, but you could make is life easier by adding an extension method that will calculate the age from a date:
+Let's take another example and assume that you let your user filter a report, but one of your users would like to filter by age. Obviously, he can already do it through our library, but you could make his life easier by adding an extension method that will calculate the age from a date:
 
 ```csharp
 ```

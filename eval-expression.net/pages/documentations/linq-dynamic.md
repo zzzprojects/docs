@@ -1,6 +1,6 @@
 ---
 Name: LINQ Dynamic
-LastMod: 2024-04-10
+LastMod: 2025-07-04
 ---
 
 # How to use LINQ with Dynamic Expression
@@ -22,14 +22,14 @@ Most of the time, the C# Eval Expression is the best solution for using LINQ Dyn
 - Easy to pass parameters via anonymous type or dictionary
 - Easy to know when a `Dynamic` method is used (they have all the same suffix!)
 
-Let me repeat one more time one of his advantages: **The C# Eval Expression is free** when using LINQ Dynamic method.
+Let me repeat one more time one of its advantages: **The C# Eval Expression is free** when using LINQ Dynamic method.
 
 Otherwise, another great alternative is using Dynamic LINQ which is also free. It makes it very easy to customize your query through a string. One major advantage and disadvantage at the same time is it doesn't use a C# syntax but instead its homemade syntax. If you want to learn more about this library, we recommend reading his [documentation](https://dynamic-linq.net/overview)
 
 
 ## Parameters
 
-Before going deeper into the subject, let's see how parameters can be passed through a LINQ Dynamic method. Like [Execute Methods](/eval-execute), you can pass parameter throughs:
+Before going deeper into the subject, let's see how parameters can be passed through a LINQ Dynamic method. Like [Execute Methods](/eval-execute), you can pass parameter through:
 
 - Using an Anonymous Type
 - Using a Class Instance
@@ -98,7 +98,7 @@ var list3 = list.Execute<List<int>>("Where(x => x > y).OrderBy(x => x).ToList()"
 
 The LINQ DistinctDynamic method returns distinct elements from a sequence.
 
-In this example, we will combine 2 list of products and perform a distinct to return an unique list of products.
+In this example, we will combine 2 lists of products and perform a distinct to return an unique list of products.
 
 ```csharp
 var product1 = new Product() { Name = "C# Eval Expression", Url = "https://eval-expression.net/" };
@@ -190,7 +190,7 @@ list.ReverseDynamic();
 
 The LINQ SelectDynamic projects each element of a sequence into a new form. You can use a dynamic string expression to select a specific column.
 
-In this example, we will dynamically select some product properties, and returns an anonymous list.
+In this example, we will dynamically select some product properties, and return an anonymous list.
 
 ```csharp
 var product1 = new Product() { Name = "C# Eval Expression", Url = "https://eval-expression.net/", Type = "Paid" };
@@ -207,7 +207,7 @@ var anonymousList = list.SelectDynamic("x => new { x.Name, x.Url }").ToList();
 
 The LINQ SelectManyDynamic projects each element of a sequence to an IEnumerable and flattens the resulting sequences into one sequence. You can use a dynamic string expression to select a specific column.
 
-In this example, we will dynamically select products from different catalog, and returns the full products list.
+In this example, we will dynamically select products from different catalogs, and return the full products list.
 
 ```csharp
 var product1 = new Product() { Name = "C# Eval Expression", Url = "https://eval-expression.net/" };
@@ -331,9 +331,9 @@ var whereList2 = list.WhereDynamic("x => x.Type == type", new { type = "Paid" })
 
 ## LINQ AllDynamic Method
 
-The LINQ AllDynamic method determines whether all elements of a sequence exists. You can use a dynamic string expression to filter elements that satisfy the condition.
+The LINQ AllDynamic method determines whether all elements of a sequence exist. You can use a dynamic string expression to filter elements that satisfy the condition.
 
-In this example, we will create a list of product and check if they are all paid products.
+In this example, we will create a list of products and check if they are all paid products.
 
 ```csharp
 var product1 = new Product() { Name = "C# Eval Expression", Url = "https://eval-expression.net/", Type = "Paid" };
@@ -355,7 +355,7 @@ var allBool2 = list.AllDynamic("x => x.Type == type", new { type = "Paid" });
 
 The LINQ AnyDynamic method determines whether any element of a sequence exists. You can use a dynamic string expression to filter elements that satisfy the condition.
 
-In this example, we will create a list of product and check if they are any paid products.
+In this example, we will create a list of product and check if there are any paid products.
 
 ```csharp
 var product1 = new Product() { Name = "C# Eval Expression", Url = "https://eval-expression.net/", Type = "Paid" };

@@ -1,14 +1,14 @@
 ---
 Title: Execute C# Code at Runtime - Get Started with your First Evaluation
 MetaDescription: Learn how to execute a C# expression at runtime with parameter, return type, and from a dynamic string expression.
-LastMod: 2024-03-22
+LastMod: 2025-07-04
 ---
 
 # My First Evaluation
 
 C# is a powerful programming language but lacks the **eval** method that some other languages have, such as [JavaScript](https://riptutorial.com/javascript/topic/7080/evaluating-javascript).
 
-The C# Eval Expression library is the best solution to overcome this limitation and lets you quickly evaluate code at runtime with the minimum code required on your side.
+The C# Eval Expression library is the best solution to overcome this limitation and lets you quickly evaluate code at runtime with the minimum amount of code required on your side.
 
 In this tutorial, you will learn how to use our library to:
 
@@ -126,7 +126,7 @@ Did you spot an error in this example? The expression should return an `IEnumera
 
 If you have taken the time to read and understand the first three sections of this tutorial, the rest should be straightforward.
 
-Our library adds a syntactic sugar execute extension method to extend the string type. Passing parameters and return type are similar to what we have previously seen, and the only difference is the code is taken from the string that the method extends.
+Our library adds a syntactic-sugar Execute extension method to extend the string type. Passing parameters and return type are similar to what we have previously seen, and the only difference is the code is taken from the string that the method extends.
 
 In that example, we will set our expression in a string variable and call the `Execute` method that extends it.
 
@@ -149,11 +149,11 @@ All the `Execute` methods we learned in previous examples use the global [EvalCo
 - using the `Eval.Execute` method is similar to doing `EvalManager.DefaultContext.Execute`.
 - using the `"the_string_expression".Execute` method is similar to doing `EvalManager.DefaultContext.Execute`.
 
-So anyway, what exactly is an [EvalContext](/eval-context)? That is a class you instancies to set [options](/options) specific to the current context that you do not want to apply globally to all your evaluation.
+So anyway, what exactly is an [EvalContext](/eval-context)? That is a class you instantiate to set [options](/options) specific to the current context that you do not want to apply globally to all your evaluation.
 
 For example, you would like to run an expression in [safe mode](/options#safe-mode), specify some global variables, or even use the `AddMethod`.
 
-In this example, we will create an instance context, add a new extension method named `GreaterThan` and use the `Execute` method.
+In this example, we will create an instance of the context, add a new extension method named `GreaterThan` and use the `Execute` method.
 
 ```csharp
 var list = new List<int>() { 1, 2, 3, 4 };

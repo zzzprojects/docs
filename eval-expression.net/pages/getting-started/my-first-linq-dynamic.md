@@ -1,12 +1,12 @@
 ---
 Title: Execute LINQ Dynamic Expression with List and EF Core
 MetaDescription: Learn how to use LINQ Dynamic query to execute methods such as Select, OrderBy, or Where clause dynamically.
-LastMod: 2024-03-22
+LastMod: 2025-07-04
 ---
 
 # My First LINQ Dynamic
 
-LINQ is an incredibly powerful way of querying data. It allows developers to write code that is both expressive and easy to read. However, something that's missing is using LINQ with dynamic expression.
+LINQ is an incredibly powerful way of querying data. It allows developers to write code that is both expressive and easy to read. However, something that's missing is using LINQ with dynamic expressions.
 
 Indeed, you can use LINQ for most of your queries, but what to do if you wish to allow your user to dynamically filter a list for a report? That is when using LINQ Dynamic through the C# Eval Library starts to shine.
 
@@ -28,7 +28,7 @@ To use our method, you first must add the `using System.Linq;` directive to see 
 In this example, we assume a typical scenario where a developer uses [EF Core](https://www.learnentityframeworkcore.com/) and needs to filter a customer list depending on a custom filter entered by the end-user input. We will filter customers in the database to return only active customers who have logged in since the last month.
 
 ```csharp
-var customers = context.Customers.WhereDynamic(x => "x.Status == Statut && x.LastLogon >= DateTime.Now.AddMonths(-1)").ToList();
+var customers = context.Customers.WhereDynamic(x => "x.Status == Status && x.LastLogon >= DateTime.Now.AddMonths(-1)").ToList();
 
 // ...or...
 
@@ -42,7 +42,7 @@ As you can see in our example, you can pass the `input parameters` of the lambda
 - Outside the expression `x => "expression"`
 - Inside the expression `"x => expression"`
 
-There is no "recommended way" to pass it, as both solutions are valid and supported. So uses the easiest and more readable way for you.
+There is no "recommended way" to pass it, as both solutions are valid and supported. So use the easiest and more readable way for you.
 
 ## Use LINQ Dynamic with a WhereDynamic method with variables
 
@@ -120,7 +120,7 @@ The LINQ [Execute](/linq-dynamic#linq-execute-method) method is the most flexibl
 
 In this example, we will query customers in the database and:
 
-- Filter the customers to returns
+- Filter the customers to return
 - Order the returned customers
 - Select columns that we return
 
@@ -138,7 +138,7 @@ environmentVariables.Add("LastMonth", DateTime.Now.AddMonths(-1));
 environmentVariables.Add("LastYear", DateTime.Now.AddYears(-1));			
 
 // In this example, we will query customers in the database and:
-// - Filter the customers to returns
+// - Filter the customers to return
 // - Order the returned customers
 // - Select columns that we return
 var customers = context.Customers.Execute<IEnumerable>("Where(x => x.Status == IsActive && x.LastLogon >= LastMonth).Select(x => new { x.CustomerID, x.Name }).OrderBy(x => x.CustomerID).ToList()", environmentVariables);
@@ -151,7 +151,7 @@ One major difference with the `Execute` method is that you call the LINQ method 
 
 ## Use LINQ Dynamic with other methods
 
-Through this getting started about how to use LINQ Dynamic, we have seen a few methods, but almost all LINQ methods are supported:
+Through this getting started guide about how to use LINQ Dynamic, we have seen a few methods, but almost all LINQ methods are supported:
 
 - Deferred
    - [DistinctDynamic](/linq-dynamic#linq-distinctdynamic-method)
