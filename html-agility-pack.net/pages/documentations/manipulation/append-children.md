@@ -14,7 +14,7 @@ newChildren: The node list to add. May not be null.
 
 ### Example
 
-The following example append children nodes. 
+The following example appends child nodes. 
 
 ```csharp
 
@@ -23,7 +23,7 @@ htmlDoc.LoadHtml(html);
 
 var htmlBody = htmlDoc.DocumentNode.SelectSingleNode("//body");
 		
-HtmlNode h2Node = HtmlNode.CreateNode("<h2> This is h2 heading</h2>");
+HtmlNode h2Node = HtmlNode.CreateNode("<h2> This is an h2 heading</h2>");
 HtmlNode pNode1 = HtmlNode.CreateNode("<p> This is appended paragraph 1</p>");
 HtmlNode pNode2 = HtmlNode.CreateNode("<p> This is appended paragraph 2</p>");
 

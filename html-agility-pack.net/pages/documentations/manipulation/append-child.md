@@ -18,7 +18,7 @@ The node added.
 
 ### Example
 
-The following example append child node. 
+The following example appends a child node. 
 
 ```csharp
 
@@ -27,7 +27,7 @@ htmlDoc.LoadHtml(html);
 
 var htmlBody = htmlDoc.DocumentNode.SelectSingleNode("//body");
 		
-HtmlNode h2Node = HtmlNode.CreateNode("<h2> This is h2 heading</h2>");
+HtmlNode h2Node = HtmlNode.CreateNode("<h2> This is an h2 heading</h2>");
 
 htmlBody.AppendChild(h2Node);
 

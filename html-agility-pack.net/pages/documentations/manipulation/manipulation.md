@@ -4,7 +4,7 @@ Name: HTML Manipulation
 
 # HTML Manipulation
 
-Manipulation allow you to manipulate the HTML document.
+Manipulation allows you to manipulate the HTML document.
 
 ## Properties
 
@@ -22,7 +22,7 @@ Manipulation allow you to manipulate the HTML document.
 | :--- | :---------- |
 | [AppendChild()](append-child) | Adds the specified node to the end of the list of children of this node. |
 | [AppendChildren()](append-children) | Adds the specified node to the end of the list of children of this node. |
-| [Clone()](clone) | Creates a duplicate of the node |
+| [Clone()](clone) | Creates a duplicate of the node. |
 | [CloneNode(Boolean)](clone-node) | Creates a duplicate of the node. |
 | [CloneNode(String)](clone-node#public-htmlnode-clonenodestring-newname) | Creates a duplicate of the node and changes its name at the same time. |
 | [CloneNode(String, Boolean)](clone-node#public-htmlnode-clonenodestring-newname-bool-deep) | Creates a duplicate of the node and changes its name at the same time. |
@@ -31,11 +31,11 @@ Manipulation allow you to manipulate the HTML document.
 | [CreateNode()](create-node) | Creates an HTML node from a string representing literal HTML. |
 | [InsertAfter()](insert-after) | Inserts the specified node immediately after the specified reference node. |
 | [InsertBefore](insert-before) | Inserts the specified node immediately before the specified reference node. |
-| [MoveChild()](move-child) | Move a node already associated and append it to this node instead (must be from a different document).  |
-| [MoveChildren](move-children) | Move a children collection already associated and append it to this node instead (must be from a different document). |
+| [MoveChild()](move-child) | Moves a node already associated and appends it to this node instead (must be from a different document).  |
+| [MoveChildren](move-children) | Moves a child node collection already associated and appends it to this node instead (must be from a different document). |
 | [PrependChild](prepend-child) | Adds the specified node to the beginning of the list of children of this node. |
 | [PrependChildren](prepend-children) | Adds the specified node list to the beginning of the list of children of this node. |
-| [Remove](remove) | Removes node from parent collection |
+| [Remove](remove) | Removes a node from the parent collection |
 | [RemoveAll](remove-all) | Removes all the children and/or attributes of the current node. |
 | [RemoveAllChildren](remove-all-children) | Removes all the children of the current node. |
 | [RemoveChild(HtmlNode)](remove-child) | Removes the specified child node. |

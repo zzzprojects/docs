@@ -6,7 +6,7 @@ Name: MoveChildren Method
 
 ## public void MoveChildren(HtmlNodeCollection children)
 
-Move a children collection already associated and append it to this node instead (must be from a different document). MoveChildren method is a member of **HtmlAgilityPack.HtmlNode**
+Moves a child node collection already associated and appends it to this node instead (must be from a different document). MoveChildren method is a member of **HtmlAgilityPack.HtmlNode**
 
 ### Parameters:
 

@@ -18,7 +18,7 @@ The node removed.
 
 ### Examples
 
-The following example remove the child node h1.
+The following example removes the child node h1.
 
 ```csharp
 
@@ -52,7 +52,7 @@ The node removed.
 
 ### Examples
 
-The following example remove the child node but will keep grandchild node.
+The following example removes the child node but will keep the grandchild node.
 
 ```csharp
 

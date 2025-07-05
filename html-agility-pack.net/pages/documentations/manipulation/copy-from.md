@@ -14,7 +14,7 @@ node: The node to duplicate. May not be null.
 
 ### Example
 
-The following example duplicate a node and the subtree under it.
+The following example duplicates a node and the subtree under it.
 
 ```csharp
 
@@ -47,7 +47,7 @@ The cloned node.
 
 ### Example
 
-The following example clone only the node itself without its children.
+The following example clones only the node itself without its children.
 
 ```csharp
 

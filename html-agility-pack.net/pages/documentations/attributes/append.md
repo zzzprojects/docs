@@ -18,7 +18,7 @@ The appended attribute.
 
 ### Example
 
-The following example append the specified attribute at the end.
+The following example appends the specified attribute at the end.
 
 ```csharp
 
@@ -47,7 +47,7 @@ The appended attribute.
 
 ### Example
 
-The following example append the specified attribute at the end.
+The following example appends the specified attribute at the end.
 
 ```csharp
 
@@ -82,9 +82,6 @@ The appended attribute.
 The following example creates and inserts a new attribute as the last attribute in the collection.
 
 ```csharp
-
-var htmlDoc = new HtmlDocument();
-htmlDoc.LoadHtml(html);
 
 var htmlDoc = new HtmlDocument();
 htmlDoc.LoadHtml(html);

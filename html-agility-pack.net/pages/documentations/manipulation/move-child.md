@@ -6,7 +6,7 @@ Name: MoveChild Method
 
 ## public HtmlNode MoveChild(HtmlNode child)
 
-Move a node already associated and append it to this node instead (must be from a different document). MoveChild method is a member of **HtmlAgilityPack.HtmlNode**
+Moves a node already associated and appends it to this node instead (must be from a different document). MoveChild method is a member of **HtmlAgilityPack.HtmlNode**
 
 ### Parameters:
 
@@ -14,7 +14,7 @@ child: The child node to move.
 
 ### Example
 
-The following example will move a child for a document to another one.
+The following example will move a child from one document to another one.
 
 ```csharp
 var html1 ="<body></body>";

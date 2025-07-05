@@ -20,7 +20,7 @@ The node being inserted.
 
 ### Example
 
-The following example creates an HTML node and insert after first child. 
+The following example creates an HTML node and inserts it after the first child.
 
 ```csharp
 
@@ -31,7 +31,7 @@ var htmlBody = htmlDoc.DocumentNode.SelectSingleNode("//body");
 		
 HtmlNode refChild = htmlBody.ChildNodes[1];
             
-HtmlNode newChild = HtmlNode.CreateNode("<p> This is inserted after node paragraph</p>");
+HtmlNode newChild = HtmlNode.CreateNode("<p>This is a paragraph inserted after the node</p>");
 
 htmlBody.InsertAfter(newChild, refChild);
 

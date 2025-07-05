@@ -18,7 +18,7 @@ The newly created node instance.
 
 ### Example
 
-The following example creates an HTML node and add as child node. 
+The following example creates an HTML node and adds it as a child node.
 
 ```csharp
 
@@ -27,7 +27,7 @@ htmlDoc.LoadHtml(html);
 
 var htmlBody = htmlDoc.DocumentNode.SelectSingleNode("//body");
 		
-HtmlNode newPara = HtmlNode.CreateNode("<p>This a new paragraph</p>");
+HtmlNode newPara = HtmlNode.CreateNode("<p>This is a new paragraph</p>");
 
 htmlBody.ChildNodes.Add(newPara);
 

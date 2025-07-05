@@ -1,4 +1,4 @@
-# HAP - Documentations
+# HAP - Documentation
 
 <ul>
   <li><a href="parser">Parser</a></li>

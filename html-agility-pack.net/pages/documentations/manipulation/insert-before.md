@@ -20,7 +20,7 @@ The node being inserted.
 
 ### Example
 
-The following example creates an HTML node and insert before first child. 
+The following example creates an HTML node and inserts it before the first child.
 
 ```csharp
 
@@ -31,7 +31,7 @@ var htmlBody = htmlDoc.DocumentNode.SelectSingleNode("//body");
 		
 HtmlNode refChild = htmlBody.ChildNodes[1];
             
-HtmlNode newChild = HtmlNode.CreateNode("<h1> This is inserted before node heading</h>");
+HtmlNode newChild = HtmlNode.CreateNode("<h1>This is a heading inserted before the node</h1>");
 		
 htmlBody.InsertBefore(newChild, refChild);
 

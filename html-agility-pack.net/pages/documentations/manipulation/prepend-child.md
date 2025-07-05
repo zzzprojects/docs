@@ -18,7 +18,7 @@ The node added.
 
 ### Example
 
-The following example add child node at the beginning. 
+The following example adds child node at the beginning. 
 
 ```csharp
 
@@ -27,7 +27,7 @@ htmlDoc.LoadHtml(html);
 
 var htmlBody = htmlDoc.DocumentNode.SelectSingleNode("//body");
 		
-HtmlNode newChild = HtmlNode.CreateNode("<h1> This is added at the beginning</h>");
+HtmlNode newChild = HtmlNode.CreateNode("<h1>This is added at the beginning</h1>");
 		
 htmlBody.PrependChild(newChild);
 

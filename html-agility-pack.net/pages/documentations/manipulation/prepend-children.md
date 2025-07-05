@@ -14,7 +14,7 @@ newChildren: The node list to add. May not be null.
 
 ### Example
 
-The following example add node list to the beginning of the list of children of this node. 
+The following example adds a node list to the beginning of the list of children of this node. 
 
 ```csharp
 
@@ -23,9 +23,9 @@ htmlDoc.LoadHtml(html);
 
 var htmlBody = htmlDoc.DocumentNode.SelectSingleNode("//body");
 
-HtmlNode h1Node = HtmlNode.CreateNode("<h1> This is new heading</h1>");
+HtmlNode h1Node = HtmlNode.CreateNode("<h1>This is new heading</h1>");
 
-HtmlNode pNode = HtmlNode.CreateNode("<p> This is new paragraph 1</p>");
+HtmlNode pNode = HtmlNode.CreateNode("<p>This is new paragraph 1</p>");
 
 HtmlNodeCollection newChildren = new HtmlNodeCollection(htmlBody);
 

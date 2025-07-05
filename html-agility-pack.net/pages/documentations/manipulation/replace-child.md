@@ -20,7 +20,7 @@ The node replaced.
 
 ### Examples
 
-The following example replaces the oldChild node with newChild node.
+The following example replaces the oldChild node with the newChild node.
 
 ```csharp
 

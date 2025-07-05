@@ -18,7 +18,7 @@ The cloned node.
 
 ### Example
 
-The following example clone only the node itself without its children.
+The following example clones only the node itself without its children.
 
 ```csharp
 
@@ -47,7 +47,7 @@ The cloned node.
 
 ### Example
 
-The following example clone the node and changes its name.
+The following example clones the node and changes its name.
 
 ```csharp
 
@@ -80,7 +80,7 @@ The cloned node.
 
 ### Example
 
-The following example clone only the node itself without its children and changes its name as well.
+The following example clones only the node itself without its children and changes its name as well.
 
 ```csharp
 

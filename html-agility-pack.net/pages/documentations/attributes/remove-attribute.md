@@ -60,7 +60,7 @@ attribute: The attribute to remove. May not be null.
 
 ### Example
 
-The following example removes a first attribute from the list.
+The following example removes the first attribute from the list.
 
 ```csharp
 

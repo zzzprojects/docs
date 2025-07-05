@@ -6,7 +6,7 @@ Name: Add Attribute Method
 
 ## public void Add(HtmlAttribute item)
 
-Adds supplied item to collection. Add method is a member of **HtmlAgilityPack.HtmlAttributeCollection**
+Adds the attribute item to the collection. Add method is a member of **HtmlAgilityPack.HtmlAttributeCollection**
 
 ### Parameters:
 
@@ -14,7 +14,7 @@ item: The attribute item to add.
 
 ### Example
 
-The following example adds attribute item.
+The following example adds an attribute item.
 
 ```csharp
 
@@ -44,12 +44,9 @@ value: The value of the attribute to add.
 
 ### Example
 
-The following example adds attribute item to the collection with the given values.
+The following example adds an attribute item to the collection with the given values.
 
 ```csharp
-
-var htmlDoc = new HtmlDocument();
-htmlDoc.LoadHtml(html);
 
 var htmlDoc = new HtmlDocument();
 htmlDoc.LoadHtml(html);
