@@ -10,7 +10,7 @@ Name: Convert_ToInt32
 Convert_ToInt32 (
 	@value NVARCHAR (MAX)
 	)
-RETURNS SMALLINT
+RETURNS INT
 ```
 
 ## Parameters

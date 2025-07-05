@@ -12,7 +12,7 @@ You can download it here: [Download](https://eval-expression.net/download)
 > The Eval-Expression.NET library can be activated with the Eval-SQL.NET license. 
 
 ## LINQ Dynamic - Predicate
-You can use any LINQ method that support predicate with a dynamic C# expression :
+You can use any LINQ method that supports predicate with a dynamic C# expression:
 
 - Deferred
    - SkipWhile

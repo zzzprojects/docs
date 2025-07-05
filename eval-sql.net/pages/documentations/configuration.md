@@ -15,7 +15,7 @@ Optional stored procedure for License and Configuration
 CREATE PROCEDURE SQLNET_GlobalConfiguration
 AS
 BEGIN
-    -- The procedure is automatically called when the server restart/assembly load
+    -- The procedure is automatically called when the server restarts/assemblies load
     -- If the assembly is already loaded, a manual execution is required
     -- EXEC SQLNET_Configuration
 	DECLARE @isValid BIT = SQLNET::AddLicense('[LicenseName]', '[LicenseKey]')
@@ -54,7 +54,7 @@ Register or unregister information used by the EvalContext under which the code 
 
 ## Configuration Options
 
-Change option used by the EvalContext under which the code or expression is compiled.
+Change options used by the EvalContext under which the code or expression is compiled.
 
  - BindingFlags
  - UseCaretForExponent
@@ -63,7 +63,7 @@ Change option used by the EvalContext under which the code or expression is comp
 
 ## Configuration.ExpireCacheDelay
 
-Sets a span of time within the next time the ExpireCache method is invoked to evict inactive cache item.
+Sets a span of time within the next time the ExpireCache method is invoked to evict an inactive cache item.
 
 ## Configuration.SlidingExpirationDelegate
 

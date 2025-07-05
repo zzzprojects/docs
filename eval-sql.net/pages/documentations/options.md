@@ -36,7 +36,7 @@ SELECT @sqlnet.Code('1+2').EvalInt() as Result
 
 ## Dispose()
 
-Dispose object and delegate from the cache
+Disposes object and delegate from the cache
 
 
 ```csharp
@@ -52,14 +52,14 @@ SELECT  @sqlnet.getcode() as Result
 
 DECLARE @dispose BIT = @sqlnet.Dispose()
 
---Not work because dipose...
+--Does not work because disposed...
 SELECT  @sqlnet
     .ValueInt('x', 1)
     .ValueInt('y', 2)
     .EvalInt() as Result
 
 
---Not work because dipose...
+--Does not work because disposed...
 SELECT  @sqlnet.getcode() as Result
 ```
 {% include component-try-it.html href='http://sqlfiddle.com/#!18/9eecb/996' %}

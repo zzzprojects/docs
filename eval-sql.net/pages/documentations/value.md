@@ -39,11 +39,11 @@ SELECT SQLNET::New('"ZZZ " + x').ValueString('x', 'Projects').Eval() as Result
 ```
 {% include component-try-it.html href='http://sqlfiddle.com/#!18/009cc/2' %}
 
-> For maximum performance, the right Value[Type] should always be used over Val && Value
+> For maximum performance, the right Value[Type] should always be used over Val and Value
 
 ## ValueNullable
 
- - Val\Value (require to specify the type in the key "int? x")
+ - Val\Value (requires specifying the type in the key "int? x")
  - ValueBigInt
  - ValueBoolean
  - ValueByte

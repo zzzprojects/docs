@@ -10,7 +10,7 @@ Name: Convert_ToInt64
 Convert_ToInt64 (
 	@value NVARCHAR (MAX)
 	)
-RETURNS SMALLINT
+RETURNS BIGINT
 ```
 
 ## Parameters

@@ -29,7 +29,7 @@ DECLARE @value_int INT = @sqlnet.EvalInt();
 DECLARE @value_decimal DECIMAL(18, 2) = CAST(@sqlnet.Eval() AS DECIMAL(18, 2))
 
 -- SELECT 3, 3, 3.00
-SELECT @value_variant as variant , @value_int as int, @value_decimal as decimal
+SELECT @value_variant AS variant , @value_int AS int, @value_decimal AS decimal
 ```
 {% include component-try-it.html href='http://sqlfiddle.com/#!18/58568/15' %}
 
@@ -62,7 +62,7 @@ DECLARE @result SQLNET = @sqlnet.EvalSQLNET()
 -- Use the value previously resolved
 -- SELECT 4
 SELECT @result.Code('value.Count').EvalInt()  as Result
-Useful to optimize code with object initialization like Regex.
+It is useful to optimize code with object initialization like Regex.
 ```
 {% include component-try-it.html href='http://sqlfiddle.com/#!18/9eecb/989' %}
 

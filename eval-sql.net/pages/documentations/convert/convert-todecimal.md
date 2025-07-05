@@ -24,5 +24,5 @@ A decimal number that is equivalent to the number in `value`.
 ## Example
 
 ```csharp
-SELECT SQLNET::Convert_ToDecimal('2015-12-27')
+SELECT SQLNET::Convert_ToDecimal('2015.12')
 ```

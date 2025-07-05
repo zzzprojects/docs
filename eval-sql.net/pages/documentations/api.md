@@ -6,7 +6,7 @@ Name: API
 
 ## Overview
 
-Let's take a very short overview with the API
+Let's take a very short overview of the API
 
 
 ```csharp
@@ -18,8 +18,8 @@ SELECT SQLNET::New('x+y').ValueInt('x', 1).ValueInt('y', 2).EvalInt() as Result
  - **SQLNET:** A CLR Type created by Eval SQL.NET library
  - **"::":** This is how you call static method in SQL CLR
  - **New:** A static method which creates a new instance of SQLNET Type
- - **ValueInt:** Sets a int value for a specific parameter name used in the expression
- - **EvalInt:** Evaluates the expression and return a result of type INT
+ - **ValueInt:** Sets an int value for a specific parameter name used in the expression
+ - **EvalInt:** Evaluates the expression and returns a result of type INT
 
 <div class="card-group">
 	
