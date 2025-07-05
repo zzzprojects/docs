@@ -13,10 +13,10 @@ Save HtmlDocument & Write HtmlNode
 | [Save(Stream)](save) | Saves the HTML document to the specified stream. |
 | [Save(StreamWriter)](save#public-void-savestreamwriter-writer) | Saves the HTML document to the specified StreamWriter. |
 | [Save(TextWriter)](save#public-void-savetextwriter-writer) | Saves the HTML document to the specified TextWriter. |
-| [Save(String)](save#public-void-savestring-filename) | Saves the mixed document to the specified file. |
+| [Save(String)](save#public-void-savestring-filename) | Saves the HTML document to the specified file. |
 | [Save(XmlWriter)](save#public-void-savexmlwriter-writer) | Saves the HTML document to the specified XmlWriter. |
 | [Save(Stream, Encoding)](save#public-void-savestream-outstream-encoding-encoding) | Saves the HTML document to the specified stream. |
-| [Save(String, Encoding)](save#public-void-savestring-filename-encoding-encoding) | Saves the mixed document to the specified file. |
+| [Save(String, Encoding)](save#public-void-savestring-filename-encoding-encoding) | Saves the HTML document to the specified file. |
 
 ## HtmlNode - Methods
 

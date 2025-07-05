@@ -81,7 +81,7 @@ Click [here](https://dotnetfiddle.net/98wejH) to run this example.
 
 ## public void Save(string filename)
 
-Saves the mixed document to the specified file. Save method is a member of **HtmlAgilityPack.HtmlDocument**
+Saves the HTML document to the specified file. Save method is a member of **HtmlAgilityPack.HtmlDocument**
 
 ### Parameters:
 
@@ -89,7 +89,7 @@ filename: The location of the file where you want to save the document.
 
 ### Example
 
-The following example saves the mixed document to the specified file.
+The following example saves the HTML document to the specified file.
 
 ```csharp
 
@@ -159,7 +159,7 @@ Click [here](https://dotnetfiddle.net/fyDMJt) to run this example.
 
 ## public void Save(string filename, Encoding encoding)
 
-Saves the mixed document to the specified file using character encoding. Save method is a member of **HtmlAgilityPack.HtmlDocument**
+Saves the HTML document to the specified file using character encoding. Save method is a member of **HtmlAgilityPack.HtmlDocument**
 
 ### Parameters:
 
@@ -168,7 +168,7 @@ encoding: The character encoding to use. May not be null.
 
 ### Example
 
-The following example saves the mixed document to the specified file using character encoding.
+The following example saves the HTML document to the specified file using character encoding.
 
 ```csharp
 

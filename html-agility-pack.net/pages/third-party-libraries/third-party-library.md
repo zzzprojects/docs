@@ -33,7 +33,7 @@ NuGet: [https://www.nuget.org/packages/HtmlAgilityPack.CssSelectors.NetCore/](ht
 #### Description
 HtmlAgilityPack.CssSelectors provides an Extension Method for HtmlAgilityPack HtmlDocument and HtmlNode classes.
 
-It is a handy tool for Web Scrapers, and a good alternative to HAP XPath querie
+It is a handy tool for Web Scrapers, and a good alternative to HAP XPath queries
 
 ## Crawling
 

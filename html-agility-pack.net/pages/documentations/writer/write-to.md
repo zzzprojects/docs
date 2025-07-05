@@ -36,7 +36,7 @@ Saves the current node to the specified TextWriter. WriteTo method is a member o
 ### Parameters:
 
 outText: The TextWriter to which you want to save.
-level: identifies the level we are in starting at root with 0
+level: Identifies the level we are in starting at root with 0
 
 ### Example
 

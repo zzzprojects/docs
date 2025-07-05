@@ -34,7 +34,7 @@ Click [here](https://dotnetfiddle.net/ImZV3y) to run this example.
 
 ## public Encoding DetectEncoding(TextReader reader)
 
-Detects the encoding of an HTML text provided on a TextReader. DetectEncoding method is a member of **HtmlAgilityPack.HtmlDocument**
+Detects the encoding of an HTML text provided in a TextReader. DetectEncoding method is a member of **HtmlAgilityPack.HtmlDocument**
 
 ### Parameters:
 
@@ -46,7 +46,7 @@ The detected encoding.
 
 ### Example
 
-The following example detects the encoding of an HTML text provided on a TextReader.
+The following example detects the encoding of an HTML text provided in a TextReader.
 
 ```csharp
 
