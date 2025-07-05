@@ -6,7 +6,7 @@ Name: Ancestors Method
 
 ## public IEnumerable < HtmlNode > Ancestors()
 
-Gets all the ancestors of the node. Ancestors method is a member of **HtmlAgilityPack.HtmlNode**
+Gets all the ancestors of the node. The Ancestors method is a member of **HtmlAgilityPack.HtmlNode**
 
 ### Returns:
 
@@ -37,7 +37,7 @@ Click [here](https://dotnetfiddle.net/Kth8sh) to run this example.
 
 ## public IEnumerable < HtmlNode > Ancestors(string name)
 
-Gets ancestors with matching name. Ancestors method is a member of **HtmlAgilityPack.HtmlNode**
+Gets ancestors with matching name. The Ancestors method is a member of **HtmlAgilityPack.HtmlNode**
 
 ### Parameters:
 

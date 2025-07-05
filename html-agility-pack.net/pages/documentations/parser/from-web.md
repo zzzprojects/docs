@@ -4,13 +4,13 @@ Name: Load from Web Method
 
 # From Web
 
-## Load Html From Web
+## Load HTML From Web
 
-HtmlWeb.Load method gets an HTML document from an internet resource.
+HtmlWeb.Load method retrieves an HTML document from an internet resource.
 
 ### Example
 
-The following example loads an Html from the web.
+The following example loads HTML from the web.
 
 ```csharp
 

@@ -6,7 +6,7 @@ Name: First Child Property
 
 ## public HtmlNode FirstChild { get; }
 
-Gets the first child of the node. FirstChild is a member of **HtmlAgilityPack.HtmlNode**
+Gets the first child of the node. The FirstChild property is a member of **HtmlAgilityPack.HtmlNode**
 
 ### Example
 

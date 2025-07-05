@@ -6,7 +6,7 @@ Name: SelectSingleNode Method
 
 ## SelectSingleNode Method
 
-Selects first HtmlNode matching the HtmlAgilityPack.HtmlNode.XPath expression.
+Selects the first HtmlNode matching the HtmlAgilityPack.HtmlNode.XPath expression.
 
 ### Parameters:
 
@@ -18,7 +18,7 @@ The first HtmlAgilityPack.HtmlNode that matches the XPath query or a null refere
 
 ### Examples
 
-The following example selects the first node matching the XPath expression using SelectNodes method.
+The following example selects the first node matching the XPath expression using the SelectSingleNode method.
 
 ```csharp
 

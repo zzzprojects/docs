@@ -18,7 +18,7 @@ An HtmlAgilityPack.HtmlNodeCollection containing a collection of nodes matching 
 
 ### Examples
 
-The following example selects the first node matching the XPath expression using SelectNodes method.
+The following example selects the first node matching the XPath expression using the SelectNodes method.
 
 ```csharp
 var htmlDoc = new HtmlDocument();
@@ -32,7 +32,7 @@ string name = htmlDoc.DocumentNode
 
 Click [here](https://dotnetfiddle.net/z2y3yl) to run this example.
 
-The following example selects all nodes which are matching the XPath expression.
+The following example selects all nodes that match the XPath expression.
 
 ```csharp
 

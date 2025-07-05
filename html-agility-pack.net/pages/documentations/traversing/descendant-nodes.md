@@ -6,7 +6,7 @@ Name: DescendantNodes Method
 
 ## public IEnumerable < HtmlNode > DescendantNodes([int level = 0])
 
-Gets all descendant nodes for this node and each of child nodes. DescendantNodes method is a member of **HtmlAgilityPack.HtmlNode**
+Gets all descendant nodes for this node and each of the child nodes. The DescendantNodes method is a member of **HtmlAgilityPack.HtmlNode**
 
 ### Parameters:
 

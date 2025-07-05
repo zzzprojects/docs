@@ -6,7 +6,7 @@ Name: AncestorsAndSelf Method
 
 ## public IEnumerable < HtmlNode > AncestorsAndSelf()
 
-Gets all the ancestors of the node and the node itself. AncestorsAndSelf method is a member of **HtmlAgilityPack.HtmlNode**
+Gets all the ancestors of the node and the node itself. The AncestorsAndSelf method is a member of **HtmlAgilityPack.HtmlNode**
 
 ### Returns:
 
@@ -37,7 +37,7 @@ Click [here](https://dotnetfiddle.net/Kth8sh) to run this example.
 
 ## public IEnumerable < HtmlNode > AncestorsAndSelf(string name)
 
-Gets ancestors and the node itself with matching name. AncestorsAndSelf method is a member of **HtmlAgilityPack.HtmlNode**
+Gets ancestors and the node itself with matching name. The AncestorsAndSelf method is a member of **HtmlAgilityPack.HtmlNode**
 
 ### Parameters:
 

@@ -6,7 +6,7 @@ Name: ChildNodes Property
 
 ## public HtmlNodeCollection ChildNodes { get; }
 
-Gets all the children of the node. ChildNodes is a member of **HtmlAgilityPack.HtmlNode**
+Gets all the children of the node. The ChildNodes property is a member of **HtmlAgilityPack.HtmlNode**
 
 ### Example
 

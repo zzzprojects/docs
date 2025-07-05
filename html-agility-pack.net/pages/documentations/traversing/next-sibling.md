@@ -6,7 +6,7 @@ Name: NextSibling Property
 
 ## public HtmlNode NextSibling { get; }
 
-Gets the HTML node immediately following this element. NextSibling is a member of **HtmlAgilityPack.HtmlNode**
+Gets the HTML node immediately following this element. The NextSibling property is a member of **HtmlAgilityPack.HtmlNode**
 
 ### Example
 

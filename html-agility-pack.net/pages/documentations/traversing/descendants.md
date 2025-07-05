@@ -6,7 +6,7 @@ Name: Descendants Method
 
 ## public IEnumerable < HtmlNode > Descendants([int level = 0])
 
-Gets all descendant nodes in enumerated list. Descendants method is a member of **HtmlAgilityPack.HtmlNode**
+Gets all descendant nodes in enumerated list. The Descendants method is a member of **HtmlAgilityPack.HtmlNode**
 
 ### Parameters:
 
@@ -41,7 +41,7 @@ Click [here](https://dotnetfiddle.net/gygZsT) to run this example.
 
 ## public IEnumerable < HtmlNode > Descendants(string name)
 
-Get all descendant nodes with matching names. Descendants method is a member of **HtmlAgilityPack.HtmlNode**
+Gets all descendant nodes with a matching name. The Descendants method is a member of **HtmlAgilityPack.HtmlNode**
 
 ### Parameters:
 
@@ -49,11 +49,11 @@ name: The name of the descendant node.
 
 ### Returns:
 
-Returns a collection of all descendant nodes with matching names.
+Returns a collection of all descendant nodes with a matching name.
 
 ### Example
 
-The following example displays the name of all the descendant nodes with matching names.
+The following example displays the name of all the descendant nodes with a matching name.
 
 ```csharp
 

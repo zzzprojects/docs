@@ -4,7 +4,7 @@ Name: HTML Selectors
 
 # HTML Selectors
 
-Selectors allow you to select HTML node from HtmlDocument.
+Selectors allow you to select HTML nodes from HtmlDocument.
 
 ## Methods
 

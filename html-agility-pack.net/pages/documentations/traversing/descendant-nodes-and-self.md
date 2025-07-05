@@ -6,7 +6,7 @@ Name: DescendantNodesAndSelf Method
 
 ## public IEnumerable < HtmlNode > DescendantNodesAndSelf([int level = 0])
 
-Gets a collection of all descendant nodes of this element, in document order. DescendantNodesAndSelf method is a member of **HtmlAgilityPack.HtmlNode**
+Gets a collection of all descendant nodes of this element, in document order. The DescendantNodesAndSelf method is a member of **HtmlAgilityPack.HtmlNode**
 
 ### Returns:
 

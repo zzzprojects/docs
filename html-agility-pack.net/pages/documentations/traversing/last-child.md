@@ -6,7 +6,7 @@ Name: LastChild Property
 
 ## public HtmlNode LastChild { get; }
 
-Gets the last child of the node. LastChild is a member of **HtmlAgilityPack.HtmlNode**
+Gets the last child of the node. The LastChild property is a member of **HtmlAgilityPack.HtmlNode**
 
 ### Example
 

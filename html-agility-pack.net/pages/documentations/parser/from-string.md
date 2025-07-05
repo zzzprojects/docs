@@ -4,13 +4,13 @@ Name: Load from String Method
 
 # From String
 
-## Load Html From String
+## Load HTML From String
 
 HtmlDocument.LoadHtml method loads the HTML document from the specified string.
 
 ### Example
 
-The following example loads an Html from the specified string.
+The following example loads HTML from the specified string.
 
 ```csharp
 

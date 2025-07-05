@@ -4,7 +4,7 @@ Name: HTML Parser
 
 # HTML Parser
 
-HTML Parser allow you to parse HTML and return an HtmlDocument.
+HTML Parser allows you to parse HTML and return an HtmlDocument.
 
 ## Html Parser
 
