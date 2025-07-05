@@ -14,7 +14,7 @@ Name: Constraints
 
 ## NChar Constraint
 
-To limit the length of any string column, use **NCharConstraint** and pass the column name, and it's desired length as an argument.
+To limit the length of any string column, use **NCharConstraint** and pass the column name, and its desired length as an argument.
  
 {% include template-example.html %} 
 ```csharp
@@ -23,7 +23,7 @@ var groups = this.Tables.Create<Group, int>(x => x.Id,
                 new IdentitySpecification<Group>(x => x.Id, 1, 1));
 
 // group name must not exceed 12 characters
-groups.Contraints.Add(new NCharConstraint<Group>(x => x.Name, 12));
+groups.Constraints.Add(new NCharConstraint<Group>(x => x.Name, 12));
 ```
 [Try it](https://dotnetfiddle.net/p7ztdf)
 
@@ -37,8 +37,8 @@ var members = this.Tables.Create<Member, string>(x => x.Id, null);
 var groups = this.Tables.Create<Group, int>(x => x.Id, 
                 new IdentitySpecification<Group>(x => x.Id, 1, 1));
 
-// group name can not be null
-groups.Contraints.Add(new NotNullableConstraint<Group, string>(x => x.Name));
+// group name cannot be null
+groups.Constraints.Add(new NotNullableConstraint<Group, string>(x => x.Name));
 ```
 [Try it](https://dotnetfiddle.net/ai2ZZl)
 

@@ -6,7 +6,7 @@ Name: Create Database
 
 ## In-Memory Database
 
-An in-memory database primarily relies on main memory for computer data storage. 
+An in-memory database primarily relies on main memory for computing data storage.
 
  - Main memory databases are faster than disk-optimized databases because disk access is slower than memory access, the internal optimization algorithms are simpler and execute fewer CPU instructions. 
  - Accessing data in memory eliminates seek-time when querying the data, which provides faster and more predictable performance than disk.

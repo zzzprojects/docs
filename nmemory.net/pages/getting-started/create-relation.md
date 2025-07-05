@@ -12,7 +12,7 @@ Name: Create Relation
  - **foreignIndex**: An IIndex that specifies the foreign key.
  - **convertForeignToPrimary**: A function to convert a foreign key to the corresponding primary key.
  - **convertPrimaryToForeign**: A function to convert a primary key to the corresponding foreign key.
- - **relationOptions**: An RelationOptions that specifies options of a relation.
+ - **relationOptions**: A RelationOptions that specifies options of a relation.
 
 To create an index, NMemory provides **Table.CreateIndex** method which creates a new index in a table and it takes two arguments.
 

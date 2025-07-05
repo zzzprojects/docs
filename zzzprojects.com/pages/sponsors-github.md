@@ -1,10 +1,10 @@
 ---
 Title: Sponsorship GitHub - ZZZ Projects
 MetaDescription: Learn how ZZZ Projects could sponsor your GitHub repository
-LastMod: 2025-06-02
+LastMod: 2025-07-05
 ---
 
-# ZZZ Projects love your work  💖 Sponsorship Invitation
+# ZZZ Projects loves your work  💖 Sponsorship Invitation
 
 Welcome to our *super hidden* page 👀
 
@@ -14,7 +14,7 @@ If you’ve received this link, that means we’d love to sponsor **your work** 
 
 ## 🎯 Our Mission
 
-Our mission has always been simple: **A business devoted to adding value to the .NET community.**.
+Our mission has always been simple: **A business devoted to adding value to the .NET community**.
 
 And now? It’s the perfect time to *prove it*.
 In 2025, we plan to sponsor **over 25 NuGet libraries** – and guess what? You’ve been selected as one of them!

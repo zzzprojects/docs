@@ -20,7 +20,7 @@ To update properties of an entity in a table, pass an entity that contains the p
 
 MyDatabase myDatabase = new MyDatabase();
 
-Member member = new Member { Id = "JD1967", Name = "Joh Doe" };
+Member member = new Member { Id = "JD1967", Name = "John Doe" };
 myDatabase.Members.Insert(member);
 
 member.Name = "John Doe";
@@ -42,8 +42,8 @@ To update multiple records in a table.
  MyDatabase myDatabase = new MyDatabase();
 
  myDatabase.Groups.Insert(new Group { Id = 1, Name = "Group 1" });
- myDatabase.Groups.Insert(new Group { Id = 2,Name = "Group 2" });
- myDatabase.Groups.Insert(new Group { Id = 3,Name = "Group 3" });
+ myDatabase.Groups.Insert(new Group { Id = 2, Name = "Group 2" });
+ myDatabase.Groups.Insert(new Group { Id = 3, Name = "Group 3" });
 
  var groups = myDatabase.Groups.ToList();
  groups.ForEach(x => x.Name += " (deleted)" );
