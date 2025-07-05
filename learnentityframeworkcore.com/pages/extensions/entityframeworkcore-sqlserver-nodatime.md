@@ -226,6 +226,8 @@ await this.Db.RaceResult
 
 ## Version History
 
+* 9.1.1 (July 5, 2025)
+  * Updated the Project and Repo URL's in the package. 
 * 9.1.0 (Mar 14, 2025)
   * Added support for Azure SQL DB's and the `AzureSqlDbContextOptionsBuilder`
 * 9.0.0 (Nov 20, 2024)
