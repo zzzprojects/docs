@@ -20,13 +20,13 @@ context.BulkInsert(list, options => options.BatchSize = 100);
 ```
 
 ## Purpose
-`Inserting` thousand of entities for an initial load or a file importation is a typical scenario.
+`Inserting` thousands of entities for an initial load or a file importation is a typical scenario.
 
 <!--`SubmitChanges` method makes it quite impossible to handle this kind of situation directly from Entity Framework due to the number of database round-trips required. 
 
 !-->`SubmitChanges` requires one database round-trip for every entity to `insert`. So if you need to `insert` 10000 entities, then 10000 database round-trips will be performed which is **INSANELY** slow.!
 
-`BulkInsert` in counterpart requires the minimum database round-trips as possible. By example under the hood for SQL Server, a simple`SqlBulkCopy` could be performed.
+`BulkInsert` on the other hand, requires as few database round-trips as possible. For example, under the hood in SQL Server, a simple `SqlBulkCopy` could be performed.
 
 ## Performance Comparisons
 
@@ -39,13 +39,13 @@ context.BulkInsert(list, options => options.BatchSize = 100);
 ## FAQ
 
 ### How can I specify more than one option?
-You can specify more than one option using anonymous block.
+You can specify more than one option using an anonymous block.
 
 
 ```csharp
 context.BulkInsert(list, options => {
-	options.BatchSize = 100);
-	options.ColumnInputExpression = c => new {c.Name, c.Description});
+	options.BatchSize = 100;
+	options.ColumnInputExpression = c => new {c.Name, c.Description};
 });
 ```
 
@@ -79,10 +79,10 @@ Read more: [IncludeGraph](/include-graph)
 context.BulkInsert(list, options => options.IncludeGraph = true);
 ``` !-->
 
-### Why BulkInsert doesn't use the ChangeTracker?
+### Why doesn't BulkInsert use the ChangeTracker?
 To provide the best performance possible!
 
-Since using the `ChangeTracker` can greatly reduce performance, we chose to let `SubmitChanges` method handle the scenarios with `ChangeTracker` and `BulkInsert` the scenarios without it.
+Since using the `ChangeTracker` can greatly reduce performance, we chose to let the `SubmitChanges` method handle the scenarios with `ChangeTracker`, and `BulkInsert` the scenarios without it.
 
 ### Why BulkInsert is faster than SubmitChanges?
 The major difference between both methods is `SubmitChanges` uses the `ChangeTracker` but not the `BulkInsert` method.

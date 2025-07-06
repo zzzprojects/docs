@@ -20,7 +20,7 @@ context.BulkMerge(options =>
 ---
 
 ## UseLogDump
-Gets or sets if all `log` related to database event should be stored in a `LogDump` properties.
+Gets or sets if all `log` events related to database events should be stored in a `LogDump` property.
 
 
 ```csharp
@@ -36,7 +36,7 @@ context.BulkMerge(options =>
 ---
 
 ## LogDump
-Gets all `logged` database event when `UseLogDump` is enabled.
+Gets all `logged` database events when `UseLogDump` is enabled.
 
 
 ```csharp

@@ -7,7 +7,7 @@ Name: Column
 ## Column Input
 Gets or sets columns to map with the direction `Input`.
 
-The key is required for operation such as `BulkUpdate` and `BulkMerge`.
+The key is required for operations such as `BulkUpdate` and `BulkMerge`.
 
 
 ```csharp
@@ -29,7 +29,7 @@ context.BulkMerge(list, options =>
 ## Column InputOutput
 Gets or sets columns to map with the direction `InputOutput`.
 
-The key is required for operation such as `BulkUpdate` and `BulkMerge`.
+The key is required for operations such as `BulkUpdate` and `BulkMerge`.
 
 
 ```csharp
@@ -54,7 +54,7 @@ Gets or sets columns to ignore when the `BulkMerge` method executes the `insert`
 
 ```csharp
 context.BulkMerge(list, options => 
-        options.IgnoreOnMergeUpdateExpression = entity => new {entity.ModifiedDate, entity.ModifiedUser}
+        options.IgnoreOnMergeInsertExpression = entity => new {entity.ModifiedDate, entity.ModifiedUser}
 ); 
 ```
 

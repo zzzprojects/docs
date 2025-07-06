@@ -5,9 +5,9 @@ Name: Getting started with Bulk Operations
 # Batch Operations
 
 ## Definition
-Bulk operations method gives you additional flexibility by allowing to customize options such as primary key, columns, include childs entities and more.
+Bulk operations methods give you additional flexibility by allowing you to customize options such as primary key, columns, include child entities and more.
 
-They are also faster than BulkSubmitChanges since they don't use the ChangeTracker and doesn't call the DetectChanges method. 
+They are also faster than BulkSubmitChanges since they don't use the ChangeTracker and don't call the DetectChanges method. 
 
 Bulk Operations Available:
 - [BulkInsert](/bulk-insert)
@@ -25,14 +25,14 @@ context.BulkDelete(list);
 context.BulkMerge(list);
 
 // Easy to customize
-context.BulkMerge(customers, bulk => bulk.ColumnPrimaryKeyExpression = customer => customer.Code; });
+context.BulkMerge(customers, bulk => bulk.ColumnPrimaryKeyExpression = customer => customer.Code);
 ```
 
 ## Purpose
 Using the ChangeTracker to detect and persist change automatically is great! However, almost every application has some particular scenario which requires some customization and better performance.
 
-By example:
-- Inserting thousands of hundreds of data with child entities
+For example:
+- Inserting hundreds of thousands of data with child entities
 - Updating only some particular fields
 - Merging a list of customers using the code instead of the key
 

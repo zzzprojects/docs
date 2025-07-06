@@ -9,7 +9,7 @@ Gets or sets if the source identity value should be preserved on `Insert`. When 
 
 
 ```csharp
-context.BulkInsert(list ,options => options.InsertKeepIdentity = true);
+context.BulkInsert(list, options => options.InsertKeepIdentity = true);
 ```
 
 ---

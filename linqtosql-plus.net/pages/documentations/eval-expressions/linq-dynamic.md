@@ -5,14 +5,14 @@ Name: LINQ Dynamic
 # LINQ Dynamic
 
 ## Description
-You can execute query dynamically through the [Eval-Expression.NET](https://eval-expression.net/) library.
+You can execute a query dynamically through the [Eval-Expression.NET](https://eval-expression.net/) library.
 
 You can download it here: [Download](https://eval-expression.net/download)
 
 > The Eval-Expression.NET library can be activated with the LinqToSql Plus license. 
 
 ## LINQ Dynamic - Predicate
-You can use any LINQ method that support predicate with a dynamic C# expression :
+You can use any LINQ method that supports predicate with a dynamic C# expression:
 
 - Deferred
    - SkipWhile

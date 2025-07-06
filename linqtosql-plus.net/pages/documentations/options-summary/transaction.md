@@ -5,7 +5,7 @@ Name: Transaction
 # Transaction
 
 ## Bulk Operations
-Bulk Operations such as BulkInsert, BulkUpdate, BulkDelete doesn't use a transaction by default. This is your responsibility to handle it.
+Bulk Operations such as BulkInsert, BulkUpdate, BulkDelete don't use a transaction by default. This is your responsibility to handle it.
 
 If you start a transaction within LinqToSql, Bulk Operations will honor it.
 

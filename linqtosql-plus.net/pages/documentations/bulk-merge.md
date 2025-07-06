@@ -22,11 +22,11 @@ context.BulkMerge(customers, options => options.ColumnPrimaryKeyExpression = cus
 ## Purpose
 `Merging` entities using a custom key from file importation is a typical scenario.
 
-Despite the `ChangeTracker` being outstanding to track what's modified, it lacks in term of scalability and flexibility.
+Despite the `ChangeTracker` being outstanding to track what's modified, it lacks in terms of scalability and flexibility.
 
 `SubmitChanges` requires one database round-trip for every entity to `insert` or `update`. So if you need to `insert` or `update` 10000 entities, then 10000 database round-trips will be performed which is **INSANELY** slow.
 
-`BulkMerge` in counterpart offers great customization and requires the minimum database round-trips as possible.
+`BulkMerge` in counterpart offers great customization and requires as few database round-trips as possible.
 
 ## Performance Comparisons
 
@@ -39,13 +39,13 @@ Despite the `ChangeTracker` being outstanding to track what's modified, it lacks
 ## FAQ
 
 ### How can I specify more than one option?
-You can specify more than one option using anonymous block.
+You can specify more than one option using an anonymous block.
 
 
 ```csharp
 context.BulkMerge(list, options => {
-	options.BatchSize = 100);
-	options.ColumnInputExpression = c => new {c.ID, c.Name, c.Description});
+	options.BatchSize = 100;
+	options.ColumnInputExpression = c => new {c.ID, c.Name, c.Description};
 });
 ```
 
@@ -81,7 +81,7 @@ Read more: [IgnoreOnMergeUpdateExpression](/ignore-on-merge-update-expression)
 context.BulkMerge(list, options =>
 	{
 		options.IgnoreOnMergeInsertExpression = customer => new { customer.UpdatedDate, customer.UpdatedUser };
-		options.IgnoreOnMergeUpdateExpression = customer => customer.Code, customer.Col2;
+		options.IgnoreOnMergeUpdateExpression = customer => new { customer.Code, customer.Col2 };
 	});
 ```
 
@@ -109,7 +109,7 @@ Read more: [IncludeGraph](/include-graph)
 context.BulkMerge(list, options => options.IncludeGraph = true);
 ```!-->
 
-### Why BulkMerge doesn't use the ChangeTracker?
+### Why doesn't BulkMerge use the ChangeTracker?
 To provide the best performance possible!
 
 Since using the `ChangeTracker` can greatly reduce performance, we chose to let `SubmitChanges` method handle scenarios with `ChangeTracker` and `BulkMerge`, scenarios without it.

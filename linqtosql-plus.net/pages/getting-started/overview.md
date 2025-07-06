@@ -8,11 +8,11 @@ Name: Getting started with  LinqToSql Plus
 
 **LinqToSql Plus** is a library that dramatically improves LinqToSql performances by using bulk and batch operations.
 
-People using this library often report performance enhancement by 50x times and more!
+People using this library often report performance enhancement by 50x and more!
 
 The library is installed through <a href="/download">NuGet</a>. Extension methods are added automatically to your DbContext.
 
-It easy to use and easy to customize.
+It’s easy to use and easy to customize.
 
 
 
@@ -43,7 +43,7 @@ Download the <a href="/download">NuGet Package</a>
 
 ## Bulk Operations Methods
 
-Bulk operation methods give you additional flexibility by allowing to customize options such as primary key, columns and more.
+Bulk operation methods give you additional flexibility by allowing you to customize options such as primary key, columns and more.
 
 Bulk Operations Available:
 
@@ -63,7 +63,7 @@ context.BulkMerge(list);
 
 // Easy to customize
 context.BulkMerge(customers, options => 
-	options.ColumnPrimaryKeyExpression = customer => customer.Code; });
+	options.ColumnPrimaryKeyExpression = customer => customer.Code);
 ```
 
 ### Performance Comparisons
@@ -78,7 +78,7 @@ context.BulkMerge(customers, options =>
 
 ## Batch Operations Methods
 
-Batch Operations method allow to perform **UPDATE** or **DELETE** operation directly in the database using a LINQ Query without loading entities in the context.
+Batch Operations methods allow you to perform **UPDATE** or **DELETE** operations directly in the database using a LINQ Query without loading entities in the context.
 
 Everything is executed on the database side to let you get the best performance available.
 

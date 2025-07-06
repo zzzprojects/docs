@@ -5,7 +5,7 @@ Name: Transient Error
 # Transient Error
 
 ## RetryCount
-Gets or sets the maximum number of operations retry when a transient error occurs.
+Gets or sets the maximum number of operations to retry when a transient error occurs.
 
 
 ```csharp

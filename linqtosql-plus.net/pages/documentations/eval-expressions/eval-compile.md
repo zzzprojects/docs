@@ -5,7 +5,7 @@ Name: Eval.Compile
 # Eval.Compile
 
 ## Description
-You can compile C# expression at runtime using the [Eval-Expression.NET](https://eval-expression.net/) library.
+You can compile a C# expression at runtime using the [Eval-Expression.NET](https://eval-expression.net/) library.
 
 You can download it here: [Download](https://eval-expression.net/download)
 

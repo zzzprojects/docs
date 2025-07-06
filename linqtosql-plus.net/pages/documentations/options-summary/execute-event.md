@@ -1,5 +1,5 @@
 ---
-Name: Execute Even
+Name: Execute Event
 ---
 
 # Execute Event

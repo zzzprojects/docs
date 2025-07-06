@@ -24,7 +24,7 @@ context.BulkSynchronize(customers, options => options.ColumnPrimaryKeyExpression
 ## Purpose
 `Synchronizing` entities with the database is a very rare scenario, but it may happen when two databases need to be synchronized.
 
-`BulkSynchronize` give you the scalability and flexibility required when if you encounter this situation.
+`BulkSynchronize` gives you the scalability and flexibility required if you encounter this situation.
 
 ## Performance Comparisons
 
@@ -37,13 +37,13 @@ context.BulkSynchronize(customers, options => options.ColumnPrimaryKeyExpression
 ## FAQ
 
 ### How can I specify more than one option?
-You can specify more than one option using anonymous block.
+You can specify more than one option using an anonymous block.
 
 
 ```csharp
 context.BulkSynchronize(list, options => {
-	options.BatchSize = 100);
-	options.ColumnInputExpression = c => new {c.ID, c.Name, c.Description});
+	options.BatchSize = 100;
+	options.ColumnInputExpression = c => new {c.ID, c.Name, c.Description};
 });
 ```
 

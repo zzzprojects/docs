@@ -62,7 +62,7 @@ You can use the **ValidateLicense** method to check if the current license is va
 
 
 ```csharp
-// CHECK if the license if valid for the default provider (SQL Server)
+// CHECK if the license is valid for the default provider (SQL Server)
 string licenseErrorMessage;
 if (!Z.LinqToSql.Plus.LinqToSqlManager.ValidateLicense(out licenseErrorMessage))
 {
