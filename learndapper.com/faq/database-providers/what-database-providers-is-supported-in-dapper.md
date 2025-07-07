@@ -6,4 +6,4 @@ title: What database providers are supported in Dapper?
 
 Dapper supports a wide range of database providers that are compatible with ADO.NET, including but not limited to Microsoft SQL Server, MySQL, MariaDB, PostgreSQL, Oracle, and SQLite.
 
-Since Dapper has no database specific implementation, it works with pretty much all providers.
+Since Dapper has no database-specific implementation, it works with pretty much all providers.

@@ -20,7 +20,7 @@ SELECT SCOPE_IDENTITY()
 
 	var customer = new Customer() { Name = "Learn Dapper", Email = "learndapper@example.com" };
 
-	var customerID = connection.Execute(sql, customer);
+	var customerID = connection.ExecuteScalar<int>(sql, customer);
 	customer.CustomerID = customerID;
 
 	Console.WriteLine(customer.CustomerID);

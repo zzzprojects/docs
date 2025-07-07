@@ -12,4 +12,4 @@ To install a database provider in Dapper, you need to add the appropriate [NuGet
 - **PostgreSQL**: You need to install the [Npgsql](https://www.nuget.org/packages/Npgsql) package
 - **SQLite**: You need to install the [System.Data.SQLite.Core](https://www.nuget.org/packages/System.Data.SQLite.Core) package
 
-More than one package might exist for the same providers. We just have included the most popular one.
+More than one package might exist for the same providers. We have just included the most popular one.

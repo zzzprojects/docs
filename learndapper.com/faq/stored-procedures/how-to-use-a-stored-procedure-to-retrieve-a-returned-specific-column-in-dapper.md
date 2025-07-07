@@ -1,10 +1,10 @@
 ---
 id: d3aea7ec-1b98-4472-be46-7fe10e2f2814
 position: 4
-title: How to use a stored procedure to retrieve a returned specific column in Dapper?
+title: How to use a stored procedure to retrieve a specific returned column in Dapper?
 ---
 
-To use a stored procedure and retrieve a returned specific column, you have 3 choices:
+To use a stored procedure and retrieve a specific returned column, you have 3 choices:
 
 1. By mapping returned data to an anonymous type and select your column:
 

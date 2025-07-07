@@ -4,7 +4,7 @@ position: 8
 title: When using a stored procedure, do I need to add parameter names to the command text in Dapper?
 ---
 
-You don't need to add parameter names to the command text when specifying the command type to `CommandType.StoredProcedure`. However, you need to add `EXEC` and parameter names if you don't specify a  command type or you set the command type to `CommandType.Text`.
+You don't need to add parameter names to the command text when specifying the command type to `CommandType.StoredProcedure`. However, you need to add `EXEC` and parameter names if you don't specify a command type or you set the command type to `CommandType.Text`.
 
 1. With `CommandType.StoredProcedure`, you don't have to use EXEC:
 

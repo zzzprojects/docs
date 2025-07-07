@@ -37,7 +37,7 @@ using(var connection = new SqlConnection(connectionString))
 }
 ```
 
-3. Or create a `DynamicParameters` object and add parameter to it.
+3. Or create a `DynamicParameters` object and add parameters to it.
 
 
 ```csharp
