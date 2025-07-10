@@ -3,14 +3,12 @@ title: Dapper Insert, Insert Async, Multiple Rows, Bulk Insert
 description: The Dapper Execute method allows you to insert single data or insert multiple rows. In addition, you can use Dapper Plus to BulkInsert data in your database.
 canonical: /saving-data/insert
 status: Published
-lastmod: 2025-06-15
+lastmod: 2025-07-10
 ---
 
 # Inserting Data With Dapper
 
-To insert data in Dapper, you need to write your `INSERT` sql statement and call the [Execute](/non-query) method. Make sure to use [parameters](/parameters) when passing your values to avoid SQL Injection.
-
-In this article, we will talk about the 4 most common scenarios for inserting:
+To insert data in Dapper, you need to write your `INSERT` SQL statement and call the [Execute](/non-query) method. Make sure to use [parameters](/parameters) when passing your values to avoid SQL Injection.
 
 - [Inserting single row](#dapper-insert)
 - [Inserting single row asynchronously](#dapper-insert-async)
@@ -24,22 +22,22 @@ To insert in Dapper, you need to use the [Execute](/non-query#dapper-execute) me
 In this example:
 
 1. We will create a connection
-2. We will create an `INSERT` sql statement
+2. We will create an `INSERT` SQL statement
 3. Call the `Execute` method
 
--  3a. The first time, we will pass parameters values with an anonymous type
--  3b. The second time, we will pass parameters values by providing the customer entity
+-  3a. The first time, we will pass parameter values with an anonymous type
+-  3b. The second time, we will pass parameter values by providing the customer entity
 
 ```csharp
 // 1. We will create a connection
 using (var connection = new SqlConnection(connectionString))
 {
-    // 2. We will create an `INSERT` sql statement
+    // 2. We will create an `INSERT` SQL statement
 	var sql = "INSERT INTO Customers (Name, Email) VALUES (@Name, @Email)";
 
 	// 3. Call the `Execute` method
 	{
-		// 3a. The first time, we will pass parameters values with an anonymous type
+		// 3a. The first time, we will pass parameter values with an anonymous type
 		var anonymousCustomer = new { Name = "ZZZ Projects", Email = "zzzprojects@example.com" };
 
 		var rowsAffected = connection.Execute(sql, anonymousCustomer);
@@ -47,7 +45,7 @@ using (var connection = new SqlConnection(connectionString))
 	}
 
 	{
-		// 3b. The second time, we will pass parameters values by providing the customer entity
+		// 3b. The second time, we will pass parameter values by providing the customer entity
 		var customer = new Customer() { Name = "Learn Dapper", Email = "learndapper@example.com" };
 
 		var rowsAffected = connection.Execute(sql, customer);
@@ -60,7 +58,7 @@ using (var connection = new SqlConnection(connectionString))
 
 ## Dapper Insert Async
 
-To insert in dapper asynchronously, you need to use the [ExecuteAsync](/non-query#dapper-executeasync) method. Unfortunately, `Dapper` doesn't support [cancellation token](https://github.com/DapperLib/Dapper/pull/1625#issuecomment-827984908).
+To insert in Dapper asynchronously, you need to use the [ExecuteAsync](/non-query#dapper-executeasync) method. Unfortunately, `Dapper` doesn't support [cancellation token](https://github.com/DapperLib/Dapper/pull/1625#issuecomment-827984908).
 
 In this example, we will use the same logic as the previous example with a few differences:
 - Replace the `Execute` method with the `ExecuteAsync` method
@@ -71,12 +69,12 @@ In this example, we will use the same logic as the previous example with a few d
 // 1. We will create a connection
 using (var connection = new SqlConnection(connectionString))
 {
-    // 2. We will create an `INSERT` sql statement
+    // 2. We will create an `INSERT` SQL statement
 	var sql = "INSERT INTO Customers (Name, Email) VALUES (@Name, @Email)";
 
 	// 3. Call the `ExecuteAsync` method
 	{
-		// 3a. The first time, we will pass parameters values with an anonymous type
+		// 3a. The first time, we will pass parameter values with an anonymous type
 		var anonymousCustomer = new { Name = "ZZZ Projects", Email = "zzzprojects@example.com" };
 
 		var rowsAffected = await connection.ExecuteAsync(sql, anonymousCustomer);
@@ -85,7 +83,7 @@ using (var connection = new SqlConnection(connectionString))
 	}
 
 	{
-		// 3b. The second time, we will pass parameters values by providing the entity
+		// 3b. The second time, we will pass parameter values by providing the entity
 		var customer = new Customer() { Name = "Learn Dapper", Email = "learndapper@example.com" };
 
 		var rowsAffected = await connection.ExecuteAsync(sql, customer);
@@ -108,21 +106,21 @@ For inserting multiple rows in Dapper, you have to provide a list to the `Execut
 In this example:
 
 1. We will create a connection
-2. We will create an `INSERT` sql statement
+2. We will create an `INSERT` SQL statement
 3. Call the `Execute` method
-   3a. The first time, we will pass parameters values with a list of anonymous objects
-   3b. The second time, we will pass parameters values by providing a list of customers
+   3a. The first time, we will pass parameter values with a list of anonymous objects
+   3b. The second time, we will pass parameter values by providing a list of customers
 
 ```csharp
 // 1. We will create a connection
 using (var connection = new SqlConnection(connectionString))
 {
-	// 2. We will create an `INSERT` sql statement
+	// 2. We will create an `INSERT` SQL statement
 	var sql = "INSERT INTO Customers (Name, Email) VALUES (@Name, @Email)";
 
 	// 3. Call the `Execute` method
 	{
-		// 3a. The first time, we will pass parameters values with a list of anonymous objects
+		// 3a. The first time, we will pass parameter values with a list of anonymous objects
 		var anonymousCustomers = new List<object>() {
 			new { Name = "ZZZ Projects", Email = "zzzprojects@example.com" },
 			new { Name = "Anonymous Object 2", Email = "anonymousobject2@example.com" },
@@ -134,7 +132,7 @@ using (var connection = new SqlConnection(connectionString))
 	}
 
 	{
-		// 3b. The second time, we will pass parameters values by providing a list of customers
+		// 3b. The second time, we will pass parameter values by providing a list of customers
 		var customers = new List<Customer>()
 		{
 			new Customer() { Name = "Learn Dapper", Email = "learndapper@example.com" },
@@ -154,7 +152,7 @@ using (var connection = new SqlConnection(connectionString))
 
 For bulk inserting data in Dapper, the third-party library named [Dapper Plus](https://dapper-plus.net/) will be required.
 
-You can read our tutorial on [Bulk Inserting data with Dapper](/bulk-operations/bulk-insert)
+You can read our tutorial on [Bulk Inserting Data with Dapper](/bulk-operations/bulk-insert)
 
 In this example using **Dapper Plus**:
 
@@ -181,7 +179,7 @@ using (var connection = new SqlConnection(connectionString))
 
 ## Conclusion
 
-In conclusion, Dapper provides a simple and easy-to-use method for inserting data with the `Execute` and `ExecuteAsync` methods. You write your `INSERT` sql statement and provide either a single item or a list.
+In conclusion, Dapper provides a simple and easy-to-use method for inserting data with the `Execute` and `ExecuteAsync` methods. You write your `INSERT` SQL statement and provide either a single item or a list.
 
 ## Related Articles
 

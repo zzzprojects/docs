@@ -3,7 +3,7 @@ title: [SOLVED] - Fixing 'The connection had been disposed.'
 description: Learn how to fix the 'The connection had been disposed.' error in Dapper. Understand how using async methods and non-buffered options can cause this.
 canonical: /the-connection-had-been-disposed
 status: Published
-lastmod: 2025-06-15
+lastmod: 2025-07-10
 ---
 
 # The connection had been disposed.
@@ -47,7 +47,7 @@ In this example, the [QueryAsync](/dapper-query/selecting-multiple-rows#dapper-q
 Here is a method that will throw the error 100% of the time:
 
 ```csharp
-public static async Task ConnnectionHasBeenDisposedExample()
+public static async Task ConnectionHasBeenDisposedExample()
 {
 	Task task;
 
