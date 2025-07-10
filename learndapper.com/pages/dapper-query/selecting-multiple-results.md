@@ -3,32 +3,32 @@ title: Dapper QueryMultiple, QueryMultipleAsync
 description: The Dapper QueryMultiple method allows you to select multiple results from a database in a single query and then, after reading those results, map them.
 canonical: /dapper-query/selecting-multiple-results
 status: Published
-lastmod: 2025-06-15
+lastmod: 2025-07-10
 ---
 
 # Querying Multiple Results With Dapper
 
 You can execute multiple queries in a single SQL statement using the `QueryMultiple` method (if the [database provider](/database-providers) supports it). Once executed, you can map the returned results to multiple objects using methods such as `Read<T>`, `ReadFirst<T>`, `ReadSingle<T>` and more.
 
-The Dapper `QueryMultiple` method allows you to select multiple results from a database query. That feature is very useful for selecting multiple result sets at once, thus avoiding unnecessary round trips to the database server. 
+The Dapper `QueryMultiple` method allows you to select multiple results from a database query. This feature is very useful for selecting multiple result sets at once, thus avoiding unnecessary round trips to the database server. 
 
  - The `QueryMultiple` method provides a simple way of fetching data stored in different tables or views with a single database query. 
- - By using dapper's `QueryMultiple` method, you can select multiple rows from different tables in one go, saving time and resources. 
+ - By using Dapper's `QueryMultiple` method, you can select multiple rows from different tables in one go, saving time and resources. 
  - Dapper's `QueryMultiple` method allows you to map results from multiple queries into strongly typed collections that can be easily consumed within your application code. 
  - Using Dapper `QueryMultiple` is an efficient way to select multiple results from a single database query. 
  - It saves time and resources by avoiding unnecessary round trips to the database server and eliminates the need for complex SQL queries. 
 
 | Method | Description |
-|:---|:---|:---|
+|:---|:---|
 |`QueryMultiple` |  Execute multiple queries within a single database command and return a `GridReader` to map the results to multiple objects | 
 |`QueryMultipleAsync` | Execute multiple queries within a single database command and return a `GridReader` to map the results to multiple objects asynchronously | 
 
 After using the `QueryMultiple` or `QueryMultipleAsync` method, you can use the following methods with the results:
 
 | Method | Description |
-|:---|:---|:---|
-|`Read`, `ReadAsync` | Returns an enumerable of `dynamic` types | 
-|`Read<T>`, `ReadAsync<T>` | Returns an enumerable of the type specified by the `T` parameter | 
+|:---|:---|
+|`Read`, `ReadAsync` | Returns an IEnumerable of `dynamic` types | 
+|`Read<T>`, `ReadAsync<T>` | Returns an IEnumerable of the type specified by the `T` parameter | 
 |`ReadFirst`, `ReadFirstAsync` | Returns the first row as a `dynamic` type | 
 |`ReadFirst<T>`, `ReadFirstAsync<T>` | Returns the first row as an instance of the type specified by the `T` type parameter | 
 |`ReadFirstOrDefault`, `ReadFirstOrDefaultAsync` | Returns the first row as a `dynamic` type or `null` if no results are returned | 

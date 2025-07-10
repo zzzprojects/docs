@@ -3,7 +3,7 @@ title: Dapper Bulk Merge
 description: The Dapper Plus BulkMerge method allows performing UPSERT operations (update/insert) in your database and improves your performance by 5000% and more.
 canonical: /bulk-operations/bulk-merge
 status: Published
-lastmod: 2025-06-15
+lastmod: 2025-07-10
 ---
 
 # Bulk Merging Data With Dapper
@@ -25,8 +25,8 @@ Documentation: [Dapper Plus – Bulk Merge](https://dapper-plus.net/bulk-merge)
 **Dapper Plus** `BulkMerge` helps with Bulk Merge operations for Dapper. It allows you to perform bulk inserts, updates, and deletes into the database in a single operation. 
  - It can reduce the complexity of writing multiple queries and adds an extra layer of performance optimization. 
  - It also supports batching, which helps minimize round trips to the database by grouping commands together. 
- - Additionally, it provides helpful features such as conditional merging, making creating custom logic for merging data easier.
-Using the `BulkMerge` method is very simple. All you need to do is pass your entities in the parameter and let the automapping matching properties with column names:
+ - Additionally, it provides helpful features such as conditional merging, making custom logic for merging data easier.
+Using the `BulkMerge` method is very simple. All you need to do is pass your entities as a parameter and let the automapping match properties with column names:
 
 ```csharp
 // Easy to use

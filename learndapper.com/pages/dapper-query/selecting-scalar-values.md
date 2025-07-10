@@ -3,7 +3,7 @@ title: Dapper ExecuteScalar, ExecuteScalarAsync
 description: The Dapper ExecuteScalar method allows you to execute a query and return the first column of the first row in the result set returned by the query.
 canonical: /dapper-query/selecting-scalar-values
 status: Published
-lastmod: 2025-06-15
+lastmod: 2025-07-10
 ---
 
 # Querying Scalar Values With Dapper
@@ -25,7 +25,7 @@ Dapper provides two methods for selecting scalar values along with their asynchr
 
 ## Dapper ExecuteScalar
 
-The `ExecuteScalar` method is often used to execute SQL queries that return a single row and a single column. That could include queries such as retrieving the total number of rows in a database table or the sum of values from multiple columns.
+The `ExecuteScalar` method is often used to execute SQL queries that return a single column and a single row. That could include queries such as retrieving the total number of rows in a database table or the sum of values from multiple columns.
 
 To retrieve a scalar value using Dapper, you first need to construct a query that will be executed against the database. After creating the query, you use the `ExecuteScalar` method to execute it and get back a single value from the results.
 

@@ -3,7 +3,7 @@ title: Dapper QuerySingle, QuerySingleOrDefault, QueryFirst, QueryFirstOrDefault
 description: The Dapper QuerySingle and QueryFirst methods allow you to return a single row of data and map it to a dynamic object or the generic entity type.
 canonical: /dapper-query/selecting-single-rows
 status: Published
-lastmod: 2025-06-15
+lastmod: 2025-07-10
 ---
 
 # Querying a Single Row With Dapper
@@ -68,7 +68,7 @@ No matter what type of data you select from your database, Dapper's QuerySingle 
 
 ## Dapper QuerySingleAsync
 
-The `QuerySingleAsync` is an asynchronous version of `QuerySingle`, that executes the query asynchronously and returns the single row in the result set returned by the query.
+The `QuerySingleAsync` is an asynchronous version of `QuerySingle` that executes the query asynchronously and returns the single row in the result set returned by the query.
 
 ```csharp
 var sql = "SELECT * FROM Product WHERE ProductID = @productID";

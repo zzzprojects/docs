@@ -3,7 +3,7 @@ title: Dapper Query, QueryAsync
 description: The Dapper Query and QueryAsync methods are used to select data from your database and return a list of objects or strongly typed objects.
 canonical: /dapper-query/selecting-multiple-rows
 status: Published
-lastmod: 2025-06-15
+lastmod: 2025-07-10
 ---
 
 # Querying Multiple Rows With Dapper
@@ -21,7 +21,7 @@ Dapper provides several methods for selecting data, depending on how you want to
 |`QueryAsync<T>` | Returns an enumerable of the type specified by the `T` parameter asynchronously | 
 
 
-To select data from a table or view using Dapper, you need to create an instance of the `IDbConnection` interface. Then you can use the `Query<T>()` or `QueryAsync<T>` method to execute the `SELECT` query and store the results in a list of objects.
+To select data from a table or view using Dapper, you need to create an instance of the `IDbConnection` interface. Then you can use the `Query<T>` or `QueryAsync<T>` method to execute the `SELECT` query and store the results in a list of objects.
 
 ## Dapper Query
 
@@ -45,7 +45,7 @@ foreach(var product in products)
 Note that there is no explicit call to open the connection in the code above. Instead, Dapper will check the state of the connection and open it if it is closed. 
 :::
 
-Working with dynamic types should ordinarily be avoided because the risk of introducing run-time errors is high. It can be easy to mistype a property name, especially as they are case-sensitive. For example, if you referred to the key column as `ProductId` instead of `ProductID`, there would be no help from Intellisense or exceptions raised. Nothing would be output to the console window at all. Therefore the recommendation is to use the `Query<T>` methods that take a type parameter representing the data type that the query returns. 
+Working with dynamic types should ordinarily be avoided because the risk of introducing run-time errors is high. It can be easy to mistype a property name, especially as they are case-sensitive. For example, if you referred to the key column as `ProductId` instead of `ProductID`, there would be no help from IntelliSense or exceptions raised. Nothing would be output to the console window at all. Therefore the recommendation is to use the `Query<T>` methods that take a type parameter representing the data type that the query returns. 
 
 The next example works with a `Product` type, which, following the table schema, has the following definition:
 

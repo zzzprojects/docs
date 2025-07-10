@@ -1,9 +1,9 @@
 ---
 title: Dapper Querying - Learn How to Use Query Method With Dapper
-description: Dapper allows querying one or multiple rows and automatically map all the retrieved result to your model type. Learn more about available querying options.
+description: Dapper allows querying one or multiple rows and automatically mapping  all the retrieved results to your model type. Learn more about available querying options.
 canonical: /dapper-query
 status: Published
-lastmod: 2025-06-15
+lastmod: 2025-07-10
 ---
 
 # Querying Data With Dapper
@@ -14,7 +14,7 @@ Querying a database through Dapper allows you to quickly and easily access your 
  - Users can save time by quickly creating queries that are customized to their specific needs. 
  - The user-friendly features make it easy to get the most out of your database, allowing you to focus on other aspects of your project. 
 
-Querying data using Dapper is quite simple. You just need to provide the dapper select query and parameters, and after that, Dapper will automatically map the resulting columns to their corresponding properties in your model type. 
+Querying data using Dapper is quite simple. You just need to provide to Dapper the SELECT query and parameters, and after that, Dapper will automatically map the resulting columns to their corresponding properties in your model type. 
 
 ```csharp
 var sql = "SELECT * FROM Product WHERE CategoryID = @categoryID";

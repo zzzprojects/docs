@@ -1,9 +1,9 @@
 ---
 title: Dapper Transaction
-description: Dapper supports transaction and allow you to commit/rollback the current transaction. Learn more about how to use transactions, transactions scopes, and more.
+description: Dapper supports transactions and allows you to commit/rollback the current transaction. Learn more about how to use transactions, transactions scopes, and more.
 canonical: /misc/transaction
 status: Published
-lastmod: 2025-06-15
+lastmod: 2025-07-10
 ---
 
 # Transaction With Dapper

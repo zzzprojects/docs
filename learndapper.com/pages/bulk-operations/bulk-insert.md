@@ -3,14 +3,14 @@ title: Dapper Bulk Insert
 description: The Dapper Plus BulkInsert method is the fastest way to insert entities in Dapper. Your performance is increased by up to 50x faster and more.
 canonical: /bulk-operations/bulk-insert
 status: Published
-lastmod: 2025-06-15
+lastmod: 2025-07-10
 ---
 
 # Bulk Inserting Data With Dapper
 
-Dapper provides the [Execute method for inserting data](/non-query#dapper-insert). However, a database roundtrip is required for every data you insert. It’s a perfect solution when you need to insert only one data, but it becomes very inefficient as soon as you insert multiple data.
+Dapper provides the [Execute method for inserting data](/non-query#dapper-insert). However, a database roundtrip is required for every row you insert. It’s a perfect solution when you need to insert only one record, but it becomes very inefficient as soon as you insert multiple records.
 
-The **fastest way of inserting** multiple data is by using the [Dapper Plus](https://dapper-plus.net/) third-party library.
+The **fastest way of inserting** multiple records is by using the [Dapper Plus](https://dapper-plus.net/) third-party library.
 
 Depending on the provider, performance can be increased by up to **75x faster** and more ([Online Benchmark](https://dotnetfiddle.net/zlTePU))
 
@@ -22,11 +22,11 @@ Documentation: [Dapper Plus – Bulk Insert](https://dapper-plus.net/bulk-insert
 
 ## Dapper BulkInsert
 
-The **Dapper Plus** `BulkInsert` method is a great way to insert multiple data rows into an existing table quickly. It is an easy-to-use method that takes a list of objects or records and performs a bulk insert into a database. 
+The **Dapper Plus** `BulkInsert` method is a great way to insert multiple rows into an existing table quickly. It is an easy-to-use method that takes a list of objects or records and performs a bulk insert into a database. 
 
  - It makes `BulkInsert` an extremely efficient way to add data into a database in C#. 
  - It dramatically reduces the amount of code needed and minimizes chances for errors.  
- - Unlike Dapper, you don’t need to write any SQL but simply pass your entities in parameters:
+ - Unlike Dapper, you don’t need to write any SQL but simply pass your entities as parameters:
 
 ```csharp
 // Easy to use

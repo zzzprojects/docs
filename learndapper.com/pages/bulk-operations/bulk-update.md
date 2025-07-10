@@ -1,9 +1,9 @@
 ---
 title: Dapper Bulk Update
-description: The Dapper Plus BulkUpdate method allows executing bulk updates in a single database call. Performance can be improved by up 5000% and more.
+description: The Dapper Plus BulkUpdate method allows executing bulk updates in a single database call. Performance can be improved by up to 5000% and more.
 canonical: /bulk-operations/bulk-update
 status: Published
-lastmod: 2025-06-15
+lastmod: 2025-07-10
 ---
 
 # Bulk Updating Data With Dapper

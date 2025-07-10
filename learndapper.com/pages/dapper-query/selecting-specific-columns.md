@@ -3,7 +3,7 @@ title: Dapper Query Specific Columns
 description: All Dapper querying methods allow you to select specific columns from your tables. Only matching properties will be mapped with the result.
 canonical: /dapper-query/selecting-specific-columns
 status: Published
-lastmod: 2025-06-15
+lastmod: 2025-07-10
 ---
 
 # Querying Specific Columns With Dapper
@@ -30,7 +30,7 @@ var products = connection.Query(sql, new { categoryID = 1 }).ToList();
 
 foreach(var product in products)
 {
-	Console.WriteLine($"ProductID: {product.ProductID}; Name: {product.Name}; Description: {product.CategoryID}");
+	Console.WriteLine($"ProductID: {product.ProductID}; Name: {product.Name}; CategoryID: {product.CategoryID}");
 }	
 ```
 
@@ -46,7 +46,7 @@ var products = connection.Query<Product>(sql, new { categoryID = 1 }).ToList();
 
 foreach(var product in products)
 {
-	Console.WriteLine($"ProductID: {product.ProductID}; Name: {product.Name}; Description: {product.CategoryID}");
+	Console.WriteLine($"ProductID: {product.ProductID}; Name: {product.Name}; CategoryID: {product.CategoryID}");
 }	
 ```
 

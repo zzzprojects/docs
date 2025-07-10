@@ -1,9 +1,9 @@
 ---
 title: Dapper Bulk Delete
-description: Dapper Plus BulkDelete allows you to delete entities from the database in a single roundtrip. It eliminates multiple trips to the db for each entity to delete.
+description: Dapper Plus BulkDelete allows you to delete entities from the database in a single roundtrip. It eliminates multiple trips to the DB for each entity to delete.
 canonical: /bulk-operations/bulk-delete
 status: Published
-lastmod: 2025-06-15
+lastmod: 2025-07-10
 ---
 
 # Bulk Deleting Data With Dapper
@@ -22,7 +22,7 @@ Documentation: [Dapper Plus – Bulk Delete](https://dapper-plus.net/bulk-delete
 
 ## Dapper BulkDelete
 
-By default, you only need to pass your entities in parameter, and the library will find the primary key from your database if none has been mapped:
+By default, you only need to pass your entities as a parameter, and the library will find the primary key from your database if none has been mapped:
 
  - **Dapper Plus** `BulkDelete` also supports soft deletes, allowing you to mark deleted entities without actually deleting them from the database. 
  - It makes it easier to undo mistakes while maintaining a tidy database. 
