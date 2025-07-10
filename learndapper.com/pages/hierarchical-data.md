@@ -3,12 +3,12 @@ title: Dapper Inheritance, TPH, TPT, TPC
 description: Dapper supports all kinds of complex inheritance patterns such as Table-per-Hierarchy (TPH), Table-per-Type (TPT), and Table-per-Concrete Class (TPC)
 canonical: /hierarchical-data
 status: Published
-lastmod: 2025-06-15
+lastmod: 2025-07-09
 ---
 
 # Using Inheritance in Dapper
 
-There are several different ways to work with inheritance when using it to map out your database. You can use the **Table-per-Hierarchy (TPH)** pattern, the **Table-per-Type (TPT)** pattern, or the **Table-per-Concrete Class (TPC)** pattern. Each option has its advantages, so it's essential to understand its differences and how they can be used in your application.
+There are several different ways to work with inheritance when using it to map out your database. You can use the **Table-per-Hierarchy (TPH)** pattern, the **Table-per-Type (TPT)** pattern, or the **Table-per-Concrete Class (TPC)** pattern. Each option has its advantages, so it's essential to understand their differences and how they can be used in your application.
 
 ### Dapper TPH Inheritance
 
@@ -84,7 +84,7 @@ These classes are mapped to a single table with the following schema (SQLite):
 
 ![Image](/images/16-05-2019-08-47-09.png)
 
-The following code shows how to use the `ExecuteReader` and `GetRowsParser<T>` methods to populate three collections based on the type of contract currently being read:
+The following code shows how to use the `ExecuteReader` and `GetRowParser<T>` methods to populate three collections based on the type of contract currently being read:
 
 ```csharp
 var tvContracts = new List<TvContract>();

@@ -3,7 +3,7 @@ title: Is Dapper Plus related to Dapper?
 description: Learn how Dapper Plus supports the Dapper ecosystem through sponsorships, shared mindset, and free community tools 
 canonical: /dapper-and-dapper-plus
 status: Published
-lastmod: 2025-06-15
+lastmod: 2025-07-09
 ---
 
 # Is Dapper Plus related to Dapper?
@@ -121,7 +121,7 @@ Sure, we could lower our prices… but in the end, it’s the community that wou
 
 ## Conclusion
 
-The next time someone tells you that Dapper Plus isn’t related to Dapper, just share this article with them and they will be able to take his own decision.
+The next time someone tells you that Dapper Plus isn’t related to Dapper, just share this article with them and they will be able to make their own decision.
 
 Thanks to the few libraries we sell — like Dapper Plus — ZZZ Projects plays a major role in supporting Dapper and the .NET ecosystem as a whole.
 
@@ -132,7 +132,7 @@ But maybe it’s worth reconsidering...
 Because with those small actions, **everyone loses**:
 
 - Dapper loses sponsorship revenue  
-- Sponsored libraries and content creators loses revenue
+- Sponsored libraries and content creators lose revenue
 - **You** lose some support, new features, or even new libraries that could have emerged  
 - And yes, I lose some revenue too
 

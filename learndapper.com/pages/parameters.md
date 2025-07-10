@@ -3,7 +3,7 @@ title: Dapper Parameter, SQL Injection, Anonymous and Dynamic Parameters
 description: Dapper allows specifying parameters in querying methods to avoid SQL Injection. Learn more about how to use anonymous, dynamic, string, and output parameters
 canonical: /parameters
 status: Published
-lastmod: 2025-06-15
+lastmod: 2025-07-09
 ---
 
 # Using Parameters With Dapper
@@ -11,7 +11,7 @@ lastmod: 2025-06-15
 The Dapper parameters work by allowing you to create an object that contains all of the values and parameter types you wish to use in your Dapper query. By doing this, Dapper can automatically map each value and parameter type to fields in your database table. 
 
  - Dapper parameters also help to prevent SQL injection, as the Dapper will automatically recognize any attempted malicious code and throw an exception instead of executing it. 
- - Using dapper parameters is a great way to ensure that your applications are secure from malicious attacks while still providing an easy and efficient way to insert data into your Dapper queries. 
+ - Using Dapper parameters is a great way to ensure that your applications are secure from malicious attacks while still providing an easy and efficient way to insert data into your Dapper queries. 
 
 Parameters are represented in the SQL command by placeholders, and the values are passed to the command within the `DbCommand` object's `Parameters` collection. The format of the placeholder is dependent on what the provider supports. For example, the `SqlClient` provider supports named parameters, with the parameter name prefixed with an `@` character. The `OleDb` provider supports positional parameters. Values are passed to the SQL command based on matching the order in which they have been added to the parameters collection to the order in which placeholders appear in the SQL. Parameter placeholders can be named anything as long as the placeholder names don't match database object names (columns, tables, etc.).
 
@@ -94,7 +94,7 @@ Dapper also provides a `DynamicParameters` class, representing a "bag" of parame
 
 Dynamic Parameters create a dynamic object that can be passed to the `Query` method instead of normal parameters. That is done using the `DynamicParameters` C# class, which has several methods for adding and setting parameters. Once you have filled in all your dynamic parameters, they can be passed to the query as an argument.
 
-Dapper will then take care of parsing and constructing the SQL query for you. That makes it easier and safer to work with dynamic parameters, as all of the parameter handlings is taken care of by Dapper.
+Dapper will then take care of parsing and constructing the SQL query for you. That makes it easier and safer to work with dynamic parameters, as all of the parameter handling is taken care of by Dapper.
 
 You can pass an object to its constructor. Suitable objects include a `Dictionary<string, object>`:
 
@@ -184,9 +184,9 @@ Overall, using the Dapper string parameter feature is an excellent choice for an
 
 ## Dapper WHERE IN Parameters
 
-Using dapper, you can use the 'WHERE IN' clause to query a list of values. That can be accomplished by utilizing the dapper's anonymous type parameter. To do this, you must pass an anonymous type object as a parameter and assign each value a unique name. 
+Using Dapper, you can use the 'WHERE IN' clause to query a list of values. That can be accomplished by utilizing the Dapper's anonymous type parameter. To do this, you must pass an anonymous type object as a parameter and assign each value a unique name. 
 
-For example, if we are querying a table based on a list of IDs, we could pass a dapper parameter like this: 
+For example, if we are querying a table based on a list of IDs, we could pass a Dapper parameter like this: 
 
 ```csharp
 var dapperParams = new { param1 = value1, param2 = value2 ...};
@@ -207,7 +207,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-By using dapper's anonymous type parameter feature, we can easily pass multiple values to our SQL query and get the desired results.
+By using Dapper's anonymous type parameter feature, we can easily pass multiple values to our SQL query and get the desired results.
 
 ## Dapper Table-Valued Parameters
 
@@ -254,12 +254,12 @@ Dapper provides the ability to use output parameters in stored procedures and pa
 
  - Output parameters are declared using the same syntax as input parameters but with an additional `OUTPUT` keyword. 
  - When declaring an output parameter, it must be given a name (the "parameter name"), an optional data type, and an optional size.
- - To use dapper output parameters, you must first create a `DynamicParameters` object in your code and then add it as a parameter to your query. 
+ - To use Dapper output parameters, you must first create a `DynamicParameters` object in your code and then add it as a parameter to your query. 
 
 Let's consider we have a simple stored procedure that takes the id as input and returns the name and description as output parameters.
 
 ```csharp
-Create Procedure GetCustomerDetails
+CREATE Procedure GetCustomerDetails
    @CustomerID          INT,
    @Name                NVARCHAR(Max)         OUTPUT,
    @Description         NVARCHAR(Max)         OUTPUT

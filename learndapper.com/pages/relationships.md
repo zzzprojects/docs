@@ -3,12 +3,12 @@ title: Dapper Relationship, SplitOn, One-To-Many, One-to-One
 description: Dapper supports mapping all kinds of relationships using the SplitOn parameter to map your One-To-Many, One-To-One, or Many-to-Many relation.
 canonical: relationships
 status: Published
-lastmod: 2025-06-15
+lastmod: 2025-07-09
 ---
 
 # Using Relationships With Dapper
 
-Full-featured ORMs like [Entity  Framework Core](https://www.learnentityframeworkcore.com/relationships) have been designed to understand and work with relationships. EF Core will ensure that any retrieved data is automatically mapped to the appropriate association or navigational property if a related entity is included as part of a query. 
+Full-featured ORMs like [Entity Framework Core](https://www.learnentityframeworkcore.com/relationships) have been designed to understand and work with relationships. EF Core will ensure that any retrieved data is automatically mapped to the appropriate association or navigational property if a related entity is included as part of a query. 
 
  - In SQL, you have a choice in how you go about retrieving related data. 
  - You can either perform one query to obtain all the data (a standard `JOIN` query), or you can perform multiple queries, one to get the parent data, and another to obtain related data. 
@@ -17,9 +17,9 @@ Full-featured ORMs like [Entity  Framework Core](https://www.learnentityframewor
 
 ## Dapper Relationships
 
-Dapper provides a feature called **Multi mapping** to map data to multiple objects explicitly and nested objects. As a result, Dapper is an excellent tool for managing relationships between entities within your database that can be used to retrieve related data from the database. 
+Dapper provides a feature called **multi-mapping** to map data to multiple objects explicitly and nested objects. As a result, Dapper is an excellent tool for managing relationships between entities within your database that can be used to retrieve related data from the database. 
 
- - It supports both synchronous and asynchronous operation, allowing you to use it in various scenarios. 
+ - It supports both synchronous and asynchronous operations, allowing you to use it in various scenarios. 
  - Using Dapper, you can easily execute [stored procedures](/stored-procedures), map results to strongly typed objects or dynamic objects, and execute [bulk CRUD operations](/bulk-operations). 
  - Dapper provides extension methods that enable us to perform queries on nested objects without having to write separate SQL statements for each object. 
  - For example, you can select from multiple tables in a single Dapper query. 
@@ -77,7 +77,7 @@ public class Category
 }
 ```
 
-There is an association between the `Product`  and `Category` classes, represented by the `Category` property in the `Product` class and the `Products` property in the `Category` class. This means a one-to-many relationship. A product can have one category, and a category can have many products. 
+There is an association between the `Product` and `Category` classes, represented by the `Category` property in the `Product` class and the `Products` property in the `Category` class. This means a one-to-many relationship. A product can have one category, and a category can have many products. 
 
 ![One To Many Relationship](/images/03-05-2019-08-18-16.png)
 
@@ -164,7 +164,7 @@ public class Post
 
 The `Tag` class has a collection property representing many posts, and the `Post` class includes a collection property representing many tags.
 
-Many to many relationships are represented in the database schema as a separate JOIN table:
+Many-to-many relationships are represented in the database schema as a separate JOIN table:
 
 
 ![Many To Many Relationship Join Table](/images/03-05-2019-08-53-30.png)

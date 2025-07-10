@@ -3,7 +3,7 @@ title: Dapper Execute, ExecuteAsync, Insert, Update, Delete
 description:  The Dapper Execute method allows executing SQL statements not returning any results besides the row affected for operations such as insert, update, and delete.
 canonical: /non-query
 status: Published
-lastmod: 2025-06-15
+lastmod: 2025-07-09
 ---
 
 # Executing Non-Query Commands With Dapper
@@ -39,7 +39,7 @@ connection.Execute(sql1, new { categoryID = 1, name = "Dapper Plus", description
 
 [Online Example](https://dotnetfiddle.net/nymteK)
 
-Dapper also supports inserting a list of objects, but it is an expensive operation if you use the dapper `Execute` method. The [BulkInsert](/bulk-operations/bulk-insert) method makes it easy to manage large amounts of data efficiently. It allows you to quickly and safely insert multiple records in bulk, reducing the need for manual input or looping through individual records.
+Dapper also supports inserting a list of objects, but it is an expensive operation if you use the Dapper `Execute` method. The [BulkInsert](/bulk-operations/bulk-insert) method makes it easy to manage large amounts of data efficiently. It allows you to quickly and safely insert multiple records in bulk, reducing the need for manual input or looping through individual records.
 
 ## Dapper Update
 
@@ -67,7 +67,7 @@ connection.Execute(sql1, new { categoryID = 2 });
 
 [Online Example](https://dotnetfiddle.net/NFIRDF)
 
-The [BulkDelete](/bulk-operations/bulk-delete) method allows you to delete large amounts of data efficiently. By using bulk operation instead of the `Execute` method, you reduce the number of database round-trips and increase your application performance.
+The [BulkDelete](/bulk-operations/bulk-delete) method allows you to delete large amounts of data efficiently. By using bulk operations instead of the `Execute` method, you reduce the number of database round-trips and increase your application performance.
 
 ## Dapper ExecuteAsync
 

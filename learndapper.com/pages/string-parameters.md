@@ -3,7 +3,7 @@ title: String Parameters
 description: Dapper string parameterization helps to avoid SQL injection attacks in applications that use dynamic SQL. It also makes the code more readable by replacing raw SQL strings with parameters, which are visible and can be used for debugging purposes.
 canonical: /string-parameters
 status: Published
-lastmod: 2025-06-15
+lastmod: 2025-07-09
 ---
 
 # String Parameters
@@ -35,7 +35,7 @@ using (var connection = My.ConnectionFactory())
 }
 ```
 
-As you can see, we created a `DbString` object with the corresponding `customerId` and set it as the parameter for the query. The `IsAnsi` and `IsFixedLength` properties are used to determine the type of string we are using. We then use this parameter as part of our query, which in this case will select the customer from the database with the corresponding `CustomerId` value. 
+As you can see, we created a `DbString` object with the corresponding `customerId` and set it as the parameter for the query. The `IsAnsi` and `IsFixedLength` properties are used to determine the type of string you're using. We then use this parameter as part of our query, which in this case will select the customer from the database with the corresponding `CustomerId` value. 
 
 Overall, using the Dapper string parameter feature is a great choice for any .NET developer looking to create highly secure and efficient applications. 
 

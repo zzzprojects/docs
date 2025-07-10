@@ -3,7 +3,7 @@ title: Dapper Database Providers - SQL Server - Oracle - MySQL - PostgreSQL
 description: Discover how to use Dapper database providers like SQL Server, MySQL, PostgreSQL, Oracle, and more on your website. Learn to install and apply these providers.
 canonical: /database-providers
 status: Published
-lastmod: 2025-06-15
+lastmod: 2025-07-09
 ---
 
 # Database Providers With Dapper
@@ -24,7 +24,7 @@ Using Dapper to query SQL Server is straightforward. The first step is to instal
 PM> NuGet\Install-Package Microsoft.Data.SqlClient
 ``` 
 
-Using Dapper to access SQL Server is relatively easy. You first create a connection and start using methods from Dapper available.
+Using Dapper to access SQL Server is relatively easy. You first create a connection and start using the available methods from Dapper.
 
 ```csharp
 // using Dapper;
@@ -89,11 +89,11 @@ using (var connection = new SQLiteConnection(connectionString))
 }
 ```
 
-## Dapper MySql
+## Dapper MySQL
 
 When working with MySQL in .NET Core, you must install the following NuGet package [MySql.Data](https://www.nuget.org/packages/MySql.Data).
 
-Using Dapper to retrieve data from MySql is simple and can be done in a few lines of code. First, create a connection, then use any query method provided by Dapper, such as [ExecuteScalar](/dapper-query/selecting-scalar-values).
+Using Dapper to retrieve data from MySQL is simple and can be done in a few lines of code. First, create a connection, then use any query method provided by Dapper, such as [ExecuteScalar](/dapper-query/selecting-scalar-values).
 
 ```csharp
 // using Dapper;

@@ -4,7 +4,7 @@ description: Dapper is a simple and efficient .NET library for data access and o
 keywords: dapper c#, dapper in c#, dapper nuget, what is dapper, what is dapper in .net core
 canonical: /
 status: Published
-lastmod: 2025-06-15
+lastmod: 2025-07-09
 ---
 
 # Welcome to Learn Dapper
@@ -28,7 +28,7 @@ Yes, Dapper has been supporting .NET Core since the release of version 1.50 in J
 
 ## Does Dapper support C#?
 
-Yes, you can use Dapper with C# as multiple other languages, such as VB.NET and F#. In fact, Dapper was written in C# and is a popular choice for data access in C# applications because of its simplicity and efficiency. 
+Yes, you can use Dapper with C# as well as multiple other languages, such as VB.NET and F#. In fact, Dapper was written in C# and is a popular choice for data access in C# applications because of its simplicity and efficiency. 
 
 ## Is Dapper an ORM?
 
@@ -130,4 +130,4 @@ git clone https://github.com/StackExchange/Dapper.git
 
 ## Conclusion
 
-In conclusion, Dapper is an excellent choice for applications that require simple and efficient data access. It is easy to use, lightweight and performant, making it a perfect option for developers who need fast data access without the overhead of more complex ORM solutions. Furthermore, Dapper is compatible with .NET Framework and .NET Core, and you can use it with any .NET language, including C#, VB.NET, and F#. Whether you are new to ORMs or have experience with other libraries, Dapper is a powerful tool worth considering for your data access needs. Dapper is enriched by third-party libraries such as [Dapper Plus](https://dapper-plus.net/), which aims to provide additional features, including bulk extension methods.
+In conclusion, Dapper is an excellent choice for applications that require simple and efficient data access. It is easy to use, lightweight, and high-performing, making it a perfect option for developers who need fast data access without the overhead of more complex ORM solutions. Furthermore, Dapper is compatible with .NET Framework and .NET Core, and you can use it with any .NET language, including C#, VB.NET, and F#. Whether you are new to ORMs or have experience with other libraries, Dapper is a powerful tool worth considering for your data access needs. Dapper is enriched by third-party libraries such as [Dapper Plus](https://dapper-plus.net/), which aims to provide additional features, including bulk extension methods.

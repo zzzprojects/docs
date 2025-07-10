@@ -3,12 +3,12 @@ title: Dapper ExecuteReader, ExecuteReaderAsync
 description: The Dapper ExecuteReader method allows you to execute a SQL query and returns a DataReader containing the result set of the query as rows and columns. 
 canonical: /execute-reader
 status: Published
-lastmod: 2025-06-15
+lastmod: 2025-07-09
 ---
 
 # Executing Reader With Dapper
 
-The `ExecuteReader` method of the Dapper library is a versatile method you can use to execute SQL statements and map the results to an instance of type `IDataReader`. That enables developers to easily read data from databases in applications written using C#, VB.NET, or other .NET languages. 
+The `ExecuteReader` method of the Dapper library is a versatile method you can use to execute SQL statements and map the results to an instance of type `IDataReader`. This enables developers to easily read data from databases in applications written using C#, VB.NET, or other .NET languages. 
 
 The `ExecuteReader` method has a variety of overloads that allow developers to specify the command type, parameters, transaction, and command timeout. The following table shows the different parameters of an `ExecuteReader` method.
 

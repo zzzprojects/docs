@@ -3,7 +3,7 @@ title: Dapper Stored Procedure
 description: All Dapper querying methods allow executing stored procedures without writing extra code by specifying the commandType parameter to 'StoredProcedure'.
 canonical: /stored-procedures
 status: Published
-lastmod: 2025-06-15
+lastmod: 2025-07-09
 ---
 
 # Executing Stored Procedures With Dapper
@@ -37,14 +37,15 @@ BEGIN
 END 
 ```
 
-Now that we have the stored procedure created let's look at how to execute it using Dapper.
+Now that we have the stored procedure created, let's look at how to execute it using Dapper.
 
 To begin with, we need to create a connection.
 
-Next, we need to set up the parameters that will be used to pass values into the stored procedure. We can do this using a `DynamicParameters` object and adding each parameter's values. In this case, our parameter is an `id` of type `int`. 
+Next, we need to set up the parameters that will be used to pass values into the stored procedure. We can do this using a `DynamicParameters` object and adding each parameter's value. In this case, our parameter is an `id` of type `int`. 
 
-Finally, we can execute the stored procedure using extension methods from Dapper, such as the `Execute` method and pass in our parameters. In our case, we used the [QuerySingleOrDefault](/dapper-query/selecting-single-rows) method to map the result to a `Customer` object containing all the data from the retrieved record. 
-Here is an example of how this code might look:
+Finally, we can execute the stored procedure using extension methods from Dapper, such as the `Execute` method and passing in our parameters. In our case, we used the [QuerySingleOrDefault](/dapper-query/selecting-single-rows) method to map the result to a `Customer` object containing all the data from the retrieved record. 
+
+Here is an example of what this code might look like:
 
 ```csharp
 using(var connection = new SqlConnection(connectionString))
