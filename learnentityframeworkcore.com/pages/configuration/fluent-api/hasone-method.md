@@ -3,12 +3,12 @@ title: The Fluent API HasOne Method
 description: Usage of the Fluent API HasOne Method in Entity Framework Core
 canonical: /configuration/fluent-api/hasone-method
 status: Published
-lastmod: 2023-02-27
+lastmod: 2025-07-11
 ---
 
 # EF Core HasOne
 
-The Entity Framework Core Fluent API `HasOne` method is used to configure the one side of a one to many relationship, or one end of a one to one relationship.
+The Entity Framework Core Fluent API `HasOne` method is used to configure the one side of a one-to-many relationship, or one end of a one-to-one relationship.
 
 In order to fully configure a valid relationship, it is necessary to follow the [Has/With pattern](/configuration/fluent-api/haswith-pattern) and pair the use of `HasOne` with either the `WithOne` or `WithMany` method, depending on whether the relationship being configured is a one-to-one relationship or a one-to-many relationship. 
 
@@ -60,6 +60,7 @@ public class SampleContext : DbContext
         .HasOne(e => e.Company)
         .WithMany(c => c.Employees);
     }
+}
 
 public class Company
 {

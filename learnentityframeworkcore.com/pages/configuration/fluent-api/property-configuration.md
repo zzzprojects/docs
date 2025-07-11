@@ -3,17 +3,17 @@ title: Property Configuration In Entity Framework Core
 description: You can configure entity properties via the Entity Framework Core Fluent API. These options are made available through methods on the EntityTypeBuilder.Property type
 canonical: /configuration/fluent-api/property-configuration
 status: Published
-lastmod: 2023-02-27
+lastmod: 2025-07-11
 ---
 
 # EF Core Property Mapping
 
-Entity Framework Core provides a range of options for configuring entity properties using the Fluent API. These options are available as methods that can be chained to the `EntityTypeBuilder.Property` method, which is available in  number of versions. Some take the name of the property to be configured as strings:
+Entity Framework Core provides a range of options for configuring entity properties using the Fluent API. These options are available as methods that can be chained to the `EntityTypeBuilder.Property` method, which is available in a number of versions. Some take the name of the property to be configured as strings:
 
 ```csharp
 protected override void OnModelCreating(ModelBuilder modelBuilder)
 {
-    modelBuilder.Entity<Entity>().Property(typeof(string), "PropertyName"))...
+    modelBuilder.Entity<Entity>().Property(typeof(string), "PropertyName")...
 }
 ```
 or 
@@ -45,7 +45,7 @@ Methods available for property configuration are detailed below. Note that a num
 +-------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 |[HasDefaultValueSql](/configuration/fluent-api/hasdefaultvaluesql-method)                  |Configures the default value expression for the database column that the property maps to
 +-------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-|[HasMaxLength](/configuration/fluent-api/hasmaxlength-method)                              |Specifies maximum length of  data that can be stored for strings or binary data (arrays)
+|[HasMaxLength](/configuration/fluent-api/hasmaxlength-method)                              |Specifies the maximum length of data that can be stored for strings or binary data (arrays)
 +-------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 |[IsConcurrencyToken](/configuration/fluent-api/isconcurrencytoken-method)                  |Denotes that the property takes part in concurrency management
 +-------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+

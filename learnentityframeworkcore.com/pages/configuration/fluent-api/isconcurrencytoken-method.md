@@ -3,7 +3,7 @@ title: The Fluent API IsConcurrencyToken Method
 description: Usage of the Fluent API IsConcurrencyToken Method in Entity Framework Core
 canonical: /configuration/fluent-api/isconcurrencytoken-method
 status: Published
-lastmod: 2023-02-27
+lastmod: 2025-07-11
 ---
 
 # EF Core IsConcurrencyToken
@@ -18,7 +18,7 @@ public class SampleContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Author>()
-            .Property(a => a.FirstName).IsConcurrencyToken()
+            .Property(a => a.FirstName).IsConcurrencyToken();
          modelBuilder.Entity<Author>()
             .Property(a => a.LastName).IsConcurrencyToken();
     } 
@@ -63,7 +63,7 @@ public class Author
 
 
 ### Data Annotations
-The Data Annotations equivalents are the `IsConcurrencyToken` method is the [ConcurrencyCheck attribute](/configuration/data-annotation-attributes/concurrencycheck-attribute) and the [Timestamp attribute](/configuration/data-annotation-attributes/timestamp-attribute).
+The Data Annotations equivalents to the `IsConcurrencyToken` method are the [ConcurrencyCheck attribute](/configuration/data-annotation-attributes/concurrencycheck-attribute) and the [Timestamp attribute](/configuration/data-annotation-attributes/timestamp-attribute).
 
 #### Further Reading
 - [Concurrency Management](/concurrency)

@@ -3,7 +3,7 @@ title: The Fluent API HasColumnName Method
 description: Usage of the Fluent API HasColumnName Method in Entity Framework Core
 canonical: /configuration/fluent-api/hascolumnname-method
 status: Published
-lastmod: 2023-02-26
+lastmod: 2025-07-11
 ---
 
 # EF Core HasColumnName
@@ -31,4 +31,4 @@ public class Book
 ```
 ### Data Annotations
 
-The data annotations equivalent to the `HasColumnName` method is the [Column attribute](/configuration/data-annotation-attributes/column-attribute).
+The Data Annotations equivalent to the `HasColumnName` method is the [Column attribute](/configuration/data-annotation-attributes/column-attribute).

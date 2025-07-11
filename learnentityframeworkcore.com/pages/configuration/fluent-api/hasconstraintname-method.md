@@ -3,14 +3,14 @@ title: The Fluent API HasConstraintName Method
 description: Usage of the Fluent API HasConstraintName Method in Entity Framework Core
 canonical: /configuration/fluent-api/hasconstraintname-method
 status: Published
-lastmod: 2023-02-26
+lastmod: 2025-07-11
 ---
 
 # EF Core HasConstraintName
 
 The Entity Framework Core Fluent API `HasConstraintName` method enables you to specify the name of the foreign key constraint for a relationship. 
 
-By default. EF Core will name a foreign key constraint according to the following pattern:
+By default, EF Core will name a foreign key constraint according to the following pattern:
 
 ```
 FK_<table name>_<principal table name>_<foreign key column name>

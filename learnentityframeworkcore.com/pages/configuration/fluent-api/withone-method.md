@@ -3,7 +3,7 @@ title: The Fluent API WithOne Method
 description: Usage of the Fluent API WithOne Method in Entity Framework Core
 canonical: /configuration/fluent-api/withone-method
 status: Published
-lastmod: 2023-02-26
+lastmod: 2025-07-11
 ---
 
 # EF Core WithOne
@@ -34,11 +34,11 @@ public class Employee
 A company _has many_ employees, each _with one_ company. That relationship is represented as follows:
 
 ```csharp
-protected override void OnModelCreating(Modelbuilder modelBuilder)
+protected override void OnModelCreating(ModelBuilder modelBuilder)
 {
     modelBuilder.Entity<Employee>()
-        .HasOne(e => e.Company);
-        .WithMany(c => c.Employees)
+        .HasOne(e => e.Company)
+        .WithMany(c => c.Employees);
         
 }
 ```

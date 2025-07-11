@@ -3,7 +3,7 @@ title: The Fluent API HasColumnType Method
 description: Meaning and usage of the Fluent API HasColumnType Method in Entity Framework Core
 canonical: /configuration/fluent-api/hascolumntype-method
 status: Published
-lastmod: 2023-02-26
+lastmod: 2025-07-11
 ---
 
 # EF Core HasColumnType
@@ -44,7 +44,7 @@ public class SampleContext : DbContext
     }
 }
 ```
-This example is taken from the [AdventureWorks sample database](https://msftdbprodsamples.codeplex.com/) for SQL server provided by Microsoft.
+This example is taken from the [AdventureWorks sample database](https://msftdbprodsamples.codeplex.com/) for SQL Server provided by Microsoft.
 
 Finally, the `HasColumnType` method can be used in instances where you might have used the EF 6 `HasPrecision` fluent API method, which has not been carried over to EF Core ([yet](https://github.com/dotnet/efcore/issues/11614)):
 
@@ -60,4 +60,4 @@ public class SampleContext : DbContext
 ```
 
 ### Data Annotations
-The data annotations approach to specifying the data type of the mapped column is to provide a value for the `TypeName` property of the [Column attribute](/configuration/data-annotation-attributes/column-attribute). 
+The Data Annotations approach to specifying the data type of the mapped column is to provide a value for the `TypeName` property of the [Column attribute](/configuration/data-annotation-attributes/column-attribute). 

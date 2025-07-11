@@ -1,12 +1,12 @@
 ---
-title: Type configuration in Entity Framework Core
+title: Type Configuration in Entity Framework Core
 description: Entity Framework Core provides a range of options for configuring types (entities) using the Fluent API
 canonical: /configuration/fluent-api/type-configuration
 status: Published
-lastmod: 2023-02-27
+lastmod: 2025-07-11
 ---
 
-# EF Core Type configuration
+# EF Core Type Configuration
 
 Entity Framework Core provides a range of options for configuring types (entities) using the Fluent API. These options are available as methods that can be chained to the `ModelBuilder.Entity()` method, which is available in generic and non-generic versions. The non-generic methods take the name or type of the entity to be configured:
 
@@ -49,7 +49,7 @@ Methods available for type configuration are detailed below.
 +----------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------+
 |[HasOne](/configuration/fluent-api/hasone-method)                     |Specifies the One end of a relationship
 +----------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------+
-|[Ignore](/configuration/fluent-api/ignore-method)                |Denotes that the entity should be omitted from mapping
+|[Ignore](/configuration/fluent-api/ignore-method)                |Denotes that the entity should be omitted from the mapping
 +----------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------+
 |[ToTable](/configuration/fluent-api/totable-method)                   |Specifies the database table that the entity should be mapped to
 +----------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------+

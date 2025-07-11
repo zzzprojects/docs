@@ -10,8 +10,6 @@ lastmod: 2023-02-27
 
 The Entity Framework Core Fluent API `HasMany` method is used to configure the _many_ side of a one-to-many relationship. The `HasMany` method must be used in conjunction with the `HasOne` method to fully configure a valid relationship, adhering to the [Has/With pattern](/configuration/fluent-api/haswith-pattern) for relationship configuration.
 
-
-
 The following model represents companies and employees with an [inverse navigation property defined](/configuration/one-to-many-relationship-configuration#inverse-navigation-property) in the dependent entity (`Employee`):
 
 ```csharp

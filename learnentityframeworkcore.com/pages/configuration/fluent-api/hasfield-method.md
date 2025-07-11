@@ -3,7 +3,7 @@ title: The Fluent API HasField method
 description:
 canonical: configuration/fluent-api/hasfield-method
 status: Published
-lastmod: 2023-02-27
+lastmod: 2025-07-11
 ---
 
 # EF Core HasField

@@ -3,12 +3,12 @@ title: EF Core ComplexProperty Method
 description: A Complex Type is a class that has no primary key defined. Complex Types are not currently implemented in Entity Framework Core.
 canonical: /configuration/fluent-api/complexproperty-method
 status: Published
-lastmod: 2023-10-24
+lastmod: 2025-07-11
 ---
 
 # EF Core Complex Property
 
-As of EF Core 8, it's now possible to specify a class or a structure as a [Complex Type](/model/complex-type). The following example specifies that the `Address` structure should be considered as a complex type:
+As of EF Core 8, it's now possible to specify a class or a struct as a [Complex Type](/model/complex-type). The following example specifies that the `Address` struct should be considered as a complex type:
 
 ```csharp
 public class Order

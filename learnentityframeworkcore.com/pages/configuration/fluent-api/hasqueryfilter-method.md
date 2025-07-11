@@ -3,7 +3,7 @@ title: The Fluent API HasQueryFilter Method
 description:
 canonical: /configuration/fluent-api/hasqueryfilter-method
 status: Published
-lastmod: 2023-02-27
+lastmod: 2025-07-11
 ---
 
 # EF Core HasQueryFilter
@@ -46,7 +46,7 @@ If you do not want to have the filter applied, use the `IgnoreQueryFilters` meth
 var stories = db.Stories.Include(s => s.Magazine).IgnoreQueryFilters();
 ```
 
-The next example shows how to use the query filter to automatically exclude products that have been flagged a discontinued from all queries. The model definition:
+The next example shows how to use the query filter to automatically exclude products that have been flagged as discontinued from all queries. The model definition:
 
 ```csharp
 public class Product
@@ -56,7 +56,7 @@ public class Product
     public bool Discontinued { get; set; }
 }
 ```
-Again, the query filter is applied in the `OnModelCreating` method, and will result in queries that reference the `Product` entity only returning hose that have not been discontinued:
+Again, the query filter is applied in the `OnModelCreating` method, and will result in queries that reference the `Product` entity only returning those that have not been discontinued:
 ```csharp
 protected override void OnModelCreating(ModelBuilder modelBuilder)
 {

@@ -3,7 +3,7 @@ title: The Fluent API OnDelete Method
 description: Usage of the Fluent API OnDelete Method in Entity Framework Core
 canonical: /configuration/fluent-api/ondelete-method
 status: Published
-lastmod: 2023-11-29
+lastmod: 2025-07-11
 ---
 
 # EF Core OnDelete
@@ -34,7 +34,7 @@ public class Book
     public string Title { get; set; }
 }
 ```
-Because there is no foreign key property in the dependant `Book` entity, EF Core will configure a nullable `AuthorId` foreign key column in the Books table with a referential constraint action of `Restrict`, which will translate to `NO ACTION` in SQL Server. The following example illustrates how to override that so that the foreign key field is set to null when the principal is deleted:
+Because there is no foreign key property in the dependent `Book` entity, EF Core will configure a nullable `AuthorId` foreign key column in the Books table with a referential constraint action of `Restrict`, which will translate to `NO ACTION` in SQL Server. The following example illustrates how to override that so that the foreign key field is set to null when the principal is deleted:
 ```csharp
 protected override void OnModelCreating(ModelBuilder modelBuilder)
 {
@@ -44,7 +44,7 @@ protected override void OnModelCreating(ModelBuilder modelBuilder)
         .OnDelete(DeleteBehavior.SetNull);
 }
 ```
-The next example illustrates how to configure the realtionship as required and to specify that dependant rows are deleted when the principal is deleted:
+The next example illustrates how to configure the relationship as required and to specify that dependent rows are deleted when the principal is deleted:
 ```csharp
 protected override void OnModelCreating(ModelBuilder modelBuilder)
 {
@@ -81,7 +81,7 @@ protected override void  OnModelCreating(ModelBuilder modelBuilder)
     modelBuilder.Entity<Property>()
         .HasMany(p => p.Tenants)
         .WithOne(t => t.Property)
-        .OnDelete(DeleteBehavior.SetNull)
+        .OnDelete(DeleteBehavior.SetNull);
 }
 ```
 

@@ -3,7 +3,7 @@ title: The Fluent API HasForeignKey Method
 description: Usage of the Fluent API HasForeignKey Method in Entity Framework Core
 canonical: /configuration/fluent-api/hasforeignkey-method
 status: Published
-lastmod: 2023-02-27
+lastmod: 2025-07-11
 ---
 
 # EF Core HasForeignKey
@@ -45,4 +45,4 @@ public class SampleContext : DbContext
 ```
 
 ### Data Annotations
-The data annotations equivalent to the `HasForeignKey` method is the [ForeignKey attribute](/configuration/data-annotation-attributes/foreignkey-attribute).
+The data annotations equivalent to the `HasForeignKey` method are the [ForeignKey attribute](/configuration/data-annotation-attributes/foreignkey-attribute).

@@ -3,7 +3,7 @@ title: Fluent API Configuration
 description: How to use the Entity Framework Core Fluent API to configure aspects of the model
 canonical: /configuration/fluent-api
 status: Published
-lastmod: 2023-02-27
+lastmod: 2025-07-11
 ---
 
 # EF Core Fluent API
@@ -53,7 +53,7 @@ Most examples in this guide show configurations being applied in the `OnModelCre
 
 In pre-.NET Core versions of Entity Framework, this is achieved by creating classes that derive from `EntityTypeConfiguration<TEntity>`, and then using Fluent API to override conventions in the class constructor. These classes are then added to the `DbModelBuilder`'s configuration in the `OnModelCreating` method. Prior to version 2.0 of Entity Framework Core, there was no equivalent to this approach and one had to roll one's own solution.
 
-In version 2.0, an new interface was introduced: `IEntityTypeConfiguration<TEntity>`. This is used in a similar way to `EntityTypeConfiguration<TEntity>` in that configurations are specified in separate entity-specific classes:
+In version 2.0, a new interface was introduced: `IEntityTypeConfiguration<TEntity>`. This is used in a similar way to `EntityTypeConfiguration<TEntity>` in that configurations are specified in separate entity-specific classes:
 
 ```csharp
 public class OrderConfiguration : IEntityTypeConfiguration<Order>
@@ -64,7 +64,7 @@ public class OrderConfiguration : IEntityTypeConfiguration<Order>
 	builder.Property(t => t.OrderDate)
             .IsRequired()
             .HasColumnType("Date")
-            .HasDefaultValueSql("GetDate())"
+            .HasDefaultValueSql("GetDate()");
     }
 }
 ```

@@ -3,7 +3,7 @@ title: The Fluent API HasKey Method
 description: Usage of the Fluent API HasKey Method in Entity Framework Core
 canonical: /configuration/fluent-api/haskey-method
 status: Published
-lastmod: 2023-02-27
+lastmod: 2025-07-11
 ---
 
 # EF Core HasKey
@@ -26,8 +26,8 @@ public class Order
     public int OrderNumber { get; set; }
     public DateTime DateCreated { get; set; }
     public Customer Customer { get; set; }
-    ...
-)
+    // ...
+}
 ```
 In the example above, the name of the key field in the `Order` class does not meet the [Entity Framework Core's naming convention for entity keys](/conventions#primary-key), so the `HasKey` method is used to configure the `OrderNumber` property as the key field. 
 
@@ -51,8 +51,8 @@ public class Order
     public int OrderNumber { get; set; }
     public DateTime DateCreated { get; set; }
     public Customer Customer { get; set; }
-    ...
-)
+    // ...
+}
 ```
 
 #### Data Annotation Attributes

@@ -3,7 +3,7 @@ title: The Fluent API ToTable Method
 description: Usage of the Fluent API ToTable Method in Entity Framework Core
 canonical: /configuration/fluent-api/totable-method
 status: Published
-lastmod: 2023-02-27
+lastmod: 2025-07-11
 ---
 
 # EF Core ToTable
@@ -18,7 +18,7 @@ public class SampleContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Book>()
-            .ToTable("tbl_Book`");
+            .ToTable("tbl_Book");
     }
 }
 

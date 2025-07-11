@@ -3,7 +3,7 @@ title: The Fluent API ToView Method
 description: Usage of the Fluent API ToView Method in Entity Framework Core
 canonical: /configuration/fluent-api/toview-method
 status: Published
-lastmod: 2023-02-27
+lastmod: 2025-07-11
 ---
 
 # EF Core ToView

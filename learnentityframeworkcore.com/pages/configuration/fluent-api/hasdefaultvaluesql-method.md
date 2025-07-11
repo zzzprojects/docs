@@ -3,7 +3,7 @@ title: The Fluent API HasDefaultValueSql Method
 description: Usage of the Fluent API HasDefaultValueSql Method in Entity Framework Core
 canonical: /configuration/fluent-api/hasdefaultvaluesql-method
 status: Published
-lastmod: 2023-02-26
+lastmod: 2025-07-11
 ---
 
 # EF Core HasDefaultValueSql
@@ -20,14 +20,14 @@ public class Contact
     public DateTime DateCreated { get; set; }
 }
 
-public clas SampleContext : DbContext
+public class SampleContext : DbContext
 {
     public DbSet<Contact> Contacts { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<Context>()
-            .Propery(p => p.DateCreated)
+        modelBuilder.Entity<Contact>()
+            .Property(p => p.DateCreated)
             .HasDefaultValueSql("GetUtcDate()");
     }
 }

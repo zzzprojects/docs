@@ -3,7 +3,7 @@ title: The Fluent API HasIndex Method
 description: Usage of the Fluent API HasIndex Method in Entity Framework Core
 canonical: /configuration/fluent-api/hasindex-method
 status: Published
-lastmod: 2023-02-27
+lastmod: 2025-07-11
 ---
 
 # EF Core HasIndex
@@ -45,15 +45,17 @@ protected override void OnModelCreating(ModelBuilder modelBuilder)
 While similar in most practical aspects, this is not the same as creating a unique constraint on the column, which can be achieved by [creating an alternate key](/configuration/fluent-api/hasalternatekey-method) on the property.
 
 You can also provide your own name for the index by chaining a call to the `HasName` method:
+
 ```csharp
 protected override void OnModelCreating(ModelBuilder modelBuilder)
 {
     modelBuilder.Entity<Book>()
         .HasIndex(b => b.Isbn)
-        .IsUnique();
+        .IsUnique()
         .HasName("MyIndexName");
 }
 ```
+
 ### Clustered Index
 Depending on the database provider that you are using, you may be able to specify that an index should be clustered. For example, if you are using MS SQL Server, the provider introduces an extension method, `ForSqlServerIsClustered`
 ```csharp
@@ -61,7 +63,7 @@ protected override void OnModelCreating(ModelBuilder modelBuilder)
 {
     modelBuilder.Entity<Book>()
         .HasIndex(b => b.Isbn)
-        .IsUnique();
+        .IsUnique()
         .ForSqlServerIsClustered();
 }
 ```
@@ -90,4 +92,4 @@ public class Patient
 }
 ```
 ### Data Annotations
-The equivalent Data Annotation Attribute to the `HasIndex` method is the [Index attribute](/configuration/data-annotation-attributes/index-attribute)
+The equivalent Data Annotation Attribute to the `HasIndex` method is the [Index attribute](/configuration/data-annotation-attributes/index-attribute).

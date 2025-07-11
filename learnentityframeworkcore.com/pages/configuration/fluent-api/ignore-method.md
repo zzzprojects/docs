@@ -3,7 +3,7 @@ title: The Fluent API Ignore Method
 description: Usage of the Fluent API Ignore Method in Entity Framework Core
 canonical: /configuration/fluent-api/ignore-method
 status: Published
-lastmod: 2023-02-27
+lastmod: 2025-07-11
 ---
 
 # EF Core Ignore
@@ -42,7 +42,7 @@ public class AuditLog
 
 ## EF Core Ignore Property
 
-The `Ignore` method is usd to specify that the auto-implemented `FullName` property in the `Contact` class below is excluded from mapping:
+The `Ignore` method is used to specify that the auto-implemented `FullName` property in the `Contact` class below is excluded from mapping:
 
 ```csharp
 public class SampleContext : DbContext

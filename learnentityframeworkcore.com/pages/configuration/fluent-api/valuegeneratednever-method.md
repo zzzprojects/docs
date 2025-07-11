@@ -3,12 +3,12 @@ title: The Fluent API ValueGeneratedNever Method
 description: Usage of the Fluent API ValueGeneratedNever Method in Entity Framework Core
 canonical: /configuration/fluent-api/valuegeneratednever-method
 status: Published
-lastmod: 2023-02-27
+lastmod: 2025-07-11
 ---
 
 # EF Core ValueGeneratedNever
 
-The Entity Framework Core Fluent API `ValueGeneratedNever` provides a way to specify that the value for the selected property should never be generated automtically by the database. This is useful if you want to circumvent the database's default behaviour.
+The Entity Framework Core Fluent API `ValueGeneratedNever` provides a way to specify that the value for the selected property should never be generated automatically by the database. This is useful if you want to circumvent the database's default behaviour.
 
 ```csharp
 public class SampleContext : DbContext
@@ -31,7 +31,7 @@ public class SampleContext : DbContext
     }
 }
 ``` 
-Entity Framework Core does not implement a value generation strategy. Database providers differ in the way that values are automatically generated. Some will generated values for selected data types such as `Identity`, `rowversion`, `GUID`. Others may require manual configuration such as setting default values or triggers. 
+Entity Framework Core does not implement a value generation strategy. Database providers differ in the way that values are automatically generated. Some will generate values for selected data types such as `Identity`, `rowversion`, `GUID`. Others may require manual configuration such as setting default values or triggers. 
 
 ### Data Annotations
 

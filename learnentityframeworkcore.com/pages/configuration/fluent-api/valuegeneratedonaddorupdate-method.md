@@ -3,7 +3,7 @@ title: The Fluent API ValueGeneratedOnAddOrUpdate Method
 description: Usage of the Fluent API ValueGeneratedOnAddOrUpdate Method in Entity Framework Core
 canonical: /configuration/fluent-api/valuegeneratedonaddorupdate-method
 status: Published
-lastmod: 2023-02-26
+lastmod: 2025-07-11
 ---
 
 # EF Core ValueGenerated OnAddOrUpdate
@@ -33,7 +33,7 @@ public class SampleContext : DbContext
     }
 }
 ``` 
-Entity Framework Core does not implement a value generation strategy. Database providers differ in the way that values are automatically generated. Some will generated values for selected data types such as `Identity`, `rowversion`, `GUID`. Others may require manual configuration such as setting default values or triggers. 
+Entity Framework Core does not implement a value generation strategy. Database providers differ in the way that values are automatically generated. Some will generate values for selected data types such as `Identity`, `rowversion`, `GUID`. Others may require manual configuration such as setting default values or triggers. 
 
 If you set a value for the property configured as `ValueGeneratedOnAddOrUpdate` while the entity is being tracked by the context, the property and the value that you set will be included in any `INSERT` and `UPDATE` statements. This value may be saved in the database, depending on how you have configured your value generation strategy. This is only applicable if the value that you provide is not the CLR default value for the data type of the property.
 
