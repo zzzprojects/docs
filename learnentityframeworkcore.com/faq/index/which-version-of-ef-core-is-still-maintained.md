@@ -4,7 +4,7 @@ position: 3
 title: Which version of EF Core is still maintained?
 ---
 
-EF Core support is moving fast. It looks like they have the same [release lifecycle](https://dotnet.microsoft.com/en-us/platform/support/policy/dotnet-core) as .NET
+The EF Core support is moving fast. It looks like they have the same [release lifecycle](https://dotnet.microsoft.com/en-us/platform/support/policy/dotnet-core) as .NET
 
 Supported Version:
 
@@ -15,7 +15,7 @@ Supported Version:
 Unsupported Version:
 
 - EF Core 5 (support ended on May 10, 2022)
-- EF Core 3.1 (support ended on December 13, 2022 but still not marked as legacy on NuGet)
+- EF Core 3.1 (support ended on December 13, 2022, but still not marked as legacy on NuGet)
 - EF Core 3.0
 - EF Core 2.0
 - EF Core 1.0

@@ -8,12 +8,12 @@ With Package Manager Console:
 
 1. **Delete your database**: `drop-database`
 2. **Delete your migrations**: Delete all migrations manually in your project.
-3. **Update connection string**: Change your connection string if needed (if you use a new database name)
+3. **Update connection string**: Change your connection string if needed (e.g., if you use a new database name)
 4. **Add the first migration**: `add-migration [name]`
 
 With Command Line:
 
 1. **dotnet ef database drop**: `drop-database`
 2. **Delete your migrations**: Delete all migrations manually in your project.
-3. **Update connection string**: Change your connection string if needed (if you use a new database name)
+3. **Update connection string**: Change your connection string if needed (e.g., if you use a new database name)
 4. **Add the first migration**: `dotnet ef migrations add [name]`

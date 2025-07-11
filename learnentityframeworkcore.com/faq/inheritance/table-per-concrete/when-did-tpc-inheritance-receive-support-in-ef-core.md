@@ -4,4 +4,4 @@ position: 1
 title: When did TPC inheritance receive support in EF Core?
 ---
 
-EF Core support TPC inheritance starting from EF Core 7.0
+EF Core supports TPC inheritance starting from EF Core 7.0

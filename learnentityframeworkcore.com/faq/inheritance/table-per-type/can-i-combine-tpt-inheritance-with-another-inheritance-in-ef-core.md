@@ -4,4 +4,4 @@ position: 5
 title: Can I combine TPT inheritance with another inheritance in EF Core?
 ---
 
-No, It's impossible to combine inheritance.
+No, it's impossible to combine inheritance strategies.

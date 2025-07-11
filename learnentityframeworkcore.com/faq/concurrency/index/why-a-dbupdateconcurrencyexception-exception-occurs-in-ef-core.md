@@ -1,7 +1,7 @@
 ---
 id: 8fafbb3c-0d73-4b9c-b6ef-5a5b3cabb459
 position: 2
-title: Why a DbUpdateConcurrencyException exception occurs in EF Core?
+title: Why a DbUpdateConcurrencyException occurs in EF Core?
 ---
 
 In EF Core, a `DbUpdateConcurrencyException` occurs to ensure that multiple users don't overwrite each other's data due to the optimistic concurrency strategy.

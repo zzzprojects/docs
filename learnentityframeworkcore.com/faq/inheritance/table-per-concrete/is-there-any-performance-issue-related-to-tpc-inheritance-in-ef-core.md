@@ -28,4 +28,4 @@ WHERE [predicate]
 
 There is no problem if you have only 2 or 3 tables, but if you implement a strategy with many concrete classes, you might end up with some performance issues when querying.
 
-That is one of the reasons why this is recommended to only have 2 or 3 concrete classes in the TPC strategy.
+That is one of the reasons why it is recommended to only have 2 or 3 concrete classes in the TPC strategy.

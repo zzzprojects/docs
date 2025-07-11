@@ -15,4 +15,4 @@ title: Which version of EF Core is compatible with which version of .NET?
 
 NOTE: Only EF Core 3.1 still supports the .NET Framework
 
-We do not recommand to use any version below EF Core 3.1
+We do not recommend using any version below EF Core 3.1

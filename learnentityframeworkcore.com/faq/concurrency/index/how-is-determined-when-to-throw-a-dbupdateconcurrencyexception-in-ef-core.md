@@ -10,7 +10,7 @@ Here is a more detailed answer:
 
 1. **Concurrency Tokens**: When defining your entity model, you can mark a property as a concurrency token:
    - With the [[ConcurrencyCheck]](https://www.learnentityframeworkcore.com/configuration/data-annotation-attributes/concurrencycheck-attribute) data annotation
-   - With the [[TimeStamp]](https://www.learnentityframeworkcore.com/configuration/data-annotation-attributes/timestamp-attribute) data annoation
+   - With the [[TimeStamp]](https://www.learnentityframeworkcore.com/configuration/data-annotation-attributes/timestamp-attribute) data annotation
    - With the [IsConcurrencyToken()](https://www.learnentityframeworkcore.com/configuration/fluent-api/isconcurrencytoken-method) fluent API
    - With the [IsRowVersion()](https://www.learnentityframeworkcore.com/configuration/fluent-api/isrowversion-method) fluent API
 2. **Database Operations**: When performing an update or delete operation, EF Core includes these concurrency tokens in the SQL `WHERE` clause. 

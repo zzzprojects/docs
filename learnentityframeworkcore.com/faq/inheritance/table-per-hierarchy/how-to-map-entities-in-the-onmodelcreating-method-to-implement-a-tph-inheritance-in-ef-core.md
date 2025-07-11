@@ -25,5 +25,5 @@ In this configuration:
 
 - The `Animal` is an abstract class, meaning you don't map it to a table. 
 - The `.HasDiscriminator<string>("DiscriminatorColumnName")` will create a column name named `DiscriminatorColumnName` of type `string`.
-- The `HasValue<Cat>("Cat")` map the `Cat` type to the discriminator value `Cat`.
-- The `HasValue<Dog>("Dog")` map the `Dog` type to the discriminator value `Dog`.
+- The `HasValue<Cat>("Cat")` maps the `Cat` type to the discriminator value `Cat`.
+- The `HasValue<Dog>("Dog")` maps the `Dog` type to the discriminator value `Dog`.
