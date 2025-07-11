@@ -3,12 +3,12 @@ title: The StringLength Attribute
 description: Usage of the StringLength Attribute in Entity Framework Core
 canonical: /configuration/data-annotation-attributes/stringlength-attribute
 status: Published
-lastmod: 2023-02-28
+lastmod: 2025-07-11
 ---
 
 # EF Core StringLength Attribute
 
-The `StringLength` attribute is applied to a property to specify a maximum number of characters or bytes for the column that the property should map to. The following example specifies that the `Title` column in the Books table is to be have a maximum length of 150 characters instead of the default which is unlimited:
+The `StringLength` attribute is applied to a property to specify a maximum number of characters or bytes for the column that the property should map to. The following example specifies that the `Title` column in the Books table is to have a maximum length of 150 characters instead of the default which is unlimited:
 
 ```csharp
 public class Book

@@ -3,7 +3,7 @@ title: Configuration In Entity Framework Core
 description: Configuration enables you to override Entity Framework Core's default behaviour in respect of mapping entities and their properties and relationships to a relational database
 canonical: /configuration/
 status: Published
-lastmod: 2023-02-25
+lastmod: 2025-07-11
 ---
 # EF Core Configuration
 
@@ -50,7 +50,7 @@ Data Annotation attributes can only provide a subset of configuration options. I
 
 ## Fluent API
 
-Configuration is applied to entities or their properties via chained methods, which is the identifiying feature of the _Fluent API_ pattern.
+Configuration is applied to entities or their properties via chained methods, which is the identifying feature of the _Fluent API_ pattern.
 
 #### Pros
 

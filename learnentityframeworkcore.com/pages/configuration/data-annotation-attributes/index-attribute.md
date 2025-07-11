@@ -3,7 +3,7 @@ title: The Index attribute in Entity Framework Core
 description: The Entity Framework Core `IndexAttribute` was introduced in .NET 5 and is used to create a database index on the column mapped to the specified entity property.
 canonical: /configuration/data-annotation-attributes/index-attribute
 status: Published
-lastmod: 2023-02-28
+lastmod: 2025-07-11
 ---
 
 # EF Core Index Attribute
@@ -34,7 +34,7 @@ public class Book
 
 ### Multi-Column Index
 
-If you wish to apply an index on more than one column, you specify them as a comma separate value.
+If you wish to apply an index on more than one column, you specify them as a comma separated value.
 
 ```csharp
 [Index(nameof(Ssn),nameof(DateOfBirth))]
@@ -47,7 +47,7 @@ public class Patient
 ```
 ### Index Name
 
-The name of the generated index follows the patter IX_<type name>_<property name> by default. You can alter this using the Name property of the Index attribute:
+The name of the generated index follows the pattern IX_<type name>_<property name> by default. You can alter this using the Name property of the Index attribute:
 
 ```csharp
 [Index(nameof(Isbn), IsUnique=true, Name="Unique_Isbn")]

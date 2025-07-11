@@ -3,12 +3,12 @@ title: EF Core Bulk Insert Extensions
 description: Entity Framework Extensions BulkInsert method provides the ability to efficiently insert a list of objects. It uses the same pattern as EF Core's AddRange, but much faster.
 canonical: /bulk-extensions/bulk-insert
 status: Published
-lastmod: 2023-03-02
+lastmod: 2025-07-10
 ---
 
 # EF Core Bulk Insert
 
-EF Core provides the `Add` and `AddRange` methods for inserting data. However, a database roundtrip is required for every data you insert. While the performance is better in EF Core than the old EF6, the solution become very inefficient when you need to insert thousands of entities.
+EF Core provides the `Add` and `AddRange` methods for inserting data. However, a database roundtrip is required for every data you insert. While the performance is better in EF Core than the old EF6, the solution becomes very inefficient when you need to insert thousands of entities.
 
 The **fastest way of inserting** multiple data is by using the [Entity Framework Extensions](https://entityframework-extensions.net/) third-party library.
 
@@ -16,7 +16,7 @@ Depending on the provider, performance can be increased by up to **50x faster** 
 
 ## Bulk Extensions Insert
 
-The `BulkInsert` extensions method is a feature provided by the [Entity Framework Extensions](https://entityframework-extensions.net/) library for inserting a large number of entities into a database in a single operation. This method can improve the performance of inserting large amounts of data into a database by reducing the number of database round-trips required.
+The `BulkInsert` extension method is a feature provided by the [Entity Framework Extensions](https://entityframework-extensions.net/) library for inserting a large number of entities into a database in a single operation. This method can improve the performance of inserting large amounts of data into a database by reducing the number of database round-trips required.
 
 The `BulkInsert` method can be used in conjunction with the `DbContext` or the `DbSet`, and it accepts a collection of entities as a parameter. The method internally uses the underlying database provider's bulk insert feature, such as `SqlBulkCopy` for SQL Server, to perform the operation.
 

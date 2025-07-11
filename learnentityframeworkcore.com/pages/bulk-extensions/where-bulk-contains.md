@@ -1,16 +1,16 @@
 ---
 title: EF Core Where Bulk Contains
-description: The WhereBulkContains method let you filter a LINQ query by including all items from an existing list.
+description: The WhereBulkContains method lets you filter a LINQ query by including all items from an existing list.
 canonical: /bulk-extensions/where-bulk-contains
 status: Published
-lastmod: 2023-03-02
+lastmod: 2025-07-11
 ---
 
 # EF Core Where Bulk Contains
 
 [Entity Framework Extensions](https://entityframework-extensions.net/) provides the `WhereBulkContains` extension method that allows you to filter a LINQ query by including all items from an existing list.
 
-For example, you have a list of `Customer` with the `CustomerID` and a few other properties populated. Then you want to retrieve those authors from the database to update those properties.
+For example, you have a list of `Customer` with the `CustomerID` and a few other properties populated. Then you want to retrieve those customers from the database to update those properties.
 
 The `WhereBulkContains` method will filter entities to include those contained in the list.
 

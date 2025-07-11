@@ -3,7 +3,7 @@ title: Learn Entity Framework Core - Getting Started EF Core Tutorial
 description: Getting started with Entity Framework Core with tutorials and documentation
 canonical: /
 status: Published
-lastmod: 2024-08-30
+lastmod: 2025-07-10
 ---
 
 # What is Entity Framework Core?
@@ -58,10 +58,10 @@ Entity Framework Core (EF Core) has several features that make it a powerful and
  - **Support for multiple databases**: EF Core supports a wide range of relational databases including SQL Server, MySQL, MariaDB, SQLite, and PostgreSQL.
  - **Migrations**: EF Core has built-in support for creating and managing database migrations, which allows for easy management of database changes over time.
  - **Performance improvements**: EF Core has been optimized for performance and can handle large datasets efficiently.
- - **Modeling**: Support for [Complex Type](/model/complex-type) and Owned Type.
+ - **Modeling**: Support for [Complex Type](/model/complex-type) and owned types.
  - **Relationships**: Support for [one-to-one](/conventions/one-to-one-relationship), [one-to-many](/conventions/one-to-many-relationship), and [many-to-many](/conventions/many-to-many-relationship)
  - **Inheritance**: Support for [TPC](/inheritance/table-per-concrete), [TPH](/inheritance/table-per-hierarchy), and [TPT](/inheritance/table-per-type)
- - Support for Client-evaluation and Lazy Loading.
+ - Support for client evaluation and Lazy Loading.
  - Support for explicit loading, change tracking, and caching.
 
 ## Strong Typing

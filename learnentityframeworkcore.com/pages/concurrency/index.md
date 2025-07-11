@@ -4,7 +4,7 @@ description: Entity Framework Core provides support for optimistic concurrency m
 canonical: /concurrency
 proficiencylevel: Intermediate
 status: Published
-lastmod: 2023-08-22
+lastmod: 2025-07-11
 ---
 
 # EF Core Concurrency
@@ -17,7 +17,7 @@ In many cases, there is only one version of the truth, so it doesn't matter if o
 
 ### Pessimistic Concurrency 
 
-_Pessimistic concurrency_ involves locking database records to prevent other users from being able to access/change them until the lock is released, much like when two users attempt to open the same file on a network share. However, the ability to lock records is not supported by all databases and can be complex to the program as well as highly resource intensive. It is simply not practical at all in disconnected scenarios such as web applications. Entity Framework Core provides no support for pessimistic concurrency control.
+_Pessimistic concurrency_ involves locking database records to prevent other users from being able to access/change them until the lock is released, much like when two users attempt to open the same file on a network share. However, the ability to lock records is not supported by all databases and can be complex to program as well as highly resource intensive. It is simply not practical at all in disconnected scenarios such as web applications. Entity Framework Core provides no support for pessimistic concurrency control.
 
 
 ### Optimistic Concurrency
@@ -67,7 +67,7 @@ Any existing properties that have been configured as concurrency tokens will be 
 
 > Database operation expected to affect 1 row(s) but actually affected 0 row(s). Data may have been modified or deleted since entities were loaded. 
 
-The concurrency token configuration can be applied to as many non-primary key properties as needed. Care needs to be taken as this approach can lead to very long `WHERE` clauses, or a lot of data being passed into them especially if any of the properties being configured as concurrency tokens are unlimited string values as is illustrated where, where the `Biography` field has been included as a concurrency token:
+The concurrency token configuration can be applied to as many non-primary key properties as needed. Care needs to be taken as this approach can lead to very long `WHERE` clauses, or a lot of data being passed into them especially if any of the properties being configured as concurrency tokens are unlimited string values as is illustrated where the `Biography` field has been included as a concurrency token:
 
 ![Entity Framework Core Concurrency Management](/images/23-09-2016-09-22-43.png)
 

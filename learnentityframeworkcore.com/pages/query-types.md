@@ -3,14 +3,14 @@ title: Entity Framework Core Query Types
 description: Query Types represent non-entity types that can be returned from database queries that are mapped to database tables or views without an identity column. 
 canonical: query-types
 status: Published
-lastmod: 2023-02-11
+lastmod: 2025-07-10
 ---
 
 # EF Core Query Type
 
 _This feature was added in EF Core 2.1_
 
-Query types are non-entity types (classes) that form part of the conceptual model and can be mapped to tables and views that don't have an identity column specified, or to a `DbQuery` type. As such, they can be used in several scenarios:
+Query types are non-entity types (classes) that form part of the conceptual model and can be mapped to tables and views that don't have an Identity column specified, or to a `DbQuery` type. As such, they can be used in several scenarios:
 
 - They can represent ad hoc types returned from [`FromSql` method calls](/raw-sql#dbset.fromsql)
 - They enable mapping to views
@@ -20,7 +20,7 @@ Importantly, since they do not need to have a key value specified, query types d
 
 ## Mapping to DbQuery
 
-The `DbQuery` type was introduced in EF Core 2.1. along with query types. A `DbQuery` is a property on the `DbContext` that acts similarly to a `DbSet`, providing a root for LINQ queries. However, it doesn't enable operations that write to the database e.g. `Add`. The `DbQuery` maps to a table or view. To illustrate how the `DbQuery` works, here is a simple model representing customers and their orders:
+The `DbQuery` type was introduced in EF Core 2.1. along with query types. A `DbQuery` is a property on the `DbContext` that acts similarly to a `DbSet`, providing a root for LINQ queries. However, it doesn't enable operations that write to the database e.g., `Add`. The `DbQuery` maps to a table or view. To illustrate how the `DbQuery` works, here is a simple model representing customers and their orders:
 
 
 ```csharp
@@ -140,7 +140,7 @@ var orderHeaders = db.Query<OrderHeader>().ToList();
 ```
 ## Relationships
 
-Query types can take part in relationships as navigational property, but the query type cannot form the principal in the relationship. The key property of the principal end of the relationship needs to be included in the table or view represented by the query type so that a SQL join can be made:
+Query types can take part in relationships as navigation properties, but the query type cannot form the principal in the relationship. The key property of the principal end of the relationship needs to be included in the table or view represented by the query type so that a SQL join can be made:
 
 ```sql
 select      c.Name as CustomerName, 
@@ -154,7 +154,7 @@ from        OrderItems  oi
 group by oi.OrderId, c.Name, o.DateCreated
 ```
 
-Then the `Customer` entity must be included as a navigational property:
+Then the `Customer` entity must be included as a navigation property:
 
 ```csharp
 public class OrderHeader
@@ -188,6 +188,6 @@ var orderHeaders = db.OrderHeaders.FromSql(
                     inner join Customers c on o.CustomerId = c.CustomerId
                     group by oi.OrderId, c.Name, o.DateCreated");
 ```
-If one of the properties of the query type is a complex type, such as the `Customer` property in the previous example, you must include columns for all of the complex type's properties, too. 
+If one of the properties of the query type is a complex type, such as the `Customer` property in the previous example, you must include columns for all of the complex type's properties too. 
 
 The main benefit of this approach is that you do not have to create a View or Table in the database to represent a non-entity type. 

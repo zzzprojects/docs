@@ -3,7 +3,7 @@ title: EF Core Bulk Delete Extensions
 description: Entity Framework Extensions BulkDelete allows you to delete entities from the database in a single roundtrip. This is especially useful when deleting large amounts of entities from the database in one go, as it eliminates multiple trips to the database for each entity that needs to be deleted.
 canonical: /bulk-extensions/bulk-delete
 status: Published
-lastmod: 2023-03-02
+lastmod: 2025-07-10
 ---
 
 # EF Core Bulk Delete
@@ -16,18 +16,18 @@ This library is very fast and offers hundreds of features and all other bulk ope
 
 ## Bulk Extensions Delete
 
-[Entity Framework Extensions](https://entityframework-extensions.net/) provides the `BulkDelete` extension method can be used to efficiently delete large amounts of data from a database.
+[Entity Framework Extensions](https://entityframework-extensions.net/) provides the `BulkDelete` extension method that can be used to efficiently delete large amounts of data from a database.
 
 By default, you only need to pass your entities in the parameter, and the library will find the primary key from your database.
 
 ```csharp
 using (var context = new MyDbContext())
 {
-    context.BulkDelete(customerToDeletes);
+    context.BulkDelete(customersToDelete);
 }
 ```
 
-In this example, the `BulkDelete` method is used to delete all customers from `customerToDeletes`. The `BulkDelete` method is much faster than deleting entities one by one, so it's ideal for large-scale deletions.
+In this example, the `BulkDelete` method is used to delete all customers from `customersToDelete`. The `BulkDelete` method is much faster than deleting entities one by one, so it's ideal for large-scale deletions.
 
 ## Note
 

@@ -3,7 +3,7 @@ title: Data Annotations Attributes
 description: Data Annotations Attributes offer a way to configure Entity Framework Core when the model and the database do not follow convention
 canonical: /configuration/data-annotation-attributes
 status: Published
-lastmod: 2023-10-24
+lastmod: 2025-07-11
 ---
 
 # EF Core Data Annotations
@@ -22,7 +22,7 @@ Attributes are a kind of tag that you can place on a class or property to specif
 |[DatabaseGenerated](/configuration/data-annotation-attributes/databasegenerated-attribute)| Specifies how the database generates values for a property. |
 |[NotMapped](/configuration/data-annotation-attributes/notmapped-attribute)  | Applied to properties or classes that are to be excluded from database mapping. |
 |[InverseProperty](/configuration/data-annotation-attributes/inverseproperty-attribute)| Specifies the inverse of a navigation property. |
-|[ComplexType](/configuration/data-annotation-attributes/complextype-attribute)  | Sepcify the class or structure is a complex type.  |
+|[ComplexType](/configuration/data-annotation-attributes/complextype-attribute)  | Specifies the class or structure is a complex type.  |
 
 
 

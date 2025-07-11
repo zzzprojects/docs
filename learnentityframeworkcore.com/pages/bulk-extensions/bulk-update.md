@@ -3,7 +3,7 @@ title: EF Core Bulk Update
 description: Entity Framework Extensions BulkUpdate method allows us to perform bulk updates in a single database call. It supports updating all the records in a collection as well as specific records that match certain criteria.
 canonical: /bulk-extensions/bulk-update
 status: Published
-lastmod: 2023-03-02
+lastmod: 2025-07-11
 ---
 
 # EF Core Bulk Update
@@ -14,7 +14,7 @@ When you are using Entity Framework Core, and you want to update data then you c
  2. **Modify the entity's properties:** Once the entity is loaded, you can modify its properties as needed.
  3. **Call SaveChanges:** After making the desired changes to the entity, you need to call the `SaveChanges` method of the `DbContext` to persist the changes to the database.
 
-Here is a basic example of how you can use the Update method of DBContext to perform bulk updates in Entity Framework Core:
+Here is a basic example of how you can use the `Update` method of DbContext to perform bulk updates in Entity Framework Core:
 
 ```csharp
 using (var context = new MyDbContext())

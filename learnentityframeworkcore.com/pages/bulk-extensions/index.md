@@ -1,9 +1,9 @@
 ---
 title: EF Core BulkExtensions, Bulk Insert, Update, Delete, Read, SaveChanges
-description: Learn to use Bulk Extensions in EF Core. Improve your .net core performance with bulk extensions methods.
+description: Learn to use Bulk Extensions in EF Core. Improve your .NET Core performance with bulk extensions methods.
 canonical: /bulk-extensions
 status: Published
-lastmod: 2025-03-28
+lastmod: 2025-07-11
 ---
 
 # Bulk Extensions with EF Core

@@ -1,9 +1,9 @@
 ---
 title: EF Core ComplexType Attribute
-description: A Complex Type is a class that has no primary key defined. Complex Types has been added in EF Core 8
+description: A Complex Type is a class that has no primary key defined. Complex Types have been added in EF Core 8
 canonical: /configuration/data-annotation-attributes/complextype-attribute
 status: Published
-lastmod: 2023-10-24
+lastmod: 2025-07-11
 ---
 
 # EF Core ComplexType Attribute
@@ -36,7 +36,7 @@ public class Address
 }
 ```
 
-One particularity of the complex type is that you also have to mark complex property as [Required](/configuration/data-annotation-attributes/required-attribute)
+One particularity of the complex type is that you also have to mark the complex property as [Required](/configuration/data-annotation-attributes/required-attribute)
 
 #### Fluent API
 

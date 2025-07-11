@@ -3,7 +3,7 @@ title: Configuring One To One Relationship In Entity Framework Core
 description: How to configure one-to-one relationships using the Fluent API in Entity Framework Core
 canonical: /configuration/one-to-one-relationship-configuration
 status: Published
-lastmod: 2023-02-25
+lastmod: 2025-07-11
 ---
 
 # EF Core One To One Relationship
@@ -12,7 +12,7 @@ Entity Framework Core configures one-to-one relationships by being able to detec
 
 > The child/dependent side could not be determined for the one-to-one relationship that was detected between '<entity1.property2>' and '<entity2.property1>'. To identify the child/dependent side of the relationship, configure the foreign key property.
 
-In the following model, the `AuthorRef` foreign key property in the `AuthorBiography` entity (the dependant in the relationship) does not follow foreign key naming convention:
+In the following model, the `AuthorRef` foreign key property in the `AuthorBiography` entity (the dependent in the relationship) does not follow foreign key naming convention:
 
 ```csharp
 public class Author

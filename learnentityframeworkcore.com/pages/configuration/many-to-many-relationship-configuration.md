@@ -3,7 +3,7 @@ title: Configuring Many To Many Relationship in Entity Framework Core
 description: How to configure a many-to-many relationship in Entity Framework Core
 canonical: /configuration/many-to-many-relationship-configuration
 status: Published
-lastmod: 2023-02-25
+lastmod: 2025-07-11
 ---
 
 # EF Core Many To Many Relationship
@@ -31,7 +31,7 @@ public class Category
     public ICollection<Book> Books { get; set; }
 }
 ```
-In previous versions of Entity Framework, this model definition was sufficient for EF to imply the correct type of relationship and to generate the join table for it. In EF Core up to and including 3.x,  it is necessary to include an entity in the model to represent the join table, and then add navigation properties to either side of the many-to-many relations that point to the joining entity instead:
+In previous versions of Entity Framework, this model definition was sufficient for EF to imply the correct type of relationship and to generate the join table for it. In EF Core up to and including 3.x,  it is necessary to include an entity in the model to represent the join table, and then add navigation properties to either side of the many-to-many relationships that point to the joining entity instead:
 
 ```csharp
 public class Book

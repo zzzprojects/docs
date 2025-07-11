@@ -3,7 +3,7 @@ title: Configuring one-to-many Relationship in Entity Framework Core
 description: How to use the Fluent API to configure one-to-many relationships in Entity Framework Core
 canonical: /configuration/one-to-many-relationship-configuration
 status: Published
-lastmod: 2023-02-25
+lastmod: 2025-07-11
 ---
 
 # EF Core One To Many Relationship
@@ -35,7 +35,7 @@ public class Employee
 A company has many employees, each with one company. That relationship is represented as follows:
 
 ```csharp
-protected override void OnModelCreating(Modelbuilder modelBuilder)
+protected override void OnModelCreating(ModelBuilder modelBuilder)
 {
     modelBuilder.Entity<Company>()
         .HasMany(c => c.Employees)
@@ -45,7 +45,7 @@ protected override void OnModelCreating(Modelbuilder modelBuilder)
 It can also be configured by starting with the other end of the relationship:
 
 ```csharp
-protected override void OnModelCreating(Modelbuilder modelBuilder)
+protected override void OnModelCreating(ModelBuilder modelBuilder)
 {
     modelBuilder.Entity<Employee>()
         .HasOne(e => e.Company)
@@ -59,7 +59,7 @@ Whether starting with the `Company` or `Employee` entity, this configuration wil
 You can use the `IsRequired` method on the relationship to prevent the relationship from being optional:
 
 ```csharp
-protected override void OnModelCreating(Modelbuilder modelBuilder)
+protected override void OnModelCreating(ModelBuilder modelBuilder)
 {
     modelBuilder.Entity<Company>()
         .HasMany(c => c.Employees)
@@ -77,7 +77,7 @@ If the relationship is configured as optional, the default behavior of EF Core i
 You can alter this behavior through the `OnDelete` method which takes a `DeleteBehaviour` enumeration. The following example sets the foreign key value of the dependent entity to `null` in the event that the principal is deleted:
 
 ```csharp
-protected override void OnModelCreating(Modelbuilder modelBuilder)
+protected override void OnModelCreating(ModelBuilder modelBuilder)
 {
     modelBuilder.Entity<Company>()
         .HasMany(c => c.Employees)
@@ -87,7 +87,7 @@ protected override void OnModelCreating(Modelbuilder modelBuilder)
 ```
 This example will result in the dependent entity being deleted:
 ```csharp
-protected override void OnModelCreating(Modelbuilder modelBuilder)
+protected override void OnModelCreating(ModelBuilder modelBuilder)
 {
     modelBuilder.Entity<Company>()
         .HasMany(c => c.Employees)

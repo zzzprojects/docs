@@ -3,12 +3,12 @@ title: Lazy Loading Related Data In Entity Framework Core
 description: Lazy Loading In Entity Framework Core 
 canonical: /lazy-loading
 status: Published
-lastmod: 2023-02-11
+lastmod: 2025-07-10
 ---
 
 # EF Core Lazy Loading
 
-Lazy loading of data is a pattern whereby the retrieval of data from the database is deferred until it is needed. This sounds like a good thing, and in some scenarios, this can help to improve the performance of an application. In other scenarios, it can degrade the performance of an application substantially, particularly so in web applications. For this reason, lazy Loading was introduced in EF Core 2.1 as an opt-in feature.
+Lazy loading of data is a pattern whereby the retrieval of data from the database is deferred until it is needed. This sounds like a good thing, and in some scenarios, this can help to improve the performance of an application. In other scenarios, it can degrade the performance of an application substantially, particularly so in web applications. For this reason, lazy loading was introduced in EF Core 2.1 as an opt-in feature.
 
 ## Enabling Lazy Loading
 
@@ -19,7 +19,7 @@ Lazy loading can be enabled in two ways:
 
 ### Proxies
 
-_Proxies_ are objects deriving from your entities that are generated at runtime by Entity Framework Core. These proxies have behavior added to them that results in database query being made as required to load navigation properties on demand. This was the default mechanism used to provide lazy loading in the previous version of Entity Framework. 
+_Proxies_ are objects deriving from your entities that are generated at runtime by Entity Framework Core. These proxies have behavior added to them that results in a database query being made as required to load navigation properties on demand. This was the default mechanism used to provide lazy loading in the previous version of Entity Framework. 
 
 Enabling lazy loading by proxies requires three steps:
 
@@ -59,7 +59,7 @@ This last step is the key to allowing EF Core to override your entities to creat
 
 ### ILazyLoader
 
-The `ILazyLoader` interface represents a component that is responsible for loading navigation properties if they haven't already been loaded. This approach circumvents the generation of proxies which isn't supported on all platforms. `ILazyLoader` can be used in one of two ways. It can be injected into the principal entity in the relationship, where it is used to load dependants. This requires that your model class(es) take a dependency on  `Microsoft.EntityFrameworkCore.Infrastructure`, which is available in the `Microsoft.EntityFrameworkCore.Abstractions` package. Or you can use a convention-based delegate. 
+The `ILazyLoader` interface represents a component that is responsible for loading navigation properties if they haven't already been loaded. This approach circumvents the generation of proxies which isn't supported on all platforms. `ILazyLoader` can be used in one of two ways. It can be injected into the principal entity in the relationship, where it is used to load dependents. This requires that your model class(es) take a dependency on  `Microsoft.EntityFrameworkCore.Infrastructure`, which is available in the `Microsoft.EntityFrameworkCore.Abstractions` package. Or you can use a convention-based delegate. 
 
 The following steps detail how to employ the first approach:
 

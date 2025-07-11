@@ -3,7 +3,7 @@ title: The Column Attribute
 description: Use of the Column attribute in Entity Framework Core
 canonical: /configuration/data-annotation-attributes/column-attribute
 status: Published
-lastmod: 2023-02-28
+lastmod: 2025-07-11
 ---
 # EF Core Column Attribute
 
@@ -30,4 +30,4 @@ public class Book
 ```
 #### Fluent API
 
-The Fluent API equivalent to the `Column` attribute is [HasColumnName](/configuration/fluent-api/hascolumnname-method). The Fluent API equivalent to specifying the data type is [HasColumnType](/configuration/fluent-api/hascolumntype-method). Column ordering is not implemented in Fluent API.
+The Fluent API equivalent to the `Column` attribute is [HasColumnName](/configuration/fluent-api/hascolumnname-method). The Fluent API equivalent to specifying the data type is [HasColumnType](/configuration/fluent-api/hascolumntype-method). Column ordering is not supported in Fluent API.

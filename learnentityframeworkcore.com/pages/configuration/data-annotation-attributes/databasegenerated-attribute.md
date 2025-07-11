@@ -3,7 +3,7 @@ title: The DatabaseGenerated Attribute
 description: Usage of the DatabaseGenerated Attribute in Entity Framework Core
 canonical: /configuration/data-annotation-attributes/databasegenerated-attribute
 status: Published
-lastmod: 2023-02-28
+lastmod: 2025-07-11
 ---
 
 # EF Core DatabaseGenerated Attribute
@@ -64,7 +64,7 @@ public class Car
 
 #### Fluent API
 
-The Fluent API equivalent mehtods  for the `DatabaseGenerated` attribute are 
+The Fluent API equivalent methods for the `DatabaseGenerated` attribute are 
 
 - `Computed`: [ValueGeneratedOnAddOrUpdate](/configuration/fluent-api/valuegeneratedonaddorupdate-method) 
 - `Identity`: [ValueGeneratedOnAdd](/configuration/fluent-api/valuegeneratedonadd-method)

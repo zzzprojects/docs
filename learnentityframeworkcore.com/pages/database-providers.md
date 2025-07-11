@@ -3,12 +3,12 @@ title: Working With Providers in EF Core - EF Core Providers - C# EF Core Provid
 description: EF Core is designed to work with a variety of providers, allowing users to access their data in different databases. The list of supported providers includes MySQL, PostgreSQL, Oracle Database, and Microsoft SQL Server. 
 canonical: /database-providers
 status: Published
-lastmod: 2024-08-30
+lastmod: 2025-07-10
 ---
 
 # EF Core Providers
 
-EF Core is an open-source, lightweight, cross-platform, and extensible Object-Relational Mapping (ORM) framework. NET. It provides a way to access and manipulate data in relational databases using .NET code. EF Core supports several database providers, including:
+EF Core is an open-source, lightweight, cross-platform, and extensible Object-Relational Mapping (ORM) framework for .NET. It provides a way to access and manipulate data in relational databases using .NET code. EF Core supports several database providers, including:
 
  - Microsoft SQL Server
  - Microsoft SQL Server Compact Edition
@@ -100,7 +100,7 @@ You can then use the context class to query and save data to Azure Cosmos DB.
 Oracle provider is a database provider for Oracle databases in EF Core. It enables you to use the LINQ to Entities API for querying the database and provides support for change tracking and updates. 
 
  - With the Oracle provider, you can use the full feature set of EF Core with Oracle databases, including LINQ, transactions, and migrations.
- - You can use an oracle to access EF Core which allows you to focus on the business logic instead of writing complex SQL statements.
+ - You can use the Oracle provider with EF Core which allows you to focus on the business logic instead of writing complex SQL statements.
 
 To use the Oracle provider in EF Core, you need to install the required NuGet packages and configure your `DbContext` to use the Oracle provider. 
 

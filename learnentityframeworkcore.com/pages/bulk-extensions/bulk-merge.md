@@ -3,14 +3,14 @@ title: EF Core Bulk Upsert / Merge
 description: The BulkMerge method in Entity Framework Extensions is a powerful and highly efficient way to perform bulk updates of entities within the database. It enables you to easily sync multiple records with the same data while avoiding tedious loops where one record needs to be updated at a time.
 canonical: /bulk-extensions/bulk-merge
 status: Published
-lastmod: 2023-03-02
+lastmod: 2025-07-11
 ---
 
 # EF Core Bulk Upsert / Merge
 
-BulkMerge is a database operation that combines the insert and update operation into a single, efficient database call. In other words, a merge is equivalent to an `UPSERT` (Update/Insert) operation. Data that exists in the database will be updated, and non-existing data will be inserted.
+BulkMerge is a database operation that combines the insert and update operations into a single, efficient database call. In other words, a merge is equivalent to an `UPSERT` (Update/Insert) operation. Data that exists in the database will be updated, and non-existing data will be inserted.
 
-A BulkMege has also other name such as **add or update** or **insert or update** operations.
+A BulkMerge has other names as well such as **add or update** or **insert or update** operations.
 
 The **easiest and fastest way** to merge data is by using the [Entity Framework Extensions](https://entityframework-extensions.net/) third-party library.
 
@@ -24,7 +24,7 @@ The `BulkMerge` method makes that operation very easy to use and **improves the 
  - It also supports batching which helps minimize round trips to the database by grouping commands together. 
  - Additionally, it provides helpful features such as conditional merging, making it easier to create custom logic for merging data. 
 
-Using the `BulkMerge` method is very simple. All you need to do is pass your entities in the parameter and let the automapping matching properties with column names:
+Using the `BulkMerge` method is very simple. All you need to do is pass your entities in the parameter and let the auto-mapping match properties to column names:
 
 Here's an example of how to use the BulkMerge method in Entity Framework Core:
 

@@ -3,7 +3,7 @@ title: The Key Attribute
 description: Usage of the Key Attribute in Entity Framework Core
 canonical: /configuration/data-annotation-attributes/key-attribute
 status: Published
-lastmod: 2023-02-28
+lastmod: 2025-07-11
 ---
 
 # EF Core Key Attribute
@@ -16,8 +16,8 @@ public class Order
     public int OrderNumber { get; set; }
     public DateTime DateCreated { get; set; }
     public Customer Customer { get; set; }
-    ...
-)
+    // ...
+}
 ```
 In the example above, the name of the key field in the `Order` class does not meet the [Entity Framework Core's naming convention for entity keys](/conventions#primary-key), so the `Key` attribute is required to configure the `OrderNumber` property as the key field. 
 

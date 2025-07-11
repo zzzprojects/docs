@@ -3,12 +3,12 @@ title: The InverseProperty Attribute
 description: Usage of the InverseProperty Attribute in Entity Framework Core
 canonical: /configuration/data-annotation-attributes/inverseproperty-attribute
 status: Published
-lastmod: 2023-02-28
+lastmod: 2025-07-11
 ---
 
 # EF Core InverseProperty Attribute
 
-The `InverseProperty` attribute is used to denote the inverse navigation property of a relationship when the same type takes part in multiple relationships. The following model depicts a contact system where the user who creates and updates contact records is recorded:
+The `InverseProperty` attribute is used to denote the inverse navigation property of a relationship when the same type takes part in multiple relationships. The following model depicts a contact system where the user who creates and updates contact records are recorded:
 
 ```csharp
 public class Contact

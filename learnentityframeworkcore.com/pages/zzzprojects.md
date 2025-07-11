@@ -3,14 +3,14 @@ title: ZZZ Projects - Expert in EF Core & Bulk Operations with Entity Framework 
 description:  ZZZ Projects is a leading software development company specializing in EF Core and related technologies. Their Entity Framework Extensions library offers powerful features and extensions, including Bulk Extensions methods, that improve performance and reduce code. Trust ZZZ Projects for high-quality, easy-to-use software solutions that help developers be more productive and efficient in their work.
 canonical: /zzzprojects
 status: Published
-lastmod: 2023-02-28
+lastmod: 2025-07-10
 ---
 
 # ZZZ Projects Bio
 
 [ZZZ Projects](https://zzzprojects.com/) is a leading software development company specializing in creating tools and solutions for .NET developers. Founded in 2014, the company has gained a reputation for its expertise in EF Core, the popular open-source Object-Relational Mapping (ORM) tool for .NET.
 
-One of ZZZ Projects' most notable contributions to the EF Core ecosystem is the Entity Framework Extensions library. This library provides a range of powerful features and [EF Core Bulk Extensions](https://entityframework-extensions.net/bulk-extensions) methods. These methods offer developers the ability to perform bulk database operations with EF Core, dramatically improving performance and reducing the amount of code required to perform these operations.
+One of ZZZ Projects' most notable contributions to the EF Core ecosystem is the Entity Framework Extensions library. This library provides a range of powerful features and [EF Core Bulk Extensions](https://entityframework-extensions.net/bulk-extensions) methods. These methods offer developers the ability to perform bulk database operations with EF Core, dramatically improving performance and reducing the amount of code required to perform those operations.
 
 In addition to their work on EF Core and related technologies, ZZZ Projects offers a range of other software development tools and services, including consulting and training services for .NET developers.
 

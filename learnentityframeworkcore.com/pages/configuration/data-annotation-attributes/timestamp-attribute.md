@@ -1,16 +1,16 @@
 ---
-title: The TimeStamp Attribute
-description: Usage of the TimeStamp Attribute in Entity Framework Core
+title: The Timestamp Attribute
+description: Usage of the Timestamp Attribute in Entity Framework Core
 canonical: /configuration/data-annotation-attributes/timestamp-attribute
 status: Published
-lastmod: 2023-02-28
+lastmod: 2025-07-11
 ---
 
-# EF Core TimeStamp Attribute
+# EF Core Timestamp Attribute
 
-The `TimeStamp ` attribute is used to specify that a property should take part in [concurrency management](/concurrency).
+The `Timestamp` attribute is used to specify that a property should take part in [concurrency management](/concurrency).
 
-The `TimeStamp` attribute is only valid if applied to a property that is a byte array. How this is implemented is dependent on the current database provider.  In SQL Server, this will map to a `rowversion` type.  
+The `Timestamp` attribute is only valid if applied to a property that is a byte array. How this is implemented is dependent on the current database provider.  In SQL Server, this will map to a `rowversion` type.  
 
 ```csharp
 public class Author
@@ -19,13 +19,13 @@ public class Author
     public string FirstName { get; set; }
     public string LastName { get; set; }
     public ICollection<Book> Books { get; set; }
-    [TimeStamp]
+    [Timestamp]
     public byte[] RowVersion { get; set; }
 }
 ```
 
 #### Fluent API
-The Fluent API equivalent to the `TimeStamp` attribute is the [IsConcurrencyToken method](/configuration/fluent-api/isconcurrencytoken-method) chained with the [ValueGeneratedOnAddOrUpdate method](/configuration/fluent-api/valuegeneratedonaddorupdate-method). 
+The Fluent API equivalent to the `Timestamp` attribute is the [IsConcurrencyToken method](/configuration/fluent-api/isconcurrencytoken-method) chained with the [ValueGeneratedOnAddOrUpdate method](/configuration/fluent-api/valuegeneratedonaddorupdate-method). 
 
 From version 1.1 of EF Core, The [IsRowVersion method](/configuration/fluent-api/isrowversion-method) will also be available which acts as a convenience wrapper for the chained combination described above.
 

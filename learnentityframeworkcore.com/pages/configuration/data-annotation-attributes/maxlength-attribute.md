@@ -22,7 +22,7 @@ public class Book
 
 In terms of database configuration, the `MaxLength` attribute works in the same way as the [StringLength attribute](/configuration/data-annotation-attributes/stringlength-attribute). In previous versions of Entity Framework, the `MaxLength` attribute also enforced entity validation and an exception was raised if the supplied value exceeded the maximum length specified. Entity validation is not included in Entity Framework Core 1.0.
 
-It is believed that the `MaxLength` attribute was introduced primarily for syntactical reasons, emphasising the fact that it can be applied to byte arrays (varbinary in SQL Server) as well as strings.
+It is believed that the `MaxLength` attribute was introduced primarily for syntactical reasons, emphasizing the fact that it can be applied to byte arrays (varbinary in SQL Server) as well as strings.
 
 #### Fluent API
 The Fluent API equivalent for the `MaxLength` attribute is the [HasMaxLength method](/configuration/fluent-api/hasmaxlength-method).

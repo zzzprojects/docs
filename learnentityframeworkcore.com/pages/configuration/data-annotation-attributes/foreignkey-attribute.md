@@ -3,7 +3,7 @@ title: The ForeignKey Attribute
 description: Usage of the ForeignKey Attribute in Entity Framework Core
 canonical: /configuration/data-annotation-attributes/foreignkey-attribute
 status: Published
-lastmod: 2023-02-28
+lastmod: 2025-07-11
 ---
 
 # EF Core ForeignKey Attribute
@@ -54,7 +54,7 @@ The `ForeignKey` attribute can be used in the following ways to configure the re
         public int AuthorFK { get; set; }
     }
     ```
-3. On the navigational property in the principal class, passing in the name of the foreign key property in the dependent class:
+3. On the navigation property in the principal class, passing in the name of the foreign key property in the dependent class:
     ```csharp
     public class Author
     {

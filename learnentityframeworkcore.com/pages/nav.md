@@ -97,12 +97,12 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="/configuration/fluent-api">Fluent Api</a>
+                    <a href="/configuration/fluent-api">Fluent API</a>
                     <ul class="nav-level-three" data-display="fluent-api">
                         <li><a href="/configuration/fluent-api/model-configuration">Model Configuration</a></li>
 						<li><a href="/configuration/fluent-api/complexproperty-method">ComplexProperty Method</a></li>
                         <li><a href="/configuration/fluent-api/property-configuration">Property Configuration</a></li>
-                        <li><a href="/configuration/fluent-api/hasalternatekey-method">HasAlternatekey Method</a></li>
+                        <li><a href="/configuration/fluent-api/hasalternatekey-method">HasAlternateKey Method</a></li>
                         <li><a href="/configuration/fluent-api/hascolumnname-method">HasColumnName Method</a></li>
                         <li><a href="/configuration/fluent-api/hascolumntype-method">HasColumnType Method</a></li>
                         <li><a href="/configuration/fluent-api/hascomputedcolumnsql-method">HasComputedColumnSql Method</a></li>
