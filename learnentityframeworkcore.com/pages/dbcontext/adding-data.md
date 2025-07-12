@@ -3,7 +3,7 @@ title: Adding data via the DbContext
 description: Entity Framework Core provides the capability to add data directly via the DbContext class. 
 canonical: /dbcontext/adding-data
 status: Published
-lastmod: 2023-02-22
+lastmod: 2025-07-11
 ---
 
 # EF Core Insert Entity

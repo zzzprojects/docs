@@ -3,7 +3,7 @@ title: Entity Framework Core Many To Many Relationships By Convention
 description: How to use the convention to establish a many-to-many relationship in Entity Framework Core
 canonical: /conventions/many-to-many-relationship
 status: Published
-lastmod: 2023-02-23
+lastmod: 2025-07-11
 ---
 
 # EF Core Many To Many
@@ -56,7 +56,7 @@ public class LibraryContext : DbContext
 }
 ```
 
-When you create migration or call the `EnsureCreatedmethod`, it will create the following tables including the join table.
+When you create a migration or call the `EnsureCreated` method, it will create the following tables including the join table.
 
 ```csharp
 CREATE TABLE [dbo].[Books] (

@@ -3,7 +3,7 @@ title: Querying data via the DbSet
 description: The Entity Framework Core DbSet class's role and capabilities in respect of querying data  
 canonical: /dbset/querying-data
 status: Published
-lastmod: 2023-02-21
+lastmod: 2025-07-11
 ---
 
 # EF Core Query
@@ -140,14 +140,14 @@ var products = context.Products.Where(p => p.CategoryId == 1);
 The filter criteria are passed into a lambda as an expression that returns a boolean. The expression can include multiple conditions:
 
 ```csharp
-var products = context.Prducts.Where(p => p.CategoryId == 1 && p.UnitsInStock < 10);
+var products = context.Products.Where(p => p.CategoryId == 1 && p.UnitsInStock < 10);
 ```
 
 The `OrderBy`, `OrderByDescending`, `ThenOrderBy`, and `ThenOrderByDescending`  methods are used for specifying the order of results:
 
 ```csharp
-var products = context.Products.OrderBy(p => p.ProuctName);
-vat categories = context.Categories.OrderBy(c => c.CategoryName).ThenOrderBy(c => c.CategoryId);
+var products = context.Products.OrderBy(p => p.ProductName);
+var categories = context.Categories.OrderBy(c => c.CategoryName).ThenOrderBy(c => c.CategoryId);
 ```
 
 ## Grouping

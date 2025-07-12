@@ -3,7 +3,7 @@ title: Modifying data via the DbContext
 description: An examination of the methods and approaches available for modifying data via the Entity Framework Core DbContext API 
 canonical: /dbcontext/modifying-data
 status: Published
-lastmod: 2023-02-22
+lastmod: 2025-07-11
 ---
 
 # EF Core Update Entity
@@ -17,7 +17,7 @@ var author = context.Authors.First(a => a.AuthorId == 1);
 author.FirstName = "Bill";
 context.SaveChanges();
 ```
-Since the ChangeTracker tracks which properties have been modified, the context  will issue a SQL statement that updates only those properties that were changed:
+Since the ChangeTracker tracks which properties have been modified, the context will issue a SQL statement that updates only those properties that were changed:
 
 ```sql
 exec sp_executesql N'SET NOCOUNT ON;
@@ -114,7 +114,7 @@ context.ChangeTracker.TrackGraph(author, e => {
 });
 context.SaveChanges();
 ```
-In this scenario, it is assumed that the author entity has not been changed, but the books might have been edited. The `TrackGraph` method takes the root entity as an argument, and a lambda specifying the action to perform. In this case, the root entity, the author has its `EntityState` set to `UnChanged`. Setting the `EntityState` is required for the context to begin tracking the entity. Only then can related entities be discovered.  Books have their `EntityState` set to `Modified`, which as in the previous examples, will result in SQL that updates every property on the entity:
+In this scenario, it is assumed that the author entity has not been changed, but the books might have been edited. The `TrackGraph` method takes the root entity as an argument, and a lambda specifying the action to perform. In this case, the root entity, the author has its `EntityState` set to `Unchanged`. Setting the `EntityState` is required for the context to begin tracking the entity. Only then can related entities be discovered.  Books have their `EntityState` set to `Modified`, which as in the previous examples, will result in SQL that updates every property on the entity:
 ```sql
 exec sp_executesql N'SET NOCOUNT ON;
 UPDATE [Books] SET [AuthorId] = @p0, [Isbn] = @p1, [Title] = @p2
@@ -130,7 +130,7 @@ SELECT @@ROWCOUNT;
 @p6 nvarchar(150),@p11 int,@p8 int,@p9 nvarchar(4000),@p10 nvarchar(150)',
 @p3=1,@p0=1,@p1=N'1234',@p2=N'Hamlet',
 @p7=2,@p4=1,@p5=N'4321',@p6=N'Othello',
-@p113,@p8=1,@p9=N'5678',@p10=N'MacBeth'
+@p11=3,@p8=1,@p9=N'5678',@p10=N'MacBeth'
 ```
 Since the SQL updates all properties, they all need to be present and have a valid value assigned, otherwise, they will be updated to their default values.
 
@@ -155,7 +155,7 @@ context.ChangeTracker.TrackGraph(author, e => {
     }
 });
 ```
-This time, the method body of the lambda ensures that all entities are tracked in the `UnChanged` state, and then indicates that the `Isbn` property is modified. This results in SQL being generated that only updates the `Isbn` property value:
+This time, the method body of the lambda ensures that all entities are tracked in the `Unchanged` state, and then indicates that the `Isbn` property is modified. This results in SQL being generated that only updates the `Isbn` property value:
 
 ```sql
 exec sp_executesql N'SET NOCOUNT ON;

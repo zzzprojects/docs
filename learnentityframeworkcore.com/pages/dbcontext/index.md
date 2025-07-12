@@ -3,12 +3,12 @@ title: The Entity Framework Core DbContext
 description: The Entity Framework Core DbContext class's role and capabilities 
 canonical: /dbcontext
 status: Published
-lastmod: 2023-02-22
+lastmod: 2025-07-11
 ---
 
 # EF Core DbContext
 
-The EF Core `DbContext` class represents a session with a database and provides an API for communicating with the database with the following capabilities:
+The EF Core `DbContext` class represents a session with a database and provides an API for communicating with the database through the following capabilities:
 
 - Database Connections
 - Data operations such as querying and persistence

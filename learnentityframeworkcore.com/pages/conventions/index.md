@@ -3,7 +3,7 @@ title: Conventions in Entity Framework Core
 description: Conventions are a set of rules hard-baked into Entity Framework Core that govern how the model will be mapped to a database schema
 canonical: /conventions
 status: Published
-lastmod: 2023-02-23
+lastmod: 2025-07-11
 ---
 
 # EF Core Conventions
@@ -65,7 +65,7 @@ In order of precedence, the following property names are accepted:
 As with primary keys, foreign key property name matching is not case sensitive. EF Core infers the multiplicity of a relationship from the nullability of the foreign key. If the property is not nullable, the relationship is registered as required; otherwise it is registered as optional.
 
 ### Foreign Key Shadow Properties
-If you choose not to explicitly include a foreign key property in the dependant end of the relationship, EF Core will create a [shadow property](/model/shadow-properties) using the pattern `<principal primary key property name>Id`.
+If you choose not to explicitly include a foreign key property in the dependent end of the relationship, EF Core will create a [shadow property](/model/shadow-properties) using the pattern `<principal primary key property name>Id`.
 
 ## Backing Fields
 

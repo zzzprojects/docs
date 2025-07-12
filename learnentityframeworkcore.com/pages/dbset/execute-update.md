@@ -3,7 +3,7 @@ title: Modifying data via the ExecuteUpdate
 description: Updates all database rows for the entity instances which match the LINQ query from the database. 
 canonical: /dbset/execute-update
 status: Published
-lastmod: 2023-02-21
+lastmod: 2025-07-11
 ---
 
 # EF Core Execute Update
@@ -24,9 +24,9 @@ EF Core 7.0 provides a new method called the `ExecuteUpdate` method that updates
  - The specific changes to make must be specified explicitly; they are not automatically detected by EF Core.
  - Any tracked entities will not be kept in sync.
  - Additional commands may need to be sent in the correct order so as not to violate database constraints. For example, update dependents before a principal can be deleted.
- - All of this means that the `ExecuteUpdate` method complement, rather than replaces, the existing `SaveChanges` mechanism.
+ - All of this means that the `ExecuteUpdate` method complements, rather than replaces, the existing `SaveChanges` mechanism.
 
-The `ExecuteUpdate` behave in a very similar way to the `ExecuteDelete` method. The main difference is that an update requires knowing which properties to update, and how to update them. This is achieved using one or more calls to `SetProperty`. 
+The `ExecuteUpdate` behaves in a very similar way to the `ExecuteDelete` method. The main difference is that an update requires knowing which properties to update, and how to update them. This is achieved using one or more calls to `SetProperty`. 
 
 The following example updates the `Name` property of every author.
 
@@ -92,5 +92,5 @@ WHERE NOT EXISTS (
     SELECT 1
     FROM [PostTag] AS [p]
     INNER JOIN [Posts] AS [p0] ON [p].[PostsId] = [p0].[Id]
-    WHERE [t].[Id] = [p].[TagsId] AND NOT (DATEPART(year, [p0].[PublishedOn]) < 202
+    WHERE [t].[Id] = [p].[TagsId] AND NOT (DATEPART(year, [p0].[PublishedOn]) < 2022))
 ```

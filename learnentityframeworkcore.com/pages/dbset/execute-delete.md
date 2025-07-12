@@ -3,7 +3,7 @@ title: ExecuteDelete in EF Core – A Faster Way to Delete Entities
 description: Discover how to use the new ExecuteDelete method starting from EF Core 7 to delete entities more efficiently—no tracking, no SaveChanges needed.
 canonical: /dbset/execute-delete
 status: Published
-lastmod: 2025-04-11
+lastmod: 2025-07-11
 ---
 
 # EF Core Execute Delete
@@ -121,7 +121,7 @@ WHERE NOT EXISTS (
     WHERE [t].[Id] = [p].[TagsId] AND NOT (DATEPART(year, [p0].[PublishedOn]) < 2018))
 ```
 
-### Return the number of row affecteds
+### Return the number of rows affected
 
 You can also check the number of affected rows to make sure at least one row was deleted:
 

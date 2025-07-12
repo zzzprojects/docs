@@ -4,7 +4,7 @@ description: The Entity Framework Core change tracker is responsible for trackin
 canonical: /dbcontext/change-tracker
 proficiencylevel: Intermediate
 status: Published
-lastmod: 2023-02-22
+lastmod: 2025-07-11
 ---
 
 # EF Core ChangeTracker
@@ -18,7 +18,7 @@ The Change Tracker records the current state of an entity using one of four valu
 - Modified
 - Deleted
 
-Entities in the `Added` state will be inserted as new records into the database. Entities in the `Modified` state will have their values updated in the database to the current property values. Entities in the `Deleted` state will be removed from the database. No action will be taken in respect of entities marked as `Unchanged`.
+Entities in the `Added` state will be inserted as new records into the database. Entities in the `Modified` state will have their values updated in the database according to the current property values. Entities in the `Deleted` state will be removed from the database. No action will be taken with respect to entities marked as `Unchanged`.
 
 Change tracking begins as soon as an entity is _loaded_. An entity is loaded as a result of being returned from a query or by being introduced to the context through one of the following methods of the `DbContext`
 

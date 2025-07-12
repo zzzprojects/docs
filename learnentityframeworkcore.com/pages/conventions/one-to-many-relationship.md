@@ -3,7 +3,7 @@ title: Entity Framework Core One-To-Many Relationships Conventions
 description: How to design your model so that it maps to a one-to-many relationship by convention in Entity Framework Core
 canonical: /conventions/one-to-many-relationship
 status: Published
-lastmod: 2023-02-23
+lastmod: 2025-07-11
 ---
 
 # EF Core One to Many
@@ -134,7 +134,7 @@ public class Book
 ```
 ### Optional Relationships
 
-In the previous example, the relationship is a _required_ relationship. That means that a dependant cannot exist without its principal. If an author is deleted, all of the authors' books must also be deleted. EF Core will set up this behavior automatically if you explicitly include a non-nullable foreign key property, otherwise as you have seen, EF Core prevents the deletion of authors that are currently associated with books.
+In the previous example, the relationship is a _required_ relationship. That means that a dependent cannot exist without its principal. If an author is deleted, all of the authors' books must also be deleted. EF Core will set up this behavior automatically if you explicitly include a non-nullable foreign key property, otherwise as you have seen, EF Core prevents the deletion of authors that are currently associated with books.
 
 Logically, a book cannot exist without an author, so that relationship is always going to be a required one. The same cannot be said for the relationship between, say, a tenant and a property to let. A tenant can exist without being assigned to a property. This is an example of an _optional relationship_. This is the type of relationship that EF Core generates automatically if you do not include a foreign key property in the dependent entity, as you have seen in the first and second examples above. You can also explicitly create an optional relationship by including a nullable foreign key property in the dependent entity:
 

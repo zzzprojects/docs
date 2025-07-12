@@ -1,15 +1,15 @@
 ---
 title: Connection String in Entity Framework Core
-description: Connection string contain information about the data source that is being connected to. This information varies from provider to provider, but will usually include the name and location of the source, and optionally some means of authenticating the user
+description: Connection strings contain information about the data source that is being connected to. This information varies from provider to provider, but will usually include the name and location of the source, and optionally some means of authenticating the user
 canonical: connection-strings
 status: Published
-lastmod: 2023-02-24
+lastmod: 2025-07-11
 ---
 
 
 # EF Core Connection String
 
-Connection string contain information about the data source that is being connected. This information varies from provider to provider, but will usually include the name and location of the source, and optionally some means of authenticating the user. The information is provided as key/value pairs, separated by semi-colons. The following example shows a connection string for a SQL Server database named _Test_, attached to the default, an unnamed instance of SQL Server:
+Connection strings contain information about the data source that is being connected. This information varies from provider to provider, but will usually include the name and location of the source, and optionally some means of authenticating the user. The information is provided as key/value pairs, separated by semi-colons. The following example shows a connection string for a SQL Server database named _Test_, attached to the default, an unnamed instance of SQL Server:
 
 ```
 server=.;database=Test;trusted_user=true;
@@ -43,7 +43,7 @@ In .NET Core applications, a configuration is more likely to be placed in the `S
 public void ConfigureServices(IServiceCollection services)
 {
     services.AddDbContext<MyDbContext>(options => {
-        options.UseSqlServer("server=.;database=myDb;trusted_connection=true;"));
+        options.UseSqlServer("server=.;database=myDb;trusted_connection=true;");
     });
 }
 ```

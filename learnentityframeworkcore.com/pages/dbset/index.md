@@ -3,7 +3,7 @@ title: EF Core DbSet
 description: The Entity Framework Core DbSet class's role and capabilities  
 canonical: /dbset
 status: Published
-lastmod: 2023-02-21
+lastmod: 2025-07-11
 ---
 
 # EF Core DbSet
@@ -139,7 +139,7 @@ using (var context = new SampleContext())
     var author = new Author { AuthorId = 1 };
     context.Authors.Attach(author);
     context.Authors.Remove(author);
-    context.Savechanges();
+    context.SaveChanges();
 }
 ```
 

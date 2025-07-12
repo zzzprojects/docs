@@ -3,7 +3,7 @@ title: Adding data via the DbSet
 description: An examination of the methods and approaches available for adding data via the Entity Framework Core DbSet API 
 canonical: /dbset/adding-data
 status: Published
-lastmod: 2023-11-22
+lastmod: 2025-07-11
 ---
 
 # EF Core Add Record
@@ -37,7 +37,7 @@ var author = new Author {
     {
         new Book { Title = "Hamlet"},
         new Book { Title = "Othello" },
-        new Book { Title = "MacBeth" }
+        new Book { Title = "Macbeth" }
     }
 };
 context.Authors.Add(author);
@@ -50,7 +50,7 @@ The books are added because they are referenced through the `Books` property of 
 var author = new Author { FirstName = "William", LastName = "Shakespeare" };
 var hamlet = new Book { Title = "Hamlet", Author = author };
 var othello = new Book { Title = "Othello", Author = author };
-var macbeth = new Book { Title = "MacBeth", Author = author };
+var macbeth = new Book { Title = "Macbeth", Author = author };
 context.Authors.Add(author);
 context.SaveChanges();
 ```
@@ -82,7 +82,7 @@ var context = new SampleContext();
 var author = new Author { FirstName = "William", LastName = "Shakespeare" };
 var hamlet = new Book { Title = "Hamlet", Author = author };
 var othello = new Book { Title = "Othello", Author = author };
-var macbeth = new Book { Title = "MacBeth", Author = author };
+var macbeth = new Book { Title = "Macbeth", Author = author };
 context.Books.AddRange(hamlet, othello, macbeth);
 context.SaveChanges();
 ```
