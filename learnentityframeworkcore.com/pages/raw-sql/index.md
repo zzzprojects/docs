@@ -3,7 +3,7 @@ title: Executing Raw SQL Queries using Entity Framework Core
 description: Entity Framework Core provides mechanisms for executing raw SQL queries including stored procedures directly against the database
 canonical: /raw-sql
 status: Published
-lastmod: 2023-02-14
+lastmod: 2025-07-13
 ---
 
 # EF Core Raw SQL Query
@@ -26,4 +26,4 @@ When returning entity types from SQL queries, you must be aware of all the limit
 
  - Your SQL query must return all the properties of the entity type.
  - The column names in the result set must match the column names that properties are mapped to. 
- - The SQL query can't contain related data. However, in many cases, you can compose on top of the query using the `Include` operator to return related data.
+ - The SQL query cannot contain related data. However, in many cases, you can compose on top of the query using the `Include` operator to return related data.

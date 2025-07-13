@@ -3,7 +3,7 @@ title: Managing One-To-Many Relationships With Entity Framework Core
 description: Entity Framework Core offers many approaches to the creation and modification of one-to-many relationships.
 canonical: /relationships/managing-one-to-many-relationships
 status: Published
-lastmod: 2023-02-13
+lastmod: 2025-07-13
 ---
 
 # EF Core: How to manage One-To-Many Relationships
@@ -11,9 +11,9 @@ lastmod: 2023-02-13
 Entity Framework Core offers several approaches to the creation and modification of one-to-many relationships. 
 
 ## Creating relationships
-This first section explores many ways in which relationships can be created between an existing principal entity and newly created dependents.
+This first section explores many ways in which relationships can be created between an existing principal entity and newly created dependants.
 
-### Add the dependent to the principal's collection property
+### Add the dependant to the principal's collection property
 In this example, an existing author is referenced using the `DbSet.Find` method. A newly created book is then added to the author's Books collection navigation property. 
 ```csharp
 using(var db = new TestContext())
@@ -41,7 +41,7 @@ WHERE @@ROWCOUNT = 1 AND [BookId] = scope_identity();
 ```
 
 
-## Attach a fake representing the principal then add the dependent to it
+## Attach a fake representing the principal then add the dependant to it
 
 A "fake" or "stub" is used to represent the author in this example, which is then attached to the context. EF Core begins to track the fake author in the `Unchanged` state. When the book is added to the `Books` collection of the tracked author, the book's state is set to `Added`.
 
@@ -68,11 +68,11 @@ WHERE @@ROWCOUNT = 1 AND [BookId] = scope_identity();
 ```
 ### Set the Foreign Key value of the new book explicitly
 
-Both of the previous examples offer a more object-oriented approach to creating relationships between entities. The next example owes much more to working with relational data in a database. The book is created and has a valid value applied to its foreign key property. There is no reference to an `Author` entity in this code:
+Both of the previous examples offer a more object-oriented approach to creating relationships between entities. The next example has much more to do with working with relational data in a database. The book is created and has a valid value assigned to its foreign key property. There is no reference to an `Author` entity in this code:
 ```csharp
 using(var db = new TestContext())
 {
-    var book = new Book { Title = "The Winters Tale", AuthorId = 1 };
+    var book = new Book { Title = "The Winter's Tale", AuthorId = 1 };
     db.Add(book);
     db.SaveChanges();
 }
@@ -86,12 +86,12 @@ SELECT [BookId]
 FROM [Books]
 WHERE @@ROWCOUNT = 1 AND [BookId] = scope_identity();
 
-',N'@p0 int,@p1 nvarchar(255)',@p0=1,@p1=N'The Winters Tale'
+',N'@p0 int,@p1 nvarchar(255)',@p0=1,@p1=N'The Winter''s Tale'
 ```
 ## Modifying Relationships
 The next examples look at modifying relationships between entities. 
 
-### Use fakes to move the dependent to a different principal's collection 
+### Use fakes to move the dependant to a different principal's collection 
 This example results in an existing book with a key value of 4 being assigned to the author that has a key value of 1. Once again, fakes are attached to the context, telling the context that the entities with the specified keys already exist.
 
 ```csharp
@@ -135,7 +135,7 @@ SELECT @@ROWCOUNT;
 ',N'@p1 int,@p0 int',@p1=4,@p0=2
 ```
 
-### Add the dependent to the new principal's collection property
+### Add the dependant to the new principal's collection property
 The `Find` method is used to obtain a reference to the book and the author it is to be assigned to.
 
 ```csharp
@@ -168,7 +168,7 @@ SELECT @@ROWCOUNT;
 ## Removing relationships
 
 ### Delete the principal
-Deleting the principal will ensure that the action specified by the Referential Constraint Action enumeration will be enforced. For required relationships, the dependents will all be deleted. If the relationship is optional, the foreign key values of the dependents will be set to null.
+Deleting the principal will ensure that the action specified by the Referential Constraint Action enumeration will be enforced. For required relationships, the dependants will all be deleted. If the relationship is optional, the foreign key values of the dependants will be set to null.
 
 ```csharp
 using(var db = new TestContext())
@@ -210,7 +210,7 @@ SELECT @@ROWCOUNT;
 
 ',N'@p1 int,@p0 int',@p1=1,@p0=NULL
 ```
-You can also perform this operation using fakes and the DBContext.Entry:
+You can also perform this operation using fakes and the DbContext.Entry:
 ```csharp
 var book = new Book { BookId = 2 } ;
 db.Attach(book);
@@ -227,8 +227,8 @@ SELECT @@ROWCOUNT;
 
 ',N'@p1 int,@p0 int',@p1=2,@p0=NULL
 ```
-### Remove the dependent from the principal's collection
-You can remove the dependent from the principal's collection property. Note that this deletes the book in a required relationship, and sets the dependent's foreign key value to null in an optional relationship:
+### Remove the dependant from the principal's collection
+You can remove the dependant from the principal's collection property. Note that this deletes the book in a required relationship, and sets the dependant's foreign key value to null in an optional relationship:
 ```csharp
 using(var db = new TestContext())
 {

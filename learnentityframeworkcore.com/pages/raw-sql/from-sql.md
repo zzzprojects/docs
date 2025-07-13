@@ -3,7 +3,7 @@ title: Executing Raw SQL Queries using FromSql Method
 description: The FromSql method in Entity Framework Core is used to execute raw SQL queries against the database and return the results as entities. It allows you to bypass the LINQ query pipeline and execute custom SQL.
 canonical: /raw-sql/from-sql
 status: Published
-lastmod: 2023-02-14
+lastmod: 2025-07-13
 ---
 
 # EF Core FromSql
@@ -25,7 +25,7 @@ public class Book
     public string Title { get; set; }
     public Author Author { get; set; }
     public int AuthorId{ get; set; }
-    public string Isbn { get; set; }
+    public string ISBN { get; set; }
 }
 
 ...
@@ -97,10 +97,10 @@ The `DbSet.FromSqlRaw` method (`DbSet.FromSql` before Entity Framework Core 3.0)
 ```csharp
 using (var context = new SampleContext())
 {
-    var books = context.Books.FromSqlRaw("SELECT BookId, Title, AuthorId, Isbn FROM Books").ToList();
+    var books = context.Books.FromSqlRaw("SELECT BookId, Title, AuthorId, ISBN FROM Books").ToList();
 }
 ```
-The `DbSet` must be included in the model (i.e. it can not be configured as `Ignored`). All columns in the target table that map to properties on the entity must be included in the SQL statement. The column names must match those that the properties are mapped to. Property names are not taken into account when the results are hydrated into instances of the entity. 
+The `DbSet` must be included in the model (i.e. it cannot be configured as `Ignored`). All columns in the target table that map to properties on the entity must be included in the SQL statement. The column names must match those that the properties are mapped to. Property names are not taken into account when the results are hydrated into instances of the entity. 
 
 If any columns are missing, or are returned with names not mapped to properties, an `InvalidOperationException` will be raised with the message: 
 > 'The required column '[name of first missing column]' was not present in the results of a 'FromSqlRaw' operation.'
@@ -156,7 +156,7 @@ Entity Framework Core includes an analyzer that will warn you if you try to adop
 :::
 
 
-You can also explicitly create `DbParameter` objects for the provider that you are using. The first example demonstrates parameter construction for SqLite, and the second for SQL Server:
+You can also explicitly create `DbParameter` objects for the provider that you are using. The first example demonstrates parameter construction for SQLite, and the second for SQL Server:
 
 ```csharp
 var p1 = new SqliteParameter("@Id", id);

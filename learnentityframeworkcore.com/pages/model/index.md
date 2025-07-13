@@ -3,12 +3,12 @@ title: The Entity Framework Core Model
 description: An Entity Framework model is a conceptual model of an application's domain. The domain includes all topics relevant to the problem-solving areas of interest to the application users.
 canonical: /model
 status: Published
-lastmod: 2023-02-15
+lastmod: 2025-07-13
 ---
 
 # EF Core Model
 
-An EF Core model is a conceptual model of an application's domain. The domain includes all topics relevant to the problem-solving areas of interest to the application users. The model includes data and can also include behavior. Typically, models for CRUD applications don't tend to incorporate a lot of behavior.
+An EF Core model is a conceptual model of an application's domain. The domain includes all topics relevant to the problem-solving areas of interest to the application's users. The model includes data and can also include behavior. Typically, models for CRUD applications don't tend to incorporate a lot of behavior.
 
 Models are expressed as a collection of classes written in C#. Each class represents an _entity_ (a.k.a. business object, domain object) within the application domain.
 

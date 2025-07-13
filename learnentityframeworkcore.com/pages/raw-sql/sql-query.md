@@ -3,12 +3,12 @@ title: Executing Raw SQL Queries using SqlQuery Method
 description: The SqlQuery method in Entity Framework Core is used to execute raw SQL queries against the database and return the results as scalar values as result. 
 canonical: /raw-sql/sql-query
 status: Published
-lastmod: 2023-02-14
+lastmod: 2025-07-13
 ---
 
 # EF Core SqlQuery
 
-In Entity Framework Core (EF Core), querying scalar types involves using LINQ to query the data in the database and retrieve the scalar values as result. 
+In Entity Framework Core (EF Core), querying scalar types involves using LINQ to query the data in the database and retrieve the scalar values as a result. 
 
  - Scalar values are single values such as integers, strings, or dates, as opposed to complex types. 
  - To query scalar types, you can use the `Select` operator in LINQ to select the specific scalar values that you want to retrieve, and then call `ToList()` or `FirstOrDefault()` on the query to execute it and retrieve the results. 

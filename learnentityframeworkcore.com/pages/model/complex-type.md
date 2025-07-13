@@ -3,12 +3,12 @@ title: EF Core Complex Type
 description: Entity Framework Core Complex Type - EF Core 8 New Feature
 canonical: /model/complex-type
 status: Published
-lastmod: 2023-10-24
+lastmod: 2025-07-13
 ---
 
 # EF Core Complex Type
 
-EF Core 8 returned the missing [Complex Type](https://github.com/dotnet/efcore/issues/13947) from EF6. A complex type looks very similar to [Owned Entity](https://learn.microsoft.com/en-us/ef/core/modeling/owned-entities), allowing a developer to organize properties within an entity. One of the most straightforward examples is an `Order` with a `ShippingAddress` and a `BillingAddress`. Instead of repeating twice all address properties in the `Order`, we create a complex type `Address` and use it in the `Order`:
+EF Core 8 returned the missing [Complex Type](https://github.com/dotnet/efcore/issues/13947) from EF6. A complex type looks very similar to [Owned Entity](https://learn.microsoft.com/en-us/ef/core/modeling/owned-entities), allowing a developer to organize properties within an entity. One of the most straightforward examples is an `Order` with a `ShippingAddress` and a `BillingAddress`. Instead of repeating all address properties twice in the `Order`, we create a complex type `Address` and use it in the `Order`:
 
 ```csharp
 public class Order
@@ -46,7 +46,7 @@ var billingAddress = new Address() { Street = "Saint-Hubert", City = "Laval", St
 var order = new Order() { OrderDate = DateTime.Now, ShippingAddress = shippingAddress, BillingAddress = billingAddress };
 ```
 
-Unlike [Owned Entity](https://learn.microsoft.com/en-us/ef/core/modeling/owned-entities), the same complex type instance can be re-used multiple times within the same or different entity. For example, if the customer chooses that the billing address will be the same as the shipping address in the payment form:
+Unlike [Owned Entity](https://learn.microsoft.com/en-us/ef/core/modeling/owned-entities), the same complex type instance can be reused multiple times within the same or different entity. For example, if the customer chooses that the billing address will be the same as the shipping address in the payment form:
 
 ```csharp
 var shippingAddress = new Address() { Street = "Saint-Hubert", City = "Laval", State = "Quebec", Country = "Canada", PostalCode = "H7G 2Y2"};
@@ -121,7 +121,7 @@ protected override void OnModelCreating(ModelBuilder modelBuilder)
 
 ### Configure a Complex Type with Data Annotation
 
-You can add the [ComplexType DataAnnotation Attribute](/configuration/data-annotation-attributes/complextype-attribute) to specify a reference type or a value type should be treated as a complex type. You will also need to mark the complex property navigation as [Required](/configuration/data-annotation-attributes/required-attribute):
+You can add the [ComplexType Data Annotation Attribute](/configuration/data-annotation-attributes/complextype-attribute) to specify a reference type or a value type should be treated as a complex type. You will also need to mark the complex property navigation as [Required](/configuration/data-annotation-attributes/required-attribute):
 
 ```csharp
 using System.ComponentModel.DataAnnotations;
@@ -166,9 +166,9 @@ protected override void OnModelCreating(ModelBuilder modelBuilder)
 }
 ```
 
-## How to Create a Nestle Complex Type
+## How to Create a Nested Complex Type
 
-A complex type can be nested with some other complex type. In this example, the address will also contain a `HomePhone` and a `WorkHome`:
+A complex type can be nested with some other complex type. In this example, the address will also contain a `HomePhone` and a `WorkPhone`:
 
 ```csharp
 public class Order
@@ -228,7 +228,7 @@ When querying entities containing complex types, you will fetch normal propertie
 var order = context.Orders.First(x => x.OrderId == 1);
 ```
 
-The SQL generated will retrieve all columns related to this order that are part of the order and his complex type:
+The SQL generated will retrieve all columns related to this order that are part of the order and its complex type:
 
 ```sql
 SELECT TOP(1) [o].[OrderId], [o].[OrderDate], [o].[BillingAddress_City], [o].[BillingAddress_Country], [o].[BillingAddress_PostalCode], [o].[BillingAddress_State], [o].[BillingAddress_Street], [o].[ShippingAddress_City], [o].[ShippingAddress_Country], [o].[ShippingAddress_PostalCode], [o].[ShippingAddress_State], [o].[ShippingAddress_Street]
@@ -264,12 +264,12 @@ VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10);
 
 The difference between a complex type and an [Owned Entity](https://learn.microsoft.com/en-us/ef/core/modeling/owned-entities) is very slight:
 
-- A `Complex Type` instance can be re-used within the same entity or other entity.
+- A `Complex Type` instance can be reused within the same entity or other entity.
 - A `Complex Type` has no identity / is not tracked.
 - A `Owned Entity` can be saved in another table.
 - A `Owned Entity` is considered as an `Entity Type`.
 
-The significant advantage of a `Complex Type` is re-using the same instance multiple times, such as if you have a default address, phone number, etc.
+The significant advantage of a `Complex Type` is reusing the same instance multiple times, such as if you have a default address, phone number, etc.
 
 ## Conclusion
 

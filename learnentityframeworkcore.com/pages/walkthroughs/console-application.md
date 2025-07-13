@@ -3,15 +3,15 @@ title: Getting Started With Entity Framework Core - Console
 description: How to get started using Entity Framework Core in a simple Console application
 canonical: /walkthroughs/console-application
 status: Published
-lastmod: 2023-02-12
+lastmod: 2025-07-13
 ---
 # Getting Started With EF Core - Console
 
-This walkthrough demonstrates the minimum required to create a database using Entity Framework Core in a .Net Core Console application. The walkthrough assumes that you have [.Net Core SDK](https://www.microsoft.com/net/core) installed and that you have a suitable development environment/text editor. [Visual Studio Code](https://code.visualstudio.com/) will be used in this example.
+This walkthrough demonstrates the minimum requirements to create a database using Entity Framework Core in a .NET Core Console application. The walkthrough assumes that you have [.NET Core SDK](https://www.microsoft.com/net/core) installed and that you have a suitable development environment/text editor. [Visual Studio Code](https://code.visualstudio.com/) will be used in this example.
 
 ## Creating a .NET Core Console application
 
-If you have a version of Visual Studio that supports .Net Core (2017 or greater), you can use the project templates to create a new .Net Core console application. Alternatively, you can use a command line tool to create and build the project. You can use the Terminal that's integrated into Visual Studio Code for this. 
+If you have a version of Visual Studio that supports .NET Core (2017 or greater), you can use the project templates to create a new .NET Core console application. Alternatively, you can use a command line tool to create and build the project. You can use the Terminal that's integrated into Visual Studio Code for this. 
 
 Create a folder named _EFCoreDemo_ and then open it in Visual Studio Code.
 
@@ -23,10 +23,10 @@ Press <kbd>Ctrl</kbd> + <kbd>'</kbd> to open a new Terminal window and then type
 > dotnet add package Microsoft.EntityFrameworkCore.Tools 
 ```
 The commands above
-- scaffolds a blank .NET Core console application
-- adds the Entity FrameworkCore and EF Core tooling packages from Nuget to the project
+- scaffold a blank .NET Core console application
+- add the Entity Framework Core and EF Core tooling packages from NuGet to the project
 
-Now modify the _.csproj_ file to include the following additional `<ItemGroup>` is added to the project. This may not have been added automatically:
+Now modify the _.csproj_ file to include the following additional `<ItemGroup>`, which is added to the project. This may not have been added automatically:
 
 ```xml
   <ItemGroup>
@@ -54,7 +54,7 @@ This results in a minimal console application:
 
 ![.NET Core Console Application](/images/14-02-2017-14-23-29.png)
 
-## Creating A Model
+## Creating a Model
 
 Add a new file named _EFCoreDemoContext.cs_ and add the following code to it:
 
@@ -111,7 +111,7 @@ namespace EFCoreDemo
 This code defines classes for two entities - `Book` and `Author` that participate in a [fully defined one-to-many relationship](/conventions/one-to-many-relationship#fully-defined-relationship). The code also includes a class named `EFCoreDemoContext` that inherits from [DbContext](/dbcontext). This class has two [DbSet](/dbset) properties that represent the tables in the database (which are yet to be created). The `EFCoreDemoContext` class also includes a method named `OnConfiguring` where the connection string for a SQL Server database is defined. You should change this to suit your environment and database provider.
 
 
-## Adding A Migration
+## Adding a Migration
 
 [Migrations](/migrations) are used to keep the database schema in sync with the model. There is no database at the moment, so the first migration will create it and add tables for the entities represented by the `DbSet` properties on the `EFCoreDemoContext` that you added. 
 
@@ -133,7 +133,7 @@ The database is created but all of the string fields are unlimited in size (`nva
 
 ![Database created](/images/17-02-2017-07-56-26.png)
 
-## Modifying The Database With Migrations
+## Modifying the Database With Migrations
 
 In the next section, you will modify the model to set limits to the size of selected string properties, and then use migrations to push those changes to the database schema.
 

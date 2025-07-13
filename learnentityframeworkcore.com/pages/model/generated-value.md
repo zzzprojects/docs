@@ -3,7 +3,7 @@ title: How Does EF Core Handle Explicit Value for Generated Value Property?
 description: Explore how EF Core manages explicit values for generated properties in this detailed guide. Learn to configure default behaviors, understand PropertySaveBehavior, and gain control over SaveChanges operations with practical examples
 canonical: /model/generated-value
 status: Published
-lastmod: 2024-08-14
+lastmod: 2025-07-13
 ---
 
 # How Does EF Core Handle Explicit Value for Generated Value Property?
@@ -20,7 +20,7 @@ But in this test, I was using the `SaveChanges` method! So why was EF Core inser
 
 I surely liked to ask myself a lot of questions that day!
 
-So how exactly does EF Core handle explicit values? The answer, after days of tests and research, was very simple: EF Core will insert the value if one is provided, but not always; it will sometimes ignore the value provided, sometimes will insert even if no value is provided, and sometimes will throw an error. **WAIT! What?** Yeah, I found out that it was way more complicated than what I were expecting when I had to research to fully understand the behavior to code our [Explicit Value Resolution Mode](https://entityframework-extensions.net/explicit-value-resolution-mode) option for our EF Extensions library.
+So how exactly does EF Core handle explicit values? The answer, after days of tests and research, was very simple: EF Core will insert the value if one is provided, but not always; it will sometimes ignore the value provided, sometimes insert even if no value is provided, and sometimes will throw an error. **WAIT! What?** Yeah, I found out that it was way more complicated than what I was expecting when I had to research to fully understand the behavior to code our [Explicit Value Resolution Mode](https://entityframework-extensions.net/explicit-value-resolution-mode) option for our EF Extensions library.
 
 In this article, I will share my research, experience, and discoveries with you:
 
@@ -45,7 +45,7 @@ The value is generated on insert, such as the case with an identity or default v
 There are multiple ways to configure a generated value, and the most common are:
 
 - **Default Behavior**
-   - For example, the `CustomerID` property for the `Customer` entity type will be considered as an Key/Identity.
+   - For example, the `CustomerID` property for the `Customer` entity type will be considered as a Key/Identity.
 - **Data Annotations:**
    - [Concurrency Check](https://www.learnentityframeworkcore.com/configuration/data-annotation-attributes/concurrencycheck-attribute) 
    - [Database Generated](https://www.learnentityframeworkcore.com/configuration/data-annotation-attributes/databasegenerated-attribute) 

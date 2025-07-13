@@ -1,9 +1,9 @@
 ---
-title: ExecuteSql - Executing Raw SQL Queries using EF Core Core
+title: ExecuteSql - Executing Raw SQL Queries using EF Core
 description: The ExecuteSql method in Entity Framework Core is used to execute raw SQL queries against the database and return an integer specifying the number of rows affected by the SQL query.
 canonical: /raw-sql/execute-sql
 status: Published
-lastmod: 2023-02-14
+lastmod: 2025-07-13
 ---
 
 # EF Core ExecuteSql
@@ -14,7 +14,7 @@ The `DbContext` exposes a `Database` property which includes a method called `Ex
 
 The `ExecuteSql` method in Entity Framework Core (EF Core) allows you to execute raw SQL statements directly against the database. This method can be useful when you need to perform database operations that are not supported by the LINQ to Entities API, or when you want to perform database-specific operations.
 
-Here's an example of how you can use ExecuteSqlCommand in EF Core:
+Here's an example of how you can use ExecuteSql in EF Core:
 
 ```csharp
 using (var context = new MyDbContext())

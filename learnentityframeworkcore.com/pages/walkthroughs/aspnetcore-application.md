@@ -2,16 +2,16 @@
 title: Getting Started With Entity Framework Core - ASP.NET Core
 description: How to get started using Entity Framework Core in a simple ASP.NET Core application
 status: Published
-lastmod: 2023-02-12
+lastmod: 2025-07-13
 ---
 
 # Getting Started With EF Core - ASP.NET Core
 
-This walkthrough demonstrates the minimum required to create a database using Entity Framework Core in an ASP.NET Core application and to develop basic CRUD screens. The walkthrough assumes that you have [.Net Core SDK](https://www.microsoft.com/net/core) installed and that you have a suitable development environment/text editor. [Visual Studio Code](https://code.visualstudio.com/) will be used in this example.
+This walkthrough demonstrates the minimum required to create a database using Entity Framework Core in an ASP.NET Core application and to develop basic CRUD screens. The walkthrough assumes that you have [.NET Core SDK](https://www.microsoft.com/net/core) installed and that you have a suitable development environment/text editor. [Visual Studio Code](https://code.visualstudio.com/) will be used in this example.
 
 ## Creating an ASP.NET Core application
 
-If you have a version of Visual Studio that supports .Net Core (2015 or greater), you can use the project templates to create a new .Net Core Web application. Alternatively, you can use a command line tool to create and build the project. In this example, you will use the command line tool from within Visual Studio Code.
+If you have a version of Visual Studio that supports .NET Core (2015 or greater), you can use the project templates to create a new .NET Core Web application. Alternatively, you can use a command line tool to create and build the project. In this example, you will use the command line tool from within Visual Studio Code.
 
 The first step is to create a folder for the application in a suitable location. Name the folder _EFCoreWebDemo_. Once created, open the folder in Visual Studio Code. Having done that, press <kbd>Ctrl</kbd> + <kbd>'</kbd> to open a Terminal window.
 
@@ -30,7 +30,7 @@ Next, use the terminal to type these commands
 The commands above
 - scaffolds a starter ASP.NET Core application that uses the MVC framework  
 ![ASP.NET Core MVC application](/images/02-03-2017-08-43-18.png)
-- adds the Entity FrameworkCore and EF Core tooling packages from Nuget to the project
+- adds the Entity Framework Core and EF Core tooling packages from NuGet to the project
 - restores all packages
 - builds and runs the application 
 
@@ -127,7 +127,7 @@ This code defines classes for two entities - `Book` and `Author` that participat
 
 Before moving on to the migration, type `dotnet build` to ensure that the application builds correctly. 
 
-## Adding A Migration
+## Adding a Migration
 
 [Migrations](/migrations) are used to keep the database schema in sync with the model. There is no database at the moment, so the first migration will create it and add tables for the entities represented by the `DbSet` properties on the `EFCoreDemoContext` that you added. 
 
@@ -150,7 +150,7 @@ The database is created but all of the string fields are unlimited in size (`nva
 
 ![Database created](/images/02-03-2017-13-57-21.png)
 
-## Modifying The Database With Migrations
+## Modifying the Database With Migrations
 
 In the next section, you will modify the model to set limits to the size of selected string properties, and then use migrations to push those changes to the database schema.
 

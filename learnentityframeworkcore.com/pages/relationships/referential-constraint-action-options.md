@@ -3,14 +3,14 @@ title: Referential Constraint Action Options
 description: Referential Constraint Actions are the actions that the database takes if an attempt is made to delete or update a primary key currently being referenced by a foreign key in another table. 
 canonical: /relationships/referential-constraint-action-options
 status: Published
-lastmod: 2023-02-13
+lastmod: 2025-07-13
 ---
 
 # EF Core Referential Constraint Action Options
 
 To maintain the referential integrity of your data, you can specify the action that the database should take if an attempt is made to delete or update a primary key currently being referenced by a foreign key in another table. You can do this via the `ON DELETE` or `ON UPDATE` clause when the foreign key constraint is being defined.
 
-Here's a diagram that shows a simple database of books and authors to help illustrate each option
+Here's a diagram that shows a simple database of books and authors to help illustrate each option.
 
 ![Referential Integrity Constraints](/images/17-08-2016-14-01-13.png)
 

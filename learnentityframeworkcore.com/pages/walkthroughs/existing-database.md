@@ -3,7 +3,7 @@ title: Generating a model from an existing database
 description: Database-first has been deprecated in Entity Framework Core in favor of a Code first approach with an existing database.
 canonical: /walkthroughs/existing-database
 status: Published
-lastmod: 2023-02-12
+lastmod: 2025-07-13
 ---
 
 # EF Core Database First
@@ -17,7 +17,7 @@ The following example illustrates how to use code first to generate a model from
 First, create a folder for the project:
 
 ```cmd
-> mkdir EFCoreScaffoldexample
+> mkdir EFCoreScaffoldExample
 ```
 Then navigate to it:
 
@@ -61,7 +61,7 @@ try installing the EF Core tool by executing the following command:
 dotnet tool install --global dotnet-ef
 ```
 
-You use the [DbContext Scaffold](/migrations/commands/cli-commands#dbcontext-scaffold) command to generate the model. The command has two required arguments - a connection string and a provider. The connection string will depend on your environment and database provider. The provider argument is the Entity Framework provider for your chosen database. This example uses the [AdventureWorks sample database](https://github.com/Microsoft/sql-server-samples/releases/tag/adventureworks) for the SQL server provided by Microsoft.
+You use the [DbContext Scaffold](/migrations/commands/cli-commands#dbcontext-scaffold) command to generate the model. The command has two required arguments - a connection string and a provider. The connection string will depend on your environment and database provider. The provider argument is the Entity Framework provider for your chosen database. This example uses the [AdventureWorks sample database](https://github.com/Microsoft/sql-server-samples/releases/tag/adventureworks) for the SQL Server provided by Microsoft.
 ```cmd
 > dotnet ef dbcontext scaffold "Server=.\;Database=AdventureWorksLT2012;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -o Model
 ```
