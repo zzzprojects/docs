@@ -3,7 +3,7 @@ title: Add Migration Command in Entity Framework Core
 description: Discover how to use the 'Add Migration' command in Entity Framework Core. Learn step-by-step processes for both the Package Manager Console (PMC) and the .NET Command Line Interface (.NET CLI) to capture and implement model changes.
 canonical: /migrations/add-migration
 status: Published
-lastmod: 2023-09-19
+lastmod: 2025-07-13
 thumbnail: /images/efcore/migrations/add-migration/thumbnail-ef-core-add-migration.png
 localhost: https://localhost:5005/migrations/add-migration
 ---
@@ -41,7 +41,7 @@ Add-Migration [MigrationName]
 **NOTE**: Replace `[MigrationName]` by the name you want to give to your migration.
 :::
 
-See [Package Manager Console Parameters](#what-are-the-parameters-for-the-add-migration-command-in-ef-core) for additional parameters options.
+See [Package Manager Console Parameters](#what-are-the-parameters-for-the-add-migration-command-in-ef-core) for additional parameter options.
 
 <div class="image-outer"><img src="/images/efcore/migrations/add-migration/how-to-use-add-migration-command-with-pmc-in-ef-core.png" loading="lazy" alt="Add Migration - PMC Example"></div>
 
@@ -60,7 +60,7 @@ dotnet ef migrations add [MigrationName]
 **NOTE**: Replace `[MigrationName]` by the name you want to give to your migration.
 :::
 
-See [Command Line Parameters](#net-command-line-interface.net-cli) for additional parameters options.
+See [Command Line Parameters](#net-command-line-interface.net-cli) for additional parameter options.
 
 <div class="image-outer"><img src="/images/efcore/migrations/add-migration/how-to-use-migration-add-command-with-net-cli-in-ef-core.png" loading="lazy" alt="Add Migration - CLI Example"></div>
 

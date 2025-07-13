@@ -19,5 +19,4 @@
 - [Lazy Loading](/lazy-loading.md)
 - [Database Providers](/database-providers)
 - [Bulk Operations](/bulk-operations/index.md)
-- [Database Providers](/database-providers)
 - [Misc](/misc/index.md)

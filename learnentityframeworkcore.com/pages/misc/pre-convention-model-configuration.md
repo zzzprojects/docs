@@ -3,7 +3,7 @@ title: Pre-convention Model Configuration in Entity Framework Core
 description: EF Core 6.0 allows this mapping configuration to be specified once for a given type. It will then be applied to all properties of that type in the model.
 canonical: /misc/pre-convention-model-configuration
 status: Published
-lastmod: 2023-02-16
+lastmod: 2025-07-13
 ---
 
 # EF Core Pre-convention Model Configuration
@@ -16,9 +16,9 @@ In previous versions of EF Core, explicit mapping was required for each property
  - A mapping attribute was placed on each property, or
  - Explicit iteration over all properties of all entity types and utilization of the low-level metadata APIs was performed during model building, which was error-prone and challenging to do accurately as the list of entity types and mapped properties could be subject to change.
 
-EF Core 6.0 simplifies this process by allowing the mapping configuration to be specified once for a given type and automatically applied to all properties of that type in the model it is referred to as a pre-convention model configuration as it sets up elements of the model that will then be used by the model building conventions.
+EF Core 6.0 simplifies this process by allowing the mapping configuration to be specified once for a given type and automatically applied to all properties of that type in the model. This is referred to as a pre-convention model configuration as it sets up elements of the model that will then be used by the model building conventions.
 
-Here's an example pre-convention model configuration, we have two entities in our model i.e. `Author` and `Book`.
+Here's an example of a pre-convention model configuration: we have two entities in our model, i.e., `Author` and `Book`.
 
 ```csharp
 public class Author

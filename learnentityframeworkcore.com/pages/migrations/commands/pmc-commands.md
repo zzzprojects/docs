@@ -3,14 +3,14 @@ title: Package Manager Console Commands
 description: Commands in Entity Framework Core can be executed from within Visual Studio via the Package Manager Console Interface
 canonical: /migrations/commands/pmc-commands
 status: Published
-lastmod: 2023-02-18
+lastmod: 2025-07-13
 ---
 
 # EF Core Package Manager Console
 
-The Package Manager Console is available within Visual Studio by going to **Tools** » **Nuget Package Manager**. 
+The Package Manager Console is available within Visual Studio by going to **Tools** » **NuGet Package Manager**. 
 
-If you want to use the Package Manager Console to execute migrations command, you need to ensure that the latest version of `Microsoft.EntityFrameworkCore.Tools` is added to your project.json file.
+If you want to use the Package Manager Console to execute migration commands, you need to ensure that the latest version of `Microsoft.EntityFrameworkCore.Tools` is added to your project.json file.
 
 The commands that you execute to manage migrations from the Package Manager Console are largely the same as those for Entity Framework 6. The full range of commands can be found by typing `get-help entityframework` at the `PM` prompt:
 
@@ -58,7 +58,7 @@ SEE ALSO
     Update-Database
     Use-DbContext
 ```
-You can get further help for specific commands by typing `get-help` followed by the command name. For example, the following output is generated as a result of typing `get-help add-migration`:
+You can get further help for specific commands by typing `get-help` followed by the command name. For example, the following output is generated as a result of typing `get-help Add-Migration`:
 ### Add-migration
 ```
 NAME
@@ -76,7 +76,7 @@ DESCRIPTION
 
 #### Notes
 
-The migration files will be placed in a folder name _Migrations_ by default. This will be created in the root of the project unless an alternative location is specified using the `-outputdir` switch. If you specify an alternative location with `outputdir`, the value will be rooted in the project directory. It should not be prefixed with a path separator (e.g. '/').
+The migration files will be placed in a folder named _Migrations_ by default. This will be created in the root of the project unless an alternative location is specified using the `-outputdir` switch. If you specify an alternative location with `outputdir`, the value will be rooted in the project directory. It should not be prefixed with a path separator (e.g. '/').
 
 
 ### Remove-Migration

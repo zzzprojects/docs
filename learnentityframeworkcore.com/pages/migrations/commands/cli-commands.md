@@ -3,12 +3,12 @@ title: Command Line Interface commands
 description: The commands available for managing the database, DbContext, and migrations from the command line.
 canonical: /migrations/commands/cli-commands
 status: Published
-lastmod: 2023-02-18
+lastmod: 2025-07-13
 ---
 
 # EF Core Command Line Interface
 
-The current CLI commands are detailed below for reference. They are accessed using your command line/terminal tool via the `dotnet` command using the `ef` switch. The full list of commands can be accessed from within the command line by typing `dotnet ef --help`:
+Current CLI commands are detailed below for reference. They are accessed using your command line/terminal tool via the `dotnet` command using the `ef` switch. The full list of commands can be accessed from within the command line by typing `dotnet ef --help`:
 
 ```cmd
 

@@ -3,14 +3,14 @@ title: Update Database Command in Entity Framework Core
 description: Explore the essentials of the Update Database command in EF Core. Learn how to apply or revert migrations using the Up and Down methods, the differences between the Package Manager Console (PMC) and .NET CLI commands, and dive deep into their parameters. Keep your database in sync effortlessly!
 canonical: /migrations/update-database
 status: Published
-lastmod: 2023-11-11
+lastmod: 2025-07-13
 thumbnail: /images/efcore/migrations/update-database/thumbnail-ef-core-update-database.png
 localhost: https://localhost:5005/migrations/update-database
 ---
 
 # EF Core Update-Database
 
-Updating a database using a migration in EF Core is the process of applying changes to a database using the `Up` method from the [migration file](/migrations/migration-files#up-method) or reverting changes using the `Down` method. To apply or unapply a migration, the `Update Command` must be run. This command checks the database for all applied migrations and will execute one of the two following processes:
+Updating a database using a migration in EF Core is the process of applying changes to a database using the `Up` method from the [migration file](/migrations/migration-files#up-method) or reverting changes using the `Down` method. To apply or revert a migration, the `Update Command` must be run. This command checks the database for all applied migrations and will execute one of the two following processes:
 
 - **Apply a migration**: The [Up Method](/migrations/migration-files#up-method) will be executed if the specific migration is more recent than the latest applied migrations.
 - **Revert a migration**: The [Down Method](/migrations/migration-files#up-method) will be executed if the specific migration is older than the latest applied migrations.
@@ -75,7 +75,7 @@ dotnet ef database update [MigrationName]
 **NOTE**: Replace `[MigrationName]` with the name of the migration you want to apply or revert to.
 :::
 
-See [Command Line Parameters](#net-command-line-interface.net-cli) for additional parameters options.
+See [Command Line Parameters](#net-command-line-interface.net-cli) for additional parameter options.
 
 <div class="image-outer"><img src="/images/efcore/migrations/update-database/how-to-use-update-database-command-with-net-cli-in-ef-core.png" loading="lazy" alt="Update Database - CLI Example"></div>
 
@@ -96,7 +96,7 @@ The `Update-Database` command with PMC provides several optional options:
 
 | Option | Description |
 | ------ | ----------- |
-| **-Name** | The name of the migration you wish to apply. If not specified, the most recent migration will be used. For example, `Update-Database AddingEFExtensions` will apply all unapplied migrations up to the one named **AddingEFExtensions**. In the case of a rollback, `Update-Database AddingEFExtensions` will revert all applied migration down to the one named **AddingEFExtensions**.  |
+| **-Name** | The name of the migration you wish to apply. If not specified, the most recent migration will be used. For example, `Update-Database AddingEFExtensions` will apply all unapplied migrations up to the one named **AddingEFExtensions**. In the case of a rollback, `Update-Database AddingEFExtensions` will revert all applied migrations down to the one named **AddingEFExtensions**.  |
 | **-Context** | The context class to use that contains the migration you want to apply, it can be either the `name` or the `fullname` including namespaces. For example, `Update-Database -Context Z.MyContextName` will apply the migration for the **Z.MyContextName** context. |
 | **-Project** | The project containing the context used to apply the migration file. If omitted, the default project in the Package Manager Console is used. For example, `Update-Database -Project Z.MyProjectName` will apply the migration for the context in the **Z.MyProjectName** project. |
 | **-StartupProject** | The project with the configurations and settings. If omitted, the startup project of your solution is used. For example, `Update-Database -StartupProject Z.MyStartupProjectName` will apply the migration using the configurations and settings of the **Z.MyStartupProjectName** project. |

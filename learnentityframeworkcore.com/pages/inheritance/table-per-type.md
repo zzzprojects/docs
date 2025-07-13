@@ -4,7 +4,7 @@ description: EF Core support for inheritance uses the Table Per Type pattern
 canonical: /inheritance/table-per-type
 proficiencylevel: Intermediate
 status: Published
-lastmod: 2023-08-17
+lastmod: 2025-07-13
 ---
 
 # EF Core TPT
@@ -37,7 +37,7 @@ public class Bird : Animal
 
 In this example, the `Animal` base class is defined with `Id` and `Name` properties, and two subtypes, `Mammal` and `Bird` are defined with additional properties.
 
-In the `OnModelCreating` method of the `AnimalContext`, instead of calling `ToTable` on each entity type just call `modelBuilder.Entity<Blog>().UseTptMappingStrategy()` on each root entity type will generate the table names by convention. 
+In the `OnModelCreating` method of the `AnimalContext`, instead of calling `ToTable` on each entity type, just call `modelBuilder.Entity<Animal>().UseTptMappingStrategy()` on each root entity type; this will generate the table names by convention. 
 
 ```csharp
 public class AnimalContext : DbContext
@@ -85,9 +85,9 @@ In this example, we create an instance of the `AnimalContext`, which is our `DbC
  - We then use the `Add` method on the `Mammals` and `Birds` properties of the `AnimalContext` to add the entities to the appropriate `DbSet`, and finally call the `SaveChanges` method to persist the changes to the database. 
  - The TPT mapping strategy will ensure that the entities are inserted into the correct table in the database.
 
-To retrieve data from a database using the Table-per-concrete type (TPC) mapping strategy in Entity Framework Core (EF Core), you can use LINQ to query the appropriate `DbSet` for the entities you want to retrieve.
+To retrieve data from a database using the Table-per-type (TPT) mapping strategy in Entity Framework Core (EF Core), you can use LINQ to query the appropriate `DbSet` for the entities you want to retrieve.
 
-Here's an example of how you might retrieve data from a database using TPC mapping in EF Core:
+Here's an example of how you might retrieve data from a database using TPT mapping in EF Core:
 
 ```csharp
 using (var context = new AnimalContext())
@@ -116,6 +116,6 @@ In this example, we create an instance of the `AnimalContext`, which is our `DbC
 
  - The `OfType` method allows us to retrieve only the entities of a specific type from a `DbSet`. 
  - We then use the `ToList` method to materialize the entities into a list and finally use a foreach loop to iterate over the list and print out the properties of each entity. 
- - The TPC mapping strategy will ensure that the entities are retrieved from the correct table in the database.
+ - The TPT mapping strategy will ensure that the entities are retrieved from the correct table in the database.
 
 Overall, the choice of whether to use TPT or another mapping strategy, such as table-per-hierarchy (TPH) or table-per-concrete-class (TPC), depends on the specific requirements of your application and the needs of your data.

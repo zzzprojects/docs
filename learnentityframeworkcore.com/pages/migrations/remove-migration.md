@@ -3,7 +3,7 @@ title: Remove Migration Command in Entity Framework Core
 description: Discover how to effectively remove migrations in EF Core. This guide provides step-by-step instructions for using the Remove Migration command via both the Package Manager Console (PMC) and the .NET Command Line Interface (CLI). Learn to safely delete the latest unapplied migration files and understand the available parameters for seamless migration management.
 canonical: /migrations/remove-migration
 status: Published
-lastmod: 2023-09-19
+lastmod: 2025-07-13
 thumbnail: /images/efcore/migrations/remove-migration/thumbnail-ef-core-remove-migration.png
 localhost: https://localhost:5005/migrations/remove-migration
 ---
@@ -86,7 +86,7 @@ The `Remove-Migration` command with PMC offers several optional options:
 | ------ | ----------- |
 | **-Force** | When used, the `Remove-Migration -Force` command will remove the migration regardless of whether it has already been applied to the database. |
 | **-Context** | The context class to use that contains the migration you want to remove, it can be either the `name` or the `fullname` including namespaces. For example, `Remove-Migration -Context Z.MyContextName` will remove the migration for the **Z.MyContextName** context. |
-| **-Project** | The project containing the context used to remove the migration file. If omitted, the default project in the Package Manager Console is used. For example, `Remove-Migration -Project Z.MyProjectName` will revove the migration for the context in the **Z.MyProjectName** project. |
+| **-Project** | The project containing the context used to remove the migration file. If omitted, the default project in the Package Manager Console is used. For example, `Remove-Migration -Project Z.MyProjectName` will remove the migration for the context in the **Z.MyProjectName** project. |
 | **-StartupProject** | The project with the configurations and settings. If omitted, the startup project of your solution is used. For example, `Remove-Migration -StartupProject Z.MyStartupProjectName` will remove the migration using the configurations and settings of the **Z.MyStartupProjectName** project. |
 
 ```csharp

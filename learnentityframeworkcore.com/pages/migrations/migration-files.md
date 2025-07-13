@@ -3,7 +3,7 @@ title: Migration Files in Entity Framework Core
 description: Dive into EF Core's migration files, a key tool for the code-first approach. Understand the significance of Up and Down methods, explore commands like add-migration, and unravel the intricacies of database schema modifications.
 canonical: /migrations/migration-files
 status: Published
-lastmod: 2023-09-19
+lastmod: 2025-07-13
 thumbnail: /images/efcore/migrations/migration-files/thumbnail-ef-core-migration-files.png
 localhost: https://localhost:5005/migrations/migration-files
 ---
@@ -24,7 +24,7 @@ This article will focus on the **[Timestamp]_[MigrationName].cs** file. You can 
 
 **Changes Made**:
 - Changed "utilizing" to "using" for simpler vocabulary.
-- Changed "concentred about" to "focus on" for clearer meaning.
+- Changed "concerned about" to "focus on" for clearer meaning.
 - Made minor changes for clarity without rephrasing the overall content.
 
 ## Main Migration File

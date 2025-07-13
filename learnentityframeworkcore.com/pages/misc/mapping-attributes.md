@@ -3,7 +3,7 @@ title: Mapping Attributes in Entity Framework Core
 description: Mapping attributes can be used to customize the behavior of EF Core entities and properties when they are mapped to the database.
 canonical: /misc/mapping-attributes
 status: Published
-lastmod: 2023-02-16
+lastmod: 2025-07-13
 ---
 
 # EF Core Mapping Attributes
@@ -22,7 +22,7 @@ EF Core provides a set of mapping attributes that can be used to configure how e
 
 These attributes can be applied to entity classes and their properties to customize the way they are mapped to the database. They allow you to define relationships, specify data types, and configure database constraints. By using these attributes, you can create a mapping that is optimized for your specific scenario and ensure that your data is persisted in the most efficient way possible.
 
-here's an example of how some of the mapping attributes can be used in EF Core:
+Here's an example of how some of the mapping attributes can be used in EF Core:
 
 ```csharp
 public class Customer
@@ -60,7 +60,7 @@ In this example, we have two entities `Customer` and `Country` that are related 
 
 ## New Mapping Attributes
 
-In the latest version of EF Core, there are various new attributes are introduced that can be utilized in the code to modify the default mapping of entities with the database.
+In the latest version of EF Core, various new attributes are introduced that can be utilized in the code to modify the default mapping of entities with the database.
 
 ### Unicode
 
@@ -81,7 +81,7 @@ public class Book
 }
 ```
 
-In this class, the `Isbn` property is marked with the `[Unicode(false)]` attribute. When EF Core creates the database schema for this entity, it will ensure that the column corresponding to the `Isbn` property is created with the non-Unicode data type and to restrict the size of the database column, `MaxLength` is used.
+In this class, the `Isbn` property is marked with the `[Unicode(false)]` attribute. When EF Core creates the database schema for this entity, it will ensure that the column corresponding to the `Isbn` property is created with the non-Unicode data type, and to restrict the size of the database column, `MaxLength` is used.
 
 ```csharp
 CREATE TABLE [Book] (

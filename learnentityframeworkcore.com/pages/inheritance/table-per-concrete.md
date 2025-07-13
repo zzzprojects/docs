@@ -4,7 +4,7 @@ description: EF Core support for inheritance uses the Table Per Concrete pattern
 canonical: /inheritance/table-per-concrete
 proficiencylevel: Intermediate
 status: Published
-lastmod: 2023-08-11
+lastmod: 2025-07-13
 ---
 
 # EF Core TPC Inheritance
@@ -58,7 +58,7 @@ public class AnimalsDbContext : DbContext
 }
 ```
 
-It will create two tables in the database, one for each concrete class `Cat` and `Dog`, and each table will contain columns for all properties defined in the corresponding class, including the properties inherited from the base class `Animal`. When you create migration or call the `EnsureCreatedmethod`, it will create the following tables.
+It will create two tables in the database, one for each concrete class `Cat` and `Dog`, and each table will contain columns for all properties defined in the corresponding class, including the properties inherited from the base class `Animal`. When you create migration or call the `EnsureCreated` method, it will create the following tables.
 
 ```csharp
 CREATE TABLE [dbo].[Dogs] (

@@ -3,7 +3,7 @@ title: Applying Seed Data To The Database
 description: Seeding data in Entity Framework Core Migrations
 canonical: /migrations/seeding
 status: Published
-lastmod: 2023-02-17
+lastmod: 2025-07-13
 ---
 
 # EF Core Seed Data
@@ -155,7 +155,7 @@ public class DataSeeder
 ```
 While this example uses hardcoded country names (and is curtailed for brevity), the code could just as simply read seed data from an external location such as a web service, text, or XML file.
 
-The `SeedCountries` method is called in the `Main` method of the `Progam` class. This example illustrates how this might be achieved in an ASP.NET application:
+The `SeedCountries` method is called in the `Main` method of the `Program` class. This example illustrates how this might be achieved in an ASP.NET application:
 
 ```csharp
 public void Main(string[] args)

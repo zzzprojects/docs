@@ -3,7 +3,7 @@ title: Extensions for EF Core | Third Party Libraries
 description: An introduction to third-party libraries for EF Core
 canonical: /extensions
 status: Published
-lastmod: 2025-04-05
+lastmod: 2025-07-13
 ---
 
 # Extensions
@@ -14,7 +14,7 @@ One of the most notable is [Entity Framework Extensions](https://entityframework
 
 ## Audit.EntityFramework.Core
 
-**Entity Framework Audit Extension for the [Audit.NET library](https://github.com/thepirat000/Audit.NET)**
+**Entity Framework Audit Extension for the [Audit.NET Library](https://github.com/thepirat000/Audit.NET)**
 
 This extension automatically generates audit logs for your Entity Framework operations. It supports both Entity Framework and Entity Framework Core.
 

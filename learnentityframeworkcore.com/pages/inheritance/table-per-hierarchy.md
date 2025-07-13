@@ -4,7 +4,7 @@ description: EF Core support for inheritance uses the Table Per Hierarchy patter
 canonical: /inheritance/table-per-hierarchy
 proficiencylevel: Intermediate
 status: Published
-lastmod: 2023-08-16
+lastmod: 2025-07-13
 ---
 
 # EF Core TPH
@@ -34,7 +34,7 @@ public class TvContract : Contract
     public PackageType PackageType { get; set; }
 }
 
-public class BroadBandContract : Contract
+public class BroadbandContract : Contract
 {
     public int DownloadSpeed { get; set; }
 }
@@ -55,7 +55,7 @@ public class SampleContext : DbContext
     public DbSet<Contract> Contracts { get; set; }
     public DbSet<MobileContract> MobileContracts { get; set; }
     public DbSet<TvContract> TvContracts { get; set; }
-    public DbSet<BroadBandContract> BroadBandContracts { get; set; }
+    public DbSet<BroadbandContract> BroadbandContracts { get; set; }
 }
 ```
 This approach has the benefit of enabling you to easily query contract types explicitly e.g.
@@ -73,7 +73,7 @@ public class SampleContext : DbContext
     {
         modelBuilder.Entity<MobileContract>();
         modelBuilder.Entity<TvContract>();
-        modelBuilder.Entity<BroadBandContract>();
+        modelBuilder.Entity<BroadbandContract>();
     }
 }
 ```

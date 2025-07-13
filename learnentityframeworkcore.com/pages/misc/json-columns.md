@@ -3,7 +3,7 @@ title: JSON Columns in Entity Framework Core
 description: EF Core 7.0 contains provider-agnostic support for JSON columns, with an implementation for SQL Server. This support allows the mapping of aggregates built from .NET types to JSON documents. 
 canonical: /misc/sparse-columns
 status: Published
-lastmod: 2024-08-30
+lastmod: 2025-07-13
 ---
 
 # EF Core JSON Columns
@@ -72,7 +72,7 @@ public class CustomerContext : DbContext
 }
 ```
 
-When calling the `ToJson` method in configuring the aggregate type, the `Customers` table will now contain a JSON column for `ContactDetails` populated with a JSON document for each author:
+When calling the `ToJson` method in configuring the aggregate type, the `Customers` table will now contain a JSON column for `ContactDetails` populated with a JSON document for each customer:
 
 ```csharp
 CREATE TABLE [dbo].[Customers] (

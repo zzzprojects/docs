@@ -1,20 +1,20 @@
 ---
 title: How to get Entity Framework Core
-description: Entity Framework Core is available as a Nuget Package that can be added to your project in several ways depending on the project type and the tools available to you
+description: Entity Framework Core is available as a NuGet Package that can be added to your project in several ways depending on the project type and the tools available to you
 canonical: /efcore/how-to-get
 status: Published
-lastmod: 2023-02-20
+lastmod: 2025-07-13
 ---
 
 # How to get EF Core - NuGet Package
 
-EF Core is available as a Nuget Package that can be added to your project in many ways depending on the project type and the tools available to you.
+EF Core is available as a NuGet Package that can be added to your project in many ways depending on the project type and the tools available to you.
 
 ## Visual Studio Package Manager
 
 Users of Visual Studio can install Entity Framework Core via one of the package management tool options regardless of the project type (.NET Core or the full .NET Framework): the NuGet Package Manager UI; or the Package Manager Console.
 
-### Nuget Package Manager UI
+### NuGet Package Manager UI
 
 1. Go to **Tools** &raquo; **NuGet Package Manager** &raquo; **Manage NuGet Packages For Solution**  
 ![NuGet Package Manager UI](/images/23-11-2016-13-58-47.png)
@@ -25,7 +25,7 @@ Users of Visual Studio can install Entity Framework Core via one of the package 
 3. Click on the provider that you want to install. SQL Server is selected in this case.  
 ![Select package](/images/24-11-2016-08-56-16.png)
 
-4. Check the project  that you want to install the package into, then click Install  
+4. Check the project that you want to install the package into, then click Install  
 ![Install Package](/images/24-11-2016-08-57-21.png)
 
 5. Review the changes that are about to be made to your project (unless you have previously ticked the box to prevent this dialog from appearing)  

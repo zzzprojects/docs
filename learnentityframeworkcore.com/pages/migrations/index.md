@@ -4,7 +4,7 @@ description: The migrations feature in Entity Framework Core enables you to make
 canonical: /migrations
 lib: src/EFCore.Relational/Migrations
 status: Published
-lastmod: 2023-08-10
+lastmod: 2025-07-13
 ---
 
 # EF Core Migrations
@@ -38,7 +38,7 @@ EF Core Migrations is a feature of EF Core that enables developers to evolve the
 | `dotnet ef database update [name]` | Update the database to a specific migration name point. |
 | `dotnet ef migrations list` | Lists all available migrations. |
 | `dotnet ef migrations script` | Generates a SQL script for all migrations. |
-| `dotnet ef migrations has-pending-model-changes` | Check if there is any model changes since the last migration. |
+| `dotnet ef migrations has-pending-model-changes` | Check if there are any model changes since the last migration. |
 | `dotnet ef database drop` | Drop the database. |
 
 ## Steps for Migrations
@@ -69,7 +69,7 @@ The following command creates a migration:
 [Command Line]
 dotnet ef migrations add <name of migration>
 
-[Package Manager console]
+[Package Manager Console]
 add-migration <name of migration>
 ```
 
@@ -217,7 +217,7 @@ public partial class CreateDatabase : Migration
         }
         if(ActiveProvider == "Microsoft.EntityFrameworkCore.Sqlite")
         {
-            // do something SqLite - specific
+            // do something SQLite - specific
         }
 
         migrationBuilder.CreateTable(
@@ -241,7 +241,7 @@ Your migration might include a long-running task that exceeds the default comman
 
 The `IDesignTimeDbContextFactory` interface was introduced to enable you to change the behavior of your context when it is being created by tooling at design time such as happens with Migrations.
 
-To use this approach, create a separate class in your project that implements the `IDesignTimeDbContextFactory` interface and use the `DbContextoptionsBuilder` to configure the behaviour you want - in this case, setting the command timeout value to 600 seconds (10 minutes):
+To use this approach, create a separate class in your project that implements the `IDesignTimeDbContextFactory` interface and use the `DbContextOptionsBuilder` to configure the behavior you want - in this case, setting the command timeout value to 600 seconds (10 minutes):
 
 ```csharp
 using Microsoft.EntityFrameworkCore;
@@ -279,4 +279,4 @@ var context = new MyContext();
 context.Database.Migrate();
 ```
 
-The method is helpful if you want to apply your migrations automatically at runtime. When your application start by example.
+The method is helpful if you want to apply your migrations automatically at runtime. When your application starts, for example.

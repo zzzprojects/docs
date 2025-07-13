@@ -3,7 +3,7 @@ title: The Model Snapshot In Entity Framework Core
 description: The role of the ModelSnapshot file in Entity Framework Core Migrations is to store a snapshot of the current state of your model
 canonical: /migrations/model-snapshot
 status: Published
-lastmod: 2023-09-15
+lastmod: 2025-07-13
 ---
 
 # EF Core Model Snapshot
@@ -29,7 +29,7 @@ In previous versions, this information was stored in the database, which resulte
 
  - [This caused problems in team environments](https://msdn.microsoft.com/en-us/data/dn481501) where each developer had their development database, often at different stages of development or was trying to apply different migrations to a shared development database at the same time.
  - When the snapshot was saved as part of each migration, it was possible to delete a migration, and in doing so, the snapshot was deleted, still leaving migrations and snapshots in sync with each other.  
- - If you delete a migration file in EF Core, the snapshot and migrations will be left out of kilter. For this reason, you are advised to get yourself into the practice of only ever using the `remove-migration` command to revert a migration. 
+ - If you delete a migration file in EF Core, the snapshot and migrations will be left out of sync. For this reason, you are advised to get yourself into the practice of only ever using the `remove-migration` command to revert a migration. 
  - Having said that, if you do inadvertently delete a migration file from the migrations folder, EF Core will recognize this and revert the snapshot for you.
 
 ## Related Articles

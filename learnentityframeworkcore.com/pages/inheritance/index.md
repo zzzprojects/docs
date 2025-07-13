@@ -3,7 +3,7 @@ title: Inheritance in Entity Framework Core
 description: Inheritance is a key object-oriented programming concept that facilitates code reuse and is often used to model hierarchies. It is supported in Entity Framework Core using the Table Per Hierarchy pattern
 canonical: /inheritance
 status: Published
-lastmod: 2023-02-19
+lastmod: 2025-07-13
 ---
 
 # EF Core Inheritance 
@@ -40,7 +40,7 @@ public enum PackageType
 }
 ```
 
-The base type is `Contract`. Specific types of contracts inherit from the base class: a mobile phone contract, a TV contract, and a broadband contract. Each of the types of contract shares the `ContractId`, `StartDate`, `Duration`, and `Charge` properties with their base type through inheritance, and implement additional type-specific properties.
+The base type is `Contract`. Specific types of contracts inherit from the base class: a mobile phone contract, a TV contract, and a broadband contract. Each of the types of contract shares the `ContractId`, `StartDate`, `Months`, and `Charge` properties with their base type through inheritance, and implements additional type-specific properties.
 
 There are three ways in which object-oriented inheritance can be represented in a database:
 
