@@ -9,6 +9,9 @@ LastMod: 2025-06-23
 The `BulkSaveChanges` method works like EF Core’s [SaveChanges](https://learn.microsoft.com/en-us/ef/core/saving/basic) method—only faster! It saves to the database all entities in your [ChangeTracker](https://www.learnentityframeworkcore.com/dbcontext/change-tracker) that have one of the following states: **Added**, **Modified**, or **Deleted**.
 
 ```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
 // Easy to use
 context.BulkSaveChanges();
 

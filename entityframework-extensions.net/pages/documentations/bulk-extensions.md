@@ -13,6 +13,9 @@ LastMod: 2025-06-23
 Here is an example that [Bulk Insert in EF Core](https://entityframework-extensions.net/bulk-insert) a list of `Invoice` and related `InvoiceItems` by using the [IncludeGraph](https://entityframework-extensions.net/include-graph) option:
 
 ```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
 context.BulkInsert(invoices, options => { options.IncludeGraph = true});
 ```
 
@@ -74,6 +77,9 @@ The most common options used are:
 - **IncludeGraph**: This option enables the insertion of entities along with all related entities found in the entity graph, maintaining the relationships.
 
 ```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
 context.BulkInsert(customers);
 context.BulkInsert(customers, options => {
 	options.AutoMapOutputDirection = false;
@@ -89,6 +95,9 @@ await context.BulkInsertAsync(customers);
 The [EF Core Bulk SaveChanges](/bulk-savechanges) extension method allows you to replace the `SaveChanges` method to improve your saving performance. The only difference between both methods is the `BulkSaveChanges` method inserts, updates, and deletes data faster!
 
 ```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
 // context.SaveChanges();
 context.BulkSaveChanges();
 context.BulkSaveChanges(options => { });
@@ -108,6 +117,9 @@ The most common options used are:
 - **IncludeGraph**: This option allows updating entities along with all related entities found in the entity graph, maintaining the data relationships.
 
 ```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
 context.BulkUpdate(customers);
 context.BulkUpdate(customers, options => {
 	options.ColumnInputExpression = x => new { x.FirstName, x.LastName };
@@ -129,6 +141,9 @@ The most common options used are:
 - **DeleteMatchedAndFormula**: This option lets you perform or skip the deletion action based on a predefined SQL condition.
 
 ```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
 context.BulkDelete(customers);
 context.BulkDelete(customers, options => {
 	options.DeleteMatchedAndFormula = "DestinationTable.CreatedDate < DATEADD(YEAR, -2, GETDATE())";
@@ -150,6 +165,9 @@ The most common options used are:
 - **IncludeGraph**: This option ensures updating of entities along with all related entities found in the entity graph, preserving data relationships.
 
 ```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
 context.BulkMerge(customers);
 context.BulkMerge(customers, options => {
 	options.ColumnPrimaryKeyExpression = x => new { x.Code };
@@ -166,6 +184,9 @@ await context.BulkMergeAsync(customers);
 The [EF Core Bulk Synchronize](/bulk-synchronize) extension method allows you to insert or update or delete data in your database in bulk. In other words, the data of your database becomes a mirror of the entities you provided. People often search for this feature as `AddOrUpdateOrDelete` or `InsertOrUpdateOrDelete` bulk extensions.
 
 ```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
 context.BulkSynchronize(customers);
 context.BulkSynchronize(customers, options => { });
 context.BulkSynchronize<Customer>(anonymousList);
@@ -181,6 +202,9 @@ The [EF Core BulkRead](/bulk-read) extension method allows you to retrieve entit
 - providing a list of entities and using the model key or providing a custom one
 
 ```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
 var list1 = context.Customers.BulkRead(ids);
 var list2 = context.Customers.BulkRead(list, key => new { x.Email, x.PhoneNumber });
 
@@ -201,6 +225,9 @@ It can be used with practically any type of data source, such as:
 The `WhereBulkContains` is a deferred method (so it doesn't materialize entities), while the `BulkRead` is an immediate method (under the hood, it calls the `WhereBulkContains` + `ToList()`).
 
 ```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
 var list1 = context.Customers.WhereBulkContains(ids).ToList();
 var list2 = context.Customers.WhereBulkContains(list, key => new { x.Email, x.PhoneNumber });
 
@@ -214,6 +241,9 @@ The [EF Core WhereBulkNotContains](/where-bulk-not-contains) method is similar t
 The `WhereBulkNotContains` is a deferred method (so it doesn't materialize entities), while the `BulkRead` is an immediate method (under the hood, it calls the `WhereBulkContains` + `ToList()`).
 
 ```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
 var list1 = context.Customers.WhereBulkContains(ids).ToList();
 var list2 = context.Customers.WhereBulkContains(list, key => new { x.Email, x.PhoneNumber });
 

@@ -25,6 +25,8 @@ Using the `BulkSynchronize` method is very simple. All you need to do is pass yo
 Here's an example of how to use the `BulkSynchronize` method in Entity Framework Core:
 
 ```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+
 using (var context = new MyDbContext())
 {
     // Create a list of entities to be synchronized

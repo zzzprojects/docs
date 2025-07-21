@@ -9,6 +9,9 @@ LastMod: 2025-06-23
 The `BulkDelete` method lets you delete thousands of entities in EF Core. The biggest advantage of this method over the traditional approach is that you don’t need to fetch your entities from the database before deleting them (which doesn’t make much sense since you’re deleting them!).
 
 ```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
 // Easy to use
 context.BulkDelete(customers);
 
@@ -78,6 +81,9 @@ The `BulkDelete` method is **fast** but also **flexible** to let you handle vari
 The `BulkDelete` and `BulkDeleteAsync` methods extend your `DbContext` to let you delete a large number of entities in your database.
 
 ```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
 context.BulkDelete(customers);
 
 context.BulkDeleteAsync(customers, cancellationToken);
@@ -89,6 +95,9 @@ context.BulkDeleteAsync(customers, cancellationToken);
 The `options` parameter lets you use a lambda expression to customize the way entities are deleted.
 
 ```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
 context.BulkDelete(customers, options => options.BatchSize = 100);
 ```
 
@@ -107,6 +116,9 @@ The `BulkDelete` by contrast requires the minimum number of database round-trips
 You want to delete entities, but you don't have the primary key. The `ColumnPrimaryKeyExpression` lets you use any property or combination of properties as a key.
 
 ```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
 context.BulkDelete(customers, options => options.ColumnPrimaryKeyExpression = c => c.Code);    
 ```
 
@@ -119,6 +131,9 @@ You want to delete entities but also automatically delete related child entities
 - `IncludeGraphBuilder`: This option lets you customize how to delete entities for a specific type.
 
 ```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
 context.BulkDelete(invoices, options => options.IncludeGraph = true);
 ```
 
@@ -135,6 +150,9 @@ By default, `BulkDelete` is an immediate operation. That means, it's executed as
 `ExecuteFutureAction`: This option triggers and executes all pending `FutureAction`.
 
 ```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
 context.FutureAction(x => x.BulkDelete(customers1));
 context.FutureAction(x => x.BulkDelete(customers2));
 
@@ -158,6 +176,9 @@ info@zzzprojects.com
 We already saw in previous article [Configuring Options](/configure-options) how to pass options to the `BulkDelete` method — but here’s a quick recap:
 
 ```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
 // Using a lambda expression (only works with one option)
 context.BulkDelete(list, options => options.IncludeGraph = true);
 

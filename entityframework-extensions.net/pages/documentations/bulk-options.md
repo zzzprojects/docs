@@ -18,6 +18,9 @@ Passing options through a fluent API is recommended in Entity Framework Extensio
 You can pass 1 option by directly setting it or use braces to pass multiple options, such as
 
 ```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
 // only works with 1 option
 context.BulkInsert(invoices, options => options.IncludeGraph = true);
 
@@ -42,6 +45,9 @@ You can either choose to:
 - Creating an instance without a generic type
 
 ```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
 // CREATE bulkOptions instance
 var bulkOptions = context.Invoices.CreateBulkOptions();
 var bulkOptions_Generic = new Z.BulkOperations.BulkOperationOptions<Invoice>();

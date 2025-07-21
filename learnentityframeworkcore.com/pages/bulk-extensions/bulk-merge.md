@@ -1,60 +1,89 @@
 ---
-title: EF Core Bulk Upsert / Merge
-description: The BulkMerge method in Entity Framework Extensions is a powerful and highly efficient way to perform bulk updates of entities within the database. It enables you to easily sync multiple records with the same data while avoiding tedious loops where one record needs to be updated at a time.
+title: EF Core Bulk Merge / Upsert with Entity Framework Extensions
+description: Learn how to use the Bulk Merge (Upsert) extension method from Entity Framework Extensions to merge entities in the database using the fewest possible round-trips. This method, created by ZZZ Projects, is especially useful for improving database performance or when you need to merge using a custom key or take advantage of the many available options.
 canonical: /bulk-extensions/bulk-merge
 status: Published
-lastmod: 2025-07-11
+lastmod: 2025-07-21
 ---
 
-# EF Core Bulk Upsert / Merge
+# 🧩 EF Core Bulk Merge / Upsert with Entity Framework Extensions
 
-BulkMerge is a database operation that combines the insert and update operations into a single, efficient database call. In other words, a merge is equivalent to an `UPSERT` (Update/Insert) operation. Data that exists in the database will be updated, and non-existing data will be inserted.
+The `BulkMerge` method from [Entity Framework Extensions](https://entityframework-extensions.net/bulk-merge) is an `UPSERT` operation that combines both **insert** and **update** into a single, efficient database call.
 
-A BulkMerge has other names as well such as **add or update** or **insert or update** operations.
+- If the data **exists**, it will be updated.  
+- If the data **doesn’t exist**, it will be inserted.
 
-The **easiest and fastest way** to merge data is by using the [Entity Framework Extensions](https://entityframework-extensions.net/) third-party library.
-
-The `BulkMerge` method makes that operation very easy to use and **improves the performance by 5000%** depending more on the provider.
-
-## Bulk Extensions Upsert / Merge
-
-[Entity Framework Extensions](https://entityframework-extensions.net/) provides the `BulkMerge` extension method that allows you to perform bulk inserts and updates into the database in a single operation. 
-
- - It can reduce the complexity of writing multiple queries and adds an extra layer of performance optimization. 
- - It also supports batching which helps minimize round trips to the database by grouping commands together. 
- - Additionally, it provides helpful features such as conditional merging, making it easier to create custom logic for merging data. 
-
-Using the `BulkMerge` method is very simple. All you need to do is pass your entities in the parameter and let the auto-mapping match properties to column names:
-
-Here's an example of how to use the BulkMerge method in Entity Framework Core:
+This operation is often also called **upsert**, **add or update**, or **insert or update**.
 
 ```csharp
-using (var context = new MyDbContext())
-{
-    // Create a list of entities to be merged
-    var authors = new List<Author>
-    {
-        new Author { Id = 1, Name = "John" },
-        new Author { Id = 2, Name = "Jane" },
-        new Author { Id = 3, Name = "Jim" }
-    };
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
 
-    // Use the BulkMerge method to merge the entities into the database
-    context.BulkMerge(authors);
+var customers = new List<Customer>
+{
+    new Customer { Name = "ZZZ Projects", City = "New York" },
+    new Customer { Name = "Jonathan Magnan", City = "Montreal" }
+    // Add more customers as needed
+};
+
+using (var context = new YourDbContext())
+{
+    // Easy to use
+    context.BulkMerge(customers);
+    
+    // Easy to customize
+    context.BulkMerge(customers, options => options.IncludeGraph = true);
 }
+
+using (var context = new YourDbContext())
+{
+    // Supports async
+    await context.BulkMergeAsync(customers);
+}
+````
+
+---
+
+## 🚀 Why Use the Bulk Merge Method from Entity Framework Extensions?
+
+The `BulkMerge` method is the recommended solution when you need to perform an `add or update` operation. **Bulk merging with Entity Framework Extensions is up to 5x faster**, reducing execution time by **80%** ([Online Benchmark](https://dotnetfiddle.net/hmDtiI)).
+
+It also comes with several other advantages:
+
+✅ **Add or update the way you want:** Define custom keys, control which properties to insert or update, and apply conditions.
+✅ **Extremely fast:** Handle thousands or even millions of upserts in seconds. See the [Performance Comparison](https://entityframework-extensions.net/bulk-merge#performance-comparison).
+✅ **No need to load entities:** Save memory and time by working directly with your data — no tracking required.
+✅ **Flexible with hundreds of options:** Customize the behavior to match your business rules — from conditional updates to advanced key matching. Explore the full list of [Bulk Merge Options](https://entityframework-extensions.net/bulk-merge#bulk-merge-options).
+
+---
+
+## 📦 How to Install Entity Framework Extensions
+
+To use the **Bulk Merge extension method**, install the [Z.EntityFramework.Extensions.EFCore NuGet Package](https://www.nuget.org/packages/Z.EntityFramework.Extensions.EFCore/):
+
+```powershell
+PM> NuGet\Install-Package Z.EntityFramework.Extensions.EFCore
 ```
 
-## Why You Should Use BulkMerge
+```bash
+> dotnet add package Z.EntityFramework.Extensions.EFCore
+```
 
-The bulk merge operation allows you to perform multiple data operations at once, reducing the number of round trips to the database and improving performance. 
+Make sure the **first digit** of the version matches your EF Core version.
+For example, if you’re using `EF Core 9`, use version `v9.x.y.z` of the package.
 
- - The bulk merge operation is designed to ensure data consistency by using a single transaction to perform all the operations, eliminating the risk of data inconsistencies caused by multiple, separate transactions. 
- - In databases that support this operation, the bulk merge can be much faster than executing separate insert and update operations. 
- - This feature is useful when you need to perform large-scale data operations, such as data migrations, and want to improve performance and reduce the risk of data inconsistencies.
+Learn more about [EF Core pinned versioning](https://entityframework-extensions.net/efcore-pinned-versioning).
 
-All of these features make BulkMerge an essential tool for optimizing the performance of your data access layer. 
+Need another version like EF6? Visit the official downloads page:
+👉 [https://entityframework-extensions.net/download](https://entityframework-extensions.net/download)
 
-## Note
+---
 
- - NuGet Package: [https://www.nuget.org/packages/Z.EntityFramework.Extensions.EFCore](https://www.nuget.org/packages/Z.EntityFramework.Extensions.EFCore)
- - Documentation: [Entity Framework Extensions – Bulk Merge](https://entityframework-extensions.net/bulk-merge)
+## 🔗 External Links
+
+Here are some useful links to help you get started with **Entity Framework Extensions** and its **Bulk Extensions Methods**, like `BulkMerge`:
+
+* 🔗 **Bulk Merge:** [https://entityframework-extensions.net/bulk-merge](https://entityframework-extensions.net/bulk-merge)
+* 🔗 **Entity Framework Extensions Overview:** [https://entityframework-extensions.net/](https://entityframework-extensions.net/)
+* 🔗 **NuGet Package:** [https://www.nuget.org/packages/Z.EntityFramework.Extensions.EFCore](https://www.nuget.org/packages/Z.EntityFramework.Extensions.EFCore)
+* 🔗 **ZZZ Projects (Official Site):** [https://zzzprojects.com/](https://zzzprojects.com/)

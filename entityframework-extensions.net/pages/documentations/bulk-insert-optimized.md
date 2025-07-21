@@ -9,6 +9,9 @@ LastMod: 2025-05-11
 The `BulkInsertOptimized` method is the fastest way you can insert entities in EF Core. By default, it uses the most optimal SQL because it doesn't return any values unless you explicitly request them. This approach lets it skip the additional steps required by our [BulkInsert](/bulk-insert) method, making it even faster.
 
 ```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
 // Easy to use
 context.BulkInsertOptimized(customers);
 
@@ -44,6 +47,9 @@ Both are extremely fast, but the `BulkInsertOptimized` will always be faster due
 The `BulkInsertOptimized` method returns an instance of `BulkOptimizedAnalysis`.
 
 ```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
 public class BulkOptimizedAnalysis 
 {
     /// <summary>True if the bulk insert is optimized.</summary>

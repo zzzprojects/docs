@@ -9,6 +9,9 @@ LastMod: 2025-06-23
 The `BulkUpdate` method is the most flexible way to update your entities in EF Core. It allows you to customize how your entities will be updated, such as by specifying a custom key, updating only a few properties, and much more.
 
 ```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
 // Easy to use
 context.BulkUpdate(customers);
 
@@ -85,7 +88,10 @@ You want to update your entities but only for specific properties.
 
 - `IgnoreOnUpdateExpression`: This option lets you ignore properties that are auto-mapped.
 
-```csharp            
+```csharp  
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+          
 context.BulkUpdate(customers, options => options.IgnoreOnUpdateExpression = c => new { c.ColumnToIgnore } );
 ```
 
@@ -95,6 +101,9 @@ context.BulkUpdate(customers, options => options.IgnoreOnUpdateExpression = c =>
 You want to update entities, but you don't have the primary key. The `ColumnPrimaryKeyExpression` lets you use as a key any property or combination of properties.
 
 ```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
 context.BulkUpdate(customers, options => options.ColumnPrimaryKeyExpression = c => c.Code);    
 ```
 
@@ -107,6 +116,9 @@ You want to update entities but also automatically insert related child entities
 - `IncludeGraphBuilder`: This option lets you customize how to update entities for a specific type.
 
 ```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
 context.BulkUpdate(invoices, options => options.IncludeGraph = true);
 ```
 
@@ -121,6 +133,9 @@ By default, `BulkUpdate` is an immediate operation. That means, it's executed as
 `ExecuteFutureAction`: This option triggers and executes all pending `FutureAction`.
 
 ```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
 context.FutureAction(x => x.BulkUpdate(customers));
 context.FutureAction(x => x.BulkUpdate(invoices, options => options.IncludeGraph = true));
 
@@ -138,6 +153,9 @@ context.ExecuteFutureAction();
 We already saw in previous article [Configuring Options](/configure-options) how to pass options to the `BulkUpdate` method — but here’s a quick recap:
 
 ```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
 // Using a lambda expression (only works with one option)
 context.BulkUpdate(list, options => options.IncludeGraph = true);
 

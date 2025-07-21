@@ -31,6 +31,8 @@ The `BulkInsert` method is useful when you need to insert a large number of enti
 Here's an example of how to use the `BulkInsert` method of the [Entity Framework Extensions](https://entityframework-extensions.net/) library:
 
 ```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+
 using (var context = new MyDbContext())
 {
     var customers = new List<Customer>

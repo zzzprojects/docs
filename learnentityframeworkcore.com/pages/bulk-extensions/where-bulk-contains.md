@@ -15,6 +15,8 @@ For example, you have a list of `Customer` with the `CustomerID` and a few other
 The `WhereBulkContains` method will filter entities to include those contained in the list.
 
 ```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+
 var dictDeserializedCustomers = deserializedCustomers.ToDictionary(x => x.CustomerID);
 
 using (var context = new EntityContext())

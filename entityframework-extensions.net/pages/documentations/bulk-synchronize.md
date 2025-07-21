@@ -17,6 +17,9 @@ In other words, your destination table data becomes exactly like the list of ent
 It’s also possible to synchronize only a subset of your table with the `ColumnSynchronizeDeleteKeySubsetExpression` option, or to soft-delete rows with the `SynchronizeSoftDeleteFormula` option (which we will cover later).
 
 ```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
 // Easy to use
 context.BulkSynchronize(customers);
 
@@ -74,6 +77,9 @@ The `BulkSynchronize` method is **fast** but also **flexible** to let you handle
 The `BulkSynchronize` and `BulkSynchronizeAsync` methods extend your `DbContext` to let you synchronize a large number of entities in your database.
 
 ```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
 context.BulkSynchronize(customers);
 
 context.BulkSynchronizeAsync(customers, cancellationToken);
@@ -85,6 +91,9 @@ context.BulkSynchronizeAsync(customers, cancellationToken);
 The `options` parameter lets you use a lambda expression to customize the way entities are synchronized.
 
 ```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
 context.BulkSynchronize(customers, options => options.BatchSize = 100);
 
 context.BulkSynchronize(customers, options => {
@@ -100,6 +109,9 @@ context.BulkSynchronize(customers, options => {
 Your entity has an identity property, but you want to force to insert a specific value instead. The `SynchronizeKeepIdentity` option allows you to keep the identity value of your entity.
 
 ```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
 context.BulkSynchronize(customers, options => options.SynchronizeKeepIdentity = true);
 ```
 
@@ -113,6 +125,9 @@ You want to synchronize your entities but only for specific properties.
 - `IgnoreOnSynchronizeUpdateExpression`: This option lets you ignore when updating properties that are auto-mapped.
 
 ```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
 context.BulkSynchronize(customizeToSynchronize, options => {
     options.IgnoreOnSynchronizeInsertExpression = c => c.UpdatedDate;
     options.IgnoreOnSynchronizeUpdateExpression = c => c.CreatedDate;
@@ -125,6 +140,9 @@ context.BulkSynchronize(customizeToSynchronize, options => {
 You want to synchronize your table, but only a subset of the table and not the whole table, such as only a specific user, type, or category that exists in the entities list provided.
 
 ```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
 context.BulkSynchronize(customers, options => {
     options.ColumnPrimaryKeyExpression = customer => customer.Name;
     options.ColumnSynchronizeDeleteKeySubsetExpression = customer => customer.Type;
@@ -139,6 +157,9 @@ Learn more here: https://entityframework-extensions.net/column-synchronize-delet
 You want to synchronize entities, but you don't have the primary key. The `ColumnPrimaryKeyExpression` lets you use any property or combination of properties as a key.
 
 ```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
 context.BulkSynchronize(customers, options => options.ColumnPrimaryKeyExpression = c => c.Code);    
 ```
 
@@ -153,6 +174,9 @@ By default, `BulkSynchronize` is an immediate operation. That means, it's execut
 `ExecuteFutureAction`: This option triggers and executes all pending `FutureAction`.
 
 ```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
 context.FutureAction(x => x.BulkSynchronize(customers));
 context.FutureAction(x => x.BulkSynchronize(invoices));
 
@@ -176,6 +200,9 @@ info@zzzprojects.com
 We already saw in previous article [Configuring Options](/configure-options) how to pass options to the `BulkSynchronize` method — but here’s a quick recap:
 
 ```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
 // Using a lambda expression (only works with one option)
 context.BulkSynchronize(list, options => options.SynchronizeKeepIdentity = true);
 

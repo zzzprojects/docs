@@ -1,68 +1,147 @@
 ---
-title: EF Core Bulk Update
-description: Entity Framework Extensions BulkUpdate method allows us to perform bulk updates in a single database call. It supports updating all the records in a collection as well as specific records that match certain criteria.
+title: EF Core Bulk Update with Entity Framework Extensions
+description: Learn how to use the Bulk Update Extensions Methods from Entity Framework Extensions to update entities in the database using the fewest possible round-trips. This Bulk Extensions Method made by ZZZ Projects is especially useful to improve database performance and when you need to update using a custom key or take advantage of the many available options.
 canonical: /bulk-extensions/bulk-update
 status: Published
-lastmod: 2025-07-11
+lastmod: 2025-07-19
 ---
 
-# EF Core Bulk Update
+# 🔄️ EF Core Bulk Update with Entity Framework Extensions
 
-When you are using Entity Framework Core, and you want to update data then you can use the following steps:
+When using EF Core to update data, the usual process involves several steps:
 
- 1. **Load the entity from the database into memory:** You can do this using the `Find` or `FirstOrDefault` method of the `DbSet` class.
- 2. **Modify the entity's properties:** Once the entity is loaded, you can modify its properties as needed.
- 3. **Call SaveChanges:** After making the desired changes to the entity, you need to call the `SaveChanges` method of the `DbContext` to persist the changes to the database.
+1. **Load entities from the database into memory**  
+   You typically do this using methods like `Find`, `FirstOrDefault`, or `Where` on the `DbSet` class.
 
-Here is a basic example of how you can use the `Update` method of DbContext to perform bulk updates in Entity Framework Core:
+2. **Modify the entity’s properties**  
+   Once entities are loaded, you update their properties as needed.
+
+3. **Call `SaveChanges()`**  
+   After making your changes, you call `SaveChanges` on the `DbContext` to persist them to the database.
+
+Here’s a basic example that updates multiple entities:
 
 ```csharp
+var importCustomers = new List<Customer>
+{
+    new Customer { ID = 1, Name = "ZZZ Projects", City = "New York" },
+    new Customer { ID = 2, Name = "Jonathan Magnan", City = "Montreal" }
+    // Add more customers as needed
+};
+
+var importCustomersDict = importCustomers.ToDictionary(x => x.ID);
+
 using (var context = new MyDbContext())
 {
-    var students = context.Students.Where(s => s.Name == "John").ToList();
-    students.ForEach(s => s.Name = "Jane");
-    context.UpdateRange(students);
+    // 1. Load entities from database into memory
+    var customers = context.Customers
+        .Where(x => importCustomersDict.ContainsKey(x.ID))
+        .ToList();
+    
+    // 2. Modify the entity's properties
+    foreach (var customer in customers)
+    {
+        var importCustomer = importCustomersDict[customer.ID];
+        customer.Name = importCustomer.Name;
+        customer.City = importCustomer.City;
+    }
+
+    // 3. Call SaveChanges
     context.SaveChanges();
 }
 ```
 
-In this example, the `Where` method is used to retrieve a list of students with the name "John". The `ForEach` method is then used to update the `Name` property of each student to "Jane". Finally, the `UpdateRange` method is used to apply the changes to the database, and the `SaveChanges` method is used to persist the changes.
+This works fine for a small number of entities —
+But what if you need to update **100,000 customers**?
 
-But in this method, a database roundtrip is required every 42 entities (default batch size value).
+That’s where [Bulk Update Extensions Methods](https://entityframework-extensions.net/bulk-update) from **Entity Framework Extensions** shines. It’s faster, cleaner, and skips all the heavy lifting:
 
-It is possible to dramatically reduce the number of database roundtrips by using the `BulkUpdate` method from the [Entity Framework Extensions](https://entityframework-extensions.net/) third-party library.
+* ❌ No need to load entities first
+* ❌ No need to manually update properties
 
-## Bulk Extensions Update
+---
 
-The `BulkUpdate` extension method allows you to perform a bulk update operation, which is a more efficient way of updating multiple records in a database table compared to updating them one by one. It can improve the performance of your application by reducing the number of round trips to the database.
+### ✅ Just one line does it all
 
- - The `BulkUpdate` method allows you to specify which properties to update and the criteria for selecting the entities to be updated. 
- - With the `BulkUpdate` method, you can easily update thousands of records at once and make sure that your data is always up-to-date. 
-
-To perform a `BulkUpdate`, you need to pass your entities in the parameters. Here's a simple example of how to use Entity Framework Extensions `BulkUpdate` method:
+By using the `BulkUpdate` method from [ZZZ Projects](https://zzzprojects.com/), you can skip steps 1 and 2 — and directly update your entities in the database:
 
 ```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
+var importCustomers = new List<Customer>
+{
+    new Customer { ID = 1, Name = "ZZZ Projects", City = "New York" },
+    new Customer { ID = 2, Name = "Jonathan Magnan", City = "Montreal" }
+    // Add more customers as needed
+};
+
 using (var context = new MyDbContext())
 {
-    var students = context.Students.Where(s => s.Name == "John").ToList();
-    students.ForEach(s => s.Name = "Jane");
-    context.BulkUpdate(students);
+    // Easy to use
+    context.BulkUpdate(importCustomers, options =>
+        options.ColumnInputExpression = x => new { x.Name, x.City });
+}
+
+using (var context = new MyDbContext())
+{
+    // Supports async
+    await context.BulkUpdateAsync(importCustomers, options =>
+        options.ColumnInputExpression = x => new { x.Name, x.City });
 }
 ```
 
-**Note:** This is just a simple example to illustrate how to use the `BulkUpdate` method. You can customize it based on your specific requirements.
+You’ve just transformed an inefficient, multi-step process into a **single line of code** that any developer can understand:
 
-## Why You Should Use BulkUpdate
+```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
 
-`BulkUpdate` is recommended for optimizing database performance when updating multiple records at once. It is more efficient than updating records one by one because it reduces the number of database queries and reduces the overhead of establishing database connections. 
+context.BulkUpdate(importCustomers, options => 
+    options.ColumnInputExpression = x => new { x.Name, x.City });
+```
 
- - **Speed:** It can significantly increase the performance of your bulk update operations by using bulk operations instead of single operations.
- - **Easy to use:** The API is very simple and easy to use, allowing you to update large amounts of data with just a few lines of code.
- - **Flexibility:** It provides a lot of options for customizing the bulk update operations to meet your specific needs.
+---
 
-It can save time and improve the overall performance of the application.
+## 🚀 Why Use the Bulk Update Method from Entity Framework Extensions?
 
-## Note
+The `BulkUpdate` method from Entity Framework Extensions is the recommended solution when you need to update large sets of data efficiently. It optimizes database performance by reducing the number of queries, making your code cleaner, and giving you full control over how updates are applied.
 
- - NuGet Package: [https://www.nuget.org/packages/Z.EntityFramework.Extensions.EFCore](https://www.nuget.org/packages/Z.EntityFramework.Extensions.EFCore)
- - Documentation: [Entity Framework Extensions – Bulk Update](https://entityframework-extensions.net/bulk-update)
+**Bulk updating with Entity Framework Extensions is up to 4x faster**, reducing execution time by **75%** ([Online Benchmark](https://dotnetfiddle.net/ope4nq)).
+
+* ✅ **Update the way you want** – Choose which properties to update, skip null values, apply conditions, and more.
+* ✅ **Extremely fast** – Update thousands or even millions of rows in seconds. See the [Performance Comparison](https://entityframework-extensions.net/bulk-update#performance-comparison).
+* ✅ **No need to load entities** – Save time and memory by skipping entity tracking.
+* ✅ **Flexible with hundreds of options** – Fine-tune everything — batch size, conditions, behaviors — to match your business logic. Explore the [Bulk Update Options](https://entityframework-extensions.net/bulk-update#bulk-update-options).
+
+---
+
+## 📦 How to Install Entity Framework Extensions
+
+To use the **Bulk Update Extensions Method** from **Entity Framework Extensions**, you need to install the [Z.EntityFramework.Extensions.EFCore NuGet Package](https://www.nuget.org/packages/Z.EntityFramework.Extensions.EFCore/):
+
+```powershell
+PM> NuGet\Install-Package Z.EntityFramework.Extensions.EFCore
+```
+
+```bash
+> dotnet add package Z.EntityFramework.Extensions.EFCore
+```
+
+Make sure the **first number** of the version matches your EF Core version.
+For example, if you’re using `EF Core 9`, then use version `v9.x.y.z` of the package.
+
+Learn more about [EF Core Pinned Versioning conventions](https://entityframework-extensions.net/efcore-pinned-versioning).
+
+For other options, such as EF6, visit the official downloads page:
+👉 [https://entityframework-extensions.net/download](https://entityframework-extensions.net/download)
+
+---
+
+## 🔗 External Links
+
+Here’s a list of useful links to help you get started with **Entity Framework Extensions** and its **Bulk Extensions Methods**, such as `BulkUpdate`:
+
+* 🔗 **Bulk Update:** [https://entityframework-extensions.net/bulk-update](https://entityframework-extensions.net/bulk-update)
+* 🔗 **Entity Framework Extensions Overview:** [https://entityframework-extensions.net/](https://entityframework-extensions.net/)
+* 🔗 **NuGet Package:** [https://www.nuget.org/packages/Z.EntityFramework.Extensions.EFCore](https://www.nuget.org/packages/Z.EntityFramework.Extensions.EFCore)
+* 🔗 **ZZZ Projects (Official Site):** [https://zzzprojects.com/](https://zzzprojects.com/)

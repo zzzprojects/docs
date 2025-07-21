@@ -9,6 +9,9 @@ LastMod: 2025-06-23
 The `BulkInsert` method is the easiest way you can insert thousands of entities in EF Core. In addition to being super fast, you can also customize it with various [options](/bulk-insert#bulk-insert-options) to insert entities the way you want—such as keeping identity values, inserting only entities that don't already exist in the database, and much more.
 
 ```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
 // Easy to use
 context.BulkInsert(customers);
 
@@ -115,6 +118,9 @@ In other words, to save 5,000 entities:
 We already saw in a previous article [Configuring Options](/configure-options) how to pass options to the `BulkInsert` method — but here’s a quick recap:
 
 ```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
 // Using a lambda expression (only works with one option)
 context.BulkInsert(list, options => options.InsertKeepIdentity = true);
 
@@ -185,6 +191,9 @@ By default, our library still follows the same logic we used for EF6. But don’
 Here’s how you can do it:
 
 ```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
 context.BulkInsert(customers, options => { 
 		options.ExplicitValueResolutionMode = Z.EntityFramework.Extensions.ExplicitValueResolutionMode.SmartDefaultValueOnBulkInsert;
 	});
@@ -199,6 +208,9 @@ The `BulkInsert` method doesn’t rely on the `ChangeTracker` by default to maxi
 For example, let’s say you want to insert a list of `InvoiceItem`, but there’s no direct navigation property or relation set toward the parent `Invoice`. In this case, you’ll need to add the parent entities to the `ChangeTracker`. This helps EF find and link the related `Invoice` for each `InvoiceItem`.
 
 ```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
 try
 {
     context.BulkInsert(items);

@@ -13,6 +13,9 @@ When you perform a bulk merge, it behaves as follows:
 - Rows that do not match any existing record are **INSERTED**.
 
 ```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
 // Easy to use
 context.BulkMerge(customers);
 
@@ -80,6 +83,9 @@ The `BulkMerge` method is **fast** but also **flexible** to let you handle vario
 The `BulkMerge` and `BulkMergeAsync` methods extend your `DbContext` to let you merge a large number of entities in your database.
 
 ```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
 context.BulkMerge(customers);
 
 context.BulkMergeAsync(customers, cancellationToken);
@@ -91,6 +97,9 @@ context.BulkMergeAsync(customers, cancellationToken);
 The `options` parameter lets you use a lambda expression to customize the way entities are inserted or updated.
 
 ```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
 context.BulkMerge(customers, options => options.ColumnPrimaryKeyExpression = c => c.Code);
 ```
 
@@ -113,6 +122,9 @@ The `BulkMerge` in contrast requires the minimum number of database round-trips 
 Your entity has an identity property, but you want to force to insert a specific value instead. The `MergeKeepIdentity` option allows you to keep the identity value of your entity.
 
 ```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
 context.BulkMerge(customers, options => options.MergeKeepIdentity = true);
 ```
 
@@ -127,6 +139,9 @@ You want to merge your entities but only for specific properties.
 - `IgnoreOnMergeUpdateExpression`: This option lets you ignore properties only for the `UPDATE` part.
 
 ```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
 context.BulkMerge(customers, options => options.ColumnInputExpression = c => new { c.CustomerID, c.Name} );
             
 context.BulkMerge(customers, options => options.IgnoreOnMergeUpdateExpression = c => new { c.UpdatedDate } );
@@ -138,6 +153,9 @@ context.BulkMerge(customers, options => options.IgnoreOnMergeUpdateExpression = 
 You want to merge entities, but you don't have the primary key. The `ColumnPrimaryKeyExpression` lets you use as a key any property or combination of properties.
 
 ```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
 context.BulkMerge(customers, options => options.ColumnPrimaryKeyExpression = c => c.Code);    
 ```
 
@@ -150,6 +168,9 @@ You want to merge entities but also automatically merge related child entities.
 - `IncludeGraphBuilder`: This option lets you customize how to merge entities for a specific type.
 
 ```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
 context.BulkMerge(invoices, options => options.IncludeGraph = true);
 ```
 
@@ -164,6 +185,9 @@ By default, `BulkMerge` is an immediate operation. That means, it's executed as 
 `ExecuteFutureAction`: This option triggers and executes all pending `FutureAction`.
 
 ```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
 context.FutureAction(x => x.BulkMerge(customers));
 context.FutureAction(x => x.BulkMerge(invoices, options => options.IncludeGraph = true));
 
@@ -187,6 +211,9 @@ info@zzzprojects.com
 We already saw in previous article [Configuring Options](/configure-options) how to pass options to the `BulkMerge` method — but here’s a quick recap:
 
 ```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
 // Using a lambda expression (only works with one option)
 context.BulkMerge(list, options => options.MergeKeepIdentity = true);
 
