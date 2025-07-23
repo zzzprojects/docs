@@ -1,56 +1,97 @@
 ---
-title: EF Core Bulk Synchronize
-description: The BulkSynchronize method in Entity Framework Extensions is a powerful and highly efficient way to perform bulk updates of entities within the database. It enables you to easily sync multiple records with the same data while avoiding tedious loops where one record needs to be updated at a time.
+title: EF Core Bulk Synchronize with Entity Framework Extensions
+description: Learn how to use the Bulk Synchronize extension method from Entity Framework Extensions to insert, update, or delete entities in the database using the fewest possible round-trips. Created by ZZZ Projects, this method is perfect for boosting performance and applying custom merge logic using a single operation.
 canonical: /bulk-extensions/bulk-synchronize
 status: Published
-lastmod: 2025-07-11
+lastmod: 2025-07-23
 ---
 
-# EF Core Bulk Synchronize
+# EF Core Bulk Synchronize with Entity Framework Extensions
 
-Bulk synchronization is a process of transferring large amounts of data from one database to another in a single batch, as opposed to updating them incrementally. The goal is to improve the efficiency and speed of data transfer and to minimize the impact on the source database.
+[Entity Framework Extensions](https://entityframework-extensions.net/) provides the `BulkSynchronize` extension method, which allows you to perform bulk inserts, updates, and deletes in a single operation.
 
-The **easiest and fastest way** to synchronize data is by using the [Entity Framework Extensions](https://entityframework-extensions.net/) third-party library.
+- ✅ It reduces the need for writing multiple separate queries.
+- ✅ It improves performance by batching commands to minimize database round-trips.
+- ✅ It supports advanced features like conditional synchronization for more control over how data is merged.
 
-## Bulk Extensions Synchronize
+Using `BulkSynchronize` is simple. Just pass your list of entities and let the library handle the rest. Properties will be automatically mapped to matching column names.
 
-[Entity Framework Extensions](https://entityframework-extensions.net/) provides the `BulkSynchronize` extension method that allows you to perform bulk inserts, updates, and deletes into the database in a single operation. 
-
- - It can reduce the complexity of writing multiple queries and adds an extra layer of performance optimization. 
- - It also supports batching which helps minimize round trips to the database by grouping commands together. 
- - Additionally, it provides helpful features such as conditional synchronization, making it easier to create custom logic for merging data. 
-
-Using the `BulkSynchronize` method is very simple. All you need to do is pass your entities in the parameter and let the auto-mapping match properties to column names:
-
-Here's an example of how to use the `BulkSynchronize` method in Entity Framework Core:
+Here’s an example of how to use the `BulkSynchronize` method with EF Core:
 
 ```csharp
 // @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
 
-using (var context = new MyDbContext())
+var customers = new List<Customer>
 {
-    // Create a list of entities to be synchronized
-    var authors = new List<Author>
-    {
-        new Author { Id = 1, Name = "John" },
-        new Author { Id = 2, Name = "Jane" },
-        new Author { Id = 3, Name = "Jim" }
-    };
+    new Customer { Name = "ZZZ Projects", City = "New York" },
+    new Customer { Name = "Jonathan Magnan", City = "Montreal" }
+    // Add more customers as needed
+};
 
-    // Use the BulkSynchronize method to synchronize the entities into the database
-    context.BulkSynchronize(authors);
+using (var context = new YourDbContext())
+{
+    // Easy to use
+    context.BulkSynchronize(customers);
+
+    // Easy to customize
+    context.BulkSynchronize(customers, options => options.IncludeGraph = true);
 }
+
+using (var context = new YourDbContext())
+{
+    // Supports async
+    await context.BulkSynchronizeAsync(customers);
+}
+````
+
+Bulk synchronization is especially useful when you need to keep two datasets in sync or handle large-scale data operations efficiently.
+Instead of inserting, updating, and deleting entities one by one, everything is handled in a single, optimized batch.
+
+The **easiest and fastest way** to synchronize data with EF Core is by using the [Entity Framework Extensions](https://entityframework-extensions.net/) library from ZZZ Projects.
+
+---
+
+## 🚀 Why Use the Bulk Synchronize Method from Entity Framework Extensions?
+
+The `BulkSynchronize` method is a smart choice when you want to keep data consistent and improve performance by reducing round-trips to the database.
+
+Here are a few reasons to use it:
+
+* ✅ Ensures **data consistency** by executing all operations in a single transaction
+* ✅ **Much faster** than performing separate insert, update, and delete operations
+* ✅ Ideal for large-scale operations such as **data migrations** or **data sync between systems**
+* ✅ Supports advanced features like **custom keys** and **conditional sync logic**
+
+---
+
+## 📦 How to Install Entity Framework Extensions
+
+To use the `BulkSynchronize` method, install the [Z.EntityFramework.Extensions.EFCore NuGet package](https://www.nuget.org/packages/Z.EntityFramework.Extensions.EFCore/):
+
+```powershell
+PM> NuGet\Install-Package Z.EntityFramework.Extensions.EFCore
 ```
 
-## Why You Should Use BulkSynchronize
+```bash
+> dotnet add package Z.EntityFramework.Extensions.EFCore
+```
 
-The bulk synchronize operation allows you to perform multiple data operations at once, reducing the number of round trips to the database and improving performance. You might consider using the `BulkSynchronize` method in Entity Framework Core for several reasons:
+Make sure the **first digit** of the version matches your EF Core version.
+For example, if you're using `EF Core 9`, use version `v9.x.y.z` of the package.
 
- - The bulk synchronize operation is designed to ensure data consistency by using a single transaction to perform all the operations, eliminating the risk of data inconsistencies caused by multiple, separate transactions. 
- - The bulk synchronize can be much faster than executing separate insert, delete, and update operations. 
- - This feature is useful when you need to perform large-scale data operations, such as data migrations, and want to improve performance and reduce the risk of data inconsistencies.
+Learn more about [EF Core pinned versioning](https://entityframework-extensions.net/efcore-pinned-versioning).
 
-## Note
+Need another version like EF6? Visit the official downloads page:
+👉 [https://entityframework-extensions.net/download](https://entityframework-extensions.net/download)
 
- - NuGet Package: [https://www.nuget.org/packages/Z.EntityFramework.Extensions.EFCore](https://www.nuget.org/packages/Z.EntityFramework.Extensions.EFCore)
- - Documentation: [Entity Framework Extensions – Bulk Synchronize](https://entityframework-extensions.net/bulk-synchronize)
+---
+
+## 🔗 External Links
+
+Here are some useful links to help you get started with **Entity Framework Extensions** and its **Bulk Extension methods**, like `BulkSynchronize`:
+
+* 🔗 [Bulk Synchronize Documentation](https://entityframework-extensions.net/bulk-synchronize)
+* 🔗 [Entity Framework Extensions Overview](https://entityframework-extensions.net/)
+* 🔗 [NuGet Package](https://www.nuget.org/packages/Z.EntityFramework.Extensions.EFCore)
+* 🔗 [ZZZ Projects (Official Site)](https://zzzprojects.com/)

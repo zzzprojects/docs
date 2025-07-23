@@ -1,55 +1,99 @@
 ---
-title: EF Core Bulk Insert Extensions
-description: Entity Framework Extensions BulkInsert method provides the ability to efficiently insert a list of objects. It uses the same pattern as EF Core's AddRange, but much faster.
+title: EF Core Bulk Insert with Entity Framework Extensions
+description: Learn how to use the Bulk Insert extension method from Entity Framework Extensions to insert entities in the database using the fewest possible round-trips. This method, created by ZZZ Projects, is especially useful for improving database performance or when you need to insert data using a custom key or take advantage of the many available options.
 canonical: /bulk-extensions/bulk-insert
 status: Published
-lastmod: 2025-07-10
+lastmod: 2025-07-23
 ---
 
-# EF Core Bulk Insert
+# EF Core Bulk Insert with Entity Framework Extensions
 
-EF Core provides the `Add` and `AddRange` methods for inserting data. However, a database roundtrip is required for every data you insert. While the performance is better in EF Core than the old EF6, the solution becomes very inefficient when you need to insert thousands of entities.
-
-The **fastest way of inserting** multiple data is by using the [Entity Framework Extensions](https://entityframework-extensions.net/) third-party library.
-
-Depending on the provider, performance can be increased by up to **50x faster** and more.
-
-## Bulk Extensions Insert
-
-The `BulkInsert` extension method is a feature provided by the [Entity Framework Extensions](https://entityframework-extensions.net/) library for inserting a large number of entities into a database in a single operation. This method can improve the performance of inserting large amounts of data into a database by reducing the number of database round-trips required.
-
-The `BulkInsert` method can be used in conjunction with the `DbContext` or the `DbSet`, and it accepts a collection of entities as a parameter. The method internally uses the underlying database provider's bulk insert feature, such as `SqlBulkCopy` for SQL Server, to perform the operation.
-
-It also supports options like:
-
- - Setting the batch size to control the number of entities that are inserted at a time.
- - Mapping properties to columns.
- - Setting the timeout and more.
-
-The `BulkInsert` method is useful when you need to insert a large number of entities into a database, such as when performing data migration or when working with large datasets. It can significantly improve the performance of inserting data into a database.
-
-Here's an example of how to use the `BulkInsert` method of the [Entity Framework Extensions](https://entityframework-extensions.net/) library:
+The `BulkInsert` extension method is part of the [Entity Framework Extensions](https://entityframework-extensions.net/) library.  
+It lets you insert a large number of entities into your database in a single operation—dramatically reducing the number of round-trips and improving performance.
 
 ```csharp
 // @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
 
-using (var context = new MyDbContext())
+var customers = new List<Customer>
 {
-    var customers = new List<Customer>
-    {
-        new Customer { Name = "John Smith", Age = 30 },
-        new Customer { Name = "Jane Doe", Age = 25 },
-        new Customer { Name = "Bob Johnson", Age = 40 },
-    };
+    new Customer { Name = "ZZZ Projects", City = "New York" },
+    new Customer { Name = "Jonathan Magnan", City = "Montreal" }
+    // Add more customers as needed
+};
 
-    // Insert all customers with BulkInsert
+using (var context = new YourDbContext())
+{
+    // Easy to use
     context.BulkInsert(customers);
+    
+    // Easy to customize
+    context.BulkInsert(customers, options => options.IncludeGraph = true);
 }
+
+using (var context = new YourDbContext())
+{
+    // Supports async
+    await context.BulkInsertAsync(customers);
+}
+````
+
+In this example, we create a list of `Customer` objects and insert them all at once using the `BulkInsert` method.
+The operation is simple, efficient, and supports many customization options.
+
+The `BulkInsert` method works directly with your `DbContext` or `DbSet`, and under the hood, it uses the best available bulk insert mechanism for your database provider—like `SqlBulkCopy` for SQL Server.
+
+You can also fine-tune the behavior with options like:
+
+* ✅ Setting a batch size to control how many rows are inserted per round-trip
+* ✅ Mapping properties to columns
+* ✅ Customizing timeout, transactions, and more
+
+The method is perfect when working with large datasets or during data migration.
+
+---
+
+## 🚀 Why Use the Bulk Insert Method from Entity Framework Extensions?
+
+The `BulkInsert` method is the best choice when you need to perform high-performance insert operations.
+**Inserting with Entity Framework Extensions is up to 14x faster**, reducing execution time by **93%**.
+👉 [View Benchmark](https://dotnetfiddle.net/cFWgKV)
+
+It also comes with several other benefits:
+
+* ✅ **Blazing fast performance** — Insert millions of rows in seconds. [See Performance Comparison](https://entityframework-extensions.net/bulk-insert#performance-comparison)
+* ✅ **Memory-efficient** — Works well even with very large datasets
+* ✅ **Fully customizable** — With hundreds of options to fit your needs. [Explore Options](https://entityframework-extensions.net/bulk-insert#bulk-insert-options)
+
+---
+
+## 📦 How to Install Entity Framework Extensions
+
+To use the `BulkInsert` method, install the [Z.EntityFramework.Extensions.EFCore NuGet package](https://www.nuget.org/packages/Z.EntityFramework.Extensions.EFCore/):
+
+```powershell
+PM> NuGet\Install-Package Z.EntityFramework.Extensions.EFCore
 ```
 
-In this example, we're creating a new instance of a `DbContext` (in this case, `MyDbContext`) and then creating a list of `Customer` objects. We then use the `BulkInsert` method to insert all of the customers in the list into the database in a single, efficient operation.
+```bash
+> dotnet add package Z.EntityFramework.Extensions.EFCore
+```
 
-## Note
+Make sure the **first digit** of the version matches your EF Core version.
+For example, if you're using `EF Core 9`, use version `v9.x.y.z` of the package.
 
- - NuGet Package: [https://www.nuget.org/packages/Z.EntityFramework.Extensions.EFCore](https://www.nuget.org/packages/Z.EntityFramework.Extensions.EFCore)
- - Documentation: [Entity Framework Extensions – Bulk Insert](https://entityframework-extensions.net/bulk-insert)
+Learn more about [EF Core pinned versioning](https://entityframework-extensions.net/efcore-pinned-versioning).
+
+Need another version like EF6? Visit the official downloads page:
+👉 [https://entityframework-extensions.net/download](https://entityframework-extensions.net/download)
+
+---
+
+## 🔗 External Links
+
+Here are some useful links to help you get started with **Entity Framework Extensions** and its **Bulk Extension methods**, like `BulkInsert`:
+
+* 🔗 [Bulk Insert Documentation](https://entityframework-extensions.net/bulk-insert)
+* 🔗 [Entity Framework Extensions Overview](https://entityframework-extensions.net/)
+* 🔗 [NuGet Package](https://www.nuget.org/packages/Z.EntityFramework.Extensions.EFCore)
+* 🔗 [ZZZ Projects (Official Site)](https://zzzprojects.com/)
