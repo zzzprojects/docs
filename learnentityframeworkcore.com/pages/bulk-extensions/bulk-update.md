@@ -103,9 +103,9 @@ In this example, all imported customers will be updated, and only the `Name` and
 
 ## 🚀 Why Use the Bulk Update Method from Entity Framework Extensions?
 
-The bulk update method from Entity Framework Extensions is the recommended solution when you need to update large sets of data efficiently.
+The bulk update method from Entity Framework Extensions is the recommended solution for EF Core when you need to update large sets of data efficiently.
 
-This is the **most popular** and **most complete** library available, with over **50 million downloads** and more than **5,000 paid customers**. Bulk updating with Entity Framework Extensions is up to **4x faster**, reducing execution time by **75%** ([Online Benchmark](https://dotnetfiddle.net/ope4nq)).
+This is the **most popular** and **most complete** library available, with over **50 million downloads** and more than **5,000 paid customers**. Bulk updating in EF Core with Entity Framework Extensions is up to **4x faster**, reducing execution time by **75%** ([Online Benchmark](https://dotnetfiddle.net/ope4nq)).
 
 It helps you optimize database performance by reducing the number of queries, making your code cleaner, and giving you full control over how updates are applied:
 
@@ -118,7 +118,7 @@ It helps you optimize database performance by reducing the number of queries, ma
 
 ---
 
-## 🛠️ Commonly Used Options with the Bulk Update Method from Entity Framework Extensions
+## 🛠️ Commonly Used Options with the the Bulk Update Method from Entity Framework Extensions
 
 Here are some of the most frequently used options with the `BulkUpdate` method from the [Entity Framework Extensions](https://entityframework-extensions.net/) library:
 
