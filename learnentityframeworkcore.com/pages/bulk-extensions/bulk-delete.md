@@ -55,7 +55,7 @@ using (var context = new YourDbContext())
 
 The bulk delete method from Entity Framework Extensions is the recommended solution for EF Core when you need to delete a large number of entities **very fast**.
 
-This is the **most popular** and **most complete** library available, with over **50 million downloads** and more than **5,000 paid customers**. Bulk deleting in EF Core with Entity Framework Extensions is up to **3x faster**, reducing execution time by **65%** ([Online Benchmark](https://dotnetfiddle.net/zzMQgZ)).
+Entity Framework Extensions is the **most popular** and **most complete** library available, with over **50 million downloads** and more than **5,000 paid customers**. Bulk deleting in EF Core with Entity Framework Extensions is up to **3x faster**, reducing execution time by **65%** ([Online Benchmark](https://dotnetfiddle.net/zzMQgZ)).
 
 It also comes with several other advantages:
 
@@ -80,6 +80,7 @@ Here are some of the most frequently used options with the bulk delete method fr
   ⚠️ Be careful: if you want to apply specific options to related entity types, you’ll need to configure them using `IncludeGraphBuilder`.
 - **RowsAffected** – Set `UseRowsAffected = true` to access the number of deleted entities through `ResultInfo.RowsAffected` or `ResultInfo.RowsAffectedDeleted`.  
   [Learn more](https://entityframework-extensions.net/rows-affected)
+
 ---
 
 ## 📦 How to Install Entity Framework Extensions
@@ -102,6 +103,18 @@ Entity Framework Extensions uses [EF Core pinned versioning](https://entityframe
 
 Looking for a different version, like `BulkDelete` for EF6?
 👉 [Download it here](https://entityframework-extensions.net/download)
+
+---
+
+## ✅ Final Thoughts
+
+When performance matters and you need to delete entities in bulk—without the overhead of tracking, loading, or writing raw SQL—the bulk delete method from Entity Framework Extensions is the way to go.
+
+It’s fast, easy to use, and flexible enough to handle even the most advanced EF Core scenarios.
+
+Whether you're cleaning up old data, syncing large datasets, or optimizing background jobs.
+
+Give it a [try](https://entityframework-extensions.net/) and start deleting smarter, not slower.
 
 ---
 
