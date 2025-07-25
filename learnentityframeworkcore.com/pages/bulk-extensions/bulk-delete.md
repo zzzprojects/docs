@@ -114,7 +114,7 @@ It’s fast, easy to use, and flexible enough to handle even the most advanced E
 
 Whether you're cleaning up old data, syncing large datasets, or optimizing background jobs.
 
-Give it a [try](https://entityframework-extensions.net/) and start deleting smarter, not slower.
+Give it a [try](https://entityframework-extensions.net/bulk-delete) and start deleting smarter, not slower.
 
 ---
 

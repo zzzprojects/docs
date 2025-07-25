@@ -126,7 +126,7 @@ With just one line of code, the bulk merge method from Entity Framework Extensio
 Whether you’re syncing records, importing external data, or cleaning up your database —
 the bulk merge method gives you the **speed, flexibility, and simplicity** you've been missing.
 
-Give it a [try](https://entityframework-extensions.net/) and see why over **5,000 companies** trust Entity Framework Extensions for their bulk operations. Once you use it, you'll wonder how you ever worked without it.
+Give it a [try](https://entityframework-extensions.net/bulk-merge) and see why over **5,000 companies** trust Entity Framework Extensions for their bulk operations. Once you use it, you'll wonder how you ever worked without it.
 
 ---
 

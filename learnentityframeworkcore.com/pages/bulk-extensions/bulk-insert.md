@@ -112,7 +112,7 @@ Looking for a different version, like `BulkInsert` for EF6?
 
 The bulk insert method from the Entity Framework Extensions library is the go-to solution when performance matters and you need to insert large amounts of data efficiently in EF Core. Whether you're building a high-load application or just want to save time, this method gives you the speed, control, and reliability you need.
 
-Give it a [try](https://entityframework-extensions.net/) and see the difference for yourself!
+Give it a [try](https://entityframework-extensions.net/bulk-insert) and see the difference for yourself!
 
 And if you ever get stuck — their awesome support team is just a message away.
 

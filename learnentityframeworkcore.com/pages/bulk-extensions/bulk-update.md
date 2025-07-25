@@ -169,7 +169,7 @@ With just one line of code, the bulk update method from Entity Framework Extensi
 
 Whether you're dealing with 10 or 10 million rows, the bulk update method from Entity Framework Extensions gives you the speed, control, and simplicity you've been looking for.
 
-Give it a [try](https://entityframework-extensions.net/) and see why over **5,000 companies** already trust Entity Framework Extensions to handle their bulk operations. Once you use it, you won’t want to go back!
+Give it a [try](https://entityframework-extensions.net/bulk-update) and see why over **5,000 companies** already trust Entity Framework Extensions to handle their bulk operations. Once you use it, you won’t want to go back!
 
 ---
 
