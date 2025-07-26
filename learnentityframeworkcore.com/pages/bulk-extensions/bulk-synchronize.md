@@ -10,7 +10,7 @@ lastmod: 2025-07-23
 
 Imagine you have a list of entities and you want to mirror it with your database table using EF Core. How would you proceed? EF Core doesn't offer a built-in method for this behavior, and handling all the logic yourself will make your code much more complex.
 
-The [BulkSynchronize](https://entityframework-extensions.net/bulk-synchronize) method from [Entity Framework Extensions](https://entityframework-extensions.net/bulk-merge) is a **mirror** operation designed for EF Core that combines **insert**, **update**, and **delete** operations in one step:
+The [BulkSynchronize](https://entityframework-extensions.net/bulk-synchronize) method from [Entity Framework Extensions](https://entityframework-extensions.net/) is a **mirror** operation designed for EF Core that combines **insert**, **update**, and **delete** operations in one step:
 
 * If the data **exists** in both the source and the target, it will be updated.
 * If the data **doesn’t exist** in the target, it will be inserted.

@@ -8,7 +8,7 @@ lastmod: 2025-07-21
 
 # 🧩 EF Core Bulk Merge / Upsert with Entity Framework Extensions
 
-The [BulkMerge](https://entityframework-extensions.net/bulk-merge) method from [Entity Framework Extensions](https://entityframework-extensions.net/bulk-merge) is an `UPSERT` operation made for EF Core that combines both **insert** and **update** into a single, efficient database call.
+The [BulkMerge](https://entityframework-extensions.net/bulk-merge) method from [Entity Framework Extensions](https://entityframework-extensions.net/) is an `UPSERT` operation made for EF Core that combines both **insert** and **update** into a single, efficient database call.
 
 * If the data **exists**, it will be updated
 * If the data **doesn’t exist**, it will be inserted

@@ -17,6 +17,17 @@
             </ul>
         </li>
         <li>
+            <a href="/bulk-extensions">Bulk Extensions</a>
+            <ul class="nav-level-two" data-display="bulk-extensions">
+                <li><a href="/bulk-extensions/bulk-insert">Bulk Insert</a></li>
+                <li><a href="/bulk-extensions/bulk-update">Bulk Update</a></li>
+                <li><a href="/bulk-extensions/bulk-delete">Bulk Delete</a></li>
+                <li><a href="/bulk-extensions/bulk-merge">Bulk Merge</a></li>
+                <li><a href="/bulk-extensions/bulk-synchronize">Bulk Synchronize</a></li>
+                <li><a href="/bulk-extensions/where-bulk-contains">Where Bulk Contains</a></li>
+            </ul>
+        </li>
+        <li>
             <a href="/model/generated-value">Generated Value</a>
         </li>
         <li>
@@ -37,17 +48,6 @@
                 <li><a href="/dbset/deleting-data">Remove Record</a></li>
                 <li><a href="/dbset/execute-update">Execute Update</a></li>
                 <li><a href="/dbset/execute-delete">Execute Delete</a></li>
-            </ul>
-        </li>
-        <li>
-            <a href="/bulk-extensions">Bulk Extensions</a>
-            <ul class="nav-level-two" data-display="bulk-extensions">
-                <li><a href="/bulk-extensions/bulk-insert">Bulk Insert</a></li>
-                <li><a href="/bulk-extensions/bulk-update">Bulk Update</a></li>
-                <li><a href="/bulk-extensions/bulk-delete">Bulk Delete</a></li>
-                <li><a href="/bulk-extensions/bulk-merge">Bulk Merge</a></li>
-                <li><a href="/bulk-extensions/bulk-synchronize">Bulk Synchronize</a></li>
-                <li><a href="/bulk-extensions/where-bulk-contains">Where Bulk Contains</a></li>
             </ul>
         </li>
         <li>

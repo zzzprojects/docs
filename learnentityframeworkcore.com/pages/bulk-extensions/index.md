@@ -8,7 +8,7 @@ lastmod: 2025-07-22
 
 # Bulk Extensions with EF Core from Entity Framework Extensions
 
-Entity Framework Core (EF Core) is well-known as a great ORM (Object-Relational Mapping) tool. It makes saving entities to your database super easy—without writing any SQL statements.
+Entity Framework Core (EF Core) is well-known as a great ORM (Object-Relational Mapping) library. It makes saving entities to your database super easy—without writing any SQL statements.
 
 But when you need to handle thousands of entities, EF Core’s performance can quickly become a bottleneck. That’s where the [bulk extension methods](https://entityframework-extensions.net/bulk-extensions) from the [Entity Framework Extensions](https://entityframework-extensions.net/) library come in. This powerful library dramatically boosts EF Core’s performance and gives you all the flexibility you need to save entities the way you want.
 
@@ -31,7 +31,7 @@ context.BulkInsert(customers, options => options.IncludeGraph = true);
 
 ## Why Use Bulk Extensions from Entity Framework Extensions?
 
-[Entity Framework Extensions](https://zzzprojects.com/), created by **ZZZ Projects**, is the most popular and complete library for EF Core bulk operations — trusted by over **5,000 paid customers** and downloaded more than **50 million times**.
+Entity Framework Extensions, created by [ZZZ Projects](https://zzzprojects.com/), is the most popular and complete library for EF Core bulk operations — trusted by over **5,000 paid customers** and downloaded more than **50 million times**.
 
 ### ⚡ Performance That Speaks for Itself
 
@@ -102,13 +102,13 @@ Here is a list of some popular bulk extension methods offered by **Entity Framew
 | [Bulk Merge](/bulk-extensions/bulk-merge)                   | Also known as **upsert**, **add or update**, or **insert or update**.                  |
 | [Bulk Synchronize](/bulk-extensions/bulk-synchronize)       | **Mirror** operation that performs **insert**, **update**, and **delete** in one step. |
 | [Where Bulk Contains](/bulk-extensions/where-bulk-contains) | Performs a `WHERE` clause in bulk, matching a list of items.                           |
-| [Bulk SaveChanges](#ef-core-bulk-savechanges-extensions)    | Saves changes for multiple entities in a single bulk operation.                        |
+| [Bulk SaveChanges](/bulk-extensions#ef-core-bulk-savechanges-with-entity-framework-extensions)    | Saves changes for multiple entities in a single bulk operation.                        |
 
 ---
 
 ## EF Core Bulk Insert with Entity Framework Extensions
 
-The [`BulkInsert`](/bulk-extensions/bulk-insert) method from **Entity Framework Extensions** dramatically improves performance compared to `SaveChanges` when inserting multiple entities.
+The [BulkInsert](/bulk-extensions/bulk-insert) method from **Entity Framework Extensions** dramatically improves performance compared to `SaveChanges` when inserting multiple entities.
 
 To perform a bulk insert, simply call the method with the list of entities you want to insert:
 
@@ -143,7 +143,7 @@ using (var context = new YourDbContext())
 
 ## EF Core Bulk Update with Entity Framework Extensions
 
-The [`BulkUpdate`](/bulk-extensions/bulk-update) method from **Entity Framework Extensions** significantly improves performance compared to `SaveChanges` when you need to update multiple entities.
+The [BulkUpdate](/bulk-extensions/bulk-update) method from **Entity Framework Extensions** significantly improves performance compared to `SaveChanges` when you need to update multiple entities.
 
 To perform a bulk update, simply call the method with the list of entities you want to update:
 
@@ -177,7 +177,7 @@ using (var context = new MyDbContext())
 
 ## EF Core Bulk Delete with Entity Framework Extensions
 
-The [`BulkDelete`](/bulk-extensions/bulk-delete) method from Entity Framework Extensions improves performance when you need to delete multiple entities—especially compared to calling `SaveChanges()` for each one.
+The [BulkDelete](/bulk-extensions/bulk-delete) method from Entity Framework Extensions improves performance when you need to delete multiple entities—especially compared to calling `SaveChanges()` for each one.
 
 To perform a bulk delete, just call the method with the list of entities you want to remove.
 
@@ -212,7 +212,7 @@ using (var context = new YourDbContext())
 
 ## EF Core Bulk Merge with Entity Framework Extensions
 
-The [`BulkMerge`](/bulk-extensions/bulk-merge) method from **Entity Framework Extensions** improves performance compared to `SaveChanges` when you need to insert **or** update multiple entities.
+The [BulkMerge](/bulk-extensions/bulk-merge) method from **Entity Framework Extensions** improves performance compared to `SaveChanges` when you need to insert **or** update multiple entities.
 
 This is called an *upsert* operation — it updates existing entities and inserts new ones:
 
@@ -252,7 +252,7 @@ using (var context = new YourDbContext())
 
 ## EF Core Bulk Synchronize with Entity Framework Extensions
 
-The [`BulkSynchronize`](/bulk-extensions/bulk-synchronize) method from **Entity Framework Extensions** significantly improves performance compared to `SaveChanges` when you need to insert, update, **and** delete multiple entities.
+The [BulkSynchronize](/bulk-extensions/bulk-synchronize) method from **Entity Framework Extensions** significantly improves performance compared to `SaveChanges` when you need to insert, update, **and** delete multiple entities.
 
 This is called a *sync* operation — it ensures your database table matches the list you provide:
 
@@ -292,7 +292,7 @@ using (var context = new YourDbContext())
 
 ### EF Core WhereBulkContains with Entity Framework Extensions
 
-The [`WhereBulkContains`](/bulk-extensions/where-bulk-contains) method from **Entity Framework Extensions** lets you filter a LINQ query using a large list of items — even when working with complex types, surrogate keys, or thousands of elements.
+The [WhereBulkContains](/bulk-extensions/where-bulk-contains) method from **Entity Framework Extensions** lets you filter a LINQ query using a large list of items — even when working with surrogate keys or thousands of elements.
 
 It works with basic lists, full entities, anonymous types, and more — and it's also compatible with other powerful features like `DeleteFromQuery`, `UpdateFromQuery`, and `BulkSaveChanges`.
 
@@ -353,7 +353,7 @@ using (var context = new EntityContext())
 
 ### EF Core Bulk SaveChanges with Entity Framework Extensions
 
-The [`BulkSaveChanges`](https://entityframework-extensions.net/bulk-savechanges) method from **Entity Framework Extensions** boosts performance compared to the regular `SaveChanges` method — especially when working with large numbers of tracked entities.
+The [BulkSaveChanges](https://entityframework-extensions.net/bulk-savechanges) method from **Entity Framework Extensions** boosts performance compared to the regular `SaveChanges` method — especially when working with large numbers of tracked entities.
 
 While EF Core’s `SaveChanges` has improved over time, performance can still drop when processing thousands of entities. That’s where `BulkSaveChanges` really shines — it reduces database round-trips and optimizes the save process in bulk.
 
