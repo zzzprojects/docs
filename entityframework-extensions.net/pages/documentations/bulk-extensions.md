@@ -1,255 +1,357 @@
 ---
-Title: EFCore BulkExtensions | Bulk Insert, Update, Delete, Merge, Upsert
-MetaDescription: Learn how to use EFCore BulkExtensions to boost your CRUD operations performance. Discover how to save entities faster and by using less memory. Try it now.
-LastMod: 2025-06-23
+Title: Bulk Extensions for EF Core | Bulk Insert, Update, Delete, Merge & Upsert
+MetaDescription: Learn how to use Bulk Extensions in EF Core to boost your CRUD operations performance. Discover how to save entities faster and by using less memory. Try it now.
+LastMod: 2025-07-31
 ---
 
-# EFCore BulkExtensions
+# Bulk Extensions for EF Core with Entity Framework Extensions
 
-## What is EFCore BulkExtensions?
+**Bulk Extensions** are high-performance extension methods added to **EF Core** by Entity Framework Extensions. They are designed to **speed up your CRUD operations** and **dramatically reduce memory usage** in your application. These bulk methods are both **easy to use** and **easy to customize**.
 
-**BulkExtensions** are extension methods added to **EFCore** to enhance your CRUD operation performance and reduce the memory usage in your application. Bulk Methods have been created to be very easy to use and easy to customize.
-
-Here is an example that [Bulk Insert in EF Core](https://entityframework-extensions.net/bulk-insert) a list of `Invoice` and related `InvoiceItems` by using the [IncludeGraph](https://entityframework-extensions.net/include-graph) option:
+Here’s an example of how to [bulk insert in EF Core](https://entityframework-extensions.net/bulk-insert) a list of `Invoice` entities along with their related `InvoiceItems`, using the [IncludeGraph](https://entityframework-extensions.net/include-graph) option:
 
 ```csharp
 // @nuget: Z.EntityFramework.Extensions.EFCore
 using Z.EntityFramework.Extensions;
 
-context.BulkInsert(invoices, options => { options.IncludeGraph = true});
+context.BulkInsert(invoices, options => { options.IncludeGraph = true; });
 ```
 
-The [Bulk Insert](https://entityframework-extensions.net/bulk-insert) method is not only faster than using the `SaveChanges` method but also [reduces memory consumption](https://entityframework-extensions.net/v7-100-0-0-include-graph#memory-performance-improvements)
+The [BulkInsert](https://entityframework-extensions.net/bulk-insert) method from Entity Framework Extensions is not only much faster than using `SaveChanges`, it also [reduces memory consumption](https://entityframework-extensions.net/v7-100-0-0-include-graph#memory-performance-improvements).
+
+## 🚀 Performance Benchmark
+
+Let’s compare the performance of Entity Framework Extensions to EF Core `SaveChanges` method:
+
+**10k Invoices, 50k InvoiceItems**:
+
+|             | IncludeGraph | SaveChanges |
+| ----------- | :----------: | :---------: |
+| Performance |     1.5s     |      6s     |
+| Memory      |     60 MB    |    200 MB   |
+
+**100k Invoices, 500k InvoiceItems**:
+
+|             | IncludeGraph | SaveChanges |
+| ----------- | :----------: | :---------: |
+| Performance |      10s     |     58s     |
+| Memory      |    400 MB    |   1800 MB   |
+
+With Entity Framework Extensions, you can boost performance by more than **5x** and reduce memory usage to just **20%** of what `SaveChanges` consumes.
+
+## Which Bulk Methods Does Entity Framework Extensions Support?
+
+Whether you need to **save** or **query** data in bulk, Entity Framework Extensions provides a complete set of high-performance bulk methods to match your needs:
+
+* **Saving**
+
+  * [BulkInsert](/bulk-insert) — Insert thousands of entities quickly and efficiently.
+  * [BulkUpdate](/bulk-update) — Update large sets of entities without having to retrieve them first.
+  * [BulkDelete](/bulk-delete) — Delete many entities without the performance hit of `SaveChanges`.
+  * [BulkMerge](/bulk-merge) — Insert or update in one smart operation (also known as upsert).
+  * [BulkSynchronize](/bulk-synchronize) — Sync your list with the database by adding, updating, and deleting in one step.
+  * [BulkSaveChanges](/bulk-savechanges) — Save all pending changes in one high-performance batch.
+
+* **Querying**
+
+  * [BulkRead](/bulk-read) — Efficiently read a large number of entities from the database.
+  * [WhereBulkContains](/where-bulk-contains) — Filter a database table to return only rows that match the entities in your list.
+  * [WhereBulkNotContains](/where-bulk-not-contains) — Filter a database table to return only rows that don’t match the entities in your list.
+  * [WhereBulkContainsFilterList](/where-bulk-contains-filter-list) — Filter your in-memory list to return only items that match rows in the database.
+  * [WhereBulkNotContainsFilterList](/where-bulk-not-contains-filter-list) — Filter your in-memory list to return only items that don’t match rows in the database.
 
 
-**10k invoices, 50k InvoiceItem**:
+## Which Versions of Entity Framework Are Supported?
 
-| | IncludeGraph  | SaveChanges |
-| -- | :--: | :--: |
-| Memory | 60 MB | 200 MB |
-| Performance | 1.5s | 6s |
+In short, **all versions of EF Core and Entity Framework are supported**:
 
-**100k invoices, 500k InvoiceItem**:
+* **Entity Framework Core:** EF Core 9 and earlier
+* **Entity Framework:** EF6 and earlier
 
-| | IncludeGraph | SaveChanges |
-| -- | :--: | :--: |
-| Memory | 400 MB | 1800 MB |
-| Performance | 10s | 58s |
+## Which Providers Are Supported by Entity Framework Extensions?
 
-Using **BulkExtensions** can improve your performance by more than **5 times faster** and with the benefit of using around **20% of the memory** of what **SaveChanges** requires.
+Entity Framework Extensions supports all major providers available in EF Core, including:
 
-## Which EFCore BulkExtensions methods are supported?
+* **SQL Server**
+* **MySQL**
+* **MariaDB**
+* **Oracle**
+* **PostgreSQL**
+* **SQLite**
 
-- [Bulk SaveChanges](/bulk-savechanges)
-- [Bulk Insert](/bulk-insert)
-- [Bulk Update](/bulk-update)
-- [Bulk Delete](/bulk-delete)
-- [Bulk Merge](/bulk-merge)
-- [Bulk Synchronize](/bulk-synchronize)
-- [Bulk Read](/bulk-read)
-- [Where Bulk Contains](/where-bulk-contains)
-- [Where Bulk Not Contains](/where-bulk-not-contains)
+## Bulk Insert — For EF Core with Entity Framework Extensions
 
-### Which version of Entity Framework is supported?
-- **Entity Framework Core Version**: EF Core 8, EF Core 7, EF Core 6, EF Core 5, and lower
-- **Entity Framework Version**: EF6 and lower
+The [**EF Core `BulkInsert`**](/bulk-insert) method from Entity Framework Extensions is one of the core features of the library. It allows you to insert **thousands or even millions of entities** into your database **quickly and efficiently**.
 
-### Which provider is supported for Bulk Extensions?
+### 🔧 Commonly Used Options
 
-All major providers are supported:
-- SQL Server
-- MySQL
-- MariaDB
-- Oracle
-- PostgreSQL
-- SQLite
+* **AutoMapOutputDirection** — Improves performance by skipping the return of output values like identity columns.
+* **InsertIfNotExists** — Inserts only the entities that don't already exist in the database.
+* **InsertKeepIdentity** — Allows inserting custom identity values instead of letting the database generate them.
+* **IncludeGraph** — Automatically inserts related entities found in the object graph and preserves their relationships.
 
-
-## Bulk Insert
-
-The [EF Core Bulk Insert](/bulk-insert) extension method is the main method of our **BulkExtensions** library. It allows you to insert thousands and millions of entities in your database quickly and efficiently.
-
-The most common options used are:
-
-- **AutoMapOutputDirection**: This option allows you to optimize performance by not returning output values such as identity values.
-- **InsertIfNotExists**: This option ensures only new entities that don't already exist in the database are inserted.
-- **InsertKeepIdentity**: This option allows the insertion of specific values into an identity column from your entities.
-- **IncludeGraph**: This option enables the insertion of entities along with all related entities found in the entity graph, maintaining the relationships.
+### 💡 Example Usage
 
 ```csharp
 // @nuget: Z.EntityFramework.Extensions.EFCore
 using Z.EntityFramework.Extensions;
 
+// Simple bulk insert
 context.BulkInsert(customers);
-context.BulkInsert(customers, options => {
-	options.AutoMapOutputDirection = false;
-	options.InsertIfNotExists = true;
+
+// Bulk insert with options
+context.BulkInsert(customers, options =>
+{
+    options.AutoMapOutputDirection = false;
+    options.InsertIfNotExists = true;
 });
+
+// Bulk insert from anonymous list
 context.BulkInsert<Customer>(anonymousList);
 
+// Bulk insert async version
 await context.BulkInsertAsync(customers);
 ```
 
-## Bulk SaveChanges
+## Bulk Update — For EF Core with Entity Framework Extensions
 
-The [EF Core Bulk SaveChanges](/bulk-savechanges) extension method allows you to replace the `SaveChanges` method to improve your saving performance. The only difference between both methods is the `BulkSaveChanges` method inserts, updates, and deletes data faster!
+The [**EF Core `BulkUpdate`**](/bulk-update) method from Entity Framework Extensions allows you to **update large sets of data** in your database efficiently and with full control.
 
-```csharp
-// @nuget: Z.EntityFramework.Extensions.EFCore
-using Z.EntityFramework.Extensions;
+### 🔧 Commonly Used Options
 
-// context.SaveChanges();
-context.BulkSaveChanges();
-context.BulkSaveChanges(options => { });
+* **ColumnPrimaryKeyExpression** — Use a custom key expression to identify which entities should be updated.
+* **ColumnInputExpression** — Specify which columns to update using a LINQ expression.
+* **ColumnInputNames** — Specify which columns to update by listing their names as strings.
+* **IncludeGraph** — Automatically updates related entities found in the object graph, preserving relationships.
 
-await context.BulkSaveChangesAsync();
-```
-
-## Bulk Update
-
-The [EF Core Bulk Update](/bulk-update) extension method allows you to update data in your database in bulk.
-
-The most common options used are:
-
-- **ColumnPrimaryKeyExpression**: This option allows you to use a custom key to check for pre-existing entities.
-- **ColumnInputExpression**: This option enables you to specify a subset of columns to update by using an expression.
-- **ColumnInputNames**: This option allows you to specify a subset of columns to update by providing their names.
-- **IncludeGraph**: This option allows updating entities along with all related entities found in the entity graph, maintaining the data relationships.
+### 💡 Example Usage
 
 ```csharp
 // @nuget: Z.EntityFramework.Extensions.EFCore
 using Z.EntityFramework.Extensions;
 
+// Simple bulk update
 context.BulkUpdate(customers);
-context.BulkUpdate(customers, options => {
-	options.ColumnInputExpression = x => new { x.FirstName, x.LastName };
+
+// Bulk update specific columns using an expression
+context.BulkUpdate(customers, options =>
+{
+    options.ColumnInputExpression = x => new { x.FirstName, x.LastName };
 });
+
+// Bulk update from an anonymous list
 context.BulkUpdate<Customer>(anonymousList);
 
+// Bulk update async version
 await context.BulkUpdateAsync(customers);
 ```
 
-## Bulk Delete
+## Bulk Delete — For EF Core with Entity Framework Extensions
 
-The [EF Core Bulk Delete](/bulk-delete) extension method allows you to delete data in your database in bulk.
+The [**EF Core `BulkDelete`**](/bulk-delete) method from Entity Framework Extensions allows you to **delete large sets of data** from your database efficiently in one operation.
 
-The most common options used are:
+### 🔧 Commonly Used Options
 
-- **ColumnPrimaryKeyExpression**: This option allows the usage of a custom key to verify the existence of entities.
-- **DeleteMatchedAndConditionExpression**: This option enables you to perform or skip the deletion action based on whether all values from the source and destination are equal for the specified properties.
-- **DeleteMatchedAndOneNotConditionExpression**: This option allows you to perform or skip the deletion action if at least one value from the source differs from the destination for the specified properties.
-- **DeleteMatchedAndFormula**: This option lets you perform or skip the deletion action based on a predefined SQL condition.
+* **ColumnPrimaryKeyExpression** — Use a custom key to identify which entities should be deleted.
+* **DeleteMatchedAndConditionExpression** — Delete only when all specified values from the source and destination match.
+* **DeleteMatchedAndOneNotConditionExpression** — Delete only when at least one specified value from the source differs from the destination.
+* **DeleteMatchedAndFormula** — Apply a SQL condition to decide whether or not to delete each entity.
+
+### 💡 Example Usage
 
 ```csharp
 // @nuget: Z.EntityFramework.Extensions.EFCore
 using Z.EntityFramework.Extensions;
 
+// Simple bulk delete
 context.BulkDelete(customers);
-context.BulkDelete(customers, options => {
-	options.DeleteMatchedAndFormula = "DestinationTable.CreatedDate < DATEADD(YEAR, -2, GETDATE())";
+
+// Bulk delete with a custom SQL condition
+context.BulkDelete(customers, options =>
+{
+    options.DeleteMatchedAndFormula = "DestinationTable.CreatedDate < DATEADD(YEAR, -2, GETDATE())";
 });
+
+// Bulk delete from an anonymous list
 context.BulkDelete<Customer>(anonymousList);
 
+// Bulk delete async version
 await context.BulkDeleteAsync(customers);
 ```
 
-## Bulk Merge / Upsert
+## Bulk Merge / Upsert — For EF Core with Entity Framework Extensions
 
-The [EF Core Bulk Merge](/bulk-merge) extension method allows you to add or update data in your database in bulk. People often search for this feature under other names, such as `Upsert`, `AddOrUpdate`, or `InsertOrUpdate` bulk extensions.
+The [**EF Core `BulkMerge`**](/bulk-merge) method from Entity Framework Extensions lets you **insert or update data in bulk** — depending on whether the record already exists. This feature is often referred to as `Upsert`, `AddOrUpdate`, or `InsertOrUpdate`.
 
-The most common options used are:
+### 🔧 Commonly Used Options
 
-- **ColumnPrimaryKeyExpression**: This option allows for the use of a custom key to verify the existence of entities.
-- **IgnoreOnMergeInsertExpression**: This option enables you to ignore certain columns only for the insert phase of the merge operation.
-- **IgnoreOnMergeUpdateExpression**: This option allows you to ignore specific columns only during the update phase of the merge operation.
-- **IncludeGraph**: This option ensures updating of entities along with all related entities found in the entity graph, preserving data relationships.
+* **ColumnPrimaryKeyExpression** — Use a custom key expression to determine if an entity already exists in the database.
+* **IgnoreOnMergeInsertExpression** — Exclude specific columns during the **insert** phase of the merge operation.
+* **IgnoreOnMergeUpdateExpression** — Exclude specific columns during the **update** phase of the merge operation.
+* **IncludeGraph** — Automatically handles related entities in the object graph and preserves data relationships.
+
+### 💡 Example Usage
 
 ```csharp
 // @nuget: Z.EntityFramework.Extensions.EFCore
 using Z.EntityFramework.Extensions;
 
+// Simple bulk merge (upsert)
 context.BulkMerge(customers);
-context.BulkMerge(customers, options => {
-	options.ColumnPrimaryKeyExpression = x => new { x.Code };
-	options.IgnoreOnMergeInsertExpression = x => new { x.UpdatedDate, x.UpdatedBy };
-	options.IgnoreOnMergeUpdateExpression = x => new { x.CreatedDate, x.CreatedBy };
+
+// Bulk merge with options
+context.BulkMerge(customers, options =>
+{
+    options.ColumnPrimaryKeyExpression = x => new { x.Code };
+    options.IgnoreOnMergeInsertExpression = x => new { x.UpdatedDate, x.UpdatedBy };
+    options.IgnoreOnMergeUpdateExpression = x => new { x.CreatedDate, x.CreatedBy };
 });
+
+// Bulk merge from an anonymous list
 context.BulkMerge<Customer>(anonymousList);
 
+// Bulk merge async version
 await context.BulkMergeAsync(customers);
 ```
 
-## Bulk Synchronize
+## Bulk Synchronize — For EF Core with Entity Framework Extensions
 
-The [EF Core Bulk Synchronize](/bulk-synchronize) extension method allows you to insert or update or delete data in your database in bulk. In other words, the data of your database becomes a mirror of the entities you provided. People often search for this feature as `AddOrUpdateOrDelete` or `InsertOrUpdateOrDelete` bulk extensions.
+The [**EF Core `BulkSynchronize`**](/bulk-synchronize) method from Entity Framework Extensions allows you to **insert**, **update**, or **delete** data in your database in bulk — all in one operation. In other words, your database table becomes a **mirror** of the list of entities you provide.
+
+This feature is often searched for under names like `AddOrUpdateOrDelete` or `InsertOrUpdateOrDelete`.
+
+### 💡 Example Usage
 
 ```csharp
 // @nuget: Z.EntityFramework.Extensions.EFCore
 using Z.EntityFramework.Extensions;
 
+// Simple bulk synchronize (upsert)
 context.BulkSynchronize(customers);
-context.BulkSynchronize(customers, options => { });
+
+// Bulk synchronize with options
+context.BulkSynchronize(customers, options => { /* custom settings here */ });
+
+// Bulk synchronize from an anonymous list
 context.BulkSynchronize<Customer>(anonymousList);
 
+// Bulk synchronize async version
 await context.BulkSynchronizeAsync(customers);
 ```
 
-## Bulk Read
+## Bulk SaveChanges — For EF Core with Entity Framework Extensions
 
-The [EF Core BulkRead](/bulk-read) extension method allows you to retrieve entities from your database by:
+The [**EF Core `BulkSaveChanges`**](/bulk-savechanges) method from Entity Framework Extensions is a high-performance replacement for the standard `SaveChanges` method. It processes **inserts**, **updates**, and **deletes** — just like `SaveChanges` — but runs them **much faster**.
 
-- providing a list of `ids` (int, guid, string, etc.)
-- providing a list of entities and using the model key or providing a custom one
+The only thing you need to change? Replace `SaveChanges` with `BulkSaveChanges` — and you're done!
+
+### 💡 Example Usage
 
 ```csharp
 // @nuget: Z.EntityFramework.Extensions.EFCore
 using Z.EntityFramework.Extensions;
 
-var list1 = context.Customers.BulkRead(ids);
-var list2 = context.Customers.BulkRead(list, key => new { x.Email, x.PhoneNumber });
+// Standard EF Core
+// context.SaveChanges();
 
+// Improved performance with BulkSaveChanges
+context.BulkSaveChanges();
+
+// BulkSaveChanges with custom options
+context.BulkSaveChanges(options => { /* custom settings */ });
+
+// BulkSaveChanges async version
+await context.BulkSaveChangesAsync();
+```
+
+## Bulk Read — For EF Core with Entity Framework Extensions
+
+The [**EF Core `BulkRead`**](/bulk-read) method from Entity Framework Extensions allows you to efficiently retrieve entities from your database by:
+
+* Providing a list of `IDs` (e.g., `int`, `Guid`, `string`, etc.)
+* Providing a list of entities and using their primary key or a custom key expression
+
+### 💡 Example Usage
+
+```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
+// Bulk read by list of IDs
+var list1 = context.Customers.BulkRead(ids);
+
+// Bulk read by custom key
+var list2 = context.Customers.BulkRead(list, x => new { x.Email, x.PhoneNumber });
+
+// Bulk read async versions
 var list3 = await context.Customers.BulkReadAsync(ids);
 ```
 
-## Where Bulk Contains
+## Where Bulk Contains — For EF Core with Entity Framework Extensions
 
-The [EF Core WhereBulkContains](/where-bulk-contains) extension method allows you to retrieve entities from your database by:
+The [**EF Core `WhereBulkContains`**](/where-bulk-contains) method from Entity Framework Extensions allows you to **filter your database table** to return only the entities that match the values in a list.
 
-It can be used with practically any type of data source, such as:
+It supports **almost any kind of data source**, including:
 
-- Basic types like `List<int>` and `List<Guid>`
-- Entity Types like `List<Customer>`
-- Anonymous Types
-- Lists of Expando Objects
+* Basic types like `List<int>` or `List<Guid>`
+* Entity types like `List<Customer>`
+* Anonymous types
+* Lists of `ExpandoObject`
 
-The `WhereBulkContains` is a deferred method (so it doesn't materialize entities), while the `BulkRead` is an immediate method (under the hood, it calls the `WhereBulkContains` + `ToList()`).
+Unlike `BulkRead`, the `WhereBulkContains` method is **deferred**, meaning it doesn't execute immediately. It simply builds the query.
+If you want to retrieve the results, just call `.ToList()` (which is what `BulkRead` does under the hood).
+
+### 💡 Example Usage
 
 ```csharp
 // @nuget: Z.EntityFramework.Extensions.EFCore
 using Z.EntityFramework.Extensions;
 
+// Filter by list of IDs
 var list1 = context.Customers.WhereBulkContains(ids).ToList();
-var list2 = context.Customers.WhereBulkContains(list, key => new { x.Email, x.PhoneNumber });
 
+// Filter by custom key
+var list2 = context.Customers.WhereBulkContains(list, x => new { x.Email, x.PhoneNumber });
+
+// Async version
 var list3 = await context.Customers.WhereBulkContains(ids).ToListAsync();
 ```
 
-## Where Bulk Not Contains
+## Where Bulk Not Contains — For EF Core with Entity Framework Extensions
 
-The [EF Core WhereBulkNotContains](/where-bulk-not-contains) method is similar to the `WhereBulkContains` method, but this time, it returns all data from the database that cannot be retrieved from the provided list.
+The [**EF Core `WhereBulkNotContains`**](/where-bulk-not-contains) method from Entity Framework Extensions works just like `WhereBulkContains`, but in reverse.
+It returns all entities **from the database** that **do not match** the values in the provided list.
 
-The `WhereBulkNotContains` is a deferred method (so it doesn't materialize entities), while the `BulkRead` is an immediate method (under the hood, it calls the `WhereBulkContains` + `ToList()`).
+You can use it with:
+
+* Basic types like `List<int>` or `List<Guid>`
+* Entity types like `List<Customer>`
+* Anonymous types
+* Lists of `ExpandoObject`
+
+Like `WhereBulkContains`, `WhereBulkNotContains` is a **deferred method** — it builds the query but doesn't execute it until you call something like `.ToList()`.
+In contrast, `BulkRead` is an immediate method that internally uses `WhereBulkContains().ToList()`.
+
+### 💡 Example Usage
 
 ```csharp
 // @nuget: Z.EntityFramework.Extensions.EFCore
 using Z.EntityFramework.Extensions;
 
-var list1 = context.Customers.WhereBulkContains(ids).ToList();
-var list2 = context.Customers.WhereBulkContains(list, key => new { x.Email, x.PhoneNumber });
+// Filter to get database records NOT in the list of IDs
+var list1 = context.Customers.WhereBulkNotContains(ids).ToList();
 
-var list3 = await context.Customers.WhereBulkContains(ids).ToListAsync();
+// Filter by custom key
+var list2 = context.Customers.WhereBulkNotContains(list, x => new { x.Email, x.PhoneNumber });
+
+// Async version
+var list3 = await context.Customers.WhereBulkNotContains(ids).ToListAsync();
 ```
 
 ## Conclusion
 
-Learning how to use `EFCore BulkExtensions` to improve critical parts of your application that could benefit from performance enhancement or memory usage reduction is an essential tool that any developer must know. In addition to performance and memory benefits, you also have access to hundreds of options to customize your bulk operations and save the data the way you desire.
+Using Bulk Extensions in EF Core with Entity Framework Extensions is one of the most effective ways to boost the **performance** and **memory efficiency** of your application — especially in its most critical areas.
+
+Whether you're inserting, updating, deleting, or reading large amounts of data, these methods are built to do it **fast** and **reliably**. Plus, with **hundreds of customization options**, you can tailor each bulk operation to fit your exact needs.
+
+Every developer working with EF Core should [**try Entity Framework Extensions**](https://entityframework-extensions.net/download) at least once — you'll instantly see the difference.

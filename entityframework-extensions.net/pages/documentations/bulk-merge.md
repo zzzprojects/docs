@@ -1,7 +1,7 @@
 ---
 Title: Bulk Merge in EF Core / EF6 | Add or Update (Upsert) your entities
 MetaDescription: Efficiently add or update Entity Framework data with EF Core Bulk Merge Extensions. Perform upsert operations on large numbers of entities with customizable options for all EF versions, including EF Core 7, 6, 5, 3, and EF6. Optimize your database operations - try it now.
-LastMod: 2025-06-23
+LastMod: 2025-07-28
 ---
 
 # Bulk Merge /n Easily perform add or update (Upsert) operations in EF Core

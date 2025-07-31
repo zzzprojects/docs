@@ -1,7 +1,7 @@
 ---
 Title: Bulk Options for Bulk Extensions | Customize Your Saving Experience
 MetaDescription: Learn how to customize your EF6 and EF Core Bulk Extensions by customizing methods with bulk options. Over 100 options are available to cover any scenario - try it now.
-LastMod: 2025-06-23
+LastMod: 2025-07-28
 ---
 
 # Bulk Options

@@ -1,12 +1,14 @@
 ---
-Title: Bulk Insert in EF Core / EF6 | The Fastest Way to Insert Entities
-MetaDescription: Boost your EF Core inserts performance by up to 15x, reducing insert time by 94% with EF Extensions. Use BulkInsert to handle thousands of entities with less memory and more control. Fully supports EF Core 9 to 2 and EF6. Try the live benchmark now!
-LastMod: 2025-06-23
+Title: Bulk Insert in EF Core with Entity Framework Extensions
+MetaDescription: Boost your EF Core inserts performance by up to 15x, reducing insert time by 94% with Bulk Insert from Entity Framework Extensions. Use BulkInsert method in EF Core to handle thousands of entities with less memory and more control. Fully supports all EF Core and EF6 versions. Try the live benchmark now!
+LastMod: 2025-07-31
 ---
 
-# Bulk Insert /n Boost your EF Core insert performance now
+# Bulk Insert with Entity Framework Extensions/n Boost your EF Core insert performance now
 
-The `BulkInsert` method is the easiest way you can insert thousands of entities in EF Core. In addition to being super fast, you can also customize it with various [options](/bulk-insert#bulk-insert-options) to insert entities the way you want—such as keeping identity values, inserting only entities that don't already exist in the database, and much more.
+The EF Core `BulkInsert` method from **Entity Framework Extensions** is the easiest way to insert thousands of entities.
+
+Not only is it super fast, but it’s also highly customizable. You can use various [options](/bulk-insert#bulk-insert-options) to insert entities exactly the way you want — like keeping identity values, inserting only new entities, and much more.
 
 ```csharp
 // @nuget: Z.EntityFramework.Extensions.EFCore
@@ -21,45 +23,44 @@ context.BulkInsert(invoices, options => options.IncludeGraph = true);
 
 [Online Example (EF Core)](https://dotnetfiddle.net/2eVfFT) | [Online Example (EF6)](https://dotnetfiddle.net/bNektu)
 
-If you want to insert entities in EF Core even faster, you can use the [BulkInsertOptimized](/bulk-insert-optimized) method. The major difference between the two methods is:
+If you want to insert entities even faster, you can use the [BulkInsertOptimized](/bulk-insert-optimized) method. Here’s the key difference between both methods:
 
-- **BulkInsert:** By default, `AutoMapOutputDirection = true`, so it returns values like the identity value. This requires additional logic and can result in a less optimized SQL statement.
-- **BulkInsertOptimized:** By default, `AutoMapOutputDirection = false`, so it does not return any values unless you explicitly specify otherwise.
+* **BulkInsert:** `AutoMapOutputDirection = true` by default. It returns values like identity keys but can generate slightly less optimized SQL.
+* **BulkInsertOptimized:** `AutoMapOutputDirection = false` by default. It skips return values for maximum speed, unless you explicitly ask for them.
 
 ## 🔑 Key Benefits
 
-One of the main reasons people use our Bulk Insert with Entity Framework is for its performance and reduced memory usage. Another key reason is its flexibility, with hundreds of supported options — which we’ll explore later.
+One of the main reasons developers choose **EF Core Bulk Insert** from **Entity Framework Extensions** is the **performance** and **low memory usage**. Another big reason? Its **flexibility** — with **hundreds of supported options** (we’ll explore some of them later).
 
-- ✅ **Extremely fast insert:** Insert millions of rows in seconds instead of minutes.
-- ✅ **Memory-efficient:** Keep your memory usage low, even with large datasets.
-- ✅ **Flexible with hundreds of options:** Customize the behavior to fit your exact needs.
+* ✅ **Extremely fast inserts** — Insert millions of rows in seconds instead of minutes.
+* ✅ **Memory-efficient** — Keep memory usage low, even when working with huge datasets.
+* ✅ **Highly flexible** — Customize the behavior with hundreds of options to match your exact needs.
 
+## 🔍 What is Supported?
 
-## 🔍 What is supported?
+The `BulkInsert` method from **Entity Framework Extensions** supports all the common scenarios in EF Core — and nearly everything you can do with EF Core and EF6!
 
-Our library supports all the common scenarios — and almost everything you can do with EF Core and EF6!
+* ✅ The latest EF Core version: **EF Core 9**
+* ✅ All previous EF Core versions: **EF Core 2 to 8**
+* ✅ All Entity Framework versions: **EF6, EF5, EF4, and EF Classic**
+* ✅ All major database providers: **SQL Server, SQL Azure, PostgreSQL, MySQL, MariaDB, SQLite, and Oracle**
+* ✅ All inheritance strategies: **TPC, TPH, and TPT**
+* ✅ **Complex types** / **Owned entity types**
+* ✅ **Enums**
+* ✅ **Value converters** (EF Core)
+* ✅ And much more — even **shadow properties**!
 
-- ✅ The latest Entity Framework Core version: EF Core 9  
-- ✅ All previous EF Core versions: EF Core 2 to 8  
-- ✅ All Entity Framework versions: EF6, EF5, EF4, and EF Classic  
-- ✅ All major database providers: SQL Server, SQL Azure, PostgreSQL, MySQL, MariaDB, SQLite, and Oracle  
-- ✅ All inheritance mapping strategies: TPC, TPH, and TPT  
-- ✅ Complex types / owned entity types  
-- ✅ Enums  
-- ✅ Value converters (EF Core)  
-- ✅ And much more — even shadow properties!
+## 🚀 Performance Comparison (SaveChanges vs Bulk Insert)
 
-## 🚀 Performance Comparison
-
-A very popular search on Google is **"Fastest way to Bulk Insert in EF Core"**—and that’s exactly what our library delivers!
+A very popular search on Google is **"Fastest way to Bulk Insert in EF Core"**—and that’s exactly what our `BulkInsert` method in Entity Framework Extensions delivers!
 
 Don't just take our word for it or blindly trust what we say. Instead, try it yourself using our online benchmark and see the results with a single click!
 
-### EF Core vs EFE
+### EF Core vs Entity Framework Extensions
 
-The `SaveChanges` method in EF Core is much faster than it was back in the EF6 days when inserting data. Why the improvement? The EF Core team introduced a new approach using a `MERGE` statement with a `RETURNING` clause—similar to the one we’ve been using for SQL Server since 2014. So yes, we were already doing something right!
+The `SaveChanges` method in EF Core is much faster than it was back in the EF6 days when inserting data. Why the improvement? The EF Core team introduced a new approach using a `MERGE` statement with a `RETURNING` clause—similar to the one we’ve been using in Entity Framework Extensions for SQL Server since 2014. So yes, we were already doing something right!
 
-Even with this new strategy, our library is still faster. That’s because we use `SqlBulkCopy` and have deeply optimized how data is handled behind the scenes. In fact, the performance gap becomes even more noticeable when your entities have more than just a few properties. If your entity only has 2 or 3 properties—like a very simple `Customer` with just `Id`, `Name`, and `Email`—the difference might seem smaller. But once you deal with real-world entities containing 10, 15, or more properties, **our optimized approach truly shines**.
+Even with this new strategy, our Entity Framework Extensions library is still faster. That’s because we use `SqlBulkCopy` and have deeply optimized how data is handled behind the scenes. In fact, the performance gap becomes even more noticeable when your entities have more than just a few properties. If your entity only has 2 or 3 properties—like a very simple `Customer` with just `Id`, `Name`, and `Email`—the difference might seem smaller. But once you deal with real-world entities containing 10, 15, or more properties, **our optimized approach truly shines**.
 
 
 | Operation                           | 1,000 Entities | 2,000 Entities | 5,000 Entities |
@@ -75,13 +76,13 @@ In other words, to save 5,000 entities:
 - **BulkInsert (Outputting values)** is about **9x faster**, reducing insert time by **89%**.
 - **BulkInsert (Not Outputting values)** is about **15x faster**, reducing insert time by **94%**.
 
-Our library provides the best performance when no data needs to be returned/outputted. That’s why we introduced the `AutoMapOutputDirection = false` option and the [BulkInsertOptimized](/bulk-insert-optimized) method.
+Our Entity Framework Extensions library provides the best performance when no data needs to be returned/outputted. That’s why we introduced the `AutoMapOutputDirection = false` option and the [BulkInsertOptimized](/bulk-insert-optimized) method.
 
-### EF Core vs EFE + Include Graph
+### EF Core vs Entity Framework Extensions + Include Graph
 
-Another important benchmark for EF Core is when inserting data that includes a graph of related entities. Being faster is one big advantage we offer—but just as important, our library uses only a **fraction of the memory**.
+Another important benchmark for EF Core is when inserting data that includes a graph of related entities. Being faster is one big advantage we offer—but just as important, our Entity Framework Extensions library uses only a **fraction of the memory**.
 
-For example, when working with millions of entities, EF Core might use up to **2,000 MB**, while our library needs only around **400 MB**. That’s a huge difference, especially in memory-constrained environments.
+For example, when working with millions of entities, EF Core might use up to **2,000 MB**, while bulk insert in Entity Framework Extensions  needs only around **400 MB**. That’s a huge difference, especially in memory-constrained environments.
 
 In this benchmark, each **Order** entity includes **5 OrderItems**. We use `IncludeGraph` to automatically handle related entities during the insert—so you don’t need to manually insert children or worry about setting their foreign keys.
 
@@ -93,11 +94,11 @@ In this benchmark, each **Order** entity includes **5 OrderItems**. We use `Incl
 
 👉 [Try our Online Benchmark](https://dotnetfiddle.net/xD6Bxk)
 
-⚠️ On .NET Fiddle, you won’t be able to run `SaveChanges` with more than around **1,800 entities** before it crashes due to memory limits. But if you **comment out** the `SaveChanges` call, you’ll see that our library handles **5,000 entities** just fine. This helps prove an important point: performance isn’t only about speed—**memory usage matters too**.
+⚠️ On .NET Fiddle, you won’t be able to run `SaveChanges` with more than around **1,800 entities** before it crashes due to memory limits. But if you **comment out** the `SaveChanges` call, you’ll see that our Entity Framework Extensions library handles **5,000 entities** just fine. This helps prove an important point: performance isn’t only about speed—**memory usage matters too**.
 
-### EF6 vs EFE
+### EF6 vs Entity Framework Extensions
 
-In EF6, the `SaveChanges` method makes one database round-trip for every entity it needs to insert. If you have hundreds or thousands of entities, our library is a must-have for this version. Otherwise, you're making your users wait forever for the save to complete.
+In EF6, the `SaveChanges` method makes one database round-trip for every entity it needs to insert. If you have hundreds or thousands of entities, using Entity Framework Extensions is a must-have for this version. Otherwise, you're making your users wait forever for the save to complete.
 
 | Operation                            | 1,000 Entities | 2,000 Entities | 5,000 Entities |
 | :----------------------------------- | -------------: | -------------: | -------------: |
@@ -113,9 +114,9 @@ In other words, to save 5,000 entities:
 
 ## Bulk Insert Options
 
-### Configuring Options
+### Configuring Options with Entity Framework Extensions
 
-We already saw in a previous article [Configuring Options](/configure-options) how to pass options to the `BulkInsert` method — but here’s a quick recap:
+We already saw in a previous article [Configuring Options](/configure-options) how to pass options to the `BulkInsert` method in Entity Framework Extensions — but here’s a quick recap:
 
 ```csharp
 // @nuget: Z.EntityFramework.Extensions.EFCore
@@ -141,7 +142,7 @@ context.BulkInsert(list, options);
 
 > 💡 Tip: Using a `BulkOperationOption` instance is useful when you want to reuse the same configuration across multiple operations or keep your setup code more organized.
 
-### Common Options
+### Common Options in Entity Framework Extensions
 
 - Bulk Insert Behavior
    - **InsertIfNotExists:** Set to `true` if you only want to insert entities that don’t already exist in your database.
@@ -228,6 +229,14 @@ context.BulkInsert(items);
 
 [Online Example](https://dotnetfiddle.net/vKlII0)
 
-## Conclusion
+## ✅ Conclusion
 
-The `BulkInsert` method is one of our most popular features. As we showed in this article, it doesn’t just offer better performance than `SaveChanges` — it also gives you access to many options that let you insert data exactly the way you want.
+The `BulkInsert` method is one of the most powerful and popular features in **Entity Framework Extensions**.
+
+As you've seen in this article, it goes far beyond just improving performance compared to `SaveChanges`. It also gives you **full control** over how your data gets inserted — with dozens of options to handle identity values, relationships, and performance tuning.
+
+Whether you're working with **EF Core or EF6**, need to insert **simple rows or complex graphs**, or want to **optimize for speed or memory**, `BulkInsert` has you covered.
+
+So why settle for slower inserts and more code?
+
+👉 [Try it now](https://entityframework-extensions.net/download), and see for yourself why thousands of developers — and over **5,000 companies** — rely on Entity Framework Extensions to handle their bulk operations.

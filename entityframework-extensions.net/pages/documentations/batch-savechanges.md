@@ -1,18 +1,9 @@
 ---
 Name: Batch SaveChanges
-LastMod: 2025-06-23
+LastMod: 2025-07-28
 ---
 
 # Batch SaveChanges
-
----
-
-## Limited Time Offer
-For a limited time, the **BatchSaveChanges** is offered in a standalone version for only 79$.
-
-[Buy now](/pricing-limited)
-
----
 
 ## Description
 

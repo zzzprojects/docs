@@ -1,12 +1,12 @@
 - Main Features
    - [Bulk Extensions](bulk-extensions.md)
-   - [Bulk SaveChanges](bulk-savechanges.md)
    - [Bulk Insert](bulk-insert.md)
    - [Bulk Insert Optimized](bulk-insert-optimized.md)
    - [Bulk Update](bulk-update.md)
    - [Bulk Delete](bulk-delete.md)
    - [Bulk Merge](bulk-merge.md)
    - [Bulk Synchronize](bulk-synchronize.md)
+   - [Bulk SaveChanges](bulk-savechanges.md)
    - [WhereBulkContains](utilities/where-bulk-contains.md)
 - Bulk Options
    - [Bulk Options](bulk-options.md)
