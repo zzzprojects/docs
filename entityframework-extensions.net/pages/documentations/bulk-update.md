@@ -1,12 +1,12 @@
 ---
-Title: Bulk Update in EF Core | Optimize the way you update your entities
-MetaDescription: The BulkUpdate method is the most flexible way to update your entities in EF Core. It allows you to customize how your entities will be updated, such as by specifying a custom key, updating only a few properties, and much more. - try it now.
-LastMod: 2025-07-28
+Title: Bulk Update in EF Core with Entity Framework Extensions
+MetaDescription: The BulkUpdate method from Entity Framework Extensions is the most flexible way to update your entities in EF Core. It allows you to customize how your entities will be updated, such as by specifying a custom key, updating only a few properties, and much more. - try it now.
+LastMod: 2025-08-03
 ---
 
-# Bulk Update /n Easily customize and optimize your entity updates in EF Core now
+# Bulk Update with Entity Framework Extensions /n Easily customize and optimize your entity updates in EF Core now
 
-The `BulkUpdate` method is the most flexible way to update your entities in EF Core. It allows you to customize how your entities will be updated, such as by specifying a custom key, updating only a few properties, and much more.
+The `BulkUpdate` method from Entity Framework Extensions is the most flexible way to update your entities in EF Core. It allows you to customize how your entities will be updated, such as by specifying a custom key, updating only a few properties, and much more.
 
 ```csharp
 // @nuget: Z.EntityFramework.Extensions.EFCore
@@ -44,15 +44,15 @@ Our library supports all the common scenarios — and almost everything you can 
 - ✅ Value converters (EF Core)  
 - ✅ And much more — even shadow properties!
 
-### 🚀 Performance Comparison
+### 🚀 Performance Comparison (SaveChanges vs Bulk Update)
 
-A key benefit of our library is the performance it provides — but also the fact that you **don’t need to retrieve entities from the database**, unlike what you usually do with `SaveChanges`.
+A key benefit of our Entity Framework Extensions library is the performance it provides — but also the fact that you **don’t need to retrieve entities from the database**, unlike what you usually do with `SaveChanges`.
 
-With our `BulkUpdate`, you can just **create the entities yourself** and **set only the properties you want to update**. That’s it!
+With our `BulkUpdate` from Entity Framework Extensions, you can just **create the entities yourself** and **set only the properties you want to update**. That’s it!
 
 For fairness, our online benchmark **also includes retrieving entities from the database**, so the comparison remains honest and realistic.
 
-### EF Core vs EFE
+### EF Core vs Entity Framework Extensions
 
 | Operation                           | 1,000 Entities | 2,000 Entities | 5,000 Entities |
 | :---------------------------------- | -------------: | -------------: | -------------: |
@@ -68,7 +68,7 @@ If you [Include your Graph](https://entityframework-extensions.net/include-graph
 Learn more about it in our section on [Memory & Performance Improvements](https://entityframework-extensions.net/v7-100-0-0-include-graph#memory-performance-improvements).
 
 
-### EF6 vs EFE
+### EF6 vs Entity Framework Extensions
 
 In EF6, the `SaveChanges` method sends one database round-trip for every single entity it needs to update. So if you're dealing with hundreds or thousands of entities, you're in trouble. Back then, our library was the only real solution — there was simply no competition. If you wanted performance, you had to use us. Otherwise, your users were stuck waiting forever.
 
@@ -226,4 +226,4 @@ context.BulkUpdate(list, options);
 
 ## Conclusion
 
-The `BulkUpdate` method is very powerful. It allows you to customize how your entities are updated—like skipping certain properties or using a conditional formula—without sacrificing performance. In fact, it runs faster than regular EF Core updates as we saw in our benchmark.
+The `BulkUpdate` method from Entity Framework Extensions is very powerful. It allows you to customize how your entities are updated—like skipping certain properties or using a conditional formula—without sacrificing performance. In fact, it runs faster than regular EF Core updates as we saw in our benchmark.

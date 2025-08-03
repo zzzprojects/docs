@@ -1,12 +1,14 @@
 ---
-Title: EF Core 8 Bulk Insert Optimized | Improve your Insert Performance
-MetaDescription: Boost EF Core insert performance with BulkInsertOptimized. Easily insert large numbers of entities without outputting values for the best performance. Get hints and recommendations about what could be improved to improve insert performance - try it now.
-LastMod: 2025-07-28
+Title: EF Core Bulk Insert Optimized with Entity Framework Extensions
+MetaDescription: Boost your EF Core insert performance using the BulkInsertOptimized method from Entity Framework Extensions. Quickly insert large volumes of entities without returning values—perfect for maximum speed. Get smart hints and recommendations to further improve your insert performance. Try it now.
+LastMod: 2025-08-03
 ---
 
-# Bulk Insert Optimized /n Instantly maximize your insert performance in EF Core 9
+# Bulk Insert Optimized with Entity Framework Extensions /n Instantly maximize your insert performance in EF Core 9
 
-The `BulkInsertOptimized` method is the fastest way you can insert entities in EF Core. By default, it uses the most optimal SQL because it doesn't return any values unless you explicitly request them. This approach lets it skip the additional steps required by our [BulkInsert](/bulk-insert) method, making it even faster.
+The `BulkInsertOptimized` method is a unique feature from Entity Framework Extensions. It’s the **fastest** way to insert entities in EF Core.
+
+By default, it uses the most efficient SQL because it doesn’t return any values—unless you explicitly ask for them. This allows it to skip the extra steps used by our [BulkInsert](/bulk-insert) method, making it even faster.
 
 ```csharp
 // @nuget: Z.EntityFramework.Extensions.EFCore
@@ -21,30 +23,35 @@ context.BulkInsertOptimized(invoices, options => options.IncludeGraph = true);
 
 [Online Example (EF Core)](https://dotnetfiddle.net/DEgyZF)
 
-**What advantages does `BulkInsertOptimized` have over `BulkInsert`?**  
-One key advantage is that `BulkInsertOptimized` can use the `BulkCopy` strategy directly into the destination table instead of creating a temporary table to handle output values. This removes an extra step and boosts performance.  
+### What advantages does `BulkInsertOptimized` have over `BulkInsert`?
 
-Another benefit is that it can suggest best practices for optimal performance, ensuring the most efficient use of `BulkCopy`.
+* **No output values by default**
+  Since it doesn't return values, it can write directly to the destination table using the `BulkCopy` strategy—no need for temporary tables. That means one less step and much better performance.
 
-**What disadvantages does `BulkInsertOptimized` have over `BulkInsert`?**  
-Because `BulkInsertOptimized` doesn’t return values, the `IncludeGraph` option isn’t compatible with models that rely on database-generated keys like identities.
+* **Smart performance tips**
+  It can also give you helpful suggestions and best practices to make your insert operations as fast and efficient as possible.
 
-## What are the performance gains when not outputting values
 
-Below is a benchmark showing the performance for a list of `Customer` with the `CustomerID` as an identity value:
+## What Are the Performance Gains When Not Outputting Values?
 
-| Operations      		| 1,000 Entities | 2,000 Entities | 5,000 Entities |
-| :-------------------- | -------------: | -------------: | -------------: |
-| BulkInsert     		| 220 ms       	 | 330 ms         | 600 ms         |
-| BulkInsertOptimized   | 100 ms         | 150 ms         | 250 ms         |
+Whether you choose to output values or not when using bulk insert with Entity Framework Extensions, you'll still get **major performance improvements**.
 
-[Try it](https://dotnetfiddle.net/RfxOjO)
+However, when performance really matters, **every millisecond counts**—and skipping output values gives you an extra boost.
 
-Both are extremely fast, but the `BulkInsertOptimized` will always be faster due to not having to output values.
+Below is a benchmark showing the performance for inserting a list of `Customer` entities, where `CustomerID` is an identity column:
 
-## Recommendations and Performance Hints
+| Operation                          | 1,000 Entities | 2,000 Entities | 5,000 Entities |
+| :--------------------------------- | -------------: | -------------: | -------------: |
+| SaveChanges                        |         325 ms |         575 ms |       1,400 ms |
+| BulkInsert (with output values)    |          60 ms |          90 ms |         150 ms |
+| BulkInsert (without output values) |          30 ms |          50 ms |          90 ms |
+| BulkInsertOptimized                |          30 ms |          50 ms |          90 ms |
 
-The `BulkInsertOptimized` method returns an instance of `BulkOptimizedAnalysis`.
+👉 [Try our Online Benchmark](https://dotnetfiddle.net/RfxOjO)
+
+## BulkInsertOptimized Recommendations and Performance Hints
+
+The `BulkInsertOptimized` method from Entity Framework Extensions returns an instance of the `BulkOptimizedAnalysis` class.
 
 ```csharp
 // @nuget: Z.EntityFramework.Extensions.EFCore
@@ -55,43 +62,55 @@ public class BulkOptimizedAnalysis
     /// <summary>True if the bulk insert is optimized.</summary>
     public bool IsOptimized { get; }
 
-    /// <summary>Gets a text containing all tips to optimize the bulk insert method.</summary>
+    /// <summary>Text summary with all tips to optimize the bulk insert method.</summary>
     public string TipsText { get; }
     
-    /// <summary>Gets a list of tips to optimize the bulk insert method.</summary>
+    /// <summary>List of individual tips to optimize the bulk insert method.</summary>
     public List<string> Tips { get; }
 }
 ```
 
 In short:
 
-- **IsOptimized:** returns true if the bulk insert is optimized.
-- **Tips:** when the bulk insert is not optimized, it will return all reasons found.
-- **TipsText:** will provide all tips but in a single string.
+* **IsOptimized** — returns `true` if the bulk insert operation is fully optimized.
+* **Tips** — returns a list of reasons why the insert is **not** optimized.
+* **TipsText** — gives the same tips but combined into a single string for easy logging or display.
 
-To better understand how this class works, let's take the following [online example](https://dotnetfiddle.net/FZJSnE):
+To better understand how this class works, take a look at this [online example](https://dotnetfiddle.net/FZJSnE):
 
 ```csharp
-// example 1
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
+// Example 1
 var analysis = context.BulkInsertOptimized(customers);
 
-// example 2
+// Example 2
 var analysis = context.BulkInsertOptimized(customers, options => {
-				options.InsertIfNotExists = true;
-			});
+    options.InsertIfNotExists = true;
+});
 ```
 
-The "example 1" is optimized. For SQL Server, for example, a `SqlBulkCopy` can be directly used.
+* **Example 1** is optimized. For SQL Server, a direct `SqlBulkCopy` is used—simple and fast.
+* **Example 2** is **not optimized**. The `InsertIfNotExists = true` option can't be handled directly by `SqlBulkCopy`, so it requires extra logic with a temporary table, which slows things down.
 
-The "example 2" is not considered as optimized. For SQL Server, we cannot directly use a `SqlBulkCopy` to insert if the row doesn't already exist. It requires some additional logic involving a temporary table. The following tip is returned: "The option `InsertIfNotExists = true` forces the use of a less efficient strategy, resulting in a considerable performance penalty."
+The returned tip would be:
 
-## What is supported?
-- All Entity Framework Core Version: EF Core 8, EF Core 7, EF Core 6, EF Core 5, EF Core 3, EF Core 2
-- All Inheritances (TPC, TPH, TPT)
-- Complex Type/Owned Entity Type
-- Enum
-- Value Converter (EF Core)
-- And more!
+> "The option `InsertIfNotExists = true` forces the use of a less efficient strategy, resulting in a considerable performance penalty."
+
+## 🔍 What is Supported?
+
+The `BulkInsertOptimized` method from **Entity Framework Extensions** supports all the common scenarios in EF Core — and nearly everything you can do with EF Core and EF6!
+
+* ✅ The latest EF Core version: **EF Core 9**
+* ✅ All previous EF Core versions: **EF Core 2 to 8**
+* ✅ All Entity Framework versions: **EF6, EF5, EF4, and EF Classic**
+* ✅ All major database providers: **SQL Server, SQL Azure, PostgreSQL, MySQL, MariaDB, SQLite, and Oracle**
+* ✅ All inheritance strategies: **TPC, TPH, and TPT**
+* ✅ **Complex types** / **Owned entity types**
+* ✅ **Enums**
+* ✅ **Value converters** (EF Core)
+* ✅ And much more — even **shadow properties**!
 
 ## Bulk Insert Optimized Options
 
@@ -107,4 +126,12 @@ Please refer to the [Bulk Insert - Limitations](/bulk-insert#limitations) docume
 
 ## Conclusion
 
-The `BulkInsertOptimized` method is a powerful tool, yet it is very similar to [`BulkInsert`](/bulk-insert). As specified, the major difference lies in the fact that `BulkInsertOptimized` does not automatically output values. Instead, it returns a `BulkOptimizedAnalysis`, which informs you whether the strategy employed for insertion is the most efficient, and explains the reasons when it is not.
+The `BulkInsertOptimized` method from Entity Framework Extensions is the fastest and most efficient ways to insert large volumes of data with EF Core.
+
+Unlike the standard [`BulkInsert`](/bulk-insert) method, it skips returning output values by default, allowing it to use a direct `SqlBulkCopy` strategy and avoid unnecessary steps like creating temporary tables.
+
+But what truly sets it apart is the built-in `BulkOptimizedAnalysis` class. This feature doesn’t just perform well — it **tells you** how well it performs, and **why**. You’ll know right away if your insert is fully optimized, and what to change if it’s not.
+
+If maximum speed matters in your application — and you’re not relying on database-generated output values — then `BulkInsertOptimized` is the tool you’ve been looking for.
+
+👉 [Try it now](https://entityframework-extensions.net/download) and experience the performance difference.
