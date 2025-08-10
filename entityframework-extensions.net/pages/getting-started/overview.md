@@ -1,23 +1,26 @@
 ---
 Name: Getting Started
-LastMod: 2025-06-26
+LastMod: 2025-08-09
 ---
 
 # Overview
 
 ## Definition
 
-**Entity Framework Extensions** is a library that dramatically improves EF performance by using bulk and batch operations.
+**Entity Framework Extensions** is a library that dramatically improves EF Core and EF6 performance by using bulk operations.
 
 People using this library often report performance enhancement by 50x and more!
 
-The library is installed through <a href="/download">NuGet</a>. Extension methods are added automatically to your DbContext.
+The library is installed through [NuGet](/download). Extension methods are added automatically to your DbContext.
 
 It is easy to use, easy to customize.
 
 
 
 ```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
 // Easy to use
 context.BulkSaveChanges();
 context.BulkInsert(list);
@@ -31,18 +34,30 @@ context.BulkMerge(customers, options =>
 ```
 
 ## Installing
-Download the <a href="/download">NuGet Package</a>
+Download the [NuGet](/download)NuGet Package</a>
+
+```powershell
+PM> NuGet\Install-Package Z.EntityFramework.Extensions.EFCore
+```
+
+```bash
+> dotnet add package Z.EntityFramework.Extensions.EFCore
+```
 
 ## Requirements
 
-### Entity Framework Version
+### EF Core Version
 
+- EF Core 9
 - EF Core 8
 - EF Core 7
 - EF Core 6
 - EF Core 5
 - EF Core 3
 - EF Core 2
+
+### Entity Framework Version
+
 - Entity Framework 6
 - Entity Framework 5
 - Entity Framework 4
@@ -83,6 +98,9 @@ BulkSaveChanges supports everything:
 
 ### BulkSaveChanges Examples
 ```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
 context.Customers.AddRange(listToAdd); // add
 context.Customers.RemoveRange(listToRemove); // remove
 listToModify.ForEach(x => x.DateModified = DateTime.Now); // modify
@@ -103,7 +121,7 @@ context.BulkSaveChanges(bulk => bulk.BatchSize = 100);
 
 ## Bulk Operations Methods
 
-Bulk operation methods give you additional flexibility by allowing to customize options such as primary key, columns, include child entities and more.
+Entity Framework Extensions Bulk operation methods give you additional flexibility by allowing to customize options such as primary key, columns, include child entities and more.
 
 They are also faster than **BulkSaveChanges** since they don't use the ChangeTracker and don't call the **DetectChanges** method.
 
@@ -116,7 +134,11 @@ Bulk Operations Available:
 - [BulkSynchronize](/bulk-synchronize)
 
 ### Bulk Operations Examples
+
 ```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
 // Easy to use
 context.BulkInsert(list);
 context.BulkUpdate(list);
@@ -139,6 +161,8 @@ context.BulkMerge(customers, options => {
 | BulkDelete      | 45 ms          | 50 ms          | 60 ms          |
 | BulkMerge       | 65 ms          | 80 ms          | 110 ms         |
 
+(Benchmark from EF6)
+
 ## Batch Operations Methods
 
 Batch Operations methods allow you to perform **UPDATE** or **DELETE** operations directly in the database using a LINQ Query without loading entities in the context.
@@ -151,6 +175,9 @@ Batch Operations Available:
 
 ### Batch Operations Examples 
 ```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
 // DELETE all customers that are inactive for more than two years
 context.Customers
     .Where(x => x.LastLogin < DateTime.Now.AddYears(-2))
@@ -169,3 +196,5 @@ context.Customers
 | SaveChanges     | 1,000 ms       | 2,000 ms       | 5,000 ms       |
 | DeleteFromQuery | 1 ms           | 1 ms           | 1 ms           |
 | UpdateFromQuery | 1 ms           | 1 ms           | 1 ms           |
+
+(Benchmark from EF6)

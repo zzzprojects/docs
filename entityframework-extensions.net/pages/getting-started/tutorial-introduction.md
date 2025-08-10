@@ -24,6 +24,9 @@ BulkSaveChanges supports everything:
 ### Example
 
 ```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
 var ctx = new EntitiesContext();
 
 ctx.Customers.AddRange(listToAdd); // add
@@ -59,6 +62,9 @@ All common methods are supported:
 
 
 ```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
 var ctx = new EntitiesContext();
 
 // Easy to use
@@ -90,6 +96,9 @@ The FromQuery method allows you to execute UPDATE or DELETE statements without l
 
 
 ```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
 // DELETE all customers that are inactive for more than two years
 context.Customers
     .Where(x => x.LastLogin < DateTime.Now.AddYears(-2))

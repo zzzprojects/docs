@@ -19,6 +19,9 @@ Bulk Operations Available:
 
 ### Bulk Operations Examples
 ```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
 // Easy to use
 context.BulkInsert(list);
 context.BulkUpdate(list);
