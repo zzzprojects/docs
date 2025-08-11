@@ -47,13 +47,13 @@ Options with the **"Expression"** suffix, like `ColumnPrimaryKeyExpression`, let
 using Z.EntityFramework.Extensions;
 
 // Single property (simple lambda)
-context.BulkInsert(list, options =>
+context.BulkUpdate(list, options =>
 {
     options.ColumnPrimaryKeyExpression = x => x.ID;
 });
 
 // Multiple properties (lambda with a body)
-context.BulkInsert(list, options =>
+context.BulkUpdate(list, options =>
 {
     options.ColumnPrimaryKeyExpression = x => new { x.ID, x.ID2 };
 });
@@ -146,13 +146,13 @@ using Z.EntityFramework.Extensions;
 
 // Single property from an external list (dynamic source)
 var externalKeyList = new List<string> { "ID" };
-context.BulkInsert(list, options =>
+context.BulkUpdate(list, options =>
 {
     options.ColumnPrimaryKeyNames = externalKeyList;
 });
 
 // Multiple properties using nameof()
-context.BulkInsert(list, options =>
+context.BulkUpdate(list, options =>
 {
     options.ColumnPrimaryKeyNames = new List<string> 
     { 
