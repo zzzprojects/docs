@@ -26,7 +26,10 @@ These numbers are approximate — but you get the idea.
 
 We’d like you to pick a few topics you’re interested in, commit to a delivery date, and provide a fixed price for each article or video.
 
-See our [Article Title Suggestions](/sponsors-articles)
+Check these pages to help you plan:
+
+* [Dedicated Articles Schedule](/dedicated-articles-schedule) – to see which dates are already taken
+* [Article Title Suggestions](/sponsors-articles) – to get inspiration and ideas
 
 **Again, these article titles are just suggestions. You can use them, but we highly recommend crafting your own based on your unique voice and approach.** 
 
@@ -129,7 +132,7 @@ Adding online, runnable examples gives your article a big advantage. It makes it
 To wrap it up, here’s a quick reminder of what we’re looking for:
 
 * **Article/Video Title & Description** – What your content will cover.
-* **Date** – When you plan to deliver it.
+* **Date** – When you plan to deliver it. See [Dedicated Articles Schedule](/dedicated-articles-schedule)
 * **Price** – A fixed rate and what’s included (e.g., LinkedIn post, video version, etc.)
 
 Need inspiration? Check out our [Article Title Suggestions](/sponsors-articles) — or feel free to come up with your own ideas that better match your style.
