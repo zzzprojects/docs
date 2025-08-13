@@ -3,7 +3,7 @@ title: EntityFrameworkCore.Sqlite.NodaTime
 description: An introduction to EntityFrameworkCore.Sqlite.NodaTime
 canonical: /extensions/entityframeworkcore-sqlite-nodatime
 status: Published
-lastmod: 2025-06-08
+lastmod: 2025-08-13
 ---
 
 # EntityFrameworkCore.Sqlite.NodaTime
