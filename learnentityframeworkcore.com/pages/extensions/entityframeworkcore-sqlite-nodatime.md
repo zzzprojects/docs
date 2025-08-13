@@ -12,6 +12,8 @@ lastmod: 2025-06-08
 
 Adds support for [NodaTime](https://github.com/nodatime/nodatime) types when using [SQLite](https://sqlite.org/) with [Entity Framework Core](https://github.com/dotnet/efcore).
 
+Check out [releases](https://github.com/khellang/EFCore.Sqlite.NodaTime/releases) for full changelog.
+
 ## Installation
 
 [![NuGet](https://img.shields.io/nuget/v/EntityFrameworkCore.Sqlite.NodaTime)](https://www.nuget.org/packages/EntityFrameworkCore.Sqlite.NodaTime)
