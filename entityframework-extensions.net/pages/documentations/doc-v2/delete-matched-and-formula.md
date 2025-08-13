@@ -1,6 +1,6 @@
 ---
 Name: Delete Matched and Formula
-LastMod: 2025-06-23
+LastMod: 2025-08-13
 ---
 
 # Delete Matched and Formula
@@ -12,6 +12,9 @@ The `DeleteMatchedAndFormula` option lets you perform or skip the delete action,
 ### Example
 
 ```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
 context.BulkDelete(customers, options => 
 {
 	// REQUIRED because by default, only the "CustomerID" is part of the "StagingTable"
@@ -44,6 +47,9 @@ The `DeleteMatchedAndFormula` option has 1 solution to this problem:
 Use this option to hardcode an SQL that returns a boolean. If the predicate is true, the delete action will be performed.
 
 ```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
 context.BulkDelete(customers, options => 
 {
 	// REQUIRED because by default, only the "CustomerID" is part of the "StagingTable"

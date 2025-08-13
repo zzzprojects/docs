@@ -1,6 +1,6 @@
 ---
 Name: Delete Matched and one NOT Condition
-LastMod: 2025-06-23
+LastMod: 2025-08-13
 ---
 
 # Delete Matched and one NOT Condition
@@ -12,6 +12,9 @@ The `DeleteMatchedAndOneNotCondition` option lets you perform or skip the delete
 ### Example
 
 ```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
 context.BulkDelete(customers, options => 
 {
 	// ON DELETE, remove customer where the version is not equal
@@ -44,6 +47,9 @@ The `DeleteMatchedAndOneNotCondition` option has 4 solutions to this problem:
 Use this option if you prefer to specify with an expression which properties you want to include.
 
 ```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
 context.BulkDelete(customers, options => 
 {
 	// ON DELETE, remove customer where the version is not equal
@@ -60,6 +66,9 @@ context.BulkDelete(customers, options =>
 Use this option if you prefer to specify a list of property names you want to include. The value must correspond to the property name or the navigation name.
 
 ```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
 context.BulkDelete(customers, options => 
 {
 	// ON DELETE, remove customer where the version is not equal
@@ -76,6 +85,9 @@ context.BulkDelete(customers, options =>
 Use this option if you prefer to specify with an expression which properties you want to exclude/ignore. All non-specified properties will be included.
 
 ```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
 context.BulkDelete(customers, options => 
 {
 	// ON DELETE, remove customer where the version is not equal (by excluding other properties)
@@ -92,6 +104,9 @@ context.BulkDelete(customers, options =>
 Use this option if you prefer to specify a list of property names you want to exclude/ignore. The value must correspond to the property name or the navigation name. All non-specified properties will be included.
 
 ```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
 context.BulkDelete(customers, options => 
 {
 	// ON DELETE, remove customer where the version is not equal (by excluding other properties)

@@ -1,7 +1,7 @@
 ---
-**Title:** Input, Output, and Ignore Column Options in Entity Framework Extensions
-**MetaDescription:** Learn how to use Input, Output, and Ignore column options in Entity Framework Extensions to control which properties are inserted, updated, or returned. Improve performance, prevent unwanted updates, and keep your data clean.
-**LastMod:** 2025-08-12
+Title: Input, Output, and Ignore Column Options in Entity Framework Extensions
+MetaDescription: Learn how to use Input, Output, and Ignore column options in Entity Framework Extensions to control which properties are inserted, updated, or returned. Improve performance, prevent unwanted updates, and keep your data clean.
+LastMod: 2025-08-13
 ---
 
 # Input / Output / Ignore

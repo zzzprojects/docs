@@ -1,7 +1,7 @@
 ---
 Title: How to Configure Column Options in Entity Framework Extensions
 MetaDescription: Learn how to configure Column Options in Entity Framework Extensions to control which columns are used, include or exclude properties, set custom primary keys, and apply custom SQL formulas for insert, update, and merge operations.
-LastMod: 2025-08-09
+LastMod: 2025-08-13
 ---
 
 # How to Configure Column Options in Entity Framework Extensions /n A Beginner’s Guide
@@ -63,11 +63,11 @@ context.BulkUpdate(list, options =>
 
 Below is the complete list of options in **Entity Framework Extensions** that use the `"Expression"` suffix:
 
-* **Primary Key**
+* **[Primary Key](/primary-key)**
 
   * `ColumnPrimaryKeyExpression`
 
-* **Column Mapping**
+* **[Input/Output/Ignore](/input-output-ignore)**
 
   * `ColumnInputExpression`
   * `ColumnInputOutputExpression`
@@ -89,19 +89,19 @@ Below is the complete list of options in **Entity Framework Extensions** that us
   * `AutoMapIdentityExpression`
   * `AutoMapKeyExpression`
 
-* **Coalesce**
+* **[Coalesce](/coalesce)**
 
   * `CoalesceOnUpdateExpression`
   * `CoalesceOnMergeUpdateExpression`
   * `CoalesceOnSynchronizeUpdateExpression`
 
-* **Coalesce Destination**
+* **[Coalesce Destination](/coalesce-destination)**
 
   * `CoalesceDestinationOnUpdateExpression`
   * `CoalesceDestinationOnMergeUpdateExpression`
   * `CoalesceDestinationOnSynchronizeUpdateExpression`
 
-* **Matched And Condition**
+* **[Matched And Condition](/matched-and-condition)**
 
   * `UpdateMatchedAndConditionExpression`
   * `DeleteMatchedAndConditionExpression`
@@ -112,7 +112,7 @@ Below is the complete list of options in **Entity Framework Extensions** that us
   * `IgnoreOnMergeMatchedAndConditionExpression`
   * `IgnoreOnSynchronizeMatchedAndConditionExpression`
 
-* **Matched And One Not Condition**
+* **[Matched And One Not Condition](/matched-and-one-not-condition)**
 
   * `UpdateMatchedAndOneNotConditionExpression`
   * `DeleteMatchedAndOneNotConditionExpression`
@@ -166,11 +166,11 @@ context.BulkUpdate(list, options =>
 
 Below is the complete list of options in **Entity Framework Extensions** that use the `"Names"` suffix:
 
-* **Primary Key**
+* **[Primary Key](/primary-key)**
 
   * `ColumnPrimaryKeyNames`
 
-* **Column Mapping**
+* **[Input/Output/Ignore](/input-output-ignore)**
 
   * `ColumnInputNames`
   * `ColumnInputOutputNames`
@@ -192,19 +192,19 @@ Below is the complete list of options in **Entity Framework Extensions** that us
   * `AutoMapIdentityName` *(Note: this property is a `string`)*
   * `AutoMapKeyName` *(Note: this property is a `string`)*
 
-* **Coalesce**
+* **[Coalesce](/coalesce)**
 
   * `CoalesceOnUpdateNames`
   * `CoalesceOnMergeUpdateNames`
   * `CoalesceOnSynchronizeUpdateNames`
 
-* **Coalesce Destination**
+* **[Coalesce Destination](/coalesce-destination)**
 
   * `CoalesceDestinationOnUpdateNames`
   * `CoalesceDestinationOnMergeUpdateNames`
   * `CoalesceDestinationOnSynchronizeUpdateNames`
 
-* **Matched And Condition**
+* **[Matched And Condition](/matched-and-condition)**
 
   * `UpdateMatchedAndConditionNames`
   * `DeleteMatchedAndConditionNames`
@@ -215,7 +215,7 @@ Below is the complete list of options in **Entity Framework Extensions** that us
   * `IgnoreOnMergeMatchedAndConditionNames`
   * `IgnoreOnSynchronizeMatchedAndConditionNames`
 
-* **Matched And One Not Condition**
+* **[Matched And One Not Condition](/matched-and-one-not-condition)**
 
   * `UpdateMatchedAndOneNotConditionNames`
   * `DeleteMatchedAndOneNotConditionNames`
@@ -260,7 +260,7 @@ You should always have **full control** over any SQL written in a formula to pre
 
 Below is the complete list of options in **Entity Framework Extensions** that use the `"Formula"` suffix:
 
-* **Primary Key**
+* **[Primary Key](/primary-key)**
 
   * `InsertPrimaryKeyAndFormula`
   * `UpdatePrimaryKeyAndFormula`
@@ -274,14 +274,14 @@ Below is the complete list of options in **Entity Framework Extensions** that us
   * `DeleteStagingTableFilterFormula`
   * `MergeStagingTableFilterFormula`
 
-* **Matched And**
+* **[Matched And Formula](/matched-and-formula)**
 
   * `UpdateMatchedAndFormula`
   * `DeleteMatchedAndFormula`
   * `MergeMatchedAndFormula`
   * `SynchronizeMatchedAndFormula`
 
-* **Not Matched And**
+* **Not Matched And Formula**
 
   * `InsertNotMatchedAndFormula`
   * `MergeNotMatchedAndFormula`

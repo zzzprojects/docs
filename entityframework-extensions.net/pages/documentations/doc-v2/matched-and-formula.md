@@ -1,6 +1,6 @@
 ---
 Name: Matched and Formula
-LastMod: 2025-06-23
+LastMod: 2025-08-13
 ---
 
 # Matched and Formula
@@ -14,6 +14,9 @@ The `MatchedAndFormula` option lets you perform or skip the update action, depen
 ### Example
 
 ```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
 context.BulkMerge(customers, options => 
 {
 	// ON UPDATE, modify customers where the version is equal or lower than the one coming from the importation
@@ -45,6 +48,9 @@ The `MatchedAndFormula` has 1 solution to this problem:
 Use this option to hardcode an SQL that returns a boolean. If the predicate is true, the update action will be performed.
 
 ```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
 context.BulkMerge(customers, options => 
 {
 	// ON UPDATE, modify customers where the version is equal or lower than the one coming from the importation
