@@ -3,7 +3,7 @@ title: EntityFrameworkCore.Sqlite.NodaTime
 description: An introduction to EntityFrameworkCore.Sqlite.NodaTime
 canonical: /extensions/entityframeworkcore-sqlite-nodatime
 status: Published
-lastmod: 2025-06-08
+lastmod: 2025-08-13
 ---
 
 # EntityFrameworkCore.Sqlite.NodaTime
@@ -11,6 +11,8 @@ lastmod: 2025-06-08
 ![Build](https://github.com/khellang/EFCore.Sqlite.NodaTime/workflows/Build/badge.svg)
 
 Adds support for [NodaTime](https://github.com/nodatime/nodatime) types when using [SQLite](https://sqlite.org/) with [Entity Framework Core](https://github.com/dotnet/efcore).
+
+Check out [releases](https://github.com/khellang/EFCore.Sqlite.NodaTime/releases) for full changelog.
 
 ## Installation
 
