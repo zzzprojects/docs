@@ -9,6 +9,7 @@
    - [Bulk SaveChanges](bulk-savechanges.md)
    - [WhereBulkContains](utilities/where-bulk-contains.md)
 - Column Options
+   - [Input/Output/Ignore Column](options/input-output-ignore.md)
    - [Primary Key](options/primary-key.md)
    - [Coalesce](doc-v2/coalesce.md)
    - [Coalesce Destination](doc-v2/coalesce-destination.md)
