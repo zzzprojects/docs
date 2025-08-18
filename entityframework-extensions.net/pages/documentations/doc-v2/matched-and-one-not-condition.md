@@ -1,17 +1,16 @@
 ---
-Name: Matched and one NOT Condition
-LastMod: 2025-08-13
+Name: Matched and One NOT Condition Option in Entity Framework Extensions
+MetaDescription: Learn how to use the 'MatchedAndOneNotCondition' option in Entity Framework Extensions to update only when at least one value between source and destination is different. See examples, scenarios, and four configuration methods.
+LastMod: 2025-08-17
 ---
 
-# Matched and one NOT Condition
+# 🔓❓ Matched and One NOT Condition Option in Entity Framework Extensions /n Update only when at least one value is different
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/jCgnIVF0g-8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-## Description
+The `MatchedAndOneNotCondition` option in Entity Framework Extensions lets you **perform the `UPDATE` action only when at least one selected value in the source and destination is different**.  
 
-The `MatchedAndOneNotCondition` option lets you perform or skip the update action, depending on if at least one value from the source is different from the destination for properties specified.
-
-### Example
+If all selected values are equal, the update is skipped. This gives you more precise control over when updates should happen — for example, to **ignore insignificant changes, update only important fields, or optimize imports by avoiding unnecessary updates**.  
 
 ```csharp
 // @nuget: Z.EntityFramework.Extensions.EFCore
@@ -19,120 +18,212 @@ using Z.EntityFramework.Extensions;
 
 context.BulkMerge(customers, options => 
 {
-	// ON UPDATE, modify the customer if a value for "Name" or "Email" is different
-	options.MergeMatchedAndOneNotConditionExpression = x => new { x.Name, x.Email };
+    // ON UPDATE: only update if "Name" or "Email" is different between source and destination
+    options.MergeMatchedAndOneNotConditionExpression = x => new { x.Name, x.Email };
 });
+````
 
-```
+Typical scenarios include:
 
-## Scenario
+* **Audit fields (`ModifiedDate`, `ModifiedBy`)** → Only update when at least one of these changes, skipping updates that don’t touch metadata.
+* **Contact info (`Phone`, `Email`)** → Ensure updates are made only when at least one contact detail is different, ignoring other non-critical fields.
+* **Product pricing (`Price`, `Discount`)** → Update records only if the pricing-related values have changed, skipping cosmetic changes like `Description`.
+* **User profile (`Name`, `Email`, `Role`)** → Prevent unnecessary updates unless a meaningful field like name, email, or role has been modified.
 
-A company uses Entity Framework and needs to import customers with the `BulkMerge` method to insert new customers and update existing customers.
+This option applies to the following methods in Entity Framework Extensions:
 
-However, there is a particularity. The `Note` column is not really important and should not trigger an update action if this is the only value that has been modified.
+* [BulkUpdate](/bulk-update)
+* [BulkMerge](/bulk-merge)
+* [BulkSynchronize](/bulk-synchronize)
 
-The update action should only be performed if other values such as the `Name` or `Email` have been modified.
+---
+
+## 💡 Example Effect
+
+| **ID** | **Destination.Name** | **Source.Name** | **Destination.Email**           | **Source.Email**                    | **Without Condition** | **With Condition** |
+| ------ | -------------------- | --------------- | ------------------------------- | ----------------------------------- | --------------------- | ------------------ |
+| 1      | John                 | John            | [john@a.com](mailto:john@a.com) | [john@a.com](mailto:john@a.com)     | updated             | skipped          |
+| 2      | John                 | Johnny          | [john@a.com](mailto:john@a.com) | [john@a.com](mailto:john@a.com)     | updated             | updated          |
+| 3      | John                 | John            | [john@a.com](mailto:john@a.com) | [johnny@a.com](mailto:johnny@a.com) | updated             | updated          |
+
+---
+
+## 🛠️ Prerequisites
+
+Before continuing, we recommend reading these articles first to understand **how EF Extensions options work** and the **differences between column option types**:
+
+* [Configure Options](/configure-options) – Learn the basics of setting and customizing options in EF Extensions.
+* [Configure Column Options](/configure-column-options) – See how to configure column-specific behavior and when to use `Expression` (strongly typed, compile-time safe) vs. `Names` (string-based, dynamic at runtime).
+
+---
+
+## 📌 When to Use
+
+Use the `MatchedAndOneNotCondition` option from Entity Framework Extensions when:
+
+* You want to **update only if at least one key field has changed**
+* You need to **ignore changes in unimportant fields**
+* You want to **optimize synchronization** by skipping updates when nothing meaningful has changed
+
+---
+
+## ⭐ Why It’s Useful
+
+Without `MatchedAndOneNotCondition`, using in EF Core a bulk operations like [BulkUpdate](/bulk-update), [BulkMerge](/bulk-merge), or [BulkSynchronize](/bulk-synchronize) from Entity Framework Extensions could **update rows unnecessarily**, even when the data hasn’t really changed.
+
+Using this option, you can:
+
+* Prevent redundant updates
+* Focus updates only on meaningful differences
+* Simplify logic and avoid writing custom SQL
+
+---
+
+## 🏢 Scenario
+
+A company imports customers using [BulkMerge](/bulk-merge) method from Entity Framework Extensions in EF Core.
+
+* The `Note` column often changes, but it’s not important enough to trigger an update.
+* The system should only update a row when critical fields like `Name` or `Email` are different.
 
 In summary:
 
-- If the `Name` or `Email` value is different from the database, the customer can be updated
-- If the `Name` or `Email` value is equal to the database, the customer cannot be updated
+* If `Name` or `Email` differs → update the customer
+* If both are equal → skip the update, even if other fields (like `Note`) changed
 
-## Solution
+---
 
-The `MatchedAndOneNotCondition` option has 4 solutions to this problem:
+### 🗝️ Solution
 
-- [[Action]MatchedAndOneNotConditionExpression](#actionmatchedandonenotconditionexpression)
-- [[Action]MatchedAndOneNotConditionNames](#actionmatchedandonenotconditionnames)
-- [IgnoreOn[Action]MatchedAndOneNotConditionExpression](#ignoreonactionmatchedandonenotconditionexpression)
-- [IgnoreOn[Action]MatchedAndOneNotConditionNames](#ignoreonactionmatchedandonenotconditionnames)
+The `MatchedAndOneNotCondition` option offers **four ways** to configure behavior:
 
-## [Action]MatchedAndOneNotConditionExpression
+* **[[Action]MatchedAndOneNotConditionExpression](#actionmatchedandonenotconditionexpression)** – include properties via a lambda expression
+* **[[Action]MatchedAndOneNotConditionNames](#actionmatchedandonenotconditionnames)** – include properties via a list of property names
+* **[IgnoreOn[Action]MatchedAndOneNotConditionExpression](#ignoreonactionmatchedandonenotconditionexpression)** – exclude properties via a lambda expression, all others properties are included.
+* **[IgnoreOn[Action]MatchedAndOneNotConditionNames](#ignoreonactionmatchedandonenotconditionnames)** – exclude properties via a list of property names, all others properties are included.
 
-Use this option if you prefer to specify with an expression which properties you want to include.
+---
+
+## 🏷️ [Action]MatchedAndOneNotConditionExpression
+
+Use this option to specify — with a **lambda expression** — which property values should be compared.
+If at least one property value is different, the update is executed.
 
 ```csharp
-// @nuget: Z.EntityFramework.Extensions.EFCore
-using Z.EntityFramework.Extensions;
-
 context.BulkMerge(customers, options => 
 {
-	// ON UPDATE, modify the customer if a value for "Name" or "Email" is different
-	options.MergeMatchedAndOneNotConditionExpression = x => new { x.Name, x.Email };
+    // ON UPDATE: perform update only when "Name" or "Email" differ between source and destination
+    options.MergeMatchedAndOneNotConditionExpression = x => new { x.Name, x.Email };
 });
 ```
 
-| Method 		  | Name                                     	   | Try it |
-|:----------------|:-----------------------------------------------|--------|
-| BulkMerge 	  | MergeMatchedAndOneNotConditionExpression 	   | [Fiddle](https://dotnetfiddle.net/LQZuak) |
-| BulkUpdate 	  | UpdateMatchedAndOneNotConditionExpression	   | [Fiddle](https://dotnetfiddle.net/noelqT) |
-| BulkSynchronize | SynchronizeMatchedAndOneNotConditionExpression | [Fiddle](https://dotnetfiddle.net/F7nbwA) |
+| Method          | Option Name                                    | Try it                                            |
+| --------------- | ---------------------------------------------- | ------------------------------------------------- |
+| BulkMerge       | MergeMatchedAndOneNotConditionExpression       | [Online Example](https://dotnetfiddle.net/LQZuak) |
+| BulkUpdate      | UpdateMatchedAndOneNotConditionExpression      | [Online Example](https://dotnetfiddle.net/noelqT) |
+| BulkSynchronize | SynchronizeMatchedAndOneNotConditionExpression | [Online Example](https://dotnetfiddle.net/F7nbwA) |
 
-## [Action]MatchedAndOneNotConditionNames
+---
 
-Use this option if you prefer to specify a list of property names you want to include. The value must correspond to the property name or the navigation name.
+## 🏷️ [Action]MatchedAndOneNotConditionNames
+
+Use this option to specify — with a **list of property names** — which property values should be compared.
+If at least one property value is different, the update is executed.
 
 ```csharp
-// @nuget: Z.EntityFramework.Extensions.EFCore
-using Z.EntityFramework.Extensions;
-
 context.BulkMerge(customers, options => 
 {
-	// ON UPDATE, modify the customer if a value for "Name" or "Email" is different
-	options.MergeMatchedAndOneNotConditionNames = new List<string>() { nameof(Customer.Name), nameof(Customer.Email) };
+    options.MergeMatchedAndOneNotConditionNames = new List<string>() 
+    { 
+        nameof(Customer.Name), nameof(Customer.Email) 
+    };
 });
 ```
 
-| Method 		  | Name                                      | Try it |
-|:----------------|:------------------------------------------|--------|
-| BulkMerge 	  | MergeMatchedAndOneNotConditionNames		  | [Fiddle](https://dotnetfiddle.net/GFjZI3) |
-| BulkUpdate 	  | UpdateMatchedAndOneNotConditionNames  	  | [Fiddle](https://dotnetfiddle.net/lq50C0) |
-| BulkSynchronize | SynchronizeMatchedAndOneNotConditionNames | [Fiddle](https://dotnetfiddle.net/YYN2uZ) |
+| Method          | Option Name                               | Try it                                            |
+| --------------- | ----------------------------------------- | ------------------------------------------------- |
+| BulkMerge       | MergeMatchedAndOneNotConditionNames       | [Online Example](https://dotnetfiddle.net/GFjZI3) |
+| BulkUpdate      | UpdateMatchedAndOneNotConditionNames      | [Online Example](https://dotnetfiddle.net/lq50C0) |
+| BulkSynchronize | SynchronizeMatchedAndOneNotConditionNames | [Online Example](https://dotnetfiddle.net/YYN2uZ) |
 
-## IgnoreOn[Action]MatchedAndOneNotConditionExpression
+---
 
-Use this option if you prefer to specify with an expression which properties you want to exclude/ignore. All non-specified properties will be included.
+## 🏷️ IgnoreOn[Action]MatchedAndOneNotConditionExpression
+
+Use this option to specify — with a **lambda expression** — which property values should be excluded from comparison.
+All other property values will be checked, and if at least one is different, the update is executed.
 
 ```csharp
-// @nuget: Z.EntityFramework.Extensions.EFCore
-using Z.EntityFramework.Extensions;
-
 context.BulkMerge(customers, options => 
 {
-	// ON UPDATE, modify the customer if a value for "Name" or "Email" is different (by excluding other properties)
-	options.IgnoreOnMergeMatchedAndOneNotConditionExpression = x => new { x.Note };
+    // Exclude Note → it won’t trigger updates
+    options.IgnoreOnMergeMatchedAndOneNotConditionExpression = x => new { x.Note };
 });
 ```
 
-| Method 		  | Name                                       		 	   | Try it |
-|:----------------|:-------------------------------------------------------|--------|
-| BulkMerge 	  | IgnoreOnMergeMatchedAndOneNotConditionExpression 	   | [Fiddle](https://dotnetfiddle.net/XqgHKo) |
-| BulkUpdate 	  | IgnoreOnUpdateMatchedAndOneNotConditionExpression  	   | [Fiddle](https://dotnetfiddle.net/65T8kP) |
-| BulkSynchronize | IgnoreOnSynchronizeMatchedAndOneNotConditionExpression | [Fiddle](https://dotnetfiddle.net/zGSrJR) |
+| Method          | Option Name                                            | Try it                                            |
+| --------------- | ------------------------------------------------------ | ------------------------------------------------- |
+| BulkMerge       | IgnoreOnMergeMatchedAndOneNotConditionExpression       | [Online Example](https://dotnetfiddle.net/XqgHKo) |
+| BulkUpdate      | IgnoreOnUpdateMatchedAndOneNotConditionExpression      | [Online Example](https://dotnetfiddle.net/65T8kP) |
+| BulkSynchronize | IgnoreOnSynchronizeMatchedAndOneNotConditionExpression | [Online Example](https://dotnetfiddle.net/zGSrJR) |
 
-## IgnoreOn[Action]MatchedAndOneNotConditionNames
+---
 
-Use this option if you prefer to specify a list of property names you want to exclude/ignore. The value must correspond to the property name or the navigation name. All non-specified properties will be included.
+## 🏷️ IgnoreOn[Action]MatchedAndOneNotConditionNames
+
+Use this option to specify — with a **list of property names** — which property values should be excluded from comparison.
+All other property values will be checked, and if at least one is different, the update is executed.
 
 ```csharp
-// @nuget: Z.EntityFramework.Extensions.EFCore
-using Z.EntityFramework.Extensions;
-
 context.BulkMerge(customers, options => 
 {
-	// ON UPDATE, modify the customer if a value for "Name" or "Email" is different (by excluding other properties)
-	options.IgnoreOnMergeMatchedAndOneNotConditionNames = new List<string>() { nameof(Customer.Note) };
+    options.IgnoreOnMergeMatchedAndOneNotConditionNames = new List<string>() { nameof(Customer.Note) };
 });
 ```
 
-| Method 		  | Name                                       		  | Try it |
-|:----------------|:--------------------------------------------------|--------|
-| BulkMerge 	  | IgnoreOnMergeMatchedAndOneNotConditionNames		  | [Fiddle](https://dotnetfiddle.net/aSiWOu) |
-| BulkUpdate 	  | IgnoreOnUpdateMatchedAndOneNotConditionNames  	  | [Fiddle](https://dotnetfiddle.net/4FZyj5) |
-| BulkSynchronize | IgnoreOnSynchronizeMatchedAndOneNotConditionNames | [Fiddle](https://dotnetfiddle.net/03ayTe) |
+| Method          | Option Name                                       | Try it                                            |
+| --------------- | ------------------------------------------------- | ------------------------------------------------- |
+| BulkMerge       | IgnoreOnMergeMatchedAndOneNotConditionNames       | [Online Example](https://dotnetfiddle.net/aSiWOu) |
+| BulkUpdate      | IgnoreOnUpdateMatchedAndOneNotConditionNames      | [Online Example](https://dotnetfiddle.net/4FZyj5) |
+| BulkSynchronize | IgnoreOnSynchronizeMatchedAndOneNotConditionNames | [Online Example](https://dotnetfiddle.net/03ayTe) |
 
+---
 
-## Related Solutions
+## 🏁 Conclusion
 
-- [Matched and Condition](doc-v2/matched-and-condition.md)
-- [Matched and formula](doc-v2/matched-and-formula.md)
+Using `MatchedAndOneNotCondition` option in Entity Framework Extensions with EF Core ensures that **updates only happen when at least one important value is different** between source and destination.
+
+You can choose:
+
+* **Expression-based include** → `[Action]MatchedAndOneNotConditionExpression`
+* **Name-based include** → `[Action]MatchedAndOneNotConditionNames`
+* **Expression-based exclude** → `IgnoreOn[Action]MatchedAndOneNotConditionExpression`
+* **Name-based exclude** → `IgnoreOn[Action]MatchedAndOneNotConditionNames`
+
+By using `MatchedAndOneNotCondition` in your [bulk operations](/bulk-extensions):
+
+* Skip redundant updates when values are identical
+* Focus updates only on fields that matter
+* Keep imports and synchronizations faster and more predictable
+
+---
+
+## 📚 Related Articles
+
+### Column Options
+- [Input / Output / Ignore](/input-output-ignore)
+- [Primary Key](/primary-key)
+
+### Coalesce Options
+- [Coalesce](/coalesce)
+- [Coalesce Destination](/coalesce-destination)
+
+### Matched Options
+- [Matched and Condition](/matched-and-condition)
+- [Matched and One NOT Condition](/matched-and-one-not-condition)
+- [Matched and Formula](/matched-and-formula)
+
+### Delete Matched Options
+- [Delete Matched and Condition](/delete-matched-and-condition)
+- [Delete Matched and One NOT Condition](/delete-matched-and-one-not-condition)
+- [Delete Matched and Formula](/delete-matched-and-formula)

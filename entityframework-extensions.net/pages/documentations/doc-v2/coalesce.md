@@ -1,10 +1,10 @@
 ---
 Name: Coalesce Option in Entity Framework Extensions
-MetaDescription: Learn how to use the Coalesce option in Entity Framework Extensions to prevent overwriting existing values with null during bulk operations. See examples, scenarios, and three configuration methods to keep your data safe and consistent.
-LastMod: 2025-08-13
+MetaDescription: Learn how to use the 'Coalesce' option in Entity Framework Extensions to prevent overwriting existing values with null during bulk operations. See examples, scenarios, and three configuration methods to keep your data safe and consistent.
+LastMod: 2025-08-17
 ---
 
-# Coalesce Option in Entity Framework Extensions /n Prevent null overwrites during updates
+# 🛡️ Coalesce Option in Entity Framework Extensions /n Ignore NULL values during updates
 
 The `Coalesce` option in Entity Framework Extensions lets you **keep the destination value** when the source value is `null`.
 
@@ -29,7 +29,7 @@ This option applies to the following methods in Entity Framework Extensions:
 
 ---
 
-## Example Effect
+## 💡 Example Effect
 
 | **ID** | **Destination.Name** | **Source.Name** | **Without Coalesce** | **With Coalesce** |
 | ------ | -------------------- | --------------- | -------------------- | ----------------- |
@@ -39,18 +39,17 @@ This option applies to the following methods in Entity Framework Extensions:
 
 ---
 
-## Prerequisites
+## 🛠️ Prerequisites
 
 Before continuing, we recommend reading these articles first to understand **how EF Extensions options work** and the **differences between column option types**:
 
 * [Configure Options](/configure-options) – Learn the basics of setting and customizing options in EF Extensions.
 * [Configure Column Options](/configure-column-options) – See how to configure column-specific behavior and when to use `Expression` (strongly typed, compile-time safe) vs. `Names` (string-based, dynamic at runtime).
 
-
 ---
-## When to Use
+## 📌 When to Use
 
-Use the `Coalesce` option when importing or synchronizing data that **may have missing values**.
+Use the `Coalesce` option from Entity Framework Extensions when importing or synchronizing data that **may have missing values**.
 For example:
 
 * Importing data from an external system that doesn’t always send all fields.
@@ -59,9 +58,10 @@ For example:
 
 ---
 
-## Why It’s Useful
+## ⭐ Why It’s Useful
 
-Without `Coalesce`, a [BulkUpdate](/bulk-update), [BulkMerge](/bulk-merge), or [BulkSynchronize](/bulk-synchronize) could **overwrite existing data with null values** from the source.
+Without `Coalesce`, using in EF Core a bulk operations like [BulkUpdate](/bulk-update), [BulkMerge](/bulk-merge), or [BulkSynchronize](/bulk-synchronize) from Entity Framework Extensions could **overwrite existing data with null values** from the source.
+
 Using this option ensures:
 
 * Important data is preserved when the source doesn’t provide a value.
@@ -70,7 +70,7 @@ Using this option ensures:
 
 ---
 
-## Scenario
+## 🏢 Scenario
 
 A company uses EF Core and imports customers with the [BulkMerge](/bulk-merge) method from Entity Framework Extensions to insert new customers and update existing ones.
 
@@ -83,7 +83,7 @@ In summary:
 
 ---
 
-### Solution
+### 🗝️ Solution
 
 The `Coalesce` option offers **three ways** to handle this scenario, depending on how broadly or precisely you want to apply the behavior:
 
@@ -91,8 +91,9 @@ The `Coalesce` option offers **three ways** to handle this scenario, depending o
 * **[CoalesceOn[Action]Expression](#coalesceonactionexpression)** – Apply `Coalesce` only to **specific properties**, defined via a strongly typed lambda expression. Great for compile-time safety and easy refactoring.
 * **[CoalesceOn[Action]Names](#coalesceonactionnames)** – Apply `Coalesce` only to **specific properties by name** (string list). Perfect when the list of properties is dynamic or comes from configuration.
 
+---
 
-# On[Action]UseCoalesce
+## 🏷️ On[Action]UseCoalesce
 
 Use this option if you want **all properties** to apply the `Coalesce` behavior by default.
 
@@ -113,7 +114,9 @@ context.BulkMerge(customers, options =>
 | BulkUpdate      | OnUpdateUseCoalesce            | [Online Example](https://dotnetfiddle.net/W6Ijmi) |
 | BulkSynchronize | OnSynchronizeUpdateUseCoalesce | [Online Example](https://dotnetfiddle.net/pfbBXy) |
 
-## CoalesceOn[Action]Expression
+---
+
+## 🏷️ CoalesceOn[Action]Expression
 
 Use this option if you want to **choose specific properties** that should use the `Coalesce` behavior, defined via a lambda expression.
 
@@ -134,10 +137,12 @@ context.BulkMerge(customers, options =>
 | BulkUpdate      | CoalesceOnUpdateExpression            | [Online Example](https://dotnetfiddle.net/IZyujj) |
 | BulkSynchronize | CoalesceOnSynchronizeUpdateExpression | [Online Example](https://dotnetfiddle.net/mQtTtg) |
 
+---
 
-## CoalesceOn[Action]Names
+## 🏷️ CoalesceOn[Action]Names
 
 Use this option if you prefer to **explicitly list the property names** that should use the `Coalesce` behavior.
+
 The value must match either the **property name** or a **navigation property name**.
 
 ```csharp
@@ -161,36 +166,27 @@ context.BulkMerge(customers, options =>
 | BulkUpdate      | CoalesceOnUpdateNames            | [Online Example](https://dotnetfiddle.net/96yns2) |
 | BulkSynchronize | CoalesceOnSynchronizeUpdateNames | [Online Example](https://dotnetfiddle.net/mmx8xY) |
 
-## Which Coalesce option should you use?
+---
 
-| Situation / Goal                                                                        | Best Choice                                                 | Why                                                              | Notes                                                                                                  |
-| --------------------------------------------------------------------------------------- | ----------------------------------------------------------- | ---------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
-| You want the `Coalesce` behavior applied to **all properties** during an update         | **On[Action]UseCoalesce**                                   | Fastest to configure. One flag enables the safeguard everywhere. | Good default for imports where many fields might be `null`. Example: `OnMergeUpdateUseCoalesce`.       |
-| You only want `Coalesce` on **a few properties** and you prefer **strong typing**       | **CoalesceOn[Action]Expression**                            | Uses a lambda, so refactoring is safe and discoverable in IDEs.  | Best for code-first teams. Example: `x => new { x.Name, x.Email }`.                                    |
-| The list of properties is **dynamic at runtime** (from config, user input, or metadata) | **CoalesceOn[Action]Names**                                 | Accepts a `List<string>`, easy to build from external sources.   | Use `nameof(...)` when possible to avoid typos. Example: `new List<string> { nameof(Customer.Name) }`. |
-| You are prototyping and want a **quick switch** before fine-tuning later                | **On[Action]UseCoalesce** → then narrow with **Expression** | Start broad to stay safe, then lock down the exact fields.       | Helps prevent accidental null overwrites during early testing.                                         |
-| You need to **document the exact fields** for audit or config files                     | **CoalesceOn[Action]Names**                                 | Explicit, human-readable list that can live outside code.        | Pairs well with admin UI or JSON/YAML configs.                                                         |
+## 🏁 Conclusion
 
-`[Action]` can be `Merge`, `Update`, or `Synchronize`, for example:
+Using `Coalesce` option in Entity Framework Extensions with EF Core is a safeguard that ensures **null values from the source do not overwrite existing values** in the database.
 
-  * `OnMergeUpdateUseCoalesce`
-  * `CoalesceOnUpdateExpression`
-  * `CoalesceOnSynchronizeUpdateNames`
+You can choose:
 
-## Conclusion
+* **All properties** → `On[Action]UseCoalesce`
+* **Specific properties via expressions** → `CoalesceOn[Action]Expression`
+* **Specific properties by name** → `CoalesceOn[Action]Names`
 
-The `Coalesce` option is a simple but powerful safeguard against overwriting existing values with `null` during bulk operations.
-Whether you want the behavior to apply to **all properties** (`On[Action]UseCoalesce`), to **specific properties via expressions** (`CoalesceOn[Action]Expression`), or to a **list of property names** (`CoalesceOn[Action]Names`), you can choose the approach that best fits your scenario.
-
-By integrating `Coalesce` into your bulk operations, you can:
+By using `Coalesce` in your [bulk operations](/bulk-extensions), you can:
 
 * Protect valuable data when the source is incomplete
 * Simplify your update logic without writing custom SQL
-* Make imports and synchronizations safer and more predictable
+* Keep imports and synchronizations safer and more predictable
 
-When working with data from external systems or partial updates, `Coalesce` ensures that only meaningful values overwrite existing ones — keeping your database clean and consistent.
+---
 
-## Related Articles
+## 📚 Related Articles
 
 ### Column Options
 - [Input / Output / Ignore](/input-output-ignore)
@@ -200,12 +196,12 @@ When working with data from external systems or partial updates, `Coalesce` ensu
 - [Coalesce](/coalesce)
 - [Coalesce Destination](/coalesce-destination)
 
-### Delete Matched Options
-- [Delete Matched and Condition](/delete-matched-and-condition)
-- [Delete Matched and One NOT Condition](/delete-matched-and-one-not-condition)
-- [Delete Matched and Formula](/delete-matched-and-formula)
-
 ### Matched Options
 - [Matched and Condition](/matched-and-condition)
 - [Matched and One NOT Condition](/matched-and-one-not-condition)
 - [Matched and Formula](/matched-and-formula)
+
+### Delete Matched Options
+- [Delete Matched and Condition](/delete-matched-and-condition)
+- [Delete Matched and One NOT Condition](/delete-matched-and-one-not-condition)
+- [Delete Matched and Formula](/delete-matched-and-formula)

@@ -436,3 +436,25 @@ Mastering the **Input**, **Output**, and **Ignore** column options in **Entity F
 * **Work efficiently with triggers and computed columns** without unnecessary round-trips or overwrites.
 
 Whether you’re inserting, updating, merging, or synchronizing data, these options let you adapt bulk operations to your exact needs while keeping your database clean, fast, and reliable. Start with small adjustments, test your mappings, and you’ll quickly see the benefits in both speed and data integrity.
+
+---
+
+## 📚 Related Articles
+
+### Column Options
+- [Input / Output / Ignore](/input-output-ignore)
+- [Primary Key](/primary-key)
+
+### Coalesce Options
+- [Coalesce](/coalesce)
+- [Coalesce Destination](/coalesce-destination)
+
+### Matched Options
+- [Matched and Condition](/matched-and-condition)
+- [Matched and One NOT Condition](/matched-and-one-not-condition)
+- [Matched and Formula](/matched-and-formula)
+
+### Delete Matched Options
+- [Delete Matched and Condition](/delete-matched-and-condition)
+- [Delete Matched and One NOT Condition](/delete-matched-and-one-not-condition)
+- [Delete Matched and Formula](/delete-matched-and-formula)

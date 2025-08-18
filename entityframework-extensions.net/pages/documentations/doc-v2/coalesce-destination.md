@@ -1,10 +1,10 @@
 ---
-Name: Coalesce Destination in Entity Framework Extensions
-MetaDescription: Learn how to use the Coalesce Destination option in Entity Framework Extensions to update null values in the database during bulk operations without overwriting existing non-null values. See examples, scenarios, and three configuration methods to keep your data accurate and consistent.
-LastMod: 2025-08-13
+Name: Coalesce Destination Option in Entity Framework Extensions
+MetaDescription: Learn how to use the 'CoalesceDestination' option in Entity Framework Extensions to update null values in the database during bulk operations without overwriting existing non-null values. See examples, scenarios, and three configuration methods to keep your data accurate and consistent.
+LastMod: 2025-08-17
 ---
 
-# Coalesce Destination in Entity Framework Extensions /n Update only when destination empty
+# 🛡️ Coalesce Destination Option in Entity Framework Extensions /n Update only NULL values
 
 The `CoalesceDestination` option in Entity Framework Extensions lets you **update the destination value only when the current value in the database is null**.
 
@@ -29,7 +29,7 @@ This option applies to the following methods in Entity Framework Extensions:
 
 ---
 
-## Example Effect
+## 💡 Example Effect
 
 | **ID** | **Destination.Name** | **Source.Name** | **Without Coalesce Destination** | **With Coalesce Destination** |
 | ------ | -------------------- | --------------- | -------------------------------- | ----------------------------- |
@@ -39,7 +39,7 @@ This option applies to the following methods in Entity Framework Extensions:
 
 ---
 
-## Prerequisites
+## 🛠️ Prerequisites
 
 Before continuing, we recommend reading these articles first to understand **how EF Extensions options work** and the **differences between column option types**:
 
@@ -48,9 +48,9 @@ Before continuing, we recommend reading these articles first to understand **how
 
 ---
 
-## When to Use
+## 📌 When to Use
 
-Use the `CoalesceDestination` option when you want to **fill in missing values** in your database without replacing existing non-null values.
+Use the `CoalesceDestination` option from Entity Framework Extensions when you want to **fill in missing values** in your database without replacing existing non-null values.
 
 For example:
 
@@ -60,9 +60,9 @@ For example:
 
 ---
 
-## Why It’s Useful
+## ⭐ Why It’s Useful
 
-Without `CoalesceDestination`, a [BulkUpdate](/bulk-update), [BulkMerge](/bulk-merge), or [BulkSynchronize](/bulk-synchronize) could **overwrite non-null values with new values** — even if the new data should only be applied when the destination is null.
+Without `CoalesceDestination`, using in EF Core a bulk operations like [BulkUpdate](/bulk-update), [BulkMerge](/bulk-merge), or [BulkSynchronize](/bulk-synchronize) from Entity Framework Extensions could **overwrite non-null values with new values** — even if the new data should only be applied when the destination is null.
 
 Using this option ensures:
 
@@ -72,9 +72,9 @@ Using this option ensures:
 
 ---
 
-## Scenario
+## 🏢 Scenario
 
-A company uses EF Core and imports customers with the [BulkMerge](/bulk-merge) method to insert new customers and update existing ones.
+A company uses EF Core and imports customers with the [BulkMerge](/bulk-merge) method from Entity Framework Extensions to insert new customers and update existing ones.
 
 However, the requirement is that **only null fields in the database should be updated** — all non-null values must be preserved.
 
@@ -85,17 +85,17 @@ In summary:
 
 ---
 
-## Solution
+### 🗝️ Solution
 
 The `CoalesceDestination` option offers **three ways** to handle this scenario:
 
-* **[On\[Action\]UseCoalesceDestination](#onactionusecoalescedestination)** – Apply `CoalesceDestination` to **all properties** during the operation.
-* **[CoalesceDestinationOn\[Action\]Expression](#coalescedestinationonactionexpression)** – Apply `CoalesceDestination` to **specific properties** via a strongly typed lambda expression.
-* **[CoalesceDestinationOn\[Action\]Names](#coalescedestinationonactionnames)** – Apply `CoalesceDestination` to **specific properties by name** (string list).
+* **[On[Action]UseCoalesceDestination](#onactionusecoalescedestination)** – Apply `CoalesceDestination` to **all properties** during the operation.
+* **[CoalesceDestinationOn[Action]Expression](#coalescedestinationonactionexpression)** – Apply `CoalesceDestination` only to **specific properties**, defined via a strongly typed lambda expression. Great for compile-time safety and easy refactoring.
+* **[CoalesceDestinationOn[Action]Names](#coalescedestinationonactionnames)** – Apply `CoalesceDestination` only to **specific properties by name** (string list). Perfect when the list of properties is dynamic or comes from configuration.
 
 ---
 
-## On\[Action]UseCoalesceDestination
+## 🏷️ On[Action]UseCoalesceDestination
 
 Use this option if you want **all properties** to apply the `CoalesceDestination` behavior by default.
 
@@ -118,7 +118,7 @@ context.BulkMerge(customers, options =>
 
 ---
 
-## CoalesceDestinationOn\[Action]Expression
+## 🏷️ CoalesceDestinationOn[Action]Expression
 
 Use this option if you want to **choose specific properties** that should use the `CoalesceDestination` behavior, defined via a lambda expression.
 
@@ -141,9 +141,11 @@ context.BulkMerge(customers, options =>
 
 ---
 
-## CoalesceDestinationOn\[Action]Names
+## 🏷️ CoalesceDestinationOn[Action]Names
 
 Use this option if you prefer to **explicitly list the property names** that should use the `CoalesceDestination` behavior.
+
+The value must match either the **property name** or a **navigation property name**.
 
 ```csharp
 // @nuget: Z.EntityFramework.Extensions.EFCore
@@ -167,27 +169,9 @@ context.BulkMerge(customers, options =>
 
 ---
 
-## Which Coalesce Destination option should you use?
+## 🏁 Conclusion
 
-| Situation / Goal                                                                       | Best Choice                                                        | Why                                                              | Notes                                                 |
-| -------------------------------------------------------------------------------------- | ------------------------------------------------------------------ | ---------------------------------------------------------------- | ----------------------------------------------------- |
-| You want `CoalesceDestination` behavior applied to **all properties** during an update | **On\[Action]UseCoalesceDestination**                              | Quick to enable; safest for mass updates.                        | Example: `OnMergeUpdateUseCoalesceDestination`.       |
-| You only want it on **a few properties** with **strong typing**                        | **CoalesceDestinationOn\[Action]Expression**                       | Compile-time safety and easy refactoring in IDEs.                | Example: `x => new { x.Name, x.Email }`.              |
-| The property list is **dynamic at runtime**                                            | **CoalesceDestinationOn\[Action]Names**                            | Accepts a `List<string>` built from configuration or user input. | Use `nameof(...)` when possible to prevent typos.     |
-| You want to start broad, then refine                                                   | **On\[Action]UseCoalesceDestination** → narrow with **Expression** | Prevents overwriting valid values during early imports.          | Useful during prototyping before fine-tuning updates. |
-| You need an explicit, human-readable configuration                                     | **CoalesceDestinationOn\[Action]Names**                            | Ideal for admin UI or config files.                              | Works well in JSON/YAML-based setups.                 |
-
-`[Action]` can be `Merge`, `Update`, or `Synchronize`, for example:
-
-* `OnMergeUpdateUseCoalesceDestination`
-* `CoalesceDestinationOnUpdateExpression`
-* `CoalesceDestinationOnSynchronizeUpdateNames`
-
----
-
-## Conclusion
-
-The `CoalesceDestination` option is a targeted safeguard that ensures **only null fields in the database get updated**, leaving non-null values untouched.
+Using `CoalesceDestination` option in Entity Framework Extensions with EF Core is a targeted safeguard that ensures **only null fields in the database get updated**, leaving non-null values untouched.
 
 You can choose:
 
@@ -195,7 +179,7 @@ You can choose:
 * **Specific properties via expressions** → `CoalesceDestinationOn[Action]Expression`
 * **Specific properties by name** → `CoalesceDestinationOn[Action]Names`
 
-By using `CoalesceDestination` in your bulk operations, you can:
+By using `CoalesceDestination` in your [bulk operations](/bulk-extensions), you can:
 
 * Preserve valuable data already stored
 * Fill in missing information without overwriting valid values
@@ -203,7 +187,7 @@ By using `CoalesceDestination` in your bulk operations, you can:
 
 ---
 
-## Related Articles
+## 📚 Related Articles
 
 ### Column Options
 - [Input / Output / Ignore](/input-output-ignore)
@@ -213,12 +197,12 @@ By using `CoalesceDestination` in your bulk operations, you can:
 - [Coalesce](/coalesce)
 - [Coalesce Destination](/coalesce-destination)
 
-### Delete Matched Options
-- [Delete Matched and Condition](/delete-matched-and-condition)
-- [Delete Matched and One NOT Condition](/delete-matched-and-one-not-condition)
-- [Delete Matched and Formula](/delete-matched-and-formula)
-
 ### Matched Options
 - [Matched and Condition](/matched-and-condition)
 - [Matched and One NOT Condition](/matched-and-one-not-condition)
 - [Matched and Formula](/matched-and-formula)
+
+### Delete Matched Options
+- [Delete Matched and Condition](/delete-matched-and-condition)
+- [Delete Matched and One NOT Condition](/delete-matched-and-one-not-condition)
+- [Delete Matched and Formula](/delete-matched-and-formula)
