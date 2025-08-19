@@ -54,6 +54,9 @@ If you need to insert multiple records into the database then you can use the `I
 The following example creates a list of three objects and passes the list as an argument to the `Insert` method.
 
 ```csharp
+// @nuget: Dapper.Contrib 
+using Dapper.Contrib.Extensions;
+
 using (var connection = My.ConnectionFactory())
 {
     connection.Open();

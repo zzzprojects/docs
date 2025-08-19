@@ -19,6 +19,9 @@ The `Key` attribute assumes an autoincremented key, and when you try to pass a c
 In the following example, the `InvoiceID` property of the `InvoiceDetailContrib` class is decorated with an `ExplicitKey` attribute to specify the primary key of a table.
 
 ```csharp
+// @nuget: Dapper.Contrib 
+using Dapper.Contrib.Extensions;
+
 [Table("InvoiceDetail")]
 public class InvoiceDetailContrib
 {

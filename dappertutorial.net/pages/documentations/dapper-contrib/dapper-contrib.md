@@ -57,6 +57,9 @@ Dapper Contrib extends your `IDbConnection` interface with additional CRUD metho
 The following code snippet shows how to use the extension methods provided by Dapper Contrib.
 
 ```csharp
+// @nuget: Dapper.Contrib 
+using Dapper.Contrib.Extensions;
+
 var invoice = connection.Get<InvoiceContrib>(1);
 var invoices = connection.GetAll<InvoiceContrib>().ToList();
 var identity = connection.Insert(new InvoiceContrib {Kind = InvoiceKind.WebInvoice, Code = "Insert_Single_1"});
@@ -84,6 +87,9 @@ Dapper Contrib allows mapping using Data Annotations:
 The following code snippet shows how to define mapping using Data Annotations provided by Dapper Contrib.
 
 ```csharp
+// @nuget: Dapper.Contrib 
+using Dapper.Contrib.Extensions;
+
 [Table("Invoice")]
 public class InvoiceContrib
 {

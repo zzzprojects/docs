@@ -42,6 +42,9 @@ Dapper.Contrib's `Update` method is used to update an existing record in the dat
 When you need to update a single record, you need to pass the object directly to the `Update` method that needs to be updated as shown in the below example.
 
 ```csharp
+// @nuget: Dapper.Contrib 
+using Dapper.Contrib.Extensions;
+
 using (var connection = My.ConnectionFactory())
 {
     connection.Open();
@@ -57,6 +60,9 @@ If you need to update multiple records in the database then you can use the `Upd
 The following example shows how to update multiple objects by passing the list as an argument to the `Update` method.
 
 ```csharp
+// @nuget: Dapper.Contrib 
+using Dapper.Contrib.Extensions;
+
 using (var connection = My.ConnectionFactory())
 {
     connection.Open();

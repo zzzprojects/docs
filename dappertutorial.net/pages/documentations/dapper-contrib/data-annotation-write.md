@@ -18,6 +18,9 @@ The `Write` attribute specifies whether a field is writable or not in the databa
 The following example shows how to use the `Write` attribute on a property in which you don't want to store its value in the database table.
 
 ```csharp
+// @nuget: Dapper.Contrib 
+using Dapper.Contrib.Extensions;
+
 [Table("Invoice")]
 public class InvoiceContrib
 {

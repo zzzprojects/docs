@@ -36,6 +36,9 @@ The following table shows the different parameters of a `Get` method.
 The following example retrieves a record from the database where the `id` is 1.
 
 ```csharp
+// @nuget: Dapper.Contrib 
+using Dapper.Contrib.Extensions;
+
 using (var connection = My.ConnectionFactory())
 {
     connection.Open();

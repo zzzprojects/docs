@@ -17,6 +17,9 @@ The `Table` attribute can be used to decorate a data model class to specify the 
  In the following example, we are using the `Table` attribute to map the `InvoiceContrib` class to the `Invoice` table in the database. 
  
 ```csharp
+// @nuget: Dapper.Contrib 
+using Dapper.Contrib.Extensions;
+
 [Table("Invoice")]
 public class InvoiceContrib
 {

@@ -42,6 +42,9 @@ The `Delete` method returns `true` if deleted, `false` if not found. With the `D
 To delete an entity, simply call the `Delete` method and pass in your entity. The following example deletes a single entity using the `Delete` method.
 
 ```csharp
+// @nuget: Dapper.Contrib 
+using Dapper.Contrib.Extensions;
+
 using (var connection = My.ConnectionFactory())
 {
     connection.Open();
@@ -55,6 +58,9 @@ using (var connection = My.ConnectionFactory())
 If you would like to delete multiple entities at once, you can pass in an `IEnumerable<T>` to the `Delete` method as shown in the following example.
 
 ```csharp
+// @nuget: Dapper.Contrib 
+using Dapper.Contrib.Extensions;
+
 using (var connection = My.ConnectionFactory())
 {
     connection.Open();

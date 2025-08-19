@@ -29,6 +29,9 @@ The following table shows the different parameters of a `GetAll` method.
 In the following example, we will use the `GetAll` method to fetch all the records from the database table.
 
 ```csharp
+// @nuget: Dapper.Contrib 
+using Dapper.Contrib.Extensions;
+
 using (var connection = My.ConnectionFactory())
 {
     connection.Open();

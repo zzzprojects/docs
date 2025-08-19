@@ -29,6 +29,9 @@ The following table shows the different parameters of a `DeleteAll` method.
 In the following example, we will use the `DeleteAll` method to delete all the records from the database table.
 
 ```csharp
+// @nuget: Dapper.Contrib 
+using Dapper.Contrib.Extensions;
+
 using (var connection = My.ConnectionFactory())
 {
     connection.Open();

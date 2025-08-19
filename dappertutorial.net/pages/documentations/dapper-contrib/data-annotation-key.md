@@ -18,6 +18,9 @@ The Data Annotation `Key` Attribute is used to specify the primary key of a tabl
  In the following example, the `InvoiceID` is decorated with a `Key` attribute to specify the primary key of a table.
 
 ```csharp
+// @nuget: Dapper.Contrib 
+using Dapper.Contrib.Extensions;
+
 [Table("Invoice")]
 public class InvoiceContrib
 {

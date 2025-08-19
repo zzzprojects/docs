@@ -17,6 +17,9 @@ The `Computed` attribute specifies that the property should be excluded from the
 The following example shows how to use the `Computed` attribute on a property in which you don't want to update its value in the database table.
 
 ```csharp
+// @nuget: Dapper.Contrib 
+using Dapper.Contrib.Extensions;
+
 [Table("Invoice")]
 public class InvoiceContrib
 {
