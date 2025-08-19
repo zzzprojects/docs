@@ -28,6 +28,9 @@ In the simplest scenarios, you won't need to do anything special. Our library is
 Consider the following C# example, which requires no explicit mapping:
 
 ```csharp
+// @nuget: Z.Dapper.Plus
+using Z.Dapper.Plus;
+
 var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServer());
 
 connection.BulkInsert(products);
