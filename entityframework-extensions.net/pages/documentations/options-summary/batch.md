@@ -1,10 +1,10 @@
 ---
 Title: Batch Options within Entity Framework Extensions  
-MetaDescription: Learn how to optimize performance in Entity Framework Extensions using BatchSize, BatchTimeout, and BatchDelayInterval options.  
+MetaDescription: Learn how to use BatchSize, BatchTimeout, and BatchDelayInterval in Entity Framework Extensions to optimize performance during bulk operations. Control batch size, timeout, and delay with flexible configuration options.  
 LastMod: 2025-05-31  
 ---
 
-# Batch Options
+# 📦 Batch Options in Entity Framework Extensions /n Control how data is sent to the database
 
 When working with our [bulk extensions](/bulk-extensions), performance can often be improved by [configuring](/configure-options) a few important options.
 
@@ -16,9 +16,11 @@ Here, you'll learn about three key options available in Entity Framework Extensi
 
 These settings help you control how many records are processed at once, how long a batch can run before timing out, and whether there's a delay between batches.
 
-## Batch Size
+---
 
-The `BatchSize` option defines how many rows are included in each batch. Once the batch is full, it gets sent to the database server.
+## 🏷️ BatchSize
+
+The `BatchSize` option in Entity Framework Extensions defines how many rows are included in each batch. Once the batch is full, it gets sent to the database server.
 
 - A batch is considered "complete" once it reaches the configured size or there are no more rows to send.
 - Default value: `0` (auto-selected based on the provider and operation type)
@@ -35,12 +37,18 @@ The `BatchSize` option defines how many rows are included in each batch. Once th
 Here’s how to modify the batch size when performing a [BulkInsert](/bulk-insert):
 
 ```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
+// Insert in chunks of 100 rows
 context.BulkInsert(options => options.BatchSize = 100);
 ````
 
 [Online Example (EF Core)](https://dotnetfiddle.net/qonEbL) | [Online Example (EF6)](https://dotnetfiddle.net/BThvHs)
 
-### What is the recommended BatchSize?
+---
+
+### 💡 What is the recommended BatchSize?
 
 There’s no one-size-fits-all answer—you need to test based on your environment.
 
@@ -62,9 +70,9 @@ You might find that in your development environment, `BatchSize = 25000` is opti
 
 ---
 
-## Batch Timeout
+## 🏷️ BatchTimeout
 
-The `BatchTimeout` option sets how long (in seconds) the library should wait for a batch to complete before timing out.
+The `BatchTimeout` option in Entity Framework Extensions sets how long (in seconds) the library should wait for a batch to complete before timing out.
 
 - Default value: The `context.Database.GetCommandTimeout()` value, if one is specified.
 
@@ -88,6 +96,9 @@ Or through our library:
 Here’s how to set a timeout for a specific [BulkInsert](/bulk-insert):
 
 ```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
 context.BulkInsert(options => options.BatchTimeout = 180);
 ```
 
@@ -95,15 +106,18 @@ context.BulkInsert(options => options.BatchTimeout = 180);
 
 ---
 
-## Batch Delay Interval
+## 🏷️ BatchDelayInterval
 
-The `BatchDelayInterval` option sets a pause (in milliseconds) between each batch operation.
+The `BatchDelayInterval` option in Entity Framework Extensions sets a pause (in milliseconds) between each batch operation.
 
 - Default value: `0` (no delay)
 
 Here’s how to set the delay for a [BulkInsert](/bulk-insert):
 
 ```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
 context.BulkInsert(list, options => options.BatchDelayInterval = 100);
 ```
 
@@ -117,7 +131,47 @@ context.BulkInsert(list, options => options.BatchDelayInterval = 100);
 
 ---
 
-## Conclusion
+## 🔎 Comparison at a Glance
+
+| Option                 | What it controls              | Default Value              | Best For                         |
+| ---------------------- | ----------------------------- | -------------------------- | -------------------------------- |
+| **BatchSize**          | Rows sent per round-trip      | Auto-selected per provider | Balancing speed & memory         |
+| **BatchTimeout**       | Max seconds before timeout    | EF context timeout         | Handling very large operations   |
+| **BatchDelayInterval** | Delay between each batch (ms) | 0 (no delay)               | Reducing DB stress in rare cases |
+
+---
+
+## 📌 When to Use
+
+Batch options are useful when you:
+
+* Insert/update **millions of rows**.
+* Hit **timeouts** with large batches.
+* Need to **throttle load** on the database.
+
+Most of the time, defaults are already tuned for performance — only tweak these if you hit real issues.
+
+---
+
+## ⭐ Why It’s Useful
+
+With batch options you can:
+
+* Make operations faster by adjusting `BatchSize`.
+* Prevent crashes with `BatchTimeout`.
+* Fine-tune load handling (rarely) with `BatchDelayInterval`.
+
+---
+
+## 📚 Related Articles
+
+- [Configuring Options](/configure-options)
+- [Bulk Extensions](/bulk-extensions)
+- [Bulk Insert](/bulk-insert)
+
+---
+
+## 🏁 Conclusion
 
 Tweaking `BatchSize`, `BatchTimeout`, and `BatchDelayInterval` can help you squeeze more performance out of your bulk operations—but only when really needed.
 
@@ -128,9 +182,3 @@ Tweaking `BatchSize`, `BatchTimeout`, and `BatchDelayInterval` can help you sque
 Most of the time, the default settings are already optimized for typical use cases. Unless you're facing performance issues or working with millions of records, you probably don’t need to change them.
 
 🎯 The goal isn’t to "tweak everything"—it's to fix problems when they show up using the right option.
-
-## Related Articles
-
-- [Configuring Options](/configure-options)
-- [Bulk Extensions](/bulk-extensions)
-- [Bulk Insert](/bulk-insert)
