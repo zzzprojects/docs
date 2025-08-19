@@ -2,7 +2,7 @@
 PermaID: 1000201
 Title: Dapper Plus Bulk Update - Learn how to update multiple rows
 MetaDescription: Unlock the power of Dapper Plus with the BulkUpdate method to update multiple rows from a table. Learn how to use the simplest and fastest way to update rows from a database table without writing any SQL.
-LastMod: 2025-06-16
+LastMod: 2025-08-19
 ---
 
 # Dapper Plus Bulk Update: Discover how to update multiple rows
@@ -28,6 +28,9 @@ It updates entities using **bulk operations** and with `BulkUpdate`, you can:
 You can use the `BulkUpdate` method to update a single record. The following example updates a single record into the **Customers** table.
 
 ```csharp
+// @nuget: Z.Dapper.Plus
+using Z.Dapper.Plus;
+
 List<Customer> customers;
 
 using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServerW3Schools()))
@@ -51,6 +54,9 @@ Try it: [.NET Core](https://dotnetfiddle.net/wUbog7) | [.NET Framework](https://
 The ability to update multiple records with a single database call can significantly improve performance. It updates many entities with bulk operations. The following example updates a list of customers into the **Customers** table.
 
 ```csharp
+// @nuget: Z.Dapper.Plus
+using Z.Dapper.Plus;
+
 DapperPlusManager.Entity<Customer>().Table("Customers");
 
 using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServerW3Schools()))
@@ -69,6 +75,9 @@ To use `BulkUpdate` when entities have a relationship, simply specify the relati
 The following example shows how to use the `BulkUpdate` with a one-to-one relationship between the entities.
 
 ```csharp
+// @nuget: Z.Dapper.Plus
+using Z.Dapper.Plus;
+
 DapperPlusManager.Entity<Supplier>().Table("Suppliers").Identity(x => x.SupplierID);
 DapperPlusManager.Entity<Product>().Table("Products").Identity(x => x.ProductID);
 
@@ -84,6 +93,9 @@ Try it: [.NET Core](https://dotnetfiddle.net/xqbyE7) | [.NET Framework](https://
 Dapper Plus can also allow you to update a list of entities with a one-to-many relationship with bulk operations as shown in the following example.
 
 ```csharp
+// @nuget: Z.Dapper.Plus
+using Z.Dapper.Plus;
+
 DapperPlusManager.Entity<Supplier>().Table("Suppliers").Identity(x => x.SupplierID);
 DapperPlusManager.Entity<Product>().Table("Products").Identity(x => x.ProductID);
 

@@ -3,7 +3,7 @@ title: Dapper Bulk Merge
 description: The Dapper Plus BulkMerge method allows performing UPSERT operations (update/insert) in your database and improves your performance by 5000% and more.
 canonical: /bulk-operations/bulk-merge
 status: Published
-lastmod: 2025-07-10
+lastmod: 2025-08-19
 ---
 
 # Bulk Merging Data With Dapper
@@ -29,6 +29,9 @@ Documentation: [Dapper Plus – Bulk Merge](https://dapper-plus.net/bulk-merge)
 Using the `BulkMerge` method is very simple. All you need to do is pass your entities as a parameter and let the automapping match properties with column names:
 
 ```csharp
+// @nuget: Z.Dapper.Plus
+using Z.Dapper.Plus;
+
 // Easy to use
 connection.BulkMerge(products);
 
@@ -44,6 +47,9 @@ connection.UseBulkOptions(options => options.MergeKeepIdentity = true)
 The BulkMerge is also very flexible. It is possible to insert all properties and ignore some properties during the updates phase:
 
 ```csharp
+// @nuget: Z.Dapper.Plus
+using Z.Dapper.Plus;
+
 // Global Mapping requires to be mapped globally only once
 DapperPlusManager.Entity<Customer>("Customer_IgnoreAuditProperty")
 	.IgnoreOnMergeUpdate(x => new { x.CreatedDate, x.CreatedUser });
@@ -58,6 +64,9 @@ connection.BulkMerge("Customer_IgnoreAuditProperty", customers);
 When using a global context mapping, you need to set the mapping only once since it is global, but that’s also possible to set the mapping inside a method to specify some configuration at runtime:
 
 ```csharp
+// @nuget: Z.Dapper.Plus
+using Z.Dapper.Plus;
+
 public void CustomBulkMerge<T>(List<T> entities, List<string> propertyIgnoreOnUpdateNames) where T : class
 {
 	var context = new DapperPlusContext();

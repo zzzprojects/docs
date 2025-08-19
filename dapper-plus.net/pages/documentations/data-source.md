@@ -1,7 +1,7 @@
 ---
 Title: Exploring Supported Data Sources in Dapper Plus: What You Need to Know 
 MetaDescription: Learn how to use Dapper Plus with strongly typed entities, Expando objects, and DataTables.
-LastMod: 2025-06-16
+LastMod: 2025-08-19
 ---
 
 # Dapper Data Source /n Exploring Supported Data Sources in Dapper Plus: What You Need to Know
@@ -23,6 +23,9 @@ A strongly typed entity is a common structure in programming, typically a class 
 Here's an example of a strongly typed entity defined for a product:
 
 ```csharp
+// @nuget: Z.Dapper.Plus
+using Z.Dapper.Plus;
+
 [Table("Product")]
 public class Product
 {
@@ -51,6 +54,9 @@ Our library can retrieve the property names from the result, but it does not kno
 If you want to map through a [DapperPlusContext](https://dapper-plus.net/dapper-plus-context), you’ll need to map using the `object` type, since `DapperRow` is a private class:
 
 ```csharp
+// @nuget: Z.Dapper.Plus
+using Z.Dapper.Plus;
+
 DapperPlusManager.Entity<object>("DapperRow_LegacyProduct")
 	.Table("LegacyProduct");
 	
@@ -61,6 +67,9 @@ connection.BulkInsert("DapperRow_LegacyProduct", dapperRows);
 Alternatively, you can use the [UseBulkOptions](https://dapper-plus.net/options) method to specify the destination table name and any other options:
 
 ```csharp
+// @nuget: Z.Dapper.Plus
+using Z.Dapper.Plus;
+
 connection.UseBulkOptions(options => {
 	options.DestinationTableName = "LegacyProduct";
 }).BulkInsert(dapperRows);
@@ -77,6 +86,9 @@ Our library supports Expando Object / Dynamic Object, which can be particularly 
 In the following example, we create a list of expando objects representing some product and insert them using the `Expando_Product` mapping key:
 
 ```csharp
+// @nuget: Z.Dapper.Plus
+using Z.Dapper.Plus;
+
 DapperPlusManager.Entity<ExpandoObject>("Expando_Product")
 	.Table("Product");
 
@@ -96,6 +108,9 @@ Using DataRows from a DataTable is especially common when your data is coming fr
 To effectively use Dapper Plus with DataTable, a mapping key is essential. This key ensures that our library understands how to map your DataTable to the database schema. Additionally, you must use the column names from your DataTable in your mappings because DataTable are not strongly typed:
 
 ```csharp
+// @nuget: Z.Dapper.Plus
+using Z.Dapper.Plus;
+
 DapperPlusManager.Entity<DataTable>("DataTable_Product")
 	.Table("Product")
 	.Map("Name")

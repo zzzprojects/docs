@@ -1,7 +1,7 @@
 ---
 Title: 3 Effective Ways to Use the Dapper Plus Context 
 MetaDescription: Learn how to use Dapper Plus Context with our comprehensive guide on 'Global Context', 'Instance Context', and 'Inheritance Context'.
-LastMod: 2025-04-13
+LastMod: 2025-08-19
 ---
 
 # Dapper Plus Context /n 3 Effective Ways to Use the Dapper Plus Context
@@ -9,6 +9,9 @@ LastMod: 2025-04-13
 The `DapperPlusContext` is the class where all the magic happens. All [Bulk Extension](bulk-extensions-methods) and [Single Extension](single-extensions-methods) methods executed use an instance of a `DapperPlusContext`. Even when you utilize methods through a connection or transaction, you are employing what we call the global context, which is simply a new instance of the `DapperPlusContext` stored in a static variable in the [DapperPlusManager](/dapper-plus-manager):
 
 ```csharp
+// @nuget: Z.Dapper.Plus
+using Z.Dapper.Plus;
+
 public class DapperPlusManager
 {
     public static DapperPlusContext DefaultContext { get; set; } = new DapperPlusContext();
@@ -42,6 +45,9 @@ As we noted in our introduction, the global context mapping is simply an instanc
 You can configure [mapping](/mapping) and [options](/options) directly through the [DapperPlusManager](/dapper-plus-manager) or `DefaultContext`:
 
 ```csharp
+// @nuget: Z.Dapper.Plus
+using Z.Dapper.Plus;
+
 // commonly used method
 DapperPlusManager.Entity<Product>().Identity(x => x.ProductID);
 
@@ -56,6 +62,9 @@ The instance mapping allows you to map your entities specifically for the scope 
 This approach is particularly useful inside a method when the context of the mapping might change depending on certain parameters. In the following example, you will see that we've added a parameter to specify whether our mapping should keep the identity value provided and the column names to insert:
 
 ```csharp
+// @nuget: Z.Dapper.Plus
+using Z.Dapper.Plus;
+
 public static void CustomInsert(IEnumerable<Product> products, bool keepIdentityValue, List<string> mappingColumnNames)
 {
 	var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServer());
@@ -85,6 +94,9 @@ Inheritance mapping allows you to define how entities are mapped within the scop
 Here's an example where a specialized `ProductContext` is set up to handle only products:
 
 ```csharp
+// @nuget: Z.Dapper.Plus
+using Z.Dapper.Plus;
+
 public class ProductContext : DapperPlusContext
 {
     public ProductContext() : base(new SqlConnection(FiddleHelper.GetConnectionStringSqlServer()))

@@ -2,7 +2,7 @@
 PermaID: 1000202
 Title: Dapper Plus - Learn What Is This Library and How to Use It
 MetaDescription: Unlock the power of Dapper Plus by understanding the basics and more advanced topics of this third-party library. Learn what Dapper Plus is, how it works, and all the documentation you need to get started.
-LastMod: 2024-08-30
+LastMod: 2025-08-19
 ---
 
 # Dapper Plus: Discover What Is This Library and How to Use It
@@ -67,6 +67,9 @@ Dapper Plus extends your `IDbConnection` interface with multiple methods that ca
 - [Bulk Delete](/bulk-delete)
 
 ```csharp
+// @nuget: Z.Dapper.Plus
+using Z.Dapper.Plus;
+
 // STEP MAPPING
 DapperPlusManager.Entity<Supplier>().Table("Suppliers").Identity(x => x.SupplierID);
 DapperPlusManager.Entity<Product>().Table("Products").Identity(x => x.ProductID);

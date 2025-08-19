@@ -1,7 +1,7 @@
 ---
 Title: The Quickest Way to Save Data: Mastering Bulk Extension Methods
 MetaDescription: Learn how to save 75x faster with Dapper Plus bulk extension methods, master bulk chaining methods, and use asynchronous bulk methods.
-LastMod: 2025-06-16
+LastMod: 2025-08-19
 ---
 
 # The Quickest Way to Save Data /n Mastering Bulk Extension Methods
@@ -24,6 +24,9 @@ Let's now see how simple it is to use these bulk extension methods. Let's assume
 - Since orders and order items are always new, we will use the [BulkInsert](/bulk-insert) method.
 
 ```csharp
+// @nuget: Z.Dapper.Plus
+using Z.Dapper.Plus;
+
 connection.BulkMerge("KeepIdentity", newCustomerOrders);
 connection.BulkInsert(newCustomerOrders.SelectMany(x => x.Orders));
 connection.BulkInsert(newCustomerOrders.SelectMany(x => x.Orders.SelectMany(y => y.Items)));
@@ -49,6 +52,9 @@ We offer four types of chaining methods:
 Let's go step by step by starting with only the [AlsoBulkInsert](#) method with the same example from our first one:
 
 ```csharp
+// @nuget: Z.Dapper.Plus
+using Z.Dapper.Plus;
+
 connection.BulkMerge("KeepIdentity", newCustomerOrders)
 		  .AlsoBulkInsert(customer => customer.Orders)
 		  .AlsoBulkInsert(customer => customer.Orders.SelectMany(y => y.Items));
@@ -77,6 +83,9 @@ Let's complicate our scenario a bit and assume we also need to insert a list of 
 So, it's time to introduce the `Include` method to fix this problem:
 
 ```csharp
+// @nuget: Z.Dapper.Plus
+using Z.Dapper.Plus;
+
 connection.BulkMerge("KeepIdentity", newCustomerOrders)
 		  .Include(c => c.ThenBulkInsert(customer => customer.Orders)
 						 .AlsoBulkInsert(order => order.Items))
@@ -91,6 +100,9 @@ The `Include` method allows everything within it to move the hierarchy level but
 Finally, let's assume our identity value was not propagated automatically. We can use the `ThenForEach` method to propagate this value. This method can also be used to apply other logic after an operation has been performed, such as logging the current status:
 
 ```csharp
+// @nuget: Z.Dapper.Plus
+using Z.Dapper.Plus;
+
 connection.BulkInsert(newOrders)
 	.ThenForEach(x => x.Items?.ForEach(y => y.OrderID = x.OrderID))
 	.ThenBulkInsert(x => x.Items);
@@ -115,6 +127,9 @@ All our bulk extension methods offer their asynchronous equivalents:
 You can also chain methods as we previously saw, always awaiting the last bulk operation to be completed:
 
 ```csharp
+// @nuget: Z.Dapper.Plus
+using Z.Dapper.Plus;
+
 await(await(await connection.BulkMergeAsync("KeepIdentity", newCustomerOrders))
 		  .ThenBulkInsertAsync(customer => customer.Orders))
 		  .AlsoBulkInsertAsync(order => order.Items);
@@ -125,6 +140,9 @@ See the [Online Example](https://dotnetfiddle.net/suurab)
 What about the cancellation token? To make it simpler (for you and for us), we chose not to support it directly within the method itself but by allowing you to pass it using the `UseBulkOptions` method:
 
 ```csharp
+// @nuget: Z.Dapper.Plus
+using Z.Dapper.Plus;
+
 await(await(await connection.UseBulkOptions(x => x.CancellationToken = cancellationToken).BulkMergeAsync(customers)
    .ThenBulkInsertAsync(customer => customer.Orders))
    .AlsoBulkInsertAsync(order => order.Items));

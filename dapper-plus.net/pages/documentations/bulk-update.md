@@ -1,7 +1,7 @@
 ---
 Title: Bulk Update | How to Quickly Update Multiple Rows in Dapper
 MetaDescription: Learn how to perform faster update in Dapper using the Bulk Update method, understand why it's essential, and explore some common scenarios.
-LastMod: 2025-04-13
+LastMod: 2025-08-19
 ---
 
 # Bulk Update /n How to Quickly Update Multiple Rows in Dapper
@@ -9,6 +9,9 @@ LastMod: 2025-04-13
 The Dapper Plus `BulkUpdate` extension method enables you to quickly update multiple rows in your database. This method is up to **50x faster** than conventional Dapper update techniques and offers extensive customization with [hundreds of options](/options).
 
 ```csharp
+// @nuget: Z.Dapper.Plus
+using Z.Dapper.Plus;
+
 // Easy to use
 connection.BulkUpdate(products);
 
@@ -72,6 +75,9 @@ A common scenario when using `BulkUpdate` involves updating a large number of en
 In Dapper Plus, you can map your entities multiple times in different ways using a [mapping key](/mapping#mapping-key).
 
 ```csharp
+// @nuget: Z.Dapper.Plus
+using Z.Dapper.Plus;
+
 DapperPlusManager.Entity<Product>("CustomKey_Code")
 	.Table("Product")
 	.Identity(x => x.ProductID)
@@ -91,6 +97,9 @@ Why update a row if no column values have been modified? This is often a require
 You can choose to update only if at least one column has a different value using the `UpdateMatchedAndOneNotConditionExpression` and `UpdateMatchedAndOneNotConditionNames` options:
 
 ```csharp
+// @nuget: Z.Dapper.Plus
+using Z.Dapper.Plus;
+
 DapperPlusManager.Entity<Product>()
 	.Table("Product")
 	.Identity(x => x.ProductID)
@@ -108,6 +117,9 @@ connection.BulkUpdate(products);
 Handling null values is another common scenario reported to us. If your database column value is not null but your entity's property value is null, you can opt to keep the database value with the `CoalesceOnUpdateExpression` and `CoalesceOnUpdateNames` options:
 
 ```csharp
+// @nuget: Z.Dapper.Plus
+using Z.Dapper.Plus;
+
 DapperPlusManager.Entity<Product>()
 	.Table("Product")
 	.Identity(x => x.ProductID)

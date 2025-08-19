@@ -26,6 +26,9 @@ The most well-known methods are our bulk operations:
 Dapper Plus is very easy to get started with, here is an example of how quickly it is:
 
 ```csharp
+// @nuget: Z.Dapper.Plus
+using Z.Dapper.Plus;
+
 var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServer());
 		
 // Easy to use

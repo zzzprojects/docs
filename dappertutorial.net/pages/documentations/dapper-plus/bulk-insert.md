@@ -2,7 +2,7 @@
 PermaID: 1000199
 Title: Dapper Plus Bulk Insert - Learn how to insert multiple rows
 MetaDescription: Unlock the power of Dapper Plus with the BulkInsert method to insert multiple rows from a table. Learn how to use the simplest and fastest way to insert rows from a database table without writing any SQL.
-LastMod: 2025-06-16
+LastMod: 2025-08-19
 ---
 
 # Dapper Plus Bulk Insert: Discover how to insert multiple rows
@@ -27,6 +27,9 @@ This can be useful when inserting a large number of records into a database tabl
 You can use the `BulkInsert` method to insert a single record. The following example inserts a new record into the **Customers** table.
 
 ```csharp
+// @nuget: Z.Dapper.Plus
+using Z.Dapper.Plus;
+
 DapperPlusManager.Entity<Customer>().Table("Customers"); 
 
 using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServerW3Schools()))
@@ -42,6 +45,9 @@ Try it: [.NET Core](https://dotnetfiddle.net/jPJxKl) | [.NET Framework](https://
 The ability to insert multiple records with a single database call can significantly improve performance. It inserts many entities with bulk operations. The following example inserts a list of customers into the **Customers** table.
 
 ```csharp
+// @nuget: Z.Dapper.Plus
+using Z.Dapper.Plus;
+
 DapperPlusManager.Entity<Customer>().Table("Customers"); 
 
 using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServerW3Schools()))
@@ -59,7 +65,10 @@ To use `BulkInsert` when entities have a relationship, simply specify the relati
 
 The following example shows how to use the `BulkInsert` with a one-to-one relationship between the entities.
 
-```csharp    
+```csharp  
+// @nuget: Z.Dapper.Plus
+using Z.Dapper.Plus;
+  
 DapperPlusManager.Entity<Supplier>().Table("Suppliers").Identity(x => x.SupplierID);
 DapperPlusManager.Entity<Product>().Table("Products").Identity(x => x.ProductID);
 
@@ -74,7 +83,10 @@ Try it: [.NET Core](https://dotnetfiddle.net/9EwA7g) | [.NET Framework](https://
 
 Dapper Plus can insert a list of entities with a one-to-many relationship with bulk operations as shown in the following example.
 
-```csharp    
+```csharp 
+// @nuget: Z.Dapper.Plus
+using Z.Dapper.Plus;
+   
 DapperPlusManager.Entity<Supplier>().Table("Suppliers").Identity(x => x.SupplierID); 
 DapperPlusManager.Entity<Product>().Table("Products").Identity(x => x.ProductID);     
 
@@ -92,6 +104,9 @@ Try it: [.NET Core](https://dotnetfiddle.net/4EG5mH) | [.NET Framework](https://
 Your entity has an identity property, but you want to force it to insert a specific value instead. The `InsertKeepIdentity` option allows you to keep the identity value of your entity.
 
 ```csharp
+// @nuget: Z.Dapper.Plus
+using Z.Dapper.Plus;
+
 DapperPlusManager.Entity<Customer>().Table("Customers"); 
         
 using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServerW3Schools()))
@@ -111,6 +126,9 @@ However, such behavior impacts performance. For example, when the identity must 
 You can improve your performance by turning off the AutoMapOutput option.
 
 ```csharp
+// @nuget: Z.Dapper.Plus
+using Z.Dapper.Plus;
+
 DapperPlusManager.Entity<Customer>().Table("Customers"); 
         
 using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServerW3Schools()))

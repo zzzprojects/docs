@@ -1,7 +1,7 @@
 ---
 Title: Bulk Delete | The Easiest Way in Dapper to Delete Multiple Rows
 MetaDescription: Learn how to perform easier delete in Dapper using the Bulk Delete method, understand why it's essential, and explore some common scenarios.
-LastMod: 2025-06-16
+LastMod: 2025-08-19
 ---
 
 # Bulk Delete /n The Easiest Way in Dapper to Delete Multiple Rows
@@ -9,6 +9,9 @@ LastMod: 2025-06-16
 The Dapper Plus `BulkDelete` extension method allows you to delete multiple rows from your database.
 
 ```csharp
+// @nuget: Z.Dapper.Plus
+using Z.Dapper.Plus;
+
 // Easy to use
 connection.BulkDelete(products);
 
@@ -77,6 +80,9 @@ For more options, refer to our [list of options](/options) documentation.
 If your table also has a rowversion column, you might only want to delete rows that have a corresponding rowversion. The `DeleteMatchedAndConditionNames` and `DeleteMatchedAndConditionExpression` options allow you to delete only rows that match a specific condition.
 
 ```csharp
+// @nuget: Z.Dapper.Plus
+using Z.Dapper.Plus;
+
 DapperPlusManager.Entity<Product>()
 	.Table("Product")
 	.Identity(x => x.ProductID)
@@ -96,6 +102,9 @@ connection.BulkDelete(products);
 By default, Dapper Plus does not return the number of rows affected as it can decrease performance in some scenarios. However, you can enable this feature with the `UseRowsAffected` option and view the results from the `ResultInfo` property.
 
 ```csharp
+// @nuget: Z.Dapper.Plus
+using Z.Dapper.Plus;
+
 var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServer());
 
 var resultInfo = new ResultInfo();

@@ -1,7 +1,7 @@
 ---
 Title: Dapper Create Table | Use Code First approach in your application
 MetaDescription: Explore how to utilize Dapper Plus' CreateTable extension method for a 'Code First' approach in your SQL Server applications. Learn about table types, data annotations, and populating tables swiftly. Ideal for both testing scenarios and specific production use cases.
-LastMod: 2025-06-16
+LastMod: 2025-08-19
 ---
 
 # Dapper Create Table /n Use Code First approach in your application
@@ -45,6 +45,9 @@ In these methods, you can find the following parts:
 - **Type type**: The entity type linked to the table to be created (passed via parameter).
 
 ```csharp
+// @nuget: Z.Dapper.Plus
+using Z.Dapper.Plus;
+
 public static void Main()
 {
 	var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServer());
@@ -78,6 +81,9 @@ Like EF Core, the `CreateTable` from Dapper Plus supports most data annotations:
 - **NotMapped**: To exclude a column from the table creation
 
 ```csharp
+// @nuget: Z.Dapper.Plus
+using Z.Dapper.Plus;
+
 public static void Main()
 {
 	var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServer());
@@ -113,6 +119,9 @@ Besides creating a table, you can also populate it with a list right after you m
 - `CreateTable<T>(this IDbConnection connection, IEnumerable<T> items, CreateTableType createTableType)`
 
 ```csharp
+// @nuget: Z.Dapper.Plus
+using Z.Dapper.Plus;
+
 public static void Main()
 {
 	var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServer());

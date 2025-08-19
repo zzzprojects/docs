@@ -3,7 +3,7 @@ title: Dapper Bulk Operations
 description: The Dapper Plus library allows developers to easily perform bulk operations. It helps to optimize performance by reducing the number of database round trips.
 canonical: /bulk-operations
 status: Published
-lastmod: 2025-07-10
+lastmod: 2025-08-19
 ---
 
 # Bulk Operations With Dapper
@@ -35,6 +35,9 @@ This library is not free but is the fastest way to save your data. In addition, 
 Like Dapper, Dapper Plus extends your `IDbConnection` interface but with high-performance bulk operations:
 
 ```csharp
+// @nuget: Z.Dapper.Plus
+using Z.Dapper.Plus;
+
 connection.BulkInsert(customers);
 connection.BulkUpdate(customers);
 connection.BulkDelete(customers);

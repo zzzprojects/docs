@@ -3,7 +3,7 @@ title: Dapper Bulk Update
 description: The Dapper Plus BulkUpdate method allows executing bulk updates in a single database call. Performance can be improved by up to 5000% and more.
 canonical: /bulk-operations/bulk-update
 status: Published
-lastmod: 2025-07-10
+lastmod: 2025-08-19
 ---
 
 # Bulk Updating Data With Dapper
@@ -30,6 +30,9 @@ Documentation: [Dapper Plus – Bulk Update](https://dapper-plus.net/bulk-update
 To perform a `BulkUpdate`, you need to pass your entities in the parameter:
 
 ```csharp
+// @nuget: Z.Dapper.Plus
+using Z.Dapper.Plus;
+
 // Easy to use
 connection.BulkUpdate(products);
 
@@ -45,6 +48,9 @@ connection.UseBulkOptions(options => options.BatchSize = 1000)
 An entity type can be mapped more than once using a mapping key. For example, for a specific scenario, you only want to update some properties:
 
 ```csharp
+// @nuget: Z.Dapper.Plus
+using Z.Dapper.Plus;
+
 // Global Mapping requires to be mapped globally only once
 DapperPlusManager.Entity<Customer>("Customer_CustomMap")
 	.Map(nameof(Customer.Email))
@@ -60,6 +66,9 @@ connection.BulkUpdate("Customer_CustomMap", customers);
 By using an instance context mapping, you can choose to map your entity type at runtime:
 
 ```csharp
+// @nuget: Z.Dapper.Plus
+using Z.Dapper.Plus;
+
 public void CustomBulkUpdate<T>(List<T> entities, List<string> propertyNames) where T : class
 {
 	var context = new DapperPlusContext();

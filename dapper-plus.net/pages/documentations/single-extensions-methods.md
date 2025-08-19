@@ -1,7 +1,7 @@
 ---
 Title: The Easiest Way to Save Data: Single Extension Methods (100% Free) 
 MetaDescription: The Easiest Way to Save Data: Single Extension Methods (100% Free) 
-LastMod: 2025-06-16
+LastMod: 2025-08-19
 ---
 
 # Single Extension Methods (100% Free) /n The Easiest Way to Save Data
@@ -25,6 +25,9 @@ You can use any of these single methods with one entity at a time:
 Here is an example from our initial [overview](/overview) documentation, now using a single method:
 
 ```csharp
+// @nuget: Z.Dapper.Plus
+using Z.Dapper.Plus;
+
 var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServer());
 		
 // Easy to use
@@ -79,6 +82,9 @@ The answer is simple: You cannot. **Oh WAIT! Yes you can**, but you'll need to u
 Taking our initial example, you can apply the single methods in this way:
 
 ```csharp
+// @nuget: Z.Dapper.Plus
+using Z.Dapper.Plus;
+
 var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServer());
 
 // Easy to use

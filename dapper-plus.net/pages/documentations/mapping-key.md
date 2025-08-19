@@ -1,7 +1,7 @@
 ---
 Title: Unlocking the Power of a Mapping Key: Map the Same Entity Type Multiple Times 
 MetaDescription: Unlocking the Power of a Mapping Key: Map the Same Entity Type Multiple Times 
-LastMod: 2025-06-16
+LastMod: 2025-08-19
 ---
 
 # Unlocking the Power of a Mapping Key /n Map the Same Entity Type Multiple Times
@@ -20,6 +20,9 @@ But for Dapper Plus, how do we solve this problem?
 Dapper Plus solves this problem by allowing you to map an entity type an unlimited number of times by specifying a **mapping key**:
 
 ```csharp
+// @nuget: Z.Dapper.Plus
+using Z.Dapper.Plus;
+
 // Map your entity
 DapperPlusManager.Entity<Product>()
 	.Table("Product")
@@ -57,6 +60,9 @@ My preference is not to use a mapping key for the default behavior. This simply 
 But whenever I have a behavior different from the default one, I automatically start to create a new mapping key that, if possible, self-describes the behavior:
 
 ```csharp
+// @nuget: Z.Dapper.Plus
+using Z.Dapper.Plus;
+
 DapperPlusManager.Entity<Product>("InsertKeepIdentity")
 	.Table("Product")
 	.Identity(x => x.ProductID)
@@ -74,6 +80,9 @@ However, hardcoding your strings might lead to errors, especially if you decide 
 To solve this, we recommend using static variables or an enum instead and placing ALL your mapping keys in it. This way, whenever you change a name in your enum to fix a spelling mistake or simply because you find a better name, you will be able to quickly change it as well, or let Visual Studio do it with the rename option everywhere in your solution.
 
 ```csharp
+// @nuget: Z.Dapper.Plus
+using Z.Dapper.Plus;
+
 public static class DapperPlusMappingKey
 {
 	public static string InsertIfNotExists = "InsertIfNotExists";

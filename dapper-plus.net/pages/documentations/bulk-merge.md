@@ -1,7 +1,7 @@
 ---
 Title: Bulk Merge | The Fastest Way in Dapper to Upsert Multiple Rows
 MetaDescription: Learn how to perform faster "add or update"/"upsert" in Dapper using the Bulk Merge method, understand why it's essential, and explore some common scenarios.
-LastMod: 2025-06-16
+LastMod: 2025-08-19
 ---
 
 # Bulk Merge /n The Fastest Way in Dapper to Upsert Multiple Rows
@@ -9,6 +9,9 @@ LastMod: 2025-06-16
 The Dapper Plus `BulkMerge` extension method performs an `Add or Update` operation, more commonly known as an [Upsert](https://en.wikipedia.org/wiki/Merge_(SQL)). This method updates existing rows and inserts non-existing rows in your database seamlessly.
 
 ```csharp
+// @nuget: Z.Dapper.Plus
+using Z.Dapper.Plus;
+
 // Easy to use
 connection.BulkMerge(products);
 
@@ -98,6 +101,9 @@ This option is often very useful for audit properties such as `CreatedDate` and 
 - **Ignore on Merge Update**: Use `IgnoreOnMergeUpdateExpression` or `IgnoreOnMergeUpdateNames` to exclude `CreatedDate` during the update phase.
 
 ```csharp
+// @nuget: Z.Dapper.Plus
+using Z.Dapper.Plus;
+
 DapperPlusManager.Entity<Product>()
 	.Table("Product")
 	.Identity(x => x.ProductID)
@@ -120,6 +126,9 @@ Similar to what we have seen for the [Bulk Update - Conditional Update](/bulk-up
 Use `MergeMatchedAndOneNotConditionNames` or `MergeMatchedAndOneNotConditionExpression` to specify which properties must differ before an update is applied.
 
 ```csharp
+// @nuget: Z.Dapper.Plus
+using Z.Dapper.Plus;
+
 DapperPlusManager.Entity<Product>()
 	.Table("Product")
 	.Identity(x => x.ProductID)
@@ -139,6 +148,9 @@ connection.BulkMerge(products);
 This option allows rows that will be inserted to retain specific values in an identity column from your entities. This is particularly useful when you want to maintain the same identity values as in your source data.
 
 ```csharp
+// @nuget: Z.Dapper.Plus
+using Z.Dapper.Plus;
+
 var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServer());
 
 connection.UseBulkOptions(options => options.MergeKeepIdentity = true)

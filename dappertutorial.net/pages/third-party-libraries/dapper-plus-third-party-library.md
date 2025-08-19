@@ -2,7 +2,7 @@
 PermaID: 1000209
 Title: Dapper.Plus - A Getting Started Tutorial for Bulk CRUD Operations
 MetaDescription: Discover Dapper.Plus Library to perform CRUD operations such as BulkInsert, BulkUpdate, BulkDelete, BulkMerge. Learn about Dapper.Plus limitations and how to install it with NuGet.
-LastMod: 2025-06-16
+LastMod: 2025-08-19
 ---
 
 # Dapper.Plus: A Getting Started Tutorial for Bulk CRUD Operations
@@ -59,6 +59,9 @@ Once you install this library then the following extension methods will automati
 There is no configuration required and no need for extra coding. You can easily use these extension methods in your code.
 
 ```csharp
+// @nuget: Z.Dapper.Plus
+using Z.Dapper.Plus;
+
 // STEP MAPPING
 DapperPlusManager.Entity<Supplier>().Table("Suppliers").Identity(x => x.SupplierID);
 DapperPlusManager.Entity<Product>().Table("Products").Identity(x => x.ProductID);

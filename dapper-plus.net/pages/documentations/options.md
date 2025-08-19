@@ -1,7 +1,7 @@
 ---
 Title: 100+ Options to Improve Flexibility in Your Data Saving Operations 
 MetaDescription: 100+ Options to Improve Flexibility in Your Data Saving Operations 
-LastMod: 2025-06-11
+LastMod: 2025-08-19
 ---
 
 # 100+ Options /n Add Flexibility to Your Data Saving Operations
@@ -18,6 +18,9 @@ Before we learn into all the available options, let's first understand how to us
 You can utilize the `UseBulkOptions` method by incorporating it into the mapping for a specific entity type. This ensures that every time your mapping is invoked, the bulk operations will employ these pre-defined options:
 
 ```csharp
+// @nuget: Z.Dapper.Plus
+using Z.Dapper.Plus;
+
 DapperPlusManager.Entity<Product>()
 	.Table("Product")
 	.Identity(x => x.ProductID)
@@ -35,6 +38,9 @@ You can also use a [mapping key](/mapping-key) if the [mapping](/mapping) is not
 You can call the `UseBulkOptions` method directly from the connection or transaction before chaining your bulk operations methods. When configured in this manner, all subsequent bulk operations will use the specified options. Note that only general options that are not related to a specific entity type, such as `Audit`, `BatchSize`, or `Log`, are available in this context:
 
 ```csharp
+// @nuget: Z.Dapper.Plus
+using Z.Dapper.Plus;
+
 connection.UseBulkOptions(options => options.Log = s => Console.WriteLine(s))
 		  .BulkInsert(products);
 ```

@@ -1,7 +1,7 @@
 ---
 Title: Getting Started with Dapper Plus in Under 10 Minutes
 MetaDescription: Learn the basics of Dapper Plus in under 10 minutes. Install the library, execute bulk inserts, map entities, and explore options.
-LastMod: 2025-06-16
+LastMod: 2025-08-19
 ---
 
 # Getting Started with Dapper Plus
@@ -33,6 +33,8 @@ Don't forget to also leave us feedback to enter our [contest to win a free licen
 The second step, now that the library has been added to your project, is to include the `using Z.Dapper.Plus;` header directive in your file. This allows you to access all our extension methods. You add it just like you would with the `using Dapper` directive:
 
 ```csharp
+// @nuget: Z.Dapper.Plus
+
 using Dapper;
 using Z.Dapper.Plus;
 ```
@@ -46,6 +48,9 @@ For our getting started example, we will assume that you need to save a list of 
 First, let's insert all our entities with our [BulkInsert](/bulk-insert) method:
 
 ```csharp
+// @nuget: Z.Dapper.Plus
+using Z.Dapper.Plus;
+
 DapperPlusManager.Entity<Order>()
 	.Identity(x => x.OrderID, true);
 DapperPlusManager.Entity<OrderItem>()
@@ -64,6 +69,9 @@ Nothing special in our example besides that the `OrderID` identity value has bee
 Let's now make our code even simpler by using what we call [chaining methods](/bulk-extensions-methods#chaining-methods), employing the same principle we usually see with LINQ:
 
 ```csharp
+// @nuget: Z.Dapper.Plus
+using Z.Dapper.Plus;
+
 DapperPlusManager.Entity<Order>()
 	.Identity(x => x.OrderID, true);
 DapperPlusManager.Entity<OrderItem>()
@@ -105,6 +113,9 @@ For the OrderItem:
 Here is the full mapping:
 
 ```csharp
+// @nuget: Z.Dapper.Plus
+using Z.Dapper.Plus;
+
 DapperPlusManager.Entity<Order>()
 	.Identity(x => x.OrderID)
 	.Map(x => new { x.Number })
@@ -134,6 +145,9 @@ However, something may seem odd in this example, as you probably don't want this
 Dapper Plus allows you to map your entity type an unlimited number of times by using a [Mapping Key](/mapping-key) and specifying it whenever you want to save your entity this way.
 
 ```csharp
+// @nuget: Z.Dapper.Plus
+using Z.Dapper.Plus;
+
 DapperPlusManager.Entity<Order>("Order_CustomInsert")
 	.Identity(x => x.OrderID)
 	.Map(x => new { x.Number })
@@ -169,6 +183,9 @@ To use options, you need to employ the `UseBulkOptions` method from either the c
 For example, let's say I want to log all queries executed by Dapper Plus. Doing this from the connection would make more sense:
 
 ```csharp
+// @nuget: Z.Dapper.Plus
+using Z.Dapper.Plus;
+
 connection.UseBulkOptions(options => { options.Log += s => Console.WriteLine(s); })
 	.BulkInsert(orders).ThenBulkInsert(x => x.Items);
 ```
@@ -178,6 +195,9 @@ connection.UseBulkOptions(options => { options.Log += s => Console.WriteLine(s);
 While using the `UseBulkOptions` for options that are more related to the mapping, such as specifying that you want to keep the identity value when inserting, you can apply it with a [Mapping Key](/mapping-key):
 
 ```csharp
+// @nuget: Z.Dapper.Plus
+using Z.Dapper.Plus;
+
 DapperPlusManager.Entity<Order>()
 	.Identity(x => x.OrderID, true);
 

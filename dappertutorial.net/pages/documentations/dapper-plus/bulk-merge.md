@@ -2,7 +2,7 @@
 PermaID: 1000200
 Title: Dapper Plus Bulk Merge - Learn how to upsert multiple rows
 MetaDescription: Unlock the power of Dapper Plus with the BulkMerge method to insert or update multiple rows from a table. Learn how to use the simplest and fastest way to upsert rows from a database table without writing any SQL.
-LastMod: 2025-06-16
+LastMod: 2025-08-19
 ---
 
 # Dapper Plus Bulk Merge: Discover how to upsert multiple rows
@@ -30,6 +30,9 @@ Bulk Merge helps you merge your entities in a single command. This can come in h
 You can use the `BulkMerge` method to merge (insert or update) a single record. The following example merges a customer record into the **Customers** table.
 
 ```csharp
+// @nuget: Z.Dapper.Plus
+using Z.Dapper.Plus;
+
 DapperPlusManager.Entity<Customer>().Table("Customers"); 
 
 using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServerW3Schools()))
@@ -47,6 +50,9 @@ Try it: [.NET Core](https://dotnetfiddle.net/MVW9uO) | [.NET Framework](https://
 The `BulkMerge` method can merge multiple records with a single database call can significantly improve performance. It merges multiple entities with bulk operations. The following example merges a list of customers into the **Customers** table.
 
 ```csharp
+// @nuget: Z.Dapper.Plus
+using Z.Dapper.Plus;
+
 DapperPlusManager.Entity<Customer>().Table("Customers"); 
 
 using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServerW3Schools()))
@@ -66,6 +72,9 @@ To use `BulkMerge` when entities have a relationship, simply specify the relatio
 The following example shows how to use the `BulkMerge` with a one-to-one relationship between the entities.
 
 ```csharp
+// @nuget: Z.Dapper.Plus
+using Z.Dapper.Plus;
+
 DapperPlusManager.Entity<Supplier>().Table("Suppliers").Identity(x => x.SupplierID);
 DapperPlusManager.Entity<Product>().Table("Products").Identity(x => x.ProductID);
 
@@ -81,6 +90,9 @@ Try it: [.NET Core](https://dotnetfiddle.net/1lGd5X) | [.NET Framework](https://
 Dapper Plus also allows you to merge a list of entities with a one-to-many relationship with bulk operations as shown in the following example.
 
 ```csharp
+// @nuget: Z.Dapper.Plus
+using Z.Dapper.Plus;
+
 DapperPlusManager.Entity<Supplier>().Table("Suppliers").Identity(x => x.SupplierID);
 DapperPlusManager.Entity<Product>().Table("Products").Identity(x => x.ProductID);
 

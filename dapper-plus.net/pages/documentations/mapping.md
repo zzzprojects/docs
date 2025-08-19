@@ -1,7 +1,7 @@
 ---
 Title: Essentials of Mapping & Modeling: A Comprehensive Guide 
 MetaDescription: Essentials of Mapping & Modeling: A Comprehensive Guide 
-LastMod: 2025-06-16
+LastMod: 2025-08-19
 ---
 
 # Essentials of Mapping /n A Comprehensive Guide
@@ -45,6 +45,9 @@ This approach explains why many examples in our documentation work seamlessly wi
 However, if you provide an explicit mapping for a property, the auto-mapping will no longer apply its logic to that property, unless you explicitly call the `AutoMap()` method:
 
 ```csharp
+// @nuget: Z.Dapper.Plus
+using Z.Dapper.Plus;
+
 DapperPlusManager.Entity<Product>().Map(x => "ZZZ " + x.Name, "Name").AutoMap();
 
 var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServer());
@@ -59,6 +62,9 @@ connection.BulkInsert(products);
 Data annotations can be used to provide additional instructions to our Auto Mapping, guiding it on how to interpret your class and properties more effectively.
 
 ```csharp
+// @nuget: Z.Dapper.Plus
+using Z.Dapper.Plus;
+
 [Table("Custom_Product")]
 public class Product
 {
@@ -99,6 +105,9 @@ These annotations allow for fine-tuned control over how entities are mapped to t
 Fluent API mapping is often the preferred method for many developers as it enhances code readability and maintainability. This approach allows you to chain methods in a manner similar to how you [chain bulk extension methods](/bulk-extensions-methods#chaining-methods) one after another.
 
 ```csharp
+// @nuget: Z.Dapper.Plus
+using Z.Dapper.Plus;
+
 DapperPlusManager.Entity<Product>()
 	.Table("Product")
 	.Key(x => x.ProductID)

@@ -1,7 +1,7 @@
 ---
 Title: Bulk Synchronize | The Best Way in Dapper to Synchronize Multiple Rows
 MetaDescription: Learn how to perform faster synchronization in Dapper using the Bulk Synchronize method, understand why it's essential, and explore some common scenarios.
-LastMod: 2025-04-15
+LastMod: 2025-08-19
 ---
 
 # Bulk Synchronize /n  The Best Way in Dapper to Synchronize Multiple Rows
@@ -9,6 +9,9 @@ LastMod: 2025-04-15
 The Dapper Plus `BulkSynchronize` extension method acts as a **MIRROR** operation; it makes your table exactly reflect your data source. This means it will **UPDATE** existing rows, **INSERT** new rows that do not exist in the database, and **DELETE** rows that are no longer present in your data source.
 
 ```csharp
+// @nuget: Z.Dapper.Plus
+using Z.Dapper.Plus;
+
 // Easy to use
 connection.BulkSynchronize(products);
 
@@ -68,6 +71,9 @@ For a comprehensive list of options, please refer to our [options documentation]
 Suppose your table has a column named `StoreID` that acts like a tenant identifier. You can synchronize only a specific store by using the `ColumnSynchronizeDeleteKeySubsetExpression` or `ColumnSynchronizeDeleteKeySubsetNames` option. This ensures that only data from your data source for a specified store is synchronized, leaving all other store data unmodified.
 
 ```csharp
+// @nuget: Z.Dapper.Plus
+using Z.Dapper.Plus;
+
 DapperPlusManager.Entity<Product>()
 	.Table("Product")
 	.Identity(x => x.ProductID)
@@ -85,6 +91,9 @@ connection.BulkSynchronize(products);
 If you prefer performing a soft delete instead of a hard delete, you can use the `SynchronizeSoftDeleteFormula`. This option allows you to update non-existing rows based on your formula, effectively enabling soft deletion where data is marked as inactive instead of being removed.
 
 ```csharp
+// @nuget: Z.Dapper.Plus
+using Z.Dapper.Plus;
+
 DapperPlusManager.Entity<Product>()
 	.Table("Product")
 	.Identity(x => x.ProductID)

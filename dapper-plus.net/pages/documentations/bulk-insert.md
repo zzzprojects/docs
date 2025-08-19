@@ -1,7 +1,7 @@
 ---
 Title: Bulk Insert | The Fastest Way in Dapper to Insert Multiple Rows
 MetaDescription: Learn how to perform faster inserts in Dapper using the Bulk Insert method, understand why it's essential, and explore some common scenarios.
-LastMod: 2025-06-16
+LastMod: 2025-08-19
 ---
 
 # Bulk Insert /n The Fastest Way in Dapper to Insert Multiple Rows
@@ -9,6 +9,9 @@ LastMod: 2025-06-16
 The Dapper Plus `BulkInsert` extension method allows you to insert multiple rows up to **75x faster** than the traditional techniques in Dapper.
 
 ```csharp
+// @nuget: Z.Dapper.Plus
+using Z.Dapper.Plus;
+
 // Easy to use
 connection.BulkInsert(products);
 
@@ -71,6 +74,9 @@ For more options, refer to our [list of options](/options) documentation.
 This option ensures that only new entities that do not already exist in the database are inserted. It is great for maintaining data integrity and avoiding duplicate entries. This option requires you to set a key during the [mapping](/mapping) process or use the `ColumnPrimaryKeyExpression` or `ColumnPrimaryKeyNames` options (or lets our library automatically discover it).
 
 ```csharp
+// @nuget: Z.Dapper.Plus
+using Z.Dapper.Plus;
+
 var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServer());
 
 // Bulk Insert
@@ -85,6 +91,9 @@ connection.UseBulkOptions(options => options.InsertIfNotExists = true)
 This option allows you to insert specific values into an identity column from your entities. This is useful when you want to maintain the same identity values as in your source data.
 
 ```csharp
+// @nuget: Z.Dapper.Plus
+using Z.Dapper.Plus;
+
 var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServer());
 
 // Bulk Insert

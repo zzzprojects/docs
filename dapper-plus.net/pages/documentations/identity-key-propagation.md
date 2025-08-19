@@ -1,7 +1,7 @@
 ---
 Title: Master Easy Techniques to Propagate Identity and Key Values Across Your Graph 
 MetaDescription: Master Easy Techniques to Propagate Identity and Key Values Across Your Graph 
-LastMod: 2025-04-11
+LastMod: 2025-08-19
 ---
 
 # Identity Key Propagation /n Master Easy Techniques to Propagate Identity and Key Values Across Your Graph
@@ -20,6 +20,9 @@ In Dapper Plus, there are four major ways to propagate the key or identity:
 The `ThenForEach` method allows you to execute a custom action after a bulk operation has been completed. It acts exactly like the [AfterAction](#afteraction-event) event, but instead of occurring during the mapping, it is executed through our action chaining, as we have seen in our [Bulk Extensions Method - Chaining](/bulk-extensions-methods#chaining-methods).
 
 ```csharp
+// @nuget: Z.Dapper.Plus
+using Z.Dapper.Plus;
+
 DapperPlusManager.Entity<Order>().Identity(x => x.OrderID);
 DapperPlusManager.Entity<OrderItem>().Identity(x => x.OrderItemID);
 	
@@ -36,6 +39,9 @@ connection.BulkInsert(newOrders)
 Auto identity propagation is one of the easiest methods. You simply specify during the mapping that the identity value should be automatically propagated (set the second parameter of the `Identity` method to `true`).
 
 ```csharp
+// @nuget: Z.Dapper.Plus
+using Z.Dapper.Plus;
+
 DapperPlusManager.Entity<Order>()
 	.Identity(x => x.OrderID, true);		
 DapperPlusManager.Entity<OrderItem>()
@@ -94,6 +100,9 @@ For all other cases, the library will **not propagate the identity** to ensure d
 The `AfterAction` event is more straightforward than the `BeforeAction` event. This time, the event is raised after the Order is saved, allowing us to directly propagate the value to all items.
 
 ```csharp
+// @nuget: Z.Dapper.Plus
+using Z.Dapper.Plus;
+
 DapperPlusManager.Entity<Order>().Identity(x => x.OrderID)
 	.AfterAction((actionKind, order) => {
 		if (actionKind == DapperPlusActionKind.Insert || actionKind == DapperPlusActionKind.Merge)
@@ -120,6 +129,9 @@ The `BeforeAction` event occurs before an operation is performed. This event is 
 In the following example, we will check if the `OrderID` has been set, and if not, we will obtain the value from the parent.
 
 ```csharp
+// @nuget: Z.Dapper.Plus
+using Z.Dapper.Plus;
+
 DapperPlusManager.Entity<Order>().Identity(x => x.OrderID);		
 DapperPlusManager.Entity<OrderItem>().Identity(x => x.OrderItemID)
 	.BeforeAction((actionKind, orderItem) => {
