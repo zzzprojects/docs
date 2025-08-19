@@ -1,7 +1,7 @@
 ---
 Title: Batch Options within Entity Framework Extensions  
 MetaDescription: Learn how to use BatchSize, BatchTimeout, and BatchDelayInterval in Entity Framework Extensions to optimize performance during bulk operations. Control batch size, timeout, and delay with flexible configuration options.  
-LastMod: 2025-05-31  
+LastMod: 2025-08-19
 ---
 
 # 📦 Batch Options in Entity Framework Extensions /n Control how data is sent to the database
@@ -10,9 +10,9 @@ When working with our [bulk extensions](/bulk-extensions), performance can often
 
 Here, you'll learn about three key options available in Entity Framework Extensions:
 
-- [BatchSize](#batch-size): Number of records per batch. Helps balance speed and resource usage.
-- [BatchTimeout](#batch-timeout): Maximum time (in seconds) before a batch operation times out.
-- [BatchDelayInterval](#batch-delay-interval): Delay (in milliseconds) between each batch. Not recommended in a transaction.
+- [BatchSize](#batchsize): Number of records per batch. Helps balance speed and resource usage.
+- [BatchTimeout](#batchtimeout): Maximum time (in seconds) before a batch operation times out.
+- [BatchDelayInterval](#batchdelayinterval): Delay (in milliseconds) between each batch. Not recommended in a transaction.
 
 These settings help you control how many records are processed at once, how long a batch can run before timing out, and whether there's a delay between batches.
 
@@ -78,7 +78,7 @@ The `BatchTimeout` option in Entity Framework Extensions sets how long (in secon
 
 A batch timeout error might look like this:
 
-```txt
+```csharp
 System.Exception: 'A timeout error occurred (Current Timeout = 30). Please increase the timeout globally: ctx.Database.SetCommandTimeout(timeoutValue); or BulkOperationManager.BulkOperationBuilder = operation => operation.BatchTimeout = timeoutValue; or by operation: db.BulkSaveChanges(operation => operation.BatchTimeout = timeoutValue);'
 ```
 
