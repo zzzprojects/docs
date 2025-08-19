@@ -1,6 +1,6 @@
 ---
 Name: Register & Unregister Methods
-LastMod: 2025-07-04
+LastMod: 2025-08-19
 ---
 
 # How to use  Register & Unregister Methods in C# Eval Expression library
@@ -90,6 +90,9 @@ In this example, we will use the alias instead of the real namespace, method, an
 Afterward, we will use the method `IsRegisteredAlias` to show that the alias was registered, then use the method `UnregisterAlias` to remove it and check again to show that the alias was successfully unregistered.
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 // Global Context: EvalManager.DefaultContext.RegisterAlias("mymath", "Math");
 // Global Context: EvalManager.DefaultContext.UnregisterAlias("mymath");
 // Global Context: EvalManager.DefaultContext.IsRegisteredAlias("mymath");
@@ -129,6 +132,9 @@ The RegisterAssembly method registers all types from the assemblies provided.
 In this example, we will register our assembly to be able to use the `Program.AddDemo` static methods. Afterward, we will use the method `IsRegisteredAssembly` to check that the assembly was indeed registered, the method `UnregisterAssembly` to unregister the assembly, and finally, check again with the method `IsRegisteredAssembly` that the assembly has been successfully unregistered.
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 public class Program
 {
 	public static void Main()
@@ -169,6 +175,9 @@ The RegisterAutoAddMissingTypeAssembly method registers assemblies in which the 
 In this example, we will use the same logic as we did with the `RegisterAssembly` method. The major difference between both methods is types when using `RegisterAutoAddMissingTypeAssembly` are only added to the expression if needed, and it requires either the option [AutoAddMissingTypes](/options#autoaddmissingtypes) or [RetryAndThrowMissingTypes](/options#retryandthrowmissingtypes) to work.
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 public class Program
 {
 	public static void Main()
@@ -210,6 +219,9 @@ The RegisterDefaultAliasSafe method registers types, members and extension metho
 In this example, we will unregister all types and then register only types included in the `RegisterDefaultAliasSafe` methods. First, we will create a dictionary that is part of the registered types. Then we will try to create a `DataTable` but it will fail as our library excludes it by default as we flag this object unsafe due to method such as `Load` and `WriteXml`.
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 // Global Context: EvalManager.DefaultContext.RegisterDefaultAliasSafe();
 
 var context = new EvalContext();
@@ -243,6 +255,9 @@ The RegisterDefaultAliasUnsafe method registers types , members and extension me
 In this example, we will unregister all types and then register only types included in the `RegisterDefaultAliasUnsafe` methods. In fact, all types from the `RegisterDefaultAliasUnsafe` are already registered by default, but we still do it for demo purposes. First, we will create a dictionary that is part of the registered types. Then we will create a `DataTable`, but unlike when using the method `RegisterDefaultAliasSafe`, this time, the code will successfully work as the `DataTable` is part of the types registered this time.
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 // Global Context: EvalManager.DefaultContext.RegisterDefaultAliasSafe();
 
 var context = new EvalContext();
@@ -271,6 +286,9 @@ The RegisterDomainAssemblies method registers all types from all assemblies load
 In this example, we will register all assemblies found and use our method `Program.AddDemo`. Keep in mind that using this method registers all types from all assemblies found, which for most scenarios is overkill, so we normally recommend only registering types or assemblies that you really need for the compilation.
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 public class Program
 {
 	public static void Main()
@@ -300,6 +318,9 @@ The RegisterExtensionMethod method registers all extension methods from the type
 In this example, we will register an extension method and use it. Then we will check if the extension method was registered with the `IsRegisteredExtensionMethod` method, unregister it with the method `UnregisterExtensionMethod` and verify that the method was correctly unregistered.
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 public class Program
 {
 	public static void Main()
@@ -343,6 +364,9 @@ The RegisterGlobalConstant method registers a global constant value. The constan
 In this example, we will first register the constant 'x' with the value equal to 1. First, we will execute a simple addition expression that will work. Then, we will try to assign a new value to our constant 'x', which will fail since a constant is not writable. Finally, we will use the `IsRegisteredGlobalConstant` and `UnregisterGlobalConstant` methods to show the constant was registered and successfully unregistered.
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 // Global Context: EvalManager.DefaultContext.RegisterGlobalConstant("x", 1)
 
 var context = new EvalContext();
@@ -384,6 +408,9 @@ The RegisterGlobalVariable method registers a global variable value. This variab
 In this example, we will register a global variable. In the first expression, we will increment the value of the global variable and return it. In the second expression, we will return the value of the global variable and notice that it's the same value as the previous one since the variable is shared across all expressions. Lastly, we will check using `IsRegisteredGlobalVariable` and `UnregisterGlobalVariable` methods that the global variable was successfully registered and unregistered.
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 // Global Context: EvalManager.DefaultContext.RegisterGlobalVariable("x", 1);
 
 var context = new EvalContext();
@@ -418,6 +445,9 @@ The RegisterKeyword method registers a keyword for the specified extension metho
 In this example, we will first create and register an extension method, then register the keyword "isin" that we can now use to call the `IsIn` extension methods directly. In the first expression, `2 isin list`, we will show an example of how the keyword can be used. Then we will check if the keyword was successfully registered and unregistered with the `IsRegisteredKeyword` and `UnregisterKeyword` methods.
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 public class Program
 {
 	public static void Main()
@@ -464,6 +494,9 @@ The RegisterLocalVariable method registers a local variable value. This variable
 In this example, we will register a global variable. In the first expression, we will increment the value of the global variable and return it. In the second expression, we will return the value of the global variable and notice that the value is still `1`. That's because, unlike the global variable, the local variable value scope is only for the current expression. Lastly, we will check using `IsRegisteredLocalVariable` and `UnregisterLocalVariable` methods that the global variable was successfully registered and unregistered.
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 // Global Context: EvalManager.DefaultContext.RegisterLocalVariable("x", 1);
 
 var context = new EvalContext();
@@ -498,6 +531,9 @@ The RegisterMember method registers all instance members from the types or field
 In this example, we will first set our context in safe mode with `context.SafeMode = true;` and unregister all current types with `context.UnregisterAll();`. We need to set `SafeMode = true` as; otherwise, members such as methods will be automatically accessible. In the first expression, we will try to access the `GetCustomerID` method, which will fail since we are in `SafeMode`, and then we will register the member and try again, which this time will success. To finish, we will use our methods `IsRegisteredMember` and `UnregisterMember` to unregister all methods from our `Customer` type and make sure it has been successfully unregistered.
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 public class Program
 {
 	public static void Main()
@@ -557,6 +593,9 @@ The RegisterNamespace method registers all types in the specified assembly under
 In this example, we will register all members of the namespace `Z2`. In the first expression, we will try to create a new instance of the `Z1.Customer1`, which will fail since members under the namespace `Z1` has not been registered. In the second expression, we will successfully create a new instance of the `Z2.Customer2` customer, as we initially registered all members under the `Z2` namespace. To complete our example, we will use the methods `IsRegisteredNamespace` and `UnregisterNamespace` to check if all members have been registered and unregister members under this namespace.
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 public class Program
 {
 	public static void Main()
@@ -617,6 +656,8 @@ The RegisterStaticField method registers all static fields from the types or fie
 In this example, we will register all static fields of the type `Program` with the method `RegisterStaticField` and then use it in our expressions. Then we will demonstrate how to use the method `IsRegisteredStaticField` and `UnregisterStaticField` to check if all statics fields are currently registered and to unregister them.
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+
 using System;
 using Z.Expressions;
 
@@ -656,6 +697,8 @@ The RegisterStaticMember method registers all static members from the types or m
 
 In this example, we will register all static fields, properties, and methods of the type `Program` with the method `RegisterStaticMember` and then use it in our expressions. Then we will demonstrate how to use the method `IsRegisteredStaticMember` and `UnregisterStaticMember` to check if all statics members are currently registered and to unregister them.
 ```csharp
+// @nuget: Z.Expressions.Eval
+
 using System;
 using Z.Expressions;
 
@@ -701,6 +744,8 @@ The RegisterStaticMethod method registers all static methods from the types or f
 In this example, we will register all static methods of the type `Program` with the method `RegisterStaticMethod` and then use it in our expressions. Then we will demonstrate how to use the method `IsRegisteredStaticMethod` and `UnregisterStaticMethod` to check if all statics methods are currently registered and to unregister them.
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+
 using System;
 using Z.Expressions;
 
@@ -744,6 +789,8 @@ The RegisterStaticProperty method registers all static properties from the types
 In this example, we will register all static properties of the type `Program` with the method `RegisterStaticProperty` and then use it in our expressions. Then we will demonstrate how to use the method `IsRegisteredStaticProperty` and `UnregisterStaticProperty` to check if all statics properties are currently registered and to unregister them.
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+
 using System;
 using Z.Expressions;
 
@@ -784,6 +831,8 @@ The RegisterType method registers all types provided. The method also registers 
 In this example, we will register the type `MyClassHelper` and the type `MyExtensions` to register his extension methods. In the first expression, we will use our class and our extension methods with a simple arithmetic operation. Then we will demonstrate how to use the method `IsRegisteredType` and `UnregisterType` with our `MyClassHelper` to validate if the type is currently registered and to unregister it.
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+
 using System;
 using System.Collections.Generic;
 using Z.Expressions;

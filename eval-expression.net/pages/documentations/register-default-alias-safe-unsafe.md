@@ -1,6 +1,6 @@
 ---
 Name: RegisterDefaultAliasSafe vs RegisterDefaultAliasUnsafe
-LastMod: 2025-07-04
+LastMod: 2025-08-19
 ---
 
 # RegisterDefaultAliasSafe vs RegisterDefaultAliasUnsafe
@@ -10,6 +10,9 @@ When creating a new context, by default, the method [RegisterDefaultAliasUnsafe]
 It's possible to only allow types that don't allow as many permissions by calling the method [RegisterDefaultAliasSafe](/register-unregister#registerdefaultaliassafe); you must first unregister everything and then call the method:
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 var context = new EvalContext();
 context.UnregisterAll();
 context.RegisterDefaultAliasSafe();

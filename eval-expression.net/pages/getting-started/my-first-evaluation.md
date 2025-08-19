@@ -1,7 +1,7 @@
 ---
 Title: Execute C# Code at Runtime - Get Started with your First Evaluation
 MetaDescription: Learn how to execute a C# expression at runtime with parameter, return type, and from a dynamic string expression.
-LastMod: 2025-07-04
+LastMod: 2025-08-19
 ---
 
 # My First Evaluation
@@ -27,6 +27,9 @@ The `Execute` method takes as the first parameter the code to execute.
 In this example, we will dynamically create a list of `int` and filter it using LINQ to return only items greater than 2. 
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 // NOTE: The list returned contains "3" and "4"
 var list = Eval.Execute(@"
 var list = new List<int>() { 1, 2, 3, 4 };
@@ -55,6 +58,9 @@ There are multiple different ways of passing variables, such as:
 In this example, we will create the `list` and `greaterThan` variables and show different ways to pass those variables to our expression.
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 var list = new List<int>() { 1, 2, 3, 4 };
 var greaterThan = 2;
 
@@ -112,6 +118,9 @@ The `Execute<TReturn>` method takes as the generic type the type to return.
 In this example, we will continue with our getting started example by using our `list` and `greaterThan` variables but this time, specify the `List<int>` return type.
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 var list = new List<int>() { 1, 2, 3, 4 };
 var greaterThan = 2;
 
@@ -131,6 +140,9 @@ Our library adds a syntactic-sugar Execute extension method to extend the string
 In that example, we will set our expression in a string variable and call the `Execute` method that extends it.
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 var list = new List<int>() { 1, 2, 3, 4 };
 var greaterThan = 2;
 
@@ -156,6 +168,9 @@ For example, you would like to run an expression in [safe mode](/options#safe-mo
 In this example, we will create an instance of the context, add a new extension method named `GreaterThan` and use the `Execute` method.
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 var list = new List<int>() { 1, 2, 3, 4 };
 var greaterThan = 2;
 

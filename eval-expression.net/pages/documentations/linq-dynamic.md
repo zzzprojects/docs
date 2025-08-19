@@ -1,6 +1,6 @@
 ---
 Name: LINQ Dynamic
-LastMod: 2025-07-04
+LastMod: 2025-08-19
 ---
 
 # How to use LINQ with Dynamic Expression
@@ -86,6 +86,10 @@ Keep in mind that you currently execute C# code, so you should call directly LIN
 In this example, we will select a list of product and dynamically perform a `Where` clause by their value, then an Order By and return a List.
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using System.Linq;
+using Z.Expressions;
+
 var list = new List<int>() { 1, 2, 3, 4, 5 };
 
 var list2 = list.Execute<List<int>>("Where(x => x > 2).OrderBy(x => x).ToList()");
@@ -101,6 +105,10 @@ The LINQ DistinctDynamic method returns distinct elements from a sequence.
 In this example, we will combine 2 lists of products and perform a distinct to return an unique list of products.
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using System.Linq;
+using Z.Expressions;
+
 var product1 = new Product() { Name = "C# Eval Expression", Url = "https://eval-expression.net/" };
 var product2 = new Product() { Name = "Dapper Plus", Url = "https://dapper-plus.net/" };
 var product3 = new Product() { Name = "Entity Framework Extensions", Url = "https://entityframework-extensions.net/" };
@@ -121,6 +129,10 @@ The LINQ GroupByDynamic method groups the elements of a sequence. You can use a 
 In this example, we will create a list of product and group them by their type using a dynamic expression and select only the first group.
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using System.Linq;
+using Z.Expressions;
+
 var product1 = new Product() { Name = "C# Eval Expression", Url = "https://eval-expression.net/", Type = "Paid" };
 var product2 = new Product() { Name = "Dapper Plus", Url = "https://dapper-plus.net/", Type = "Paid" };
 var product3 = new Product() { Name = "Entity Framework Extensions", Url = "https://entityframework-extensions.net/", Type = "Paid" };
@@ -141,6 +153,10 @@ The LINQ OrderByDescendingDynamic method sorts the elements of a sequence in des
 In this example, we will create a list of product and order them dynamically by their name in descending order.
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using System.Linq;
+using Z.Expressions;
+
 var product1 = new Product() { Name = "C# Eval Expression", Url = "https://eval-expression.net/", Type = "Paid" };
 var product2 = new Product() { Name = "Dapper Plus", Url = "https://dapper-plus.net/", Type = "Paid" };
 var product3 = new Product() { Name = "Entity Framework Extensions", Url = "https://entityframework-extensions.net/", Type = "Paid" };
@@ -158,6 +174,10 @@ The LINQ OrderByDynamic method sorts the elements of a sequence in ascending ord
 In this example, we will create a list of product and order them dynamically by their name in ascending order.
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using System.Linq;
+using Z.Expressions;
+
 var product1 = new Product() { Name = "C# Eval Expression", Url = "https://eval-expression.net/", Type = "Paid" };
 var product2 = new Product() { Name = "Dapper Plus", Url = "https://dapper-plus.net/", Type = "Paid" };
 var product3 = new Product() { Name = "Entity Framework Extensions", Url = "https://entityframework-extensions.net/", Type = "Paid" };
@@ -175,6 +195,10 @@ The LINQ ReserveDynamic method inverts the order of the elements in a sequence.
 In this example, we will create a list of product and then we will reverse the list order.
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using System.Linq;
+using Z.Expressions;
+
 var product1 = new Product() { Name = "C# Eval Expression", Url = "https://eval-expression.net/", Type = "Paid" };
 var product2 = new Product() { Name = "Dapper Plus", Url = "https://dapper-plus.net/", Type = "Paid" };
 var product3 = new Product() { Name = "Entity Framework Extensions", Url = "https://entityframework-extensions.net/", Type = "Paid" };
@@ -193,6 +217,10 @@ The LINQ SelectDynamic projects each element of a sequence into a new form. You 
 In this example, we will dynamically select some product properties, and return an anonymous list.
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using System.Linq;
+using Z.Expressions;
+
 var product1 = new Product() { Name = "C# Eval Expression", Url = "https://eval-expression.net/", Type = "Paid" };
 var product2 = new Product() { Name = "Dapper Plus", Url = "https://dapper-plus.net/", Type = "Paid" };
 var product3 = new Product() { Name = "Entity Framework Extensions", Url = "https://entityframework-extensions.net/", Type = "Paid" };
@@ -210,6 +238,10 @@ The LINQ SelectManyDynamic projects each element of a sequence to an IEnumerable
 In this example, we will dynamically select products from different catalogs, and return the full products list.
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using System.Linq;
+using Z.Expressions;
+
 var product1 = new Product() { Name = "C# Eval Expression", Url = "https://eval-expression.net/" };
 var product2 = new Product() { Name = "Dapper Plus", Url = "https://dapper-plus.net/" };
 var product3 = new Product() { Name = "Entity Framework Extensions", Url = "https://entityframework-extensions.net/" };
@@ -234,6 +266,10 @@ The LINQ SkipWhileDynamic method bypasses elements in a sequence as long as a sp
 In this example, we will create a list of product and ordering them descending per type and skipping all `paid` products (instead of using a `where` clause).
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using System.Linq;
+using Z.Expressions;
+
 var product1 = new Product() { Name = "C# Eval Expression", Url = "https://eval-expression.net/", Type = "Paid" };
 var product2 = new Product() { Name = "Dapper Plus", Url = "https://dapper-plus.net/", Type = "Paid" };
 var product3 = new Product() { Name = "Entity Framework Extensions", Url = "https://entityframework-extensions.net/", Type = "Paid" };
@@ -254,6 +290,10 @@ The LINQ TakeWhileDynamic method returns elements from a sequence as long as a s
 In this example, we will create a list of product and ordering them descending per type and taking all `paid` products (instead of using a `where` clause).
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using System.Linq;
+using Z.Expressions;
+
 var product1 = new Product() { Name = "C# Eval Expression", Url = "https://eval-expression.net/", Type = "Paid" };
 var product2 = new Product() { Name = "Dapper Plus", Url = "https://dapper-plus.net/", Type = "Paid" };
 var product3 = new Product() { Name = "Entity Framework Extensions", Url = "https://entityframework-extensions.net/", Type = "Paid" };
@@ -274,6 +314,10 @@ The LINQ ThenByDescendingDynamic method performs a subsequent ordering of the el
 In this example, we will create a list of product and order them dynamically by type and then by their name in descending order.
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using System.Linq;
+using Z.Expressions;
+
 var product1 = new Product() { Name = "C# Eval Expression", Url = "https://eval-expression.net/", Type = "Paid" };
 var product2 = new Product() { Name = "Dapper Plus", Url = "https://dapper-plus.net/", Type = "Paid" };
 var product3 = new Product() { Name = "Entity Framework Extensions", Url = "https://entityframework-extensions.net/", Type = "Paid" };
@@ -294,6 +338,10 @@ The LINQ ThenByDynamic method performs a subsequent ordering of the element in a
 In this example, we will create a list of product and order them dynamically by type and then by their name in ascending order.
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using System.Linq;
+using Z.Expressions;
+
 var product1 = new Product() { Name = "C# Eval Expression", Url = "https://eval-expression.net/", Type = "Paid" };
 var product2 = new Product() { Name = "Dapper Plus", Url = "https://dapper-plus.net/", Type = "Paid" };
 var product3 = new Product() { Name = "Entity Framework Extensions", Url = "https://entityframework-extensions.net/", Type = "Paid" };
@@ -314,6 +362,10 @@ The LINQ WhereDynamic method filters a sequence of values based on a predicate. 
 In this example, we will create a list of product and filter them by their type.
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using System.Linq;
+using Z.Expressions;
+
 var product1 = new Product() { Name = "C# Eval Expression", Url = "https://eval-expression.net/", Type = "Paid" };
 var product2 = new Product() { Name = "Dapper Plus", Url = "https://dapper-plus.net/", Type = "Paid" };
 var product3 = new Product() { Name = "Entity Framework Extensions", Url = "https://entityframework-extensions.net/", Type = "Paid" };
@@ -336,6 +388,10 @@ The LINQ AllDynamic method determines whether all elements of a sequence exist. 
 In this example, we will create a list of products and check if they are all paid products.
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using System.Linq;
+using Z.Expressions;
+
 var product1 = new Product() { Name = "C# Eval Expression", Url = "https://eval-expression.net/", Type = "Paid" };
 var product2 = new Product() { Name = "Dapper Plus", Url = "https://dapper-plus.net/", Type = "Paid" };
 var product3 = new Product() { Name = "Entity Framework Extensions", Url = "https://entityframework-extensions.net/", Type = "Paid" };
@@ -358,6 +414,10 @@ The LINQ AnyDynamic method determines whether any element of a sequence exists. 
 In this example, we will create a list of product and check if there are any paid products.
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using System.Linq;
+using Z.Expressions;
+
 var product1 = new Product() { Name = "C# Eval Expression", Url = "https://eval-expression.net/", Type = "Paid" };
 var product2 = new Product() { Name = "Dapper Plus", Url = "https://dapper-plus.net/", Type = "Paid" };
 var product3 = new Product() { Name = "Entity Framework Extensions", Url = "https://entityframework-extensions.net/", Type = "Paid" };
@@ -380,6 +440,10 @@ The LINQ CountDynamic method returns the number of elements in a sequence. You c
 In this example, we will create a list of product and count the number of paid products.
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using System.Linq;
+using Z.Expressions;
+
 var product1 = new Product() { Name = "C# Eval Expression", Url = "https://eval-expression.net/", Type = "Paid" };
 var product2 = new Product() { Name = "Dapper Plus", Url = "https://dapper-plus.net/", Type = "Paid" };
 var product3 = new Product() { Name = "Entity Framework Extensions", Url = "https://entityframework-extensions.net/", Type = "Paid" };
@@ -402,6 +466,10 @@ The LINQ ElementAtDynamic method returns the element at a specified index in a s
 In this example, we will create a list of product and filter them dynamically by their type, and return the second product found (position 1).
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using System.Linq;
+using Z.Expressions;
+
 var product1 = new Product() { Name = "C# Eval Expression", Url = "https://eval-expression.net/", Type = "Paid" };
 var product2 = new Product() { Name = "Dapper Plus", Url = "https://dapper-plus.net/", Type = "Paid" };
 var product3 = new Product() { Name = "Entity Framework Extensions", Url = "https://entityframework-extensions.net/", Type = "Paid" };
@@ -423,6 +491,10 @@ The LINQ FirstDynamic returns the first element of a sequence. You can use a dyn
 In this example, we will create a list of product and return the first product by dynamically filtering them with their type.
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using System.Linq;
+using Z.Expressions;
+
 var product1 = new Product() { Name = "C# Eval Expression", Url = "https://eval-expression.net/", Type = "Paid" };
 var product2 = new Product() { Name = "Dapper Plus", Url = "https://dapper-plus.net/", Type = "Paid" };
 var product3 = new Product() { Name = "Entity Framework Extensions", Url = "https://entityframework-extensions.net/", Type = "Paid" };
@@ -445,6 +517,10 @@ The LINQ FirstOrDefaultDynamic returns the first element of a sequence, or a def
 In this example, we will create a list of product and return the first product or null by dynamically filtering them with their type.
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using System.Linq;
+using Z.Expressions;
+
 var product1 = new Product() { Name = "C# Eval Expression", Url = "https://eval-expression.net/", Type = "Paid" };
 var product2 = new Product() { Name = "Dapper Plus", Url = "https://dapper-plus.net/", Type = "Paid" };
 var product3 = new Product() { Name = "Entity Framework Extensions", Url = "https://entityframework-extensions.net/", Type = "Paid" };
@@ -467,6 +543,10 @@ The LINQ LastDynamic returns the last element of a sequence. You can use a dynam
 In this example, we will create a list of product and return the last product by dynamically filtering them with their type.
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using System.Linq;
+using Z.Expressions;
+
 var product1 = new Product() { Name = "C# Eval Expression", Url = "https://eval-expression.net/", Type = "Paid" };
 var product2 = new Product() { Name = "Dapper Plus", Url = "https://dapper-plus.net/", Type = "Paid" };
 var product3 = new Product() { Name = "Entity Framework Extensions", Url = "https://entityframework-extensions.net/", Type = "Paid" };
@@ -489,6 +569,10 @@ The LINQ LastOrDefaultDynamic returns the last element of a sequence, or a defau
 In this example, we will create a list of product and return the last product or null by dynamically filtering them with their type.
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using System.Linq;
+using Z.Expressions;
+
 var product1 = new Product() { Name = "C# Eval Expression", Url = "https://eval-expression.net/", Type = "Paid" };
 var product2 = new Product() { Name = "Dapper Plus", Url = "https://dapper-plus.net/", Type = "Paid" };
 var product3 = new Product() { Name = "Entity Framework Extensions", Url = "https://entityframework-extensions.net/", Type = "Paid" };
@@ -511,6 +595,10 @@ The LINQ LongCountDynamic method returns an Int64 that represents the number of 
 In this example, we will create a list of product and count the number of paid products.
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using System.Linq;
+using Z.Expressions;
+
 var product1 = new Product() { Name = "C# Eval Expression", Url = "https://eval-expression.net/", Type = "Paid" };
 var product2 = new Product() { Name = "Dapper Plus", Url = "https://dapper-plus.net/", Type = "Paid" };
 var product3 = new Product() { Name = "Entity Framework Extensions", Url = "https://entityframework-extensions.net/", Type = "Paid" };
@@ -533,6 +621,10 @@ The LINQ MaxDynamic returns the maximum value in a sequence. You can use a dynam
 In this example, we will create a list of product and get the product name considered as the maximum.
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using System.Linq;
+using Z.Expressions;
+
 var product1 = new Product() { Name = "C# Eval Expression", Url = "https://eval-expression.net/", Type = "Paid" };
 var product2 = new Product() { Name = "Dapper Plus", Url = "https://dapper-plus.net/", Type = "Paid" };
 var product3 = new Product() { Name = "Entity Framework Extensions", Url = "https://entityframework-extensions.net/", Type = "Paid" };
@@ -551,6 +643,10 @@ The LINQ MinDynamic returns the minimum value in a sequence. You can use a dynam
 In this example, we will create a list of product and get the product name considered as the minimum.
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using System.Linq;
+using Z.Expressions;
+
 var product1 = new Product() { Name = "C# Eval Expression", Url = "https://eval-expression.net/", Type = "Paid" };
 var product2 = new Product() { Name = "Dapper Plus", Url = "https://dapper-plus.net/", Type = "Paid" };
 var product3 = new Product() { Name = "Entity Framework Extensions", Url = "https://entityframework-extensions.net/", Type = "Paid" };
@@ -569,6 +665,10 @@ The LINQ SelectToListDynamic projects each element of a sequence into a new form
 In this example, we will dynamically select some product properties, cast our list as queryable (a queryable is required for this method), and returns an anonymous list.
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using System.Linq;
+using Z.Expressions;
+
 var product1 = new Product() { Name = "C# Eval Expression", Url = "https://eval-expression.net/", Type = "Paid" };
 var product2 = new Product() { Name = "Dapper Plus", Url = "https://dapper-plus.net/", Type = "Paid" };
 var product3 = new Product() { Name = "Entity Framework Extensions", Url = "https://entityframework-extensions.net/", Type = "Paid" };
@@ -586,6 +686,10 @@ The LINQ SelectManyToListDynamic projects each element of a sequence to an IEnum
 In this example, we will dynamically select products from different catalog, cast our list as queryable (a queryable is required for this method), and returns the full products list.
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using System.Linq;
+using Z.Expressions;
+
 var product1 = new Product() { Name = "C# Eval Expression", Url = "https://eval-expression.net/" };
 var product2 = new Product() { Name = "Dapper Plus", Url = "https://dapper-plus.net/" };
 var product3 = new Product() { Name = "Entity Framework Extensions", Url = "https://entityframework-extensions.net/" };
@@ -610,6 +714,10 @@ The LINQ SingleDynamic returns a single, specific element of a sequence. You can
 In this example, we will create a list of product and return the last product by dynamically filtering them with a name.
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using System.Linq;
+using Z.Expressions;
+
 var product1 = new Product() { Name = "C# Eval Expression", Url = "https://eval-expression.net/", Type = "Paid" };
 var product2 = new Product() { Name = "Dapper Plus", Url = "https://dapper-plus.net/", Type = "Paid" };
 var product3 = new Product() { Name = "Entity Framework Extensions", Url = "https://entityframework-extensions.net/", Type = "Paid" };
@@ -632,6 +740,10 @@ The LINQ SingleDynamic returns a single, specific element of a sequence, or a de
 In this example, we will create a list of product and return the last product by dynamically filtering them with a name.
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using System.Linq;
+using Z.Expressions;
+
 var product1 = new Product() { Name = "C# Eval Expression", Url = "https://eval-expression.net/", Type = "Paid" };
 var product2 = new Product() { Name = "Dapper Plus", Url = "https://dapper-plus.net/", Type = "Paid" };
 var product3 = new Product() { Name = "Entity Framework Extensions", Url = "https://entityframework-extensions.net/", Type = "Paid" };
@@ -654,6 +766,10 @@ The LINQ SumDynamic returns the sum of a sequence of numeric values. You can use
 In this example, we will create a list of product and sum the length of all product name characters.
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using System.Linq;
+using Z.Expressions;
+
 var product1 = new Product() { Name = "C# Eval Expression", Url = "https://eval-expression.net/", Type = "Paid" };
 var product2 = new Product() { Name = "Dapper Plus", Url = "https://dapper-plus.net/", Type = "Paid" };
 var product3 = new Product() { Name = "Entity Framework Extensions", Url = "https://entityframework-extensions.net/", Type = "Paid" };
@@ -672,6 +788,10 @@ The LINQ ToArrayDynamic creates an Array from an IEnumerable.
 In this example, we will create a list of product, filter them dynamically by their type, and return the result as an array.
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using System.Linq;
+using Z.Expressions;
+
 var product1 = new Product() { Name = "C# Eval Expression", Url = "https://eval-expression.net/", Type = "Paid" };
 var product2 = new Product() { Name = "Dapper Plus", Url = "https://dapper-plus.net/", Type = "Paid" };
 var product3 = new Product() { Name = "Entity Framework Extensions", Url = "https://entityframework-extensions.net/", Type = "Paid" };
@@ -693,6 +813,10 @@ The LINQ ToListDynamic creates a List from an IEnumerable.
 In this example, we will create a list of product, filter them dynamically by their type, and return the result as a list.
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using System.Linq;
+using Z.Expressions;
+
 var product1 = new Product() { Name = "C# Eval Expression", Url = "https://eval-expression.net/", Type = "Paid" };
 var product2 = new Product() { Name = "Dapper Plus", Url = "https://dapper-plus.net/", Type = "Paid" };
 var product3 = new Product() { Name = "Entity Framework Extensions", Url = "https://entityframework-extensions.net/", Type = "Paid" };

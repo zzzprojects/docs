@@ -1,7 +1,7 @@
 ---
 Title: Getting Started with C# Eval Expression | C# Expression Evaluator
 MetaDescription: Learn about what the C# Eval Expression library is and what is an expression evaluator. Learn how to evaluate string code dynamically and why you should do it.
-LastMod: 2025-07-04
+LastMod: 2025-08-19
 ---
 
 # Overview
@@ -13,6 +13,9 @@ The C# Eval Expression library is the most powerful and flexible expression eval
 Do not worry if that is still unclear because we will explain and cover more about what this library can do in this getting started section. But in a simple example, it allows you to do something like this:
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 var x = "1+2".Execute<int>(); // return 3
 ```
 
@@ -42,12 +45,18 @@ The possibility of how you could use an expression evaluator is infinite, and th
 For example, you can evaluate a simple math expression such as
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 int result = Eval.Execute<int>("X + Y", new { X = 1, Y = 2});
 ```
 
 But you can also execute way more complex code, such as creating a list dynamically and filtering it using LINQ methods:
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 int result = Eval.Execute<int>(@"
     var list = new List<int>() { 1, 2, 3, 4, 5 };
     var filter = list.Where(x => x < 4);

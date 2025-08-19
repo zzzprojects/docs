@@ -1,6 +1,6 @@
 ---
 Name: Execute Method
-LastMod: 2025-07-04
+LastMod: 2025-08-19
 ---
 
 # How to use the Execute Method?
@@ -10,6 +10,9 @@ The `Execute` method allows you to execute any C# code or expression at runtime.
 It could be from a very simple math expression from a user input:
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 // Let's assume the user input is from someone that wants to solve a Facebook math problem
 var userInput = "6-1*0";
 
@@ -25,6 +28,9 @@ Console.WriteLine("The result is: " + r);
 To a more complex C# code, such as solving the famous [FizzBuzz](https://en.wikipedia.org/wiki/Fizz_buzz) interview question:
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 var list = Eval.Execute<List<string>>(@"
 
 var answers = new List<string>();
@@ -95,6 +101,9 @@ You can provide the code to execute in 3 different ways:
 1 - In the case of the **instance method** (`context.Execute(code)`). First, you create a new instance of the [EvalContext](/eval-context), and then you can use the `Execute` method from the context created:
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 // CREATE a new instance of EvalContext
 var context = new EvalContext();
 
@@ -107,6 +116,9 @@ var list1 = context.Execute<List<int>>("new List<int>() { 1, 2, 3 };");
 2 - In the case of the **static method** (`Eval.Execute(code)`), you can directly call the static `Eval.Execute` method, which uses a global context under the hood:
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 // CALL the static `Eval.Execute` method
 var list2 = Eval.Execute<List<int>>("new List<int>() { 1, 2, 3 };");
 ```
@@ -115,6 +127,9 @@ var list2 = Eval.Execute<List<int>>("new List<int>() { 1, 2, 3 };");
 
 3 - In the case of the **extension method** (`"code".Execute`), you can directly call the `Execute` method that extends the string type, which uses a global context under the hood:
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 // CALL the `Execute` method that extends the string type
 var list3 = "new List<int>() { 1, 2, 3 };".Execute<List<int>>();
 ```
@@ -138,6 +153,9 @@ When you use the `Execute` method, you have 2 choices that will affect the retur
 1 - If you use the generic `Execute` method and specify a `TResult` type (`Eval.Execute<TResult>(code)`), the method will return a `TResult`:
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 List<int> list1 = Eval.Execute<List<int>>("new List<int>() { 1, 2, 3 };");
 ```
 
@@ -146,6 +164,9 @@ List<int> list1 = Eval.Execute<List<int>>("new List<int>() { 1, 2, 3 };");
 2 - If you don't specify a return type (`Eval.Execute(code)`), the method will return an `object`. Under the hood, the `Eval.Execute<object>` method is called:
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 object object2 = Eval.Execute("new List<int>() { 1, 2, 3 };");
 List<int> list2 = (List<int>)object2;
 ```
@@ -163,6 +184,9 @@ You have multiple different ways how you can pass your parameters. Furthermore, 
 1 - In the case of `Eval.Execute<TResult>(string code)`, you cannot pass parameters directly, but you can always common techniques such as string concatenation or [string interpolation](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/tokens/interpolated):
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 var minValue = 1;
 var maxValue = 5;
 
@@ -190,6 +214,9 @@ In addition, to make your life easier, our library automatically registers and l
 
 **2a. `Anonymous Type`:**
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 // example 1
 {
 	var expression = "return new List<int>() { 1, 2, 3, 4, 5 }.Where(x => x > MinValue && x < MaxValue)";
@@ -208,6 +235,9 @@ In addition, to make your life easier, our library automatically registers and l
 
 **2b. `Class Instance`:**
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 public class MinMaxValue
 {
 	public int MinValue { get; set; }
@@ -223,6 +253,9 @@ var list2b = Eval.Execute<List<int>>(expression, minMaxValue);
 
 **2c. `ExpandoObject`**
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 dynamic expando = new ExpandoObject();
 expando.MinValue = 1;
 expando.MaxValue = 5;
@@ -233,6 +266,9 @@ var list2c = Eval.Execute<List<int>>(expression, expando);
 
 **2d. `Dictionary<string, TValue>`**
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 var dict = new Dictionary<string, object>();
 dict["MinValue"] = 1;
 dict["MaxValue"] = 5;
@@ -248,6 +284,9 @@ var list2d = Eval.Execute<List<int>>(expression, dict);
 3a - Since parameters are not named (our library doesn't know your variable, property, or field name), you need to use positions such as `{0}` and `{1}` in the expression as you usually do with, for example, [string.Format](https://learn.microsoft.com/en-us/dotnet/api/system.string.format):
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 var expression = "return new List<int>() { 1, 2, 3, 4, 5 }.Where(x => x > {0} && x < {1})";
 var list3a = Eval.Execute<List<int>>(expression, 1, 5);
 ```
@@ -257,6 +296,9 @@ var list3a = Eval.Execute<List<int>>(expression, 1, 5);
 3b - In addition, unlike section 2 (`Eval.Execute<TResult>(string code, object parameters)`) that we have seen, you cannot use member names or key names directly by default unless you use the [IncludeMemberFromAllParameters](/options#includememberfromallparameters) option:
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 public static void Main()
 {
 	var context = new EvalContext();
@@ -300,6 +342,9 @@ To execute `Async`, you have 2 choices:
 1 - If you **return a task** (`Eval.Execute<Task>(code)` or `Eval.Execute<Task<Result>>(code)`), you need to handle the task with `await` outside the code you want to execute dynamically:
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 var task = Eval.Execute<Task<string>>("File.ReadAllTextAsync(fileName)", new { fileName });
 var text1 = await task;
 ```
@@ -309,6 +354,9 @@ var text1 = await task;
 2 - If you **handle the task**, you need to use `await` inside the code you want to execute dynamically:
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 var text2 = Eval.Execute<string>("await File.ReadAllTextAsync(fileName)", new { fileName });
 ```
 

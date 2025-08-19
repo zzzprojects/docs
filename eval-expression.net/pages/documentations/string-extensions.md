@@ -1,6 +1,6 @@
 ---
 Name: String Extensions Methods
-LastMod: 2025-07-04
+LastMod: 2025-08-19
 ---
 
 # String Extensions Methods
@@ -10,6 +10,9 @@ Extend the String class with methods to Execute & Compile C# expressions.
 
 Under the hood, string extensions use the default context to execute and compile expressions.
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 public static object Execute(this string code, params object[] parameters)
 {
     return EvalManager.DefaultContext.Execute(code, parameters);
@@ -28,7 +31,8 @@ Execute a C# expression. Extend the String class.
 
 ### Example
 ```csharp
-// using Z.Expressions; // Don't forget to include this.
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
 
 var result1 = "1+2".Execute<int>(); // return 3
 var result2 = "X+Y".Execute(new { X = 1, Y = 2 }); // return 3
@@ -51,7 +55,8 @@ Compile a C# expression. Extend the String class.
 
 ### Example
 ```csharp
-// using Z.Expressions; // Don't forget to include this.
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
 
 string s = "Price * Quantity";
 var compiled = s.Compile<Func<OrderItem, decimal>>(code);

@@ -1,7 +1,7 @@
 ---
 Title: Get started with your first option with C# Eval Expression
 MetaDescription: Learn how to use options in C# Eval Expression to configure your eval context to align with your scenarios and requirements.
-LastMod: 2025-07-04
+LastMod: 2025-08-19
 ---
 
 # My First Option
@@ -28,6 +28,9 @@ To use safe mode, we recommend:
 For example, we will demonstrate how easy it is to configure options in the C# Eval Expression library:
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 var evalContext = new EvalContext();
 evalContext.UnregisterAll();
 evalContext.MaxLoopIteration = 5;
@@ -57,6 +60,8 @@ In the C# Eval Expression library, you can add your own `keyword`. You cannot ov
 In this example, we will create an extension method named `IsIn` that checks if an item is part of a list. Then, we will create the keyword `isin` that will be bound to this extension method and can be used directly in the expression:
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+
 using System;
 using System.Collections.Generic;
 using Z.Expressions;
@@ -97,6 +102,9 @@ If you can define the method in a non-dynamic way, you should always prefer to [
 In this first example, we’ll create a simple custom method called `MinPlusOne` that returns the minimum value between two numbers and adds one:
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 var evalContext = new EvalContext();	
 
 evalContext.AddMethod(@"
@@ -115,6 +123,9 @@ Console.WriteLine(result);
 In this second example, we go one step further. We’ll create a more advanced method dynamically, where the logic (formula) is provided by the user. This is useful when you want to inject a user-defined expression directly into a method.
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 string userInputFormula = "A == B || A == -1 || B == -1";
 
 var evalContext = new EvalContext();

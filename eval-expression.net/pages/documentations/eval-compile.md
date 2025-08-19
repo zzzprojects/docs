@@ -1,6 +1,6 @@
 ---
 Name: Compile Method
-LastMod: 2025-07-04
+LastMod: 2025-08-19
 ---
 
 # How to use the Compile Method?
@@ -10,6 +10,9 @@ The `Compile` method allows you to compile any C# code or expression at runtime 
 The `Compile` method offers the best performance when you need to execute the same expression multiple times but with different parameters:
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 var fizzBuzzCompiled = Eval.Compile<Func<int, string>>(@"
 if (i % 15 == 0)
 	return $'{i} => FizzBuzz';
@@ -87,6 +90,9 @@ You can provide the code to compile in 3 different ways:
 1 - In the case of the **instance method** (`context.Compile(code)`). First, you create a new instance of the [EvalContext](/eval-context), and then you can use the `Compile` method from the context created:
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 // CREATE a new instance of EvalContext
 var context = new EvalContext();
 
@@ -101,6 +107,9 @@ var list1 = compiledList1();
 2 - In the case of the **static method** (`Eval.Compile(code)`), you can directly call the static `Eval.Compile` method, which uses a global context under the hood: 
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 // CALL the static `Eval.Compile` method
 var compiledList2 = Eval.Compile<Func<List<int>>>("new List<int>() { 1, 2, 3 };");
 
@@ -111,6 +120,9 @@ var list2 = compiledList2();
 
 3 - In the case of the **extension method** (`"code".Compile`), you can directly call the `Compile` method that extends the string type, which uses a global context under the hood:
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 // CALL the `Compile` method that extends the string type
 var compiledList3 = "new List<int>() { 1, 2, 3 };".Compile<Func<List<int>>>();
 
@@ -139,6 +151,9 @@ For example, if you don't specify a delegate but specify 2 types, such as `Compi
 In the following example, you will find multiple uses of the delegate:
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 // 1. Eval.Compile<Func<int, int, int, List<int>>>(code)
 {
 	var compiledList1 = Eval.Compile<Func<int, int, int, List<int>>>("var list = new List<int>(); list.Add({0}); list.Add({1}); list.Add({2}); return list;");
@@ -175,6 +190,9 @@ If you specify a delegate, you can specify parameter names allowed in the expres
 In the following example, you will find multiple uses of how using parameter names in your dynamic C# expression:
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 var compiledList1 = Eval.Compile<Func<int, int, int, List<int>>>("new List<int>() { A, B, C };", "A", "B", "C");
 
 var list1 = compiledList1(2, 4, 6);
@@ -193,6 +211,9 @@ However, the `Compile` method supports `Async` expressions, but the task needs t
 1 - If you **return a task from the delegate** (`Eval.Compile<Func<Task>>(code)`), you need to handle the task with `await` outside the code you want to compile and execute dynamically:
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 var compiled1 = Eval.Compile<Func<string, Task<string>>>("File.ReadAllTextAsync(fileName)", "fileName");		
 var text1 = await compiled1(fileName);
 ```
@@ -202,6 +223,9 @@ var text1 = await compiled1(fileName);
 2 - If you **handle the task**, you need to use `await` inside the code you want to compile and execute dynamically:
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 var compiled2 = Eval.Compile<Func<string, string>>("await File.ReadAllTextAsync(fileName)", "fileName");
 var text2 = compiled2(fileName);
 ```

@@ -1,6 +1,6 @@
 ---
 Name: Eval Expression Options
-LastMod: 2025-07-04
+LastMod: 2025-08-19
 ---
 
 # How to use options with C# Eval Expression library
@@ -54,6 +54,9 @@ The AllowAddSubtractOperatorToCollection option lets you get or set if the minus
 In this example, we will add an item to a list and remove it. We will do it for a list of `int`, a list of `string`, and a list of `entity`.
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 // Global Context: EvalManager.DefaultContext.AllowAddSubtractOperatorToCollection = true;
 
 var context = new EvalContext();
@@ -91,6 +94,9 @@ The AutoAddMissingTypes option lets you get or set if the library should try to 
 In this example, we will try to evaluate an expression the first time without the `AutoAddMissingTypes` option, which will fail, and then try again but with the option this time.
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 // Global Context: EvalManager.DefaultContext.AutoAddMissingTypes = true;
 
 var context = new EvalContext();
@@ -135,6 +141,9 @@ The BindingFlags option lets you get or set the flags when searching for a membe
 In this example, we will first evaluate an expression by accessing a property with the wrong casing, which will succeed as the library is case insensitive by default. Then, we will remove the `IgnoreCase` flag and try again to access the property value, which will raise an error.
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 // Global Context: EvalManager.DefaultContext.BindingFlags = BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.FlattenHierarchy;
 
 var context = new EvalContext();
@@ -163,6 +172,9 @@ The CacheKeyPrefix option lets you get or set the prefix in the Cache Key. That 
 In this example, we will register a static method and call our context `Execute` method. Then we will unregister this static method and use the expression again, and we will see the `Execute` is still working. That is still working because the library does not compile the expression but instead takes the delegate previously created directly from the cache. So to reset the cache, we will set another `CacheKeyPrefix` and try again to execute our expression, which will correctly fail this time.
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 // Global Context: EvalManager.DefaultContext.CacheKeyPrefix = "Another Cache Key";
 
 var context = new EvalContext();
@@ -196,6 +208,9 @@ The DefaultNumberType option lets you get or set what type a number without a da
 In this example, we will prove that `1/2=0` by directly using a C# statement than using an expression within our library. Then, we will set the `DefaultNumberType.Double` to check the difference in the result.
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 // Global Context: EvalManager.DefaultContext.DefaultNumberType = DefaultNumberType.Double;
 
 var context = new EvalContext();
@@ -220,6 +235,9 @@ The DisableAutoRegisterEntityFramework option lets you get or set if the auto re
 In this example, we will query the customers table by filtering it using the `EF.Functions.DateDiffMonth` method and shows all returned customers. By default, the query will work successfully, but if you uncomment the `DisableAutoRegisterEntityFramework = true` option, the query will no longer work and throw an error.
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 // Uncomment to make the next query fail
 // EvalManager.DefaultContext.DisableAutoRegisterEntityFramework = true;
 
@@ -245,6 +263,9 @@ The DisableAutoReplaceDictionaryKey option lets you get or set if the feature th
 In this example, we will first evaluate an expression with an invalid variable name as a key and get the expected result. Then we will evaluate a simple `1+2` expression and get a weird result return as the `2` has been automatically replaced by `12` since this is an invalid variable name. Finally, we will disable the option and now see that `1+2` is giving the expected result again.
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 // Global Context: EvalManager.DefaultContext.DisableAutoReplaceDictionaryKey = true;
 
 var context = new EvalContext();
@@ -273,6 +294,9 @@ The DisableConstantFolding option lets you get or set if constant folding should
 In this example, we will compile a basic addition expression with 2 constants. By exploring the last compiled expression, we will show the difference when a constant was used with constant folding versus when the addition was used with constant folding turned off.
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 // Global Context: EvalManager.DefaultContext.DisableConstantFolding = true;
 
 var expression = "2+3";
@@ -306,6 +330,9 @@ The DisableDynamicResolution option lets you get or set if built-in logic should
 In this example, we will first add two `int` values by casting them as type `object`, which is an invalid C# statement but works in this case due to our built-in logic. Then we will try again by disabling that option which will now correctly throw an error.
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 // Global Context: EvalManager.DefaultContext.DisableDynamicResolution = true;
 
 var context = new EvalContext();	
@@ -332,6 +359,9 @@ The DynamicGetMemberMissingValueFactory option lets you get or set a factory to 
 In this example, we will first set our DynamicGetMemberMissingValueFactory option, then use it with an entity customer, and after use it again with an ExpandoObject. In both cases, we will try to retrieve the member `FullName`, which doesn't exist but still return a value correctly due to the missing member factory previously set.
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 // Global Context: EvalManager.DefaultContext.DynamicGetMemberMissingValueFactory = (obj, propertyOrFieldName) => { };
 
 var context = new EvalContext();
@@ -385,6 +415,9 @@ The DynamicMemberNames option lets you when compiling or executing an expression
 In this example, we will first compile an expression and then, by looking at the `context.DynamicMemberNames` see which member names the library expects the `ExpandoObject` contains. In the second example, we will try to execute an expression that fails and check in the catch section which member names were expecting to be provided by the `ExpandoObject`.
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 // Global Context: EvalManager.DefaultContext.DynamicMemberNames
 
 var context = new EvalContext();
@@ -428,6 +461,9 @@ The ForceCharAsString option lets you get or set if a char such as `'z'` must be
 In this example, we will use a `MethodOverload` method with an overload for both `char` and `string` types. In this first execute resolution, we will see that the method resolution uses the right method by using the overload with the `char` type. In the second resolution, we will force the library by using our option to consider all `char` as a `string` instead and observe that the library now uses the method overload with the `string` type.
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 // Global Context: EvalManager.DefaultContext.ForceCharAsString = true;
 
 var context = new EvalContext();
@@ -461,6 +497,9 @@ The ForceIncludeInstanceMethodFromParameter  option lets you get or set if insta
 In this example, we will register a static method and try to call a method with the overload that only exists in our instance entity. Since at least 1 method has been found, we will see that by default, the instance will not be taken unless we specify `ForceIncludeInstanceMethodFromParameter = true`.
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 // Global Context: EvalManager.DefaultContext.ForceIncludeInstanceMethodFromParameter = true;
 
 var context = new EvalContext();
@@ -490,6 +529,9 @@ The ForceObjectAsDynamic option lets you get or set if the type `object` should 
 In this example, we will first compare 2 objects with an `int` value by directly using C# statement to show the difference between an equals operator `==` and the `Equals` method. Then we will use our library first directly with the equals operator, then again, but this time, with the `ForceObjectAsDynamic = true` option.
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 // Global Context: EvalManager.DefaultContext.ForceObjectAsDynamic = true;
 
 var context = new EvalContext();
@@ -517,6 +559,9 @@ The IncludeMemberFromAllParameters option lets you get or set if we should inclu
 In this example, we will first try to resolve our expression with the default behavior, which will fail as you cannot use the member name directly when multiple parameters are specified. Then, we will try again, but this time, with the `IncludeMemberFromAllParameters = true` option, which will make our expression execute successfully as we can use member names of all parameters in the expression.
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 // Global Context: EvalManager.DefaultContext.IncludeMemberFromAllParameters = true;
 
 var context = new EvalContext();
@@ -550,6 +595,9 @@ The IsCaseSensitive option lets you get or set the flags when searching for a me
 In this example, we will first evaluate an expression by accessing a property with the wrong casing, which will succeed as the library is case insensitive by default. Then, we will set the `IsCaseSensitive = true;` to force the library to be case sensitive and then try again to access the property value, which will raise an error.
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 // Global Context: EvalManager.IsCaseSensitive = true;
 
 var context = new EvalContext();
@@ -577,6 +625,9 @@ The LastCompiledExpression option lets you get the expression that was used in t
 In this example, we will compile a basic C# statement and explore the expression that was compiled.
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 // Global Context: var lastCompiledExpression = EvalManager.DefaultContext.LastCompiledExpression;
 
 var context = new EvalContext();
@@ -598,6 +649,9 @@ The LastCompiledParameterExpressions option lets you get the list of parameter e
 In this example, we will compile a basic C# statement with 2 parameters and explore the 2 parameters expression that was used for the compilation.
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 // Global Context: var lastCompiledParameterExpressions = EvalManager.DefaultContext.LastCompiledParameterExpressions;
 
 var context = new EvalContext();
@@ -620,6 +674,9 @@ The MaxLoopIteration option lets you get or set the maximum of iteration allowed
 In this example, we will first execute a code in a `while` loop that will iterate 100 times. Then we will set the `MaxLoopIteration = 25` and execute the same code again, but this time will throw as it reaches the maximum loop allowed in an expression.
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 // Global Context: EvalManager.MaxLoopIteration = 25;
 
 var context = new EvalContext();
@@ -673,6 +730,9 @@ The MemoryCacheEntryOptionsFactory option lets you get or set for .NET 5+ and .N
 In this example, we will set a new MemoryCacheEntryOptionsFactory that will set a `SlidingExpiration` to only cache a compile delegate 5 minutes.
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 // Global Context: EvalManager.DefaultContext.MemoryCacheEntryOptionsFactory = () => new MemoryCacheEntryOptions() { Size = 1, SlidingExpiration = TimeSpan.FromMinutes(5) };
 
 var context = new EvalContext();
@@ -690,6 +750,9 @@ The MissingType option lets you get or set the missing types to make an expressi
 In this example, we will try to evaluate an expression the first time without the `AutoAddMissingTypes` option, which will fail. Then we will evaluate the expression with the option `AutoAddMissingTypes = true`, which will succeed, and then we will show which missed types we automatically added. Finally, we will try again with the option `RetryAndThrowMissingTypes = true;` and show which types are missing to make the expression work.
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 // Global Context: EvalManager.DefaultContext.MissingTypes;
 
 try
@@ -746,6 +809,9 @@ The RetryAndThrowMissingTypes option lets you get or set if an error should be t
 In this example, we will set the `RetryAndThrowMissingTypes = true;` option and try to evaluate an expression. First, we will see that an exception is thrown with the message containing all missing types, and then we will show them again through the `MissingTypes` option.
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 // Global Context: EvalManager.DefaultContext.RetryAndThrowMissingTypes = true;
 
 var context = new EvalContext();
@@ -773,6 +839,9 @@ catch(Exception ex)
 The SafeMode option lets you get or set if only members and types registered can be used for the expression. In other words, you can safely execute user input in your environment by restricting him to use only what you allow. Make sure to read the [SafeMode](/safe-mode) documentation if you plan to use this option. By default, the SafeMode value is `false`.
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 // Global Context: EvalManager.DefaultContext.SafeMode = true;
 
 var context = new EvalContext();
@@ -805,6 +874,9 @@ The UseCache option lets you get or set if the cache should be used to retrieve 
 In this example, we will evaluate a simple expression and then again by modifying the `DisableAutoReplaceDictionaryKey = true` option. The second `Execute` will return the same result as the first one since the delegate has been taken from the cache. Then we will set our option `UseCache = false` and get this time the correct result we are expecting.
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 // Global Context: EvalManager.DefaultContext.UseCache = false;
 
 var context = new EvalContext();
@@ -834,6 +906,9 @@ The UseCaretForExponent option lets you get or set if the caret character `^` sh
 In this example, we will use the math expression 2 power 3 by first using a double caret and then by setting our `UseCaretForExponent = true` option and using a single caret. In both cases, the result will be 8.
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 // Global Context: EvalManager.DefaultContext.UseCaretForExponent = true;
 
 var context = new EvalContext();
@@ -858,6 +933,9 @@ The UseEqualsAssignmentAsEqualsOperator option lets you get or set if the equal 
 In this example, we will use the expression `x = 3` in both cases. In the first `Execute`, the equal operator will be used as an assignment which is the default behavior. In the second `Execute`, we will set the `UseEqualsAssignmentAsEqualsOperator = true;` option and see that the `=` operator behaves like the `==`.
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 // Global Context: EvalManager.DefaultContext.UseEqualsAssignmentAsEqualsOperator = true;
 
 var context = new EvalContext();
@@ -885,6 +963,9 @@ The UseLocalCache option lets you get or set if the global cache (for all eval c
 In this example, we will evaluate a simple expression from the global context and then again by using the `DisableAutoReplaceDictionaryKey = true` option. You can comment or uncomment the line `context.UseLocalCache = true;` to see a different result will be returned depending if we take the previously created delegate from the global cache or not.
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 // Global Context: EvalManager.DefaultContext.UseLocalCache = true;
 
 var context = new EvalContext();
@@ -913,6 +994,9 @@ The `UseNonGenericAnonymousType` option lets you get or set whether a non-generi
 In this example, we will set the `UseNonGenericAnonymousType = true` to be able to use the anonymous type in a group by.
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 // Global Context: EvalManager.DefaultContext.UseNonGenericAnonymousType = true;
 
 var context = new EvalContext();
@@ -970,6 +1054,9 @@ The UseShortCacheKey option lets you get or set if the cache key should be short
 In this example, we will set the `UseShortCacheKey = true` and execute dynamically a very simple arithmetic expression.
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 // Global Context: EvalManager.UseShortCacheKey = true;
 
 var context = new EvalContext();
@@ -988,6 +1075,9 @@ The UseSmartExecuteParameterResolution option lets you get or set if the smart r
 In this example, we will first try to resolve our expression with the default behavior, which will fail as you cannot use the member name directly when multiple parameters are specified. Then, we will try again, but this time, with the `UseSmartExecuteParameterResolution= true` option, which will make our expression execute successfully as we can use member names of all parameters in the expression.
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 // Global Context: EvalManager.DefaultContext.UseSmartExecuteParameterResolution = true;
 
 var context = new EvalContext();
@@ -1021,6 +1111,9 @@ The UseSmartTypeResolution option lets you get or set if some type should be fou
 In this example, we will first create a new instance of `System.Diagnostics.Stopwatch()` but only specify the `Diagnostics.Stopwatch()` part in our expression. As we will see, the `Stopwatch` type was found as the library automatically added the `System` part as no type was initially found. In the second example, we will turn off this option and see now that the library raises an exception since the type was not found.
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 // Global Context: EvalManager.DefaultContext.UseSmartTypeResolution = false;
 
 var context = new EvalContext();
@@ -1050,6 +1143,9 @@ The UseTypeBeforeDynamic option lets you get or set if, for some expression, the
 In this example, we will register the `Type` program, which contains the member `ValueForTypeOrDynamic` and we will create an `ExpandoObject` which contains a member `Program.ValueForTypeOrDynamic`. In the first expression, the value returned will be the value from the expando, which is the default expected behavior. In the second expression, we will set our `UseTypeBeforeDynamic = true;` option, and this time, the value returned will be the one from our type as we tell our library to use the type before the expando when one is found.
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 public class Program
 {
 	public static void Main()
@@ -1085,6 +1181,9 @@ The VariableFactory option lets you get or set a factory to return a value when 
 In this example, we will first execute a simple expression `X + 2` without specifying any value for `X`, which will fail. Then we will set the `VariableFactory` option to specify how to handle missing variables. In our case, we will set `1` as the value for `X` and specify that the missing variable name has been handled in this case. Finally, we will try our simple `X+2` expression again, and this time, it will return `3` successfully.
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 // Global Context: EvalManager.DefaultContext.VariableFactory = arg => { }
 
 var context = new EvalContext();

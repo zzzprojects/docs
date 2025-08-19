@@ -1,6 +1,6 @@
 ---
 Name: Compile & Execute Methods
-LastMod: 2025-07-04
+LastMod: 2025-08-19
 ---
 
 # Compile & Execute Methods
@@ -20,7 +20,8 @@ Execute a C# expression and return the result:
 
 ### Example
 ```csharp
-// using Z.Expressions; // Don't forget to include this.
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
 
 var context = new EvalContext();
 // ... context options ...
@@ -45,7 +46,8 @@ Compile a C# expression and return a delegate:
 
 ### Example
 ```csharp
-// using Z.Expressions; // Don't forget to include this.
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
 
 var context = new EvalContext();
 // ... context options ...

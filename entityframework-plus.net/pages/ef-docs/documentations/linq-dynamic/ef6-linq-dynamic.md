@@ -38,6 +38,9 @@ All LINQ predicate methods are supported. A string expression which returns a Bo
 
 {% include template-example.html %} 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using System.Linq;
+using Z.Expressions;
 
 var list = ctx.WhereDynamic(x => "x > 2").ToList();
 var list = ctx.WhereDynamic(x => "x > y", new { y = 2 }).ToList();
@@ -47,6 +50,9 @@ var list = ctx.WhereDynamic(x => "x > y", new { y = 2 }).ToList();
 
 {% include template-example.html %} 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using System.Linq;
+using Z.Expressions;
 
 var list = context.Customers.OrderByDescendingDynamic(x => "x.Name").ToList();
 var list = context.Customers.SelectDynamic(x => "x.Name").ToList();
@@ -63,7 +69,10 @@ The Execute method is the LINQ Dynamic ultimate method which lets you evaluate a
 
 {% include template-example.html %} 
 ```csharp
- 
+ // @nuget: Z.Expressions.Eval
+using System.Linq;
+using Z.Expressions;
+
 var list = ctx.Execute<IEnumerable<int>>("Where(x => x > 2)");
 var list3 = ctx.Execute("Where(x => x > y).OrderBy(x => x).ToList()", new { y = 2 });
 

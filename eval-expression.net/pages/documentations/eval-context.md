@@ -1,6 +1,6 @@
 ---
 Name: Eval Context
-LastMod: 2025-07-04
+LastMod: 2025-08-19
 ---
 
 # What is the Eval Context?
@@ -17,6 +17,9 @@ There are 2 ways to use an `EvalContext`:
 The instance context is the common usage you know from a class. You create a new instance of the `EvalContext` and directly use properties and methods from it:
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 // CREATE a new instance of EvalContext
 var context = new EvalContext();
 
@@ -41,6 +44,9 @@ We call it the global context because:
    - `linq.Execute(code)`
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 var list2 = Eval.Execute<List<int>>("new List<int>() { 1, 2, 3 };");
 
 var list3 = "new List<int>() { 1, 2, 3 };".Execute<List<int>>();

@@ -1,7 +1,7 @@
 ---
 Title: Compile C# Code at Runtime - Get Started with your First Compilation
 MetaDescription: Learn how to compile a C# expression at runtime with parameter, return type, and from a dynamic string expression.
-LastMod: 2025-07-04
+LastMod: 2025-08-19
 ---
 
 # My First Compilation
@@ -34,6 +34,9 @@ Like the `Execute` method, the `Compile` method takes as the first parameter the
 In this example, we will dynamically create a list of `int` and filter it using LINQ to return only items greater than 2. The expression will be compiled into a method and then executed. The `Func<List<int>>` return type will be explained in the next example.
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 // NOTE: The returned list contains "3" and "4"
 var compiled = Eval.Compile<Func<List<int>>>(@"
 var list = new List<int>() { 1, 2, 3, 4 };
@@ -59,6 +62,9 @@ You can learn more about [Action](https://learn.microsoft.com/en-us/dotnet/api/s
 We will re-use the same previous example as we now understand how you can specify a return type to the created method.
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 // NOTE: The returned list contains "3" and "4"
 var compiled = Eval.Compile<Func<List<int>>>(@"
 var list = new List<int>() { 1, 2, 3, 4 };
@@ -85,6 +91,9 @@ There are multiple ways to pass variable names, such as:
 In the following example, we will see all the different ways to pass variable names that will be used in our expression to compile.
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 var list = new List<int>() { 1, 2, 3, 4 };
 var greaterThan = 2;
 
@@ -129,6 +138,9 @@ There is no difference here between calling `Eval.Compile` and `"the_string_expr
 In this example, we will compile an expression and loop to show only items in our list that currently have a higher value than the current position in our loop.
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 var list = new List<int>() { 1, 2, 3, 4 };
 
 var expression = "list.Where(x => x > i)";
@@ -152,6 +164,9 @@ All the `Compile` methods we learned in previous examples use the global `EvalCo
 In this example, we will create an instance context, add a new extension method named `GreaterThan` and use the `Compile` method. Then after we will loop to show only items in our list that currently have a higher value than the current position in our loop.
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 var list = new List<int>() { 1, 2, 3, 4 };		
 var context = new EvalContext();
 

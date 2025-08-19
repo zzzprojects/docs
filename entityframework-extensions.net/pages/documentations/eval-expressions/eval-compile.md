@@ -1,6 +1,6 @@
 ---
 Name: Eval.Compile
-LastMod: 2025-06-23
+LastMod: 2025-08-19
 ---
 
 # Eval.Compile
@@ -21,6 +21,9 @@ You can return the delegate as a strongly typed function or action:
 
 ### Example
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 // Delegate Func
 var compiled = Eval.Compile<Func<int, int, int>>("{0} + {1}");
 int result = compiled(1, 2);
@@ -47,6 +50,9 @@ You can return the delegate as a generic delegate:
 
 ### Example
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 // Overload: Up to 9 parameters can be used
 var compiled = Eval.Compile("{0} + {1}", typeof(int), typeof(int));
 object result = compiled(1, 2);

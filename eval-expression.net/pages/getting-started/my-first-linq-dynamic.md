@@ -1,7 +1,7 @@
 ---
 Title: Execute LINQ Dynamic Expression with List and EF Core
 MetaDescription: Learn how to use LINQ Dynamic query to execute methods such as Select, OrderBy, or Where clause dynamically.
-LastMod: 2025-07-04
+LastMod: 2025-08-19
 ---
 
 # My First LINQ Dynamic
@@ -28,6 +28,10 @@ To use our method, you first must add the `using System.Linq;` directive to see 
 In this example, we assume a typical scenario where a developer uses [EF Core](https://www.learnentityframeworkcore.com/) and needs to filter a customer list depending on a custom filter entered by the end-user input. We will filter customers in the database to return only active customers who have logged in since the last month.
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using System.Linq;
+using Z.Expressions;
+
 var customers = context.Customers.WhereDynamic(x => "x.Status == Status && x.LastLogon >= DateTime.Now.AddMonths(-1)").ToList();
 
 // ...or...
@@ -63,6 +67,10 @@ Or some variable to make the expression simpler such as:
 In this example, we will use the same filter as the previous example (return only active customers who have logged in since the last month), but this time, with the help of variables:
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using System.Linq;
+using Z.Expressions;
+
 // Passing parameters with an Anonymous Type using named members
 {
 	var customers = context.Customers.WhereDynamic(x => "x.Status == IsActive && x.LastLogon >= LastMonth", new {
@@ -125,6 +133,10 @@ In this example, we will query customers in the database and:
 - Select columns that we return
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using System.Linq;
+using Z.Expressions;
+
 var environmentVariables = new Dictionary<string, object>();
 
 // ADD Status variables

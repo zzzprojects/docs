@@ -8,6 +8,9 @@ Name: C# Eval Expression
 The **C# Eval Expression** features let you execute code dynamically.
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 var result = Eval.Execute("X + Y", new { X = 1, Y = 2 }); // return 3
 ```
 Try it: [NET Core](https://dotnetfiddle.net/9cFh2u) | [NET Framework](https://dotnetfiddle.net/W9TwcP)
@@ -20,6 +23,9 @@ This feature is provided by the library [C# Eval Expression](https://eval-expres
 Your application needs to set property value from a JSON file you receive.
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 var json = @"
 [
     {
@@ -59,6 +65,9 @@ Try it: [NET Core](https://dotnetfiddle.net/LHqZ3a) | [NET Framework](https://do
 Your application needs to filter returning entities depending on the JSON you receive.
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 var json = @"
 [
     {

@@ -1,6 +1,6 @@
 ---
 Name: LINQ Dynamic
-LastMod: 2025-06-23
+LastMod: 2025-08-19
 ---
 
 # LINQ Dynamic
@@ -39,6 +39,10 @@ You can use any LINQ method that supports predicate with a dynamic C# expression
 
 ### Example
 ```csharp
+// @nuget: Z.Expressions.Eval
+using System.Linq;
+using Z.Expressions;
+
 var list = new List<int>() { 1, 2, 3, 4, 5 };
 
 var list2 = list.WhereDynamic(x => "x > 2");
@@ -48,6 +52,10 @@ var list3 = list.WhereDynamic(x => "x > X", new { X = 2 }); // with parameter
 
 ### Example
 ```csharp
+// @nuget: Z.Expressions.Eval
+using System.Linq;
+using Z.Expressions;
+
 var list = new List<int>() { 5, 2, 4, 1, 3 };
 
 // SelectDynamic
@@ -67,6 +75,10 @@ You can push the LINQ Dynamic experience further by using the Execute method and
 
 ### Example
 ```csharp
+// @nuget: Z.Expressions.Eval
+using System.Linq;
+using Z.Expressions;
+
 var list = new List<int>() { 1, 2, 3, 4, 5 };
 
 var list2 = list.Execute<List<int>>("Where(x => x > 2).OrderBy(x => x).ToList()");

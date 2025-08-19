@@ -20,6 +20,9 @@ This feature is provided by the library [C# Eval Expression](https://eval-expres
 Your application needs to set property value from a JSON file you receive.
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 var json = @"
 [
     {
@@ -59,6 +62,10 @@ Try it: [NET Core](https://dotnetfiddle.net/xPjYVr) | [NET Framework](https://do
 Your application needs to filter returning entities depending on the JSON you receive.
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using System.Linq;
+using Z.Expressions;
+
 var json = @"
 [
     {

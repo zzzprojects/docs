@@ -1,6 +1,6 @@
 ---
 Name: Eval Manager
-LastMod: 2025-07-04
+LastMod: 2025-08-19
 ---
 
 # Eval Manager
@@ -13,7 +13,9 @@ Gets or sets the cache to use to cache compiled delegate.
 
 ### Example
 ```csharp
-// using Z.Expressions; // Don't forget to include this.
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 EvalManager.Cache = MemoryCache.Default;
 ```
 
@@ -35,7 +37,9 @@ The default context is used in static methods:
 
 ### Example
 ```csharp
-// using Z.Expressions; // Don't forget to include this.
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 EvalManager.DefaultContext.RegisterExtensionMethod(typeof(Z.ExtensionMethods))
 
 // Make member case insensitive (Math.pOW = Math.Pow)

@@ -1,6 +1,6 @@
 ---
 Name: Eval.Execute
-LastMod: 2025-06-23
+LastMod: 2025-08-19
 ---
 
 # Eval.Execute
@@ -33,6 +33,9 @@ You can return the result as a strongly typed type:
 ### Example
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 // Parameter: Anonymous Type
 int result = Eval.Execute<int>("X + Y", new { X = 1, Y = 2} );
 
@@ -59,6 +62,9 @@ You can return the result as an object:
 - Eval.Execute(string code, params object[] parameters)
 
 ```csharp
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
 // Parameter: Anonymous Type
 object result = Eval.Execute("X + Y", new { X = 1, Y = 2} );
 
