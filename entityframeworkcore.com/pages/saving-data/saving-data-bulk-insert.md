@@ -34,6 +34,9 @@ Entity Framework Extensions provides an extension method [BulkInsert](https://en
 
 
 ```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
 using (var ctx = new CustomerContext())
 {
     // 1. CREATE a list

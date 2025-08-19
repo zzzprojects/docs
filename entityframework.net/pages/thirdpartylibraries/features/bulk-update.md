@@ -37,7 +37,8 @@ So if you want to modify 10,000 entities, 10,000 database round-trips will be re
 
 
 ```csharp
-// using Z.EntityFramework.Extensions; // Don't forget to include this.
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
 
 // Easy to use
 context.BulkUpdate(list);

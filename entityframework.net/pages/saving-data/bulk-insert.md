@@ -29,6 +29,9 @@ Entity Framework Classic provides an extension method `BulkInsert()` which requi
 The following example, adds a list of authors to the database using the `BulkInsert` method.
  
 ```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
 using (var context = new BookStore())
 {
     List<Author> authors = GetAuthorsList();
