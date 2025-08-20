@@ -62,11 +62,8 @@
    - [WhereBulkNotContainsFilterList](utilities/where-bulk-not-contains-filter-list.md)
    - [EF PostConfigurationCore - DbCommandInterceptor](command-interception-in-ef-core.md)
    - [EF Core - DbConnectionInterceptor](connection-interception-in-ef-core.md)
-   - [EF Core - DbTransactionInterceptor](transaction-interception-in-ef-core.md)
-- C# Eval Expression
-   - [LINQ Dynamic](eval-expressions/linq-dynamic.md)
-   - [Eval.Compile](eval-expressions/eval-compile.md)
-   - [Eval.Execute](eval-expressions/eval-execute.md)  
+   - [EF Core - DbTransactionInterceptor](transaction-interception-in-ef-core.md) 
 - [Articles](articles/bulk-insert-vs-bulk-savechanges.md)
+- [LINQ Dynamic](articles/eval-expressions/linq-dynamic.md)  
 - [Troubleshooting](troubleshooting/trial.md)
 - [Release Notes](https://github.com/zzzprojects/EntityFramework-Extensions/releases)

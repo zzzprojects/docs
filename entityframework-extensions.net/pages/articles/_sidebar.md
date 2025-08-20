@@ -3,6 +3,10 @@
    - [Improve BulkSaveChanges](improve-bulk-savechanges.md)
    - [Benchmark](benchmark.md)
    - [Fastest way to insert](fastest-way-to-insert.md)
+- C# Eval Expression
+   - [Eval.Execute](eval-expressions/eval-execute.md)  
+   - [Eval.Compile](eval-expressions/eval-compile.md)
+   - [LINQ Dynamic](eval-expressions/linq-dynamic.md)
 - Customizations
    - [Adding a namespace to EFE](adding-a-namespace-to-entity-framework-extensions.md)
    - [Use Custom Column](custom-column.md)
