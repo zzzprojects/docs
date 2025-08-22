@@ -21,6 +21,29 @@
 - Articles
    - [Exception - Unknown Error 258](exception-unknown-error-258.md)
    - [Improving Performance of BulkMerge with WhereBulkContains](improving-performance-of-bulkmerge-with-wherebulkcontains.md)
+- Providers
+   - EF Core
+      - [SQL Server](providers/efcore/efcore-sql-server-provider.md)
+      - [SQL Server Compact](providers/efcore/efcore-sql-server-compact-provider.md)
+      - [MySQL](providers/efcore/efcore-mysql-provider.md)
+      - [SQLite](providers/efcore/efcore-sqlite-provider.md)
+      - [Oracle](providers/efcore/efcore-oracle-provider.md)
+      - [PostgreSQL](providers/efcore/efcore-postgresql-provider.md)
+      - [InMemory](providers/efcore/efcore-inmemory-provider.md)
+      - [Pomelo MySql](providers/efcore/efcore-pomelo-mysql-provider.md)
+      - [DevArt MySql](providers/efcore/efcore-devart-mysql-provider.md)
+      - [DevArt Oracle](providers/efcore/efcore-devart-oracle-provider.md)
+      - [Entity Framework Profiler](providers/efcore/efcore-profiler.md)
+   - EF6
+      - [SQL Server](providers/ef6/sql-server-provider.md)
+      - [SQL Server Compact](providers/ef6/sql-server-compact-provider.md)
+      - [MySQL](providers/ef6/mysql-provider.md)
+      - [SQLite](providers/ef6/sqlite-provider.md)
+      - [Oracle](providers/ef6/oracle-provider.md)
+      - [PostgreSQL](providers/ef6/postgresql-provider.md)
+      - [Effort](providers/ef6/effort-provider.md)
+      - [Glimpse](providers/ef6/glimpse.md)
+      - [Entity Framework Profiler](providers/ef6/ef-profiler.md)
 - Misc
    - [EFCore-Pinned Versioning](efcore-pinned-versioning.md)
    - [Edmx](edmx.md)
