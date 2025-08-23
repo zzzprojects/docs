@@ -3,7 +3,7 @@ title: Modifying data via the ExecuteUpdate
 description: Updates all database rows for the entity instances which match the LINQ query from the database. 
 canonical: /dbset/execute-update
 status: Published
-lastmod: 2025-07-11
+lastmod: 2025-08-22
 ---
 
 # EF Core Execute Update
@@ -26,7 +26,7 @@ EF Core 7.0 provides a new method called the `ExecuteUpdate` method that updates
  - Additional commands may need to be sent in the correct order so as not to violate database constraints. For example, update dependents before a principal can be deleted.
  - All of this means that the `ExecuteUpdate` method complements, rather than replaces, the existing `SaveChanges` mechanism.
 
-The `ExecuteUpdate` behaves in a very similar way to the `ExecuteDelete` method. The main difference is that an update requires knowing which properties to update, and how to update them. This is achieved using one or more calls to `SetProperty`. 
+The `ExecuteUpdate` behaves in a very similar way to the [ExecuteDelete](/dbset/execute-delete) method. The main difference is that an update requires knowing which properties to update, and how to update them. This is achieved using one or more calls to `SetProperty`. 
 
 The following example updates the `Name` property of every author.
 
@@ -94,3 +94,70 @@ WHERE NOT EXISTS (
     INNER JOIN [Posts] AS [p0] ON [p].[PostsId] = [p0].[Id]
     WHERE [t].[Id] = [p].[TagsId] AND NOT (DATEPART(year, [p0].[PublishedOn]) < 2022))
 ```
+
+Here’s a drop-in section you can paste into your article.
+
+---
+
+## Is ExecuteUpdate a real “Bulk Update”?
+
+**Short answer: not quite.** `ExecuteUpdate` is a great *set-based* update API built into EF Core: it sends **one SQL statement** that applies **the same update rule** to all rows matching your LINQ filter.
+A [real bulk update](/bulk-extensions/bulk-update) (e.g., with [Entity Framework Extensions](https://entityframework-extensions.net/bulk-update)) is a different class of operation designed for **very large datasets** and **per-row values**, using high-throughput database paths (bulk copy/TVPs, temp tables, `MERGE`, batched `UPDATE JOIN`s) plus a rich feature layer.
+
+### What’s the practical difference?
+
+| Aspect                   | `ExecuteUpdate` (EF Core)                                                                                              | Real Bulk Update ([Entity Framework Extensions](https://entityframework-extensions.net/bulk-update))                                                         |
+| ------------------------ | ---------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
+| How values are supplied  | **Single rule** expressed in LINQ (e.g., `SetProperty(p => p.Price, p => p.Price * 0.9)` applies to all targeted rows) | **Per-entity values** pushed from your in-memory list (each row can get a different value)             |
+| Data path                | Single SQL `UPDATE … WHERE …`                                                                                          | Stages your data (TVP/temp table/bulk copy), then **`UPDATE JOIN`/`MERGE`** for maximal throughput     |
+| Scale & performance      | Fast for set updates; good up to hundreds of thousands of rows                                                         | Optimized for **millions** of rows; minimizes round-trips and log pressure                             |
+| Related data             | Not supported                                                                                                          | **IncludeGraph** to update related entities correctly                                                  |
+| Mapping control          | Limited (set columns you specify)                                                                                      | Fine-grained column include/exclude, key selection, identity handling, computed columns behavior, etc. |
+| Orchestration & batching | No batch knobs                                                                                                         | **BatchSize**, streaming, command timeouts, retry policy hooks                                         |
+| Events & auditing        | None                                                                                                                   | **Pre*/Post* events\*\*, audit stamps, custom logging hooks                                            |
+| Entity tracking          | Does not sync tracked instances                                                                                        | Options to **sync back** generated values or reload as needed                                          |
+
+### A quick mental model
+
+* **`ExecuteUpdate`** = “Tell the database: *update all matching rows like **this***.”
+  Great for **uniform** changes (e.g., “mark all expired coupons as inactive”).
+* **Real bulk update** = “Take **this list** of entities with **their own values**, ship them efficiently to the server, and **apply each value to its matching row**.”
+  Essential when **each row is different** or volumes are huge.
+
+### Concrete example
+
+**Goal:** update 1,000,000 products with **different** `NewPrice` values coming from memory.
+
+```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
+// Per-row values (each product has its own NewPrice)
+var products = GetMillionProductsWithNewPrices();
+
+// Real bulk update: pushes values, uses staging + UPDATE JOIN under the hood
+context.BulkUpdate(products, options =>
+{
+    options.ColumnInputExpression = p => new { p.Id, p.NewPrice }; // update only needed columns
+    options.BatchSize = 10000;
+});
+```
+
+Doing the same with `ExecuteUpdate` **is not feasible** without first staging your values yourself (e.g., creating a temp table, loading it, then hand-writing an `UPDATE JOIN`). EF Extensions automates that pipeline for you.
+
+### When to use which?
+
+* Use **`ExecuteUpdate`** when:
+
+  * The change is **uniform** for all matched rows.
+  * You want a **zero-dependency** solution inside EF Core.
+  * The dataset is modest to medium and you don’t need advanced options.
+
+* Use a **real bulk update** (Entity Framework Extensions) when:
+
+  * Each row needs a **different value** from your in-memory data.
+  * You’re touching **hundreds of thousands to millions** of rows.
+  * You need **upsert/merge**, **graph updates**, or rich **auditing/logging** and **batch controls**.
+
+> Bottom line: `ExecuteUpdate` is a powerful **set-based** tool. A **real bulk update** is a **high-throughput data pipeline** built for scale, per-row values, and advanced orchestration. They complement each other rather than compete.
+

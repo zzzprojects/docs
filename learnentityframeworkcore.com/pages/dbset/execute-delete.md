@@ -3,7 +3,7 @@ title: ExecuteDelete in EF Core – A Faster Way to Delete Entities
 description: Discover how to use the new ExecuteDelete method starting from EF Core 7 to delete entities more efficiently—no tracking, no SaveChanges needed.
 canonical: /dbset/execute-delete
 status: Published
-lastmod: 2025-07-11
+lastmod: 2025-08-22
 ---
 
 # EF Core Execute Delete
@@ -137,6 +137,76 @@ using (var context = new LibraryContext())
     }
 }
 ```
+
+## Is ExecuteDelete a real “Bulk Delete”?
+
+Even though many call it a **bulk delete**, `ExecuteDelete` is not the same as a [real bulk delete](/bulk-extensions/bulk-delete) operation such as the one provided by [Entity Framework Extensions](https://entityframework-extensions.net/bulk-delete).
+
+`ExecuteDelete` is a **set-based SQL shortcut**: it generates a single `DELETE FROM … WHERE …` statement and executes it immediately, without loading entities or using the change tracker. That’s very efficient, but it still differs significantly from a high-throughput bulk delete pipeline.
+
+### Key Differences
+
+| Aspect            | `ExecuteDelete` (EF Core)                       | Real Bulk Delete (Entity Framework Extensions)                              |
+| ----------------- | ----------------------------------------------- | --------------------------------------------------------------------------- |
+| How it works      | Direct `DELETE FROM` SQL with LINQ filter       | Loads entity keys into a staging table, then issues optimized `DELETE JOIN` |
+| Per-row control   | ❌ Same filter applies to all rows               | ✅ Delete a custom list of entities, each row matched individually           |
+| Performance scale | ✅ Fast for set-based deletes                    | 🚀 Optimized for millions of rows (batching,  bulk copy)               |
+| Related entities  | ❌ Must handle order yourself (dependents first) | ✅ `IncludeGraph` to cascade through relationships safely                    |
+| Audit/logging     | ❌ No hooks                                      | ✅ Pre-/Post- events, logging integration                                    |
+| Advanced options  | ❌ None                                          | ✅ Batch size, transaction control, identity/key handling, retries           |
+| Entity sync       | ❌ Tracked entities not updated                  | ✅ Can sync changes back if needed                                           |
+
+---
+
+### A Simple Mental Model
+
+* **`ExecuteDelete`** = “Tell the database: *delete all rows that match this condition*.”
+  Great for **uniform deletes** (e.g., remove all expired sessions).
+
+* **Real Bulk Delete** = “Take this list of entities I already have in memory, push their keys to the database efficiently, and delete **exactly those rows**.”
+  Crucial when you have **specific records** to remove or are working with **millions of rows**.
+
+---
+
+### Example: Deleting Specific Entities
+
+Suppose you need to delete **1,000,000 customers by ID** from a CSV import.
+
+With `ExecuteDelete`, you would need to loop in chunks, manually create filters, or stage data yourself.
+
+With EF Extensions:
+
+```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
+// Delete exactly the customers in this list
+var customersToDelete = GetCustomersFromCsv();
+context.BulkDelete(customersToDelete, options =>
+{
+    options.BatchSize = 10000; // fine-tune performance
+});
+```
+
+Behind the scenes, EF Extensions pushes your IDs into a temporary table and runs a **high-throughput `DELETE JOIN`**—something `ExecuteDelete` cannot do on its own.
+
+---
+
+### When to Use Which?
+
+* Use **`ExecuteDelete`** when:
+
+  * You want to remove rows that all match a **filter condition**.
+  * You want a **native EF Core solution** with no extra library.
+  * The dataset is moderate and you don’t need advanced options.
+
+* Use a **real bulk delete** (Entity Framework Extensions) when:
+
+  * You need to delete a **specific list of entities** with unique IDs/values.
+  * You’re working with **very large datasets** (hundreds of thousands or millions of rows).
+  * You require advanced features like **graph deletes, batching, auditing, or logging**.
+
+---
 
 ## External Resource
 
