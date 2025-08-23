@@ -31,6 +31,12 @@ context.BulkSynchronize(customers, options => {
 
 [Online Example (EF Core)](https://dotnetfiddle.net/v4KQSX) | [Online Example (EF6)](https://dotnetfiddle.net/nZedku)
 
+> ⚠️ **Warning**
+> If you provide an **empty list**, the `BulkSynchronize` method will not be executed.
+>
+> * This is **intentional**: we want to avoid accidentally deleting all the data in your table.
+> * If you are using the `ColumnSynchronizeDeleteKeySubsetExpression` option, there would be no way to know which subset of data should be deleted when the list is empty.
+
 ## 🔑 Key Benefits
 
 One of the main reasons people use our Bulk Synchronize is to **perform add, update, and delete operations exactly the way they want**. Whether you want to remove rows not in your list, soft delete them, or control which properties to update, this method gives you complete control.
