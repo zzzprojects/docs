@@ -49,11 +49,13 @@ We want to save both of us time, and I say this with all respect: I’m not a co
 
 Running a company while helping too many content creators just doesn’t work — I’ve tried. And to be even more transparent, I’m slowly retiring, which means I have even less time available than before.
 
+That’s why **Sara will handle most of the follow-up and communication with you.** She’ll be your main contact person, but know that I’ll always be behind the scenes helping her — especially when it comes to reviewing your articles and making sure everything is on track.
+
 That said, I’ll always do my best to help you and obviously try to give you as much time as I can if you put your effort as well:
 
 * I can review your draft,
 * Give you feedback or direction when it’s needed,
-* Help you to discover more way to use our library,
+* Help you to discover more ways to use our library,
 * And try to make sure everything stays aligned with our goals.
 
 But remember: this is **your** article or video. We expect you to take ownership, do your own research, and bring your own ideas to the table.

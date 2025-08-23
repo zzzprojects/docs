@@ -3,7 +3,7 @@ title: Querying data via the DbSet
 description: The Entity Framework Core DbSet class's role and capabilities in respect of querying data  
 canonical: /dbset/querying-data
 status: Published
-lastmod: 2025-07-11
+lastmod: 2025-08-23
 ---
 
 # EF Core Query
@@ -27,6 +27,60 @@ var data = context.Authors.OrderBy(a => a.LastName);
 ```
 
 This guide uses method syntax in query examples. 
+
+## Entity Framework Extensions
+
+Additional methods to retrieve data exist through the [Entity Framework Extensions](https://entityframework-extensions.net/) library.
+
+These methods are designed to efficiently filter or fetch entities from an **existing list**, even in complex scenarios. Compared to the standard `Contains` method in EF Core, they:
+
+* Work with **any kind of list** (basic types, entities, anonymous types, `ExpandoObject`).
+* Support **multiple keys** or custom join conditions.
+* Handle **millions of items** without SQL limitations.
+* Integrate with batch operations like `UpdateFromQuery`, `DeleteFromQuery`, and more.
+
+Here are some of the most popular ones:
+
+* [BulkRead](https://entityframework-extensions.net/bulk-read): Returns **materialized** entities from the database that match items in the list.
+* [WhereBulkContains](https://entityframework-extensions.net/where-bulk-contains): Filters a query to include entities from the list (like an efficient `Contains` without limitations).
+* [WhereBulkNotContains](https://entityframework-extensions.net/where-bulk-not-contains): Filters a query to exclude entities that are in the list.
+* [WhereBulkContainsFilterList](https://entityframework-extensions.net/where-bulk-contains-filter-list): Filters your list and returns only the items that exist in the database.
+* [WhereBulkNotContainsFilterList](https://entityframework-extensions.net/where-bulk-not-contains-filter-list): Filters your list and returns only the items that don’t exist in the database.
+
+### Example
+
+```csharp
+// Deserialize customers from JSON
+var deserializedCustomers = JsonConvert.DeserializeObject<List<Customer>>(json);
+
+// Retrieve only those customers that exist in the database
+var customers = context.Customers
+    .WhereBulkContains(deserializedCustomers, x => new { x.CustomerID, x.Code })
+    .ToList();
+
+// Filter the original list and keep only existing ones
+var existingCustomers = context.Customers
+    .WhereBulkContainsFilterList(deserializedCustomers, x => x.CustomerID)
+    .ToList();
+```
+
+### Why Use Them?
+
+A common approach is to write something like this:
+
+```csharp
+var customerIds = deserializedCustomers.Select(x => x.CustomerID).ToList();
+var customers = context.Customers.Where(x => customerIds.Contains(x.CustomerID)).ToList();
+```
+
+While this works, it has **important limitations**:
+
+* Only supports simple types like `int` or `Guid`.
+* SQL Server limits the number of items in `IN (...)`.
+* Doesn’t support **composite keys** or advanced join logic.
+
+The methods from Entity Framework Extensions solve all of these issues while staying highly efficient.
+
 
 ## Retrieving a single object
 

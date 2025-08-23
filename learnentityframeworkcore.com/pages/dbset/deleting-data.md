@@ -3,7 +3,7 @@ title: Deleting data via the DbSet
 description: An examination of the methods and approaches available for deleting data via the Entity Framework Core DbSet API 
 canonical: /dbset/deleting-data
 status: Published
-lastmod: 2023-11-22
+lastmod: 2025-08-23
 ---
 
 # EF Core Remove Record
@@ -100,6 +100,27 @@ SELECT @@ROWCOUNT;
 ',N'@p6 int',@p6=1
 ```
 This approach results in _four_ calls being made to the database: one to select the author; one to select the books, one to update the books, and a final one to delete the author. It is therefore always a good idea to make use of the referential integrity constraints to set foreign keys to null or to delete dependents.
+
+## Deleting in Bulk with Entity Framework Extensions
+
+The standard `Remove` and `RemoveRange` methods are fine for small datasets, but they don’t scale well when you need to delete thousands (or millions) of rows. EF Core is still not fully optimized even when batching is enabled.
+
+For true high-performance deletion, you can use the [BulkDelete](https://entityframework-extensions.net/bulk-delete) method from Entity Framework Extensions.
+
+```csharp
+// Standard EF Core approach (multiple DELETE statements)
+context.Authors.RemoveRange(oldAuthors);
+context.SaveChanges();
+
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
+// BulkDelete (single optimized bulk operation)
+context.BulkDelete(oldAuthors);
+```
+
+With `BulkDelete`, all the rows are removed in **one efficient database operation**, making it much faster and more reliable for large data cleanups.
+
 
 #### Further Reading
 

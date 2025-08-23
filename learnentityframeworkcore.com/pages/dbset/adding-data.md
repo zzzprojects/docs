@@ -3,7 +3,7 @@ title: Adding data via the DbSet
 description: An examination of the methods and approaches available for adding data via the Entity Framework Core DbSet API 
 canonical: /dbset/adding-data
 status: Published
-lastmod: 2025-07-11
+lastmod: 2025-08-23
 ---
 
 # EF Core Add Record
@@ -59,7 +59,7 @@ Although the author has been assigned to the `Author` property of each of the bo
 
 ## Adding Multiple Records
 
-The `AddRange` method is used for adding multiple objects to the database in one method call. The code in the next example is very similar to the previous example, but the `AddRange` method is used to save all the books _and_ the author to the database in one go:
+The `AddRange` method is used for adding multiple objects to the `ChangeTracker` in one method call. The code in the next example is very similar to the previous example, but the `AddRange` method is used to add all the books _and_ the author to the `ChangeTracker` in one go:
 
 ```csharp
 var context = new SampleContext();
@@ -88,6 +88,31 @@ context.SaveChanges();
 ```
 
 When the `SaveChanges` method is called on the `DbContext`, all entities with an `EntityState` of `Added` will be inserted into the database. The ordering of the SQL to insert objects is managed in such a way to ensure that principals are inserted first and their primary key value is then available to be applied to the foreign key of dependent objects. 
+
+## ⚠️ Common Misconception: `AddRange` is NOT a Bulk Insert
+
+It’s important to understand that `AddRange` is **not** the same as a bulk insert.
+
+* `AddRange` only adds multiple entities into the **Change Tracker**.
+* When you call `SaveChanges()`, EF Core will insert them into the database.
+
+  * In earlier versions, this happened strictly one by one.
+  * In EF Core 7 and later, inserts are **batched together** to reduce round-trips — but they’re still executed as multiple individual `INSERT` statements.
+* This means it’s much better than before, but still not designed for true high-performance bulk operations.
+
+If you need to insert **thousands or millions of rows efficiently**, you should use the [BulkInsert](https://entityframework-extensions.net/bulk-insert) method from Entity Framework Extensions.
+
+```csharp
+// Using AddRange (EF Core 7+, batched inserts but still individual INSERT statements)
+context.Books.AddRange(books);
+context.SaveChanges();
+
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
+// Using BulkInsert (true bulk operation, single optimized command under the hood)
+context.BulkInsert(books);
+```
 
 #### Further Reading
 

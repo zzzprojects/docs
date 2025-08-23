@@ -4,8 +4,14 @@ description: EF Core support for inheritance uses the Table Per Concrete pattern
 canonical: /inheritance/table-per-concrete
 proficiencylevel: Intermediate
 status: Published
-lastmod: 2025-07-13
+lastmod: 2025-08-23
 ---
+
+---
+
+- [Table Per Concrete (TPC)](/inheritance/table-per-concrete)
+- [Table Per Hierarchy (TPH)](/inheritance/table-per-hierarchy)
+- [Table Per Type (TPT)](/inheritance/table-per-type)
 
 # EF Core TPC Inheritance
 

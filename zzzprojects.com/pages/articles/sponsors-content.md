@@ -58,9 +58,12 @@ Pretty much anything you’re already doing — either **dedicated content** abo
 
 * Newsletter Post
 * Website Post
+   * Adding avertising or sponsored text
 * LinkedIn Post
 * Twitter Post
 * YouTube Video
+  * Add a sponsored text at the top (1–2 lines + link to our library)
+  * Create and pin a comment that highlights our product and links to it
 
 ### Sponsored Content
 

@@ -3,7 +3,7 @@ title: Modifying data via the DbSet
 description: An examination of the methods and approaches available for modifying data via the Entity Framework Core DbSet API 
 canonical: /dbset/modifying-data
 status: Published
-lastmod: 2023-11-22
+lastmod: 2025-08-23
 ---
 
 # EF Core Modify Record
@@ -44,6 +44,24 @@ public void Save(Author author)
 }
 ```
 This method results in the entity being tracked by the context as `Modified`. The context doesn't have any way of identifying which property values have been changed and will generate SQL to update all properties. Any related entities (such as a collection of books in this example) will also be tracked in the `Modified` state, resulting in `UPDATE` statements being generated for each of them. If the related entity doesn't have a key value assigned, it will be marked as `Added`, and an `INSERT` statement will be generated instead.
+
+## Updating in Bulk with Entity Framework Extensions
+
+The standard `Update` and `UpdateRange` methods are fine for small updates, but they don’t scale well when you need to modify thousands (or millions) of rows. EF Core still issues one `UPDATE` per entity, even when batching is enabled.
+
+For true high-performance updates, you can use the [BulkUpdate](https://entityframework-extensions.net/bulk-update) method from Entity Framework Extensions.
+
+```csharp
+// Standard EF Core approach (multiple UPDATE statements)
+context.Authors.UpdateRange(authors);
+context.SaveChanges();
+
+// BulkUpdate (single optimized bulk operation)
+context.BulkUpdate(authors);
+```
+
+With `BulkUpdate`, all rows are updated in **one efficient database operation**, making it much faster and more reliable for large-scale updates.
+
 
 #### Further Reading
 
