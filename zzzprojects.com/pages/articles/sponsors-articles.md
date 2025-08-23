@@ -88,7 +88,7 @@ You can explain:
 
 ---
 
-## C# Eval Expressions
+## C# Eval Expression
 
 These articles are usually written for both libraries: [**LINQ Dynamic**](https://dynamic-linq.net/) and [**C# Eval Expression**](https://eval-expression.net/linq-dynamic).
 
