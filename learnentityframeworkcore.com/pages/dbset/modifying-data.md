@@ -56,6 +56,9 @@ For true high-performance updates, you can use the [BulkUpdate](https://entityfr
 context.Authors.UpdateRange(authors);
 context.SaveChanges();
 
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
 // BulkUpdate (single optimized bulk operation)
 context.BulkUpdate(authors);
 ```
