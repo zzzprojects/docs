@@ -200,6 +200,31 @@ context.BulkInsert(customers, options => {
 	});
 ```
 
+### String Too Long Error on SQL Server (`AutoTruncate`)
+
+When working with **SQL Server**, you might encounter an error if a string value is longer than the column size. This happens because `SqlCommand` and `SqlBulkCopy` behave differently:
+
+* With **no option set** (default = `null`):
+  * `SqlCommand` will work.
+  * `SqlBulkCopy` will throw an error if the string is too long.
+* When `AutoTruncate = true`:
+  * If the string length is too long, **no error** will be thrown. Both `SqlCommand` and `SqlBulkCopy` automatically truncate the value to fit the column length.
+* When `AutoTruncate = false`:
+  * If the string length is too long, an **error will always be thrown**. Both `SqlCommand` and `SqlBulkCopy` enforce the column limit strictly.
+
+👉 This is a **SQL Server–specific issue**. For backward compatibility, we cannot change the default behavior. But you are free to choose the behavior you prefer.
+
+You can even set a global default for all operations in your project:
+
+```csharp
+EntityFrameworkManager.BulkOperationBuilder = builder =>
+{
+    builder.AutoTruncate = false; // or true
+};
+```
+
+This way, you avoid repeating the setting for every call to `BulkInsert`.
+
 ## Limitations
 
 ### Hidden Navigation (EF6 only)

@@ -1,16 +1,18 @@
 ### Dapper
 - Getting Started
    - [Introduction](dapper/dapper.md)
-- Methods
-   - [Execute](dapper/execute.md) 
-   - [ExecuteReader](dapper/execute-reader.md)
-   - [ExecuteScalar](dapper/execute-scalar.md)
+- Query Methods
    - [Query](dapper/query.md)
    - [QueryFirst](dapper/queryfirst.md)
    - [QueryFirstOrDefault](dapper/queryfirstordefault.md)
    - [QuerySingle](dapper/querysingle.md)
    - [QuerySingleOrDefault](dapper/querysingleordefault.md)
    - [QueryMultiple](dapper/querymultiple.md)
+   - [QueryUnbufferedAsync](dapper/queryunbufferedasync.md)
+- Execute Methods
+   - [Execute](dapper/execute.md) 
+   - [ExecuteReader](dapper/execute-reader.md)
+   - [ExecuteScalar](dapper/execute-scalar.md)
 - Parameters
    - [Anonymous](dapper/parameter-anonymous.md)
    - [Dynamic](dapper/parameter-dynamic.md)

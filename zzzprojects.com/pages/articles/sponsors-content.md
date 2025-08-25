@@ -58,20 +58,20 @@ Pretty much anything you’re already doing — either **dedicated content** abo
 
 * Newsletter Post
 * Website Post
-   * Adding avertising or sponsored text
 * LinkedIn Post
 * Twitter Post
 * YouTube Video
-  * Add a sponsored text at the top (1–2 lines + link to our library)
-  * Create and pin a comment that highlights our product and links to it
 
 ### Sponsored Content
 
 * Newsletter Ads
 * Website Ads
+   * Adding avertising or sponsored text
 * LinkedIn Ads
 * Twitter Ads
 * YouTube Video Ads
+  * Add a sponsored text at the top (1–2 lines + link to our library)
+  * Create and pin a comment that highlights our product and links to it
 
 You can find some example of ads on our [sponsors ads page](https://github.com/zzzprojects/docs/blob/master/zzzprojects.com/pages/sponsors-ads.md)
 

@@ -2,7 +2,7 @@
 PermaID: 1000185
 Title: Dapper Transaction - Learn How to Manage your Transaction
 MetaDescription: Unlock the power of Dapper by using Transaction. Learn how to use a transaction when saving data and completing it with 'Commit' or 'Rollback'.
-LastMod: 2025-06-16
+LastMod: 2025-08-25
 ---
 
 # Dapper Transaction: Discover How to Manage your Transaction
@@ -49,6 +49,35 @@ using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlSer
 We also want to make sure that the new customer's data is valid before we [insert it into the database](/execute#example-execute-insert), so we will start a transaction. If the data is valid, we will commit the transaction and insert the new customer. 
 
 Try it: [.NET Core](https://dotnetfiddle.net/C5koRx) | [.NET Framework](https://dotnetfiddle.net/RlZRFz)
+
+⚠️ **Warning**: Don’t assume that disposing a transaction will roll it back automatically.  
+If you don’t call `Commit()`, some providers will leave the transaction in an uncommitted state.  
+
+```csharp
+string sql = "INSERT INTO Customers (CustomerName) Values (@CustomerName);";
+
+using (var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServerW3Schools()))
+{
+    connection.Open();
+	
+    using (var transaction = connection.BeginTransaction())
+    {
+        try
+        {
+            var affectedRows = connection.Execute(sql, new { CustomerName = "Mark" }, transaction: transaction);
+			
+            transaction.Commit(); // ✅ Commit when everything is fine
+			
+            Console.WriteLine(affectedRows);
+        }
+        catch
+        {
+            transaction.Rollback(); // ✅ Rollback if something goes wrong
+            throw;
+        }
+    }
+}
+```
 
 ## TransactionScope
 

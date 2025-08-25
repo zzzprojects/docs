@@ -1,6 +1,6 @@
 ---
 Name: How to filter entities contained from an existing list with Entity Framework?
-LastMod: 2025-06-24
+LastMod: 2025-08-25
 ---
 
 # How to filter entities contained from an existing list with Entity Framework?
@@ -224,9 +224,12 @@ So all three methods are very similar but serve different purposes.
 
 ## What are the limitations?
 
-We currently only support SQL Server and PostgreSQL.
+We currently only support **SQL Server** and **PostgreSQL**.
 
-We do not support inheritance such as `TPC`, `TPH`, and `TPT`
+We do **not** support:
+
+* [ExecuteUpdate](https://www.learnentityframeworkcore.com/dbset/execute-update) and [ExecuteDelete](https://www.learnentityframeworkcore.com/dbset/execute-delete) — supporting these methods would require us to rewrite the entire SQL statement, which ends up being the same as what our existing [UpdateFromQuery](/update-from-query) and [DeleteFromQuery](/delete-from-query) methods already provide.
+* Inheritance mapping strategies such as `TPC`, `TPH`, and `TPT`.
 
 ## Related Solutions
 

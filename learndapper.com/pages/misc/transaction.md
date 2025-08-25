@@ -3,7 +3,7 @@ title: Dapper Transaction
 description: Dapper supports transactions and allows you to commit/rollback the current transaction. Learn more about how to use transactions, transactions scopes, and more.
 canonical: /misc/transaction
 status: Published
-lastmod: 2025-07-10
+lastmod: 2025-08-25
 ---
 
 # Transaction With Dapper
@@ -40,6 +40,33 @@ using (var connection = new SqlConnection(connectionString))
     }
 }
 ```
+
+⚠️ **Warning**: Simply wrapping a transaction in a `using` block does **not** guarantee an automatic rollback. Some database  providers require you to call `Rollback()` explicitly if you don’t commit.
+
+```csharp
+// Open the connection and start a transaction: 
+using (var connection = new SqlConnection(connectionString))
+{ 
+    connection.Open();
+	
+    using (var tran = connection.BeginTransaction()) 
+    { 
+        try
+        {
+            // Execute your queries here
+
+            tran.Commit(); // ✅ Commit when everything is fine
+        }
+        catch
+        {
+            tran.Rollback(); // ✅ Explicit rollback if something goes wrong
+            throw;
+        }
+    }
+}
+```
+
+## Dapper TransactionScope
 
 You can also use the `TransactionScope` class, which provides a much simpler way to deal with transactions: 
 

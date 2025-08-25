@@ -1,7 +1,7 @@
 ---
 Title: Bulk Synchronize in EF Core | Add or update or delete operations
 MetaDescription: Efficiently synchronize Entity Framework data with EF Core Bulk Synchronize Extensions. Easily update, insert and delete large numbers of entities with customizable options for all EF versions, including EF Core 7, 6, 5, 3, and EF6. Optimize your database operations - try it now.
-LastMod: 2025-07-28
+LastMod: 2025-08-25
 ---
 
 # Bulk Synchronize /n Directly execute add, update, and delete operations to mirror data in EF Core
@@ -284,6 +284,10 @@ context.BulkSynchronize(list, options);
    - **Batch:** Customize the `BatchSize`, `BatchTimeout`, and `BatchDelayInterval` to improve performance and control how synchronized entities are grouped and executed.
    - **Hint:** Use `QueryHint` or `TableHintSql` to apply SQL hints for additional performance tuning.
    - **UseTableLock:** Set to `true` to lock the destination table during the synchronize operation, which can improve performance by reducing row-level locks and avoiding lock escalation. This is especially useful when inserting a large number of rows.
+- Providers Specific
+   - **UsePostgreSqlInsertOnConflictDoNothing:** Set to `true` if you want to silently ignore any conflict that would otherwise trigger a constraint violation error, such as a duplicate key.
+   - **UsePostgreSqlInsertOverridingSystemValue:** Set to `true` if you want the values provided in the `INSERT` statement (during the `BulkSynchronize` operation) to take precedence over any default values defined at the database level for system columns. This is useful when you need to insert explicit values for columns like timestamps that are normally managed by the database.
+   - **UsePostgreSqlInsertOverridingUserValue:** Set to `true` if you want the values in the `INSERT` statement (during the `BulkSynchronize` operation) to override any user-defined default values set at the database level. This is helpful when you want the application's data to take priority — especially during automated or bulk inserts.
 - General
    - **Audit:** Track synchronized entities by using the `UseAudit` and `AuditEntries` options. [Learn more here](/audit)
    - **FutureAction:** Batch multiple synchronize operations and execute them later using the `ExecuteFuture` or `ExecuteFutureAsync` methods.
