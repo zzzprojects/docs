@@ -1,7 +1,7 @@
 ---
 Title: Bulk Delete in EF Core | Delete entities without tracking them
 MetaDescription: Efficiently delete Entity Framework data with EF Core Bulk Delete Extensions. Customize options to quickly delete large numbers of entities with ease, compatible with all EF versions including EF Core 7, 6, 5, 3, and EF6. Optimize your database operations - try it now.
-LastMod: 2025-07-28
+LastMod: 2025-09-17
 ---
 
 # Bulk Delete /n Swiftly perform delete operations on thousands of entities in EF Core
@@ -224,12 +224,30 @@ context.BulkDelete(list, options);
    - **Batch:** Customize the `BatchSize`, `BatchTimeout`, and `BatchDelayInterval` to improve performance and control how deleted entities are grouped and executed.
    - **Hint:** Use `QueryHint` or `TableHintSql` to apply SQL hints for additional performance tuning.
    - **UseTableLock:** Set to `true` to lock the destination table during the delete operation, which can improve performance by reducing row-level locks and avoiding lock escalation. This is especially useful when inserting a large number of rows.
+- Providers Specific
+   - **OracleDeleteTableHint:** Gets or sets a "DELETE" hint (for BulkDelete) for ORACLE only.
 - General
    - **Audit:** Track deleted entities by using the `UseAudit` and `AuditEntries` options. [Learn more here](/audit)
    - **FutureAction:** Batch multiple delete operations and execute them later using the `ExecuteFuture` or `ExecuteFutureAsync` methods.
    - **Log:** Log all executed SQL statements using the `Log`, `UseLogDump`, and `LogDump` options. [Learn more here](/logging)
    - **RowsAffected:** Use `UseRowsAffected = true`, then access `ResultInfo.RowsAffected` or `ResultInfo.RowsAffectedDeleted` to get the number of entities deleted. [Learn more here](/rows-affected)
 
+## Troubleshooting
+
+### Lazy Loading + Include Graph
+
+When lazy loading is enabled, using the `IncludeGraph = true` option will also trigger lazy loading and load all related entities. As a result, the entire graph may be deleted.
+
+To avoid this behavior, you need to turn off lazy loading before retrieving your entities:
+
+```csharp
+using (var context = new EntityContext())
+{
+    context.ChangeTracker.LazyLoadingEnabled = false;
+    var invoices = context.Invoices.ToList();
+    context.BulkDelete(invoices, options => options.IncludeGraph = true);
+}
+```
 
 ## Conclusion
 

@@ -1,7 +1,7 @@
 ---
 Title: 100+ Options to Improve Flexibility in Your Data Saving Operations 
 MetaDescription: 100+ Options to Improve Flexibility in Your Data Saving Operations 
-LastMod: 2025-08-19
+LastMod: 2025-09-17
 ---
 
 # 100+ Options /n Add Flexibility to Your Data Saving Operations
@@ -315,11 +315,18 @@ Lambda
    - UsePostgreSqlInsertOnConflictDoNothing
    - UsePostgreSqlInsertOverridingSystemValue
    - UsePostgreSqlInsertOverridingUserValue
+   - UsePostgreOnMergeSqlInsertOnConflictDoUpdate
    - UsePostgreSqlTimeZone
    - UsePostgreSqlUnprepare
    - PostgreSqlBinaryImportTimeout
 - Oracle
    - UseOracleGlobalSequenceIndexTable 
+   - OracleInsertTableHint
+   - OracleSelectInsertIfNotExistsTableHint
+   - OracleUpdateTableHint
+   - OracleDeleteTableHint
+   - OracleMergeInsertTableHint
+   - OracleMergeUpdateTableHint
 - SQL Server
    - SqlBulkCopyOptions
    - DisableSqlBulkCopyDirect

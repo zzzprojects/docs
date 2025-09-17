@@ -1,7 +1,7 @@
 ---
 Title: Bulk Synchronize in EF Core | Add or update or delete operations
 MetaDescription: Efficiently synchronize Entity Framework data with EF Core Bulk Synchronize Extensions. Easily update, insert and delete large numbers of entities with customizable options for all EF versions, including EF Core 7, 6, 5, 3, and EF6. Optimize your database operations - try it now.
-LastMod: 2025-08-25
+LastMod: 2025-09-17
 ---
 
 # Bulk Synchronize /n Directly execute add, update, and delete operations to mirror data in EF Core
@@ -288,6 +288,7 @@ context.BulkSynchronize(list, options);
    - **UsePostgreSqlInsertOnConflictDoNothing:** Set to `true` if you want to silently ignore any conflict that would otherwise trigger a constraint violation error, such as a duplicate key.
    - **UsePostgreSqlInsertOverridingSystemValue:** Set to `true` if you want the values provided in the `INSERT` statement (during the `BulkSynchronize` operation) to take precedence over any default values defined at the database level for system columns. This is useful when you need to insert explicit values for columns like timestamps that are normally managed by the database.
    - **UsePostgreSqlInsertOverridingUserValue:** Set to `true` if you want the values in the `INSERT` statement (during the `BulkSynchronize` operation) to override any user-defined default values set at the database level. This is helpful when you want the application's data to take priority — especially during automated or bulk inserts.
+   - **UsePostgreOnMergeSqlInsertOnConflictDoUpdate:** Set to `true` if you want to instead use a stragegy using the SQL `ON CONFLICT (key) DO UPDATE` clause.
 - General
    - **Audit:** Track synchronized entities by using the `UseAudit` and `AuditEntries` options. [Learn more here](/audit)
    - **FutureAction:** Batch multiple synchronize operations and execute them later using the `ExecuteFuture` or `ExecuteFutureAsync` methods.

@@ -1,6 +1,6 @@
 ---
 Name: How to filter entities contained from an existing list with Entity Framework?
-LastMod: 2025-08-25
+LastMod: 2025-09-17
 ---
 
 # How to filter entities contained from an existing list with Entity Framework?
@@ -41,6 +41,28 @@ However, this solution has some limitations such as:
 - It doesn't support surrogate key (more than one key) or other complex scenarios
 
 The `WhereBulkContains` method lets you filter a query by including all entities from the list. It doesn't have any of the `Contains` method limitations.
+
+## WhereBulkManager
+
+Some global options are only available through the `WhereBulkManager`, such as:
+
+```csharp
+WhereBulkManager.DisableFixedTemporaryTableName = true;
+```
+
+These options can affect all methods:
+
+* [WhereBulkContains](/where-bulk-contains)
+* [WhereBulkNotContains](/where-bulk-not-contains)
+* [BulkRead](/bulk-read)
+* [WhereBulkContainsFilterList](/where-bulk-contains-filter-list)
+* [WhereBulkNotContainsFilterList](/where-bulk-not-contains-filter-list)
+
+### Options
+
+* **BulkOperationBuilder**: Gets or sets the bulk operations builder that will be used when data will be inserted into a temporary table allowing some custom options.
+* **DisableFixedTemporaryTableName**: When true, disables the use of fixed temporary table names and generates unique names instead. By default, fixed names are used to maximize query plan reuse.
+* **ReplaceFirstTableNameOccurrenceOnly**: Gets or sets if only the first occurence of the table name should be replace for methods such as `WhereBulkContains` and other similar methods.
 
 ## FAQ
 

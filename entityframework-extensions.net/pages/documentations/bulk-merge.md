@@ -1,7 +1,7 @@
 ---
 Title: Bulk Merge in EF Core / EF6 | Add or Update (Upsert) your entities
 MetaDescription: Efficiently add or update Entity Framework data with EF Core Bulk Merge Extensions. Perform upsert operations on large numbers of entities with customizable options for all EF versions, including EF Core 7, 6, 5, 3, and EF6. Optimize your database operations - try it now.
-LastMod: 2025-08-25
+LastMod: 2025-09-17
 ---
 
 # Bulk Merge /n Easily perform add or update (Upsert) operations in EF Core
@@ -287,15 +287,35 @@ context.BulkMerge(list, options);
    - **Hint:** Use `QueryHint` or `TableHintSql` to apply SQL hints for additional performance tuning.
    - **UseTableLock:** Set to `true` to lock the destination table during the merge operation, which can improve performance by reducing row-level locks and avoiding lock escalation. This is especially useful when inserting a large number of rows.
 - Providers Specific
+   - **OracleMergeInsertTableHint:** Gets or sets a "INSERT" hint (for BulkMerge) for ORACLE only.
+   - **OracleMergeUpdateTableHint:** Gets or sets a "UPDATE" hint (for BulkMerge) for ORACLE only.
    - **UsePostgreSqlInsertOnConflictDoNothing:** Set to `true` if you want to silently ignore any conflict that would otherwise trigger a constraint violation error, such as a duplicate key.
    - **UsePostgreSqlInsertOverridingSystemValue:** Set to `true` if you want the values provided in the `INSERT` statement (during the `BulkMerge` operation) to take precedence over any default values defined at the database level for system columns. This is useful when you need to insert explicit values for columns like timestamps that are normally managed by the database.
    - **UsePostgreSqlInsertOverridingUserValue:** Set to `true` if you want the values in the `INSERT` statement (during the `BulkMerge` operation) to override any user-defined default values set at the database level. This is helpful when you want the application's data to take priority — especially during automated or bulk inserts.
+   - **UsePostgreOnMergeSqlInsertOnConflictDoUpdate:** Set to `true` if you want to instead use a stragegy using the SQL `ON CONFLICT (key) DO UPDATE` clause. 
 - General
    - **Audit:** Track merged (add or update) entities by using the `UseAudit` and `AuditEntries` options. [Learn more here](/audit)
    - **FutureAction:** Batch multiple merge operations and execute them later using the `ExecuteFuture` or `ExecuteFutureAsync` methods.
    - **Log:** Log all executed SQL statements using the `Log`, `UseLogDump`, and `LogDump` options. [Learn more here](/logging)
    - **RowsAffected:** Use `UseRowsAffected = true`, then access `ResultInfo.RowsAffected` or `ResultInfo.RowsAffectedInserted` and `ResultInfo.RowsAffectedUpdated` to get the number of entities merged (added or updated). [Learn more here](/rows-affected)
 
+## Troubleshooting
+
+### Lazy Loading + Include Graph (Update)
+
+When lazy loading is enabled, using the `IncludeGraph = true` option will also trigger lazy loading and load all related entities. As a result, the entire graph may be updated, even if you didn’t intend to.
+
+To avoid this behavior, you need to turn off lazy loading before retrieving your entities:
+
+```csharp
+using (var context = new EntityContext())
+{
+    context.ChangeTracker.LazyLoadingEnabled = false;
+    var invoices = context.Invoices.ToList();
+	// ...update invoice properties...
+    context.BulkMerge(invoices, options => options.IncludeGraph = true);
+}
+```
 
 ## Conclusion
 

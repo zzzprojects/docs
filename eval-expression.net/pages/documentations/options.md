@@ -1,6 +1,6 @@
 ---
 Name: Eval Expression Options
-LastMod: 2025-08-19
+LastMod: 2025-09-17
 ---
 
 # How to use options with C# Eval Expression library
@@ -16,6 +16,7 @@ First, let's see all available options, and then we will explain them one by one
 | Options  | BindingFlags                         | The BindingFlags option lets you get or set the flags when searching for a member (Property, Field, Method). By default, the BindingFlags value is \`BindingFlags.Public &#124; BindingFlags.NonPublic &#124; BindingFlags.FlattenHierarchy &#124; BindingFlags.IgnoreCase\`.                                                                                                                                                                                                                                                        |
 | Options  | CacheKeyPrefix                       | The CacheKeyPrefix option lets you get or set the prefix in the Cache Key. That option can be helpful if you want to make the cache key more unique. By default, the CacheKeyPrefix value is \`\[evalContext\].GetType().FullName\` (The full name of the EvalContext type).                                                                                                                                                                                                                                                         |
 | Options  | DefaultNumberType                    | The DefaultNumberType option lets you get or set what type a number without a data type suffixes should be. For example, if you set the value to \`DefaultNumberType.Double\`, the expression "1+2" will consider the \`1\` and \`2\` numbers as a double instead of an \`int\` and will return a \`double\`. By default, the DefaultNumberType value is \`DefaultNumberType.None\`, which will act like the default C# behavior with numbers.                                                                                       |
+| Options  | DisableMethodActionFuncCreation 	  | The DisableMethodActionFuncCreation option lets you get or set if the creation of "Method", "Action", and "Func" delegates should be disabled. By disabling it, you can prevent potential recursive calls in the code.																																																																												|
 | Options  | DisableAutoRegisterEntityFramework   | The DisableAutoRegisterEntityFramework option lets you get or set if the auto registration from some method when using Entity Framework Core and EF6 should be disabled. By default, the DisableAutoRegisterEntityFramework value is false.                                                                                                                                                                                                                                                                                         |
 | Options  | DisableAutoReplaceDictionaryKey      | The DisableAutoReplaceDictionaryKey option lets you get or set if the feature that allows using the dictionary keys directly in the expression should be disabled. When true, you will still be able to access the dictionary but no longer be able to use directly dictionary key. By default, the DisableAutoReplaceDictionaryKey value is false.                                                                                                                                                                                 |
 | Options  | DisableConstantFolding      		  | The DisableConstantFolding option lets you get or set if constant folding should be disabled. Constant folding is the logic to replace an equation with 2 constants like `2+3` directly into the constant `5`. This avoids running the addition every time the compiled method is executed.                                                                                                                                                                            															 |
@@ -227,6 +228,16 @@ var r3 = context.Execute<double>("1/2"); // return 0.5
 ```
 
 {% include component-try-it.html href='https://dotnetfiddle.net/ZvibpP' %}
+
+## DisableMethodActionFuncCreation 
+
+The DisableMethodActionFuncCreation option lets you get or set if the creation of "Method", "Action", and "Func" delegates should be disabled. By disabling it, you can prevent potential recursive calls in the code.
+
+In this example, we show that creating "Method", "Action", and "Func" is allowed by default. But when this option is set to true, an error will be raised instead.
+
+```csharp
+// coming soon
+```
 
 ## DisableAutoRegisterEntityFramework
 

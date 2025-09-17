@@ -1,7 +1,7 @@
 ---
 Title: Bulk Update in EF Core with Entity Framework Extensions
 MetaDescription: The BulkUpdate method from Entity Framework Extensions is the most flexible way to update your entities in EF Core. It allows you to customize how your entities will be updated, such as by specifying a custom key, updating only a few properties, and much more. - try it now.
-LastMod: 2025-08-03
+LastMod: 2025-09-17
 ---
 
 # Bulk Update with Entity Framework Extensions /n Easily customize and optimize your entity updates in EF Core now
@@ -217,12 +217,31 @@ context.BulkUpdate(list, options);
    - **Batch:** Customize the `BatchSize`, `BatchTimeout`, and `BatchDelayInterval` to improve performance and control how updated entities are grouped and executed.
    - **Hint:** Use `QueryHint` or `TableHintSql` to apply SQL hints for additional performance tuning.
    - **UseTableLock:** Set to `true` to lock the destination table during the update operation, which can improve performance by reducing row-level locks and avoiding lock escalation. This is especially useful when inserting a large number of rows.
+- Providers Specific
+   - **OracleUpdateTableHint:** Gets or sets a "UPDATE" hint (for BulkUpdate) for ORACLE only.
 - General
    - **Audit:** Track updated entities by using the `UseAudit` and `AuditEntries` options. [Learn more here](/audit)
    - **FutureAction:** Batch multiple update operations and execute them later using the `ExecuteFuture` or `ExecuteFutureAsync` methods.
    - **Log:** Log all executed SQL statements using the `Log`, `UseLogDump`, and `LogDump` options. [Learn more here](/logging)
    - **RowsAffected:** Use `UseRowsAffected = true`, then access `ResultInfo.RowsAffected` or `ResultInfo.RowsAffectedUpdated` to get the number of entities updated. [Learn more here](/rows-affected)
 
+## Troubleshooting
+
+### Lazy Loading + Include Graph (Update)
+
+When lazy loading is enabled, using the `IncludeGraph = true` option will also trigger lazy loading and load all related entities. As a result, the entire graph may be updated, even if you didn’t intend to.
+
+To avoid this behavior, you need to turn off lazy loading before retrieving your entities:
+
+```csharp
+using (var context = new EntityContext())
+{
+    context.ChangeTracker.LazyLoadingEnabled = false;
+    var invoices = context.Invoices.ToList();
+	// ...update invoice properties...
+    context.BulkUpdate(invoices, options => options.IncludeGraph = true);
+}
+```
 
 ## Conclusion
 
