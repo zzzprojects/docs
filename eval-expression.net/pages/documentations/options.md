@@ -1,6 +1,6 @@
 ---
 Name: Eval Expression Options
-LastMod: 2025-09-17
+LastMod: 2025-09-20
 ---
 
 # How to use options with C# Eval Expression library
@@ -236,8 +236,59 @@ The DisableMethodActionFuncCreation option lets you get or set if the creation o
 In this example, we show that creating "Method", "Action", and "Func" is allowed by default. But when this option is set to true, an error will be raised instead.
 
 ```csharp
-// coming soon
+var context = new EvalContext();
+context.UseCache = false;
+
+// context.DisableMethodActionFuncCreation = true;
+context.DisableMethodActionFuncCreation = true;
+{
+	try
+	{			
+		var r1 = context.Execute(@"
+Func<int> testFunc = () => 3;
+var rTestFunc = testFunc();
+return rTestFunc;
+");
+		Console.WriteLine($"R1: {r1}");
+	}
+	catch (Exception ex)
+	{
+		Console.WriteLine($"R1: {ex.Message}");
+	}
+	
+				try
+	{			
+		var r2 = context.Execute(@"
+Action testFunc = () => { };
+testFunc();
+return 3;
+");
+		Console.WriteLine($"R2: {r2}");
+	}
+	catch (Exception ex)
+	{
+		Console.WriteLine($"R2: {ex.Message}");
+	}
+	
+	try
+	{			
+		var r3 = context.Execute(@"
+public int TestFunc()
+{
+return 3;
+}
+return TestFunc();
+");
+		Console.WriteLine($"R3: {r3}");
+	}
+	catch (Exception ex)
+	{
+		Console.WriteLine($"R3: {ex.Message}");
+	}
+}	
 ```
+
+{% include component-try-it.html href='https://dotnetfiddle.net/KF7e5o' %}
 
 ## DisableAutoRegisterEntityFramework
 

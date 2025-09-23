@@ -1,7 +1,7 @@
 ---
 Title: Temporary Table in Entity Framework Extensions  
 MetaDescription: Learn how to configure temporary tables in Entity Framework Extensions. Control naming, batching, locking, schema, and persistence to optimize bulk operations for performance, debugging, and concurrency.
-LastMod: 2025-08-19
+LastMod: 2025-09-23
 ---
 
 # 🧪 Temporary Table in Entity Framework Extensions /n Control how staging tables are created and used
@@ -23,6 +23,7 @@ Here’s a quick guide to every available option in Entity Framework Extensions 
 * [TemporaryTableName](#temporarytablename) — set a custom name for the temporary table
 * [TemporaryTableSchemaName](#temporarytableschemaname) — choose the schema for the temporary table
 * [TemporaryTableUseSameName](#temporarytableusesamename) — reuse the same table name instead of generating one
+* [ResolveTemporaryTableName](#resolvedtemporarytablename) — get the final temporary table name used (generated or provided).
 
 ### 🛠️ Creation & Lifecycle
 
@@ -34,7 +35,7 @@ Here’s a quick guide to every available option in Entity Framework Extensions 
 
 ### ⚡ Performance & Batching
 
-* [TemporaryTableBatchByTable](#temporarytablebatchbytable) — dynamically set the batch size by dividing the total number of rows by the specified number of batches.
+* [TemporaryTableBatchByTable](#temporarytablebatchbytable) — define the number of batch per temporary table
 * [TemporaryTableInsertBatchSize](#temporarytableinsertbatchsize) — define the number of rows per batch when inserting into the temporary table
 * [TemporaryTableMinRecord](#temporarytableminrecord) — set the minimum row count before switching to a temporary table strategy
 * [DisableTemporaryTableClusteredIndex](#disabletemporarytableclusteredindex) — prevent creation of a clustered index on the temporary table (can improve performance in some scenarios)
@@ -50,12 +51,11 @@ Here’s a quick guide to every available option in Entity Framework Extensions 
 | **Goal**                         | **Best Options**                                                                                 | **Notes**                                                                                                   |
 | -------------------------------- | ------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------- |
 | Debug or inspect staged data     | `TemporaryTablePersist`, `UsePermanentTable`                                                     | Tables stay visible; temp persists only while connection is open; permanent persists until dropped manually |
-| Stable table naming              | `TemporaryTableName`, `TemporaryTableUseSameName`, `TemporaryTableSchemaName`                    | Useful for debugging/profiling; ⚠️ risky with concurrent jobs (name conflicts)                              |
+| Stable table naming              | `TemporaryTableName`, `TemporaryTableUseSameName`, `TemporaryTableSchemaName`, `ResolveTemporaryTableName`                    | Useful for debugging/profiling; ⚠️ risky with concurrent jobs (name conflicts)                              |
 | Faster inserts                   | `TemporaryTableInsertBatchSize`, `DisableTemporaryTableClusteredIndex`, `TemporaryTableIsMemory` | Larger batch size = faster; disabling index speeds inserts but slows merge                                  |
 | Avoid staging for small sets     | `TemporaryTableMinRecord` (default = 20)                                                         | Inline table used for <20 rows; ⚠️ keep low due to SQL parameter limits                                     |
 | Control table creation           | `TemporaryTableCreate`, `TemporaryTableCreateAndDrop`                                            | Needed when providing your own `TemporaryTableName`; `CreateAndDrop` is safest                              |
 | Improve throughput on large jobs | `TemporaryTableUseTableLock` (default = true)                                                    | Default lock speeds inserts; can cause blocking with shared/global tables                                   |
-| Split giant batches              | `TemporaryTableBatchByTable`                                                                     | Divides work into multiple staging tables for very large datasets                                           |
 
 
 ---
@@ -85,6 +85,8 @@ context.BulkMerge(list, options =>
 	options.TemporaryTableCreateAndDrop = true;
 });
 ```
+
+[Online Example](https://dotnetfiddle.net/fSOpPn)
 
 ### 💡 Why it can be useful
 
@@ -152,6 +154,42 @@ context.BulkMerge(list, options =>
 * **Query plan reuse** → SQL Server can cache and reuse execution plans more efficiently when the table name stays the same.
 * **Better troubleshooting** → Helpful if you need to capture or inspect intermediate data during bulk operations.
 
+---
+
+## 🏷️ ResolveTemporaryTableName
+
+Gets the final temporary table name used during the operation (whether it was automatically generated or explicitly provided).
+
+This option is especially useful when combined with [`TemporaryTablePersist`](#temporarytablepersist), since the temporary table remains available after the operation and you may want to query it directly.
+
+For example:
+
+```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
+string temporaryTableName;
+
+context.BulkMerge(list, options =>
+{
+    options.TemporaryTablePersist = true;
+
+    options.BulkOperationExecuted = op =>
+    {
+        // Capture the resolved temporary table name after execution
+        temporaryTableName = op.ResolveTemporaryTableName;
+    };
+});
+
+Console.WriteLine($"Temporary table created: {temporaryTableName}");
+```
+
+### 💡 Why it can be useful
+
+* **Debugging** → Know exactly which table was created during the operation.
+* **Custom queries** → When using `TemporaryTablePersist`, you can run queries directly on the temporary table.
+* **Future operations** → Reuse the persisted temporary table data for later queries or other bulk operations.
+* **Logging & monitoring** → Capture the resolved name for auditing or troubleshooting.
 
 ---
 
@@ -255,7 +293,34 @@ Once the connection is closed or disposed, SQL Server automatically drops the ta
 
 ## 🏷️ TemporaryTableIsMemory
 
-[TODO]
+Use a memory-optimized table instead of a regular temporary table.
+
+When enabled, the bulk operation will insert data into a memory-optimized table, which can reduce disk I/O overhead in scenarios where `tempdb` performance is a bottleneck.
+
+```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
+context.BulkMerge(list, options =>
+{
+    options.TemporaryTableName = "Memory_TestTable";
+    options.TemporaryTableIsMemory = true;    // Use a memory-optimized table
+    options.TemporaryTablePersist = true;     // Keep the table for reuse
+});
+```
+
+### 💡 Why it can be useful
+
+* **Reduce I/O bottlenecks** → Avoids hitting disk (`WRITELOG`, `PAGEIOLATCH_EX`) since data is stored in memory.
+* **Performance gains** → Can provide explosive performance improvements when `tempdb` is slow.
+* **Works with `TemporaryTablePersist`** → Reuse the same memory table across operations.
+* **ETL & staging scenarios** → Excellent for high-volume data loads where SELECT operations need to be very fast.
+
+### ⚠️ Limitations
+
+* **Transaction support** → Memory-optimized tables don’t behave well under all isolation levels. For example, `READ COMMITTED` is not supported for explicit transactions. You may need hints like `WITH (SNAPSHOT)`.
+* **Overhead for create/drop** → Creating/dropping memory tables at runtime can be slow (200ms+). Best practice is to pre-create the staging table and reuse it.
+* **Insert speed** → In practice, `SqlBulkCopy` into memory tables may not always be faster than into regular temp tables. Gains depend on workload and environment.
 
 ---
 
@@ -292,7 +357,18 @@ context.BulkMerge(list, options =>
 
 ## 🏷️ TemporaryTableBatchByTable
 
-[TODO]
+Controls how many batches are stored in the same temporary table.
+
+```csharp
+options.TemporaryTableBatchByTable = 5;
+```
+
+### ⚠️ Important
+
+This option exists only for very rare scenarios.
+In most cases, it adds complexity and slows down performance.
+
+👉 We strongly recommend **not using this option** unless you know exactly why you need it.
 
 ---
 

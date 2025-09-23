@@ -1,13 +1,13 @@
 ---
 Name: Unknown error 258
-LastMod: 2023-09-21
+LastMod: 2025-09-23
 ---
 
 # Unknown error 258
 
 One of our customers reported to us a strange timeout error when using our [UpdateFromQuery](/update-from-query) method with SQL Server:
 
-```txt
+```csharp
 An error occurred while saving the entity changes. See the inner exception for details.
 Execution Timeout Expired. The timeout period elapsed prior to completion of the operation or the server is not responding.
 Unknown error 258
@@ -30,6 +30,7 @@ For developers using Azure (or even Azure on Linux), we found three causes:
 - [Azure Max DTU](https://github.com/dotnet/SqlClient/issues/1530#issuecomment-1089243719): [oyvos](https://github.com/oyvost) mentioned that this error commonly occurs when Azure reaches the DTU limit.
 - [MARS Enabled](https://github.com/dotnet/SqlClient/issues/422): [pawelpabich](https://github.com/pawelpabich) mentioned having this issue when he has MARS enabled. In his case, he simply turned it off.
 - [Transaction Scope](https://github.com/dotnet/SqlClient/issues/647#issuecomment-1602980797): [tobyreid](https://github.com/tobyreid) mentioned this issue was due to using `TransactionScope`. In his case, he removed the `TransactionScope`, although increasing the command timeout might also fix it.
+- **Automatic Index Tuning:** Another cause we’ve seen reported is when **“Automatic Index Tuning”** was enabled in Azure. This feature automatically created several poorly performing indexes, which made performance worse instead of better. Honestly, a system (or AI) should only *suggest* indexes—never create them for you. Never trust any system to be smarter than you when it comes to designing indexes. In that case, simply removing the bad indexes and turning off the option fixed the problem.
 
 ## Conclusion
 
