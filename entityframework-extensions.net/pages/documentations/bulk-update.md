@@ -1,7 +1,7 @@
 ---
 Title: Bulk Update in EF Core with Entity Framework Extensions
 MetaDescription: The BulkUpdate method from Entity Framework Extensions is the most flexible way to update your entities in EF Core. It allows you to customize how your entities will be updated, such as by specifying a custom key, updating only a few properties, and much more. - try it now.
-LastMod: 2025-09-17
+LastMod: 2025-10-04
 ---
 
 # Bulk Update with Entity Framework Extensions /n Easily customize and optimize your entity updates in EF Core now
@@ -52,6 +52,32 @@ With our `BulkUpdate` from Entity Framework Extensions, you can just **create th
 
 For fairness, our online benchmark **also includes retrieving entities from the database**, so the comparison remains honest and realistic.
 
+### 📊 Benchmark Results
+
+The tables above give you a quick idea of the performance gains when using **Bulk Update**.  
+But to give you a more complete picture, we also ran **extensive benchmarks across all major database providers** with BenchmarkDotNet.
+
+👉 Explore detailed results:  
+
+- By provider (EF Core):
+   - [SQL Server](https://github.com/zzzprojects/EntityFramework-Extensions/blob/master/benchmark-result/efcore-sqlserver.md)
+   - [PostgreSQL](https://github.com/zzzprojects/EntityFramework-Extensions/blob/master/benchmark-result/efcore-postgresql.md)
+   - [MySQL](https://github.com/zzzprojects/EntityFramework-Extensions/blob/master/benchmark-result/efcore-mysql.md)
+   - [MariaDB](https://github.com/zzzprojects/EntityFramework-Extensions/blob/master/benchmark-result/efcore-mariadb.md)
+   - [Oracle](https://github.com/zzzprojects/EntityFramework-Extensions/blob/master/benchmark-result/efcore-oracle.md)
+   - [SQLite](https://github.com/zzzprojects/EntityFramework-Extensions/blob/master/benchmark-result/efcore-sqlite.md)  
+- By operation (EF Core):
+   - [Bulk Insert](https://github.com/zzzprojects/EntityFramework-Extensions/blob/master/benchmark-result/efcore-bulk-insert.md)
+   - [Bulk Update](https://github.com/zzzprojects/EntityFramework-Extensions/blob/master/benchmark-result/efcore-bulk-update.md)
+   - [Bulk Delete](https://github.com/zzzprojects/EntityFramework-Extensions/blob/master/benchmark-result/efcore-bulk-delete.md)
+   - [Bulk Merge](https://github.com/zzzprojects/EntityFramework-Extensions/blob/master/benchmark-result/efcore-bulk-merge.md)
+   - [Bulk SaveChanges](https://github.com/zzzprojects/EntityFramework-Extensions/blob/master/benchmark-result/efcore-bulk-savechanges.md)
+   - [Bulk Synchronize](https://github.com/zzzprojects/EntityFramework-Extensions/blob/master/benchmark-result/efcore-bulk-synchronize.md)  
+
+Here’s an example chart for **SQL Server – Bulk Update** comparing **EF Core SaveChanges** vs **EF Extensions BulkUpdate**:
+
+![Benchmark EF Core vs EF Extensions – SQL Server - Bulk Update](https://raw.githubusercontent.com/zzzprojects/EntityFramework-Extensions/master/images/benchmark-efcore-vs-efe-sqlserver-bulk-update.png)
+
 ### EF Core vs Entity Framework Extensions
 
 | Operation                           | 1,000 Entities | 2,000 Entities | 5,000 Entities |
@@ -66,7 +92,6 @@ In other words, to update 5,000 entities, our `BulkUpdate` is about **4x faster*
 If you [Include your Graph](https://entityframework-extensions.net/include-graph), the performance difference will be even greater — while only using a **small memory footprint**.
 
 Learn more about it in our section on [Memory & Performance Improvements](https://entityframework-extensions.net/v7-100-0-0-include-graph#memory-performance-improvements).
-
 
 ### EF6 vs Entity Framework Extensions
 

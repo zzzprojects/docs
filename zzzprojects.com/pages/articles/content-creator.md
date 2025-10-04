@@ -100,6 +100,9 @@ Around **80% of our clients use SQL Server**, so let’s make sure we’re targe
 
 Whenever possible, please use **SQL Server** as the default provider in your examples — instead of alternatives like SQLite or PostgreSQL.
 
+You can now find a **Benchmark project** and multiple **benchmark results** in our GitHub repository:
+[https://github.com/zzzprojects/EntityFramework-Extensions?tab=readme-ov-file#-benchmark-results](https://github.com/zzzprojects/EntityFramework-Extensions?tab=readme-ov-file#-benchmark-results)
+
 ### ChatGPT and Other AI Tools
 
 We understand that you’ll likely use AI tools like ChatGPT to help you write your article — and that’s totally fine.

@@ -1,7 +1,7 @@
 ---
 Title: Bulk Extensions for EF Core | Bulk Insert, Update, Delete, Merge & Upsert
 MetaDescription: Learn how to use Bulk Extensions in EF Core to boost your CRUD operations performance. Discover how to save entities faster and by using less memory. Try it now.
-LastMod: 2025-07-31
+LastMod: 2025-10-04
 ---
 
 # Bulk Extensions for EF Core with Entity Framework Extensions
@@ -38,6 +38,32 @@ Let’s compare the performance of Entity Framework Extensions to EF Core `SaveC
 | Memory      |    400 MB    |   1800 MB   |
 
 With Entity Framework Extensions, you can boost performance by more than **5x** and reduce memory usage to just **20%** of what `SaveChanges` consumes.
+
+### 📊 Benchmark Results
+
+The tables above give you a quick idea of the performance gains when using **Bulk Insert**.  
+But to give you a more complete picture, we also ran **extensive benchmarks across all major database providers** with BenchmarkDotNet.
+
+👉 Explore detailed results:  
+
+- By provider (EF Core):
+   - [SQL Server](https://github.com/zzzprojects/EntityFramework-Extensions/blob/master/benchmark-result/efcore-sqlserver.md)
+   - [PostgreSQL](https://github.com/zzzprojects/EntityFramework-Extensions/blob/master/benchmark-result/efcore-postgresql.md)
+   - [MySQL](https://github.com/zzzprojects/EntityFramework-Extensions/blob/master/benchmark-result/efcore-mysql.md)
+   - [MariaDB](https://github.com/zzzprojects/EntityFramework-Extensions/blob/master/benchmark-result/efcore-mariadb.md)
+   - [Oracle](https://github.com/zzzprojects/EntityFramework-Extensions/blob/master/benchmark-result/efcore-oracle.md)
+   - [SQLite](https://github.com/zzzprojects/EntityFramework-Extensions/blob/master/benchmark-result/efcore-sqlite.md)  
+- By operation (EF Core):
+   - [Bulk Insert](https://github.com/zzzprojects/EntityFramework-Extensions/blob/master/benchmark-result/efcore-bulk-insert.md)
+   - [Bulk Update](https://github.com/zzzprojects/EntityFramework-Extensions/blob/master/benchmark-result/efcore-bulk-update.md)
+   - [Bulk Delete](https://github.com/zzzprojects/EntityFramework-Extensions/blob/master/benchmark-result/efcore-bulk-delete.md)
+   - [Bulk Merge](https://github.com/zzzprojects/EntityFramework-Extensions/blob/master/benchmark-result/efcore-bulk-merge.md)
+   - [Bulk SaveChanges](https://github.com/zzzprojects/EntityFramework-Extensions/blob/master/benchmark-result/efcore-bulk-savechanges.md)
+   - [Bulk Synchronize](https://github.com/zzzprojects/EntityFramework-Extensions/blob/master/benchmark-result/efcore-bulk-synchronize.md)  
+
+Here’s an example chart for **SQL Server – Bulk Insert** comparing **EF Core SaveChanges** vs **EF Extensions BulkInsert**:
+
+![Benchmark EF Core vs EF Extensions – SQL Server - Bulk Insert](https://raw.githubusercontent.com/zzzprojects/EntityFramework-Extensions/master/images/benchmark-efcore-vs-efe-sqlserver-bulk-insert.png)
 
 ## Which Bulk Methods Does Entity Framework Extensions Support?
 

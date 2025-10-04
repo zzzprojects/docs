@@ -1,7 +1,7 @@
 ---
 Title: Bulk Delete in EF Core | Delete entities without tracking them
 MetaDescription: Efficiently delete Entity Framework data with EF Core Bulk Delete Extensions. Customize options to quickly delete large numbers of entities with ease, compatible with all EF versions including EF Core 7, 6, 5, 3, and EF6. Optimize your database operations - try it now.
-LastMod: 2025-09-17
+LastMod: 2025-10-04
 ---
 
 # Bulk Delete /n Swiftly perform delete operations on thousands of entities in EF Core
@@ -59,6 +59,32 @@ Our library supports all the common scenarios — and almost everything you can 
 [Try it in EF Core](https://dotnetfiddle.net/9r3vLC) | [Try it in EF6](https://dotnetfiddle.net/qYjiA9)
 
 > HINT: A lot of factors might affect the benchmark time such as index, column type, latency, throttling, etc.
+
+### 📊 Benchmark Results
+
+The tables above give you a quick idea of the performance gains when using **Bulk Delete**.  
+But to give you a more complete picture, we also ran **extensive benchmarks across all major database providers** with BenchmarkDotNet.
+
+👉 Explore detailed results:  
+
+- By provider (EF Core):
+   - [SQL Server](https://github.com/zzzprojects/EntityFramework-Extensions/blob/master/benchmark-result/efcore-sqlserver.md)
+   - [PostgreSQL](https://github.com/zzzprojects/EntityFramework-Extensions/blob/master/benchmark-result/efcore-postgresql.md)
+   - [MySQL](https://github.com/zzzprojects/EntityFramework-Extensions/blob/master/benchmark-result/efcore-mysql.md)
+   - [MariaDB](https://github.com/zzzprojects/EntityFramework-Extensions/blob/master/benchmark-result/efcore-mariadb.md)
+   - [Oracle](https://github.com/zzzprojects/EntityFramework-Extensions/blob/master/benchmark-result/efcore-oracle.md)
+   - [SQLite](https://github.com/zzzprojects/EntityFramework-Extensions/blob/master/benchmark-result/efcore-sqlite.md)  
+- By operation (EF Core):
+   - [Bulk Insert](https://github.com/zzzprojects/EntityFramework-Extensions/blob/master/benchmark-result/efcore-bulk-insert.md)
+   - [Bulk Update](https://github.com/zzzprojects/EntityFramework-Extensions/blob/master/benchmark-result/efcore-bulk-update.md)
+   - [Bulk Delete](https://github.com/zzzprojects/EntityFramework-Extensions/blob/master/benchmark-result/efcore-bulk-delete.md)
+   - [Bulk Merge](https://github.com/zzzprojects/EntityFramework-Extensions/blob/master/benchmark-result/efcore-bulk-merge.md)
+   - [Bulk SaveChanges](https://github.com/zzzprojects/EntityFramework-Extensions/blob/master/benchmark-result/efcore-bulk-savechanges.md)
+   - [Bulk Synchronize](https://github.com/zzzprojects/EntityFramework-Extensions/blob/master/benchmark-result/efcore-bulk-synchronize.md)  
+
+Here’s an example chart for **SQL Server – Bulk Delete** comparing **EF Core SaveChanges** vs **EF Extensions BulkDelete**:
+
+![Benchmark EF Core vs EF Extensions – SQL Server - Bulk Delete](https://raw.githubusercontent.com/zzzprojects/EntityFramework-Extensions/master/images/benchmark-efcore-vs-efe-sqlserver-bulk-delete.png)
 
 ### Scenarios
 The `BulkDelete` method is **fast** but also **flexible** to let you handle various scenarios in Entity Framework such as:
