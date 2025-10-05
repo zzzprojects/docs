@@ -1,19 +1,23 @@
 ---
 title: ZZZ Projects - Expert in Dapper ORM & Bulk Operations with Dapper Plus
-description:  ZZZ Projects is a software development company that specializes in creating tools and solutions for .NET developers. With a focus on Dapper ORM and related technologies, their popular Dapper Plus tool improves saving performance with bulk operations. Trust ZZZ Projects for high-quality, easy-to-use software solutions that help developers be more productive and efficient in their work.
+description: ZZZ Projects is a software development company led by Jonathan Magnan, specializing in tools and solutions for .NET developers. Known for Dapper Plus and Entity Framework Extensions, ZZZ Projects helps developers improve performance, simplify their code, and save time.
 canonical: /zzzprojects
 status: Published
-lastmod: 2025-07-09
+lastmod: 2025-10-05
 ---
 
 # ZZZ Projects Bio
 
-[ZZZ Projects](https://zzzprojects.com/) is a software development company that specializes in creating tools and solutions for .NET developers. Founded in 2014, the company has become an expert in the use of Dapper ORM, a popular open-source Object-Relational Mapping (ORM) tool for .NET.
+<img src="/images/jonathan-magnan-athena.jpg" width="480" height="640" alt="Jonathan Magnan, owner of Learn Dapper, Dapper Plus, and ZZZ Projects" />
 
-One of ZZZ Projects' most popular tools is [Dapper Plus](https://dapper-plus.net/), which is designed to improve saving performance with bulk operations. With Dapper Plus, developers can save multiple records in a single database round-trip, which can significantly improve performance and reduce the amount of code required to perform these operations.
+[ZZZ Projects](https://zzzprojects.com/) is a software development company that specializes in creating tools and solutions for .NET developers. Founded in 2014 by [**Jonathan Magnan**](https://jonathanmagnan.com/), the company has become an expert in performance optimization, focusing on Dapper ORM and Entity Framework technologies.
 
-In addition to their work on Dapper ORM and related tools, ZZZ Projects offers a range of other software development tools and services. These include Entity Framework Extensions, which provides additional functionality for working with Entity Framework, as well as consulting and training services for .NET developers.
+Jonathan is a passionate developer and entrepreneur who has spent over a decade helping the .NET community build faster, cleaner, and more reliable applications. Through ZZZ Projects, he has created libraries used by thousands of companies worldwide — from startups to Fortune 500 organizations.
 
-ZZZ Projects is known for their focus on creating high-quality, easy-to-use software solutions that help developers be more productive and efficient in their work. Their team of experienced developers is dedicated to staying up-to-date with the latest trends and technologies in the software development industry, and they are committed to providing exceptional support and service to their customers.
+One of ZZZ Projects' most popular tools is [**Dapper Plus**](https://dapper-plus.net/), designed to improve saving performance with bulk operations. With Dapper Plus, developers can save multiple records in a single database round-trip, significantly boosting performance while keeping code simple and clean.
 
-Overall, ZZZ Projects is a trusted partner for .NET developers who are looking for reliable, high-performance tools and solutions to help them build better software faster. Whether you are a solo developer or part of a large development team, ZZZ Projects has the expertise and tools you need to be successful in your work.
+In addition to their work on Dapper ORM and related tools, ZZZ Projects offers a range of other software development solutions, including [**Entity Framework Extensions**](https://entityframework-extensions.net/), which provides advanced functionality for working with Entity Framework. The company also offers consulting and training services for .NET developers who want to get the most out of their data access layer.
+
+ZZZ Projects is known for its focus on creating high-quality, easy-to-use tools that make developers more productive and efficient. The team is dedicated to staying up to date with the latest .NET trends and technologies and remains committed to providing exceptional support and long-term value to its users.
+
+Whether you are a solo developer or part of a large enterprise team, ZZZ Projects — and its founder, Jonathan Magnan — are trusted partners for anyone who wants to write faster, cleaner, and smarter .NET code.

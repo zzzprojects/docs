@@ -46,9 +46,9 @@ ZZZ Projects adds value to the .NET community through sponsorship:
    - [GraphQL.EntityFramework](https://github.com/SimonCropp/GraphQL.EntityFramework)
    - [LINQ Dynamic](https://github.com/zzzprojects/System.Linq.Dynamic.Core)
 - High Contributors
-   - [StefH](https://www.nuget.org/profiles/sheyenrath): He supports **247 packages** with over **450 million** total downloads
-   - [Simmoncropp](https://www.nuget.org/profiles/simoncropp): He supports **247 packages** with over **450 million** total downloads
-   - [Khellang](https://www.nuget.org/profiles/khellang): He supports **30 packages** with over **225 million** downloads
+   - [StefH](https://www.nuget.org/profiles/sheyenrath): He supports **173 packages** with over **750 million** total downloads
+   - [Simmoncropp](https://www.nuget.org/profiles/simoncropp): He supports **256 packages** with over **540 million** total downloads
+   - [Khellang](https://www.nuget.org/profiles/khellang): He supports **30 packages** with over **260 million** downloads
 
 If our company continues to grow in 2025/2026, we plan to sponsor 5-10 more open-source libraries that I personally use for my projects.
 
