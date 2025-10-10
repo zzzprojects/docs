@@ -16,6 +16,8 @@ How are we adding value to the .NET community exactly? Let's explore this togeth
 
 ## Sponsorship
 
+To understand what sponsorship truly means to our company, read the following article: [What Sponsorship Means to Me (and to ZZZ Projects)](https://jonathanmagnan.com/what-sponsorship-means-to-me-and-to-zzz-projects/)
+
 Nowadays, it's rare to work on a project that doesn't use any open source library. One of the main advantages and disadvantages of using them is: **They are FREE**.
 
 So how exactly is being free a disadvantage? Sure, it's free for companies to use them, but usually (99.99% of the time), those companies don't sponsor the owner of the library to help with maintenance. So after a few years, we find out:
