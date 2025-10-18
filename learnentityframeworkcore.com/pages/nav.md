@@ -10,10 +10,13 @@
         <li>
             <a href="/extensions">Extensions</a>
             <ul class="nav-level-two" data-display="raw-sql">
+				<li><a href="/extensions/entity-framework-extensions">Entity Framework Extensions</a></li>
                 <li><a href="/extensions/audit-entityframework-core">Audit EntityFramework Core</a></li>
 				<li><a href="/extensions/entitycloner-microsoft-entityframeworkcore">EntityCloner Microsoft EntityFrameworkCore</a></li>
 				<li><a href="/extensions/entityframeworkcore-sqlserver-nodatime">EntityFrameworkCore SqlServer NodaTime</a></li>
 				<li><a href="/extensions/entityframeworkcore-sqlite-nodatime">EntityFrameworkCore SQLite NodaTime</a></li>
+				<li><a href="/extensions/efcore-bulkextensions">EFCore.BulkExtensions</a></li>
+				<li><a href="/extensions/efcore-bulkextensions-mit">EFCore.BulkExtensions.MIT</a></li>
             </ul>
         </li>
         <li>
