@@ -1,5 +1,5 @@
 - [Content Creator](content-creator.md)
-- [Dedicated Articles Schedule](dedicated-articles-schedule)
+- [Dedicated Content Schedule](dedicated-articles-schedule)
 - [Sponsor Articles](sponsors-articles.md) 
 - [Sponsors Ads](sponsors-ads.md)
 - [Sponsors Content](sponsors-content.md)
