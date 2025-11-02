@@ -1,14 +1,14 @@
 ---
-Title: Bulk Insert in EF Core with Entity Framework Extensions
+Title: EF Core Bulk Insert with Entity Framework Extensions
 MetaDescription: Boost your EF Core inserts performance by up to 15x, reducing insert time by 94% with Bulk Insert from Entity Framework Extensions. Use BulkInsert method in EF Core to handle thousands of entities with less memory and more control. Fully supports all EF Core and EF6 versions. Try the live benchmark now!
-LastMod: 2025-10-04
+LastMod: 2025-11-02
 ---
 
-# Bulk Insert with Entity Framework Extensions/n Boost your EF Core insert performance now
+# EF Core Bulk Insert with Entity Framework Extensions/n Boost your EF Core / EF6 insert performance now
 
-The EF Core `BulkInsert` method from **Entity Framework Extensions** is the easiest way to insert thousands of entities.
+The BulkInsert method from **Entity Framework Extensions** is the easiest way to insert thousands of entities in EF Core and EF6.
 
-Not only is it super fast, but it’s also highly customizable. You can use various [options](/bulk-insert#bulk-insert-options) to insert entities exactly the way you want — like keeping identity values, inserting only new entities, and much more.
+Not only is it super fast, but it’s also highly customizable. You can use various [options](/bulk-insert#bulk-insert-options) to bulk insert entities in EF Core exactly the way you want — like keeping identity values, inserting only new entities, and much more.
 
 ```csharp
 // @nuget: Z.EntityFramework.Extensions.EFCore
@@ -38,7 +38,7 @@ One of the main reasons developers choose **EF Core Bulk Insert** from **Entity 
 
 ## 🔍 What is Supported?
 
-The `BulkInsert` method from **Entity Framework Extensions** supports all the common scenarios in EF Core — and nearly everything you can do with EF Core and EF6!
+The EF6 / EF Core BulkInsert method from **Entity Framework Extensions** supports all the common scenarios in EF Core — and nearly everything you can do with EF Core and EF6!
 
 * ✅ The latest EF Core version: **EF Core 9**
 * ✅ All previous EF Core versions: **EF Core 2 to 8**
@@ -58,7 +58,7 @@ Don't just take our word for it or blindly trust what we say. Instead, try it yo
 
 ### 📊 Benchmark Results
 
-The tables above give you a quick idea of the performance gains when using **Bulk Insert**.  
+The tables above give you a quick idea of the performance gains when using **Bulk Insert in EF Core**.  
 But to give you a more complete picture, we also ran **extensive benchmarks across all major database providers** with BenchmarkDotNet.
 
 👉 Explore detailed results:  
@@ -285,7 +285,7 @@ context.BulkInsert(items);
 
 ## ✅ Conclusion
 
-The `BulkInsert` method is one of the most powerful and popular features in **Entity Framework Extensions**.
+The EF6 / EF Core BulkInsert method is one of the most powerful and popular features in **Entity Framework Extensions**.
 
 As you've seen in this article, it goes far beyond just improving performance compared to `SaveChanges`. It also gives you **full control** over how your data gets inserted — with dozens of options to handle identity values, relationships, and performance tuning.
 

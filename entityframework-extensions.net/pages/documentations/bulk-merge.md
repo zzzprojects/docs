@@ -1,7 +1,7 @@
 ---
 Title: Bulk Merge in EF Core / EF6 | Add or Update (Upsert) your entities
 MetaDescription: Efficiently add or update Entity Framework data with EF Core Bulk Merge Extensions. Perform upsert operations on large numbers of entities with customizable options for all EF versions, including EF Core 7, 6, 5, 3, and EF6. Optimize your database operations - try it now.
-LastMod: 2025-10-04
+LastMod: 2025-11-02
 ---
 
 # Bulk Merge /n Easily perform add or update (Upsert) operations in EF Core
@@ -326,6 +326,19 @@ context.BulkMerge(list, options);
    - **RowsAffected:** Use `UseRowsAffected = true`, then access `ResultInfo.RowsAffected` or `ResultInfo.RowsAffectedInserted` and `ResultInfo.RowsAffectedUpdated` to get the number of entities merged (added or updated). [Learn more here](/rows-affected)
 
 ## Troubleshooting
+
+### InsertIfNotExists doesn't work
+
+This behavior is expected. The `InsertIfNotExists` option only applies to [BulkInsert](/bulk-insert) and [BulkInsertOptimized](/bulk-insert-optimized).
+
+The `BulkMerge` method already inserts new rows automatically when they don’t exist and updates existing ones — that’s its main purpose.
+So, `InsertIfNotExists` doesn’t apply when using `BulkMerge`.
+
+If you want to skip the insert part during a merge, you can use the following option instead:
+
+```csharp
+options => options.IgnoreOnMergeInsert = true;
+```
 
 ### Lazy Loading + Include Graph (Update)
 
