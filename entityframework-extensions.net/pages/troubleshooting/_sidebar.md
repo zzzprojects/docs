@@ -1,11 +1,12 @@
+- General
+   - [Troubleshoothing](troubleshoothing.md)
+   - [Foreign Key Constraint](foreign-key-constraint-autodetectchanges-disabled.md)
+   - [Out of Memory](out-of-memory.md)
 - Licenses
    - [Trial Period Expired](trial.md)
    - [MD5 Exception](md5-exception.md)
 - Concurrency
    - [DbUpdateConcurrency](dbupdateconcurrency-exception.md)
    - [DbBulkOperationConcurrency](dbbulkoperationconcurrency-exception.md)
-- General
-   - [Foreign Key Constraint](foreign-key-constraint-autodetectchanges-disabled.md)
-   - [Out of Memory](out-of-memory.md)
 - Type
    - [Type not Supported](type-not-supported-exception.md)
