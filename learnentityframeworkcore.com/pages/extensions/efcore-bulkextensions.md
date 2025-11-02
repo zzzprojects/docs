@@ -3,7 +3,7 @@ title: EFCore.BulkExtensions
 description: An introduction to EFCore.BulkExtensions
 canonical: /extensions/efcore-bulkextensions
 status: Published
-lastmod: 2025-10-16
+lastmod: 2025-10-21
 ---
 
 # EFCore.BulkExtensions
@@ -110,14 +110,14 @@ If your organization exceeds that limit, you’ll need to **[purchase a commerci
 
 ### Is the license perpetual or subscription-based?
 
-The EFCore.BulkExtensions license is **subscription-based**, meaning you must **renew it every year** to continue using it.
+The EFCore.BulkExtensions license type is **subscription-based**, meaning you must **renew it every year** to continue using it.
 
 Unfortunately, this is the **worst kind of license model** — once you purchase it, you’ll need to renew it **year after year**, even if you’re no longer actively developing the project.
 
 This approach adds **recurring costs and extra management overhead**.
 
 💡 **In comparison:**
-[**Entity Framework Extensions**](/extensions/entity-framework-extensions#is-the-license-perpetual-or-subscription-based) offers **perpetual licenses**, which you pay **only once** and can use **forever** — no annual renewals required.
+[**Entity Framework Extensions**](/extensions/entity-framework-extensions#is-the-license-perpetual-or-subscription-based) offers a **perpetual** license type, which you pay **only once** and can use **forever** — no annual renewals required.
 
 ---
 

@@ -3,7 +3,7 @@ title: Entity Framework Extensions
 description: An introduction to Entity Framework Extensions
 canonical: /extensions/entity-framework-extensions
 status: Published
-lastmod: 2025-10-16
+lastmod: 2025-10-21
 ---
 
 # Entity Framework Extensions
@@ -135,7 +135,7 @@ The trial includes **all features**, allowing you to fully test and explore the 
 
 ### 💡 Is the license perpetual or subscription-based?
 
-The **Entity Framework Extensions** license is **perpetual**, meaning you purchase it once and can use it forever.
+The **Entity Framework Extensions** license type is **perpetual**, meaning you purchase it once and can use it forever.
 
 Renewing **support and upgrades** is **optional**, but highly recommended if you want to access the latest features, improvements, and performance updates.
 

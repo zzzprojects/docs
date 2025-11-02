@@ -15,6 +15,7 @@ First, let's see all available options, and then we will explain them one by one
 | Options  | AutoAddMissingTypes                  | The AutoAddMissingTypes option lets you get or set if the library should try to automatically find and add missing types when an expression cannot compile due to missing types. You can specify which assembly to look for the missing types in through the RegisterAutoAddMissingTypeAssembly method, otherwise the library will search over all domain assemblies. By default, the AutoAddMissingTypes value is false for performance and side impact reasons.                                                                   |
 | Options  | BindingFlags                         | The BindingFlags option lets you get or set the flags when searching for a member (Property, Field, Method). By default, the BindingFlags value is \`BindingFlags.Public &#124; BindingFlags.NonPublic &#124; BindingFlags.FlattenHierarchy &#124; BindingFlags.IgnoreCase\`.                                                                                                                                                                                                                                                        |
 | Options  | CacheKeyPrefix                       | The CacheKeyPrefix option lets you get or set the prefix in the Cache Key. That option can be helpful if you want to make the cache key more unique. By default, the CacheKeyPrefix value is \`\[evalContext\].GetType().FullName\` (The full name of the EvalContext type).                                                                                                                                                                                                                                                         |
+| Options  | CustomCompile                        | The CustomCompile option lets you use another library such as [FastExpressionCompiler](https://github.com/dadhi/FastExpressionCompiler) to compile your expression.     																																																																																							 |
 | Options  | DefaultNumberType                    | The DefaultNumberType option lets you get or set what type a number without a data type suffixes should be. For example, if you set the value to \`DefaultNumberType.Double\`, the expression "1+2" will consider the \`1\` and \`2\` numbers as a double instead of an \`int\` and will return a \`double\`. By default, the DefaultNumberType value is \`DefaultNumberType.None\`, which will act like the default C# behavior with numbers.                                                                                       |
 | Options  | DisableMethodActionFuncCreation 	  | The DisableMethodActionFuncCreation option lets you get or set if the creation of "Method", "Action", and "Func" delegates should be disabled. By disabling it, you can prevent potential recursive calls in the code.																																																																												|
 | Options  | DisableAutoRegisterEntityFramework   | The DisableAutoRegisterEntityFramework option lets you get or set if the auto registration from some method when using Entity Framework Core and EF6 should be disabled. By default, the DisableAutoRegisterEntityFramework value is false.                                                                                                                                                                                                                                                                                         |
@@ -201,6 +202,30 @@ catch(Exception ex)
 ```
 
 {% include component-try-it.html href='https://dotnetfiddle.net/KjgXIb' %}
+
+## CustomCompile
+
+The **CustomCompile** option lets you use another library, such as [FastExpressionCompiler](https://github.com/dadhi/FastExpressionCompiler), to compile your expressions.
+
+In this example, we include the [FastExpressionCompiler NuGet package](https://www.nuget.org/packages/FastExpressionCompiler) and use it to handle the expression compilation.
+
+Be careful — we don’t provide support for how third-party libraries compile their expressions, so use this option **at your own risk**.
+
+```csharp
+// @nuget: FastExpressionCompiler
+// @nuget: Z.Expressions.Eval
+using Z.Expressions;
+
+// Global Context: EvalContext.DefaultContext.CustomCompile = x => x.CompileFast();
+
+var context = new EvalContext();
+context.CustomCompile = x => x.CompileFast();
+
+var r1 = context.Execute<int>("x + y", new { x = 1, y = 2});
+Console.WriteLine("1 - Result:" + r1);
+```
+
+{% include component-try-it.html href='https://dotnetfiddle.net/MXynxA' %}
 
 ## DefaultNumberType
 

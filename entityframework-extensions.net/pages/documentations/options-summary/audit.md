@@ -1,26 +1,41 @@
 ---
-Name: Audit
-LastMod: 2025-06-24
+Title: Auditing in Entity Framework Extensions  
+MetaDescription: Learn how to use auditing options in Entity Framework Extensions for EF Core and EF6. Discover how to use `UseAudit`, `AuditEntries`, and `AuditEntry` to capture which data has been inserted, modified, or deleted in your database.
+LastMod: 2025-10-30
 ---
 
-# Audit
+# 📜 Auditing in Entity Framework Extensions/n Capture data that has been inserted, modified, or deleted in your database
 
-## Description
+The **audit feature** in Entity Framework Extensions lets you **track all changes** made to your database during any **bulk operation**.
 
-The EFE audit feature allows you to track changes of all modifications that happened in the database during the Bulk Operations. Also, it lets you create a history of who modified a table, what the old value was and the new value was.
+Once captured, you can **log the old and new values** directly in your database, write them to a log file, or simply use the audit results within your application.
+
+The **audit feature** works with all bulk operations:
+
+* [BulkInsert](/bulk-insert)
+* [BulkInsertOptimized](/bulk-insert-optimized)
+* [BulkUpdate](/bulk-update)
+* [BulkDelete](/bulk-delete)
+* [BulkMerge](/bulk-merge)
+* [BulkSynchronize](/bulk-synchronize)
+* [BulkSaveChanges](/bulk-savechanges)
 
 ## Key Features
 
-- Allow getting a history of modifications
-- Allow storing the history in a database or log file
-- Allow tracking who, what, when a modification occurred
-- Allow knowing what the old and the new value are
+* Keep a complete history of all modifications
+* [Store audit data in a database](/save-audit-history-in-a-database) or a log file
+* Track **who**, **what**, and **when** a modification occurred
+* Compare **old values** and **new values** for every change
 
 ## Getting Started
 
 To use the audit feature, you need to enable it and provide a list of the AuditEntry that will be populated during the operations.
 
 ```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.BulkOperations;
+using Z.EntityFramework.Extensions;
+
 // Execute
 List<AuditEntry> auditEntries = new List<AuditEntry>();
 context.BulkMerge(list, options =>
@@ -28,41 +43,65 @@ context.BulkMerge(list, options =>
     options.UseAudit = true;
     options.AuditEntries = auditEntries;
 });
-
 ```
 
-Try it: [.NET Core](https://dotnetfiddle.net/) | [.NET Framework](https://dotnetfiddle.net/)
+## Class Definition
 
-## Scenarios
+The audit feature includes **three main classes**:
 
-- [Saving audit history in a database](../options/save-audit-history-in-a-database.md)
-- Saving the audit history in a log file
+* **AuditEntry**: Represents a row and contains information about the operation performed.
+* **AuditEntryItem**: Represents a column within a row and contains the old and new values.
+* **AuditActionType**: Defines the type of action performed (Insert, Update, Delete, etc.).
 
-## Options
+```csharp
+public class AuditEntry
+{
+	public AuditActionType Action { get; set; }
+	public DateTime Date { get; set; }
+	public Dictionary<object, object> Metas { get; set; } // Hold any custom information you want to add
+	public string TableName { get; set; }
+	public List<AuditEntryItem> Values { get; set; }
+}
+```
 
-| Name                               | Description                                                           |
-|:-----------------------------------|:----------------------------------------------------------------------|
-|[UseAudit](../options/use-audit.md)  | Gets or sets the `UseAudit` property. When the `UseAudit` property is `true`, the [AuditEntries](../options/audit-entries.md) property stores auditing metadata about `INSERTED`, `UPDATED`, and `DELETED` rows and values. |
-|[AuditEntries](../options/audit-entries.md)  | Gets or sets the `AuditEntries` property. The `AuditEntries` property stores auditing metadata about `INSERTED`, `UPDATED`, and `DELETED` rows and values. This option requires setting the [UseAudit](../options/use-audit.md) property to `true`. |
+```csharp
+public class AuditEntryItem
+{
+	public string ColumnName { get; set; }
+	public object NewValue { get; set; }
+	public object OldValue { get; set; }
+}
+```
 
-## Methods
-
-| Name                               | Description                                                           |
-|:-----------------------------------|:----------------------------------------------------------------------|
-|[AuditMode](../options/audit-mode.md)  | The `AuditMode` method allows you to exclude or include properties from the auditing. |
-
-## Entities
-
-| Name                               | Description                                                           |
-|:-----------------------------------|:----------------------------------------------------------------------|
-|[AuditActionType](../options/audit-action-type.md) | The `AuditActionType` enum represents the action that has been performed (Delete, Insert or Update). |
-|[AuditEntry](../options/audit-entry.md) | The `AuditEntry` class represents the auditing row metadata that has been modified. |
-|[AuditEntryItem](../options/audit-entry-item.md) | The `AuditEntryItem` class represents the auditing value metadata of a row that has been modified. |
-|[AuditModeType](../options/audit-mode-type.md) | The `AuditModeType` enum represents if all properties should be included or excluded from the auditing. The default value is `AuditModeType.IncludeAll`. |
-|[ColumnMappingAuditModeType](../options/column-mapping-audit-mode-type.md) | The `ColumnMappingAuditModeType` enum represents if a specific property should be included or excluded from the auditing. The default value is `ColumnMappingAuditModeType.Inherit`. |
+```csharp
+public enum AuditActionType
+{
+	Delete,
+	Insert,
+	Update,
+	SoftDelete,
+}
+```
 
 ## FAQ
 
-### Why enabling this option decreases the performance?
+### Why does enabling this option decrease performance?
 
-When enabling this option, additional SQL statements are required such as returning all old and new values.
+When this option is enabled, **additional SQL statements** are required to return all old and new values.
+
+For some providers, such as **SQL Server**, it can no longer use `SqlBulkCopy` directly on the destination table when a column needs to be outputted. Instead, it must create a **temporary table**, which adds some extra overhead and reduces performance.
+
+The impact can vary:
+
+* It is **major** when the bulk strategy needs to be changed (for example, when `SqlBulkCopy` can’t be used).
+* It is **minor** when data was already being output, as the additional cost is limited.
+
+## Conclusion
+
+The **audit feature** in Entity Framework Extensions is a powerful tool when you need to **keep track of what happens during your bulk operations**.
+
+With just a few lines of code, you can capture **who changed what and when**, store this information anywhere you want, and even compare old and new values for full transparency.
+
+While enabling auditing can slightly impact performance, it gives you complete visibility and control over your data changes — something that’s often worth the trade-off in real-world applications.
+
+If you care about **data integrity, traceability, and accountability**, enabling auditing is one of the easiest ways to achieve it in your EF Core or EF6 projects.

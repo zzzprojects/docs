@@ -3,7 +3,7 @@ title: EFCore.BulkExtensions.MIT
 description: An introduction to EFCore.BulkExtensions.MIT
 canonical: /extensions/efcore-bulkextensions-mit
 status: Published
-lastmod: 2025-10-16
+lastmod: 2025-10-21
 ---
 
 # EFCore.BulkExtensions.MIT
@@ -149,11 +149,12 @@ Other providers may have **limited support**, **missing features**, or **occasio
 
 ---
 
-### Is EFCore.BulkExtensions.MIT still maintained?
+### 🧰 Is EFCore.BulkExtensions.MIT still maintained?
 
 **No, not actively.**
 
-There’s only **minimal activity**, such as discussions about **EF Core 10 support**, but **most questions and issues go unanswered**.
+The project is now mostly **community-driven**, but **almost all issues remain unanswered**.
+There’s **no active maintainer**, and if you encounter a problem — especially in a **production environment** — you’ll most likely **not receive any help or fix**.
 
 You can confirm this by checking the [recent issues](https://github.com/videokojot/EFCore.BulkExtensions.MIT/issues) page on GitHub.
 
