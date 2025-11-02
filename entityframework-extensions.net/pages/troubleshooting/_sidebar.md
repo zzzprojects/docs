@@ -1,5 +1,6 @@
 - General
    - [Troubleshoothing](troubleshoothing.md)
+   - [Limitations](limitations.md)
    - [Foreign Key Constraint](foreign-key-constraint-autodetectchanges-disabled.md)
    - [Out of Memory](out-of-memory.md)
 - Licenses
