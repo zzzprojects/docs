@@ -24,18 +24,6 @@ When you choose a date for your dedicated articles or videos, follow these simpl
 
 ## 🎯 Schedule
 
-* **2025-03-04** – AntonDevTips: *How to Perform Dynamic Code Execution in .NET with C# Eval Expression*
-* **2025-04-01** – AntonDevTips: *EF Core Bulk Insert: Boost Your Performance With Entity Framework Extensions*
-* **2025-05-05** – AntonDevTips: *How To Fix Slow Write Queries in Dapper With Dapper Plus Library*
-* **2025-05-12** – TheCodeMan: *Speed Up Your EF Core Apps with Entity Framework Extensions - preview*
-* **2025-06-03** – TheCodeMan: *Building a High-Performance Import Feature with Dapper Plus*
-* **2025-08-06** – TheCodeMan: *How I fixed a heavy database sync operation with Dapper Plus*
-* **2025-08-10** – CodingSonata: *Unleash the Power of Bulk Extensions with Dapper Plus*
-* **2025-08-27** – (Video) TheCodeMan: *How to improve Bulk Operations Performance in Entity Framework*
-* **2025-08-31** – Poorna Soysa: *The Complete Guide to Bulk Operations with Entity Framework Extensions*
-* **2025-09-17** – Pavle Davitkovic: *Why every .NET developer should know about Dapper Plus*
-* **2025-09-24** – CodingSonata: *Bulk Operations in EF Core*
-* **2025-09-28** – NikolaTech: *Getting Started with C# Eval Expressions*
 * **2025-10-04** – Poorna Soysa: *EF Core Tricks for Bulk Reading Large Data Sets*
 * **2025-10-14** – (Video) AntonDevTips: *Why Every EF Core Developer Needs to Try Entity Framework Extensions*
 * **2025-10-18** – Poorna Soysa: *Introduction to CRUD Operations with Dapper and Dapper Plus*
@@ -56,15 +44,15 @@ When you choose a date for your dedicated articles or videos, follow these simpl
 * **2025-12-16** – AntonDevTips: *EF Core Bulk Data Retrieval: 5 Methods You Should Know*
 * **2025-12-22** – Poorna Soysa: *Dapper Plus Options Explained: Everything You Can Customize*
 * **2026-01-14** – CodingSonata: *EF Core Tricks for Bulk Reading Large Data Sets*
-* **2026-01-21** – TheCodeMan: *Why every .NET developer should know about Dapper Plus*
+* **2026-01-21** – Pavle Davitkovic: *Where vs. WhereBulkContains: What’s the Real Difference in EF Core?*
 * **2026-01-21** – (Video) AntonDevTips: *Entity Framework Extensions Options Explained: Everything You Can Customize*
 * **2026-01-27** – AntonDevTips: *Why Every EF Core Developer Needs to Try Entity Framework Extensions*
 * **2026-02-06** – NikolaTech: *Getting Started with Dapper Plus*
 * **2026-02-18** – CodingSonata: *Dapper Plus - CRUD Operations with Dapper and Dapper Plus*
-* **2026-03-01** – TheCodeMan: *TBD*
 * **2026-03-11** – (Video) AntonDevTips: *EF Core Bulk Data Retrieval: 5 Methods You Should Know* 
 * **2026-03-17** – AntonDevTips: *Entity Framework Extensions Options Explained: Everything You Can Customize*
-* **2026-04-08** – (Video) AntonDevTips: *LINQ Dynamic vs C# Eval Expression: Which One Should You Use?* 
+* **2026-04-08** – (Video) AntonDevTips: *LINQ Dynamic vs C# Eval Expression: Which One Should You Use?*
+* **2026-05-01** – Pavle Davitkovic: *Dapper Plus or SqlBulkCopy? Pros, Cons, and Hidden Limitations*
 * **2026-05-05** – AntonDevTips: *The Real Cost of Returning the Identity Value in EF Core (When You Don't Need It)*
 * **2026-05-13** – (Video) AntonDevTips: *Stop Writing Complex SQL to Save Data — Let Dapper Plus Do It for You*
 * **2026-05-27** – (Video) AntonDevTips: *Mastering Entity Mapping in Dapper Plus (With Real Examples)* 
