@@ -1,7 +1,7 @@
 ---
 Title: Limitations Entity Framework Extensions
 MetaDescription: Limitations Entity Framework Extensions
-LastMod: 2025-10-04
+LastMod: 2025-11-02
 ---
 
 # Limitations in Entity Framework Extensions

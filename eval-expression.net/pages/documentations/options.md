@@ -1,6 +1,6 @@
 ---
 Name: Eval Expression Options
-LastMod: 2025-09-20
+LastMod: 2025-11-03
 ---
 
 # How to use options with C# Eval Expression library
@@ -215,6 +215,7 @@ Be careful — we don’t provide support for how third-party libraries compile 
 // @nuget: FastExpressionCompiler
 // @nuget: Z.Expressions.Eval
 using Z.Expressions;
+using FastExpressionCompiler;
 
 // Global Context: EvalContext.DefaultContext.CustomCompile = x => x.CompileFast();
 
