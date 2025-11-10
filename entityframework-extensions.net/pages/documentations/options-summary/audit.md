@@ -96,6 +96,10 @@ The impact can vary:
 * It is **major** when the bulk strategy needs to be changed (for example, when `SqlBulkCopy` can’t be used).
 * It is **minor** when data was already being output, as the additional cost is limited.
 
+## Limitations
+
+* **DOES NOT** support Oracle.
+
 ## Conclusion
 
 The **audit feature** in Entity Framework Extensions is a powerful tool when you need to **keep track of what happens during your bulk operations**.
