@@ -1,10 +1,10 @@
 ---
 Title: EF Core Bulk Insert Optimized with Entity Framework Extensions
 MetaDescription: Boost your EF Core insert performance using the BulkInsertOptimized method from Entity Framework Extensions. Quickly insert large volumes of entities without returning values—perfect for maximum speed. Get smart hints and recommendations to further improve your insert performance. Try it now.
-LastMod: 2025-10-04
+LastMod: 2025-11-11
 ---
 
-# Bulk Insert Optimized with Entity Framework Extensions /n Instantly maximize your insert performance in EF Core 9
+# Bulk Insert Optimized with Entity Framework Extensions /n Instantly maximize your insert performance in EF Core 10
 
 The `BulkInsertOptimized` method is a unique feature from Entity Framework Extensions. It’s the **fastest** way to insert entities in EF Core.
 
@@ -128,8 +128,8 @@ The returned tip would be:
 
 The `BulkInsertOptimized` method from **Entity Framework Extensions** supports all the common scenarios in EF Core — and nearly everything you can do with EF Core and EF6!
 
-* ✅ The latest EF Core version: **EF Core 9**
-* ✅ All previous EF Core versions: **EF Core 2 to 8**
+* ✅ The latest EF Core version: **EF Core 10**
+* ✅ All previous EF Core versions: **EF Core 2 to 9**
 * ✅ All Entity Framework versions: **EF6, EF5, EF4, and EF Classic**
 * ✅ All major database providers: **SQL Server, SQL Azure, PostgreSQL, MySQL, MariaDB, SQLite, and Oracle**
 * ✅ All inheritance strategies: **TPC, TPH, and TPT**

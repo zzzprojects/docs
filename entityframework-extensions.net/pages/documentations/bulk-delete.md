@@ -1,7 +1,7 @@
 ---
 Title: Bulk Delete in EF Core | Delete entities without tracking them
 MetaDescription: Efficiently delete Entity Framework data with EF Core Bulk Delete Extensions. Customize options to quickly delete large numbers of entities with ease, compatible with all EF versions including EF Core 7, 6, 5, 3, and EF6. Optimize your database operations - try it now.
-LastMod: 2025-10-04
+LastMod: 2025-11-11
 ---
 
 # Bulk Delete /n Swiftly perform delete operations on thousands of entities in EF Core
@@ -39,8 +39,8 @@ One of the main reasons people use our Bulk Delete is to **delete entities exact
 
 Our library supports all the common scenarios — and almost everything you can do with EF Core and EF6!
 
-- ✅ The latest Entity Framework Core version: EF Core 9  
-- ✅ All previous EF Core versions: EF Core 2 to 8  
+- ✅ The latest Entity Framework Core version: EF Core 10
+- ✅ All previous EF Core versions: EF Core 2 to 9
 - ✅ All Entity Framework versions: EF6, EF5, EF4, and EF Classic  
 - ✅ All major database providers: SQL Server, SQL Azure, PostgreSQL, MySQL, MariaDB, SQLite, and Oracle  
 - ✅ All inheritance mapping strategies: TPC, TPH, and TPT  

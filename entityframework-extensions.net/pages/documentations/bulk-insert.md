@@ -1,7 +1,7 @@
 ---
 Title: EF Core Bulk Insert with Entity Framework Extensions
 MetaDescription: Boost your EF Core inserts performance by up to 15x, reducing insert time by 94% with Bulk Insert from Entity Framework Extensions. Use BulkInsert method in EF Core to handle thousands of entities with less memory and more control. Fully supports all EF Core and EF6 versions. Try the live benchmark now!
-LastMod: 2025-11-02
+LastMod: 2025-11-11
 ---
 
 # EF Core Bulk Insert with Entity Framework Extensions/n Boost your EF Core / EF6 insert performance now
@@ -40,8 +40,8 @@ One of the main reasons developers choose **EF Core Bulk Insert** from **Entity 
 
 The EF6 / EF Core BulkInsert method from **Entity Framework Extensions** supports all the common scenarios in EF Core — and nearly everything you can do with EF Core and EF6!
 
-* ✅ The latest EF Core version: **EF Core 9**
-* ✅ All previous EF Core versions: **EF Core 2 to 8**
+* ✅ The latest EF Core version: **EF Core 10**
+* ✅ All previous EF Core versions: **EF Core 2 to 9**
 * ✅ All Entity Framework versions: **EF6, EF5, EF4, and EF Classic**
 * ✅ All major database providers: **SQL Server, SQL Azure, PostgreSQL, MySQL, MariaDB, SQLite, and Oracle**
 * ✅ All inheritance strategies: **TPC, TPH, and TPT**

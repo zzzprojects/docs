@@ -3,7 +3,7 @@ title: Entity Framework Extensions
 description: An introduction to Entity Framework Extensions
 canonical: /extensions/entity-framework-extensions
 status: Published
-lastmod: 2025-10-21
+lastmod: 2025-11-11
 ---
 
 # Entity Framework Extensions
@@ -14,7 +14,7 @@ lastmod: 2025-10-21
 
 Developed and maintained by [ZZZ Projects](https://zzzprojects.com/) — a leading .NET software company since 2014 — this library, often called **"EF Extensions"** or **"EFE"**, includes **hundreds of features**, **monthly updates**, and **dedicated support** through GitHub and email.
 
-It supports all major versions of Entity Framework, including **EF6** and **EF Core 2 to EF Core 9**, with continuous updates to ensure compatibility.
+It supports all major versions of Entity Framework, including **EF6** and **EF Core 2 to EF Core 10**, with continuous updates to ensure compatibility.
 
 Trusted by **thousands of .NET developers worldwide**, it has become the go-to choice for teams that need both **speed** and **reliability**.
 

@@ -3,7 +3,7 @@ title: EF Core Bulk Update with Entity Framework Extensions
 description: Learn how to use the EF Core Bulk Update method from Entity Framework Extensions to efficiently update thousands of entities in your database.
 canonical: /bulk-extensions/bulk-update
 status: Published
-lastmod: 2025-07-19
+lastmod: 2025-11-11
 ---
 
 # 🔄️ EF Core Bulk Update with Entity Framework Extensions
@@ -148,6 +148,7 @@ PM> NuGet\Install-Package Z.EntityFramework.Extensions.EFCore
 
 Entity Framework Extensions uses [EF Core pinned versioning](https://entityframework-extensions.net/efcore-pinned-versioning), so make sure the **first digit** of the package version matches your EF Core version. For example:
 
+* If you're using `EF Core 10`, use version `v10.x.y.z`
 * If you're using `EF Core 9`, use version `v9.x.y.z`
 * If you're using `EF Core 8`, use version `v8.x.y.z`
 * And so on...

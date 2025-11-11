@@ -1,7 +1,7 @@
 ---
 Title: Bulk Update in EF Core with Entity Framework Extensions
 MetaDescription: The BulkUpdate method from Entity Framework Extensions is the most flexible way to update your entities in EF Core. It allows you to customize how your entities will be updated, such as by specifying a custom key, updating only a few properties, and much more. - try it now.
-LastMod: 2025-10-04
+LastMod: 2025-11-11
 ---
 
 # Bulk Update with Entity Framework Extensions /n Easily customize and optimize your entity updates in EF Core now
@@ -34,8 +34,8 @@ One of the main reasons people use our Bulk Update with Entity Framework is to *
 
 Our library supports all the common scenarios — and almost everything you can do with EF Core and EF6!
 
-- ✅ The latest Entity Framework Core version: EF Core 9  
-- ✅ All previous EF Core versions: EF Core 2 to 8  
+- ✅ The latest Entity Framework Core version: EF Core 10 
+- ✅ All previous EF Core versions: EF Core 2 to 9
 - ✅ All Entity Framework versions: EF6, EF5, EF4, and EF Classic  
 - ✅ All major database providers: SQL Server, SQL Azure, PostgreSQL, MySQL, MariaDB, SQLite, and Oracle  
 - ✅ All inheritance mapping strategies: TPC, TPH, and TPT  

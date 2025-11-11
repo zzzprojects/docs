@@ -1,6 +1,6 @@
 ---
 Name: Getting Started
-LastMod: 2025-08-09
+LastMod: 2025-11-11
 ---
 
 # Overview
@@ -48,6 +48,7 @@ PM> NuGet\Install-Package Z.EntityFramework.Extensions.EFCore
 
 ### EF Core Version
 
+- EF Core 10
 - EF Core 9
 - EF Core 8
 - EF Core 7

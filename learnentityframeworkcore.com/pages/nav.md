@@ -5,6 +5,7 @@
             <a href="/">Home</a>
             <ul class="nav-level-two" data-display="home">
                 <li><a href="/efcore/how-to-get">How To Get EF Core</a></li>
+				<li><a href="/efcore/efcore-10-what-is-new">EF Core 10 – What’s New?</a></li>
             </ul>
         </li>
         <li>

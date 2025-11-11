@@ -3,7 +3,7 @@ title: EF Core Bulk Merge (Upsert) with Entity Framework Extensions
 description: Learn how to use the Bulk Merge (Upsert – add or update) method from Entity Framework Extensions to efficiently merge entities in your database.  
 canonical: /bulk-extensions/bulk-merge  
 status: Published  
-lastmod: 2025-07-21  
+lastmod: 2025-11-11
 ---
 
 # 🧩 EF Core Bulk Merge / Upsert with Entity Framework Extensions
@@ -104,6 +104,7 @@ PM> NuGet\Install-Package Z.EntityFramework.Extensions.EFCore
 
 Entity Framework Extensions uses [EF Core pinned versioning](https://entityframework-extensions.net/efcore-pinned-versioning), so make sure the **first digit** of the package version matches your EF Core version. For example:
 
+* If you're using `EF Core 10`, use version `v10.x.y.z`
 * If you're using `EF Core 9`, use version `v9.x.y.z`
 * If you're using `EF Core 8`, use version `v8.x.y.z`
 * And so on...

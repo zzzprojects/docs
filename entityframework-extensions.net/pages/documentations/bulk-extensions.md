@@ -1,7 +1,7 @@
 ---
 Title: Bulk Extensions for EF Core | Bulk Insert, Update, Delete, Merge & Upsert
 MetaDescription: Learn how to use Bulk Extensions in EF Core to boost your CRUD operations performance. Discover how to save entities faster and by using less memory. Try it now.
-LastMod: 2025-10-04
+LastMod: 2025-11-11
 ---
 
 # Bulk Extensions for EF Core with Entity Framework Extensions
@@ -91,7 +91,7 @@ Whether you need to **save** or **query** data in bulk, Entity Framework Extensi
 
 In short, **all versions of EF Core and Entity Framework are supported**:
 
-* **Entity Framework Core:** EF Core 9 and earlier
+* **Entity Framework Core:** EF Core 10 and earlier
 * **Entity Framework:** EF6 and earlier
 
 ## Which Providers Are Supported by Entity Framework Extensions?

@@ -1,7 +1,7 @@
 ---
 Title: Bulk Synchronize in EF Core | Add or update or delete operations
 MetaDescription: Efficiently synchronize Entity Framework data with EF Core Bulk Synchronize Extensions. Easily update, insert and delete large numbers of entities with customizable options for all EF versions, including EF Core 7, 6, 5, 3, and EF6. Optimize your database operations - try it now.
-LastMod: 2025-09-17
+LastMod: 2025-11-11
 ---
 
 # Bulk Synchronize /n Directly execute add, update, and delete operations to mirror data in EF Core
@@ -50,8 +50,8 @@ One of the main reasons people use our Bulk Synchronize is to **perform add, upd
 
 Our library supports all the common scenarios — and almost everything you can do with EF Core and EF6!
 
-- ✅ The latest Entity Framework Core version: EF Core 9  
-- ✅ All previous EF Core versions: EF Core 2 to 8  
+- ✅ The latest Entity Framework Core version: EF Core 10
+- ✅ All previous EF Core versions: EF Core 2 to 9
 - ✅ All Entity Framework versions: EF6, EF5, EF4, and EF Classic  
 - ✅ All major database providers: SQL Server, SQL Azure, PostgreSQL, MySQL, MariaDB, SQLite, and Oracle  
 - ✅ All inheritance mapping strategies: TPC, TPH, and TPT  
