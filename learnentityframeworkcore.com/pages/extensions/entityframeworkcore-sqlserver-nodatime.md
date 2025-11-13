@@ -226,6 +226,8 @@ await this.Db.RaceResult
 
 ## Version History
 
+* 10.0.0 (November 13, 2025)
+  * Release for EF Core 10 
 * 9.1.1 (July 5, 2025)
   * Updated the Project and Repo URL's in the package. 
 * 9.1.0 (Mar 14, 2025)
