@@ -3,7 +3,7 @@ title: EntityCloner.Microsoft.EntityFrameworkCore
 description: An introduction to EntityCloner.Microsoft.EntityFrameworkCore
 canonical: /extensions/entitycloner-microsoft-entityframeworkcore
 status: Published
-lastmod: 2025-04-29
+lastmod: 2025-11-14
 ---
 
 # EntityCloner.Microsoft.EntityFrameworkCore
@@ -16,8 +16,6 @@ lastmod: 2025-04-29
 ## Summary
 
 Cloning entities using EntityFrameworkCore configuration.
-
-This library is Cross-platform, supporting `net6.0`, `net7.0`, `net8.0` and `net9.0`.
 
 
 ## Installing EntityCloner.Microsoft.EntityFrameworkCore
