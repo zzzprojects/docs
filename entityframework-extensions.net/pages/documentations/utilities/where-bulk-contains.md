@@ -1,6 +1,6 @@
 ---
 Name: How to filter entities contained from an existing list with Entity Framework?
-LastMod: 2025-09-17
+LastMod: 2025-11-16
 ---
 
 # How to filter entities contained from an existing list with Entity Framework?
@@ -9,7 +9,7 @@ LastMod: 2025-09-17
 
 ## Description
 
-The `WhereBulkContains` method lets you filter a LINQ query by including all items from an existing list.
+The `WhereBulkContains` method lets you filter a LINQ query using all items from an existing list. So only the items from the database that match the items in your list will be returned.
 
 ### Example
 
@@ -38,7 +38,7 @@ However, this solution has some limitations such as:
 
 - It only supports basic types like `int` or `guid`
 - The list of `ids` is limited due to SQL limitations
-- It doesn't support surrogate key (more than one key) or other complex scenarios
+- It doesn't support composite key (more than one key) or other complex scenarios
 
 The `WhereBulkContains` method lets you filter a query by including all entities from the list. It doesn't have any of the `Contains` method limitations.
 
@@ -214,7 +214,7 @@ As stated previously, the `Contains` method already works great but also has its
 
 - It only supports basic types like `int` or `guid`
 - The list of `ids` is limited due to SQL limitations
-- It doesn't support surrogate key (more than one key) or other complex scenarios
+- It doesn't support composite key (more than one key) or other complex scenarios
 
 The `WhereBulkContains` doesn't have any of those limitations.
 
@@ -226,7 +226,7 @@ The `WhereBulkContains` method is also very fast, but the main advantage is its 
 
 - An unlimited amount of items
 - Any kind of list
-- Custom key/surrogate key
+- Custom key/composite key
 
 ## What is the difference between the method WhereBulkContains, WhereBulkNotContains, and BulkRead?
 
