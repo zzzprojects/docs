@@ -354,7 +354,8 @@ var list = ctx.Categories.ToList();
  - Entity Framework 5
    - Doesn't work with LazyLoading
    - Doesn't work with Include
-
+ - A `DbSet` must exist for any entity you want to filter. Some parts of this feature may not be compatible without a corresponding `DbSet` (you don’t have to use it, it just has to exist).
+ 
 ### Entity Framework 6 - Limitations
  
 #### Property Filter
