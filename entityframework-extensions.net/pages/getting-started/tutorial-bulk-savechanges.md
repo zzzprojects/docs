@@ -3,7 +3,7 @@ Name: Getting Started with BulkSaveChanges
 LastMod: 2025-06-26
 ---
 
-# Bulk SaveChanges
+# Entity Framework BulkSaveChanges
 
 ## Definition
 

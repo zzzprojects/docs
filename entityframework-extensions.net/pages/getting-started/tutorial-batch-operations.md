@@ -3,7 +3,7 @@ Name: Getting Started with Batch Operations
 LastMod: 2025-06-26
 ---
 
-# Batch Operations
+# Entity Framework Batch Operations
 
 ## Definition
 Batch Operations methods allow you to perform `UPDATE` or `DELETE` operations directly in the database using a LINQ Query without loading entities in the context.

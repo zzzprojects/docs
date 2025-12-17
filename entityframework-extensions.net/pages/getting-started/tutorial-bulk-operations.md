@@ -3,7 +3,7 @@ Name: Getting Started with Bulk Operations
 LastMod: 2025-06-26
 ---
 
-# Bulk Operations
+# Entity Framework Bulk Operations
 
 ## Definition
 Bulk operations methods give you additional flexibility by allowing you to customize options such as primary key, columns, include child entities and more.

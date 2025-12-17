@@ -1,23 +1,35 @@
 ---
 Title: How to Configure Options in Entity Framework Extensions
-MetaDescription: Learn the easiest ways to configure options in Entity Framework Extensions. From lambda expressions to global settings, this beginner-friendly guide helps you write cleaner and more flexible code.
-LastMod: 2025-08-09
+MetaDescription: Learn how to configure Entity Framework Extensions options using lambdas, instances, and global settings to write cleaner, flexible, high-performance code.
+LastMod: 2025-12-17
 ---
 
-# How to Configure Options in Entity Framework Extensions /n A Beginner’s Guide
+# EF Extensions - Configuring Options
 
-People love using Entity Framework Extensions not just for the performance—but also for the hundreds of options available.
+People love using Entity Framework Extensions not only for performance, but also for the hundreds of options available.
 
-In this article, you’ll learn the different ways to configure options in our library so you can find the one that fits your style. Whether you like writing short expressions or prefer to be more explicit, there’s a way that will feel natural to you.
+In this article, you’ll learn the different ways you can configure options in our library so you can choose what fits your style best.
 
----
+All configuration approaches shown in this guide apply to all bulk methods, such as
+[BulkInsert](/bulk-insert), [BulkUpdate](/bulk-update), [BulkMerge](/bulk-merge), and others.
+
+You will learn how to:
+
+* [Choose between single-line expressions and code blocks](#single-line-expression-vs-code-block)
+* [Use property selectors vs anonymous object selectors](#single-property-selector-vs-anonymous-object-selector)
+* [Configure options inline with lambda expressions](#configuring-options-using-a-lambda-expression)
+* [Reuse options by using an options instance](#configuring-options-using-an-instance)
+* [Define global options for your entire application](#configuring-a-global-option)
+* [Avoid common mistakes such as overriding options](#troubleshooting)
+
+Whether you prefer short expressions or more explicit code, you’ll find an approach that feels natural to you.
 
 ## Single-line Expression vs Code Block
 
 When configuring your options, you usually have two syntax choices:
 
 * **Single-line expression:** Perfect when you only have one option. It’s shorter, cleaner, and easy to read.
-* **Code block:** Ideal when you need to set multiple options—or when you always prefer a consistent code structure.
+* **Code block:** Ideal when you need to set multiple options — or when you prefer a consistent code structure.
 
 ```csharp
 // @nuget: Z.EntityFramework.Extensions.EFCore
@@ -33,16 +45,18 @@ context.BulkInsert(list, options => {
 });
 ```
 
-There’s no difference in how our library processes these. It’s all about readability and what you personally prefer. If you’re writing one-liners, go with the concise syntax. If you like being more structured or expect to add more settings later, choose the block version.
+There’s no difference in how the library processes these options. It’s purely about readability and personal preference.
 
----
+Both syntaxes can be used interchangeably across your project.
+
+If you’re writing one-liners, the concise syntax works great. If you expect to add more settings later or prefer structured code, the block version is usually the better choice.
 
 ## Single Property Selector vs Anonymous Object Selector
 
-Many options related to properties require selectors. And once again, you have two ways to write them:
+Many options related to properties require selectors. Once again, you have two ways to write them:
 
 * **Single property selector:** Cleaner when you only have one property.
-* **Anonymous object selector:** Better for multiple properties—or if you want to stay consistent with more complex mappings.
+* **Anonymous object selector:** Better when you have multiple properties — or when you want to stay consistent with more complex mappings.
 
 ```csharp
 // @nuget: Z.EntityFramework.Extensions.EFCore
@@ -55,22 +69,26 @@ context.BulkInsert(list, options => options.ColumnPrimaryKeyExpression = x => x.
 context.BulkInsert(list, options => options.ColumnPrimaryKeyExpression = x => new { x.ID, x.ExternalID });
 ```
 
-Both approaches are completely valid and produce the same result. It's just a matter of what fits best in your context.
+Both approaches are completely valid and produce the same result. It’s simply a matter of what fits best in your context.
 
-Also, almost all options that accept an expression also have an equivalent `List<string>` version. This is useful when your properties are not known at compile time:
+This selector pattern is used by many options that work with entity properties, not just primary keys.
+
+Almost all options that accept an expression also have an equivalent `List<string>` version. This is especially useful when your properties are not known at compile time:
 
 ```csharp
 // @nuget: Z.EntityFramework.Extensions.EFCore
 using Z.EntityFramework.Extensions;
 
 UpdateWithSpecificKey(context, customers, new List<string> { nameof(Customer.ExternalID) });
-public void UpdateWithSpecificKey(DbContext context, List<Customer> customers, List<string> customKeys)
+
+public void UpdateWithSpecificKey(
+    DbContext context,
+    List<Customer> customers,
+    List<string> customKeys)
 {
-	context.BulkUpdate(list, options => options.ColumnPrimaryKeyNames = customKeys);
+    context.BulkUpdate(customers, options => options.ColumnPrimaryKeyNames = customKeys);
 }
 ```
-
----
 
 ## Configuring Options Using a Lambda Expression
 
@@ -87,13 +105,11 @@ context.BulkInsert(list, options => {
 });
 ```
 
-This way, you keep all the settings close to the operation itself, which makes your code easier to read and maintain—especially when debugging or reviewing specific calls.
-
----
+This approach keeps all settings close to the operation itself, making your code easier to read and maintain — especially when debugging or reviewing specific calls.
 
 ## Configuring Options Using an Instance
 
-If you’re working with similar configurations across different parts of your application, using an instance can help avoid duplication:
+If you’re working with similar configurations across different parts of your application, using an options instance can help avoid duplication:
 
 ```csharp
 // @nuget: Z.EntityFramework.Extensions.EFCore
@@ -110,13 +126,12 @@ customerOptions.ColumnPrimaryKeyExpression = x => x.ID;
 context.BulkInsert(list, customerOptions);
 ```
 
-This method is especially useful when you're dealing with complex business logic or testing multiple configurations.
+This approach is especially useful when you’re dealing with shared logic, complex business rules, or when testing multiple configurations.
 
----
 
 ## Configuring a Global Option
 
-You can also define default global settings that will apply automatically to all future bulk operations by using `EntityFrameworkManager.BulkOperationBuilder`:
+You can also define default global settings that apply automatically to all future bulk operations by using `EntityFrameworkManager.BulkOperationBuilder`:
 
 ```csharp
 // @nuget: Z.EntityFramework.Extensions.EFCore
@@ -128,17 +143,18 @@ EntityFrameworkManager.BulkOperationBuilder = builder => {
 };
 ```
 
-This is perfect when you want consistent behavior across your whole application without having to set options every time.
+This approach is ideal when you want consistent behavior across your entire application without having to configure options for every call.
 
----
 
 ## Troubleshooting
 
 ### Overriding Your Options
 
-One common mistake we often see—especially when configuring global options—is unintentionally overriding the previous configuration.
+One common mistake we often see — especially when configuring global options — is unintentionally overriding a previous configuration.
 
-In the example below, we first set a builder with `BatchSize = 1000`, but right after that, we assign a new builder that sets `BatchTimeout = 60`. The problem? The first configuration is completely lost because the second assignment replaces it entirely.
+This behavior is expected, as assigning `EntityFrameworkManager.BulkOperationBuilder` multiple times replaces the previous builder entirely.
+
+In the example below, we first assign a builder with `BatchSize = 1000`. Right after that, we assign a new builder that sets `BatchTimeout = 60`. The problem is that the first configuration is completely lost, because the second assignment replaces it entirely.
 
 ```csharp
 // @nuget: Z.EntityFramework.Extensions.EFCore
@@ -153,7 +169,7 @@ EntityFrameworkManager.BulkOperationBuilder = builder => {
 };
 ```
 
-To fix this, make sure you configure everything within the same builder:
+To fix this, make sure you configure everything within the same builder. Global options are typically configured once during application startup.
 
 ```csharp
 // @nuget: Z.EntityFramework.Extensions.EFCore
@@ -167,10 +183,14 @@ EntityFrameworkManager.BulkOperationBuilder = builder => {
 
 This way, all your global settings are applied at once without accidentally discarding any previous values.
 
----
+## Summary & Next Steps
 
-## Conclusion
+You’ve now seen all the main ways to configure options in Entity Framework Extensions — from simple inline lambdas to reusable instances and global defaults.
 
-Whether you prefer keeping things short and simple or want full control over your configuration, Entity Framework Extensions gives you the flexibility to work the way you want.
+There’s no “best” approach. Each one exists for a reason, and you can freely mix them depending on your needs. The goal is always the same: keep your code readable, avoid duplication, and stay in control of how your bulk operations behave.
 
-Try each method and pick the one that fits your coding style. You can mix and match too—there’s no wrong way here. The goal is to make your development smoother while getting top-tier performance from your database operations 💪
+Now that you know **how** to configure options, the next step is to learn **what you can configure**.
+
+👉 Continue with **[Configuring Column Options](/configure-column-options)** to see how to control column mapping, keys, ignored properties, and other column-level behaviors.
+
+This is where most real-world fine-tuning happens.

@@ -1,25 +1,28 @@
 ---
 Title: Entity Framework Extensions Licensing
 MetaDescription: Learn about how to add the license from the code or config file for the Entity Framework Extensions library. Learn how to validate the license was correctly added.
-LastMod: 2025-06-26
+LastMod: 2025-12-17
 ---
 
-# Licensing
+# EF Extensions - Licensing
 
-For developers who have just purchased a license, it's important to always use the [ValidateLicense](/licensing#how-can-i-check-if-my-license-is-valid) method to prevent any unexpected issues caused by the [trial expired error](/trial#you-purchased-a-license-but-didnt-add-the-license-correctly) in your production environment.
+If you have purchased a license, you should **always call the `ValidateLicense` method**.
+This prevents unexpected issues caused by a [trial expired error](/trial#you-purchased-a-license-but-didnt-add-the-license-correctly) in your production environment.
 
 ## Is Entity Framework Extensions free?
 
+Entity Framework Extensions is **free only for limited scenarios**. All bulk operations require a paid license after evaluation.
+
 You can use the library for free in the following cases:
 
-- When using single methods such as `SingleInsert`, `SingleUpdate`, etc.
-- When using community methods from [Entity Framework Plus](https://entityframework-plus.net/) (a few free methods are also available through EFE).
+* When using single methods such as `SingleInsert`, `SingleUpdate`, etc.
+* When using community methods from [Entity Framework Plus](https://entityframework-plus.net/) (a few free methods are also available through EF Extensions).
 
 In all other cases, you must [purchase](/pricing) a license after evaluating the library.
 
 ## How long is the evaluation/trial period?
 
-You can evaluate our library for several months before making a purchase.
+You can evaluate our library for **more than one month** before making a purchase.
 
 The trial period stops at the end of the month. However, you can extend the trial by an additional month by [downloading](/download) the latest version.
 
@@ -44,9 +47,10 @@ You can add the license in an `appsettings.json` file by creating a new section 
 
 NOTE:
 
-- The name of the JSON file should be exactly `appsettings.json` (Our library is not aware of any other configuration files).
-- The JSON file should be in the root of the project, not within a folder (Our library is not aware of any other configuration files in other directories).
-- Make sure you still call the [ValidateLicense](/licensing#how-can-i-check-if-my-license-is-valid) method in your code.
+* The file name must be exactly `appsettings.json`.
+* The file must be located at the root of the project.
+* Other configuration files or locations are not supported.
+* Make sure you still call the [ValidateLicense](/licensing#how-can-i-check-if-my-license-is-valid) method in your code.
 
 ## How do I add the license from a config file?
 
@@ -60,9 +64,12 @@ You can add the license directly in an `app.config` or `web.config` file in the 
 ```
 
 NOTE:
-- Ensure you still call the [ValidateLicense](/licensing#how-can-i-check-if-my-license-is-valid) method in your code.
+
+* Ensure you still call the [ValidateLicense](/licensing#how-can-i-check-if-my-license-is-valid) method in your code.
 
 ## How do I add the license directly in the code?
+
+This is the **recommended approach** when you want full control over how and when the license is loaded.
 
 The latest way to add the license is by using the `AddLicense` method directly in the code. The license name and license key can be hardcoded, read from a file, key vault, or any other source:
 
@@ -80,7 +87,8 @@ if (!Z.EntityFramework.Extensions.LicenseManager.ValidateLicense(out licenseErro
 ```
 
 NOTE:
-- Make sure to add the license **before making the first use of a paid method** to ensure it is applied correctly. Otherwise, an error will be thrown.
+
+* Make sure to add the license **before making the first use of a paid method** to ensure it is applied correctly. Otherwise, an error will be thrown.
 
 ## How can I check if my license is valid?
 
@@ -89,15 +97,15 @@ You should always use the `ValidateLicense` method. We highly recommend it, as e
 The `ValidateLicense` method allows you to validate that the license has been added correctly. If no license has been added or the license is invalid, the method will return `false`, and you can retrieve the reason in the `licenseErrorMessage` variable:
 
 ```csharp
-// Check if the license is valid for the default provider (SQL Server)
 string licenseErrorMessage;
+
+// Check if the license is valid for the default provider (SQL Server)
 if (!Z.EntityFramework.Extensions.LicenseManager.ValidateLicense(out licenseErrorMessage))
 {
     throw new Exception(licenseErrorMessage);
 }
 
-// Check if the license is valid for a specific provider
-string licenseErrorMessage;
+// Or check if the license is valid for a specific provider
 if (!Z.EntityFramework.Extensions.LicenseManager.ValidateLicense(out licenseErrorMessage, ProviderType.SqlServer))
 {
    throw new Exception(licenseErrorMessage);
@@ -112,8 +120,17 @@ You can find the most common cause and solution for this issue [here](/trial#you
 
 ## How can I get a free license for Personal or Academic purposes?
 
-We don't offer free licenses.
+We don't offer free licenses at this time.
 
 However, you can use our library for free in your personal or academic projects by [downloading](/download) the trial at the beginning of every month.
 
-So, technically, you can use it for free for personal or school projects. However, for commercial purposes [purchasing a license](/pricing) is always required.
+So, technically, you can use it for free for personal or school projects. However, for commercial purposes, [purchasing a license](/pricing) is always required.
+
+## Summary & Best Practices
+
+Before deploying to production, always ensure that:
+
+- A valid license has been added (config file or code)
+- The license is added **before using any paid method**
+- The `ValidateLicense` method is called at startup
+- Any license error is handled early to avoid production issues

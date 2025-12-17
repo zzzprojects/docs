@@ -1,10 +1,10 @@
 ---
 Title: How to Configure Column Options in Entity Framework Extensions
 MetaDescription: Learn how to configure Column Options in Entity Framework Extensions to control which columns are used, include or exclude properties, set custom primary keys, and apply custom SQL formulas for insert, update, and merge operations.
-LastMod: 2025-08-13
+LastMod: 2025-12-17
 ---
 
-# How to Configure Column Options in Entity Framework Extensions /n A Beginner’s Guide
+# EF Extensions - Configuring Column Options
 
 In the previous article, we looked at how to [configure options](/configure-options) in **Entity Framework Extensions**.
 
@@ -33,9 +33,7 @@ For example, you can use either `ColumnPrimaryKeyExpression` **or** `ColumnPrima
 | **Names**      | List of property names as strings                | Dynamic or external property lists   | `new List<string> { nameof(MyEntity.ID) }` |
 | **Formula**    | Hardcoded SQL fragments                          | Advanced SQL control (use carefully) | `"NOT DestinationTable.IsLocked"`          |
 
----
-
-## Options with the "Expression" Suffix 
+## Options with the "Expression" Suffix
 
 Options with the **"Expression"** suffix, like `ColumnPrimaryKeyExpression`, let you define the mapping using either:
 
@@ -132,13 +130,11 @@ Below is the complete list of options in **Entity Framework Extensions** that us
   * `ColumnSynchronizeDeleteKeySubsetExpression`
   * `QueryFilterPrimaryKeyExpression`
 
----
-
 ## Options with the "Names" Suffix
 
 Options with the **"Names"** suffix, like `ColumnPrimaryKeyNames`, let you create a `List<string>` and pass property names as strings.
 
-We always **recommend** using the `nameof` operator whenever possible — this helps prevent typos and avoids breaking your code during refactoring.
+We always **recommend** using the `nameof` operator whenever possible. This helps prevent typos and avoids breaking your code during refactoring.
 
 ```csharp
 // @nuget: Z.EntityFramework.Extensions.EFCore
@@ -154,10 +150,10 @@ context.BulkUpdate(list, options =>
 // Multiple properties using nameof()
 context.BulkUpdate(list, options =>
 {
-    options.ColumnPrimaryKeyNames = new List<string> 
-    { 
-        nameof(MyEntity.ID), 
-        nameof(MyEntity.ID2) 
+    options.ColumnPrimaryKeyNames = new List<string>
+    {
+        nameof(MyEntity.ID),
+        nameof(MyEntity.ID2)
     };
 });
 ```
@@ -235,11 +231,9 @@ Below is the complete list of options in **Entity Framework Extensions** that us
   * `ColumnSynchronizeDeleteKeySubsetNames`
   * `QueryFilterPrimaryKeyNames`
 
----
-
 ## Options with the "Formula" Suffix
 
-Options with the **"Formula"** suffix, like `MergeMatchedAndFormula`, let you hardcode a SQL fragment that will be inserted directly into the generated SQL statement.
+Options with the **"Formula"** suffix, like `MergeMatchedAndFormula`, let you hardcode a SQL fragment that is inserted directly into the generated SQL statement.
 
 ```csharp
 // @nuget: Z.EntityFramework.Extensions.EFCore
@@ -294,15 +288,22 @@ Below is the complete list of options in **Entity Framework Extensions** that us
   * `SynchronizeSoftDeleteFormula`
   * `QueryFilterPrimaryKeyAndFormula`
 
----
+## Summary
 
-## Conclusion
+Column Options give you **full control** over how data is saved with Entity Framework Extensions.
 
-Column Options give you full control over how your data is saved with Entity Framework Extensions.
-By choosing between **Expression**, **Names**, and **Formula** suffixes, you can decide exactly which columns to use, how to map them, and even inject your own SQL logic when needed.
+By choosing between the **Expression**, **Names**, and **Formula** suffixes, you can decide exactly:
 
-* **Expression** is best when working directly with entity properties in code.
-* **Names** is useful when you need to pass property names dynamically.
-* **Formula** is the most powerful, letting you control the generated SQL, but should be used carefully.
+* Which columns are used
+* How properties are mapped
+* When custom SQL logic is required
 
-With these options, you can go beyond the default `SaveChanges` behavior and adapt your insert, update, or merge operations to match your exact business rules.
+In most cases:
+
+* **Expression** is the best choice when working directly with entity properties in code
+* **Names** is useful when property names must come from dynamic or external sources
+* **Formula** gives you the most control by injecting SQL, but should always be used carefully
+
+With Column Options, you are no longer limited to the default `SaveChanges` behavior.
+
+You can adapt your [insert](/bulk-insert), [update](/bulk-update), and [merge](/bulk-merge) operations to match your exact business rules and performance needs.
