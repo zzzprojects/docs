@@ -1,54 +1,109 @@
 ---
-title: Modifying data via the ExecuteUpdate
-description: Updates all database rows for the entity instances which match the LINQ query from the database. 
+title: EF Core ExecuteUpdate (EF Core 7–10) – Set-Based Bulk Updates
+description: Learn how EF Core ExecuteUpdate works from EF Core 7 to EF Core 10. Perform fast, set-based SQL updates without tracking, plus new JSON and lambda features.
 canonical: /dbset/execute-update
 status: Published
-lastmod: 2025-08-22
+lastmod: 2025-12-16
 ---
 
-# EF Core Execute Update
+# EF Core ExecuteUpdate
 
-By default, EF Core tracks changes to entities, and then sends updates to the database when one of the `SaveChanges` methods is called. 
+## What is ExecuteUpdate
 
- - Changes are only sent for properties and relationships that have changed. 
- - The tracked entities remain in sync with the changes sent to the database. 
- - It is an efficient and convenient way to send general-purpose inserts, updates, and deletes to the database. 
- - These changes are also batched to reduce the number of database round-trips.
+`ExecuteUpdate` is an EF Core feature introduced in EF Core 7 (see also [ExecuteDelete](/dbset/execute-delete)) that lets you update database rows **directly in SQL** without loading entities into memory, without using the Change Tracker, and without calling SaveChanges.
 
-However, it is sometimes useful to execute update or delete commands on the database without involving the change tracker. 
+Instead of modifying entities and calling `SaveChanges`, you define your update logic through LINQ. You use the `SetProperty` method to choose which property to update and what value to set. EF Core then translates everything into a single `UPDATE` statement executed on the database server.
 
-## DbSet.ExecuteUpdate
+`ExecuteUpdate` is available in both synchronous and asynchronous versions: `ExecuteUpdate` and `ExecuteUpdateAsync`.
 
-EF Core 7.0 provides a new method called the `ExecuteUpdate` method that updates entities in the database based on the results of that query. 
+**Basic example:**
 
- - The specific changes to make must be specified explicitly; they are not automatically detected by EF Core.
- - Any tracked entities will not be kept in sync.
- - Additional commands may need to be sent in the correct order so as not to violate database constraints. For example, update dependents before a principal can be deleted.
- - All of this means that the `ExecuteUpdate` method complements, rather than replaces, the existing `SaveChanges` mechanism.
+```csharp
+await context.Customers
+    .Where(c => c.Age > 30)
+    .ExecuteUpdateAsync(s =>
+        s.SetProperty(c => c.Age, c => c.Age + 1));
+```
 
-The `ExecuteUpdate` behaves in a very similar way to the [ExecuteDelete](/dbset/execute-delete) method. The main difference is that an update requires knowing which properties to update, and how to update them. This is achieved using one or more calls to `SetProperty`. 
+Generated SQL:
 
-The following example updates the `Name` property of every author.
+```sql
+UPDATE [c]
+    SET [c].[Age] = [c].[Age] + 1
+FROM [Customers] AS [c]
+WHERE [c].[Age] > 30
+```
+
+In short, it tells the database: **"update all matching rows like this."**
+
+This makes updates dramatically faster and is ideal for bulk or set-based operations.
+
+### ExecuteUpdate Requirements
+
+* **EF Core Version:** EF Core **7.0+**
+* **Supported Providers:** SQL Server, SQLite, PostgreSQL, MySQL, Oracle
+* **Unsupported Providers:** MariaDB, InMemory
+* **Additional Requirements:**
+  * Update logic must be **SQL-translatable**
+  * Expressions in `SetProperty` must not rely on custom C# functions
+  * You must specify properties explicitly (EF does not detect changes)
+  
+For `SetProperty`:
+
+**Supported:**
+
+- Constants
+- Column references
+- Basic math and string operations
+
+**Not supported:**
+- C# methods
+- Business logic
+- Random values
+- Values coming from in-memory collections
+
+## TL;DR – ExecuteUpdate
+
+* Runs **set-based updates** directly in SQL.
+* Does **not** require calling `SaveChanges`.
+* Does **not** load entities into memory (massive performance boost).
+* Does **not** use the Change Tracker.
+* Does **not** update the Change Tracker.
+* Update rules must be **SQL-translatable**.
+* Best for batch updates and simple value transformations.
+* EF Extensions supports [real bulk updates](https://entityframework-extensions.net/bulk-update) when per-row values are needed.
+
+## ExecuteUpdate Examples
+
+### Update with concatenation
+
+The following example updates the `Name` property of every author:
 
 ```csharp
 using (var context = new LibraryContext())
 {
-    context.Authors.ExecuteUpdate(
+    await context.Authors.ExecuteUpdateAsync(
         s => s.SetProperty(b => b.Name, b => b.Name + " *Updated!*"));
 }
 ```
 
-The first parameter of `SetProperty` specifies which property to update; in this case, `Author.Name`. The second parameter specifies how the new value should be calculated; in this case, by taking the existing value and appending "*Updated!*". The resulting SQL is:
+The first parameter of `SetProperty` specifies which property to update (`Author.Name`).
 
-```csharp
+The second parameter specifies how the new value is calculated, by using the existing value and appending `" *Updated!*"`.
+
+Generated SQL:
+
+```sql
 UPDATE [a]
     SET [a].[Name] = [a].[Name] + N' *Updated!*'
 FROM [Authors] AS [a]
 ```
+ 
+### Update with concatenation and filters
 
-It also allows you to use the query that can be used to filter which entities are updated. You can call the `SetProperty` method multiple times to update more than one property on the target entity. 
+You can call `SetProperty` multiple times to update more than one property.
 
-The following example updates the `Title` and `Content` of all the books published before 2018.
+The following example updates the `Title` and `Content` of all books published before 2018:
 
 ```csharp
 using (var context = new LibraryContext())
@@ -56,35 +111,39 @@ using (var context = new LibraryContext())
     context.Books
         .Where(b => b.PublishedOn.Year < 2018)
         .ExecuteUpdateAsync(s => s
-            .SetProperty(a => a.Title, a => a.Title + " (" + a.PublishedOn.Year + ")")
-            .SetProperty(a => a.Content, a => a.Content + " ( This content was published in " + b.PublishedOn.Year + ")"));
+            .SetProperty(b => b.Title, b => b.Title + " (" + b.PublishedOn.Year + ")")
+            .SetProperty(b => b.Content, b => b.Content + " (This content was published in " + b.PublishedOn.Year + ")"));
 }
 ```
 
-In this case, the generated SQL is a bit more complicated:
+In this case, the generated SQL is more complex:
 
-```csharp
+```sql
 UPDATE [b]
-    SET [b].[Content] = (([b].[Content] + N' ( This content was published in ') + COALESCE(CAST(DATEPART(year, [b].[PublishedOn]) AS nvarchar(max)), N'')) + N')',
+    SET [b].[Content] = (([b].[Content] + N' (This content was published in ') + COALESCE(CAST(DATEPART(year, [b].[PublishedOn]) AS nvarchar(max)), N'')) + N')',
     [b].[Title] = (([b].[Title] + N' (') + COALESCE(CAST(DATEPART(year, [b].[PublishedOn]) AS nvarchar(max)), N'')) + N')'
 FROM [Books] AS [b]
 WHERE DATEPART(year, [b].[PublishedOn]) < 2018
 ```
 
-The `ExecuteDelete` also allows you to use the filter that can reference other tables. The following example updates all tags from old posts.
+### Update using navigation filters
+
+`ExecuteUpdate` also allows you to use filters that reference other tables.
+
+The following example updates all tags from old posts:
 
 ```csharp
 using (var context = new BloggingContext())
 {
     context.Tags
-        .Where(t => t.Posts.All(e => e.PublishedOn.Year < 2022))
+        .Where(t => t.Posts.All(p => p.PublishedOn.Year < 2022))
         .ExecuteUpdateAsync(s => s.SetProperty(t => t.Text, t => t.Text + " (old)"));
 }
 ```
 
-When the above code is executed, it will generate the following SQL statement. 
+Generated SQL:
 
-```csharp
+```sql
 UPDATE [t]
     SET [t].[Text] = [t].[Text] + N' (old)'
 FROM [Tags] AS [t]
@@ -95,36 +154,91 @@ WHERE NOT EXISTS (
     WHERE [t].[Id] = [p].[TagsId] AND NOT (DATEPART(year, [p0].[PublishedOn]) < 2022))
 ```
 
-Here’s a drop-in section you can paste into your article.
+### ExecuteUpdate – EF Core 10 Enhancement
 
----
+`ExecuteUpdate` now accepts a **regular lambda**, not only expression trees.
+
+This allows conditional logic (`if`, `else if`, `else`) as long as all `SetProperty` calls remain **SQL-translatable**.
+
+```csharp
+bool nameChanged = true; // Local variable, not a column
+
+await context.Blogs.ExecuteUpdateAsync(s =>
+{
+    s.SetProperty(b => b.Views, 8);
+    if (nameChanged)
+    {
+        s.SetProperty(b => b.Name, "foo");
+    }
+});
+```
+
+## ExecuteUpdate Release History
+
+* **EF Core 10.0:**
+  * [JSON support](https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-10.0/whatsnew#executeupdate-support-for-relational-json-columns): Added `ExecuteUpdate` support for relational JSON columns, allowing efficient bulk updates of JSON properties when mapped as complex types.
+  * [Easier dynamic updates](https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-10.0/whatsnew#executeupdateasync-now-accepts-a-regular-non-expression-lambda): `ExecuteUpdateAsync` now accepts a regular lambda (not only expression trees), making dynamic and conditional updates much easier to write.
+* [EF Core 9.0](https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-9.0/whatsnew#executeupdate): Improved `ExecuteUpdate` to support complex type properties, allowing you to set the entire complex type at once while still updating each mapped column explicitly.
+* [EF Core 8.0](https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-8.0/whatsnew#better-executeupdate-and-executedelete): Improved `ExecuteUpdate` and `ExecuteDelete` to support more complex queries (owned types, unions, and TPT), as long as all updates target a single database table.
+* [EF Core 7.0](https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-7.0/whatsnew#executeupdate-and-executedelete-bulk-updates): Introduced `ExecuteUpdate` and `ExecuteDelete`.
+* **EF Core 2.0+:** For older versions of EF Core or if you prefer the syntax provided by EF Extensions over using `SetProperty`, you can use [UpdateFromQuery](https://entityframework-extensions.net/update-from-query).
 
 ## Is ExecuteUpdate a real “Bulk Update”?
 
-**Short answer: not quite.** `ExecuteUpdate` is a great *set-based* update API built into EF Core: it sends **one SQL statement** that applies **the same update rule** to all rows matching your LINQ filter.
-A [real bulk update](/bulk-extensions/bulk-update) (e.g., with [Entity Framework Extensions](https://entityframework-extensions.net/bulk-update)) is a different class of operation designed for **very large datasets** and **per-row values**, using high-throughput database paths (bulk copy/TVPs, temp tables, `MERGE`, batched `UPDATE JOIN`s) plus a rich feature layer.
+**Short answer: not quite.**
+
+It does update rows in bulk in a database. However, it doesn’t let you bulk update entities with their own values, like the [BulkUpdate](https://entityframework-extensions.net/bulk-update) method from Entity Framework Extensions does.
+The difference is simple:
+
+* **`ExecuteUpdate`**: Tell the database, *“update all matching rows like **this**.”*
+* **[BulkUpdate](https://entityframework-extensions.net/bulk-update)**: Take this list of entities, each with its own values, send them efficiently to the server, and apply each value to its matching row.
+
+```csharp
+// ExecuteUpdate
+await context.Customers
+    .Where(c => c.Age > 30)
+    .ExecuteUpdateAsync(s =>
+        s.SetProperty(c => c.Age, c => c.Age + 1));
+
+// BulkUpdate (with EF Extensions)
+await context.BulkUpdateAsync(customers);
+```
 
 ### What’s the practical difference?
 
-| Aspect                   | `ExecuteUpdate` (EF Core)                                                                                              | Real Bulk Update ([Entity Framework Extensions](https://entityframework-extensions.net/bulk-update))                                                         |
-| ------------------------ | ---------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
-| How values are supplied  | **Single rule** expressed in LINQ (e.g., `SetProperty(p => p.Price, p => p.Price * 0.9)` applies to all targeted rows) | **Per-entity values** pushed from your in-memory list (each row can get a different value)             |
-| Data path                | Single SQL `UPDATE … WHERE …`                                                                                          | Stages your data (TVP/temp table/bulk copy), then **`UPDATE JOIN`/`MERGE`** for maximal throughput     |
-| Scale & performance      | Fast for set updates; good up to hundreds of thousands of rows                                                         | Optimized for **millions** of rows; minimizes round-trips and log pressure                             |
-| Related data             | Not supported                                                                                                          | **IncludeGraph** to update related entities correctly                                                  |
-| Mapping control          | Limited (set columns you specify)                                                                                      | Fine-grained column include/exclude, key selection, identity handling, computed columns behavior, etc. |
-| Orchestration & batching | No batch knobs                                                                                                         | **BatchSize**, streaming, command timeouts, retry policy hooks                                         |
-| Events & auditing        | None                                                                                                                   | **Pre*/Post* events\*\*, audit stamps, custom logging hooks                                            |
-| Entity tracking          | Does not sync tracked instances                                                                                        | Options to **sync back** generated values or reload as needed                                          |
+| Question                       | `ExecuteUpdate` (EF Core)                   | [BulkUpdate](https://entityframework-extensions.net/bulk-update) (EF Extensions) |
+| ------------------------------ | ------------------------------------------- | ---------------------------------------------------------------- |
+| How are values applied?        | One rule for all rows                       | Values come from each entity                                          |
+| Where does the data come from? | Computed in SQL                             | In-memory entity list                                            |
+| How many rows?                 | Good for thousands to hundreds of thousands | Designed for millions                                            |
+| Different values per row?      | ❌ No                                        | ✅ Yes                                                            |
+| Related entities?              | ❌ No                                        | ✅ Yes (IncludeGraph)                                             |
+| Change Tracker sync?           | ❌ No                                        | ✅ Optional (can sync output values)                              |                                     |
 
 ### A quick mental model
 
 * **`ExecuteUpdate`** = “Tell the database: *update all matching rows like **this***.”
-  Great for **uniform** changes (e.g., “mark all expired coupons as inactive”).
+  Great for **uniform** changes (for example, “mark all expired coupons as inactive”).
 * **Real bulk update** = “Take **this list** of entities with **their own values**, ship them efficiently to the server, and **apply each value to its matching row**.”
   Essential when **each row is different** or volumes are huge.
 
-### Concrete example
+### Performance Benchmarks
+
+Updating **100,000 rows** (3 `int` columns + 3 `string` columns):
+
+| Method                                                           | Time    | Memory   |
+| ---------------------------------------------------------------- | ------- | -------- |
+| `ExecuteUpdate`                                                  | 365 ms  | Very low |
+| `BulkUpdate` (EF Extensions) | 1900 ms | Low      |
+| `SaveChanges`                                                    | 4800 ms | High     |
+
+[Benchmark Source](https://github.com/zzzprojects/learnentityframeworkcore/blob/main/benchmarks/EFCore/EFCore.Benchmarks/Benchmarks/ExecuteUpdateVsSaveChanges.cs)
+
+> **Important:**
+> For `BulkUpdate` and `SaveChanges`, around **250 ms** of this time is spent **materializing the list of entities from the database** before the update starts.
+> This step is required because `BulkUpdate` and `SaveChanges` works from entities, not from a LINQ rule.
+
+### Bulk Update – Concrete example
 
 **Goal:** update 1,000,000 products with **different** `NewPrice` values coming from memory.
 
@@ -143,21 +257,106 @@ context.BulkUpdate(products, options =>
 });
 ```
 
-Doing the same with `ExecuteUpdate` **is not feasible** without first staging your values yourself (e.g., creating a temp table, loading it, then hand-writing an `UPDATE JOIN`). EF Extensions automates that pipeline for you.
+Doing the same with `ExecuteUpdate` **is not feasible** without first staging your values yourself (for example, creating a temp table, loading it, and then writing an `UPDATE JOIN`).
+
+[EF Extensions](https://entityframework-extensions.net/) automates that entire pipeline for you.
 
 ### When to use which?
 
+| Scenario                                           | Recommended                                                                                       |
+| -------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| Same update rule for all rows                      | `ExecuteUpdate`                                                                                   |
+| Complex update rules                               | `ExecuteUpdate` (if SQL-translatable)                                                             |
+| Per-row different values                           | EF Extensions [BulkUpdate](https://entityframework-extensions.net/bulk-update)                    |
+| Large-scale data updates                           | `ExecuteUpdate` or EF Extensions [BulkUpdate](https://entityframework-extensions.net/bulk-update) |
+| Need events, validation, or Change Tracker updates | `SaveChanges`                                                                                     |
+
+
 * Use **`ExecuteUpdate`** when:
 
-  * The change is **uniform** for all matched rows.
-  * You want a **zero-dependency** solution inside EF Core.
-  * The dataset is modest to medium and you don’t need advanced options.
+  * The change is **uniform** for all matched rows
+  * You want a **zero-dependency** solution inside EF Core
+  * The dataset is modest to medium and you don’t need advanced options
 
-* Use a **real bulk update** (Entity Framework Extensions) when:
+* Use a **[real bulk update](https://entityframework-extensions.net/bulk-update)** (Entity Framework Extensions) when:
 
-  * Each row needs a **different value** from your in-memory data.
-  * You’re touching **hundreds of thousands to millions** of rows.
-  * You need **upsert/merge**, **graph updates**, or rich **auditing/logging** and **batch controls**.
+  * Each row needs a **different value** from your in-memory data
+  * You’re touching **hundreds of thousands to millions** of rows
+  * You need **upsert/merge**, **graph updates**, or advanced options
 
-> Bottom line: `ExecuteUpdate` is a powerful **set-based** tool. A **real bulk update** is a **high-throughput data pipeline** built for scale, per-row values, and advanced orchestration. They complement each other rather than compete.
+> **Bottom line:** `ExecuteUpdate` is a powerful **set-based** tool.
+> A **real bulk update** is a **high-throughput data pipeline** built for scale, per-row values, and advanced orchestration.
+> They complement each other rather than compete.
 
+## Additional Resources – ExecuteUpdate
+
+### 📘 Recommended Reading
+
+* [Microsoft - ExecuteUpdate](https://learn.microsoft.com/en-us/ef/core/saving/execute-insert-update-delete#executeupdate)
+* [Entity Framework Tutorials - ExecuteUpdate](https://www.entityframeworktutorial.net/efcore/execute-update.aspx)
+* [ExecuteUpdateAsync Update to Allow Non-Expression Lambda](https://www.learnentityframeworkcore.com/efcore/efcore-10-what-is-new#executeupdateasync-update-to-allow-non-expression-lambdas)
+
+### 🎥 Recommended Videos
+
+#### EF Core 7 – Performance Improvements With the New ExecuteUpdate & ExecuteDelete, por Milan Jovanović
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/VYitXAc_htI?si=zfdIx_3RPKQN7WXu" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+Milan demonstrates how to replace a slow foreach-based update with the new ExecuteUpdate API in EF Core 7. He applies a computed value (Salary * 1.1), explains how the update runs directly in the database without tracking entities, and compares performance against the traditional approach.
+
+**Key timestamps:**
+
+- [01:45](https://www.youtube.com/watch?v=VYitXAc_htI&t=105s) – Creating the new endpoint based on ExecuteUpdate
+- [02:30](https://www.youtube.com/watch?v=VYitXAc_htI&t=150s) – Filtering employees by CompanyId using LINQ
+- [03:00](https://www.youtube.com/watch?v=VYitXAc_htI&t=180s) – Applying a percentage salary increase with SetProperty
+- [03:45](https://www.youtube.com/watch?v=VYitXAc_htI&t=225s) – No tracking + no SaveChanges call
+- [04:45](https://www.youtube.com/watch?v=VYitXAc_htI&t=285s) – SQL UPDATE generated by EF Core 7
+- [06:00](https://www.youtube.com/watch?v=VYitXAc_htI&t=360s) – Performance comparison: foreach update vs ExecuteUpdate
+
+#### Entity Framework 7 Makes Performing UPDATES and DELETES Easy!, por Israel Quiroz
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/yDFwJ7JfG3s?si=-xRNkhwd9IhRX6pm" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+Israel explains how ExecuteUpdateAsync replaces the traditional workflow of retrieving an entity, modifying properties, and calling SaveChanges. He shows how a single database call can update several fields using SetProperty, without tracking entities.
+
+**Key timestamps:**
+
+- [03:28](https://www.youtube.com/watch?v=yDFwJ7JfG3s&t=208s) – Traditional update workflow (retrieve → assign → SaveChanges)
+- [03:40](https://www.youtube.com/watch?v=yDFwJ7JfG3s&t=220s) – ExecuteUpdateAsync with SetProperty
+- [04:00](https://www.youtube.com/watch?v=yDFwJ7JfG3s&t=240s) – Chained SetProperty calls (multiple fields)
+- [04:20](https://www.youtube.com/watch?v=yDFwJ7JfG3s&t=260s) – Fewer database round-trips
+- [04:40](https://www.youtube.com/watch?v=yDFwJ7JfG3s&t=280s) – No change tracking during the update
+
+#### (SPANISH) Borrado y Actualizaciones Masivas – Nuevo de EF Core 7, por Felipe Gavilan
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/o9B3pxVpPIY?si=z2N0sPCUOE9xBEqp" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+Felipe demonstrates mass updates using ExecuteUpdate with multiple SetProperty calls. He updates a timestamp and a string field, verifies the results in SQL Server, and shows how all changes are performed in one consolidated SQL UPDATE.
+
+**Key timestamps:**
+
+- [05:32](https://www.youtube.com/watch?v=o9B3pxVpPIY&t=332s) – First SetProperty: assigning the update timestamp
+- [06:48](https://www.youtube.com/watch?v=o9B3pxVpPIY&t=408s) – Second SetProperty: appending text to Nombre
+- [07:48](https://www.youtube.com/watch?v=o9B3pxVpPIY&t=468s) – Running the mass update and reviewing results
+- [08:31](https://www.youtube.com/watch?v=o9B3pxVpPIY&t=511s) – Beginning of performance comparison
+- [09:31](https://www.youtube.com/watch?v=o9B3pxVpPIY&t=571s) – Final numbers: 100k updates (8s → 0.2s)
+
+## Summary & Next Steps – ExecuteUpdate
+
+`ExecuteUpdate` is a powerful EF Core feature that enables fast, set-based updates without Change Tracker overhead. It is ideal for bulk data maintenance and simple transformations.
+
+**Use `ExecuteUpdate` when:**
+
+* You want a simple update rule applied to many records
+* You want performance without loading entities into memory
+
+**Use EF Extensions `BulkUpdate` when:**
+
+* Each row requires a unique value
+* You need advanced batching, `MERGE`, or auditing
+* Your database provider does not support `ExecuteUpdate`
+
+**Next steps:**
+
+* Explore the [EF Extensions BulkUpdate](https://entityframework-extensions.net/bulk-update) documentation
+* Learn about [ExecuteDelete](/dbset/execute-delete)
