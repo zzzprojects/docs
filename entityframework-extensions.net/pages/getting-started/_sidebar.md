@@ -1,7 +1,6 @@
 - [Overview](overview.md)
 - [Bulk Operations](tutorial-bulk-operations.md)
-- [Bulk SaveChanges](tutorial-bulk-savechanges.md)
-- [Batch Operations](tutorial-batch-operations.md)
 - [Configuring Options](configure-options.md)
 - [Configuring Column Options](configure-column-options.md)
+- [Additional Features](additional-features.md)
 - [Licensing](licensing.md)
