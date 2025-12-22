@@ -4,7 +4,7 @@ MetaDescription: Learn how to customize your EF6 and EF Core Bulk Extensions by 
 LastMod: 2025-07-28
 ---
 
-# Bulk Options
+# Bulk Options in EF Extensions
 
 Entity Framework Extensions have been created to be fast but also to be extensible, with hundreds of options available. Understanding available options is essential to make your [Bulk Extensions](https://entityframework-extensions.net/bulk-extensions) more flexible, but also to know how to pass them:
 

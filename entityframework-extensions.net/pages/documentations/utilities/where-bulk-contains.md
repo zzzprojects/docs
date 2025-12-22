@@ -3,7 +3,7 @@ Name: How to filter entities contained from an existing list with Entity Framewo
 LastMod: 2025-11-16
 ---
 
-# How to filter entities contained from an existing list with Entity Framework?
+# Entity Framework WhereBulkContains 
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/9xVaL63LOsY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 

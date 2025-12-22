@@ -4,7 +4,7 @@ MetaDescription: Learn how to use the 'DeleteMatchedAndOneNotCondition' option i
 LastMod: 2025-08-17
 ---
 
-# 🗑️❓ Delete Matched and One NOT Condition Option in Entity Framework Extensions /n Delete only when at least one value is different
+# DeleteMatchedAndOneNotCondition Options in EF Extensions
 
 The `DeleteMatchedAndOneNotCondition` option in Entity Framework Extensions lets you **perform the `DELETE` action only when at least one selected value in the source and destination is different**.  
 

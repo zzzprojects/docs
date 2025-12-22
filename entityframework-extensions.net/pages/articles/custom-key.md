@@ -3,7 +3,7 @@ Name: Use Custom Key
 LastMod: 2025-06-22
 ---
 
-# Use Custom Key
+# Entity Framework Custom Key
 
 ## Problem
 You want to perform a Bulk Operation (BulkUpdate, BulkDelete, or BulkMerge) but using a different key than the one specified.

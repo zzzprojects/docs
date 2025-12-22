@@ -3,7 +3,7 @@ Name: BulkInsert vs BulkSaveChanges
 LastMod: 2025-06-22
 ---
 
-# BulkInsert vs BulkSaveChanges
+# Entity Framework BulkInsert vs BulkSaveChanges
 
 ## What's the difference between BulkInsert and BulkSaveChanges?
 BulkInsert will always be a lot faster than BulkSaveChanges.

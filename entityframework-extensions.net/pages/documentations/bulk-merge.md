@@ -4,7 +4,7 @@ MetaDescription: Efficiently add or update Entity Framework data with EF Core Bu
 LastMod: 2025-11-11
 ---
 
-# Bulk Merge /n Easily perform add or update (Upsert) operations in EF Core
+# Entity Framework Bulk Merge (Upsert, Insert + Update)
 
 The `BulkMerge` method lets you merge entities using your [EF Core model](https://www.learnentityframeworkcore.com/model) into your database. This kind of merge operation is often called “Upsert,” “Add or Update,” or “Insert or Update.” There is currently no direct equivalent to `BulkMerge` built into EF Core.
 

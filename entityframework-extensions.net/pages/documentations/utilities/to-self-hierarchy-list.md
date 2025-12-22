@@ -3,7 +3,7 @@ Name: ToSelfHierarchyList
 LastMod: 2025-06-24
 ---
 
-# ToSelfHierarchyList
+# Entity Framework ToSelfHierarchyList
 
 ## Description
 

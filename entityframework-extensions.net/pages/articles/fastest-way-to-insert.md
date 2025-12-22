@@ -3,7 +3,7 @@ Name: Fastest Way to Insert
 LastMod: 2025-06-22
 ---
 
-# Fastest Way to Insert
+# Entity Framework Fastest Way to Insert
 
 ## What's the FASTEST way to insert in Entity Framework?
 

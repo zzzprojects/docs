@@ -4,7 +4,7 @@ MetaDescription: Boost your EF Core inserts performance by up to 15x, reducing i
 LastMod: 2025-11-11
 ---
 
-# EF Core Bulk Insert with Entity Framework Extensions/n Boost your EF Core / EF6 insert performance now
+# Entity Framework Bulk Insert
 
 The BulkInsert method from **Entity Framework Extensions** is the easiest way to insert thousands of entities in EF Core and EF6.
 

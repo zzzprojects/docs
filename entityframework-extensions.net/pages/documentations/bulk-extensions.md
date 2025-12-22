@@ -4,7 +4,7 @@ MetaDescription: Learn how to use Bulk Extensions in EF Core to boost your CRUD 
 LastMod: 2025-11-11
 ---
 
-# Bulk Extensions for EF Core with Entity Framework Extensions
+# Entity Framework Bulk Extensions
 
 **Bulk Extensions** are high-performance extension methods added to **EF Core** by Entity Framework Extensions. They are designed to **speed up your CRUD operations** and **dramatically reduce memory usage** in your application. These bulk methods are both **easy to use** and **easy to customize**.
 

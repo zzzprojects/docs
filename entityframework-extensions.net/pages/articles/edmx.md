@@ -3,7 +3,7 @@ Name: Edmx
 LastMod: 2025-06-22
 ---
 
-# Edmx
+# EF6 Edmx
 
 On rare occasions, your model might not be compatible yet with our model reader. If that's your case and we ask you for your model, you can use one of the following methods to provide the required information:
 

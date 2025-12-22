@@ -3,7 +3,7 @@ Name: Batch SaveChanges
 LastMod: 2025-07-28
 ---
 
-# Batch SaveChanges
+# Entity Framework Batch SaveChanges
 
 ## Description
 

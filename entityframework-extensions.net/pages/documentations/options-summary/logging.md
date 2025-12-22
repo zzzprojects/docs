@@ -4,7 +4,7 @@ MetaDescription: Learn how to use logging options in Entity Framework Extensions
 LastMod: 2025-08-18
 ---
 
-# 📜 Logging in Entity Framework Extensions/n Capture executed SQL, parameters, and execution time
+# 📜 Logging options in EF Extensions
 
 The `Logging` feature in Entity Framework Extensions lets you **capture and analyze SQL statements, parameters, and execution details** during [bulk operations](/bulk-extensions) with your EF Core context.
 

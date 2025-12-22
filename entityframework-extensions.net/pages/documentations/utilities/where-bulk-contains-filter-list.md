@@ -3,7 +3,7 @@ Name: How do you filter a list to return only items from the list that match a r
 LastMod: 2025-06-24
 ---
 
-# How do you filter a list to return only items from the list that match a row in the database?
+# Entity Framework WhereBulkContainsFilterList
 
 ## Description
 

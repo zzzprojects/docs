@@ -3,7 +3,7 @@ Name: Include Graph
 LastMod: 2025-06-24
 ---
 
-# Include Graph
+# Include Graph Options in EF Extensions
 
 The `BulkOperation.IncludeGraph` option allows you to `INSERT/UPDATE/MERGE` entities by including the child entities graph. 
 

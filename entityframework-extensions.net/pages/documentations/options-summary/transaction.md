@@ -3,7 +3,7 @@ Name: Transaction
 LastMod: 2025-06-24
 ---
 
-# Transaction
+# Transaction options in EF Extensions
 
 ## BulkSaveChanges
 As SaveChanges, BulkSaveChanges already save all entities within an internal transaction. So, there is nothing to do.

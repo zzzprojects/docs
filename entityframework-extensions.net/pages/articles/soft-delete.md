@@ -3,7 +3,7 @@ Name: Soft Delete
 LastMod: 2025-06-22
 ---
 
-# Soft Delete
+# Entity Framework Soft Delete
 
 ## Problem
 You want to soft delete some entities currently in a deleted state with BulkSaveChanges.

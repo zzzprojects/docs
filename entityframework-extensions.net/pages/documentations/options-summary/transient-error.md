@@ -3,7 +3,7 @@ Name: Transient Error
 LastMod: 2023-03-01
 ---
 
-# Transient Error
+# Transient Error options in EF Extensions
 
 ## RetryCount
 Gets or sets the maximum number of operations retry when a transient error occurs.

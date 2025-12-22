@@ -4,7 +4,7 @@ MetaDescription: Learn how to use the 'MatchedAndFormula' option in Entity Frame
 LastMod: 2025-08-17
 ---
 
-# 🧮❓ Matched and Formula Option in Entity Framework Extensions /n Update only when a custom SQL condition is true
+# MatchedAndFormula Options in EF Extensions
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/HiujI5LpEtE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 

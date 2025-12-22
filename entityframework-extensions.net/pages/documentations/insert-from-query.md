@@ -3,7 +3,7 @@ Name: Insert from Query
 LastMod: 2025-06-23
 ---
 
-# Insert from Query
+# Entity Framework Insert from Query
 
 ## Definition
 `INSERT` all rows from the database using a LINQ Query without loading entities in the context.

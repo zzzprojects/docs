@@ -4,7 +4,7 @@ MetaDescription: Learn how to use events in Entity Framework Extensions to custo
 LastMod: 2025-08-20
 ---
 
-# ⚡ Events in Entity Framework Extensions/n Customize bulk operations and set audit fields automatically
+# ⚡ Events Options in EF Extensions
 
 When working with [bulk operations](/bulk-extensions) in Entity Framework Extensions, you often need to apply **custom business logic** instead of just saving data as-is.
 

@@ -4,7 +4,7 @@ MetaDescription: Learn how to use Input, Output, and Ignore column options in En
 LastMod: 2025-08-13
 ---
 
-# Input / Output / Ignore
+# Input, Output & Ignore Column Options in EF Extensions
 
 In this article, we will discover how to choose which properties are used when inserting, updating, or deleting data through **Entity Framework Extensions**.
 

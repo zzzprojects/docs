@@ -4,7 +4,7 @@ MetaDescription: Efficiently save Entity Framework changes with EF Core Bulk Sav
 LastMod: 2025-11-11
 ---
 
-# Bulk SaveChanges /n Supercharge your EF Core SaveChanges by adding 'Bulk'
+# Entity Framework BulkSaveChanges
 
 The `BulkSaveChanges` method works like EF Core’s [SaveChanges](https://learn.microsoft.com/en-us/ef/core/saving/basic) method—only faster! It saves to the database all entities in your [ChangeTracker](https://www.learnentityframeworkcore.com/dbcontext/change-tracker) that have one of the following states: **Added**, **Modified**, or **Deleted**.
 

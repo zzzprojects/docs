@@ -4,7 +4,7 @@ MetaDescription: Learn how to use the 'DeleteMatchedAndCondition' option in Enti
 LastMod: 2025-08-17
 ---
 
-# 🗑️❓ Delete Matched and Condition Option in Entity Framework Extensions /n Delete only when source and destination values match
+# DeleteMatchedAndCondition Options in EF Extensions
 
 The `DeleteMatchedAndCondition` option in Entity Framework Extensions lets you **perform the `DELETE` action only when certain values in the source and destination are equal**.  
 

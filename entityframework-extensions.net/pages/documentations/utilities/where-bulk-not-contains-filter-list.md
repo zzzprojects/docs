@@ -3,7 +3,7 @@ Name: How do you filter a list to return only items from the list that match no 
 LastMod: 2025-06-24
 ---
 
-# How do you filter a list to return only items from the list that match no row in the database?
+# Entity Framework WhereBulkNotContainsFilterList
 
 ## Description
 

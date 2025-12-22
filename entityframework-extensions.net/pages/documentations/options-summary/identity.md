@@ -3,7 +3,7 @@ Name: Identity
 LastMod: 2025-06-24
 ---
 
-# Identity
+# Identity Options in EF Extensions
 
 | Name                               | Description                                                           |
 |:-----------------------------------|:----------------------------------------------------------------------|

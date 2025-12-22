@@ -3,7 +3,7 @@ Name: How to read entities contained from an existing list with Entity Framework
 LastMod: 2025-06-24
 ---
 
-# How to read entities contained from an existing list with Entity Framework?
+# Entity Framework BulkRead
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/6rDrB0I5Kyk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 

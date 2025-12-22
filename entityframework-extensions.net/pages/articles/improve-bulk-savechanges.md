@@ -3,7 +3,7 @@ Name: Improve BulkSaveChanges
 LastMod: 2025-06-22
 ---
 
-# Improve BulkSaveChanges
+# Entity Framework Improve BulkSaveChanges
 
 ## Introduction
 BulkSaveChanges is already very fast. But you can make it even faster by simply turning off the "EntityFrameworkPropagation" options.

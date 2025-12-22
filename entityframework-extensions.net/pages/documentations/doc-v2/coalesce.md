@@ -4,7 +4,7 @@ MetaDescription: Learn how to use the 'Coalesce' option in Entity Framework Exte
 LastMod: 2025-08-17
 ---
 
-# 🛡️ Coalesce Option in Entity Framework Extensions /n Ignore NULL values during updates
+# Coalesce Options in EF Extensions
 
 The `Coalesce` option in Entity Framework Extensions lets you **keep the destination value** when the source value is `null`.
 

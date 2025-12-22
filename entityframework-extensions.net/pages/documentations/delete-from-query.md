@@ -3,7 +3,7 @@ Name: Delete from Query
 LastMod: 2025-06-23
 ---
 
-# Delete from Query
+# Entity Framework Delete from Query 
 
 ## Definition
 `DELETE` all rows from the database using a LINQ Query without loading entities in the context.

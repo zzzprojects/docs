@@ -3,7 +3,7 @@ Name: Delete By Key
 LastMod: 2025-06-24
 ---
 
-# Delete By Key
+# Entity Framework Delete By Key
 
 The `DeleteByKey` is a `DbSet<TEntity>` extension method that deletes an entity by using the value from an existing entity or directly key values. 
 

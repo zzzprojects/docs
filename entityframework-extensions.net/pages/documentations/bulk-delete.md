@@ -4,7 +4,7 @@ MetaDescription: Efficiently delete Entity Framework data with EF Core Bulk Dele
 LastMod: 2025-11-11
 ---
 
-# Bulk Delete /n Swiftly perform delete operations on thousands of entities in EF Core
+# Entity Framework Bulk Delete
 
 The `BulkDelete` method lets you delete thousands of entities in EF Core. The biggest advantage of this method over the traditional approach is that you don’t need to fetch your entities from the database before deleting them (which doesn’t make much sense since you’re deleting them!).
 

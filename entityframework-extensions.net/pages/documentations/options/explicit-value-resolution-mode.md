@@ -4,7 +4,7 @@ MetaDescription: How EFE Bulk Extensions Handle Explicit Values in EF Core
 LastMod: 2025-06-24
 ---
 
-# How EFE Bulk Extensions Handle Explicit Values in EF Core
+# ExplicitValueResolution Options in EF Extensions
 
 Before diving into this topic, make sure you've read the article [How Does EF Core Handle Explicit Values for Generated Properties?](https://www.learnentityframeworkcore.com/model/generated-value). We will build upon the concepts introduced there to explore how EFE Bulk Extensions manage explicit values in EF Core.
 

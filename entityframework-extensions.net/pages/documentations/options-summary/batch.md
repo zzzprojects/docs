@@ -4,7 +4,7 @@ MetaDescription: Learn how to use BatchSize, BatchTimeout, and BatchDelayInterva
 LastMod: 2025-08-19
 ---
 
-# 📦 Batch Options in Entity Framework Extensions /n Control how data is sent to the database
+# 📦 Batch Options in EF Extensions
 
 When working with our [bulk extensions](/bulk-extensions), performance can often be improved by [configuring](/configure-options) a few important options.
 

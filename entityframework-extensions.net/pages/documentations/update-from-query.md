@@ -3,7 +3,7 @@ Name: Update from Query
 LastMod: 2025-06-23
 ---
 
-# Update from Query
+# Entity Framework Update from Query
 
 ## Definition
 `UPDATE` all rows from the database using a LINQ Query without loading entities in the context.

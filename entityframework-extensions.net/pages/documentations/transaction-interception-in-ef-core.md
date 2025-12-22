@@ -4,7 +4,7 @@ Name: Transaction Interception
 LastMod: 2025-06-23
 ---
 
-# Transaction Interception
+# EF Core Transaction Interception
 
 The `DbTransactionInterceptor` is a class that can receive notifications when Entity Framework uses a transaction. You must override the method from this class.
 

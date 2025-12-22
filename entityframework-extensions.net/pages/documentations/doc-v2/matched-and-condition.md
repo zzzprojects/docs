@@ -4,7 +4,7 @@ MetaDescription: Learn how to use the 'MatchedAndCondition' option in Entity Fra
 LastMod: 2025-08-17
 ---
 
-# 🔒❓ Matched and Condition Option in Entity Framework Extensions /n Update only when source and destination values match
+# MatchedAndCondition Options in EF Extensions
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/O2k8QZ4RHdw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 

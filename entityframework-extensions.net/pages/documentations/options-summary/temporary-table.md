@@ -4,7 +4,7 @@ MetaDescription: Learn how to configure temporary tables in Entity Framework Ext
 LastMod: 2025-09-23
 ---
 
-# 🧪 Temporary Table in Entity Framework Extensions /n Control how staging tables are created and used
+# 🧪 Temporary Table options in EF Extensions
 
 Temporary tables act as a **staging area** to speed up bulk operations in EF Core before the final [bulk insert](/bulk-insert), [update](/bulk-update), [delete](/bulk-delete), or [merge](/bulk-merge).
 

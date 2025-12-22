@@ -3,7 +3,7 @@ Name: LINQ Dynamic
 LastMod: 2025-08-19
 ---
 
-# LINQ Dynamic
+# Entity Framework LINQ Dynamic
 
 ## Description
 You can execute query dynamically through the [Eval-Expression.NET](https://eval-expression.net/) library.

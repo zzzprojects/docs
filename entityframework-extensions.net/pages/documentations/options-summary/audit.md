@@ -4,7 +4,7 @@ MetaDescription: Learn how to use auditing options in Entity Framework Extension
 LastMod: 2025-10-30
 ---
 
-# 📜 Auditing in Entity Framework Extensions/n Capture data that has been inserted, modified, or deleted in your database
+# 📜 Auditing Options in EF Extensions
 
 The **audit feature** in Entity Framework Extensions lets you **track all changes** made to your database during any **bulk operation**.
 

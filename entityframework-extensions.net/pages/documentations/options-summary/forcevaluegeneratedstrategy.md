@@ -3,7 +3,7 @@ Name: ForceValueGeneratedStrategy
 LastMod: 2023-10-11
 ---
 
-# ForceValueGeneratedStrategy Option
+# ForceValueGeneratedStrategy Options in EF Extensions
 
 ## Obsolete Option
 

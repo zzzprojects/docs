@@ -3,7 +3,7 @@ Name: Concurrency EF6
 LastMod: 2025-06-22
 ---
 
-# Concurrency (EF 6)
+# EF6 Concurrency
 
 ## Problem
 Your model has a concurrency entity, and you must resolve optimistic concurrency using a pattern.

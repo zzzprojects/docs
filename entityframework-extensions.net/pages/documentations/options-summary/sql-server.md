@@ -3,7 +3,7 @@ Name: SQL Server
 LastMod: 2023-03-01
 ---
 
-# SQL Server
+# SQL Server options in EF Extensions
 
 ## SqlBulkCopyOptions
 Gets or sets the SqlBulkCopyOptions to use when `SqlBulkCopy` is used to directly insert in the destination table.

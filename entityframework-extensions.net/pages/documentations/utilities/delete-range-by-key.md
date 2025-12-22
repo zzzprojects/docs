@@ -3,7 +3,7 @@ Name: Delete Range By Key
 LastMod: 2025-06-24
 ---
 
-# Delete Range By Key
+# Entity Framework Delete Range By Key
 
 The `DeleteRangeByKey` is a `DbSet<TEntity>` extension method that deletes multiple entities by using the value from existing entities. 
 

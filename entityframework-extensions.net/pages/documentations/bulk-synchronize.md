@@ -4,7 +4,7 @@ MetaDescription: Efficiently synchronize Entity Framework data with EF Core Bulk
 LastMod: 2025-11-11
 ---
 
-# Bulk Synchronize /n Directly execute add, update, and delete operations to mirror data in EF Core
+# Entity Framework Bulk Synchronize (Insert + Update + Delete)
 
 The `BulkSynchronize` method allows you to mirror data from your source to the database in EF Core. What exactly is a mirror operation?
 

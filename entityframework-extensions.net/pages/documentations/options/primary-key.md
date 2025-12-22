@@ -4,7 +4,7 @@ MetaDescription: Learn how to use ColumnPrimaryKeyExpression, ColumnPrimaryKeyNa
 LastMod: 2025-08-11
 ---
 
-# Primary Key Options with Entity Framework Extensions
+# Primary Key Options in EF Extensionss
 
 The `ColumnPrimaryKeyExpression` and `ColumnPrimaryKeyNames` options allow you to perform bulk operations with a **custom key**.
 Instead of using the primary key mapped in your entities, these options use the key you provide.

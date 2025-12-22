@@ -3,7 +3,7 @@ Name: Use Custom Column
 LastMod: 2025-06-22
 ---
 
-# Use Custom Column
+# Entity Framework Custom Column
 
 ## Problem
 You want to perform a Bulk Operation (BulkInsert, BulkUpdate, BulkDelete, or BulkMerge) but only on some specific columns.

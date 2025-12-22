@@ -4,7 +4,7 @@ MetaDescription: Learn how to use the 'DeleteMatchedAndFormula' option in Entity
 LastMod: 2025-08-17
 ---
 
-# 🗑️❓ Delete Matched and Formula Option in Entity Framework Extensions /n Delete only when a custom SQL condition is true
+# DeleteMatchedAndFormula Options in EF Extensions
 
 The `DeleteMatchedAndFormula` option in Entity Framework Extensions lets you **perform the `DELETE` action only when a custom SQL condition is true**.  
 

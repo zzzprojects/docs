@@ -3,7 +3,7 @@ Name: How to filter entities not contained from an existing list with Entity Fra
 LastMod: 2025-06-24
 ---
 
-# How to filter entities not contained from an existing list with Entity Framework?
+# Entity Framework WhereBulkNotContains
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ceAiw-fOU_c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 

@@ -4,7 +4,7 @@ Name: What is Command Interception
 LastMod: 2025-06-23
 ---
 
-# What is Command Interception
+# EF Core Command Interception
 
 The high-level goal for the interception feature is to allow external code to observe and potentially intercept EF operations. 
 

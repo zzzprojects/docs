@@ -3,7 +3,7 @@ Name: Benchmark
 LastMod: 2025-06-22
 ---
 
-# Benchmark
+# Entity Framework Extensions Benchmark Issue
 
 ## Problem
 You perform benchmark tests for a method like BulkSaveChanges, but you get very bad performance results.

@@ -3,7 +3,7 @@ Name: Unknown error 258
 LastMod: 2025-09-23
 ---
 
-# Unknown error 258
+# Entity Framework Unknown error 258
 
 One of our customers reported to us a strange timeout error when using our [UpdateFromQuery](/update-from-query) method with SQL Server:
 

@@ -4,7 +4,7 @@ MetaDescription: Learn how to use the 'CoalesceDestination' option in Entity Fra
 LastMod: 2025-08-17
 ---
 
-# 🛡️ Coalesce Destination Option in Entity Framework Extensions /n Update only NULL values
+# CoalesceDestination Options in EF Extensions
 
 The `CoalesceDestination` option in Entity Framework Extensions lets you **update the destination value only when the current value in the database is null**.
 

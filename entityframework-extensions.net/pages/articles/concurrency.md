@@ -3,7 +3,7 @@ Name: Concurrency EF Core
 LastMod: 2025-06-22
 ---
 
-# Concurrency (EF Core)
+# EF Core Concurrency
 
 ## Problem
 

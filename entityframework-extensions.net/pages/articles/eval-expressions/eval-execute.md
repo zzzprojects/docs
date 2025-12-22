@@ -3,7 +3,7 @@ Name: Eval.Execute
 LastMod: 2025-08-19
 ---
 
-# Eval.Execute
+# LINQ Eval.Execute
 
 ## Description
 You can execute C# expressions at runtime using the [Eval-Expression.NET](https://eval-expression.net/) library.

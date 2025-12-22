@@ -3,7 +3,7 @@ Name: Eval.Compile
 LastMod: 2025-08-19
 ---
 
-# Eval.Compile
+# LINQ Eval.Compile
 
 ## Description
 You can compile C# expressions at runtime using the [Eval-Expression.NET](https://eval-expression.net/) library.

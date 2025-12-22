@@ -3,7 +3,7 @@ Name: Rows Affected
 LastMod: 2025-06-24
 ---
 
-# Rows Affected
+# Rows Affected options in EF Extensions
 
 ## RowsAffected
 

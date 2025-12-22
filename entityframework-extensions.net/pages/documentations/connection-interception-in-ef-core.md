@@ -4,7 +4,7 @@ Name: Connection Interception
 LastMod: 2025-06-23
 ---
 
-# Connection Interception
+# EF Core Connection Interception
 
 The `DbConnectionInterceptor` is a class that can receive notifications when Entity Framework uses a connection. You must override the method from this class.
 
