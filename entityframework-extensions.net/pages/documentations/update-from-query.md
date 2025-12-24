@@ -18,7 +18,7 @@ Think of `UpdateFromQuery` as a SQL UPDATE statement generated from LINQ.
  
 This makes updates **dramatically faster** and is ideal for **bulk or set-based operations**, where all rows follow the same rule.
 
-You should use `UpdateFromQuery` when **the update values are the same for all rows**. If the **values come from each entity**, you should instead use [BulkUpdate](https://entityframework-extensions.net/bulk-update), which is designed for entity-based updates.
+You should use `UpdateFromQuery` when **the update values are the same for all rows**. If the **values come from each entity**, you should instead use [BulkUpdate](/bulk-update), which is designed for entity-based updates.
 
 `UpdateFromQuery` is available in both synchronous and asynchronous versions:
 
@@ -72,7 +72,7 @@ using Z.EntityFramework.Extensions;
 
 BatchUpdateManager.BatchUpdateBuilder = builder =>
 {
-    builder.BatchSize = 1;
+    builder.BatchSize = 1000;
 };
 ```
 
@@ -109,7 +109,7 @@ using Z.EntityFramework.Extensions;
 
 BatchUpdateManager.Hook<Customer>(() => new
 {
-    ModifiedBy = "ZZZ Projects",
+    ModifiedBy = LoggedUser.Name,
     ModifiedDate = DateTime.Now
 });
 
@@ -256,7 +256,7 @@ context.Customers
 
 ## FAQ
 
-## What is the difference with EF Core ExecuteUpdate?
+### What is the difference with EF Core ExecuteUpdate?
 
 For people using **EF Core 7+**, a similar built-in method called [`ExecuteUpdate`](https://www.learnentityframeworkcore.com/dbset/execute-update) is now available directly in **Entity Framework Core**.
 
