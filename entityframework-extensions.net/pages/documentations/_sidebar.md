@@ -37,9 +37,9 @@
    - [Transient Error](options-summary/transient-error.md)
    - [SQL Server](options-summary/sql-server.md)
 - Batch Operations
-   - [Delete from Query](delete-from-query.md)
    - [Insert from Query](insert-from-query.md)
    - [Update from Query](update-from-query.md)
+   - [Delete from Query](delete-from-query.md)
 - Utilities
    - [Batch SaveChanges](batch-savechanges.md)
    - [Delete ByKey](utilities/delete-by-key.md)

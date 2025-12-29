@@ -18,6 +18,11 @@ Think of `InsertFromQuery` as a **SQL INSERT generated from LINQ**.
 
 You should use `InsertFromQuery` when you want to **copy rows or values from one database table to another (or the same one)**. If you want to insert entities, you should instead use [BulkInsert](/bulk-insert).
 
+`InsertFromQuery` is available in both synchronous and asynchronous versions:
+
+* `InsertFromQuery`
+* `InsertFromQueryAsync`
+
 ```csharp
 // @nuget: Z.EntityFramework.Extensions.EFCore
 using Z.EntityFramework.Extensions;
@@ -59,11 +64,11 @@ using Z.EntityFramework.Extensions;
 // INSERT all customers that are inactive for more than two years into a backup table
 var date = DateTime.Now.AddYears(-2);
 
-context.EntitySimples.InsertFromQuery(builder =>
+context.EntitySimples.InsertFromQuery(options =>
 {
-    builder.TableName = "bck_Customer";
-    builder.SelectExpression = x => new { x.ColumnInt };
-    builder.Executing = command => Console.WriteLine(command.CommandText);
+    options.TableName = "bck_Customer";
+    options.SelectExpression = x => new { x.ColumnInt };
+    options.Executing = command => Console.WriteLine(command.CommandText);
 });
 ```
 

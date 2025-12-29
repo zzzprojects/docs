@@ -84,7 +84,7 @@ If you use an **InMemory** provider, you must provide the in-memory context wher
 
 This configuration is global and will be used by **all `UpdateFromQuery` calls** that run against an in-memory provider.
 
-This is required because we apply some internal logic that could affect your original context. For example, we may need to attach entities in order to update or remove them.
+This is required because we apply some internal logic that could affect your original context. For example, we may need to attach entities in order to update them.
 
 ```csharp
 // @nuget: Z.EntityFramework.Extensions.EFCore
