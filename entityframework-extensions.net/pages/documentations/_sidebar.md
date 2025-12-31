@@ -53,6 +53,5 @@
    - [EF Core - DbConnectionInterceptor](connection-interception-in-ef-core.md)
    - [EF Core - DbTransactionInterceptor](transaction-interception-in-ef-core.md) 
 - [Articles](articles/bulk-insert-vs-bulk-savechanges.md)
-- [LINQ Dynamic](articles/eval-expressions/linq-dynamic.md)  
 - [Troubleshooting](troubleshooting/trial.md)
 - [Release Notes](https://github.com/zzzprojects/EntityFramework-Extensions/releases)
