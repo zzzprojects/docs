@@ -1,20 +1,20 @@
 ---
 title: EF Core ExecuteDelete (EF Core 7–10) – Set-Based Bulk Deletes
-description: Discover how to use the new ExecuteDelete method starting from EF Core 7 to delete entities more efficiently—no tracking, no SaveChanges needed.
+description: Discover how to use the ExecuteDelete method starting from EF Core 7 to delete database rows efficiently—no tracking, no SaveChanges needed.
 canonical: /dbset/execute-delete
 status: Published
-lastmod: 2025-12-16
+lastmod: 2026-01-24
 ---
 
 # EF Core Execute Delete
 
-## What is ExecuteDelete
+## What is ExecuteDelete?
 
-`ExecuteDelete` is an EF Core feature introduced in EF Core 7 (see also [ExecuteUpdate](/dbset/execute-update)). It lets you delete database rows **directly in SQL** without loading entities into memory, without using the Change Tracker, and without calling SaveChanges.
+`ExecuteDelete` is an EF Core feature introduced in **EF Core 7** (see also [ExecuteUpdate](/dbset/execute-update)). It allows you to delete database rows **directly in SQL**, without loading entities into memory, without using the Change Tracker, and without calling `SaveChanges`.
 
-Instead of loading entities and calling `RemoveRange` followed by `SaveChanges`, you define your delete logic through LINQ.
+Instead of materializing entities and calling `RemoveRange` followed by `SaveChanges`, you define the delete operation using a LINQ query that EF Core translates into a single `DELETE` statement executed on the database server.
 
-`ExecuteDelete` is available in both synchronous and asynchronous versions: `ExecuteDelete` and `ExecuteDeleteAsync`.
+`ExecuteDelete` is available in both synchronous and asynchronous forms: `ExecuteDelete` and `ExecuteDeleteAsync`.
 
 **Basic example:**
 
@@ -36,35 +36,58 @@ In short, it tells the database: **“delete all rows matching this condition.�
 
 This makes deletes dramatically faster and is ideal for bulk or set-based operations.
 
-### ExecuteDelete Requirements
+**Tip:** Always start with a filter and validate the generated SQL, especially in production.
+
+## ExecuteDelete Requirements
 
 * **EF Core Version:** EF Core **7.0+**
 * **Supported Providers:** SQL Server, SQLite, PostgreSQL, MySQL, Oracle
 * **Unsupported Providers:** MariaDB, InMemory
-  
+
 ## TL;DR – ExecuteDelete
 
 * Runs **set-based deletes** directly in SQL.
-* Does **not** require calling `SaveChanges`.
+* Executes **immediately** (does **not** require calling `SaveChanges`).
 * Does **not** load entities into memory (massive performance boost).
-* Does **not** use the Change Tracker.
-* Does **not** update the Change Tracker.
-* Bypasses all Change Tracker effects (no events, no cascade behavior, etc.).
-* Requires you to **delete in the correct order** to avoid foreign key violations (dependents before principals).
-* EF Extensions supports [real bulk deletes](https://entityframework-extensions.net/bulk-delete), where deletes are performed from entities, not from a LINQ expression.
+* Does **not** use or update the Change Tracker.
+* Database cascades (ON DELETE CASCADE) still apply if configured
+* Requires deleting rows in the **correct order** to avoid foreign key violations.
+* EF Extensions supports [real bulk deletes](https://entityframework-extensions.net/bulk-delete) for entity-based or large-scale delete scenarios.
+
+## A quick mental model
+
+* **`ExecuteDelete`** = “Tell the database: *delete all rows matching this condition*.” Ideal for **uniform delete rules** (the same rule applied to every matched row).
+
+* **`BulkDelete` [(EF Extensions)](https://entityframework-extensions.net/bulk-delete)** = “Send a specific list of entity keys to the database and delete **exactly those rows** efficiently.” Essential when deleting **specific entities**, working with **very large datasets**, or requiring advanced control.
+
+## When to use vs when NOT to use
+
+| Use `ExecuteDelete` when…                            | Avoid `ExecuteDelete` when…                                     |
+| ---------------------------------------------------- | --------------------------------------------------------------- |
+| The delete rule is **uniform** for all matching rows | You need to delete a **specific list of entities** from memory  |
+| You want **one SQL DELETE** and minimal round-trips  | You need a **high-throughput pipeline** (staging + DELETE JOIN) |
+| You want a **zero-dependency** EF Core solution      | You need **graph deletes** (related entities)                   |
+| You’re doing cleanup or maintenance deletes          | You need **auditing, batching knobs, orchestration** features   |
+| You are OK managing FK order yourself                | You require entity-based control and cascade handling           |
+
+For scenarios that `ExecuteDelete` does **not** support—such as deleting a specific list of entities coming from memory, very large datasets, or advanced orchestration—you should use **`BulkDelete` [(EF Extensions)](https://entityframework-extensions.net/bulk-delete)** for a fast and efficient bulk delete pipeline.
+
+> **Important:**
+> `ExecuteDelete` is **not a replacement** for **BulkDelete**.
+> They solve different classes of problems and are **complementary**.
+
 
 ## ExecuteDelete Examples
 
-### Delete all rows
+### Delete all rows (use with caution)
 
-The following example shows how to call `ExecuteDelete` on a `DbSet`. This will immediately delete all rows from that table in the database.
-
-For example, to delete all authors:
+This example shows how to call `ExecuteDelete` on a `DbSet`.
+It immediately deletes **all rows** from the table.
 
 ```csharp
 using (var context = new LibraryContext())
 {
-    context.Authors.ExecuteDelete();
+    await context.Authors.ExecuteDeleteAsync();
 }
 ```
 
@@ -77,14 +100,15 @@ FROM [Authors] AS [a]
 
 ### Delete rows with a filter
 
-You can also use filters in your query:
+You can delete rows matching a predicate.
+This example deletes authors whose name contains `"ZZZ Projects"`.
 
 ```csharp
 using (var context = new LibraryContext())
 {
-    context.Authors
+    await context.Authors
         .Where(a => a.Name.Contains("ZZZ Projects"))
-        .ExecuteDelete();
+        .ExecuteDeleteAsync();
 }
 ```
 
@@ -96,20 +120,22 @@ FROM [Authors] AS [a]
 WHERE [a].[Name] LIKE N'%ZZZ Projects%'
 ```
 
-### Delete rows with a complex filter
+### Delete rows with a complex filter (navigation filter)
 
-More complex filters are also supported, including filters based on related data. For example, to delete tags only from old blog posts:
+More complex filters are supported, including filters based on related data.
+
+This example deletes tags only for posts published before 2018:
 
 ```csharp
 using (var context = new BloggingContext())
 {
-    context.Tags
+    await context.Tags
         .Where(t => t.Posts.All(p => p.PublishedOn.Year < 2018))
         .ExecuteDeleteAsync();
 }
 ```
 
-In this case, the generated SQL is more complex:
+Generated SQL:
 
 ```sql
 DELETE FROM [t]
@@ -125,40 +151,37 @@ WHERE NOT EXISTS (
 
 ### Return the number of rows affected
 
-You can also check the number of affected rows to make sure at least one row was deleted:
+`ExecuteDelete` returns the number of rows deleted.
 
 ```csharp
-var authorName = "ZZZ Projects";
-
 using (var context = new LibraryContext())
 {
-    var affectedRows = context.Authors
-        .Where(a => a.Name.Contains(authorName))
-        .ExecuteDelete();
+    var rowsDeleted = await context.Authors
+        .Where(a => a.Name.Contains("ZZZ Projects"))
+        .ExecuteDeleteAsync();
 
-    if (affectedRows == 0)
-    {
-        throw new Exception($"Oops! No authors with the name '{authorName}' were found.");
-    }
+    Console.WriteLine($"Rows deleted: {rowsDeleted}");
 }
 ```
 
 ## ExecuteDelete Release History
 
-* [EF Core 8.0](https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-8.0/whatsnew#better-executeupdate-and-executedelete): Improved `ExecuteUpdate` and `ExecuteDelete` to support more complex queries (owned types, unions, and TPT), as long as all updates target a single database table.
-* [EF Core 7.0](https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-7.0/whatsnew#executeupdate-and-executedelete-bulk-updates): Introduced `ExecuteUpdate` and `ExecuteDelete`.
-* **EF Core 2.0+:** For older versions of EF Core or if you prefer methods provided by EF Extensions, you can use [DeleteFromQuery](https://entityframework-extensions.net/delete-from-query).
+* [EF Core 8.0](https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-8.0/whatsnew#better-executeupdate-and-executedelete): Improved `ExecuteUpdate` and `ExecuteDelete` to support more complex queries (owned types, unions, and TPT), as long as all operations target a single database table.
+* [EF Core 7.0](https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-7.0/whatsnew#executeupdate-and-executedelete-bulk-updates): Introduced `ExecuteUpdate` and `ExecuteDelete` as native set-based operations in EF Core.
+* **EF Core 2.0+:** For older versions of EF Core, or for unsupported providers, you can use **[DeleteFromQuery (Entity Framework Extensions)](https://entityframework-extensions.net/delete-from-query)**.
+
 
 ## Is ExecuteDelete a real “Bulk Delete”?
 
-Yes, it does delete rows in bulk directly in SQL.
+**Short answer: not quite.**
 
-However, this is very different from deleting thousands of entities using a method such as [BulkDelete](https://entityframework-extensions.net/bulk-delete) provided by Entity Framework Extensions.
+Yes, it deletes rows in bulk directly in SQL.
+However, it does **not** delete entities from a list with per-row control like **[BulkDelete](https://entityframework-extensions.net/bulk-delete)** (Entity Framework Extensions).
 
-The difference is major:
+The difference is simple:
 
-* **`ExecuteDelete`**: Tells the database, *“delete all rows matching this condition.”*
-* **[BulkDelete](https://entityframework-extensions.net/bulk-delete)**: Takes a list of entities, sends them efficiently to the server, and deletes their matching rows.
+* **`ExecuteDelete`**: “Delete all rows matching this condition.”
+* **`BulkDelete`**: “Delete exactly these entities.”
 
 ```csharp
 // ExecuteDelete
@@ -172,42 +195,36 @@ await context.BulkDeleteAsync(customers);
 
 ### What’s the practical difference?
 
-| Question                       | `ExecuteDelete` (EF Core)                   | [BulkDelete](https://entityframework-extensions.net/bulk-delete) (EF Extensions) |
-| ------------------------------ | ------------------------------------------- | -------------------------------------------------------------------------------- |
-| How are rows selected?         | One LINQ filter for all rows                | Each row matched from an entity list                                             |
-| Where does the data come from? | LINQ expression translated to SQL           | In-memory entity list                                                            |
-| Performance              		 | Excellent for set-based deletes | Optimized for millions of rows                                                       |
-| Different rows per entity?     | ❌ No                                        | ✅ Yes                                                                            |
-| Related entities supported?    | ❌ No                                        | ✅ Yes (`IncludeGraph`)                                                           |
-| Change Tracker sync?           | ❌ No                                        | ❌ No                                                                          |
-| Advanced features              | ❌ No                                        | ✅ Yes (auditing, batching, etc.)  |
+| Question                       | `ExecuteDelete` (EF Core)             | [BulkDelete](https://entityframework-extensions.net/bulk-delete) (EF Extensions)          |
+| ------------------------------ | ----------------------------------- | ----------------------------------- |
+| How are rows selected?         | One LINQ rule for all matching rows | Explicit list of entities |
+| Where does the data come from? | LINQ expression translated to SQL   | In-memory entity list               |
+| How many rows?                 | Thousands to hundreds of thousands  | Designed for very large volumes     |
+| Related entities supported?    | ❌ No                                | ✅ Yes (`IncludeGraph`)             |
+| Change Tracker sync?           | ❌ No                                | ✅ Yes (With option)                |
 
-### A quick mental model
-
-* **`ExecuteDelete`** = “Tell the database: *delete all rows matching this condition*.”
-  Great for **uniform deletes** (e.g., remove all expired sessions).
-* **Real Bulk Delete** = “Take this list of entities I already have in memory, push their keys to the database efficiently, and delete **exactly those rows**.”
-  Crucial when you have **specific records** to remove or are working with **millions of rows**.
 
 ### Performance Benchmarks
 
 Deleting **100,000 rows**:
 
-| Method                                                           | Time    | Memory   |
-| ---------------------------------------------------------------- | ------- | -------- |
-| `ExecuteDelete`                                                  | 200 ms  | Very low |
-| `BulkDelete` (EF Extensions) 									   | 1050 ms | Low      |
-| `SaveChanges`                                                    | 2250 ms | High     |
+| Method                     | Time    | Memory   |
+| -------------------------- | ------- | -------- |
+| ExecuteDelete              | 200 ms  | Very low |
+| BulkDelete (EF Extensions) | 1050 ms | Low      |
+| SaveChanges                | 2250 ms | High     |
 
-[Benchmark Source](https://github.com/zzzprojects/learnentityframeworkcore/blob/main/benchmarks/EFCore/EFCore.Benchmarks/Benchmarks/ExecuteDeleteVsSaveChanges.cs)
+[Benchmark source](https://github.com/zzzprojects/learnentityframeworkcore/blob/main/benchmarks/EFCore/EFCore.Benchmarks/Benchmarks/ExecuteDeleteVsSaveChanges.cs)
 
 > **Important:**
-> For `BulkDelete` and `SaveChanges`, around **250 ms** of this time is spent **materializing the list of entities from the database** before the delete starts.
-> This step is required because `BulkDelete` and `SaveChanges` works from entities, not from a LINQ rule.
+> For `BulkDelete` and `SaveChanges`, around **250 ms** of this time is spent **materializing entities from the database** before the delete starts.
+> This is required because both approaches operate from entities, not from a LINQ rule.
 
-### Bulk Delete – Concrete example
+**Takeaway:** `ExecuteDelete` can be **an order of magnitude faster** than the traditional tracked approach, while memory usage stays near-constant because entities are never loaded.
 
-Suppose you need to delete **1,000,000 customers by ID** from a CSV import.
+### Bulk Delete – Concrete Example
+
+Suppose you need to delete **1,000,000 customers by ID** coming from a CSV import.
 
 With `ExecuteDelete`, you would need to loop in chunks, manually build filters, or stage the data yourself.
 
@@ -217,16 +234,15 @@ With EF Extensions:
 // @nuget: Z.EntityFramework.Extensions.EFCore
 using Z.EntityFramework.Extensions;
 
-// Delete exactly the customers in this list
 var customersToDelete = GetCustomersFromCsv();
 
 context.BulkDelete(customersToDelete, options =>
 {
-    options.BatchSize = 10000; // fine-tune performance
+    options.BatchSize = 10000;
 });
 ```
 
-Behind the scenes, EF Extensions sends your entity keys to a temporary table and runs a **high-throughput `DELETE JOIN`** — something `ExecuteDelete` cannot do on its own.
+Behind the scenes, EF Extensions sends entity keys to a temporary table and executes a high-throughput `DELETE JOIN` — something `ExecuteDelete` cannot do on its own.
 
 ### When to use which?
 
@@ -237,31 +253,32 @@ Behind the scenes, EF Extensions sends your entity keys to a temporary table and
 | Delete a specific list of entities          | EF Extensions [BulkDelete](https://entityframework-extensions.net/bulk-delete)                    |
 | Large-scale deletes                         | `ExecuteDelete` or EF Extensions [BulkDelete](https://entityframework-extensions.net/bulk-delete) |
 | Need graph deletes, batching, or auditing   | EF Extensions [BulkDelete](https://entityframework-extensions.net/bulk-delete)                    |
-| Need entity-based control | EF Extensions [BulkDelete](https://entityframework-extensions.net/bulk-delete)                    |
+| Need entity-based control                   | EF Extensions [BulkDelete](https://entityframework-extensions.net/bulk-delete)                    |
 
 * Use **`ExecuteDelete`** when:
 
   * All rows can be deleted using the **same filter condition**
-  * You want a **native EF Core** feature with no extra library
-  * The dataset is small to medium and you don’t need advanced options
+  * You want a **native EF Core** feature with no additional dependency
+  * The dataset is **small to medium** and rule-based
+  * You want **one SQL DELETE** with minimal round-trips
 
 * Use a **[real bulk delete](https://entityframework-extensions.net/bulk-delete)** (Entity Framework Extensions) when:
 
-  * You need to delete a **specific list of entities** with their own values
+  * You need to delete a **specific list of entities**
+  * Deletion is driven by **external or in-memory data**
   * You’re deleting **hundreds of thousands to millions** of rows
   * You need **graph deletes**, **batching**, **auditing**, or **logging**
 
-> **Bottom line:** `ExecuteDelete` is a fast **set-based delete** tool.
-> A **real bulk delete** is a **high-throughput entity-based pipeline** built for scale, per-row control, and advanced orchestration.
-> They complement each other rather than compete.
+> **Bottom line:** `ExecuteDelete` is a fast **set-based delete** tool.  
+> A **real bulk delete** is a **high-throughput entity-based pipeline** built for scale, per-row control, and advanced orchestration.  
+> They **complement each other rather than compete**.
 
 ## Additional Resources – ExecuteDelete
 
 ### 📘 Recommended Reading
 
-* [Microsoft - ExecuteDelete](https://learn.microsoft.com/en-us/ef/core/saving/execute-insert-update-delete#executedelete)
-* [Entity Framework Tutorials - ExecuteDelete](https://www.entityframeworktutorial.net/efcore/execute-delete.aspx)
-
+* [Microsoft – ExecuteDelete](https://learn.microsoft.com/en-us/ef/core/saving/execute-insert-update-delete#executedelete)
+* [Entity Framework Tutorials – ExecuteDelete](https://www.entityframeworktutorial.net/efcore/execute-delete.aspx)
 
 ### 🎥 Recommended Videos
 

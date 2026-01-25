@@ -78,13 +78,9 @@ For `SetProperty`, expressions must be translatable to SQL.
 
 ## A quick mental model
 
-* **`ExecuteUpdate`** = “Tell the database: *update all matching rows like **this***.”
-  Great for **uniform update rules** (the same transformation applied to every matched row).
+* **`ExecuteUpdate`** = “Tell the database: *update all matching rows like **this***.” Great for **uniform update rules** (the same transformation applied to every matched row).
 
-* **[`BulkUpdate` (EF Extensions)](https://entityframework-extensions.net/bulk-update)** =
-  “Take **this list** of entities with **their own values**, ship them efficiently to the server, and **apply each value to its matching row**.”
-  Essential when **each row is different** or volumes are huge.
-
+* **[`BulkUpdate` (EF Extensions)](https://entityframework-extensions.net/bulk-update)** = “Take **this list** of entities with **their own values**, ship them efficiently to the server, and **apply each value to its matching row**.” Essential when **each row is different** or volumes are huge.
 
 ## When to use vs when NOT to use
 
@@ -239,11 +235,9 @@ await context.BulkUpdateAsync(customers);
 | How many rows?                 | Good for thousands to hundreds of thousands | Designed for millions                                                            |
 | Different values per row?      | ❌ No                                        | ✅ Yes                                                                            |
 | Related entities?              | ❌ No                                        | ✅ Yes (`IncludeGraph`)                                                           |
-| Change Tracker sync?           | ❌ No                                        | ✅ Optional (can sync output values)                                              |
+| Change Tracker sync?           | ❌ No                                        | ✅ Yes (Sync output values + with option)                                              |
 
----
-
-## Performance Benchmarks
+### Performance Benchmarks
 
 Updating **100,000 rows** (3 `int` columns + 3 `string` columns):
 
@@ -261,7 +255,7 @@ Updating **100,000 rows** (3 `int` columns + 3 `string` columns):
 
 **Takeaway:** `ExecuteUpdate` can be **an order of magnitude faster** than the traditional tracked approach, while memory usage stays near-constant because entities are never loaded.
 
-## Bulk Update – Concrete example
+### Bulk Update – Concrete Example
 
 **Goal:** update 1,000,000 products with **different** `NewPrice` values coming from memory.
 
