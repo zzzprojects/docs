@@ -1,7 +1,7 @@
 ---
 Title: Essentials of Mapping & Modeling: A Comprehensive Guide 
 MetaDescription: Essentials of Mapping & Modeling: A Comprehensive Guide 
-LastMod: 2025-08-19
+LastMod: 2026-01-26
 ---
 
 # Essentials of Mapping /n A Comprehensive Guide
@@ -59,6 +59,25 @@ connection.BulkInsert(products);
 ```
 
 [Online Example](https://dotnetfiddle.net/SUAeRl)
+
+On the opposite side, you can disable auto mapping when it causes issues by calling the `DisableAutoMap()` method. This is useful when you want full control over what gets mapped.
+
+For example, you might want to map only the key and explicitly prevent the library from mapping any other properties automatically.
+
+```csharp
+// @nuget: Z.Dapper.Plus
+using Z.Dapper.Plus;
+
+DapperPlusManager.Entity<Product>().Key(x => x.ProductID).DisableAutoMap();
+
+var connection = new SqlConnection(FiddleHelper.GetConnectionStringSqlServer());
+
+connection.BulkInsert(products);
+```
+
+[Online Example](https://dotnetfiddle.net/7m5G7g)
+
+In this scenario, only the mappings you explicitly define (such as the key) will be used. No additional properties will be mapped unless you manually specify them.
 
 ## Data Annotations
 
