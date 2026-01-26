@@ -27,6 +27,7 @@ Here’s a quick guide to every available option in Entity Framework Extensions 
 
 ### 🛠️ Creation & Lifecycle
 
+* [TemporaryTableAppendSql](#temporarytableappendsql) — append a hardcoded SQL statement right after the temporary table is created (for example, to add a custom index or run any SQL you want).
 * [TemporaryTableCreate](#temporarytablecreate) — control whether the temporary table should be explicitly created
 * [TemporaryTableCreateAndDrop](#temporarytablecreateanddrop) — control whether the temporary table should be explicitly created
 * [TemporaryTablePersist](#temporarytablepersist) — keep the temporary table alive after the operation (for debugging/inspection)
@@ -54,7 +55,7 @@ Here’s a quick guide to every available option in Entity Framework Extensions 
 | Stable table naming              | `TemporaryTableName`, `TemporaryTableUseSameName`, `TemporaryTableSchemaName`, `ResolveTemporaryTableName`                    | Useful for debugging/profiling; ⚠️ risky with concurrent jobs (name conflicts)                              |
 | Faster inserts                   | `TemporaryTableInsertBatchSize`, `DisableTemporaryTableClusteredIndex`, `TemporaryTableIsMemory` | Larger batch size = faster; disabling index speeds inserts but slows merge                                  |
 | Avoid staging for small sets     | `TemporaryTableMinRecord` (default = 20)                                                         | Inline table used for <20 rows; ⚠️ keep low due to SQL parameter limits                                     |
-| Control table creation           | `TemporaryTableCreate`, `TemporaryTableCreateAndDrop`                                            | Needed when providing your own `TemporaryTableName`; `CreateAndDrop` is safest                              |
+| Control table creation           | `TemporaryTableAppendSql`, `TemporaryTableCreate`, `TemporaryTableCreateAndDrop`                 | Needed when providing your own `TemporaryTableName`; `CreateAndDrop` is safest                              |
 | Improve throughput on large jobs | `TemporaryTableUseTableLock` (default = true)                                                    | Default lock speeds inserts; can cause blocking with shared/global tables                                   |
 
 
@@ -199,6 +200,42 @@ Console.WriteLine($"Temporary table created: {temporaryTableName}");
 * **Custom queries** → When using `TemporaryTablePersist`, you can run queries directly on the temporary table.
 * **Future operations** → Reuse the persisted temporary table data for later queries or other bulk operations.
 * **Logging & monitoring** → Capture the resolved name for auditing or troubleshooting.
+
+---
+
+## 🏷️ TemporaryTableAppendSql
+
+Appends a hardcoded SQL statement right after the temporary table is created.
+
+This option is **mostly used when you want to keep the temporary table**, either by persisting it or by using it as a permanent table, and need to prepare it in advance (for example, by creating indexes).
+
+When used, you can execute any SQL you want, such as creating a custom index on the table.
+
+To have the temporary table name automatically replaced, you must use the `@(Model.TemporaryTableName)` placeholder in your SQL template.
+
+```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
+// open the connection first to be able to access the temporary table data later
+context.Database.OpenConnection();
+
+context.BulkMerge(customers, options =>
+{
+	options.TemporaryTableAppendSql = "CREATE INDEX IX_CustomIndex ON @(Model.TemporaryTableName) (ZZZ_Index, IsActive);";
+});
+
+Console.WriteLine($"Temporary table created: {temporaryTableName}");
+```
+
+[Online Example](https://dotnetfiddle.net/ij74IF)
+
+### 💡 Why it can be useful
+
+* **Permanent-like usage** → Prepare the table when you keep it alive after the operation.
+* **Custom indexing** → Create indexes once for better performance in later queries.
+* **Advanced scenarios** → Ideal when using `TemporaryTablePersist` or `UsePermanentTable`.
+* **Debugging & inspection** → Makes analysis easier when you want to inspect or reuse the data.
 
 ---
 
