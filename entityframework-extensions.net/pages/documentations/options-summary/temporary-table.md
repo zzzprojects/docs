@@ -1,7 +1,7 @@
 ---
 Title: Temporary Table in Entity Framework Extensions  
 MetaDescription: Learn how to configure temporary tables in Entity Framework Extensions. Control naming, batching, locking, schema, and persistence to optimize bulk operations for performance, debugging, and concurrency.
-LastMod: 2025-09-23
+LastMod: 2026-01-26
 ---
 
 # 🧪 Temporary Table options in EF Extensions
