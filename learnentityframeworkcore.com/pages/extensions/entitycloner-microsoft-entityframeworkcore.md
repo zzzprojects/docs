@@ -65,7 +65,91 @@ If a ForeignKey entity is not included, then the ForeignKey property will not be
 
 ### Support for Composite PrimaryKeys
 
-It also supports primarty keys based on multiple properties.
+It also supports primary keys based on multiple properties.
+
+### Support for cloning based on PrimaryKeys
+
+Every clone operation has an optional CloneOptions. With this option you can configure how the cloning should behave. One of the options is to clone based on PrimaryKeys. To use it: set `PreservePrimaryKeyIdentity = true`.
+
+Default is `PreservePrimaryKeyIdentity = false`. With default behavior, the entities will be cloned based on instance references. Two entities with same primary key values, but different instance references are considered the same entity.
+
+With `PreservePrimaryKeyIdentity = true`, two entities with same primary key values are considered the same entity, even when the instance references are different.
+
+How to use it:
+
+```csharp
+...
+using EntityCloner.Microsoft.EntityFrameworkCore.EntityFrameworkCore.SqlServer;
+
+public class YourClass
+{
+	   
+	// This method gets called by the runtime. Use this method to add services to the container.
+	public async Task YourMethod(DbContext dbContext)
+	{
+		var entityId = 10;
+
+		// To clone only the entity:
+		var clonedOrderEntity = await dbContext.CloneAsync<Order>(entityId, new CloneOptions { PreservePrimaryKeyIdentity = true });
+
+		// To clone entity with related data
+		var clonedOrderEntityWithRelatedEntities = await dbContext.CloneAsync<Order>(
+			includeQuery => includeQuery
+				.Include(o => o.OrderLines)
+					.ThenInclude(ol => ol.Discounts)
+				.Include(o => o.Customer)
+					.ThenInclude(x => x.CustomerAddresses)
+				.Include(o => o.Customer)
+					.ThenInclude(x => x.Invoices) 
+						.ThenInclude(x => x.InvoiceLines),
+			entityId);
+
+		// To clone using IQueryable
+		var entityId = 10;
+		var query = DbSet<TestEntity>.AsNoTracking()
+				.Include(o => o.OrderLines)
+					.ThenInclude(ol => ol.Discounts)
+				.Include(o => o.Customer)
+					.ThenInclude(x => x.CustomerAddresses)
+				.Include(o => o.Customer)
+					.ThenInclude(x => x.Invoices) 
+						.ThenInclude(x => x.InvoiceLines)
+				.Where(o => o.Id == entityId);
+
+		var clonedOrderEntityViaQueryable = await dbContext.CloneAsync(query, new CloneOptions { PreservePrimaryKeyIdentity = true });
+
+		// To clone using entity
+		var entityId = 10;
+		var entity = await DbSet<TestEntity>.AsNoTracking()
+				.Include(o => o.OrderLines)
+					.ThenInclude(ol => ol.Discounts)
+				.Include(o => o.Customer)
+					.ThenInclude(x => x.CustomerAddresses)
+				.Include(o => o.Customer)
+					.ThenInclude(x => x.Invoices) 
+						.ThenInclude(x => x.InvoiceLines)
+				.Where(o => o.Id == entityId)
+				.SingleAsync();
+
+		var clonedOrderEntityViaEntity = await dbContext.CloneAsync(entity, new CloneOptions { PreservePrimaryKeyIdentity = true });
+
+		// To clone using list of entities
+		var entityId = 10;
+		var entities = await DbSet<TestEntity>.AsNoTracking()
+				.Include(o => o.OrderLines)
+					.ThenInclude(ol => ol.Discounts)
+				.Include(o => o.Customer)
+					.ThenInclude(x => x.CustomerAddresses)
+				.Include(o => o.Customer)
+					.ThenInclude(x => x.Invoices) 
+						.ThenInclude(x => x.InvoiceLines)
+				.Where(o => o.Id == entityId)
+				.ToListAsync();
+
+		var clonedOrderEntitiesViaList = await dbContext.CloneAsync(entities, new CloneOptions { PreservePrimaryKeyIdentity = true });
+	}
+}
+```
 
 ### Support for IQueryable<T> and (list of) plain entities
 
