@@ -29,6 +29,15 @@ You can download the **C# Eval Expression** library from **NuGet**: [https://www
 
 You can also visit our [download](download) page to find all available links.
 
+```csharp
+PM> Install-Package Z.Expressions.Eval
+```
+
+```csharp
+dotnet add package Z.Expressions.Eval
+```
+
+
 ## What is an expression evaluator?
 
 An expression evaluator is a library that allows you to execute an expression and get a result. This is especially useful for math expressions, but you can also take advantage of an expression evaluator in many other scenarios, such as:
