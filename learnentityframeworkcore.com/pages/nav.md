@@ -151,9 +151,9 @@
         <li>
             <a href="/inheritance">Inheritance</a>
             <ul class="nav-level-two" data-display="inheritance">
-                <li><a href="/inheritance/table-per-concrete">Table Per Concrete</a></li>
-                <li><a href="/inheritance/table-per-hierarchy">Table Per Hierarchy</a></li>
-                <li><a href="/inheritance/table-per-type">Table Per Type</a></li>
+                <li><a href="/inheritance/table-per-hierarchy">Table Per Hierarchy (TPH)</a></li>
+                <li><a href="/inheritance/table-per-type">Table Per Type (TPT)</a></li>
+                <li><a href="/inheritance/table-per-concrete">Table Per Concrete Type (TPC)</a></li>
             </ul>
         </li>
         <li>

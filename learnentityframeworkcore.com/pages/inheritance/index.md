@@ -1,71 +1,119 @@
 ---
 title: Inheritance in Entity Framework Core
-description: Inheritance is a key object-oriented programming concept that facilitates code reuse and is often used to model hierarchies. It is supported in Entity Framework Core using the Table Per Hierarchy pattern
+description: Learn how inheritance works in Entity Framework Core and explore the three supported mapping strategies: Table Per Hierarchy (TPH), Table Per Type (TPT), and Table Per Concrete Type (TPC).
 canonical: /inheritance
 status: Published
-lastmod: 2025-07-13
+lastmod: 2026-02-21
 ---
 
-# EF Core Inheritance 
+# EF Core Inheritance
 
-Inheritance is a key object-oriented programming concept that facilitates code reuse and is often used to model hierarchies. The following model represents various types of contracts that you might be able to enter into with a media/communications business:
+Inheritance is a fundamental object-oriented programming concept used to model hierarchical relationships and promote code reuse.
+
+In Entity Framework Core, inheritance hierarchies can be mapped to a relational database using three different strategies:
+
+- [Table Per Hierarchy (TPH)](/inheritance#table-per-hierarchy-tph)
+- [Table Per Type (TPT)](/inheritance#table-per-type-tpt)
+- [Table Per Concrete Type (TPC)](/inheritance#table-per-concrete-type-tpc)
+
+Consider the following simple hierarchy:
 
 ```csharp
-public class Contract
+public abstract class Animal
 {
-    public int ContractId { get; set; }
-    public DateTime StartDate { get; set; }
-    public int Months { get; set;}
-    public decimal Charge { get; set; }
+    public int Id { get; set; }
+    public string Name { get; set; }
 }
 
-public class MobileContract : Contract
+public class Cat : Animal
 {
-    public string MobileNumber { get; set; }
+    public int Lives { get; set; }
 }
 
-public class TvContract : Contract
+public class Dog : Animal
 {
-    public PackageType PackageType { get; set; }
+    public bool IsGoodBoy { get; set; }
 }
+````
 
-public class BroadBandContract : Contract
-{
-    public int DownloadSpeed { get; set; }
-}
+The base type is `Animal`.
+`Cat` and `Dog` inherit common properties from the base class and define additional type-specific properties.
 
-public enum PackageType
-{
-    S, M, L, XL
-}
-```
+The key question is how this hierarchy should be represented in a relational database.
 
-The base type is `Contract`. Specific types of contracts inherit from the base class: a mobile phone contract, a TV contract, and a broadband contract. Each of the types of contract shares the `ContractId`, `StartDate`, `Months`, and `Charge` properties with their base type through inheritance, and implements additional type-specific properties.
-
-There are three ways in which object-oriented inheritance can be represented in a database:
+Entity Framework Core supports three inheritance mapping strategies (TPH, TPT, TPC).
 
 ## Table Per Hierarchy (TPH)
 
-One table is used to represent all classes in the hierarchy. A "discriminator" column is used to discriminate between differing types. The table takes the name of the base class or its associated `DbSet` property by default. 
+<div class="image-outer"><img src="/images/efcore/inheritance/table-per-hierarchy.png" loading="lazy" alt="EF Core TPH Inheritance"></div>
 
-In previous versions of Entity Framework, TPH was the default mapping pattern for inheritance. Entity Framework Core currently only [implements the TPH pattern](/inheritance/table-per-hierarchy). 
+**Table Per Hierarchy (TPH)** maps the entire inheritance hierarchy to a single database table.
+
+A discriminator column is used to distinguish between different derived types.
+
+* One table stores all types in the hierarchy
+* No JOINs are required when querying derived types
+* Queries are typically simpler
+
+This strategy is commonly selected when query performance and simplicity are priorities.
+
+[Learn more about Table Per Hierarchy →](/inheritance/table-per-hierarchy)
 
 ## Table Per Type (TPT)
 
-A separate table is used to represent each type in the inheritance chain, including abstract types. Tables that represent derived types are related to their base type via foreign keys.  
+**Table Per Type (TPT)** maps each type in the hierarchy to its own database table.
 
-EF Core 5.0 [implements the TPT pattern](/inheritance/table-per-type) that allows mapping each .NET type in an inheritance hierarchy to a different database table known as table-per-type (TPT) mapping.
+The base table stores shared properties, while each derived table stores only properties specific to that type. Derived tables are linked to the base table using foreign keys.
+
+* Multiple related tables
+* JOIN operations are required to reconstruct derived types
+* Produces a fully normalized schema
+
+This strategy is often chosen when database normalization is more important than raw query performance.
+
+[Learn more about Table Per Type →](/inheritance/table-per-type)
 
 ## Table Per Concrete Type (TPC)
 
-A separate table is used to represent each _concrete_ type in the inheritance chain. Properties in any abstract base type are generated as fields in each concrete type's table. There is no relationship between differing types.
+**Table Per Concrete Type (TPC)** maps each concrete type to its own table.
 
-<!--http://weblogs.asp.net/manavi/inheritance-mapping-strategies-with-entity-framework-code-first-ctp5-part-3-table-per-concrete-type-tpc-and-choosing-strategy-guidelines-->
+Each table includes both the base properties and the properties specific to that concrete type. There is no shared base table.
 
-The [TPC pattern](/inheritance/table-per-concrete) feature was introduced in EF Core 7.0. 
+* Separate tables for each concrete type
+* No discriminator column
+* Polymorphic queries are translated using `UNION ALL`
 
-#### Further Reading
+This strategy can be appropriate when avoiding JOINs is desirable and duplication of base columns is acceptable.
 
-- [Table Per Hierarchy](/inheritance/table-per-hierarchy)
-- [Table Per Type](/inheritance/table-per-type)
-- [Table Per Concrete](/inheritance/table-per-concrete)
+[Learn more about Table Per Concrete Type →](/inheritance/table-per-concrete)
+
+## Quick Comparison
+
+| Strategy | Tables                | Query Shape   | Schema Style          | Typical Characteristics  |
+| -------- | --------------------- | ------------- | --------------------- | ------------------------ |
+| TPH      | Single table          | Simple SELECT | Denormalized          | Simpler queries, no JOIN |
+| TPT      | Base + derived tables | JOIN          | Normalized            | Clear schema separation  |
+| TPC      | Concrete tables only  | UNION ALL     | Denormalized per type | No shared base table     |
+
+## Choosing the Right Strategy
+
+There is no universally optimal inheritance strategy. The appropriate choice depends on:
+
+* Expected query patterns
+* Performance requirements
+* Schema design constraints
+* Reporting and maintenance considerations
+
+In practice:
+
+* **TPH** is frequently preferred for simplicity and efficient querying
+* **TPT** is used when strict normalization is required
+* **TPC** may be suitable when JOINs must be avoided and duplication is acceptable
+
+Each strategy involves trade-offs. Reviewing the dedicated documentation for each pattern will help determine which approach best fits your domain model.
+
+## Further Reading
+
+* [Table Per Hierarchy](/inheritance/table-per-hierarchy)
+* [Table Per Type](/inheritance/table-per-type)
+* [Table Per Concrete Type](/inheritance/table-per-concrete)
