@@ -61,6 +61,8 @@ This strategy is commonly selected when query performance and simplicity are pri
 
 ## Table Per Type (TPT)
 
+<div class="image-outer"><img src="/images/efcore/inheritance/table-per-type.png" loading="lazy" alt="EF Core TPT Inheritance"></div>
+
 **Table Per Type (TPT)** maps each type in the hierarchy to its own database table.
 
 The base table stores shared properties, while each derived table stores only properties specific to that type. Derived tables are linked to the base table using foreign keys.
@@ -74,6 +76,8 @@ This strategy is often chosen when database normalization is more important than
 [Learn more about Table Per Type →](/inheritance/table-per-type)
 
 ## Table Per Concrete Type (TPC)
+
+<div class="image-outer"><img src="/images/efcore/inheritance/table-per-concrete-type.png" loading="lazy" alt="EF Core TPC Inheritance"></div>
 
 **Table Per Concrete Type (TPC)** maps each concrete type to its own table.
 

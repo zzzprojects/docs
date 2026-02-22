@@ -24,6 +24,7 @@ Each concrete type maps to its own table, and **each table contains all properti
 
 The base type itself is **not mapped to a table when it is abstract**, which removes the need for discriminators and avoids nullable columns.
 
+<div class="image-outer"><img src="/images/efcore/inheritance/table-per-concrete-type.png" loading="lazy" alt="EF Core TPC Inheritance"></div>
 
 ## TL;DR — EF Core TPC
 

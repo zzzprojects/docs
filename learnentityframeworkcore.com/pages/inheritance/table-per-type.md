@@ -25,6 +25,7 @@ The base type is stored in a separate table, and each derived type is stored in 
 This approach produces a **fully normalized schema**, but introduces additional complexity in query translation and execution. 
 This complexity becomes more noticeable as the hierarchy grows or when polymorphic queries are common
 
+<div class="image-outer"><img src="/images/efcore/inheritance/table-per-type.png" loading="lazy" alt="EF Core TPT Inheritance"></div>
 
 ## TL;DR — EF Core TPT
 
