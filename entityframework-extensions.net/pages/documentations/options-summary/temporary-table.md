@@ -1,7 +1,7 @@
 ---
 Title: Temporary Table in Entity Framework Extensions  
 MetaDescription: Learn how to configure temporary tables in Entity Framework Extensions. Control naming, batching, locking, schema, and persistence to optimize bulk operations for performance, debugging, and concurrency.
-LastMod: 2026-01-26
+LastMod: 2026-02-24
 ---
 
 # 🧪 Temporary Table options in EF Extensions
@@ -76,13 +76,15 @@ The name you choose determines the type of table that will be used:
 * `"#MyTemporaryTableName"` → uses a **local temporary table**
 * `"##MyTemporaryTableName"` → uses a **global temporary table**
 
+You can use the string `{ZZZ_action}` in your name to have it automatically replaced by the current action (insert, update, delete, merge, synchronize).
+
 ```csharp
 // @nuget: Z.EntityFramework.Extensions.EFCore
 using Z.EntityFramework.Extensions;
 
 context.BulkMerge(list, options =>
 {			
-	options.TemporaryTableName = "#MyTemporaryTableName";
+	options.TemporaryTableName = "#MyTemporaryTableName_{ZZZ_action}";
 	options.TemporaryTableCreateAndDrop = true;
 });
 ```
@@ -135,11 +137,11 @@ context.BulkMerge(list, options =>
 
 Reuses the same temporary table name instead of generating a unique one.
 
-When enabled, the library automatically builds the temporary table name by using the prefix `#ZZZ_` followed by your destination table name.
+When enabled, the library automatically builds the temporary table name using the prefix #ZZZ_, followed by the action suffix (insert, update, delete, merge, synchronize), and completed with your destination table name.
 
 For example:
 
-* Destination table: `Customer` → Temporary table: `#ZZZ_Customer`
+* Destination table: `Customer` → Temporary table: `#ZZZ_merge_Customer`
 
 ```csharp
 // @nuget: Z.EntityFramework.Extensions.EFCore

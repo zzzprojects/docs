@@ -26,6 +26,8 @@ All entities in the hierarchy share the same table structure, with unused column
 
 <div class="image-outer"><img src="/images/efcore/inheritance/table-per-hierarchy.png" loading="lazy" alt="EF Core TPH Inheritance"></div>
 
+[Online Example](https://dotnetfiddle.net/SitJWp)
+
 ## TL;DR — EF Core TPH
 
 - Uses **one table** for the entire inheritance hierarchy  
@@ -104,6 +106,8 @@ protected override void OnModelCreating(ModelBuilder modelBuilder)
 }
 ```
 
+[Online Example](https://dotnetfiddle.net/WGJoXM)
+
 The discriminator column tells EF Core which concrete CLR type should be materialized for each row.
 
 ### Registering Derived Types
@@ -118,6 +122,8 @@ public DbSet<Cat> Cats { get; set; }
 public DbSet<Dog> Dogs { get; set; }
 ```
 
+[Online Example](https://dotnetfiddle.net/IxuJSt)
+
 **Option 2 — Registration via `OnModelCreating`**
 
 ```csharp
@@ -130,6 +136,8 @@ protected override void OnModelCreating(ModelBuilder modelBuilder)
     base.OnModelCreating(modelBuilder);
 }
 ```
+
+[Online Example](https://dotnetfiddle.net/ug1d4v)
 
 Both approaches produce the **same database schema**.
 
@@ -146,6 +154,8 @@ var dogs = context.Animals
     .ToList();
 ```
 
+[Online Example](https://dotnetfiddle.net/Hh8mlE)
+
 This is the traditional way to retrieve derived types when only the root `DbSet` is exposed.
 
 In addition to `OfType<T>()`, EF Core also allows querying derived entities directly by exposing `DbSet` properties for concrete types.
@@ -160,7 +170,7 @@ public class AnimalsDbContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Animal>().UseTphMappingStrategy();
-		
+	
         base.OnModelCreating(modelBuilder);
     }
 }
@@ -171,6 +181,8 @@ using (var context = new AnimalsDbContext())
     var dogs = context.Dogs.ToList();
 }
 ```
+
+[Online Example](https://dotnetfiddle.net/TISeBz)
 
 This approach is less traditional but often **simpler and more expressive**, especially when working primarily with concrete types.
 
@@ -225,6 +237,8 @@ SELECT
 FROM [Animals] AS [a]
 WHERE [a].[AnimalType] = 2;
 ```
+
+[Online Example](https://dotnetfiddle.net/2j34Pq)
 
 ## Performance Characteristics
 
