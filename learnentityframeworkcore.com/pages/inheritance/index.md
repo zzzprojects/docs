@@ -3,7 +3,7 @@ title: Inheritance in Entity Framework Core
 description: Learn how inheritance works in Entity Framework Core and explore the three supported mapping strategies: Table Per Hierarchy (TPH), Table Per Type (TPT), and Table Per Concrete Type (TPC).
 canonical: /inheritance
 status: Published
-lastmod: 2026-02-21
+lastmod: 2026-02-24
 ---
 
 # EF Core Inheritance
@@ -45,6 +45,8 @@ Entity Framework Core supports three inheritance mapping strategies (TPH, TPT, T
 
 ## Table Per Hierarchy (TPH)
 
+[Online Example](https://dotnetfiddle.net/SitJWp)
+
 <div class="image-outer"><img src="/images/efcore/inheritance/table-per-hierarchy.png" loading="lazy" alt="EF Core TPH Inheritance"></div>
 
 **Table Per Hierarchy (TPH)** maps the entire inheritance hierarchy to a single database table.
@@ -60,6 +62,8 @@ This strategy is commonly selected when query performance and simplicity are pri
 [Learn more about Table Per Hierarchy →](/inheritance/table-per-hierarchy)
 
 ## Table Per Type (TPT)
+
+[Online Example](https://dotnetfiddle.net/2JYcbs)
 
 <div class="image-outer"><img src="/images/efcore/inheritance/table-per-type.png" loading="lazy" alt="EF Core TPT Inheritance"></div>
 
@@ -77,6 +81,8 @@ This strategy is often chosen when database normalization is more important than
 
 ## Table Per Concrete Type (TPC)
 
+[Online Example](https://dotnetfiddle.net/FusUAZ)
+
 <div class="image-outer"><img src="/images/efcore/inheritance/table-per-concrete-type.png" loading="lazy" alt="EF Core TPC Inheritance"></div>
 
 **Table Per Concrete Type (TPC)** maps each concrete type to its own table.
@@ -93,11 +99,11 @@ This strategy can be appropriate when avoiding JOINs is desirable and duplicatio
 
 ## Quick Comparison
 
-| Strategy | Tables                | Query Shape   | Schema Style          | Typical Characteristics  |
-| -------- | --------------------- | ------------- | --------------------- | ------------------------ |
-| TPH      | Single table          | Simple SELECT | Denormalized          | Simpler queries, no JOIN |
-| TPT      | Base + derived tables | JOIN          | Normalized            | Clear schema separation  |
-| TPC      | Concrete tables only  | UNION ALL     | Denormalized per type | No shared base table     |
+| Strategy | Tables                | Polymorphic Query   | Schema Style          | Typical Characteristics  |
+| -------- | --------------------- | ------------------- | --------------------- | ------------------------ |
+| TPH      | Single table          | Filtered SELECT     | Denormalized          | Simpler queries, no JOIN |
+| TPT      | Base + derived tables | JOIN                | Normalized            | Clear schema separation  |
+| TPC      | Concrete tables only  | UNION ALL           | Denormalized per type | No shared base table     |
 
 ## Choosing the Right Strategy
 

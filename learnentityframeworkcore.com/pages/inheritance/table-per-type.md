@@ -27,6 +27,8 @@ This complexity becomes more noticeable as the hierarchy grows or when polymorph
 
 <div class="image-outer"><img src="/images/efcore/inheritance/table-per-type.png" loading="lazy" alt="EF Core TPT Inheritance"></div>
 
+[Online Example](https://dotnetfiddle.net/2JYcbs)
+
 ## TL;DR — EF Core TPT
 
 - Uses **one table for the base type** and **one table per derived type**
@@ -98,6 +100,8 @@ protected override void OnModelCreating(ModelBuilder modelBuilder)
 }
 ```
 
+[Online Example](https://dotnetfiddle.net/2JYcbs)
+
 By convention, EF Core generates table names automatically.
 You can override table names explicitly if needed. This is optional but often used to make the resulting schema explicit.
 
@@ -109,20 +113,47 @@ Derived types can be registered in multiple ways, depending on how you want to q
 **Option 1 — Expose only the root DbSet**
 
 ```csharp
+protected override void OnModelCreating(ModelBuilder modelBuilder)
+{
+	modelBuilder.Entity<Animal>()
+		.UseTptMappingStrategy()
+		.ToTable("Animals");
+
+	modelBuilder.Entity<Cat>()
+		.ToTable("Cats");
+
+	modelBuilder.Entity<Dog>()
+		.ToTable("Dogs");
+
+	base.OnModelCreating(modelBuilder);
+}
+
 public DbSet<Animal> Animals { get; set; }
 ```
+
+[Online Example](https://dotnetfiddle.net/q5qF1q)
 
 Derived entities are accessed using `OfType<T>()`.
 
 **Option 2 — Expose DbSet properties for derived types**
 
 ```csharp
+protected override void OnModelCreating(ModelBuilder modelBuilder)
+{
+	modelBuilder.Entity<Animal>().UseTptMappingStrategy();
+
+	base.OnModelCreating(modelBuilder);
+}
+
 public DbSet<Animal> Animals { get; set; }
 public DbSet<Cat> Cats { get; set; }
 public DbSet<Dog> Dogs { get; set; }
 ```
 
+[Online Example](https://dotnetfiddle.net/E1rwuH)
+
 Exposing derived DbSets does **not** change the database schema.
+
 It only affects how queries are written and expressed in code.
 
 
@@ -157,6 +188,8 @@ using (var context = new AnimalsDbContext())
     var dogs = context.Dogs.ToList();
 }
 ```
+
+[Online Example](https://dotnetfiddle.net/ygZGdN)
 
 
 ## SQL Behavior
@@ -204,12 +237,17 @@ SELECT
     [c].[IsIndoor],
     [c].[LivesRemaining],
     [d].[Breed],
-    [d].[IsGoodBoy]
+    [d].[IsGoodBoy],
+	CASE
+		WHEN [d].[Id] IS NOT NULL THEN N'Dog'
+		WHEN [c].[Id] IS NOT NULL THEN N'Cat'
+	END AS [Discriminator]
 FROM [Animals] AS [a]
 LEFT JOIN [Cats] AS [c] ON [a].[Id] = [c].[Id]
 LEFT JOIN [Dogs] AS [d] ON [a].[Id] = [d].[Id];
 ```
 
+[Online Example](https://dotnetfiddle.net/Kjj9b1)
 
 ## Performance Characteristics
 

@@ -16,6 +16,7 @@ EF Core provides three inheritance mapping strategies:
 
 This page focuses on **Table Per Concrete Type (TPC)**.
 
+[Online Example](https://dotnetfiddle.net/FusUAZ)
 
 ## What is Table Per Concrete Type (TPC) in EF Core
 
@@ -73,12 +74,14 @@ public abstract class Animal
 
 public class Cat : Animal
 {
-    public string? MeowSound { get; set; }
+    public bool IsIndoor { get; set; }
+    public int LivesRemaining { get; set; }
 }
 
 public class Dog : Animal
 {
-    public string? BarkSound { get; set; }
+    public string? Breed { get; set; }
+    public bool IsGoodBoy { get; set; }
 }
 ```
 
@@ -104,6 +107,8 @@ public class AnimalsDbContext : DbContext
     }
 }
 ```
+
+[Online Example](https://dotnetfiddle.net/FusUAZ)
 
 If the root entity is abstract, it is **not mapped to a database table**.
 
@@ -160,6 +165,8 @@ using (var context = new AnimalsDbContext())
     var dogs = context.Dogs.ToList();
 }
 ```
+
+[Online Example](https://dotnetfiddle.net/XexlmG)
 
 
 ## SQL Behavior
@@ -218,7 +225,7 @@ SELECT
 FROM [Dogs] AS [d];
 ```
 
-
+[Online Example](https://dotnetfiddle.net/M2ueD7)
 
 ## Data Insertion
 
