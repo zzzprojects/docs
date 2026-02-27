@@ -3,10 +3,10 @@ title: EF Core Table Per Type (TPT) — Inheritance Mapping Explained
 description: Learn how Table Per Type (TPT) inheritance works in Entity Framework Core, including schema normalization, SQL JOIN behavior, performance trade-offs, and when to use it.
 canonical: /inheritance/table-per-type
 status: Published
-lastmod: 2026-02-21
+lastmod: 2026-02-27
 ---
 
-# EF Core — Table Per Type (TPT)
+# EF Core - Table Per Type (TPT)
 
 EF Core provides three inheritance mapping strategies:
 
@@ -16,20 +16,21 @@ EF Core provides three inheritance mapping strategies:
 
 This page focuses on **Table Per Type (TPT)**.
 
-
 ## What is Table Per Type (TPT) in EF Core
 
-Table Per Type (TPT) is an inheritance mapping strategy in Entity Framework Core where **each type in the inheritance hierarchy is mapped to its own database table**.  
+Table Per Type (TPT) is an inheritance mapping strategy introduced in [EF Core 5](https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-5.0/whatsnew#table-per-type-tpt-mapping) where **each type in the inheritance hierarchy is mapped to its own database table**.
+  
 The base type is stored in a separate table, and each derived type is stored in an additional table linked to the base table through a foreign key.
 
 This approach produces a **fully normalized schema**, but introduces additional complexity in query translation and execution. 
+
 This complexity becomes more noticeable as the hierarchy grows or when polymorphic queries are common
 
 <div class="image-outer"><img src="/images/efcore/inheritance/table-per-type.png" loading="lazy" alt="EF Core TPT Inheritance"></div>
 
 [Online Example](https://dotnetfiddle.net/2JYcbs)
 
-## TL;DR — EF Core TPT
+## TL;DR - EF Core TPT
 
 - Uses **one table for the base type** and **one table per derived type**
 - Derived tables are linked to the base table via **foreign keys**
@@ -42,6 +43,7 @@ This complexity becomes more noticeable as the hierarchy grows or when polymorph
 ## Quick Mental Model
 
 Think of TPT as **splitting an inheritance hierarchy vertically across multiple tables**.  
+
 To materialize a derived entity, EF Core must **join the base table with one or more derived tables**.
 
 You gain schema normalization, but you pay for it with **more complex SQL and higher query cost compared to TPH, especially for polymorphic queries**.
@@ -55,9 +57,11 @@ You gain schema normalization, but you pay for it with **more complex SQL and hi
 - Queries frequently require **multiple JOINs**
 
 
-## Configuration in EF Core
+## Configuration TPT in EF Core
 
 ### The Model
+
+The following model represents an inheritance hierarchy using an abstract base class:
 
 ```csharp
 public abstract class Animal
@@ -80,92 +84,13 @@ public class Dog : Animal
 }
 ```
 
-
 ### Configuring TPT Mapping
 
-```csharp
-protected override void OnModelCreating(ModelBuilder modelBuilder)
-{
-    modelBuilder.Entity<Animal>()
-        .UseTptMappingStrategy()
-        .ToTable("Animals");
-
-    modelBuilder.Entity<Cat>()
-        .ToTable("Cats");
-
-    modelBuilder.Entity<Dog>()
-        .ToTable("Dogs");
-		
-    base.OnModelCreating(modelBuilder);
-}
-```
-
-[Online Example](https://dotnetfiddle.net/2JYcbs)
-
-By convention, EF Core generates table names automatically.
-You can override table names explicitly if needed. This is optional but often used to make the resulting schema explicit.
-
-
-### Registering Derived Types
-
-Derived types can be registered in multiple ways, depending on how you want to query them.
-
-**Option 1 — Expose only the root DbSet**
-
-```csharp
-protected override void OnModelCreating(ModelBuilder modelBuilder)
-{
-	modelBuilder.Entity<Animal>()
-		.UseTptMappingStrategy()
-		.ToTable("Animals");
-
-	modelBuilder.Entity<Cat>()
-		.ToTable("Cats");
-
-	modelBuilder.Entity<Dog>()
-		.ToTable("Dogs");
-
-	base.OnModelCreating(modelBuilder);
-}
-
-public DbSet<Animal> Animals { get; set; }
-```
-
-[Online Example](https://dotnetfiddle.net/q5qF1q)
-
-Derived entities are accessed using `OfType<T>()`.
-
-**Option 2 — Expose DbSet properties for derived types**
-
-```csharp
-protected override void OnModelCreating(ModelBuilder modelBuilder)
-{
-	modelBuilder.Entity<Animal>().UseTptMappingStrategy();
-
-	base.OnModelCreating(modelBuilder);
-}
-
-public DbSet<Animal> Animals { get; set; }
-public DbSet<Cat> Cats { get; set; }
-public DbSet<Dog> Dogs { get; set; }
-```
-
-[Online Example](https://dotnetfiddle.net/E1rwuH)
-
-Exposing derived DbSets does **not** change the database schema.
-
-It only affects how queries are written and expressed in code.
-
-
-## Retrieving Derived Types via DbSet
+You can configure a TPT mapping by using `UseTptMappingStrategy()`:
 
 ```csharp
 public class AnimalsDbContext : DbContext
 {
-    public DbSet<Animal> Animals { get; set; }
-    public DbSet<Cat> Cats { get; set; }
-    public DbSet<Dog> Dogs { get; set; }
-
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Animal>()
@@ -180,76 +105,186 @@ public class AnimalsDbContext : DbContext
 			
         base.OnModelCreating(modelBuilder);
     }
+	
+    public DbSet<Animal> Animals { get; set; }
+    public DbSet<Cat> Cats { get; set; }
+    public DbSet<Dog> Dogs { get; set; }
+}
+```
+
+[Online Example](https://dotnetfiddle.net/2JYcbs)
+
+By convention, EF Core generates table names automatically.
+
+You can override table names explicitly if needed. This is optional but often used to make the resulting schema more explicit.
+
+Usually, the base set (`Animals`) and all derived types (`Cats`, `Dogs`) are exposed.
+
+### TPT Generated Database Schema
+
+With this configuration, EF Core generates **one table for the base type** and **one table per derived type**:
+
+```sql
+CREATE TABLE [Animals] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(max) NULL,
+    [DateOfBirth] datetime2 NOT NULL,
+    CONSTRAINT [PK_Animals] PRIMARY KEY ([Id])
+);
+
+CREATE TABLE [Cats] (
+    [Id] int NOT NULL,
+    [IsIndoor] bit NOT NULL,
+    [LivesRemaining] int NOT NULL,
+    CONSTRAINT [PK_Cats] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_Cats_Animals_Id] FOREIGN KEY ([Id]) REFERENCES [Animals] ([Id]) ON DELETE CASCADE
+);
+
+CREATE TABLE [Dogs] (
+    [Id] int NOT NULL,
+    [Breed] nvarchar(max) NULL,
+    [IsGoodBoy] bit NOT NULL,
+    CONSTRAINT [PK_Dogs] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_Dogs_Animals_Id] FOREIGN KEY ([Id]) REFERENCES [Animals] ([Id]) ON DELETE CASCADE
+);
+```
+
+It produces a **clean and normalized schema**, and the Derived tables are linked to the base table via **foreign keys**.
+
+[Online Example](https://dotnetfiddle.net/3nzgSS)
+
+## TPT Retrieving Derived Types via DbSet
+
+You can either query the concrete `DbSet` directly or use the base set with `OfType<T>()` to query a specific derived type.
+
+```csharp
+public class AnimalsDbContext : DbContext
+{
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<Animal>()
+            .UseTptMappingStrategy()
+            .ToTable("Animals");
+
+        modelBuilder.Entity<Cat>()
+            .ToTable("Cats");
+
+        modelBuilder.Entity<Dog>()
+            .ToTable("Dogs");
+			
+        base.OnModelCreating(modelBuilder);
+    }
+	
+    public DbSet<Animal> Animals { get; set; }
+    public DbSet<Cat> Cats { get; set; }
+    public DbSet<Dog> Dogs { get; set; }
 }
 
 using (var context = new AnimalsDbContext())
 {
+	
     var cats = context.Cats.ToList();
     var dogs = context.Dogs.ToList();
+	
+    var cats2 = context.Animals
+        .OfType<Cat>()
+        .ToList();
+
+    var dogs2 = context.Animals
+        .OfType<Dog>()
+        .ToList();
 }
 ```
 
 [Online Example](https://dotnetfiddle.net/ygZGdN)
 
+`OfType<T>()` is especially useful when you only expose the base `DbSet` (for example, only `Animals`). In that case, it allows you to filter and retrieve a specific derived type without exposing separate `DbSet` properties.
 
-## SQL Behavior
+### SQL Behavior
 
 * Queries against derived types generate **JOINs** between:
-
   * the base table
   * one or more derived tables
 * JOINs are required even when querying a **single concrete type**
 * Query complexity increases as the hierarchy grows
 
 
-## Generated SQL (simplified)
+### Generated SQL
+
+The following examples show a simplified version of the SQL typically generated by EF Core for the TPT mapping strategy.
+
 
 ```sql
--- Querying Cats requires a JOIN between the base table and the derived table
-SELECT
-    [a].[Id],
-    [a].[Name],
-    [a].[DateOfBirth],
-    [c].[IsIndoor],
-    [c].[LivesRemaining]
-FROM [Animals] AS [a]
-INNER JOIN [Cats] AS [c] ON [a].[Id] = [c].[Id];
-```
-
-```sql
--- Querying Dogs requires a JOIN between the base table and the derived table
-SELECT
-    [a].[Id],
-    [a].[Name],
-    [a].[DateOfBirth],
-    [d].[Breed],
-    [d].[IsGoodBoy]
-FROM [Animals] AS [a]
-INNER JOIN [Dogs] AS [d] ON [a].[Id] = [d].[Id];
-```
-
-```sql
--- Querying the root type typically results in LEFT JOINs across all derived tables
-SELECT
-    [a].[Id],
-    [a].[Name],
-    [a].[DateOfBirth],
-    [c].[IsIndoor],
-    [c].[LivesRemaining],
-    [d].[Breed],
-    [d].[IsGoodBoy],
-	CASE
-		WHEN [d].[Id] IS NOT NULL THEN N'Dog'
-		WHEN [c].[Id] IS NOT NULL THEN N'Cat'
-	END AS [Discriminator]
+-- Querying the root type typically results in LEFT JOINs across all derived tables (context.Animals)
+SELECT [a].[Id],
+       [a].[DateOfBirth],
+       [a].[Name],
+       [c].[IsIndoor],
+       [c].[LivesRemaining],
+       [d].[Breed],
+       [d].[IsGoodBoy],
+       CASE
+           WHEN [d].[Id] IS NOT NULL THEN N'Dog'
+           WHEN [c].[Id] IS NOT NULL THEN N'Cat'
+       END AS [Discriminator]
 FROM [Animals] AS [a]
 LEFT JOIN [Cats] AS [c] ON [a].[Id] = [c].[Id]
-LEFT JOIN [Dogs] AS [d] ON [a].[Id] = [d].[Id];
+LEFT JOIN [Dogs] AS [d] ON [a].[Id] = [d].[Id]
+```
+
+```sql
+-- Querying the root type with OfType<T>() generates a discriminator column
+-- (context.Animals.OfType<Cat>(), context.Animals.OfType<Dog>())
+SELECT [a].[Id],
+       [a].[DateOfBirth],
+       [a].[Name],
+       [c].[IsIndoor],
+       [c].[LivesRemaining],
+       CASE
+           WHEN [c].[Id] IS NOT NULL THEN N'Cat'
+       END AS [Discriminator]
+FROM [Animals] AS [a]
+LEFT JOIN [Cats] AS [c] ON [a].[Id] = [c].[Id]
+WHERE [c].[Id] IS NOT NULL
+
+SELECT [a].[Id],
+       [a].[DateOfBirth],
+       [a].[Name],
+       [d].[Breed],
+       [d].[IsGoodBoy],
+       CASE
+           WHEN [d].[Id] IS NOT NULL THEN N'Dog'
+       END AS [Discriminator]
+FROM [Animals] AS [a]
+LEFT JOIN [Dogs] AS [d] ON [a].[Id] = [d].[Id]
+WHERE [d].[Id] IS NOT NULL
+```
+
+```sql
+-- Querying Cats requires a JOIN between the base table and the derived table (context.Cats)
+SELECT [a].[Id],
+       [a].[DateOfBirth],
+       [a].[Name],
+       [c].[IsIndoor],
+       [c].[LivesRemaining]
+FROM [Animals] AS [a]
+INNER JOIN [Cats] AS [c] ON [a].[Id] = [c].[Id]
+```
+
+```sql
+-- Querying Dogs requires a JOIN between the base table and the derived table (context.Dogs)
+SELECT [a].[Id],
+       [a].[DateOfBirth],
+       [a].[Name],
+       [d].[Breed],
+       [d].[IsGoodBoy]
+FROM [Animals] AS [a]
+INNER JOIN [Dogs] AS [d] ON [a].[Id] = [d].[Id]
 ```
 
 [Online Example](https://dotnetfiddle.net/Kjj9b1)
 
-## Performance Characteristics
+### Performance Characteristics
 
 * Produces **highly normalized schemas**
 * Queries involving derived types require **JOINs**
@@ -260,7 +295,7 @@ LEFT JOIN [Dogs] AS [d] ON [a].[Id] = [d].[Id];
 * Typically slower than TPH for polymorphic, read-heavy workloads due to JOIN overhead
 
 
-## Common Use Cases
+## TPT Common Use Cases
 
 TPT is commonly used when:
 
@@ -329,16 +364,16 @@ Remigiusz demonstrates how TPT splits an inheritance hierarchy across multiple t
 
 * [05:40](https://www.youtube.com/watch?v=zctMt_rF9_U&t=340s) — TPT configuration in `OnModelCreating`
 * [06:35](https://www.youtube.com/watch?v=zctMt_rF9_U&t=395s) — Resulting schema: base + derived tables
-* [11:45](https://www.youtube.com/watch?v=zctMt_rF9_U&t=705s) — Explicit `UseTpt()` / `UseTph()` configuration
+* [11:45](https://www.youtube.com/watch?v=zctMt_rF9_U&t=705s) — Explicit `UseTptMappingStrategy()` configuration
 
 ## Summary & Next Steps
 
 Table Per Type (TPT) prioritizes **schema normalization** by splitting an inheritance hierarchy across multiple tables.
+
 While this approach produces clean relational models, it introduces JOIN-heavy queries and additional performance cost.
 
 **Next steps:**
 
-* Explore **Table Per Concrete Type (TPC)** for write-optimized scenarios
-* Review a side-by-side comparison of **TPH vs TPT vs TPC**
-
-```
+* Explore [Table Per Concrete Type (TPC)](/inheritance/table-per-concrete) for write-optimized scenarios
+* Review a [side-by-side comparison](/inheritance#quick-comparison) of **TPH vs TPT vs TPC**
+* Review the [Table Per Hierarchy (TPH)](/inheritance/table-per-hierarchy) default inheritance

@@ -3,10 +3,10 @@ title: EF Core Table Per Hierarchy (TPH) — Inheritance Mapping Explained
 description: Learn how Table Per Hierarchy (TPH) inheritance works in Entity Framework Core, including discriminator columns, SQL behavior, performance trade-offs, and when to use it.
 canonical: /inheritance/table-per-hierarchy
 status: Published
-lastmod: 2026-02-21
+lastmod: 2026-02-27
 ---
 
-# EF Core — Table Per Hierarchy (TPH)
+# EF Core - Table Per Hierarchy (TPH)
 
 EF Core provides three inheritance mapping strategies:
 
@@ -28,7 +28,7 @@ All entities in the hierarchy share the same table structure, with unused column
 
 [Online Example](https://dotnetfiddle.net/SitJWp)
 
-## TL;DR — EF Core TPH
+## TL;DR - EF Core TPH
 
 - Uses **one table** for the entire inheritance hierarchy  
 - Relies on a **discriminator column** to identify derived types  
@@ -40,7 +40,7 @@ All entities in the hierarchy share the same table structure, with unused column
 
 ## Quick Mental Model
 
-Think of TPH as **one large table** where each row represents a different concrete type.  
+Think of TPH as **one large table** storing all entities in an inheritance hierarchy.
 
 The discriminator column tells EF Core **how to materialize each row into the correct CLR type**.
 
@@ -50,13 +50,13 @@ You gain performance by avoiding JOINs in polymorphic queries, but you trade sch
 
 - A **single table** represents the entire hierarchy  
 - Columns include:
-  - Base class properties
-  - All derived-type specific properties
-- A **discriminator column** identifies the concrete type
+   - Base class properties
+   - All derived-type specific properties
+   - A **discriminator column** identifies the concrete type
 - Many columns may be `NULL` depending on the row type
 
 
-## Configuration in EF Core
+## Configuration TPH in EF Core
 
 ### The Model
 
@@ -83,26 +83,29 @@ public class Dog : Animal
 }
 ````
 
-Note: `Animal` does not have to be an abstract class.
+### Configuring TPH Mapping
 
-### Explicit TPH Mapping with Discriminator
-
-Although TPH is the default strategy, it can be configured explicitly using `UseTphMappingStrategy()`.
+Although TPH is the default strategy, we always recommend configuring it explicitly by using `UseTphMappingStrategy()` to avoid any ambiguity for other developers:
 
 ```csharp
-protected override void OnModelCreating(ModelBuilder modelBuilder)
+public class AnimalsDbContext : DbContext
 {
-    modelBuilder.Entity<Animal>(entity =>
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        entity.UseTphMappingStrategy();
+        modelBuilder.Entity<Animal>(entity =>
+        {
+            entity.UseTphMappingStrategy();
 
-        entity
-            .HasDiscriminator<int>("AnimalType")
-            .HasValue<Cat>(1)
-            .HasValue<Dog>(2);
-    });
+            entity
+                .HasDiscriminator<int>("AnimalType")
+                .HasValue<Cat>(1)
+                .HasValue<Dog>(2);
+        });
+		
+        base.OnModelCreating(modelBuilder);
+    }
 	
-    base.OnModelCreating(modelBuilder);
+    public DbSet<Animal> Animals { get; set; }
 }
 ```
 
@@ -110,48 +113,60 @@ protected override void OnModelCreating(ModelBuilder modelBuilder)
 
 The discriminator column tells EF Core which concrete CLR type should be materialized for each row.
 
-### Registering Derived Types
+Usually, only the base set (`Animals`) is exposed.
 
-Derived types can be registered either explicitly via `DbSet` or implicitly via `OnModelCreating`.
+### TPH Generated Database Schema
 
-**Option 1 — Explicit DbSet registration**
+With this configuration, EF Core generates only **one table** for the entire inheritance hierarchy:
 
-```csharp
-public DbSet<Animal> Animals { get; set; }
-public DbSet<Cat> Cats { get; set; }
-public DbSet<Dog> Dogs { get; set; }
+```sql
+CREATE TABLE [Animals] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(max) NULL,
+    [DateOfBirth] datetime2 NOT NULL,
+    [AnimalType] int NOT NULL,
+    [IsIndoor] bit NULL,
+    [LivesRemaining] int NULL,
+    [Breed] nvarchar(max) NULL,
+    [IsGoodBoy] bit NULL,
+    CONSTRAINT [PK_Animals] PRIMARY KEY ([Id])
+);
 ```
 
-[Online Example](https://dotnetfiddle.net/IxuJSt)
+The table includes the base class properties and all derived-type specific properties (stored as **nullable** columns).
 
-**Option 2 — Registration via `OnModelCreating`**
+[Online Example](https://dotnetfiddle.net/OSxCmt)
+
+## TPH Retrieving Derived Types via DbSet
+
+To retrieve derived types, you normally query the root `Animals` set and use `OfType<T>()` to retrieve a specific derived type.
 
 ```csharp
-protected override void OnModelCreating(ModelBuilder modelBuilder)
+public class AnimalsDbContext : DbContext
 {
-    modelBuilder.Entity<Animal>().UseTphMappingStrategy();
-    modelBuilder.Entity<Cat>();
-    modelBuilder.Entity<Dog>();
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<Animal>().UseTphMappingStrategy();
+        modelBuilder.Entity<Cat>();
+        modelBuilder.Entity<Dog>();
 	
-    base.OnModelCreating(modelBuilder);
+        base.OnModelCreating(modelBuilder);
+    }
+	
+    public DbSet<Animal> Animals { get; set; }
 }
-```
 
-[Online Example](https://dotnetfiddle.net/ug1d4v)
+using (var context = new AnimalsDbContext())
+{
+	var cats = context.Animals
+		.OfType<Cat>()
+		.ToList();
 
-Both approaches produce the **same database schema**.
+	var dogs = context.Animals
+		.OfType<Dog>()
+		.ToList();
+}
 
-## Retrieving Derived Types via DbSet
-
-
-```csharp
-var cats = context.Animals
-    .OfType<Cat>()
-    .ToList();
-
-var dogs = context.Animals
-    .OfType<Dog>()
-    .ToList();
 ```
 
 [Online Example](https://dotnetfiddle.net/Hh8mlE)
@@ -163,16 +178,16 @@ In addition to `OfType<T>()`, EF Core also allows querying derived entities dire
 ```csharp
 public class AnimalsDbContext : DbContext
 {
-    public DbSet<Animal> Animals { get; set; }
-    public DbSet<Cat> Cats { get; set; }
-    public DbSet<Dog> Dogs { get; set; }
-
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Animal>().UseTphMappingStrategy();
 	
         base.OnModelCreating(modelBuilder);
     }
+	
+    public DbSet<Animal> Animals { get; set; }
+    public DbSet<Cat> Cats { get; set; }
+    public DbSet<Dog> Dogs { get; set; }
 }
 
 using (var context = new AnimalsDbContext())
@@ -187,7 +202,7 @@ using (var context = new AnimalsDbContext())
 This approach is less traditional but often **simpler and more expressive**, especially when working primarily with concrete types.
 
 
-## SQL Behavior
+### SQL Behavior
 
 * Queries against derived types are translated into **single-table SELECTs**
 * Filtering is performed using the discriminator column
@@ -195,52 +210,51 @@ This approach is less traditional but often **simpler and more expressive**, esp
 * All data is retrieved from one table
 
 
-## Generated SQL (simplified)
+### Generated SQL
 
-The following examples show a simplified version of the SQL typically generated by EF Core for this mapping strategy.
+The following examples show a simplified version of the SQL typically generated by EF Core for the TPH mapping strategy.
 
 
 ```sql
--- Querying the root type (Animals DbSet)
-SELECT
-    [a].[Id],
-    [a].[Name],
-    [a].[DateOfBirth],
-    [a].[AnimalType],
-    [a].[IsIndoor],
-    [a].[LivesRemaining],
-    [a].[Breed],
-    [a].[IsGoodBoy]
-FROM [Animals] AS [a];
+-- Querying the root type (context.Animals)
+SELECT [a].[Id],
+       [a].[AnimalType],
+       [a].[DateOfBirth],
+       [a].[Name],
+       [a].[IsIndoor],
+       [a].[LivesRemaining],
+       [a].[Breed],
+       [a].[IsGoodBoy]
+FROM [Animals] AS [a]
 ```
 
 ```sql
--- Querying only Cats (OfType<Cat>() / context.Cats)
-SELECT
-    [a].[Id],
-    [a].[Name],
-    [a].[DateOfBirth],
-    [a].[IsIndoor],
-    [a].[LivesRemaining]
+-- Querying only Cats (context.Animals.OfType<Cat>() / context.Cats)
+SELECT [a].[Id],
+       [a].[AnimalType],
+       [a].[DateOfBirth],
+       [a].[Name],
+       [a].[IsIndoor],
+       [a].[LivesRemaining]
 FROM [Animals] AS [a]
-WHERE [a].[AnimalType] = 1;
+WHERE [a].[AnimalType] = 1
 ```
 
 ```sql
--- Querying only Dogs (OfType<Dog>() / context.Dogs)
-SELECT
-    [a].[Id],
-    [a].[Name],
-    [a].[DateOfBirth],
-    [a].[Breed],
-    [a].[IsGoodBoy]
+-- Querying only Dogs (context.Animals.OfType<Dog>() / context.Dogs)
+SELECT [a].[Id],
+       [a].[AnimalType],
+       [a].[DateOfBirth],
+       [a].[Name],
+       [a].[Breed],
+       [a].[IsGoodBoy]
 FROM [Animals] AS [a]
-WHERE [a].[AnimalType] = 2;
+WHERE [a].[AnimalType] = 2
 ```
 
 [Online Example](https://dotnetfiddle.net/2j34Pq)
 
-## Performance Characteristics
+### Performance Characteristics
 
 * Reads are typically **very efficient** due to single-table access
 * Writes are simple and fast
@@ -251,6 +265,13 @@ WHERE [a].[AnimalType] = 2;
 
 Compared to other inheritance strategies, TPH usually offers the **best query performance for polymorphic workloads**, since it avoids JOINs entirely.
 
+## TPH Common Use Cases
+
+TPH is commonly used when:
+
+* Query performance matters more than normalization
+* The inheritance hierarchy is stable
+* Most derived types share a significant number of common properties
 
 ## When to Use vs When NOT to Use TPH
 
@@ -266,16 +287,6 @@ Compared to other inheritance strategies, TPH usually offers the **best query pe
 * The hierarchy contains many optional properties
 * New derived types are added frequently
 * Table width becomes difficult to manage
-
-
-## Common Use Cases
-
-TPH is commonly used when:
-
-* Query performance matters more than normalization
-* The inheritance hierarchy is stable
-* Most derived types share a significant number of common properties
-
 
 ## External Resources — Table Per Hierarchy (TPH)
 
@@ -317,7 +328,7 @@ Remigiusz demonstrates inheritance mapping using **real models and migrations**,
 **Key sections:**
 - [04:30](https://www.youtube.com/watch?v=zctMt_rF9_U&t=270s) — Default TPH mapping (single table)
 - [05:00](https://www.youtube.com/watch?v=zctMt_rF9_U&t=300s) — Discriminator column and NULL values
-- [11:45](https://www.youtube.com/watch?v=zctMt_rF9_U&t=705s) — Explicit `UseTph()` / `UseTpt()` configuration
+- [11:45](https://www.youtube.com/watch?v=zctMt_rF9_U&t=705s) — Explicit `UseTphMappingStrategy()` configuration
 - [12:30](https://www.youtube.com/watch?v=zctMt_rF9_U&t=750s) — Conclusions and EF Core 7 considerations
 
 ## Summary & Next Steps
