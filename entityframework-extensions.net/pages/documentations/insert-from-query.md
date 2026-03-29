@@ -1,7 +1,7 @@
 ---
 Title: Entity Framework InsertFromQuery – Insert Rows Directly from LINQ
 MetaDescription: Insert rows directly from LINQ with Entity Framework InsertFromQuery. Run pure SQL INSERTs without loading entities, tracking changes, or SaveChanges.
-LastMod: 2025-12-24
+LastMod: 2026-03-29
 ---
 
 # Entity Framework InsertFromQuery
@@ -71,6 +71,22 @@ context.EntitySimples.InsertFromQuery(options =>
     options.Executing = command => Console.WriteLine(command.CommandText);
 });
 ```
+
+## CommandTimeout
+
+If a timeout occurs, you can increase the command timeout by setting it on the context database before calling the `InsertFromQuery` method:
+
+```csharp
+context.Database.SetCommandTimeout(TimeSpan.FromSeconds(60));
+
+context.Customers
+    .Where(x => x.IsActive && x.LastLogin < date)
+    .InsertFromQuery(
+        "bck_Customer",
+        x => new { x.CustomerID, x.Name, x.Email }
+    );
+```
+
 
 ## Summary & Next Steps
 

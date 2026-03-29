@@ -1,7 +1,7 @@
 ---
 Title: Entity Framework UpdateFromQuery – Update Rows Directly from LINQ
 MetaDescription: Understand how Entity Framework UpdateFromQuery updates database rows directly from LINQ, without loading entities, tracking changes, or SaveChanges.
-LastMod: 2025-12-23
+LastMod: 2026-03-29
 ---
 
 # Entity Framework UpdateFromQuery
@@ -139,6 +139,7 @@ We support the following options:
 * [IgnoreInMemoryAsNoTracking](#ignoreinmemoryasnotracking)
 * [UseTableLock](#usetablelock)
 * [UseRowLock](#userowlock)
+* [CommandTimeout](#CommandTimeout)
 
 ### BatchSize
 
@@ -252,6 +253,18 @@ context.Customers
         x => new Customer { IsActive = false },
         options => options.UseRowLock = true
     );
+```
+
+### CommandTimeout
+
+If a timeout occurs, you can increase the command timeout by setting it on the context database before calling the `UpdateFromQuery` method:
+
+```csharp
+context.Database.SetCommandTimeout(TimeSpan.FromSeconds(60));
+
+context.Customers
+    .Where(x => x.ID == userId)
+    .UpdateFromQuery(x => new Customer { IsActive = false });
 ```
 
 ## FAQ

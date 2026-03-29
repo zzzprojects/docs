@@ -1,7 +1,7 @@
 ---
 Title: Entity Framework DeleteFromQuery – Delete Rows Directly from LINQ
 MetaDescription: Understand how Entity Framework DeleteFromQuery deletes database rows directly from LINQ, without loading entities, tracking changes, or SaveChanges.
-LastMod: 2025-12-27
+LastMod: 2026-03-29
 ---
 
 # Entity Framework DeleteFromQuery
@@ -103,6 +103,7 @@ We support the following options:
 * [IgnoreInMemoryAsNoTracking](#ignoreinmemoryasnotracking)
 * [InMemoryDbContextFactory](#inmemorydbcontextfactory)
 * [UseTableLock](#usetablelock)
+* [CommandTimeout](#CommandTimeout)
 
 ### BatchSize
 
@@ -218,6 +219,18 @@ using Z.EntityFramework.Extensions;
 context.Customers
     .Where(x => !x.IsActive)
     .DeleteFromQuery(options => options.UseTableLock = true);
+```
+
+### CommandTimeout
+
+If a timeout occurs, you can increase the command timeout by setting it on the context database before calling the `DeleteFromQuery` method:
+
+```csharp
+context.Database.SetCommandTimeout(TimeSpan.FromSeconds(60));
+
+context.Customers
+    .Where(x => x.ID == userId)
+    .DeleteFromQuery();
 ```
 
 ## FAQ
