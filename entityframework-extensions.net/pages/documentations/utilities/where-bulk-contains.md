@@ -1,6 +1,6 @@
 ---
 Name: How to filter entities contained from an existing list with Entity Framework?
-LastMod: 2025-11-16
+LastMod: 2026-03-29
 ---
 
 # Entity Framework WhereBulkContains 
@@ -41,6 +41,50 @@ However, this solution has some limitations such as:
 - It doesn't support composite key (more than one key) or other complex scenarios
 
 The `WhereBulkContains` method lets you filter a query by including all entities from the list. It doesn't have any of the `Contains` method limitations.
+
+## Scenario with Filtering Included Items
+
+You can also filter items inside a relationship while using `Include`.
+
+All main entities are still returned, but only the related entities that match the condition are included.
+
+* The root query (for example, `Orders`) is **not filtered**
+* Only the included navigation is filtered
+* This is useful when you want all records, but only some related data
+
+### Filtering a One-to-One Relationship
+
+In a one-to-one relationship, the related entity is included only if it matches the condition:
+
+```csharp
+var orders = context.Orders
+    .Include(x => x.Customer)
+    .WhereBulkContains(x => x.Customer, customerNames, x => x.Name)
+    .ToList();
+```
+
+* All orders are returned
+* The `Customer` is included **only if** the name matches
+* Otherwise, the `Customer` will be `null`
+
+[Try it](https://dotnetfiddle.net/a1vrmD)
+
+### Filtering a One-to-Many Relationship
+
+In a one-to-many relationship, only matching items are included in the collection:
+
+```csharp
+var orders = context.Orders
+    .Include(x => x.Items)
+    .WhereBulkContains(x => x.Items, productIDs, x => x.ProductID)
+    .ToList();
+```
+
+* All orders are returned
+* The `Items` collection only contains products that match the condition
+* Non-matching items are excluded from the collection
+
+[Try it](https://dotnetfiddle.net/w1I4kb)
 
 ## WhereBulkManager
 
