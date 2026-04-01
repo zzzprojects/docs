@@ -103,7 +103,7 @@ We support the following options:
 * [IgnoreInMemoryAsNoTracking](#ignoreinmemoryasnotracking)
 * [InMemoryDbContextFactory](#inmemorydbcontextfactory)
 * [UseTableLock](#usetablelock)
-* [CommandTimeout](#CommandTimeout)
+* [CommandTimeout](#commandtimeout)
 
 ### BatchSize
 

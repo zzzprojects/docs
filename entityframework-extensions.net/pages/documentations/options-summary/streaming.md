@@ -1,7 +1,7 @@
 ---
 Name: Streaming in Entity Framework Extensions for EF Core & EF6
 MetaDescription: Learn how to use streaming in Entity Framework Extensions for EF Core and EF6 to reduce memory usage and handle very large datasets efficiently.
-LastMod: 2026-03-25
+LastMod: 2026-04-01
 ---
 
 # Streaming in Entity Framework Extensions
@@ -26,10 +26,10 @@ This means features like identity value propagation (for example, getting the ge
 
 If you insert rows that rely on identity columns, you should:
 
-* Set `AutoOutputDirection = false`
-* Or use [BulkInsertOptimized](/bulk-insert-optimized)
+* Set `AutoMapOutputDirection = false`
+* Or use [BulkInsertOptimized](/bulk-insert-optimized) (EF Core only)
 
-## EF Core: how to enable streaming
+## EF Core - How to enable streaming
 
 Set `UseStream = true`. The default `StreamSize` is `100,000`, but you can adjust it depending on your scenario.
 
@@ -40,11 +40,13 @@ context.BulkInsert(entities, options =>
 {
     options.UseStream = true;
     options.StreamSize = 100000; // Adjust based on memory and performance
-    options.AutoOutputDirection = false; // Required if using identity columns
+    options.AutoMapOutputDirection = false; // Required if using identity columns
 });
 ```
 
-## EF6: how to enable streaming
+[Online Example](https://dotnetfiddle.net/SuWOSP)
+
+## EF6 - How to enable streaming
 
 EF6 does not use a `UseStream` flag. You only need to set `StreamSize`. This behavior is kept for backward compatibility.
 
@@ -54,9 +56,11 @@ Example:
 context.BulkInsert(entities, options =>
 {
     options.StreamSize = 100000; // Adjust based on memory and performance
-    options.AutoOutputDirection = false; // Required if using identity columns
+    options.AutoMapOutputDirection = false; // Required if using identity columns
 });
 ```
+
+[Online Example](https://dotnetfiddle.net/UTkENV)
 
 ## When should you use streaming?
 

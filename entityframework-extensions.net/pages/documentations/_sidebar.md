@@ -32,6 +32,7 @@
    - [Key](options-summary/key.md)
    - [Logging](options-summary/logging.md)     
    - [Rows Affected](options-summary/rows-affected.md)
+   - [Streaming](options-summary/streaming.md)
    - [Temporary Table](options-summary/temporary-table.md)
    - [Transaction](options-summary/transaction.md)
    - [Transient Error](options-summary/transient-error.md)

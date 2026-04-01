@@ -139,7 +139,7 @@ We support the following options:
 * [IgnoreInMemoryAsNoTracking](#ignoreinmemoryasnotracking)
 * [UseTableLock](#usetablelock)
 * [UseRowLock](#userowlock)
-* [CommandTimeout](#CommandTimeout)
+* [CommandTimeout](#commandtimeout)
 
 ### BatchSize
 
