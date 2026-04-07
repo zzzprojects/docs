@@ -1,9 +1,9 @@
 ---
 title: EF Core ExecuteDelete (EF Core 7–10) – Set-Based Bulk Deletes
 description: Discover how to use the ExecuteDelete method starting from EF Core 7 to delete database rows efficiently—no tracking, no SaveChanges needed.
-canonical: /dbset/execute-delete
+canonical: /saving/execute-delete
 status: Published
-lastmod: 2026-01-24
+lastmod: 2026-04-07
 ---
 
 # EF Core Execute Delete

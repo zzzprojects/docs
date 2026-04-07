@@ -1,9 +1,9 @@
 ---
 title: Deleting data via the DbSet
 description: An examination of the methods and approaches available for deleting data via the Entity Framework Core DbSet API 
-canonical: /dbset/deleting-data
+canonical: /saving/deleting-data
 status: Published
-lastmod: 2025-08-23
+lastmod: 2026-04-07
 ---
 
 # EF Core Remove Record

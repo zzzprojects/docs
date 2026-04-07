@@ -1,9 +1,9 @@
 ---
 title: Adding data via the DbSet
 description: An examination of the methods and approaches available for adding data via the Entity Framework Core DbSet API 
-canonical: /dbset/adding-data
+canonical: /saving/adding-data
 status: Published
-lastmod: 2025-08-23
+lastmod: 2026-04-07
 ---
 
 # EF Core Add Record

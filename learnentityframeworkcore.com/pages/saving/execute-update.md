@@ -1,9 +1,9 @@
 ---
 title: EF Core ExecuteUpdate (EF Core 7–10) – Set-Based Bulk Updates
 description: Learn how EF Core ExecuteUpdate works from EF Core 7 to EF Core 10. Perform fast, set-based SQL updates without tracking, plus new JSON and lambda features.
-canonical: /dbset/execute-update
+canonical: /saving/execute-update
 status: Published
-lastmod: 2026-01-16
+lastmod: 2026-04-07
 ---
 
 # EF Core Execute Update

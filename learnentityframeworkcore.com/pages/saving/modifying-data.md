@@ -3,7 +3,7 @@ title: Modifying data via the DbSet
 description: An examination of the methods and approaches available for modifying data via the Entity Framework Core DbSet API 
 canonical: /dbset/modifying-data
 status: Published
-lastmod: 2025-08-23
+lastmod: 2026-04-07
 ---
 
 # EF Core Modify Record
