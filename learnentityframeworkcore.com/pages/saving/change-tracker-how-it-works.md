@@ -1,7 +1,7 @@
 ---
 title: Tracking Changes of Entities in EF Core
 description: Learn how EF Core tracks entity changes, how ChangeTracker and SaveChanges work together, when tracking helps, when AsNoTracking changes behavior, and the most common pitfalls to avoid.
-canonical: /saving/deleting-data
+canonical: /saving/change-tracker-how-it-works
 status: Published
 lastmod: 2026-04-07
 ---
@@ -11,14 +11,6 @@ lastmod: 2026-04-07
 Tracking changes is one of the core behaviors behind everyday EF Core workflows.
 
 It is what allows EF Core to understand **which entities are being monitored**, **what changed since they were loaded or attached**, and **what should be persisted** when `SaveChanges()` runs.
-
-In practice, this topic sits at the intersection of three related concepts:
-
-- ChangeTracker → /changetracker
-- SaveChanges → /savechanges
-- Saving Data in Connected Scenario → /saving-data-in-connected-scenario
-
-This article focuses on the tracking side of that relationship: how entities become tracked, how EF Core detects changes, why tracking is convenient in connected scenarios, and why it often becomes more delicate in disconnected ones.
 
 ## TL;DR — Tracking Changes in EF Core
 
@@ -223,7 +215,7 @@ Why this is usually predictable:
 
 This is where tracking shines. It keeps updates simple and reduces the need for manual state management.
 
-For a dedicated walkthrough of that flow, see [Saving Data in Connected Scenario](/saving-data-in-connected-scenario).
+For a dedicated walkthrough of that flow, see [Saving Data in Connected Scenario](/saving/save-changes-connected-entities).
 
 ## Disconnected Scenario
 
@@ -365,7 +357,7 @@ Common examples include:
 
 These mistakes are common because EF Core often looks simple on the surface, but tracking behavior depends heavily on context lifetime and entity state.
 
-## External Resources — Tracking Changes
+## External Resources - Tracking Changes
 
 The following videos are especially useful if you want to reinforce how EF Core tracks entity changes in practice, how entity states evolve during a unit of work, and why tracking behavior directly affects `SaveChanges()`, SQL generation, and performance.
 
@@ -375,7 +367,9 @@ Together, they help cover three complementary angles:
 - how tracking impacts **performance**
 - how entity states and `SaveChanges()` interact in real code examples
 
-### Video 1 — [How does EF Core keeps track of changes?](https://www.youtube.com/watch?v=uXDYEBexlYk)
+### Video 1 - [How does EF Core keeps track of changes?](https://www.youtube.com/watch?v=uXDYEBexlYk)
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/uXDYEBexlYk?si=NBPmjARYNj9vmZmI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 This is one of the strongest technical companions for this topic.
 
@@ -390,12 +384,14 @@ It is especially useful if you want to better understand:
 
 Key timestamps:
 
-- **~0:30** — Introduction to `ChangeTracker` and entity states
-- **~2:00** — Delete flow (`Unchanged` → `Deleted` → `Detached`)
-- **~3:30** — `Update()` and `AsNoTracking()` pitfalls
-- **~7:00** — Code demo: `Update()` vs. tracked flow with SQL logs
+- [0:30](https://youtu.be/uXDYEBexlYk?si=NBPmjARYNj9vmZmI&t=30) — Introduction to `ChangeTracker` and entity states
+- [2:00](https://youtu.be/uXDYEBexlYk?si=NBPmjARYNj9vmZmI&t=120) — Delete flow (`Unchanged` → `Deleted` → `Detached`)
+- [3:30](https://youtu.be/uXDYEBexlYk?si=NBPmjARYNj9vmZmI&t=210) — `Update()` and `AsNoTracking()` pitfalls
+- [7:00](https://youtu.be/uXDYEBexlYk?si=NBPmjARYNj9vmZmI&t=420) — Code demo: `Update()` vs. tracked flow with SQL logs
 
-### Video 2 — [Don't SUCK With Entity Framework - Change Tracking - Performance Tips Part 8](https://www.youtube.com/watch?v=X9un5y7073c&t=472s)
+### Video 2 - [Don't SUCK With Entity Framework - Change Tracking - Performance Tips Part 8](https://www.youtube.com/watch?v=X9un5y7073c&t=472s)
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/X9un5y7073c?si=OAoDFcqpSN5v_1C3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 This is the most performance-oriented resource in the set.
 
@@ -410,12 +406,14 @@ It is especially useful if you want to understand:
 
 Key timestamps:
 
-- **~0:30** — What change tracking is and when it starts automatically
-- **~2:00** — `AsNoTracking()` demo and tracked-entity count comparison
-- **~4:00** — `QueryTrackingBehavior` in `DbContext`
-- **~7:00** — Tracking in projections vs. full entity materialization
+- [0:30](https://youtu.be/X9un5y7073c?si=OAoDFcqpSN5v_1C3&t=30) — What change tracking is and when it starts automatically
+- [2:00](https://youtu.be/X9un5y7073c?si=OAoDFcqpSN5v_1C3&t=120) — `AsNoTracking()` demo and tracked-entity count comparison
+- [4:00](https://youtu.be/X9un5y7073c?si=OAoDFcqpSN5v_1C3&t=240) — `QueryTrackingBehavior` in `DbContext`
+- [7:00](https://youtu.be/X9un5y7073c?si=OAoDFcqpSN5v_1C3&t=420) — Tracking in projections vs. full entity materialization
 
-### Video 3 — [Change Tracker in Entity Framework Core](https://www.youtube.com/watch?v=pC2XbknnOeY)
+### Video 3 - [Change Tracker in Entity Framework Core](https://www.youtube.com/watch?v=pC2XbknnOeY)
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/pC2XbknnOeY?si=6JWtdGK-r3Wzugdm" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 This is a very useful practical walkthrough of the five main `ChangeTracker` states: `Detached`, `Added`, `Unchanged`, `Modified`, and `Deleted`.
 
@@ -430,10 +428,10 @@ It is especially useful if you want to see:
 
 Key timestamps:
 
-- **~0:45** — Introduction to change tracking and the five states
-- **~3:30** — Demo: `Unchanged` → `Modified`
-- **~6:00** — Demo: `Detached` → `Added`
-- **~10:30** — `AsNoTracking()` and read-performance optimization
+- [0:45](https://youtu.be/pC2XbknnOeY?si=6JWtdGK-r3Wzugdm&t=45) — Introduction to change tracking and the five states
+- [3:30](https://youtu.be/pC2XbknnOeY?si=6JWtdGK-r3Wzugdm&t=210) — Demo: `Unchanged` → `Modified`
+- [6:00](https://youtu.be/pC2XbknnOeY?si=6JWtdGK-r3Wzugdm&t=360) — Demo: `Detached` → `Added`
+- [10:30](https://youtu.be/pC2XbknnOeY?si=6JWtdGK-r3Wzugdm&t=630) — `AsNoTracking()` and read-performance optimization
 
 ## Summary & Next Steps
 
@@ -451,31 +449,34 @@ the easier it becomes to predict what `SaveChanges()` will actually do.
 
 Next steps:
 
-* ChangeTracker → /changetracker
-* SaveChanges → /savechanges
-* Saving Data in Connected Scenario → /saving-data-in-connected-scenario
+* [ChangeTracker](/saving/change-tracker)
 
 ## FAQ
 
 **What does it mean for an entity to be tracked in EF Core?**
+
 It means the current `DbContext` is monitoring that entity and can use its state and change information when `SaveChanges()` runs.
 
 **Are EF Core queries tracked by default?**
+
 Yes. Regular queries are tracked by default unless you opt out with `AsNoTracking()`.
 
 **Why didn’t `SaveChanges()` update my entity?**
+
 A common reason is that the entity was not tracked by the current `DbContext`, or the relevant property was not marked as modified.
 
 **What does `AsNoTracking()` change?**
+
 It tells EF Core not to track entities returned by that query, which is often preferable for read-only workloads.
 
 **Is tracking always good?**
+
 No. Tracking is useful for update workflows, but it adds overhead that may be unnecessary in read-only scenarios.
 
 **Why can disconnected updates be risky?**
+
 Because the current context did not observe the original entity lifecycle, so broad state assignment can update more data than intended.
 
 **Does tracking automatically mean only changed columns are updated?**
-Not in every possible workflow. The exact behavior depends on how the entity became tracked and how its state/properties were marked.
 
-```
+Not in every possible workflow. The exact behavior depends on how the entity became tracked and how its state/properties were marked.

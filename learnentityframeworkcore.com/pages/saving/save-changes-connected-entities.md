@@ -1,7 +1,7 @@
 ---
 title: Saving Data in Connected Scenario in Entity Framework Core
 description: Learn how saving data works in a connected scenario in Entity Framework Core, how tracked entities interact with SaveChanges, why explicit state setting is usually unnecessary, and the most common pitfalls to avoid.
-canonical: /saving/deleting-data
+canonical: /saving/save-changes-connected-entities
 status: Published
 lastmod: 2026-04-07
 ---
@@ -13,11 +13,6 @@ In a connected scenario, an entity is loaded, modified, and saved while it remai
 This is the most natural saving flow in EF Core, because `SaveChanges()` works directly with the changes already tracked by the context.
 
 This page focuses on what makes connected scenarios predictable, how the `ChangeTracker` is involved, when `SaveChanges()` works without extra state configuration, and where common mistakes still happen.
-
-Related pages:
-- SaveChanges → /savechanges
-- ChangeTracker → /changetracker
-- Tracking Changes of Entities in EF Core → /tracking-changes-of-entities-in-ef-core
 
 ## What Is a Connected Scenario in EF Core
 
@@ -65,16 +60,17 @@ db.SaveChanges();
 At a high level, EF Core does the following:
 
 1. Loads the entity and begins tracking it
-2. Detects the property change
-3. Marks the entity as modified internally
-4. Generates the corresponding `UPDATE` statement
-5. Executes the command when `SaveChanges()` is called
+2. When `SaveChanges` is called
+   - Detects the property change
+   - Marks the entity as modified internally
+   - Generates the corresponding `UPDATE` statement
+   - Executes the command
 
 In this flow, no explicit attach logic is needed because the entity is already tracked by the current `DbContext`.
 
 ## The Role of the ChangeTracker
 
-Connected scenarios depend heavily on the `ChangeTracker`.
+Connected scenarios depend heavily on the [ChangeTracker](/saving/change-tracker).
 
 When EF Core materializes an entity through a tracking query, it keeps enough information to later determine what changed.
 
@@ -296,47 +292,56 @@ Be careful / avoid wrong assumptions when:
 
 Connected scenarios are often the best fit for ordinary CRUD work, especially when querying and saving happen within the same logical unit of work.
 
-## External Resources — Connected Scenario
+## External Resources - Connected Scenario
 
 The following resources help explain why connected scenarios are the most natural saving flow in EF Core, especially when entities remain tracked by the same `DbContext`.
 
 They are especially useful for understanding how the `ChangeTracker` interacts with `SaveChanges()`, why explicit state setting is often unnecessary in connected updates, and what common mistakes can turn a simple tracked flow into an unexpected update problem.
 
-### Video 1 — [How does EF Core keep track of changes?](https://www.youtube.com/watch?v=uXDYEBexlYk)
+### Video 1 - How does EF Core keep track of changes?
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/uXDYEBexlYk?si=DGv0q_k1cAuO6uWR" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 This is the strongest companion resource for understanding connected scenarios because it shows how EF Core tracks entity states internally and why `SaveChanges()` works naturally when the same `DbContext` continues tracking the entity.
+
 It is especially useful for showing why explicit `Update()` calls are often unnecessary in connected flows and how they can even produce broader SQL updates than expected.
 
 Key sections:
 
-* 00:45 — ChangeTracker introduction and basic states (`Added`, `Unchanged`)
-* 02:30 — `Remove()` flow: query → delete → `SaveChanges()`
-* 04:00 — Why `Update()` exists and why it becomes risky with detached or no-tracking flows
-* 07:00 — SQL demo: implicit tracked update vs explicit `Update()` (all properties vs changed properties)
+* [00:45](https://youtu.be/uXDYEBexlYk?si=zjAnXgpIhnEggypx&t=45) — ChangeTracker introduction and basic states (`Added`, `Unchanged`)
+* [02:30](https://youtu.be/uXDYEBexlYk?si=zjAnXgpIhnEggypx&t=150) — `Remove()` flow: query → delete → `SaveChanges()`
+* [04:00](https://youtu.be/uXDYEBexlYk?si=zjAnXgpIhnEggypx&t=240) — Why `Update()` exists and why it becomes risky with detached or no-tracking flows
+* [07:00](https://youtu.be/uXDYEBexlYk?si=zjAnXgpIhnEggypx&t=420) — SQL demo: implicit tracked update vs explicit `Update()` (all properties vs changed properties)
 
-### Video 2 — [Part 21: Change Tracking in Entity Framework Core](https://www.youtube.com/watch?v=caz8NIKncbM)
+### Video 2 - Part 21: Change Tracking in Entity Framework Core
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/caz8NIKncbM?si=X_8JrkFuCGmC6g9h" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 Hannah explains how EF Core tracks entity changes through the `ChangeTracker`, including the main entity states and how they affect what `SaveChanges()` does.
+
 This is a useful support resource if you want a shorter, more step-by-step explanation of how tracked entities move through a normal connected save flow.
 
 Key sections:
 
-* 00:00 — Intro to change tracking and the role of `DbContext` / `ChangeTracker`
-* 00:45 — Entity states (`Added`, `Modified`, `Deleted`, `Unchanged`, `Detached`)
-* 01:30 — Code example: query, modify, and inspect the `ChangeTracker`
-* 02:30 — Summary of states and saving behavior
+* [00:00](https://youtu.be/caz8NIKncbM?si=3IQXbWicIvKyM5we) — Intro to change tracking and the role of `DbContext` / `ChangeTracker`
+* [00:45](https://youtu.be/caz8NIKncbM?si=3IQXbWicIvKyM5we&t=45) — Entity states (`Added`, `Modified`, `Deleted`, `Unchanged`, `Detached`)
+* [01:30](https://youtu.be/caz8NIKncbM?si=3IQXbWicIvKyM5we&t=90) — Code example: query, modify, and inspect the `ChangeTracker`
+* [02:30](https://youtu.be/caz8NIKncbM?si=3IQXbWicIvKyM5we&t=150) — Summary of states and saving behavior
 
-### Video 3 — [Soft Deletes: The Upgrade Your EF Core Needs](https://www.youtube.com/watch?v=B9C4iK8IGbQ)
+### Video 3 - Soft Deletes: The Upgrade Your EF Core Needs
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/B9C4iK8IGbQ?si=PQCxfQnBPqr-vrn3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 This video is a more advanced companion resource that shows how the normal `SaveChanges()` pipeline can be customized in EF Core.
+
 It is useful here because it demonstrates that even when a delete starts as a tracked entity operation, EF Core behavior can be intercepted and reshaped before SQL is generated.
 
 Key sections:
 
-* 00:00 — Problem statement: soft deletes vs hard deletes
-* 01:00 — Initial setup: model, `DbContext`, and in-memory database
-* 03:00 — `SaveChanges` interceptor for soft delete behavior
-* 05:00 — Query filters and `IgnoreQueryFilters()` for recovery scenarios
+* [00:00](https://youtu.be/B9C4iK8IGbQ?si=iujbpuHjiSYwR8db) — Problem statement: soft deletes vs hard deletes
+* [01:00](https://youtu.be/B9C4iK8IGbQ?si=iujbpuHjiSYwR8db&t=60) — Initial setup: model, `DbContext`, and in-memory database
+* [03:00](https://youtu.be/B9C4iK8IGbQ?si=iujbpuHjiSYwR8db&t=180) — `SaveChanges` interceptor for soft delete behavior
+* [05:00](https://youtu.be/B9C4iK8IGbQ?si=iujbpuHjiSYwR8db&t=300) — Query filters and `IgnoreQueryFilters()` for recovery scenarios
 
 ## Summary & Next Steps
 
@@ -348,28 +353,30 @@ The more clearly you understand tracking boundaries, the easier it becomes to kn
 
 Next steps:
 
-* SaveChanges → /savechanges
-* ChangeTracker → /changetracker
-* Tracking Changes of Entities in EF Core → /tracking-changes-of-entities-in-ef-core
+* [How Change Tracker Work](/saving/change-tracker-how-it-works)
 
 ## FAQ
 
 **What is a connected scenario in EF Core?**
+
 It is a scenario where the entity is loaded, modified, and saved while still being tracked by the same `DbContext`.
 
 **Do I need to call Attach() in a connected scenario?**
+
 Usually no. If the entity was loaded and is still tracked by the current `DbContext`, `Attach()` is typically unnecessary.
 
 **Do I need to call Update() in a connected scenario?**
+
 Usually no. If the entity is already tracked, calling `Update()` is often redundant and can be misleading.
 
 **Why are my changes not saved after using AsNoTracking()?**
+
 Because the entity was not tracked when it was loaded, so EF Core does not automatically detect and persist those changes.
 
 **Can a scenario stop being connected?**
+
 Yes. If the context is disposed, if the entity comes from another context, or if tracking was disabled, the scenario is no longer connected in the EF Core sense.
 
 **Why does this matter for SaveChanges()?**
-Because `SaveChanges()` relies on tracked state. If the entity is not tracked, EF Core cannot treat it like a normal connected update.
 
-```
+Because `SaveChanges()` relies on tracked state. If the entity is not tracked, EF Core cannot treat it like a normal connected update.

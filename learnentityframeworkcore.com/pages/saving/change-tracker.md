@@ -1,7 +1,7 @@
 ---
 title: The Entity Framework Core ChangeTracker
 description: Learn what the ChangeTracker does in Entity Framework Core, how it tracks entity states, how it works with SaveChanges, when tracking is lost, and the most common pitfalls to avoid.
-canonical: /saving/deleting-data
+canonical: /saving/change-tracker
 status: Published
 lastmod: 2026-04-07
 ---
@@ -12,11 +12,6 @@ The `ChangeTracker` is the EF Core component responsible for keeping track of en
 It is one of the core pieces behind normal EF Core saving behavior, because `SaveChanges()` relies on tracked state to know what should be inserted, updated, or deleted.
 
 This page focuses on what the `ChangeTracker` actually does, how it fits into normal EF Core workflows, why it matters so much for connected scenarios, and what common mistakes make tracking behavior feel unpredictable.
-
-Related pages:
-- SaveChanges → /savechanges
-- Saving Data in Connected Scenario → /saving-data-in-connected-scenario
-- Tracking Changes of Entities in EF Core → /tracking-changes-of-entities-in-ef-core
 
 ## What Is the ChangeTracker in EF Core
 
@@ -55,7 +50,7 @@ Tracked entities usually move through one of these states:
 - `Unchanged`
 - `Detached`
 
-These states are important because they directly influence what happens when `SaveChanges()` is called.
+These states are important because they directly influence what happens when [SaveChanges()](/saving/save-changes) is called.
 
 For example:
 
@@ -66,7 +61,8 @@ For example:
 - `Detached` → the entity is not tracked by the current context
 
 The state itself does not execute database commands.  
-Instead, it tells EF Core what kind of command should be generated later when `SaveChanges()` runs.
+
+Instead, it tells EF Core what kind of command should be generated later when [SaveChanges()](/saving/save-changes) runs.
 
 ## Basic Example
 
@@ -267,47 +263,56 @@ Be careful / avoid wrong assumptions when:
 * you mix entity instances from different contexts
 * you expect tracking to remain available after the context lifetime ends
 
-## External Resources — ChangeTracker
+## External Resources - ChangeTracker
 
 The following resources provide deeper insight into how the `ChangeTracker` works in EF Core, how it interacts with `SaveChanges()`, and why tracking behavior is often the real reason behind unexpected updates or missing changes.
 
 They are especially useful for understanding entity states, tracking scope per `DbContext`, why explicit `Update()` can be risky in tracked flows, and how tracking decisions can also affect performance in real applications.
 
-### Video 1 — [How does EF Core keeps track of changes?](https://www.youtube.com/watch?v=uXDYEBexlYk)
+### Video 1 - How does EF Core keeps track of changes?
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/uXDYEBexlYk?si=BH6TborwDYtcZV8K" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 Hubert Mijalski breaks down the `ChangeTracker` as the layer between your code and the database, showing how EF Core tracks changes through entity states and then uses that tracked state when `SaveChanges()` runs.  
+
 This is the strongest companion resource for this article because it also highlights one of the most important pitfalls: calling `Update()` unnecessarily can mark all properties as modified, generate broader SQL than needed, and increase concurrency risk.
 
 Key sections:
 
-- 00:00 — Introduction to the `ChangeTracker` and its role in `SaveChanges()`
-- 01:00 — Entity states (`Added`, `Unchanged`, `Deleted`, `Detached`) with practical flows
-- 03:00 — `AsNoTracking()` and why `Update()` exists for detached scenarios
-- 06:00 — `Update()` pitfalls + SQL demo (changed property only vs full entity update)
+- [00:00](https://youtu.be/uXDYEBexlYk?si=BH6TborwDYtcZV8K) — Introduction to the `ChangeTracker` and its role in `SaveChanges()`
+- [01:00](https://youtu.be/uXDYEBexlYk?si=BH6TborwDYtcZV8K&t=60) — Entity states (`Added`, `Unchanged`, `Deleted`, `Detached`) with practical flows
+- [03:00](https://youtu.be/uXDYEBexlYk?si=BH6TborwDYtcZV8K&t=180) — `AsNoTracking()` and why `Update()` exists for detached scenarios
+- [06:00](https://youtu.be/uXDYEBexlYk?si=BH6TborwDYtcZV8K&t=360) — `Update()` pitfalls + SQL demo (changed property only vs full entity update)
 
-### Video 2 — [C# Entity Framework - More Advanced Topics on EF Core 5](https://www.youtube.com/watch?v=o9XoiPPP2Lw)
+### Video 2 - C# Entity Framework - More Advanced Topics on EF Core 5
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/o9XoiPPP2Lw?si=uw6IJ1bHN8i16O_R" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 Rainer Stropek provides a visual and debugger-driven explanation of the `ChangeTracker`, making it easier to see how entity states evolve during a normal EF Core workflow.  
+
 This is especially useful if you want a more in-depth look at how EF compares original values with current values, how states transition across the entity lifecycle, and how tracking is isolated per `DbContext`.
 
 Key sections:
 
-- 10:00 — Introduction to the `ChangeTracker` and first state transitions (`Detached` → `Added`)
-- 20:00 — Full state lifecycle with `SaveChanges()` (`Detached` → `Added` → `Unchanged` → `Modified` → `Deleted` → `Detached`)
-- 33:20 — `OriginalValues` and precise change detection for `UPDATE`
-- 55:00 — `AsNoTracking()`, tracking loss, and `DbContext`-scoped tracking behavior
+- [10:00](https://youtu.be/o9XoiPPP2Lw?si=uw6IJ1bHN8i16O_R&t=600) — Introduction to the `ChangeTracker` and first state transitions (`Detached` → `Added`)
+- [20:00](https://youtu.be/o9XoiPPP2Lw?si=uw6IJ1bHN8i16O_R&t=1200) — Full state lifecycle with `SaveChanges()` (`Detached` → `Added` → `Unchanged` → `Modified` → `Deleted` → `Detached`)
+- [33:20](https://youtu.be/o9XoiPPP2Lw?si=uw6IJ1bHN8i16O_R&t=2000) — `OriginalValues` and precise change detection for `UPDATE`
+- [55:00](https://youtu.be/o9XoiPPP2Lw?si=uw6IJ1bHN8i16O_R&t=3300) — `AsNoTracking()`, tracking loss, and `DbContext`-scoped tracking behavior
 
-### Video 3 — [ChangeTracker e Performance con Entity Framework Core](https://www.youtube.com/watch?v=J4x-bN3zSN4)
+### Video 3 - ChangeTracker e Performance con Entity Framework Core
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/J4x-bN3zSN4?si=MUEaOIS42xPJrp1L" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 This video adds an important performance angle by showing how the `ChangeTracker` can affect EF Core workloads when many entities are involved.  
+
 It is a valuable companion resource for understanding tracking overhead in inserts and reads, and for seeing practical optimization techniques such as `AddRange`, `AsNoTracking()`, and temporarily disabling `AutoDetectChangesEnabled` in high-volume scenarios.
 
 Key sections:
 
-- 01:30 — Entity and `DbContext` setup
-- 04:00 — Benchmark: `Add` vs `AddRange` with 100k inserts
-- 07:00 — Disabling `AutoDetectChangesEnabled` for better save performance
-- 10:00 — Reads with `AsNoTracking()` and `QueryTrackingBehavior`
+- [01:30](https://youtu.be/J4x-bN3zSN4?si=MUEaOIS42xPJrp1L&t=90) — Entity and `DbContext` setup
+- [04:00](https://youtu.be/J4x-bN3zSN4?si=MUEaOIS42xPJrp1L&t=240) — Benchmark: `Add` vs `AddRange` with 100k inserts
+- [07:00](https://youtu.be/J4x-bN3zSN4?si=MUEaOIS42xPJrp1L&t=420) — Disabling `AutoDetectChangesEnabled` for better save performance
+- [10:00](https://youtu.be/J4x-bN3zSN4?si=MUEaOIS42xPJrp1L&t=600) — Reads with `AsNoTracking()` and `QueryTrackingBehavior`
 
 ## Summary & Next Steps
 
@@ -318,28 +323,30 @@ The better you understand tracking boundaries, entity states, and when tracking 
 
 Next steps:
 
-* SaveChanges → /savechanges
-* Saving Data in Connected Scenario → /saving-data-in-connected-scenario
-* Tracking Changes of Entities in EF Core → /tracking-changes-of-entities-in-ef-core
+* [How Change Tracker Work](/saving/change-tracker-how-it-works)
 
 ## FAQ
 
 **What is the ChangeTracker in EF Core?**
+
 It is the EF Core component that keeps track of entity instances and their state within a `DbContext`.
 
 **Does SaveChanges() use the ChangeTracker?**
+
 Yes. In normal tracked scenarios, `SaveChanges()` relies on the state information maintained by the `ChangeTracker`.
 
 **What entity states does the ChangeTracker use?**
+
 The most common states are `Added`, `Modified`, `Deleted`, `Unchanged`, and `Detached`.
 
 **Does AsNoTracking() disable the ChangeTracker?**
+
 For the entities returned by that query, yes in practice: EF Core does not track them, so later changes are not automatically persisted through the normal connected flow.
 
 **Do I need to call Update() on a tracked entity?**
+
 Usually no. If the entity is already tracked by the current `DbContext`, calling `Update()` is often unnecessary.
 
 **Why do some SaveChanges() problems turn out to be tracking problems?**
-Because `SaveChanges()` depends on tracked state. If the entity is not tracked, or not tracked by the current context, the behavior changes.
 
-```
+Because `SaveChanges()` depends on tracked state. If the entity is not tracked, or not tracked by the current context, the behavior changes.

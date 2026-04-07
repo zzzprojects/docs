@@ -1,7 +1,7 @@
 ---
 title: EF Core SaveChanges - How Data Is Persisted (Tracking, Transactions, and Pitfalls)
 description: Learn what SaveChanges does in Entity Framework Core, how it uses the ChangeTracker, what happens under the hood, transaction behavior, common scenarios, performance tips, and FAQs.
-canonical: /saving/deleting-data
+canonical: /saving/save-changes
 status: Published
 lastmod: 2026-04-07
 ---
