@@ -9,36 +9,8 @@
             </ul>
         </li>
         <li>
-            <a href="/extensions">Extensions (Test)</a>
-            <ul class="nav-level-two">
-				<li><a href="/extensions/entity-framework-extensions">Entity Framework Extensions</a></li>
-                <li><a href="/extensions/audit-entityframework-core">Audit EntityFramework Core</a></li>
-				<li><a href="/extensions/entitycloner-microsoft-entityframeworkcore">EntityCloner Microsoft EntityFrameworkCore</a></li>
-				<li><a href="/extensions/entityframeworkcore-sqlserver-nodatime">EntityFrameworkCore SqlServer NodaTime</a></li>
-				<li><a href="/extensions/entityframeworkcore-sqlite-nodatime">EntityFrameworkCore SQLite NodaTime</a></li>
-				<li><a href="/extensions/efcore-bulkextensions">EFCore.BulkExtensions</a></li>
-				<li><a href="/extensions/efcore-bulkextensions-mit">EFCore.BulkExtensions.MIT</a></li>
-				<ul class="nav-level-three" style="display: block;">
-					<li><a href="/configuration/data-annotation-attributes/column-attribute">Column Attribute</a></li>
-					<li><a href="/configuration/data-annotation-attributes/complextype-attribute">ComplexType Attribute</a></li>
-					<li><a href="/configuration/data-annotation-attributes/concurrencycheck-attribute">ConcurrencyCheck Attribute</a></li>
-					<li><a href="/configuration/data-annotation-attributes/databasegenerated-attribute">DatabaseGenerated Attribute</a></li>
-					<li><a href="/configuration/data-annotation-attributes/foreignkey-attribute">ForeignKey Attribute</a></li>
-					<li><a href="/configuration/data-annotation-attributes/index-attribute">Index Attribute</a></li>
-					<li><a href="/configuration/data-annotation-attributes/inverseproperty-attribute">InverseProperty Attribute</a></li>
-					<li><a href="/configuration/data-annotation-attributes/key-attribute">Key Attribute</a></li>
-					<li><a href="/configuration/data-annotation-attributes/maxlength-attribute">MaxLength Attribute</a></li>
-					<li><a href="/configuration/data-annotation-attributes/notmapped-attribute">NotMapped Attribute</a></li>
-					<li><a href="/configuration/data-annotation-attributes/required-attribute">Required Attribute</a></li>
-					<li><a href="/configuration/data-annotation-attributes/stringlength-attribute">StringLength Attribute</a></li>
-					<li><a href="/configuration/data-annotation-attributes/table-attribute">Table Attribute</a></li>
-					<li><a href="/configuration/data-annotation-attributes/timestamp-attribute">Timestamp Attribute</a></li>
-				</ul>
-            </ul>
-        </li>
-        <li>
             <a href="/extensions">Extensions</a>
-            <ul class="nav-level-two" data-display="raw-sql">
+            <ul class="nav-level-two" data-display="extensions">
 				<li><a href="/extensions/entity-framework-extensions">Entity Framework Extensions</a></li>
                 <li><a href="/extensions/audit-entityframework-core">Audit EntityFramework Core</a></li>
 				<li><a href="/extensions/entitycloner-microsoft-entityframeworkcore">EntityCloner Microsoft EntityFrameworkCore</a></li>
