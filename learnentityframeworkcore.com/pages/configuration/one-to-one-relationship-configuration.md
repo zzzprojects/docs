@@ -3,7 +3,7 @@ title: Configuring One To One Relationship In Entity Framework Core
 description: How to configure one-to-one relationships using the Fluent API in Entity Framework Core
 canonical: /configuration/one-to-one-relationship-configuration
 status: Published
-lastmod: 2025-07-11
+lastmod: 2026-04-08
 ---
 
 # EF Core One To One Relationship
@@ -69,5 +69,5 @@ protected override void OnModelCreating(ModelBuilder modelBuilder)
 #### Further Reading
 
 - [Relationships](/relationships)
-- [One To One Relationship Conventions](/conventions/one-to-one-relationship)
+- [One To One Relationship Conventions](/modeling/relationships-one-to-one)
 - [Foreign Key Conventions](/conventions#foreign-key)

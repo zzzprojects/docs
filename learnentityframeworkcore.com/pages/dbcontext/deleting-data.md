@@ -3,7 +3,7 @@ title: Deleting data via the DbContext
 description: An examination of the methods and approaches available for deleting data via the Entity Framework Core DbContext API 
 canonical: /dbcontext/deleting-data
 status: Published
-lastmod: 2023-02-22
+lastmod: 2026-04-08
 ---
 
 # EF Core Delete Entity
@@ -47,7 +47,7 @@ context.SaveChanges();
 
 ## Related Data
 
-If the entity that you want to delete has related data, the approach that you take will depend on how the relationship has been configured. A [fully defined relationship](/conventions/one-to-many-relationship#fully-defined-relationship) will have a cascading referential constraint set to  `Delete` or `SetNull`, as will a [relationship which has been configured via the Fluent API](/configuration/one-to-many-relationship-configuration#cascading-referential-integrity-constraints). In these cases, you can delete the principal and let the database take care of the dependent rows.
+If the entity that you want to delete has related data, the approach that you take will depend on how the relationship has been configured. A [fully defined relationship](/modeling/relationships-one-to-many#fully-defined-relationship) will have a cascading referential constraint set to  `Delete` or `SetNull`, as will a [relationship which has been configured via the Fluent API](/configuration/one-to-many-relationship-configuration#cascading-referential-integrity-constraints). In these cases, you can delete the principal and let the database take care of the dependent rows.
 
 Where the referential constraint action is set to `NoAction`, you need to take care of any related data explicitly. The next example illustrates a relationship configured on a model that doesn't include a foreign key property:
 

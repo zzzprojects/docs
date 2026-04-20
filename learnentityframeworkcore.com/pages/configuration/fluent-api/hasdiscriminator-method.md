@@ -3,12 +3,12 @@ title: The Fluent API HasDiscriminator Method
 description: Usage of the Fluent API HasDiscriminator Method in Entity Framework Core
 canonical: /configuration/fluent-api/hasdiscriminator-method
 status: Published
-lastmod: 2025-07-11
+lastmod: 2026-04-08
 ---
 
 # EF Core HasDiscriminator
 
-The Entity Framework Core Fluent API `HasDiscriminator` method is used to configure aspects of the discriminator column in a [table that represents an inheritance hierarchy](/inheritance/table-per-hierarchy).
+The Entity Framework Core Fluent API `HasDiscriminator` method is used to configure aspects of the discriminator column in a [table that represents an inheritance hierarchy](/modeling/inheritance-table-per-hierarchy).
 
 By convention, a discriminator column will be configured to use a string data type and will be named "Discriminator". The `HasDiscriminator` method takes a type parameter representing the data type for the column, and a string representing the name for the column. In the following example, the table used to store instances of entities that inherit from the abstract `Contract` entity will feature a discriminator column named "ContractType":
 
@@ -61,4 +61,4 @@ No Data Annotations are available for configuring discriminator columns.
 
 #### Further Reading
 - [Inheritance](/inheritance)
-- [Table Per Hierarchy](/inheritance/table-per-hierarchy)
+- [Table Per Hierarchy](/modeling/inheritance-table-per-hierarchy)

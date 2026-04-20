@@ -2,7 +2,7 @@
 title: Getting Started With Entity Framework Core - ASP.NET Core
 description: How to get started using Entity Framework Core in a simple ASP.NET Core application
 status: Published
-lastmod: 2025-07-13
+lastmod: 2026-04-08
 ---
 
 # Getting Started With EF Core - ASP.NET Core
@@ -123,7 +123,7 @@ namespace EFCoreWebDemo
 }
 ```
 
-This code defines classes for two entities - `Book` and `Author` that participate in a [fully defined one-to-many relationship](/conventions/one-to-many-relationship#fully-defined-relationship). The code also includes a class named `EFCoreDemoContext` that inherits from [DbContext](/dbcontext). This class has two [DbSet](/dbset) properties that represent the tables in the database (which are yet to be created). The `EFCoreWebDemoContext` class also includes a method named `OnConfiguring` where the connection string for a SQL Server database is defined. You should change this to suit your environment and database provider.
+This code defines classes for two entities - `Book` and `Author` that participate in a [fully defined one-to-many relationship](/modeling/relationships-one-to-one#fully-defined-relationship). The code also includes a class named `EFCoreDemoContext` that inherits from [DbContext](/dbcontext). This class has two [DbSet](/dbset) properties that represent the tables in the database (which are yet to be created). The `EFCoreWebDemoContext` class also includes a method named `OnConfiguring` where the connection string for a SQL Server database is defined. You should change this to suit your environment and database provider.
 
 Before moving on to the migration, type `dotnet build` to ensure that the application builds correctly. 
 

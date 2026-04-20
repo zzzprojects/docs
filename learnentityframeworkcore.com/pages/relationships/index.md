@@ -3,7 +3,7 @@ title: Introduction to Relationships
 description: An introduction to relationships in relational databases and how they are represented in Entity Framework Core
 canonical: /relationships
 status: Published
-lastmod: 2025-07-13
+lastmod: 2026-04-08
 ---
 
 # EF Core Relationships
@@ -58,7 +58,7 @@ foreach (var book in author.Books)
 ```
 #### Further reading
 - [Managing One-To-Many Relationships](/relationships/managing-one-to-many-relationships)
-- [Entity Framework One-To-Many Relationship Conventions](/conventions/one-to-many-relationship)
+- [Entity Framework One-To-Many Relationship Conventions](/modeling/relationships-one-to-many)
 - [Entity Framework One-To-Many Relationship Configurations](/configuration/one-to-many-relationship-configuration)
 
 
@@ -89,7 +89,7 @@ Note: While in previous versions of EF, this approach was sufficient to have EF 
 
 #### Further reading
 
-- [Entity Framework Core Many To Many Relationship Configuration](/conventions/many-to-many-relationship)
+- [Entity Framework Core Many To Many Relationship Configuration](/modeling/relationships-many-to-many)
 
 ## One To One
 A one-to-one (or more usually a one-to-zero or one) relationship exists when only one row of data in the principal table is linked to zero or one row in a dependent table. The following diagram illustrates this relationship between an Authors table and the AuthorBiographies table:
@@ -132,7 +132,7 @@ EF Core (from version 2.0) also supports _table splitting_, a technique that ena
 Each entity needs to be defined separately, and it must share the same primary key value. This type of relationship requires [configuration](/configuration/one-to-one-relationship-configuration#configuring-a-relationship-that-uses-table-splitting)
 
 #### Further Reading
-- [Entity Framework One To One Relationship Conventions](/conventions/one-to-one-relationship)
+- [Entity Framework One To One Relationship Conventions](/modeling/relationships-one-to-one)
 - [Entity Framework One To One Relationship Configurations](/configuration/one-to-one-relationship-configuration)
 
 

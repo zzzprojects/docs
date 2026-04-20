@@ -4,7 +4,7 @@ MetaDescription: Learn how to use LINQ Dynamic query to execute methods such as 
 LastMod: 2025-08-19
 ---
 
-# My First LINQ Dynamic
+# My First LINQ Dynamic with C# Eval Expression
 
 LINQ is an incredibly powerful way of querying data. It allows developers to write code that is both expressive and easy to read. However, something that's missing is using LINQ with dynamic expressions.
 

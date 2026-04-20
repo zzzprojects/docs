@@ -20,6 +20,27 @@
 				<li><a href="/extensions/efcore-bulkextensions-mit">EFCore.BulkExtensions.MIT</a></li>
             </ul>
         </li>
+		<li>
+            <a href="/modeling">Modeling</a>
+            <ul class="nav-level-two" data-display="modeling">
+				<li>
+					<div class="header">Relationship</div>
+					<ul class="nav-level-three" style="display: block;">
+						<li><a href="/modeling/relationships-one-to-one">One-to-One</a></li>
+						<li><a href="/modeling/relationships-one-to-many">One-to-Many</a></li>
+						<li><a href="/modeling/relationships-many-to-many">Many-to-Many</a></li>					
+					</ul>
+				</li>
+				<li>
+					<a href="/modeling/inheritance">Inheritance</a>
+					<ul class="nav-level-three" style="display: block;">
+						<li><a href="/modeling/inheritance-table-per-hierarchy">Table-per-Hierarchy (TPH)</a></li>
+						<li><a href="/modeling/inheritance-table-per-type">Table-per-Type (TPT)</a></li>
+						<li><a href="/modeling/inheritance-table-per-concrete-type">Table-per-Concrete-Type (TPC)</a></li>	
+					</ul>
+				</li>
+            </ul>
+        </li>
         <li>
             <a href="/saving">Saving</a>
             <ul class="nav-level-two" data-display="saving">
@@ -101,11 +122,6 @@
         </li>
         <li>
             <a href="/conventions">Conventions</a>
-            <ul class="nav-level-two" data-display="conventions">
-                <li><a href="/conventions/one-to-many-relationship">One To Many Relationship</a></li>
-                <li><a href="/conventions/one-to-one-relationship">One To One Relationship</a></li>
-                <li><a href="/conventions/many-to-many-relationship">Many To Many Relationship</a></li>
-            </ul>
         </li>
         <li>
             <a href="/configuration">Configuration</a>
@@ -176,14 +192,6 @@
         </li>
         <li>
             <a href="/connection-strings">Connection Strings</a>
-        </li>
-        <li>
-            <a href="/inheritance">Inheritance</a>
-            <ul class="nav-level-two" data-display="inheritance">
-                <li><a href="/inheritance/table-per-hierarchy">Table Per Hierarchy (TPH)</a></li>
-                <li><a href="/inheritance/table-per-type">Table Per Type (TPT)</a></li>
-                <li><a href="/inheritance/table-per-concrete">Table Per Concrete Type (TPC)</a></li>
-            </ul>
         </li>
         <li>
             <a href="/concurrency">Concurrency</a>

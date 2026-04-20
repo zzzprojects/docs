@@ -1,9 +1,9 @@
 ---
 title: Entity Framework Core Many To Many Relationships By Convention
 description: How to use the convention to establish a many-to-many relationship in Entity Framework Core
-canonical: /conventions/many-to-many-relationship
+canonical: /modeling/relationships-many-to-many
 status: Published
-lastmod: 2025-07-11
+lastmod: 2026-04-08
 ---
 
 # EF Core Many To Many

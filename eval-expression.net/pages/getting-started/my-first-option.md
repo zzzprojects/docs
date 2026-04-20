@@ -4,7 +4,7 @@ MetaDescription: Learn how to use options in C# Eval Expression to configure you
 LastMod: 2025-08-19
 ---
 
-# My First Option
+# My First Option with C# Eval Expression
 
 In this article, we will only cover a few options, but you can find all the [options here](/options). Understanding how [register methods](https://eval-expression.net/register-unregister) work will also help you understand better.
 

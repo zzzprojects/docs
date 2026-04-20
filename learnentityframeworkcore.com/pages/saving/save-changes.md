@@ -3,7 +3,7 @@ title: EF Core SaveChanges - How Data Is Persisted (Tracking, Transactions, and 
 description: Learn what SaveChanges does in Entity Framework Core, how it uses the ChangeTracker, what happens under the hood, transaction behavior, common scenarios, performance tips, and FAQs.
 canonical: /saving/save-changes
 status: Published
-lastmod: 2026-04-07
+lastmod: 2026-04-08
 ---
 
 # EF Core SaveChanges
@@ -69,7 +69,7 @@ A simplified sequence looks like this:
 1) **Detect changes** (unless disabled)
 2) **Build commands** for inserts/updates/deletes  
 3) **Order commands** to respect relationships (principal/dependent)  
-4) **Execute commands** against the database provider  
+4) **Execute commands** against the database provider within a transaction
 5) **Accept changes** (states become `Unchanged`; deleted entities are detached)  
 6) **Propagate generated values** (for example, database-generated keys)
 

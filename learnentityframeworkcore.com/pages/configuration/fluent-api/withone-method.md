@@ -3,7 +3,7 @@ title: The Fluent API WithOne Method
 description: Usage of the Fluent API WithOne Method in Entity Framework Core
 canonical: /configuration/fluent-api/withone-method
 status: Published
-lastmod: 2025-07-11
+lastmod: 2026-04-08
 ---
 
 # EF Core WithOne
@@ -12,7 +12,7 @@ The Entity Framework Core Fluent API `WithOne` method is used to configure the _
 
 The `WithOne` method must be used in conjunction with the `HasOne` (one-to-one) or `HasMany` (one-to-many) method to fully configure a valid relationship, adhering to the [Has/With pattern](/configuration/fluent-api/haswith-pattern) for relationship configuration.
 
-The following model represents companies and employees with an [inverse navigation property defined](/conventions/one-to-many-relationship#inverse-navigation-property) in the dependent entity (`Employee`):
+The following model represents companies and employees with an [inverse navigation property defined](/modeling/relationships-one-to-many#inverse-navigation-property) in the dependent entity (`Employee`):
 
 ## One-To-Many Example
 ```csharp

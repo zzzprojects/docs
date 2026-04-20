@@ -1,9 +1,9 @@
 ---
 title: Entity Framework Core One-To-Many Relationships Conventions
 description: How to design your model so that it maps to a one-to-many relationship by convention in Entity Framework Core
-canonical: /conventions/one-to-many-relationship
+canonical: /modeling/relationships-one-to-many
 status: Published
-lastmod: 2025-07-11
+lastmod: 2026-04-08
 ---
 
 # EF Core One to Many

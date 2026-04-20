@@ -1,10 +1,10 @@
 ---
 Title: Getting Started with C# Eval Expression | C# Expression Evaluator
 MetaDescription: Learn about what the C# Eval Expression library is and what is an expression evaluator. Learn how to evaluate string code dynamically and why you should do it.
-LastMod: 2026-02-19
+LastMod: 2026-04-20
 ---
 
-# Overview
+# C# Eval Expression Overview
 
 ## What is the C# Eval Expression library?
 
@@ -89,9 +89,9 @@ It supports nearly everything, from basic keywords to more advanced C# language 
 
 The library also includes many useful features, such as:
 
-* [SafeMode](https://eval-expression.net/options#safemode): Evaluate expressions in a secure environment
-* [RegisterKeyword](https://eval-expression.net/register-unregister#registerkeyword): Register your own keyword to apply custom logic
-* [AddMethod](https://eval-expression.net/my-first-option#use-option-to-add-method): Create methods dynamically to reuse them in your expressions
+* [SafeMode](/options#safemode): Evaluate expressions in a secure environment
+* [RegisterKeyword](/register-unregister#registerkeyword): Register your own keyword to apply custom logic
+* [AddMethod](/my-first-option#use-option-to-add-method): Create methods dynamically to reuse them in your expressions
 
 The library also includes multiple built-in logic behaviors. For example, it automatically calls the `ToList` method when the expected return type is a list, but the expression returns an `IEnumerable`.
 

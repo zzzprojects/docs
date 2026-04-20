@@ -1,18 +1,18 @@
 ---
 title: EF Core Table Per Concrete Type (TPC) — Inheritance Mapping Explained
 description: Learn how Table Per Concrete Type (TPC) inheritance works in Entity Framework Core, including SQL UNION behavior, performance trade-offs, columns duplication, and when to use it.
-canonical: /inheritance/table-per-concrete-type
+canonical: /modeling/inheritance-table-per-concrete-type
 status: Published
-lastmod: 2026-02-27
+lastmod: 2026-04-08
 ---
 
 # EF Core - Table Per Concrete Type (TPC)
 
 EF Core provides three inheritance mapping strategies:
 
-- [Table Per Hierarchy (TPH)](/inheritance/table-per-hierarchy)
-- [Table Per Type (TPT)](/inheritance/table-per-type)
-- [Table Per Concrete Type (TPC)](/inheritance/table-per-concrete)
+- [Table Per Hierarchy (TPH)](/modeling/inheritance-table-per-hierarchy)
+- [Table Per Type (TPT)](/modeling/inheritance-table-per-type)
+- [Table Per Concrete Type (TPC)](/modeling/inheritance-table-per-concrete-type)
 
 This page focuses on **Table Per Concrete Type (TPC)**.
 
@@ -349,7 +349,7 @@ It offers excellent performance for concrete-type queries, at the cost of column
 
 **Next steps:**
 
-* Review a [side-by-side comparison](/inheritance#quick-comparison) of TPH vs TPT vs TPC
-* Review the [Table Per Hierarchy (TPH)](/inheritance/table-per-hierarchy) default inheritance
-* Review the [Table Per Type (TPT)](/inheritance/table-per-type) for normalized schemas
+* Review a [side-by-side comparison](/modeling/inheritance#quick-comparison) of TPH vs TPT vs TPC
+* Review the [Table Per Hierarchy (TPH)](/modeling/inheritance-table-per-hierarchy) default inheritance
+* Review the [Table Per Type (TPT)](/modeling/inheritance-table-per-type) for normalized schemas
 * Choose the strategy that best fits your **query patterns and schema constraints**

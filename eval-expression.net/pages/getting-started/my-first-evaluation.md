@@ -1,30 +1,26 @@
----
-Title: Execute C# Code at Runtime - Get Started with your First Evaluation
-MetaDescription: Learn how to execute a C# expression at runtime with parameter, return type, and from a dynamic string expression.
-LastMod: 2025-08-19
----
+# My First Evaluation with C# Eval Expression
 
-# My First Evaluation
+C# is a powerful programming language, but it does not include an **eval** method like some other languages, such as [JavaScript](https://riptutorial.com/javascript/topic/7080/evaluating-javascript).
 
-C# is a powerful programming language but lacks the **eval** method that some other languages have, such as [JavaScript](https://riptutorial.com/javascript/topic/7080/evaluating-javascript).
+The C# Eval Expression library is the best solution to overcome this limitation. It lets you quickly evaluate code at runtime with very little code on your side.
 
-The C# Eval Expression library is the best solution to overcome this limitation and lets you quickly evaluate code at runtime with the minimum amount of code required on your side.
+This is especially useful when working with dynamic logic such as user input, formulas, or rules that you don’t want to hardcode or recompile.
 
 In this tutorial, you will learn how to use our library to:
 
-- [Evaluate a C# expression](#evaluate-a-c-expression)
-- [Evaluate a C# expression with variables](#evaluate-a-c-expression-with-variables)
-- [Evaluate a C# expression with a return type](#evaluate-a-c-expression-with-a-return-type)
-- [Evaluate a C# expression from a string](#evaluate-a-c-expression-from-a-string)
-- [Evaluate a C# expression from a context](#evaluate-a-c-expression-from-a-context)
+* [Evaluate a C# expression](#evaluate-a-c-expression)
+* [Evaluate a C# expression with variables](#evaluate-a-c-expression-with-variables)
+* [Evaluate a C# expression with a return type](#evaluate-a-c-expression-with-a-return-type)
+* [Evaluate a C# expression from a string](#evaluate-a-c-expression-from-a-string)
+* [Evaluate a C# expression from a context](#evaluate-a-c-expression-from-a-context)
 
 ## Evaluate a C# expression
 
-The simplest way to execute a C# expression at runtime is by using the `Eval.Execute` method. Under the hood, it calls the `Execute` method from the `DefaultContext` that you will learn later in this tutorial.
+The simplest way to execute a C# expression at runtime is by using the `Eval.Execute` method. Under the hood, it calls the `Execute` method from the `DefaultContext`, which you will learn more about later in this tutorial.
 
-The `Execute` method takes as the first parameter the code to execute. 
+The `Execute` method takes the code to execute as its first parameter.
 
-In this example, we will dynamically create a list of `int` and filter it using LINQ to return only items greater than 2. 
+In this example, we dynamically create a list of `int` and filter it using LINQ to return only items greater than `2`.
 
 ```csharp
 // @nuget: Z.Expressions.Eval
@@ -37,25 +33,29 @@ return list.Where(x => x > 2).ToList();
 ");
 ```
 
-{% include component-try-it.html href='https://dotnetfiddle.net/KdkAbb' %}  
+{% include component-try-it.html href='https://dotnetfiddle.net/KdkAbb' %}
 
-Remember that the C# Eval library supports more than this basic statement. However, we will keep it very simple in our getting started section.
+The result is a list containing the values 3 and 4.
+
+The C# Eval library supports much more than this simple example. However, we keep it very basic here to help you get started quickly.
 
 ## Evaluate a C# expression with variables
 
-In the last example, we created the list dynamically in the `Execute` method and hardcoded the value `2`, which we used to filter. However, those values will be from existing variables and user input in most real-life scenarios.
+In the previous example, we created the list dynamically inside the `Execute` method and hardcoded the value `2` used for filtering. In real scenarios, those values usually come from existing variables or user input.
 
-The `Execute` method takes variables to use in our expression as the second parameter (or all remaining parameters).
+The `Execute` method allows you to pass variables to your expression as the second parameter (or all remaining parameters).
 
-There are multiple different ways of passing variables, such as:
+There are multiple ways to pass variables, such as:
 
-- Anonymous Type
-- Class Member
-- Dictionary
-- Expando Object
-- Values
+* Anonymous type
+* Class instance
+* Dictionary
+* Expando object
+* Values
 
-In this example, we will create the `list` and `greaterThan` variables and show different ways to pass those variables to our expression.
+In most cases, using an anonymous type is the simplest and recommended approach.
+
+In this example, we create the `list` and `greaterThan` variables and demonstrate different ways to pass them to the expression.
 
 ```csharp
 // @nuget: Z.Expressions.Eval
@@ -94,7 +94,7 @@ var greaterThan = 2;
 {
 	dynamic expandoObject = new ExpandoObject();
 	expandoObject.list = list;
-	expandoObject.greaterThan= greaterThan;
+	expandoObject.greaterThan = greaterThan;
 	var rList = Eval.Execute("list.Where(x => x > greaterThan)", expandoObject);
 }
 
@@ -109,13 +109,13 @@ var greaterThan = 2;
 
 ## Evaluate a C# expression with a return type
 
-In the last two examples, we learned how to execute code dynamically and use variables in our expressions.
+In the previous examples, we learned how to execute code dynamically and pass variables to our expressions.
 
-The last remaining part is how to specify a return type. If no return type is specified, the value is of type `object`.
+Another important concept is specifying a return type. If no return type is specified, the result is returned as an `object`.
 
-The `Execute<TReturn>` method takes as the generic type the type to return.
+The `Execute<TReturn>` method lets you specify the expected return type using a generic parameter.
 
-In this example, we will continue with our getting started example by using our `list` and `greaterThan` variables but this time, specify the `List<int>` return type.
+In this example, we reuse the `list` and `greaterThan` variables, but this time we specify the return type as `List<int>`.
 
 ```csharp
 // @nuget: Z.Expressions.Eval
@@ -127,17 +127,19 @@ var greaterThan = 2;
 list = Eval.Execute<List<int>>("list.Where(x => x > greaterThan)", new { list, greaterThan });
 ```
 
-{% include component-try-it.html href='https://dotnetfiddle.net/D5R1Wm' %}  
+{% include component-try-it.html href='https://dotnetfiddle.net/D5R1Wm' %} 
 
-Did you spot an error in this example? The expression should return an `IEnumerable<int>` and not a `List<int>`! However, our library is smart enough and makes your life easy by automatically calling the `ToList` method to return the right type. That is one of the many advantages of using our library.
+Did you notice something interesting in this example?
+
+The expression actually returns an `IEnumerable<int>`, not a `List<int>`. However, the library automatically handles this for you by calling `ToList()` to match the expected return type. That’s one of the many ways the C# Eval Expression library simplifies your code.
 
 ## Evaluate a C# expression from a string
 
-If you have taken the time to read and understand the first three sections of this tutorial, the rest should be straightforward.
+If you have read the previous sections, this part should be straightforward.
 
-Our library adds a syntactic-sugar Execute extension method to extend the string type. Passing parameters and return type are similar to what we have previously seen, and the only difference is the code is taken from the string that the method extends.
+Our library adds a convenient `Execute` extension method to the `string` type. Passing parameters and specifying a return type works exactly the same as before. The only difference is that the expression comes from the string instance.
 
-In that example, we will set our expression in a string variable and call the `Execute` method that extends it.
+In this example, we store the expression in a string variable and call the `Execute` method directly on it.
 
 ```csharp
 // @nuget: Z.Expressions.Eval
@@ -156,16 +158,22 @@ list = expressionToExecute.Execute<List<int>>(new { list, greaterThan });
 
 ## Evaluate a C# expression from a context
 
-All the `Execute` methods we learned in previous examples use the global [EvalContext](/eval-context) stored in the [EvalManager.DefaultContext](/eval-manager#defaultcontext). In other words:
+All the `Execute` methods we used in previous examples rely on a global [EvalContext](/eval-context) stored in [EvalManager.DefaultContext](/eval-manager#defaultcontext). In other words:
 
-- using the `Eval.Execute` method is similar to doing `EvalManager.DefaultContext.Execute`.
-- using the `"the_string_expression".Execute` method is similar to doing `EvalManager.DefaultContext.Execute`.
+* Using `Eval.Execute` is similar to calling `EvalManager.DefaultContext.Execute`
+* Using `"the_string_expression".Execute` is also similar to calling `EvalManager.DefaultContext.Execute`
 
-So anyway, what exactly is an [EvalContext](/eval-context)? That is a class you instantiate to set [options](/options) specific to the current context that you do not want to apply globally to all your evaluation.
+What exactly is an [EvalContext](/eval-context)?
 
-For example, you would like to run an expression in [safe mode](/options#safe-mode), specify some global variables, or even use the `AddMethod`.
+It’s a class you can instantiate to configure options specific to a particular execution. This is useful when you don’t want those options to be applied globally.
 
-In this example, we will create an instance of the context, add a new extension method named `GreaterThan` and use the `Execute` method.
+For example, you might want to:
+
+* Enable [safe mode](/options#safe-mode)
+* Define global variables
+* Add custom methods
+
+In this example, we create a context, add a custom extension method named `GreaterThan`, and then execute our expression.
 
 ```csharp
 // @nuget: Z.Expressions.Eval
@@ -186,12 +194,10 @@ bool GreaterThan(this int x, int y)
 list = context.Execute<List<int>>("list.Where(x => x.GreaterThan(greaterThan))", new { list, greaterThan }); 
 ```
 
-{% include component-try-it.html href='https://dotnetfiddle.net/KHRedn' %}
+## Summary
 
-The method `GreaterThan` only exists for this context. That means the `Eval.Execute` is unaware and cannot use this method.
+In this getting started tutorial, you learned how to use the `Execute` method to dynamically evaluate code, pass parameters, and specify a return type.
 
-## Conclusion
+Using the `Execute` method is straightforward, and most developers should already feel comfortable using it.
 
-In this getting started tutorial, you learned how to use the `Execute` method to dynamically evaluate some code, use parameters, and a return type.
-
-Using the `Execute` method is straightforward, and most developers should already be able to use it without a problem. However, only time will allow you to master this method and exploit all the potential through all [options](/options) of the `EvalContext` and the possibility that the library offers, so make sure to continue to read other tutorials and articles.
+However, mastering it takes time. To fully take advantage of the library, make sure to explore all available [options](/options) in the `EvalContext` and continue reading the other tutorials and articles.

@@ -1,9 +1,9 @@
 ---
 title: Inheritance in Entity Framework Core
 description: Learn how inheritance works in Entity Framework Core and explore the three supported mapping strategies: Table Per Hierarchy (TPH), Table Per Type (TPT), and Table Per Concrete Type (TPC).
-canonical: /inheritance
+canonical: /modeling/inheritance
 status: Published
-lastmod: 2026-02-24
+lastmod: 2026-04-08
 ---
 
 # EF Core Inheritance
@@ -12,9 +12,9 @@ Inheritance is a fundamental object-oriented programming concept used to model h
 
 In Entity Framework Core, inheritance hierarchies can be mapped to a relational database using three different strategies:
 
-- [Table Per Hierarchy (TPH)](/inheritance#table-per-hierarchy-tph)
-- [Table Per Type (TPT)](/inheritance#table-per-type-tpt)
-- [Table Per Concrete Type (TPC)](/inheritance#table-per-concrete-type-tpc)
+- [Table Per Hierarchy (TPH)](#table-per-hierarchy-tph)
+- [Table Per Type (TPT)](#table-per-type-tpt)
+- [Table Per Concrete Type (TPC)](#table-per-concrete-type-tpc)
 
 Consider the following simple hierarchy:
 
@@ -59,7 +59,7 @@ A discriminator column is used to distinguish between different derived types.
 
 This strategy is commonly selected when query performance and simplicity are priorities.
 
-[Learn more about Table Per Hierarchy →](/inheritance/table-per-hierarchy)
+[Learn more about Table Per Hierarchy →](/modeling/inheritance-table-per-hierarchy)
 
 ## Table Per Type (TPT)
 
@@ -77,7 +77,7 @@ The base table stores shared properties, while each derived table stores only pr
 
 This strategy is often chosen when database normalization is more important than raw query performance.
 
-[Learn more about Table Per Type →](/inheritance/table-per-type)
+[Learn more about Table Per Type →](/modeling/inheritance-table-per-type)
 
 ## Table Per Concrete Type (TPC)
 
@@ -95,7 +95,7 @@ Each table includes both the base properties and the properties specific to that
 
 This strategy can be appropriate when avoiding JOINs is desirable and duplication of base columns is acceptable.
 
-[Learn more about Table Per Concrete Type →](/inheritance/table-per-concrete)
+[Learn more about Table Per Concrete Type →](/modeling/inheritance-table-per-concrete-type)
 
 ## Quick Comparison
 
@@ -124,6 +124,6 @@ Each strategy involves trade-offs. Reviewing the dedicated documentation for eac
 
 ## Further Reading
 
-* [Table Per Hierarchy](/inheritance/table-per-hierarchy)
-* [Table Per Type](/inheritance/table-per-type)
-* [Table Per Concrete Type](/inheritance/table-per-concrete)
+* [Table Per Hierarchy](/modeling/inheritance-table-per-hierarchy)
+* [Table Per Type](/modeling/inheritance-table-per-type)
+* [Table Per Concrete Type](/modeling/inheritance-table-per-concrete-type)

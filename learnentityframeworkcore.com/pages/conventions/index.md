@@ -3,7 +3,7 @@ title: Conventions in Entity Framework Core
 description: Conventions are a set of rules hard-baked into Entity Framework Core that govern how the model will be mapped to a database schema
 canonical: /conventions
 status: Published
-lastmod: 2025-07-11
+lastmod: 2026-04-08
 ---
 
 # EF Core Conventions
@@ -100,7 +100,7 @@ public class Book
 
 
 ## Table
-Entity Framework Core will map an entity to a table with the same name as its corresponding `DbSet<TEntity>` property. EF Core will also map entities that have no corresponding `DbSet<TEntity>` property if that entity takes part in a [fully defined relationship](/conventions/one-to-many-relationship#fully-defined-relationship) with entities that have corresponding `DbSet<TEntity>` properties. EF Core will map such an entity to a table named after the class.
+Entity Framework Core will map an entity to a table with the same name as its corresponding `DbSet<TEntity>` property. EF Core will also map entities that have no corresponding `DbSet<TEntity>` property if that entity takes part in a [fully defined relationship](/modeling/relationships-one-to-many#fully-defined-relationship) with entities that have corresponding `DbSet<TEntity>` properties. EF Core will map such an entity to a table named after the class.
 
 In the following example, EF Core will map the `Book` entity (which has a `DbSet` property in the `DbContext` class) to a table named `Books` and the `Publisher` entity (which has no `DbSet`, but takes part in a fully defined relationship with `Book`) to a table named `Publisher`:
 

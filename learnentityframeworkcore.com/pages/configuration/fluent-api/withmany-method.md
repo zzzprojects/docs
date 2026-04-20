@@ -3,7 +3,7 @@ title: The Fluent API WithMany Method
 description: Usage of the Fluent API WithMany Method in Entity Framework Core
 canonical: /configuration/fluent-api/withmany-method
 status: Published
-lastmod: 2025-07-11
+lastmod: 2026-04-08
 ---
 
 # EF Core WithMany
@@ -12,7 +12,7 @@ The Entity Framework Core Fluent API `WithMany` method is used to configure the 
 
 The `WithMany` method must be used in conjunction with the `HasOne` method to fully configure a valid relationship, adhering to the [Has/With pattern](/configuration/fluent-api/haswith-pattern) for relationship configuration.
 
-The following model represents companies and employees with an [inverse navigation property defined](/conventions/one-to-many-relationship#inverse-navigation-property) in the dependent entity (`Employee`):
+The following model represents companies and employees with an [inverse navigation property defined](/modeling/relationships-one-to-many#inverse-navigation-property) in the dependent entity (`Employee`):
 
 ## One-To-Many Example
 ```csharp

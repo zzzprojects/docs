@@ -1,9 +1,9 @@
 ---
 title: Entity Framework Core One To One Relationships Conventions
 description: How to design your model so that it maps to a one-to-one relationship by convention in Entity Framework Core
-canonical: /conventions/one-to-one-relationship
+canonical: /modeling/relationships-one-to-one
 status: Published
-lastmod: 2023-02-23
+lastmod: 2026-04-08
 ---
 
 # EF Core One to One

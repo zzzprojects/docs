@@ -3,18 +3,18 @@ title: Configuring one-to-many Relationship in Entity Framework Core
 description: How to use the Fluent API to configure one-to-many relationships in Entity Framework Core
 canonical: /configuration/one-to-many-relationship-configuration
 status: Published
-lastmod: 2025-07-11
+lastmod: 2026-04-08
 ---
 
 # EF Core One To Many Relationship
 
-Most one-to-many relationships in an Entity Framework Core model [follow conventions](/conventions/one-to-many-relationship) and require no additional configuration. Where the model does not follow convention, the Fluent API can be used to configure the correct relationship between entities.
+Most one-to-many relationships in an Entity Framework Core model [follow conventions](/modeling/relationships-one-to-many) and require no additional configuration. Where the model does not follow convention, the Fluent API can be used to configure the correct relationship between entities.
 
 ## Has/With pattern
 
 When configuring relationships with the Fluent API, you will use the [_Has/With_ pattern](/configuration/fluent-api/haswith-pattern). The _Has_ side of the pattern is represented by the `HasOne` and `HasMany` methods. The _With_ side of the relationship is represented by the `WithOne` and `WithMany` methods.
 
-The following model represents companies and employees with an [inverse navigation property defined](/conventions/one-to-many-relationship#inverse-navigation-property) in the dependent entity (`Employee`) but no matching foreign key property in the dependent:
+The following model represents companies and employees with an [inverse navigation property defined](/modeling/relationships-one-to-many#inverse-navigation-property) in the dependent entity (`Employee`) but no matching foreign key property in the dependent:
 
 ```csharp
 public class Company
