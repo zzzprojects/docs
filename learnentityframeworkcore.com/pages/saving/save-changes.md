@@ -3,337 +3,366 @@ title: EF Core SaveChanges - How Data Is Persisted (Tracking, Transactions, and 
 description: Learn what SaveChanges does in Entity Framework Core, how it uses the ChangeTracker, what happens under the hood, transaction behavior, common scenarios, performance tips, and FAQs.
 canonical: /saving/save-changes
 status: Published
-lastmod: 2026-04-08
+lastmod: 2026-04-22
 ---
 
-# EF Core SaveChanges
+# SaveChanges in EF Core: How to Persist Changes
 
-## What is SaveChanges in EF Core
+`SaveChanges()` is the EF Core method used to persist tracked changes from the current `DbContext` to the database. In modern applications, `SaveChangesAsync()` is usually the preferred variant.
 
-`SaveChanges()` persists [tracked changes](/saving/change-tracker-how-it-works) from the current `DbContext` to the database.
+Those changes can include inserts, updates, and deletes. If you want to go deeper into each operation, see [Adding Data](/saving/adding-data), [Updating Data](/saving/modifying-data), and [Deleting Data](/saving/deleting-data).
 
-At a high level, it:
+If tracking is misunderstood, saving can feel unpredictable because EF Core only persists changes for entities tracked by the current context.
 
-- Reads the state of tracked entities from the [ChangeTracker](/saving/change-tracker) (Added / Modified / Deleted)
-- Builds the corresponding database commands (INSERT/UPDATE/DELETE)
-- Executes those commands against the database
-- Updates entity states after a successful save
-- Returns the number of state entries written to the database
+As shown later in this page, multiple operations can also be [combined in a single save](#mix-multiple-operations).
 
-If tracking is misunderstood, `SaveChanges()` can feel unpredictable because it only saves entities tracked by the [ChangeTracker](/saving/change-tracker).
+## SaveChanges
 
-Example:
+In the standard EF Core workflow, you create new entities or modify tracked entities, and then call `SaveChangesAsync()` to persist those changes to the database.
 
 ```csharp
-using (var context = new MyDbContext())
-{
-    var customer = new Customer();
-    customer.Name = "ZZZ Projects";
-    
-    context.Customers.Add(customer);
+using var context = new AppDbContext();
 
-    // Persist the change to the database
-    context.SaveChanges();
-}
+context.Products.Add(new Product
+{
+    Name = "Mechanical Keyboard",
+    Price = 120
+});
+
+await context.SaveChangesAsync();
 ```
 
-What happens behind the scenes:
+## SaveChangesAsync(bool acceptAllChangesOnSuccess)
 
-- `Add()` starts tracking the entity and sets its state to **Added**
-- `SaveChanges()` checks the state of tracked entities
-- EF Core generates an **INSERT** command
-- The command is executed in the database
-- The entity state becomes **Unchanged**
-
-## TL;DR - SaveChanges
-
-- Persists **tracked changes** from a `DbContext` to the database
-- Converts entity states into INSERT/UPDATE/DELETE commands
-- Executes all commands within a transaction
-- Updates entity states after success (**Unchanged** / deleted entities are detached)
-- Throws exceptions when saving fails (`DbUpdateException`, `DbUpdateConcurrencyException`, etc.)
-
-## Quick Mental Model
-
-Think of the `DbContext` as holding a **pending changes list** through the **ChangeTracker**.
-`SaveChanges()` is the commit step that turns those pending changes into real database operations.
-
-If nothing is tracked as changed, `SaveChanges()` does nothing.
-
-## Behavior / What Happens Under the Hood
-
-This section explains the typical internal flow EF Core follows when persisting tracked changes.
-
-A simplified sequence looks like this:
-
-1) **Detect changes** (unless disabled)
-2) **Build commands** for inserts/updates/deletes  
-3) **Order commands** to respect relationships (principal/dependent)  
-4) **Execute commands** against the database provider within a transaction
-5) **Accept changes** (states become `Unchanged`; deleted entities are detached)  
-6) **Propagate generated values** (for example, database-generated keys)
-
-> Exact batching and ordering details can vary depending on the provider and the operations being executed.
-
-## Common Scenarios (Connected vs Disconnected)
-
-These two scenarios explain most real-world SaveChanges behavior and pitfalls.
-
-### Connected scenario
-
-You query entities using a `DbContext`, modify them while they remain tracked, then call `SaveChanges()`.
+`SaveChangesAsync()` also provides an overload that lets you control whether EF Core should automatically accept tracked changes after a successful save.
 
 ```csharp
-using (var context = new MyDbContext())
-{
-    var product = context.Products.First();
-    product.Price += 10;
+using var context = new AppDbContext();
 
-    context.SaveChanges();
-}
-````
+var product = await context.Products
+    .SingleAsync(p => p.Name == "Wireless Mouse");
 
-* EF Core already knows what changed
-* This is the simplest and most predictable approach
+product.Price = 45;
 
-For a deeper walkthrough of tracked updates, see [Saving Data in Connected Scenario](/saving/save-changes-connected-entities).
-
-### Disconnected scenario
-
-Entities come from outside the context (DTOs, API payloads, background jobs, etc.) and are not tracked by default.
-
-```csharp
-// Example: entity comes from an API payload (disconnected)
-var product = new Product { Id = 10, Name = "Keyboard", Price = 150 };
-
-using (var context = new MyDbContext())
-{
-    context.Update(product);
-    context.SaveChanges();
-}
+await context.SaveChangesAsync(acceptAllChangesOnSuccess: false);
 ```
 
-* You need `Update()` or `UpdateRange()` to update
-* You need `Delete()` or `DeleteRange()` to delete
-* You can also call `Attach` or `AttachRange` and modify the state
+## Rows affected
 
-
-
-
-If you only want to update specific properties in a disconnected scenario, avoid marking the whole entity as modified when possible:
+`SaveChangesAsync()` returns an `int` value that indicates how many tracked entries were written during the save operation.
 
 ```csharp
-var product = new Product { Id = 10 };
+using var context = new AppDbContext();
 
-using (var context = new MyDbContext())
-{
-    context.Attach(product);
-    product.Price = 150;
-    context.Entry(product).Property(p => p.Price).IsModified = true;
-    context.SaveChanges();
-}
+var product = await context.Products
+    .SingleAsync(p => p.Name == "Wireless Mouse");
+
+product.Price = 45;
+
+var rowsAffected = await context.SaveChangesAsync(); // return 1
 ```
 
-This reduces the risk of unintentionally updating columns you did not mean to change.
+In this example, `rowsAffected` contains the value `1` returned by the save operation.
 
-## Generated SQL
+This is often useful for basic validation, diagnostics, or logging, but it should not be interpreted as a full replacement for database-level execution details.
 
-`SaveChanges()` typically sends multiple commands (INSERT/UPDATE/DELETE), not “one big SQL statement”. EF Core may also batch multiple commands together to reduce database roundtrips.
+## Common Save Scenarios
 
-A practical way to inspect what EF Core executes is to enable logging during development:
+The following examples show the most common ways `SaveChangesAsync()` is used in EF Core.
+
+### Insert a new entity
+
+To insert a new entity, create the object, add it to the context, and call `SaveChangesAsync()`.
 
 ```csharp
-var options = new DbContextOptionsBuilder<AppDbContext>()
-    .LogTo(Console.WriteLine, LogLevel.Information)
-    .EnableSensitiveDataLogging()
-    .Options;
+using var context = new AppDbContext();
 
-using (var context = new MyDbContext(options))
+var category = await context.Categories
+    .SingleAsync(c => c.Name == "Peripherals");
+
+var product = new Product
 {
-    // ... make changes ...
-    context.SaveChanges();
-}
+    Name = "Mechanical Keyboard",
+    Price = 120,
+    CategoryId = category.Id
+};
+
+context.Products.Add(product);
+
+await context.SaveChangesAsync();
 ```
 
-Typical output includes:
+For more insertion patterns, including `AddRange` and related entities, see [Adding Data](/saving/adding-data). If you want to review how `AddRange` and similar methods behave, see the EF Core documentation on [`AddRange`, `UpdateRange`, `AttachRange`, and `RemoveRange`](https://learn.microsoft.com/en-us/ef/core/change-tracking/miscellaneous#addrange-updaterange-attachrange-and-removerange).
 
-* Generated SQL commands
-* Parameter values
-* Transaction-related events
+### Update an existing entity
 
-Use sensitive-data logging only in development. For more details, see the [EF Core simple logging documentation](https://learn.microsoft.com/en-us/ef/core/logging-events-diagnostics/simple-logging).
-
-## Transaction
-
-EF Core uses a transaction to prevent partial updates:
-
-* If all commands succeed → commit
-* If any command fails → the save fails and an exception is thrown
-
-If you start a transaction explicitly, EF Core typically participates in it by creating a **savepoint** for database providers that support it. If `SaveChanges()` fails, EF Core rolls back to this savepoint and then throws the exception.
+To update an existing entity, query it first so EF Core starts tracking it, modify one or more properties, and then call `SaveChangesAsync()`.
 
 ```csharp
-using (var context = new MyDbContext())
-{
-    context.Database.OpenConnection();
-    using var transaction = context.Database.BeginTransaction();
-    
-    // ... make tracked changes ...
-    context.SaveChanges();
+using var context = new AppDbContext();
 
-    transaction.Commit();
-}
+var product = await context.Products
+    .SingleAsync(p => p.Name == "Wireless Mouse");
+
+product.Price = 45;
+
+await context.SaveChangesAsync();
 ```
 
-For more details about transaction behavior in EF Core, see the [official transactions documentation](https://learn.microsoft.com/en-us/ef/core/saving/transactions) and the general [saving data overview](https://learn.microsoft.com/en-us/ef/core/saving/) in the EF Core docs.
+Once the entity is tracked, EF Core detects the property change and persists it during the save operation.
 
-## Performance Characteristics / Tips
+For more update patterns, including disconnected updates and partial updates, see [Updating Data](/saving/modifying-data).
 
-This section focuses on the most common `SaveChanges()` bottlenecks and the fixes that matter most.
+### Delete an entity
 
-`SaveChanges()` performance depends on:
-
-* Number of tracked entities in the context
-* Change detection overhead (`DetectChanges`)
-* Number of commands generated
-* Provider capabilities (batching, parameterization, execution strategy)
-
-Practical tips:
-
-* Use `AddRange` / `UpdateRange` / `RemoveRange` for convenience when working with multiple entities. A common misconception is that they improve performance over `Add` / `Update` / `Remove`, which they do not.
-* Avoid calling `SaveChanges()` per entity in loops (batch changes and save once)
-* Keep contexts reasonably scoped (for example, per request or unit of work)
-* For set-based updates or deletes, prefer [ExecuteUpdate](/dbset/execute-update) / [ExecuteDelete](/dbset/execute-delete) when appropriate
-* Be intentional with tracking when loading large amounts of data
-
-If you need to save a large number of entities, batching work into chunks can help keep memory usage and change-tracking overhead under control:
+To delete an entity, query it, mark it for removal with the `Remove` or `RemoveRange` method, and then save the change.
 
 ```csharp
-int batchSize = 500;
+using var context = new AppDbContext();
 
-foreach (var batch in products.Chunk(batchSize))
-{
-    using (var context = new MyDbContext())
-    {
-        context.Products.AddRange(batch);
-        context.SaveChanges();
-    }
-}
+var product = await context.Products
+    .SingleAsync(p => p.Name == "27-inch Monitor");
+
+context.Products.Remove(product);
+
+await context.SaveChangesAsync();
 ```
 
-Chunking is useful when standard `SaveChanges()` is still acceptable but saving everything in one very large tracked graph becomes inefficient.
+For more delete patterns, including `RemoveRange`, see [Deleting Data](/saving/deleting-data).
 
-If you regularly process very large volumes, bulk tooling is usually the better fit.
+### Mix multiple operations
 
-**Bulk note (very large batches):**
-If you need to persist very large batches (tens of thousands of rows), standard `SaveChanges()` can become a bottleneck. Bulk extensions (for example [Entity Framework Extensions](https://entityframework-extensions.net/bulk-savechanges) by ZZZ Projects) provide `BulkSaveChanges()`-style approaches that can be significantly faster.
+One of the most useful aspects of `SaveChangesAsync()` is that it can persist different kinds of tracked changes together.
 
-## When to Use vs When NOT to Use SaveChanges
+```csharp
+using var context = new AppDbContext();
 
-Use `SaveChanges()` when:
+var category = await context.Categories
+    .SingleAsync(c => c.Name == "Peripherals");
 
-* You’re doing standard CRUD operations and want EF Core to generate SQL for you
-* You’re working in a connected scenario (tracked entities)
-* You can save changes in sensible units (per request, per service operation, etc.)
+var mouse = await context.Products
+    .SingleAsync(p => p.Name == "Wireless Mouse");
 
-Be careful or avoid naive usage when:
+var monitor = await context.Products
+    .SingleAsync(p => p.Name == "27-inch Monitor");
 
-* You call `SaveChanges()` repeatedly in tight loops (performance and transaction overhead)
-* You handle disconnected graphs without explicit state control
-* You require special transactional boundaries but don’t control transactions explicitly
-* You need to persist massive volumes without batching or bulk strategy
+context.Products.Add(new Product
+{
+    Name = "Mechanical Keyboard",
+    Price = 120,
+    CategoryId = category.Id
+});
 
-## External Resources - SaveChanges
+mouse.Price = 45;
+context.Products.Remove(monitor);
 
-The following resources provide deeper insight into how EF Core persists changes, including how the ChangeTracker works internally, what `SaveChanges()` actually does, and common pitfalls that lead to unexpected updates.
+await context.SaveChangesAsync();
+```
 
-They are especially useful for understanding why saving behavior is often tied to tracking, how entity states influence generated commands, and what patterns are recommended in real-world applications.
+In a single call, EF Core inserts a new product, updates another one, and deletes a third one.
 
-### Video 1 - How does EF Core keep track of changes?
+## How SaveChangesAsync Works
+
+At a high level, `SaveChangesAsync()` reads the changes currently tracked by the `DbContext`, converts them into database commands, sends those commands to the database, and updates entity states after a successful save.
+
+### Detects tracked changes
+
+EF Core uses the current `DbContext` to track entity instances and their states through the [ChangeTracker](/saving/change-tracker). Before saving, it determines which tracked entities were added, modified, or marked for deletion.
+
+That is why the examples in this article follow the same basic pattern:
+
+* add a new entity
+* modify a tracked entity
+* remove a tracked entity
+* call `SaveChangesAsync()`
+
+If nothing is tracked as changed, `SaveChangesAsync()` does not persist anything.
+
+For a deeper explanation of how EF Core tracking works internally, see [Change Tracker: How It Works](/saving/change-tracker-how-it-works).
+
+### Builds the required commands
+
+Once EF Core knows which tracked entities changed, it generates the corresponding database commands needed to persist those changes.
+
+Depending on the tracked state, that usually means generating commands for:
+
+* inserts
+* updates
+* deletes
+
+The exact SQL sent to the database can vary depending on the provider and the operations being performed. If you want to inspect the generated SQL during development, see the [official EF Core simple logging documentation](https://learn.microsoft.com/en-us/ef/core/logging-events-diagnostics/simple-logging). For a broader overview of saving patterns in EF Core, see the [official saving data overview](https://learn.microsoft.com/en-us/ef/core/saving/).
+
+### Sends changes when save is called
+
+Tracking a change does not immediately write anything to the database.
+
+For example, calling `Add`, changing a property, or calling `Remove` only updates what EF Core knows about the entity inside the current context. The actual persistence happens when `SaveChangesAsync()` runs.
+
+This separation is important because it allows multiple changes to be collected and persisted together in one call.
+
+### Updates entity states after success
+
+If the save succeeds, EF Core normally accepts the tracked changes automatically. That is the default behavior of `SaveChangesAsync()`.
+
+Inserted or updated tracked entities typically move to an `Unchanged` state after a successful save. Deleted entities are typically detached.
+
+When you call `SaveChangesAsync(false)`, EF Core still sends the changes to the database, but it does not automatically perform that acceptance step afterward.
+
+### Returns the number of written entries
+
+After the save operation completes, `SaveChangesAsync()` returns the number of tracked entries written during that call.
+
+That return value is often useful for basic validation, diagnostics, or logging, but it should not be treated as a complete replacement for database-level execution details.
+
+### Transaction behavior
+
+By default, EF Core uses a transaction during `SaveChanges()` to avoid partial updates.
+
+That means:
+
+* if all commands succeed, the transaction is committed
+* if a command fails, the save fails and an exception is thrown
+
+For more advanced transaction behavior, see the [official EF Core transactions documentation](https://learn.microsoft.com/en-us/ef/core/saving/transactions).
+
+## When to Use It
+
+`SaveChangesAsync()` is the right choice when you are working with entities tracked by the current `DbContext` and want EF Core to persist those changes through its standard save pipeline.
+
+This is the most common approach when you:
+
+* create new entities and want to insert them
+* modify tracked entities and want EF Core to generate updates
+* remove tracked entities and want EF Core to delete them
+* combine multiple tracked changes in a single unit of work
+
+It is also a good fit when you want your application code to stay close to the domain model rather than expressing every operation as a direct database command.
+
+For tracked update workflows specifically, see [Saving Data in Connected Scenario](/saving/save-changes-connected-entities).
+
+## When Not to Use It
+
+`SaveChangesAsync()` is not the best fit for every persistence scenario.
+
+You may want a different approach when:
+
+* you need to update rows directly in the database without loading entities first
+* you want to delete matching rows without tracking them in the current context
+* the operation is primarily set-based rather than entity-based
+* the volume is high enough that the standard tracked save pipeline becomes a bottleneck
+
+In those cases, APIs such as [ExecuteUpdateAsync](/saving/execute-update), [ExecuteDeleteAsync](/saving/execute-delete), raw SQL, or specialized bulk operations may be more appropriate. For very large save workloads, see also [BulkSaveChanges / Entity Framework Extensions](https://entityframework-extensions.net/bulk-savechanges).
+
+The key distinction is simple: `SaveChangesAsync()` is designed for persisting **tracked entity changes**, not for every possible database write pattern.
+
+## Brief Comparison
+
+### SaveChangesAsync vs ExecuteUpdateAsync
+
+`SaveChangesAsync()` works with tracked entities in the current `DbContext`. You modify objects in memory, and EF Core persists those changes when the save operation runs.
+
+`ExecuteUpdateAsync()`, by contrast, updates matching rows directly in the database without loading them into the context first. That makes it more suitable for set-based updates where tracking is unnecessary.
+
+Use `SaveChangesAsync()` when your workflow is centered on tracked entities. Use `ExecuteUpdateAsync()` when you want to apply a database-side update directly to a query result.
+
+### SaveChangesAsync vs ExecuteDeleteAsync
+
+`SaveChangesAsync()` deletes entities that are being tracked and marked for removal.
+
+`ExecuteDeleteAsync()` deletes matching rows directly in the database without requiring those entities to be loaded and tracked first.
+
+Use `SaveChangesAsync()` when the delete is part of a normal tracked entity workflow. Use `ExecuteDeleteAsync()` when you want a direct database-side delete based on a query.
+
+## External Resources
+
+The following resources are useful if you want to go deeper into how EF Core persists changes, how the `ChangeTracker` influences saving behavior, and why some `SaveChanges()` patterns scale better than others.
+
+They are especially helpful for understanding entity states, tracking-related pitfalls, batching behavior, and when standard `SaveChanges()` may no longer be the best fit for high-volume operations.
+
+### Video 1 — How does EF Core keep track of changes?
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/uXDYEBexlYk?si=ecJMtk1ZxKjv4JOs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-Hubert Mijalski explains how EF Core uses the **ChangeTracker** internally, with a focus on entity states and what `SaveChanges()` actually persists.
+Hubert Mijalski explains how EF Core uses the `ChangeTracker` internally, with a focus on entity states and what `SaveChanges()` actually persists.
 
-This video provides essential context to understand why saving can produce unexpected updates, especially in disconnected scenarios or when using `Update()` incorrectly.
+This video is especially useful if you want to understand why saving can lead to unexpected updates, particularly in disconnected scenarios or when `Update()` is used too broadly.
 
-Key sections:
+**Key sections:**
 
-* [00:00](https://www.youtube.com/watch?v=uXDYEBexlYk) — ChangeTracker intro and entity states (Added/Unchanged/Deleted/Detached)
-* [05:00](https://youtu.be/uXDYEBexlYk?si=Kmyt0fUljnvz_-8h&t=300) — `AsNoTracking()` vs `Update()` and why `Update()` can be risky or overused
-* [09:00](https://youtu.be/uXDYEBexlYk?si=Kmyt0fUljnvz_-8h&t=540) — ChangeTracker scope in web apps (typical “one SaveChanges per unit of work” pattern)
-* [12:00](https://youtu.be/uXDYEBexlYk?si=Kmyt0fUljnvz_-8h&t=720) — Code demo: normal UPDATE vs `Update()` (SQL logs)
+* [00:00](https://www.youtube.com/watch?v=uXDYEBexlYk&t=9s) — ChangeTracker overview and entity states (`Added`, `Unchanged`, `Deleted`, `Detached`)
+* [05:00](https://www.youtube.com/watch?v=uXDYEBexlYk&t=300s) — `AsNoTracking()` vs `Update()` and why `Update()` can be risky or overused
+* [09:00](https://www.youtube.com/watch?v=uXDYEBexlYk&t=540s) — ChangeTracker scope in web applications and the common “one SaveChanges per unit of work” pattern
+* [12:00](https://www.youtube.com/watch?v=uXDYEBexlYk&t=720s) — Code demo showing a normal tracked update versus `Update()` with SQL logs
 
-### Video 2 - How SaveChanges works and 1 common mistake (EF Core / .NET 8)
+### Video 2 — How SaveChanges works and 1 common mistake (EF Core / .NET 8)
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/lehYoEhFiIM?si=clN4t9FuuBZshX5i" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-Pawel Minkina explains how `SaveChanges()` works using a simple airport analogy, then backs it up with benchmarks around batching.
+Pawel Minkina explains how `SaveChanges()` works using a simple analogy, then connects that explanation to batching benchmarks and a common performance mistake.
 
-This is especially useful to understand why calling `SaveChanges()` per entity is one of the most common performance mistakes, and how change detection can become a bottleneck at scale.
+This is a useful companion resource if you want to understand why calling `SaveChanges()` once per entity is often inefficient, and why change detection can become expensive in large save operations.
 
-Key sections:
+**Key sections:**
 
-* [00:00](https://www.youtube.com/watch?v=lehYoEhFiIM) — Introduction + airport analogy (`DbContext` as the bus, `SaveChanges()` as the takeoff)
-* [02:30](https://youtu.be/lehYoEhFiIM?si=AoJvqstwhO_fweP4&t=150) — Benchmark: batching vs calling `SaveChanges()` individually (≈10x improvement)
-* [05:00](https://youtu.be/lehYoEhFiIM?si=AoJvqstwhO_fweP4&t=300) — Bulk run (5M items): recreating the `DbContext` every 5k to avoid memory pressure
-* [07:30](https://youtu.be/lehYoEhFiIM?si=AoJvqstwhO_fweP4&t=450) — `AutoDetectChangesEnabled = false` and why it can boost performance for large saves
+* [00:00](https://www.youtube.com/watch?v=lehYoEhFiIM&t=1s) — Introduction and analogy for how `DbContext` and `SaveChanges()` work together
+* [02:30](https://www.youtube.com/watch?v=lehYoEhFiIM&t=150s) — Benchmark comparing batched saving versus calling `SaveChanges()` repeatedly
+* [05:00](https://www.youtube.com/watch?v=lehYoEhFiIM&t=300s) — Large-scale run (5 million items) and recreating the `DbContext` periodically to reduce memory pressure
+* [07:30](https://www.youtube.com/watch?v=lehYoEhFiIM&t=450s) — `AutoDetectChangesEnabled = false` and why it can improve performance for large save operations
 
-### Video 3 - Boost EF Core Performance: BulkInsert, BulkUpdate, BulkDelete & More (Full Guide)
+### Video 3 — Boost EF Core Performance: BulkInsert, BulkUpdate, BulkDelete & More (Full Guide)
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/VG-aU7WRl5g?si=M4AVM6duUS9hs8jh" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-Anton Martyniuk walks through why `SaveChanges()` can become slow at scale, then shows bulk alternatives and when they make a measurable difference.
+Anton Martyniuk (ZZZ Projects) walks through why standard `SaveChanges()` can become slower at scale, then demonstrates bulk-oriented alternatives and when they start to make a measurable difference.
 
-This is a practical companion resource if you’re saving large volumes and need predictable performance beyond standard batching.
+This is a useful follow-up resource for scenarios where the standard tracked save pipeline is no longer enough for the required volume, and you need to evaluate more specialized persistence strategies.
 
-Key sections:
+**Key sections:**
 
-* [00:00](youtube.com/watch?v=VG-aU7WRl5g&source_ve_path=MTc4NDI0) — Intro + benchmark: `SaveChanges()` with 10k records (slow due to parameter/merge constraints)
-* [03:00](https://youtu.be/VG-aU7WRl5g?si=fs-P0GALQqVhcFKg&t=180) — `BulkInsert` vs `BulkInsertOptimized` (performance difference without temp table)
-* [08:00](https://youtu.be/VG-aU7WRl5g?si=fs-P0GALQqVhcFKg&t=480) — `BulkUpdate` + `BulkDelete` (options like ignore/primary key, `IncludeGraph` for nested graphs)
-* [12:00](https://youtu.be/VG-aU7WRl5g?si=fs-P0GALQqVhcFKg&t=720) — `BulkMerge` + `BulkSynchronize` (upsert + insert/update/delete combined)
+* [00:00](https://www.youtube.com/watch?v=VG-aU7WRl5g&t=91s) — Introduction and benchmark: `SaveChanges()` with 10k records
+* [03:00](https://www.youtube.com/watch?v=VG-aU7WRl5g&t=180s) — `BulkInsert` vs `BulkInsertOptimized`
+* [08:00](https://www.youtube.com/watch?v=VG-aU7WRl5g&t=480s) — `BulkUpdate` and `BulkDelete`, including options such as key matching and `IncludeGraph`
+* [12:00](https://www.youtube.com/watch?v=VG-aU7WRl5g&t=720s) — `BulkMerge` and `BulkSynchronize` for combined insert/update/delete workflows
 
-## Summary & Next Steps
+If you want additional reading on large insert workloads and range methods, see [4 Best Ways to Do Bulk Inserts in Entity Framework](https://www.entityframeworktutorial.net/efcore/4-best-ways-to-do-bulk-inserts-in-entity-framework.aspx) and the EF Core documentation on [`AddRange`, `UpdateRange`, `AttachRange`, and `RemoveRange`](https://learn.microsoft.com/en-us/ef/core/change-tracking/miscellaneous#addrange-updaterange-attachrange-and-removerange).
 
-`SaveChanges()` is the standard way EF Core persists tracked changes to the database.
-The deeper you understand **ChangeTracker**, **transactions**, and common failure modes, the more predictable saving becomes.
+## Summary
 
-Next steps:
+`SaveChanges()` is the standard EF Core method for persisting tracked entity changes.
 
-* [Adding Data](/saving/adding-data)
-* [Modifying Data](/saving/modifying-data)
-* [Deleting Data](/saving/deleting-data)
+In practice, the most important ideas are:
 
+* tracked changes are only persisted when `SaveChangesAsync()` runs
+* inserts, updates, and deletes can be combined in a single save operation
+* `SaveChangesAsync(bool acceptAllChangesOnSuccess)` gives you more control in advanced scenarios
+* the method works best for tracked entity workflows, not every database write pattern
+
+If you need more depth, the related pages below cover the most important save scenarios in more detail.
+
+## Related Articles
+
+If you want to explore the most closely related save scenarios, the following pages are a good next step:
+
+* [Adding Data](/saving/adding-data) — how to insert new entities, including `Add`, `AddRange`, and related entities
+* [Updating Data](/saving/modifying-data) — how to update existing entities in tracked and disconnected scenarios
+* [Deleting Data](/saving/deleting-data) — how to remove entities with `Remove` and `RemoveRange`
+* [Connected Entities](/saving/save-changes-connected-entities) — how EF Core behaves when entities are already tracked by the current context
+* [Change Tracker](/saving/change-tracker) — how EF Core tracks entity states and detects changes
 
 ## FAQ
 
-**Does AddRange perform a BulkInsert?**
+### What does SaveChanges return in EF Core?
 
-No, this is a common misconception often found in articles and AI-generated content.
+It returns the number of tracked entries written during the save operation.
 
-Using `Add` or `AddRange` does not change how entities are inserted. Only the database provider affects how inserts are executed. For example, SQL Server can use multiple row inserts, while most other providers execute multiple INSERT statements in the same command.
+### Does SaveChanges always run inside a transaction?
 
-Since `DetectChanges` is now called when `SaveChanges()` is executed (unlike EF6), both methods usually have very similar performance, as shown in this [article](https://www.entityframeworktutorial.net/efcore/4-best-ways-to-do-bulk-inserts-in-entity-framework.aspx).
+By default, EF Core uses a transaction during save operations to avoid partial updates.
 
-Even Microsoft clearly states in its own [documentation](https://learn.microsoft.com/en-us/ef/core/change-tracking/miscellaneous#addrange-updaterange-attachrange-and-removerange) that there is no significant performance benefit
+### Why do I get `DbUpdateException`?
 
-**What does SaveChanges return in EF Core?**
+Usually because the database rejected one of the generated commands, for example due to a constraint violation, invalid data, or another database-side error.
 
-It returns the number of state entries written to the database.
+### Why do I get `DbUpdateConcurrencyException`?
 
-**Does SaveChanges always run inside a transaction?**
-
-Yes, this is the default behavior.
-
-**Why do I get DbUpdateException?**
-
-Usually because the database rejected a command (constraint violation, invalid data, SQL error, etc.).
-
-**Why do I get DbUpdateConcurrencyException?**
-
-Because an expected UPDATE/DELETE affected 0 rows (data changed since it was loaded or concurrency tokens didn’t match).
-
-**Why is SaveChanges slow when I track many entities?**
-
-Tracking and change detection add overhead. Large graphs and long-lived contexts can increase that overhead significantly.
+Usually because an expected update or delete affected no rows, often because the data changed in the database after it was originally loaded.
