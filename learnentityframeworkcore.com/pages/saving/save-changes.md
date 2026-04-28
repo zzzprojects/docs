@@ -3,7 +3,7 @@ title: EF Core SaveChanges - How Data Is Persisted (Tracking, Transactions, and 
 description: Learn what SaveChanges does in Entity Framework Core, how it uses the ChangeTracker, what happens under the hood, transaction behavior, common scenarios, performance tips, and FAQs.
 canonical: /saving/save-changes
 status: Published
-lastmod: 2026-04-22
+lastmod: 2026-04-24
 ---
 
 # SaveChanges in EF Core: How to Persist Changes
@@ -11,8 +11,6 @@ lastmod: 2026-04-22
 `SaveChanges()` is the EF Core method used to persist tracked changes from the current `DbContext` to the database. In modern applications, `SaveChangesAsync()` is usually the preferred variant.
 
 Those changes can include inserts, updates, and deletes. If you want to go deeper into each operation, see [Adding Data](/saving/adding-data), [Updating Data](/saving/modifying-data), and [Deleting Data](/saving/deleting-data).
-
-If tracking is misunderstood, saving can feel unpredictable because EF Core only persists changes for entities tracked by the current context.
 
 As shown later in this page, multiple operations can also be [combined in a single save](#mix-multiple-operations).
 
@@ -34,7 +32,7 @@ await context.SaveChangesAsync();
 
 ## SaveChangesAsync(bool acceptAllChangesOnSuccess)
 
-`SaveChangesAsync()` also provides an overload that lets you control whether EF Core should automatically accept tracked changes after a successful save.
+`SaveChangesAsync()` also provides an overload that lets you control whether EF Core should automatically call `AcceptAllChanges()` after a successful save. In most cases, the default behavior is the right choice. For more details about how this affects tracked entity states, see [What does AcceptAllChanges do?](#what-does-acceptallchanges-do).
 
 ```csharp
 using var context = new AppDbContext();
@@ -64,7 +62,7 @@ var rowsAffected = await context.SaveChangesAsync(); // return 1
 
 In this example, `rowsAffected` contains the value `1` returned by the save operation.
 
-This is often useful for basic validation, diagnostics, or logging, but it should not be interpreted as a full replacement for database-level execution details.
+This is often useful for basic validation, diagnostics, or logging, especially when you want to confirm that a tracked save actually wrote something. However, it should not be treated as a full replacement for database-level execution details.
 
 ## Common Save Scenarios
 
@@ -169,7 +167,9 @@ At a high level, `SaveChangesAsync()` reads the changes currently tracked by the
 
 EF Core uses the current `DbContext` to track entity instances and their states through the [ChangeTracker](/saving/change-tracker). Before saving, it determines which tracked entities were added, modified, or marked for deletion.
 
-That is why the examples in this article follow the same basic pattern:
+If tracking is misunderstood, saving can feel unpredictable because EF Core only persists changes for entities tracked by the current context.
+
+That is why the examples in this article follow the same pattern:
 
 * add a new entity
 * modify a tracked entity
@@ -206,7 +206,15 @@ If the save succeeds, EF Core normally accepts the tracked changes automatically
 
 Inserted or updated tracked entities typically move to an `Unchanged` state after a successful save. Deleted entities are typically detached.
 
-When you call `SaveChangesAsync(false)`, EF Core still sends the changes to the database, but it does not automatically perform that acceptance step afterward.
+For a closer look at that acceptance step and how `acceptAllChangesOnSuccess` affects it, see [What does AcceptAllChanges do?](#what-does-acceptallchanges-do).
+
+### What does AcceptAllChanges do?
+
+`AcceptAllChanges()` tells EF Core to accept the current tracked changes as the new baseline after the data has been successfully saved.
+
+In practice, entities that were marked as `Added`, `Modified`, or `Deleted` are updated in the `ChangeTracker` so they are no longer treated as pending changes. Inserted or updated entities typically become `Unchanged`, while deleted entities are typically detached.
+
+By default, `SaveChanges()` and `SaveChangesAsync()` perform this step automatically after a successful save. If you pass `false` to `acceptAllChangesOnSuccess`, EF Core still sends the commands to the database, but it skips that acceptance step so you can handle it manually.
 
 ### Returns the number of written entries
 
@@ -273,7 +281,7 @@ Use `SaveChangesAsync()` when your workflow is centered on tracked entities. Use
 
 Use `SaveChangesAsync()` when the delete is part of a normal tracked entity workflow. Use `ExecuteDeleteAsync()` when you want a direct database-side delete based on a query.
 
-## External Resources
+## External Resources - SaveChanges
 
 The following resources are useful if you want to go deeper into how EF Core persists changes, how the `ChangeTracker` influences saving behavior, and why some `SaveChanges()` patterns scale better than others.
 
@@ -335,9 +343,7 @@ In practice, the most important ideas are:
 * tracked changes are only persisted when `SaveChangesAsync()` runs
 * inserts, updates, and deletes can be combined in a single save operation
 * `SaveChangesAsync(bool acceptAllChangesOnSuccess)` gives you more control in advanced scenarios
-* the method works best for tracked entity workflows, not every database write pattern
-
-If you need more depth, the related pages below cover the most important save scenarios in more detail.
+* the method is designed for tracked entity workflows, not every possible database write pattern
 
 ## Related Articles
 
