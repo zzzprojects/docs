@@ -7,3 +7,5 @@
    - [Eval Manager](eval-manager.md)
    - [Options](options.md)
    - [Register/Unregister](register-unregister.md)
+- Articles
+   - [Custom Syntax](custom-syntax.md)
