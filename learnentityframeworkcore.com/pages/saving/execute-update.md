@@ -474,13 +474,13 @@ Keep `SetProperty()` expressions simple and SQL-translatable.
 
 ## ExecuteUpdate Release History
 
-* **EF Core 10.0:**
+* **EF Core 10:**
   * [JSON support](https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-10.0/whatsnew#executeupdate-support-for-relational-json-columns): Added `ExecuteUpdate` support for relational JSON columns, allowing efficient bulk updates of JSON properties when mapped as complex types.
   * [Easier dynamic updates](https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-10.0/whatsnew#executeupdateasync-now-accepts-a-regular-non-expression-lambda): `ExecuteUpdateAsync` now accepts a regular lambda (not only expression trees), making dynamic and conditional updates much easier to write.
-* [EF Core 9.0](https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-9.0/whatsnew#executeupdate): Improved `ExecuteUpdate` to support complex type properties.
-* [EF Core 8.0](https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-8.0/whatsnew#better-executeupdate-and-executedelete): Improved `ExecuteUpdate` and `ExecuteDelete` to support more complex queries (owned types, unions, and TPT), as long as all updates target a single database table.
-* [EF Core 7.0](https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-7.0/whatsnew#executeupdate-and-executedelete-bulk-updates): Introduced `ExecuteUpdate` and `ExecuteDelete`.
-* **EF Core 2.0+:** For older versions of EF Core or if you prefer the syntax provided by EF Extensions over using `SetProperty`, you can use [UpdateFromQuery](https://entityframework-extensions.net/update-from-query).
+* [EF Core 9](https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-9.0/whatsnew#executeupdate): Improved `ExecuteUpdate` to support complex type properties.
+* [EF Core 8](https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-8.0/whatsnew#better-executeupdate-and-executedelete): Improved `ExecuteUpdate` and `ExecuteDelete` to support more complex queries (owned types, unions, and TPT), as long as all updates target a single database table.
+* [EF Core 7](https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-7.0/whatsnew#executeupdate-and-executedelete-bulk-updates): Introduced `ExecuteUpdate` and `ExecuteDelete`.
+* **EF Core 2+:** For older versions of EF Core or if you prefer the syntax provided by EF Extensions over using `SetProperty`, you can use [UpdateFromQuery](https://entityframework-extensions.net/update-from-query).
 
 `ExecuteUpdateAsync()` was introduced in EF Core 7.
 
@@ -590,4 +590,4 @@ Use `ExecuteUpdateAsync()` when you want to update rows directly in the database
 
 ### Is ExecuteUpdateAsync the same as BulkUpdate?
 
-No. `ExecuteUpdateAsync()` is a set-based update API. A bulk update library is usually better when each row has different values coming from a list of entities in memory.
+No. `ExecuteUpdateAsync()` is a set-based update API. A [bulk update](https://entityframework-extensions.net/bulk-update) library is usually better when each row has different values coming from a list of entities in memory.
