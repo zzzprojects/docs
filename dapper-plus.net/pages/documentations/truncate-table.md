@@ -16,7 +16,7 @@ Truncate a table that is [mapped](/mapping) with Dapper Plus.
 
 ```csharp
 // @nuget: Z.Dapper.Plus
-using Z.Dapper.Plus;
+using Z.Dapper.Sql;
 
 DapperPlusManager.Entity<EntitySimple>().Table("MyTableName");
 
@@ -30,7 +30,7 @@ Truncate a table that uses a [mapping key](/mapping-key).
 
 ```csharp
 // @nuget: Z.Dapper.Plus
-using Z.Dapper.Plus;
+using Z.Dapper.Sql;
 
 DapperPlusManager.Entity<EntitySimple>("MyMappingKey").Table("MyTableName");
 
@@ -56,7 +56,7 @@ Truncate a table by specifying some options related to the database provider.
 
 ```csharp
 // @nuget: Z.Dapper.Plus
-using Z.Dapper.Plus;
+using Z.Dapper.Sql;
 
 // SQL Server
 connection.TruncateTable<EntitySimple>(
