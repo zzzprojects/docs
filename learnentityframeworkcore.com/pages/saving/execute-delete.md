@@ -522,7 +522,7 @@ Key points:
 
 Use `SaveChangesAsync()` when you need the normal tracked entity delete workflow.
 
-Use [BulkDelete](https://entityframework-extensions.net/) from Entity Framework Extensions when the rows to delete come from an entity list or key list in memory, or when you need advanced bulk options.
+Use [BulkDelete](https://entityframework-extensions.net/bulk-delete) from Entity Framework Extensions when the rows to delete come from an entity list or key list in memory, or when you need advanced bulk options.
 
 ## Related Articles
 
@@ -562,4 +562,4 @@ Use `ExecuteDeleteAsync()` when you want to delete rows directly in the database
 
 ### Is ExecuteDeleteAsync the same as BulkDelete?
 
-No. `ExecuteDeleteAsync()` is a set-based delete API. A [BulkDelete](https://entityframework-extensions.net/) (from EF Extensions) is a better option when the rows to delete come from a list of entities or keys in memory.
+No. `ExecuteDeleteAsync()` is a set-based delete API. A [BulkDelete](https://entityframework-extensions.net/bulk-delete) (from EF Extensions) is a better option when the rows to delete come from a list of entities or keys in memory.
