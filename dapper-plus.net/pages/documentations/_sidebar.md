@@ -8,12 +8,14 @@
    - [Bulk Merge/Upsert](/bulk-merge)
    - [Bulk Synchronize](/bulk-synchronize)
    - [Options/UseBulkOptions](/options)
-- FREE Methods
-   - [Create Table](/create-table)
+- FREE Single Methods
    - [Single Insert](/single-extensions-methods#single-insert)
    - [Single Update](/single-extensions-methods#single-update)
    - [Single Delete](/single-extensions-methods#single-delete)
    - [Single Merge/Upsert](/single-extensions-methods#single-merge)
+- FREE Utilities Methods
+   - [Create Table](/create-table)
+   - [Truncate Table](/truncate-table)
 - [Dapper Plus Context](/dapper-plus-context)
 - [Dapper Plus Manager](/dapper-plus-manager)
 - [Data Source](/data-source)
