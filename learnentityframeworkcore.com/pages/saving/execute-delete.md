@@ -3,7 +3,7 @@ title: EF Core ExecuteDelete (EF Core 7–10) – Set-Based Bulk Deletes
 description: Discover how to use the ExecuteDelete method starting from EF Core 7 to delete database rows efficiently—no tracking, no SaveChanges needed.
 canonical: /saving/execute-delete
 status: Published
-lastmod: 2026-04-07
+lastmod: 2026-05-04
 ---
 
 # EF Core Execute Delete
@@ -302,7 +302,7 @@ He covers everything from project setup, traditional pitfalls, and how this new 
 
 You can download the project source code here: [Ef7-Bulk-Actions](https://github.com/JasperKent/Ef7-Bulk-Actions)
 
-#### Core 7 – Performance Improvements With the New ExecuteUpdate & ExecuteDelete, por Milan Jovanović
+#### Core 7 – Performance Improvements With the New ExecuteUpdate & ExecuteDelete, by Milan Jovanović
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/VYitXAc_htI?si=SbQjx3-iJPxCjRcY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
@@ -318,7 +318,7 @@ In the final section, Milan shows how ExecuteDelete removes multiple records in 
 - [10:45](https://www.youtube.com/watch?v=VYitXAc_htI&t=645s) – Final explanation of the direct “range delete” behavior
 
 
-#### Entity Framework 7 Makes Performing UPDATES and DELETES Easy!, por Israel Quiroz
+#### Entity Framework 7 Makes Performing UPDATES and DELETES Easy!, by Israel Quiroz
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/yDFwJ7JfG3s?si=MkVDh5sv3lP5Hw-1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
@@ -332,7 +332,7 @@ Israel demonstrates how ExecuteDeleteAsync removes entities directly in the data
 - [02:40](https://www.youtube.com/watch?v=yDFwJ7JfG3s&t=160s) – One database round-trip vs multiple calls
 - [04:40](https://www.youtube.com/watch?v=yDFwJ7JfG3s&t=280s) – Runs without loading or tracking entities
 
-#### 🎥 (SPANISH) Borrado y Actualizaciones Masivas – Nuevo de EF Core 7, por Felipe Gavilan
+#### 🎥 (SPANISH) Borrado y Actualizaciones Masivas – Nuevo de EF Core 7, by Felipe Gavilan
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/o9B3pxVpPIY?si=FeEfhtc2FFGeOjv9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
@@ -346,7 +346,7 @@ Felipe shows how ExecuteDelete removes thousands of rows directly in SQL Server 
 - [08:31](https://www.youtube.com/watch?v=o9B3pxVpPIY&t=511s) – Starting stopwatch for performance comparison
 - [09:31](https://www.youtube.com/watch?v=o9B3pxVpPIY&t=571s) – Final numbers: 100k deletes (8s → 0.2s)
 
-#### Do You Know The Fastest Way To Delete Data With EF Core?, por Milan Jovanović
+#### Do You Know The Fastest Way To Delete Data With EF Core?, by Milan Jovanović
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/hSSatvEOp3w?si=hF9Ha3fTBT2gg9tE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
