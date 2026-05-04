@@ -1,6 +1,12 @@
+---
+Title: My First Evaluation with C# Eval Expression | Getting Started
+MetaDescription: Learn how to evaluate C# expressions at runtime with variables, return types, and dynamic strings using Eval. Simple, powerful, and flexible guide.
+LastMod: 2026-05-04
+---
+
 # My First Evaluation with C# Eval Expression
 
-C# is a powerful programming language, but it does not include an **eval** method like some other languages, such as [JavaScript](https://riptutorial.com/javascript/topic/7080/evaluating-javascript).
+C# is a powerful programming language, but it does not include an **eval** method like some other languages, such as [JavaScript](https://www.w3schools.com/jsref/jsref_eval.ASP).
 
 The C# Eval Expression library is the best solution to overcome this limitation. It lets you quickly evaluate code at runtime with very little code on your side.
 

@@ -1,21 +1,23 @@
 ---
-Title: Compile C# Code at Runtime - Get Started with your First Compilation
-MetaDescription: Learn how to compile a C# expression at runtime with parameter, return type, and from a dynamic string expression.
-LastMod: 2025-08-19
+Title: My First Compilation with C# Eval Expression | Getting Started
+MetaDescription: Learn how to compile C# expressions at runtime for massive performance gains. Discover variables, return types, and dynamic execution tips.
+LastMod: 2026-05-04
 ---
 
 # My First Compilation with C# Eval Expression
 
-In this tutorial, we will assume that you have read and understood the concept we introduced in the [My First Evaluation](/my-first-evaluation) tutorial. If you have not read it, make sure you start with this previous tutorial, as we might skip the explanation of a few concepts.
+In this tutorial, we will assume that you have read and understood the concept we introduced in the [My First Evaluation](/my-first-evaluation) getting started. If you have not read it yet, make sure you start with this previous tutorial, as we might skip the explanation of a few concepts.
 
-So what is the major difference between executing and compiling dynamic code?
+So, what is the major difference between executing and compiling dynamic code?
 
-- The `Compile` method will compile the expression into a method
-- The `Execute` method calls the `Compile` method under the hood and then executes the returned compiled method.
+- The `Compile` method compiles the expression into a method
+- The `Execute` method calls the `Compile` method under the hood, and then executes the returned compiled method.
 
-When executing the same expression with the `Execute` method multiple times, it is fast as we retrieve the compiled method from the cache. However, it still takes some time, as we need to create a cache key that has a performance cost. So when you need to execute the same expression multiple times, you should store the compiled method in a local or static variable.
+When executing the same expression multiple times with the `Execute` method, it is already fast, as we retrieve the compiled method from the cache. 
 
-How much faster? Using directly the compiled method returned from the `Compile` can be 1000x quicker than using the `Execute` method. It surely doesn't make any difference if you are only looping on 10 items, as both ways, it will take nearly 0ms. However, if you need to evaluate millions of items, it makes a massive difference between a few milliseconds and seconds.
+However, it still takes some time because we need to create a cache key, which has a performance cost. So when you need to execute the same expression multiple times, you should store the compiled method in a local or static variable.
+
+How much faster? Using directly the compiled method returned from the `Compile` directly can be 1000x faster than using the `Execute` method. It surely does not make any difference if you are only looping over 10 items, as both ways, it will take nearly 0ms. However, if you need to evaluate millions of items, it makes a massive difference between a few milliseconds and a few seconds.
 
 {% include component-try-it.html href='https://dotnetfiddle.net/W2qpBX' %}
 
@@ -31,7 +33,7 @@ In this tutorial, you will learn how to use our library to:
 
 Like the `Execute` method, the `Compile` method takes as the first parameter the expression to compile.
 
-In this example, we will dynamically create a list of `int` and filter it using LINQ to return only items greater than 2. The expression will be compiled into a method and then executed. The `Func<List<int>>` return type will be explained in the next example.
+In this example, we dynamically create a list of `int` and filter it using LINQ to return only items greater than 2. The expression is compiled into a method and then executed. The `Func<List<int>>` return type will be explained in the next example.
 
 ```csharp
 // @nuget: Z.Expressions.Eval
@@ -50,16 +52,16 @@ var list = compiled();
 
 ## Compile a C# expression with return type
 
-In the last example, we successfully compiled an expression, but what exactly was the `Func<List<int>>` for?
+In the last example, we successfully compiled an expression, but what exactly is the `Func<List<int>>` for?
 
-The `Func<List<int>>` means that the `Compile` method should create a method that takes no parameter and returns a `List<int>`. Usually, the `Compile` method takes either an `Action` or `Func`.
+The `Func<List<int>>` means that the `Compile` method should create a method that takes no parameters and returns a `List<int>`. Usually, the `Compile` method takes either an `Action` or a `Func`.
 
 - An `Action` should be used when the method doesn't return any type (like when you create a `void` method).
-- A `Func` should be used when the compiled method should return a specific type
+- A `Func` should be used when the compiled method should returns a specific type
 
 You can learn more about [Action](https://learn.microsoft.com/en-us/dotnet/api/system.action-1) and [Func](https://learn.microsoft.com/en-us/dotnet/api/system.func-2) on the official Microsoft documentation and Google.
 
-We will re-use the same previous example as we now understand how you can specify a return type to the created method.
+We will reuse the same previous example as we now understand how to specify a return type for created method.
 
 ```csharp
 // @nuget: Z.Expressions.Eval
@@ -80,7 +82,7 @@ var list = compiled();
 
 With the 2 previous topics, you should now be able to compile an expression and understand how to return the type of the compiled method.
 
-However, almost every time, the compiled method would also have parameters.
+However, almost every time, the compiled method will also have parameters.
 
 There are multiple ways to pass variable names, such as:
 
@@ -131,7 +133,7 @@ var greaterThan = 2;
 
 ## Compile a C# expression from a string
 
-Our library added syntactic sugar to extend the string type with the `Execute` method. As you can expect, our library also extends the string type with the `Compile` method.
+Our library adds syntactic sugar to extend the `string` type with the `Execute` method. As you can expect, our library also extends the `string` type with the `Compile` method.
 
 There is no difference here between calling `Eval.Compile` and `"the_string_expression".Compile`. Both call the same method under the hood.
 
@@ -190,8 +192,8 @@ for(int i = 0; i < 4; i++)
 
 The method `GreaterThan` only exists for this context. That means the `Eval.Compile` is unaware and cannot use this method.
 
-## Conclusion
+## Summary
 
 In this getting started tutorial, you learned how to use the `Compile` method with an expression to return a compiled method.
 
-Using the [Compile](/eval-compile) method is a little bit more complex than the [Execute](eval-execute) method to understand. However, make sure you take the time to really learn it, as this is an essential method to master to make sure you take advantage of the performance benefit this method offers.
+Using the [Compile](/eval-compile) method is a little bit more complex than the [Execute](eval-execute) method to understand. However, make sure you take the time to really learn it, as it is an essential method to master to make sure you take advantage of the performance benefits this method offers.
