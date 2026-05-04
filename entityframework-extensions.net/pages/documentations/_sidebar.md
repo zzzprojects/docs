@@ -31,6 +31,7 @@
    - [ForceValueGeneratedStrategy](options-summary/forcevaluegeneratedstrategy.md)
    - [Key](options-summary/key.md)
    - [Logging](options-summary/logging.md)     
+   - [Model Caching](options-summary/model-caching.md)     
    - [Rows Affected](options-summary/rows-affected.md)
    - [Streaming](options-summary/streaming.md)
    - [Temporary Table](options-summary/temporary-table.md)
