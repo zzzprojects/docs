@@ -1,12 +1,12 @@
 ---
 Title: Additional EF Core & EF6 Features Beyond Bulk Operations
 MetaDescription: Discover EF Extensions features beyond bulk operations: BulkSaveChanges, BatchSaveChanges, from-query methods, and advanced Where methods.
-LastMod: 2025-12-20
+LastMod: 2026-05-05
 ---
 
 # Entity Framework Additional Features
 
-We have seen in the [previous getting started](/tutorial-bulk-operations) article that **Entity Framework Extensions (EF Extensions)** extends EF Core and EF6 with bulk operations.
+We have seen previously that **Entity Framework Extensions (EF Extensions)** [extends EF Core and EF6 with bulk operations](/tutorial-bulk-operations).
 
 Bulk operations are usually the first reason people start using EF Extensions.
 
@@ -47,6 +47,17 @@ context.BulkSaveChanges();
 // Easy to customize
 context.BulkSaveChanges(options => options.BatchSize = 100);
 ```
+
+`BulkSaveChanges` supports everything that `SaveChanges` supports:
+
+* Associations (one-to-one, one-to-many, many-to-many, etc.)
+* Owned types
+* Complex types
+* Enums
+* Inheritance (TPC, TPH, TPT)
+* Navigation properties
+* Self-hierarchy
+* And more
 
 Learn more about [BulkSaveChanges](/bulk-savechanges).
 
@@ -119,8 +130,8 @@ context.Customers
 
 For people using **EF Core 7+**, you can alternatively use the built-in methods:
 
-* [ExecuteUpdate](https://www.learnentityframeworkcore.com/dbset/execute-update)
-* [ExecuteDelete](https://www.learnentityframeworkcore.com/dbset/execute-delete)
+* [ExecuteUpdate](https://www.learnentityframeworkcore.com/saving/execute-update)
+* [ExecuteDelete](https://www.learnentityframeworkcore.com/saving/execute-delete)
 * (No built-in method is available to replace `InsertFromQuery`)
 
 ## Where Methods

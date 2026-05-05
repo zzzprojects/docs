@@ -1,7 +1,7 @@
 ---
 Title: How to Configure Options in Entity Framework Extensions
 MetaDescription: Learn how to configure Entity Framework Extensions options using lambdas, instances, and global settings to write cleaner, flexible, high-performance code.
-LastMod: 2025-12-17
+LastMod: 2026-05-05
 ---
 
 # EF Extensions - Configuring Options
@@ -164,12 +164,13 @@ EntityFrameworkManager.BulkOperationBuilder = builder => {
    builder.BatchSize = 1000;
 };
 
+// ❌ Don't assign it again like this (it overrides previous options)
 EntityFrameworkManager.BulkOperationBuilder = builder => {
    builder.BatchTimeout = 60;
 };
 ```
 
-To fix this, make sure you configure everything within the same builder. Global options are typically configured once during application startup.
+To fix this, make sure you configure everything within the same builder using a [Code block](#single-line-expression-vs-code-block). Global options are typically configured once during application startup.
 
 ```csharp
 // @nuget: Z.EntityFramework.Extensions.EFCore

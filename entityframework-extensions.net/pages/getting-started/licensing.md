@@ -1,12 +1,13 @@
 ---
 Title: Entity Framework Extensions Licensing
 MetaDescription: Learn about how to add the license from the code or config file for the Entity Framework Extensions library. Learn how to validate the license was correctly added.
-LastMod: 2025-12-17
+LastMod: 2026-05-05
 ---
 
 # EF Extensions - Licensing
 
-If you have purchased a license, you should **always call the `ValidateLicense` method**.
+If you have purchased a license, you should **always call the [ValidateLicense](#how-can-i-check-if-my-license-is-valid) method**.
+
 This prevents unexpected issues caused by a [trial expired error](/trial#you-purchased-a-license-but-didnt-add-the-license-correctly) in your production environment.
 
 ## Is Entity Framework Extensions free?
@@ -126,7 +127,11 @@ However, you can use our library for free in your personal or academic projects 
 
 So, technically, you can use it for free for personal or school projects. However, for commercial purposes, [purchasing a license](/pricing) is always required.
 
-## Summary & Best Practices
+If you really need a license, reach out to us directly and discover the special offers we have available for personal or academic usage.
+
+Contact us at sales@zzzprojects.com to learn more about the discounts and deals we can offer you.
+
+## Summary
 
 Before deploying to production, always ensure that:
 

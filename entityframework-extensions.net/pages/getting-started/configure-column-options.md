@@ -1,7 +1,7 @@
 ---
 Title: How to Configure Column Options in Entity Framework Extensions
 MetaDescription: Learn how to configure Column Options in Entity Framework Extensions to control which columns are used, include or exclude properties, set custom primary keys, and apply custom SQL formulas for insert, update, and merge operations.
-LastMod: 2025-12-17
+LastMod: 2026-05-05
 ---
 
 # EF Extensions - Configuring Column Options
@@ -17,7 +17,7 @@ In this article, we’ll go deeper and explain the basics of **Column Options**,
 
 For many options, we offer **three different suffixes**:
 
-* **Expression** — Define the mapping using either a **simple lambda expression** or a **lambda with a body**
+* **Expression** — Define the mapping using either a [Single Property Selector or Anonymous Object Selector](/configure-options#single-property-selector-vs-anonymous-object-selector)
 * **Names** — Pass a `List<string>` containing property names as strings
 * **Formula** — Use hardcoded SQL to take full control over that part of the query
 
@@ -37,20 +37,21 @@ For example, you can use either `ColumnPrimaryKeyExpression` **or** `ColumnPrima
 
 Options with the **"Expression"** suffix, like `ColumnPrimaryKeyExpression`, let you define the mapping using either:
 
-* A **simple lambda expression** — can only be used when mapping **one property**
-* A **lambda with a body** — can be used to map **one or more properties**
+* A **Single Property Selector (simple lambda expression)** — can only be used when mapping **one property**
+* A **Anonymous Object Selector (lambda with a body)** — can be used to map **one or more properties**
 
 ```csharp
 // @nuget: Z.EntityFramework.Extensions.EFCore
 using Z.EntityFramework.Extensions;
 
-// Single property (simple lambda)
+// Single Property Selector (simple lambda expression)
 context.BulkUpdate(list, options =>
 {
     options.ColumnPrimaryKeyExpression = x => x.ID;
 });
 
-// Multiple properties (lambda with a body)
+// Anonymous Object Selector (lambda with a body)
+// Multiple Properties
 context.BulkUpdate(list, options =>
 {
     options.ColumnPrimaryKeyExpression = x => new { x.ID, x.ID2 };

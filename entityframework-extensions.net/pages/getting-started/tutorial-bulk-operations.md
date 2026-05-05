@@ -1,21 +1,21 @@
 ---
 Title: Entity Framework Bulk Operations for EF Core & EF6 (95% Faster)
 MetaDescription: Learn how EF Extensions adds bulk insert, update, delete, merge, and sync for EF Core & EF6—cut SaveChanges time by up to 95%.
-LastMod: 2025-12-19
+LastMod: 2026-05-05
 ---
 
 # Entity Framework Bulk Operations
 
 Entity Framework Extensions (EF Extensions) extends EF Core and EF6 by adding bulk operations.
 
-Bulk operations let you **insert, update, delete, merge, or synchronize many rows** in the database **much faster** than `SaveChanges`.
+Bulk operations let you **insert, update, delete, merge, or synchronize many rows** in the database **much faster** than [SaveChanges](https://www.learnentityframeworkcore.com/saving/save-changes).
 
 There are **two main reasons** why you would want to use bulk operations instead of `SaveChanges`:
 
 * [For performance](#bulk-operations-performance): Reduce saving time by **up to 95%** with real bulk operations
 * [For flexibility](#bulk-operations-flexibility): **Hundreds of options** to fully control how data is saved
 
-These reasons are why EF Extensions provides multiple bulk operations, each designed for a specific scenario.
+These main reasons are why EF Extensions provides multiple bulk operations, each designed for a specific scenario.
 
 There are **6 bulk operation methods** available:
 
@@ -117,7 +117,7 @@ This is only a **small subset** of all available options.
 // Include related entities
 context.BulkMerge(customers, options =>
 {
-	options.ColumnInputExpression = x => new { x.FirstName, x.LastName };
+    options.ColumnInputExpression = x => new { x.FirstName, x.LastName };
     options.IncludeGraph = true;
 });
 
@@ -141,5 +141,5 @@ Each bulk method targets a specific scenario and can be customized with many opt
 
 To go further, the next step is to learn how to configure bulk operations in detail:
 
-* **[Configure Options](/configure-options)** — Learn how to configure options using lambdas, option instances, and global settings.
-* **[Configure Column Options](/configure-column-options)** — Learn how to control which columns are used, ignored, or customized during bulk operations.
+* **[Configure Options](/configure-options):** Learn how to configure options using lambdas, option instances, and global settings.
+* **[Configure Column Options](/configure-column-options):** Learn how to control which columns are used, ignored, or customized during bulk operations.

@@ -1,12 +1,10 @@
 ---
 Title: Getting Started with Entity Framework Extensions (EF Core & EF6)
 MetaDescription: Learn how to get started with Entity Framework Extensions. Install, configure, and use bulk operations and BulkSaveChanges with EF Core & EF6.
-LastMod: 2025-12-17
+LastMod: 2026-05-05
 ---
 
-# EF Extensions - Overview
-
-## What is Entity Framework Extensions?
+# What is Entity Framework Extensions?
 
 **Entity Framework Extensions** is a library that dramatically improves EF Core and EF6 saving performance by using bulk operations.
 
@@ -26,6 +24,7 @@ using Z.EntityFramework.Extensions;
 
 // Easy to use
 context.BulkInsert(list);
+context.BulkInsertOptimized(list);
 context.BulkUpdate(list);
 context.BulkDelete(list);
 context.BulkMerge(list);
@@ -57,7 +56,7 @@ context.BulkMerge(customers, options =>
 
 ### Database providers
 
-* SQL Server 2008+
+* SQL Server
 * SQL Azure
 * SQL Compact
 * Oracle
@@ -74,27 +73,37 @@ Choose the package that matches your EF version (EF Core, EF6, EF5, or EF4), the
 
 Once installed, bulk extension methods are available directly on your `DbContext`.
 
-## EF Extensions - Bulk Operations
+## Main Features
+
+Entity Framework Extensions has three main method categories for your saving operations:
+
+* [Bulk operations](#bulk-operations)
+* [BulkSaveChanges](#bulksavechanges)
+* [Batch operations](#batch-operations)
+
+### Bulk Operations
 
 Entity Framework Extensions **bulk operations improve performance** by executing operations directly in the database.
 
 They also give you more control when saving data. You can customize options such as:
 
-* Primary keys
-* Columns to insert or update
-* Include graph (child entities)
-* Auditing
-* Logging
+* [Primary keys](/primary-key)
+* [Columns to insert or update](/input-output-ignore)
+* [Include graph (child entities)](/include-graph)
+* [Auditing](/audit)
+* [Logging](/logging)
 * And more
 
 Bulk operations are faster than `SaveChanges` and `BulkSaveChanges` because they:
 
 * Do not use the Change Tracker
 * Do not call the `DetectChanges` method
+* Do not require to call `SaveChanges` method
 
 **Available bulk operations:**
 
 * [BulkInsert](/bulk-insert)
+* [BulkInsertOptimized](/bulk-insert-optimized)
 * [BulkUpdate](/bulk-update)
 * [BulkDelete](/bulk-delete)
 * [BulkMerge](/bulk-merge) (UPSERT operation)
@@ -106,25 +115,26 @@ using Z.EntityFramework.Extensions;
 
 // Easy to use
 context.BulkInsert(list);
+context.BulkInsertOptimized(list);
 context.BulkUpdate(list);
 context.BulkDelete(list);
 context.BulkMerge(list);
+context.BulkSaveChanges();
 
 // Easy to customize
 context.BulkMerge(customers, options =>
-{
-    options.ColumnPrimaryKeyExpression = customer => customer.Code;
-});
+    options.ColumnPrimaryKeyExpression = customer => customer.Code);
 ```
 
 👉 Learn more: **[Getting Started with Bulk Operations](/tutorial-bulk-operations)**
 
-## EF Extensions - BulkSaveChanges
+### BulkSaveChanges
 
 The `BulkSaveChanges` method is an **upgraded version of `SaveChanges`**.
-It works exactly like `SaveChanges`, but faster.
 
-It executes all pending changes from the `ChangeTracker` using **bulk operations**, dramatically improving performance while keeping the same behavior you are used to.
+It works exactly like [SaveChanges](https://www.learnentityframeworkcore.com/saving/save-changes), but faster.
+
+It executes all pending changes from the `ChangeTracker` using **bulk operations**. It dramatically improve performance while keeping the same behavior you are used to.
 
 `BulkSaveChanges` supports everything that `SaveChanges` supports:
 
@@ -152,9 +162,9 @@ context.BulkSaveChanges();
 context.BulkSaveChanges(options => options.BatchSize = 100);
 ```
 
-👉 Learn more: **[Getting Started with BulkSaveChanges](/tutorial-bulk-savechanges)**
+👉 Learn more: **[Getting Started with BulkSaveChanges](/additional-features#bulksavechanges-method)**
 
-## EF Extensions - Batch Operations
+### Batch Operations
 
 Batch operations allow you to perform **INSERT**, **UPDATE**, and **DELETE** operations **directly in the database** using a LINQ query, without loading entities into the context.
 
@@ -167,7 +177,7 @@ Everything is executed on the database side to give you the **best performance p
 * [DeleteFromQuery](/delete-from-query)
 
 The `UpdateFromQuery` and `DeleteFromQuery` methods are similar to EF Core
-[`ExecuteUpdate` and `ExecuteDelete`](https://learn.microsoft.com/en-us/ef/core/saving/execute-insert-update-delete), but they use a **different syntax** and have been available long before these EF Core features were introduced.
+[ExecuteUpdate](https://www.learnentityframeworkcore.com/saving/execute-update) and [ExecuteDelete](https://www.learnentityframeworkcore.com/saving/execute-delete), but they use a **different syntax** and have been available long before these EF Core features were introduced.
 
 ```csharp
 // @nuget: Z.EntityFramework.Extensions.EFCore
@@ -190,11 +200,12 @@ context.Customers
     .DeleteFromQuery();
 ```
 
-👉 Learn more: **[Getting Started with Batch Operations](/tutorial-batch-operations)**
+👉 Learn more: **[Getting Started with Batch Operations](/additional-features#batchsavechanges-method)**
 
 ## Benchmark Results
 
 You can explore **real benchmark results** that compare Entity Framework Extensions with standard EF Core behavior.
+
 All benchmarks are reproducible and executed using realistic scenarios.
 
 Results are available **by database provider** and **by bulk operation** to help you evaluate performance for your own environment.
@@ -228,8 +239,8 @@ Entity Framework Extensions gives you **multiple ways to dramatically improve pe
 **Next steps:**
 
 * Start with **[Getting Started with Bulk Operations](/tutorial-bulk-operations)** if you need more control and advanced scenarios.
-* Explore **[Getting Started with BulkSaveChanges](/tutorial-bulk-savechanges)** if you want the easiest performance improvement.
-* Learn more about **[Getting Started with Batch Operations](/tutorial-batch-operations)** for set-based insert, updates and deletes.
-* Review the **[benchmarks](/benchmarks)** to see real performance numbers for your database provider.
+* Explore **[Getting Started with BulkSaveChanges](/additional-features#bulksavechanges-method)** if you want the easiest performance improvement.
+* Learn more about **[Getting Started with Batch Operations](/additional-features#batchsavechanges-method)** for set-based insert, updates and deletes.
+* Review the **[benchmarks](https://github.com/zzzprojects/EntityFramework-Extensions/blob/master/benchmark-result/efcore-result.md)** to see real performance numbers for your database provider.
 
 From there, you can progressively optimize only the parts of your application that need it most.
