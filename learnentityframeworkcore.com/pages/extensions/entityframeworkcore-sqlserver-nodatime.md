@@ -3,7 +3,7 @@ title: EntityFrameworkCore.SqlServer.NodaTime
 description: An introduction to EntityFrameworkCore.SqlServer.NodaTime
 canonical: /extensions/entityframeworkcore-sqlserver-nodatime
 status: Published
-lastmod: 2025-06-08
+lastmod: 2026-05-08
 ---
 
 # EntityFrameworkCore.SqlServer.NodaTime
@@ -225,7 +225,10 @@ await this.Db.RaceResult
 [![Dapper Plus](https://raw.githubusercontent.com/StevenRasmussen/EFCore.SqlServer.NodaTime/master/dapper-plus-sponsor.png)](https://dapper-plus.net/bulk-insert)
 
 ## Version History
-
+* 10.0.1 (May 8, 2026)
+  * Fixed: DateTime.UtcNow and other plain System.DateTime expressions without an entity-column anchor (e.g. Select(r => DateTime.UtcNow) or Where(r => dt >=
+    DateTime.UtcNow)) threw InvalidCastException when UseNodaTime() was registered. The type mapping plugin now defers to EF Core's default mapping source for
+    store-type-only lookups, instead of incorrectly returning the Instant mapping for datetime/datetime2.
 * 10.0.0 (November 13, 2025)
   * Release for EF Core 10 
 * 9.1.1 (July 5, 2025)
