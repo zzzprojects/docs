@@ -1,12 +1,12 @@
 ---
 Title: Bulk Update in EF Core with Entity Framework Extensions
 MetaDescription: The BulkUpdate method from Entity Framework Extensions is the most flexible way to update your entities in EF Core. It allows you to customize how your entities will be updated, such as by specifying a custom key, updating only a few properties, and much more. - try it now.
-LastMod: 2025-11-11
+LastMod: 2026-05-12
 ---
 
-# Entity Framework Bulk Update
+# EF Core Bulk Update with Entity Framework Extensions
 
-The `BulkUpdate` method from Entity Framework Extensions is the most flexible way to update your entities in EF Core. It allows you to customize how your entities will be updated, such as by specifying a custom key, updating only a few properties, and much more.
+The `BulkUpdate` method from Entity Framework Extensions is the most flexible way to update your entities in EF Core and EF6. You can customize exactly how entities are updated, such as by using a custom key, including related entities, updating only specific properties, and much more.
 
 ```csharp
 // @nuget: Z.EntityFramework.Extensions.EFCore
@@ -19,7 +19,124 @@ context.BulkUpdate(customers);
 context.BulkUpdate(customers, options => options.IncludeGraph = true);
 ```
 
-[Online Example (EF Core)](https://dotnetfiddle.net/Cwn8NC) | [Online Example (EF6)](https://dotnetfiddle.net/5wBlVh)
+[Online Example](https://dotnetfiddle.net/Cwn8NC)
+
+## Bulk Update Example
+
+### Update with a Custom Key
+
+The [ColumnPrimaryKeyExpression](/primary-key#using-columnprimarykeyexpression) and [ColumnPrimaryKeyNames](/primary-key#using-columnprimarykeynames) options let you match existing entities by using a custom key (or a combination of properties) instead of your entity's mapped primary key before performing the update.
+
+This is particularly useful when synchronizing data from an external system where your entity's primary key is not available.
+
+```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
+// Using `ColumnPrimaryKeyExpression`
+context.BulkUpdate(customers, options => options.ColumnPrimaryKeyExpression = c => c.Code);
+
+// Using `ColumnPrimaryKeyNames`
+var customKeys = new List<string>() { nameof(Customer.Code) };
+context.BulkUpdate(customers, options => options.ColumnPrimaryKeyNames = customKeys);
+```
+
+[Online Example](https://dotnetfiddle.net/YasxiY)
+
+### Update Only Specific Properties
+
+By default, `BulkUpdate` updates all mapped properties. You can use the following options to control exactly which properties are included in the update:
+
+* [ColumnInputExpression](/input-output-ignore#column-input) lets you specify only the properties you want to update.
+* [IgnoreOnUpdateExpression](/input-output-ignore#ignore-on-update-example) lets you exclude specific properties from the update.
+
+```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
+// Update only specific properties
+context.BulkUpdate(customers, options =>
+    options.ColumnInputExpression = c => new
+    {
+        c.Name,
+        c.Email
+    });
+
+// Ignore specific properties
+context.BulkUpdate(customers, options =>
+    options.IgnoreOnUpdateExpression = c => new
+    {
+        c.ModifiedDate,
+        c.RowVersion
+    });
+```
+
+[Online Example](https://dotnetfiddle.net/Enr2KP)
+
+### Update with Related Entities (Include Graph)
+
+Use this option when you want to update entities and automatically update all related entities (children, grandchildren, and more) linked through navigation properties.
+
+* [IncludeGraph](/include-graph): Automatically updates all related entities linked through navigation properties.
+* [IncludeGraphOperationBuilder](/include-graph#includegraphoperationbuilder): Lets you customize how a specific entity type is updated.
+
+```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
+context.BulkUpdate(invoices, options => options.IncludeGraph = true);
+```
+
+[Online Example](https://dotnetfiddle.net/Iciz2K)
+
+### Update with Future Action
+
+Use this option when you want to update entities later instead of executing the operation immediately.
+
+By default, `BulkUpdate` executes as soon as you call the method.
+
+With future actions, you can queue multiple bulk operations and execute them all at once later.
+
+* `FutureAction`: Adds a `BulkUpdate` operation to the pending action queue instead of executing it immediately.
+* `ExecuteFutureAction`: Executes all pending future actions.
+
+```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
+context.FutureAction(x => x.BulkUpdate(customers));
+context.FutureAction(x => x.BulkUpdate(invoices, options => options.IncludeGraph = true));
+
+// ...code...
+
+context.ExecuteFutureAction();
+```
+
+[Online Example](https://dotnetfiddle.net/i9pMsP)
+
+### Update with Rows Affected
+
+Use the [UseRowsAffected](/rows-affected) option to retrieve the number of rows affected by the `BulkUpdate` operation.
+
+This is useful when you need to verify how many rows were actually updated for logging, validation, or reporting.
+
+```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
+var resultInfo = new Z.BulkOperations.ResultInfo();
+
+context.BulkUpdate(customers, options =>
+{
+    options.UseRowsAffected = true;
+    options.ResultInfo = resultInfo;
+});
+
+int rowsAffected = resultInfo.RowsAffected;
+int rowsAffectedUpdated = resultInfo.RowsAffectedUpdated;
+```
+
+[Online Example](https://dotnetfiddle.net/REPLACE_ME)
 
 ## 🔑 Key Benefits
 
@@ -105,71 +222,6 @@ In EF6, the `SaveChanges` method sends one database round-trip for every single 
 👉 [Try our Online Benchmark](https://dotnetfiddle.net/xVwYDE)
 
 In other words, to update 5,000 entities, our `BulkUpdate` is about **30x faster**, reducing update time by **97%**.
-
-## Real Life Scenarios
-
-### Update and include/exclude properties
-You want to update your entities but only for specific properties.
-
-- `IgnoreOnUpdateExpression`: This option lets you ignore properties that are auto-mapped.
-
-```csharp  
-// @nuget: Z.EntityFramework.Extensions.EFCore
-using Z.EntityFramework.Extensions;
-          
-context.BulkUpdate(customers, options => options.IgnoreOnUpdateExpression = c => new { c.ColumnToIgnore } );
-```
-
-[Try it in EF Core](https://dotnetfiddle.net/Enr2KP) | [Try it in EF6](https://dotnetfiddle.net/R43wS0)
-
-### Update with custom key
-You want to update entities, but you don't have the primary key. The `ColumnPrimaryKeyExpression` lets you use as a key any property or combination of properties.
-
-```csharp
-// @nuget: Z.EntityFramework.Extensions.EFCore
-using Z.EntityFramework.Extensions;
-
-context.BulkUpdate(customers, options => options.ColumnPrimaryKeyExpression = c => c.Code);    
-```
-
-[Try it in EF Core](https://dotnetfiddle.net/YasxiY) | [Try it in EF6](https://dotnetfiddle.net/La7vr8)
-
-### Update with related child entities (Include Graph)
-You want to update entities but also automatically insert related child entities.
-
-- `IncludeGraph`: This option lets you automatically update all entities part of the graph.
-- `IncludeGraphBuilder`: This option lets you customize how to update entities for a specific type.
-
-```csharp
-// @nuget: Z.EntityFramework.Extensions.EFCore
-using Z.EntityFramework.Extensions;
-
-context.BulkUpdate(invoices, options => options.IncludeGraph = true);
-```
-
-[Try it in EF Core](https://dotnetfiddle.net/Iciz2K) | [Try it in EF6](https://dotnetfiddle.net/PAVo4c)
-
-### Update with future action
-You want to update entities, but you want to defer the execution.
-
-By default, `BulkUpdate` is an immediate operation. That means, it's executed as soon as you call the method.
-
-`FutureAction`: This option lets you defer the execution of a Bulk Update.
-`ExecuteFutureAction`: This option triggers and executes all pending `FutureAction`.
-
-```csharp
-// @nuget: Z.EntityFramework.Extensions.EFCore
-using Z.EntityFramework.Extensions;
-
-context.FutureAction(x => x.BulkUpdate(customers));
-context.FutureAction(x => x.BulkUpdate(invoices, options => options.IncludeGraph = true));
-
-// ...code...
-
-context.ExecuteFutureAction();
-```
-
-[Try it in EF Core](https://dotnetfiddle.net/i9pMsP) | [Try it in EF6](https://dotnetfiddle.net/YnV5Fs)
 
 ## Bulk Update Options
 
