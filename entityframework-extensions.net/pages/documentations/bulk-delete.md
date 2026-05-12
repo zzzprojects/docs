@@ -1,12 +1,12 @@
 ---
 Title: Bulk Delete in EF Core | Delete entities without tracking them
 MetaDescription: Efficiently delete Entity Framework data with EF Core Bulk Delete Extensions. Customize options to quickly delete large numbers of entities with ease, compatible with all EF versions including EF Core 7, 6, 5, 3, and EF6. Optimize your database operations - try it now.
-LastMod: 2025-11-11
+LastMod: 2026-05-12
 ---
 
-# Entity Framework Bulk Delete
+# EF Core Bulk Delete with Entity Framework Extensions
 
-The `BulkDelete` method lets you delete thousands of entities in EF Core. The biggest advantage of this method over the traditional approach is that you don’t need to fetch your entities from the database before deleting them (which doesn’t make much sense since you’re deleting them!).
+The `BulkDelete` method lets you delete thousands of entities quickly and efficiently in EF Core and EF6.
 
 ```csharp
 // @nuget: Z.EntityFramework.Extensions.EFCore
@@ -17,14 +17,135 @@ context.BulkDelete(customers);
 
 // Easy to customize
 context.BulkDelete(customers, options => options.BatchSize = 100);
+````
+
+[Online Example](https://dotnetfiddle.net/BCyXU6)
+
+Our library also offers other ways to delete your entities, depending on your scenario:
+
+* [Delete from Query](/delete-from-query)
+* [Delete by Key](/delete-by-key)
+* [Delete Range by Key](/delete-range-by-key)
+
+## Bulk Delete Example
+
+### Delete with a Custom Key
+
+The [ColumnPrimaryKeyExpression](/primary-key#using-columnprimarykeyexpression) and [ColumnPrimaryKeyNames](/primary-key#using-columnprimarykeynames) options let you delete entities by using a custom key (or a combination of properties) instead of your entity's mapped primary key.
+
+This is particularly useful when your data comes from an external system and your entity's primary key is not available.
+
+```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
+// Using `ColumnPrimaryKeyExpression`
+context.BulkDelete(customers, options => options.ColumnPrimaryKeyExpression = c => c.Code);
+
+// Using `ColumnPrimaryKeyNames`
+var customKeys = new List<string>() { nameof(Customer.Code) };
+context.BulkDelete(customers, options => options.ColumnPrimaryKeyNames = customKeys);
+````
+
+[Online Example](https://dotnetfiddle.net/91wZzc)
+
+### Delete with Related Entities (Include Graph)
+
+Use this option when you want to delete entities and automatically delete all related entities (children, grandchildren, and more) linked through navigation properties.
+
+* [IncludeGraph](/include-graph): Automatically deletes all related entities linked through navigation properties.
+* [IncludeGraphOperationBuilder](/include-graph#includegraphoperationbuilder): Lets you customize how a specific entity type is deleted.
+
+```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
+context.BulkDelete(invoices, options => options.IncludeGraph = true);
 ```
 
-[Online Example (EF Core)](https://dotnetfiddle.net/BCyXU6) | [Online Example (EF6)](https://dotnetfiddle.net/ESKZJq)
+[Online Example](https://dotnetfiddle.net/SHM63t)
 
-Our library also offers several other ways to delete your entities even more easily and quickly:
-- [Delete from Query](/delete-from-query)
-- [Delete by Key](/delete-by-key)
-- [Delete Range by Key](/delete-range-by-key)
+**Note:** This option is only supported in EF Core 3+.
+
+### Delete Only When Additional Conditions Match
+
+The [DeleteMatchedAndConditionExpression](/delete-matched-and-condition#using-deletematchedandconditionexpression) and [DeleteMatchedAndConditionNames](/delete-matched-and-condition#using-deletematchedandconditionnames) options let you delete entities only when additional property values match between your entities and the database.
+
+This is useful when you want extra safety and delete rows only if they still meet specific conditions.
+
+```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
+// Using `DeleteMatchedAndConditionExpression`
+context.BulkDelete(customers, options =>
+    options.DeleteMatchedAndConditionExpression = c => c.Status);
+
+// Using `DeleteMatchedAndConditionNames`
+var matchedConditions = new List<string>() { nameof(Customer.Status) };
+
+context.BulkDelete(customers, options =>
+    options.DeleteMatchedAndConditionNames = matchedConditions);
+```
+
+[Online Example](https://dotnetfiddle.net/REPLACE_ME)
+
+### Delete with Future Action
+
+Use this option when you want to delete entities later instead of executing the operation immediately.
+
+By default, `BulkDelete` executes as soon as you call the method.
+
+With future actions, you can queue multiple bulk operations and execute them all at once later.
+
+* `FutureAction`: Adds a `BulkDelete` operation to the pending action queue instead of executing it immediately.
+* `ExecuteFutureAction`: Executes all pending future actions.
+
+```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
+context.FutureAction(x => x.BulkDelete(customers1));
+context.FutureAction(x => x.BulkDelete(customers2));
+
+// ...code...
+
+context.ExecuteFutureAction();
+```
+
+[Online Example](https://dotnetfiddle.net/V6KsSl)
+
+### Delete with Rows Affected
+
+Use the [UseRowsAffected](/rows-affected) option to retrieve the number of rows affected by the `BulkDelete` operation.
+
+This is useful when you need to verify how many rows were actually deleted for logging, validation, or reporting.
+
+```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
+var resultInfo = new Z.BulkOperations.ResultInfo();
+
+context.BulkDelete(customers, options =>
+{
+    options.UseRowsAffected = true;
+    options.ResultInfo = resultInfo;
+});
+
+int rowsAffected = resultInfo.RowsAffected;
+int rowsAffectedDeleted = resultInfo.RowsAffectedDeleted;
+```
+
+[Online Example](https://dotnetfiddle.net/REPLACE_ME)
+
+### More Examples
+
+Need a scenario not covered here?
+
+There’s a good chance we already support it.
+
+**[Contact us to discuss your scenario](/contact-us)**
 
 ## 🔑 Key Benefits
 
@@ -115,7 +236,7 @@ context.BulkDelete(customers);
 context.BulkDeleteAsync(customers, cancellationToken);
 ```
 
-[Try it in EF Core](https://dotnetfiddle.net/EO0Z1R) | [Try it in EF6](https://dotnetfiddle.net/10nw7a)
+[Online Example)
 
 ### Bulk Delete with options
 The `options` parameter lets you use a lambda expression to customize the way entities are deleted.
@@ -127,7 +248,7 @@ using Z.EntityFramework.Extensions;
 context.BulkDelete(customers, options => options.BatchSize = 100);
 ```
 
-[Try it in EF Core](https://dotnetfiddle.net/lIUiH2) | [Try it in EF6](https://dotnetfiddle.net/ygZVAu)
+[Online Example](https://dotnetfiddle.net/lIUiH2)
 
 ### Why BulkDelete is faster than SaveChanges?
 Deleting thousands of entities for a file importation is a typical scenario.
@@ -135,65 +256,6 @@ Deleting thousands of entities for a file importation is a typical scenario.
 The `SaveChanges` method makes it quite impossible to handle this kind of situation due to the number of database round-trips required. The `SaveChanges` performs one database round-trip for every entity to delete. So, if you need to delete 10,000 entities, 10,000 database round-trips will be performed which is **INSANELY** slow.
 
 The `BulkDelete` by contrast requires the minimum number of database round-trips possible. For example, under the hood for SQL Server, a `SqlBulkCopy` is performed first in a temporary table, then a `DELETE` from the temporary table to the destination table is performed which is the fastest way available.
-
-## Real Life Scenarios
-
-### Delete with custom key
-You want to delete entities, but you don't have the primary key. The `ColumnPrimaryKeyExpression` lets you use any property or combination of properties as a key.
-
-```csharp
-// @nuget: Z.EntityFramework.Extensions.EFCore
-using Z.EntityFramework.Extensions;
-
-context.BulkDelete(customers, options => options.ColumnPrimaryKeyExpression = c => c.Code);    
-```
-
-[Try it in EF Core](https://dotnetfiddle.net/91wZzc) | [Try it in EF6](https://dotnetfiddle.net/9M6bKt)
-
-### Delete with related child entities (Include Graph)
-You want to delete entities but also automatically delete related child entities.
-
-- `IncludeGraph`: This option lets you automatically delete all entities part of the graph.
-- `IncludeGraphBuilder`: This option lets you customize how to delete entities for a specific type.
-
-```csharp
-// @nuget: Z.EntityFramework.Extensions.EFCore
-using Z.EntityFramework.Extensions;
-
-context.BulkDelete(invoices, options => options.IncludeGraph = true);
-```
-
-[Try it in EF Core](https://dotnetfiddle.net/SHM63t)
-
-NOTE: Only supported in EF Core 3+
-
-### Delete with future action
-You want to delete entities, but you want to defer the execution.
-
-By default, `BulkDelete` is an immediate operation. That means, it's executed as soon as you call the method.
-
-`FutureAction`: This option lets you defer the execution of a Bulk Delete.
-`ExecuteFutureAction`: This option triggers and executes all pending `FutureAction`.
-
-```csharp
-// @nuget: Z.EntityFramework.Extensions.EFCore
-using Z.EntityFramework.Extensions;
-
-context.FutureAction(x => x.BulkDelete(customers1));
-context.FutureAction(x => x.BulkDelete(customers2));
-
-// ...code...
-
-context.ExecuteFutureAction();
-```
-
-[Try it in EF Core](https://dotnetfiddle.net/V6KsSl) | [Try it in EF6](https://dotnetfiddle.net/KovTrj) 
-
-### More scenarios
-Hundreds of scenarios have been solved and are now supported.
-
-The best way to ask for a special request or to find out if a solution for your scenario already exists is by contacting us:
-info@zzzprojects.com
 
 ## Bulk Delete Options
 
