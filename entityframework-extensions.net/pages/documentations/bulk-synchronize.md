@@ -1,20 +1,20 @@
 ---
-Title: Bulk Synchronize in EF Core | Add or update or delete operations
+Title: Bulk Synchronize in EF Core | Add or Update or Delete your entities
 MetaDescription: Efficiently synchronize Entity Framework data with EF Core Bulk Synchronize Extensions. Easily update, insert and delete large numbers of entities with customizable options for all EF versions, including EF Core 7, 6, 5, 3, and EF6. Optimize your database operations - try it now.
-LastMod: 2025-11-11
+LastMod: 2026-05-25
 ---
 
-# Entity Framework Bulk Synchronize (Insert + Update + Delete)
+# EF Core Bulk Synchronize with Entity Framework Extensions
 
-The `BulkSynchronize` method allows you to mirror data from your source to the database in EF Core. What exactly is a mirror operation?
+The `BulkSynchronize` method from Entity Framework Extensions is the most flexible way to perform **mirror** operations in EF Core and EF6. It allows you to insert new entities, update existing ones, and delete rows that are no longer part of your source in a single operation.
 
-- Rows that match the entity key are **UPDATED**.  
-- Rows that exist in the source but not in the database are **INSERTED**.  
-- Rows that exist in the database but not in the source are **DELETED**.
+When you perform a bulk synchronize, it behaves as follows:
 
-In other words, your destination table data becomes exactly like the list of entities you provide. The method is similar to [BulkMerge](/bulk-merge), but it also includes the **delete** step, making it a complete mirror.
+* Rows that match the entity key are **UPDATED**.
+* Rows that exist in your source but not in the database are **INSERTED**.
+* Rows that exist in the database but not in your source are **DELETED**.
 
-It’s also possible to synchronize only a subset of your table with the `ColumnSynchronizeDeleteKeySubsetExpression` option, or to soft-delete rows with the `SynchronizeSoftDeleteFormula` option (which we will cover later).
+In other words, your destination table becomes exactly like the list of entities you provide. The method is similar to [BulkMerge](/bulk-merge), but it also includes the **DELETE** step.
 
 ```csharp
 // @nuget: Z.EntityFramework.Extensions.EFCore
@@ -24,18 +24,128 @@ using Z.EntityFramework.Extensions;
 context.BulkSynchronize(customers);
 
 // Easy to customize
-context.BulkSynchronize(customers, options => {
+context.BulkSynchronize(customers, options =>
+{
     options.ColumnPrimaryKeyExpression = customer => customer.Code;
 });
 ```
 
-[Online Example (EF Core)](https://dotnetfiddle.net/v4KQSX) | [Online Example (EF6)](https://dotnetfiddle.net/nZedku)
+[Online Example](https://dotnetfiddle.net/v4KQSX)
 
 > ⚠️ **Warning**
 > If you provide an **empty list**, the `BulkSynchronize` method will not be executed.
 >
 > * This is **intentional**: we want to avoid accidentally deleting all the data in your table.
 > * If you are using the `ColumnSynchronizeDeleteKeySubsetExpression` option, there would be no way to know which subset of data should be deleted when the list is empty.
+
+## Bulk Merge Example
+
+### Synchronize with a Custom Key
+
+The [ColumnPrimaryKeyExpression](/primary-key#using-columnprimarykeyexpression) and [ColumnPrimaryKeyNames](/primary-key#using-columnprimarykeynames) options let you define how rows are matched during the synchronization by using a custom key (or a combination of properties) instead of your entity's mapped primary key.
+
+This is particularly useful when importing data from an external source where matching must be based on a business identifier such as a code, SKU, or external ID.
+
+```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
+// Using `ColumnPrimaryKeyExpression`
+context.BulkSynchronize(customers, options => options.ColumnPrimaryKeyExpression = c => c.Code);
+
+// Using `ColumnPrimaryKeyNames`
+var customKeys = new List<string>() { nameof(Customer.Code) };
+context.BulkSynchronize(customers, options => options.ColumnPrimaryKeyNames = customKeys);
+```
+
+[Online Example](https://dotnetfiddle.net/oigfK6)
+
+### Synchronize a Subset of the Table
+
+By default, `BulkSynchronize` compares your entities against the entire destination table. Use the [ColumnSynchronizeDeleteKeySubsetExpression](/column-synchronize-delete-key-subset-expression) option when you want to limit the synchronization to only a specific subset of rows.
+
+This is useful when synchronizing data for a specific user, type, category, or any other logical partition of your table.
+
+```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
+context.BulkSynchronize(customers, options =>
+{
+    options.ColumnPrimaryKeyExpression = customer => customer.Name;
+    options.ColumnSynchronizeDeleteKeySubsetExpression = customer => customer.Type;
+});
+```
+
+[Online Example](https://dotnetfiddle.net/clr84M)
+
+### Synchronize with Identity Value
+
+By default, when a new row is inserted during the synchronization, the database generates the value for identity columns. Use the `SynchronizeKeepIdentity` option when you want to preserve the identity value from your entities instead.
+
+This is useful when importing existing data where identity values must be preserved.
+
+```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
+context.BulkSynchronize(customers, options => options.SynchronizeKeepIdentity = true);
+```
+
+[Online Example](https://dotnetfiddle.net/PQ2DDi)
+
+### Synchronize Only Specific Properties
+
+By default, `BulkSynchronize` maps all properties for both the `INSERT` and `UPDATE` parts of the operation. You can use the following options to control exactly which properties are included.
+
+All options below also have a `Names` equivalent if you prefer specifying property names instead of expressions.
+
+* [ColumnInputExpression](/input-output-ignore#column-input): Specifies which properties should be included for both `INSERT` and `UPDATE`.
+* [ColumnIgnoreExpression](/input-output-ignore#ignore): Excludes specific properties from both `INSERT` and `UPDATE`.
+* [OnSynchronizeInsertInputExpression](/input-output-ignore#onmerge-onsynchronize): Specifies which properties should be included only for the `INSERT` part.
+* [OnSynchronizeUpdateInputExpression](/input-output-ignore#onmerge-onsynchronize): Specifies which properties should be included only for the `UPDATE` part.
+* [IgnoreOnSynchronizeInsertExpression](/input-output-ignore#ignore-for-merge-example): Excludes specific properties only for the `INSERT` part.
+* [IgnoreOnSynchronizeUpdateExpression](/input-output-ignore#ignore-for-merge-example): Excludes specific properties only for the `UPDATE` part.
+
+```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
+// Ignore specific properties for INSERT and UPDATE
+context.BulkSynchronize(customers, options =>
+{
+    options.IgnoreOnSynchronizeInsertExpression = c => c.UpdatedDate;
+    options.IgnoreOnSynchronizeUpdateExpression = c => c.CreatedDate;
+});
+```
+
+[Online Example](https://dotnetfiddle.net/Dk60YN)
+
+### Synchronize with Rows Affected
+
+Use the [UseRowsAffected](/rows-affected) option to retrieve the number of rows affected by the `BulkSynchronize` operation.
+
+This is useful when you need to verify how many rows were inserted, updated, or deleted for logging, validation, or reporting.
+
+```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
+var resultInfo = new Z.BulkOperations.ResultInfo();
+
+context.BulkSynchronize(customers, options =>
+{
+    options.UseRowsAffected = true;
+    options.ResultInfo = resultInfo;
+});
+
+int rowsAffected = resultInfo.RowsAffected;
+int rowsAffectedInserted = resultInfo.RowsAffectedInserted;
+int rowsAffectedUpdated = resultInfo.RowsAffectedUpdated;
+int rowsAffectedDeleted = resultInfo.RowsAffectedDeleted;
+```
+
+[Online Example](https://dotnetfiddle.net/REPLACE_ME)
 
 ## 🔑 Key Benefits
 
@@ -108,96 +218,6 @@ context.BulkSynchronize(customers, options => {
 ```
 
 [Try it in EF Core](https://dotnetfiddle.net/edudfD) | [Try it in EF6](https://dotnetfiddle.net/FX3Quf)
-
-## Real Life Scenarios
-
-### Synchronize and keep identity value
-Your entity has an identity property, but you want to force to insert a specific value instead. The `SynchronizeKeepIdentity` option allows you to keep the identity value of your entity.
-
-```csharp
-// @nuget: Z.EntityFramework.Extensions.EFCore
-using Z.EntityFramework.Extensions;
-
-context.BulkSynchronize(customers, options => options.SynchronizeKeepIdentity = true);
-```
-
-[Try it in EF Core](https://dotnetfiddle.net/PQ2DDi) | [Try it in EF6](https://dotnetfiddle.net/crxeJ3)
-
-### Synchronize and include/exclude properties
-You want to synchronize your entities but only for specific properties.
-
-- `ColumnInputExpression`: This option lets you choose which properties to map.
-- `IgnoreOnSynchronizeInsertExpression`: This option lets you ignore when inserting properties that are auto-mapped.
-- `IgnoreOnSynchronizeUpdateExpression`: This option lets you ignore when updating properties that are auto-mapped.
-
-```csharp
-// @nuget: Z.EntityFramework.Extensions.EFCore
-using Z.EntityFramework.Extensions;
-
-context.BulkSynchronize(customizeToSynchronize, options => {
-    options.IgnoreOnSynchronizeInsertExpression = c => c.UpdatedDate;
-    options.IgnoreOnSynchronizeUpdateExpression = c => c.CreatedDate;
-});
-```
-
-[Try it in EF Core](https://dotnetfiddle.net/Dk60YN) | [Try it in EF6](https://dotnetfiddle.net/mOlppr)
-
-### Synchronize a subset of the table
-You want to synchronize your table, but only a subset of the table and not the whole table, such as only a specific user, type, or category that exists in the entities list provided.
-
-```csharp
-// @nuget: Z.EntityFramework.Extensions.EFCore
-using Z.EntityFramework.Extensions;
-
-context.BulkSynchronize(customers, options => {
-    options.ColumnPrimaryKeyExpression = customer => customer.Name;
-    options.ColumnSynchronizeDeleteKeySubsetExpression = customer => customer.Type;
-});
-```
-
-[Try it in EF Core](https://dotnetfiddle.net/clr84M) | [Try it in EF6](https://dotnetfiddle.net/y5snLt)
-
-Learn more here: https://entityframework-extensions.net/column-synchronize-delete-key-subset-expression
-
-### Synchronize with custom key
-You want to synchronize entities, but you don't have the primary key. The `ColumnPrimaryKeyExpression` lets you use any property or combination of properties as a key.
-
-```csharp
-// @nuget: Z.EntityFramework.Extensions.EFCore
-using Z.EntityFramework.Extensions;
-
-context.BulkSynchronize(customers, options => options.ColumnPrimaryKeyExpression = c => c.Code);    
-```
-
-[Try it in EF Core](https://dotnetfiddle.net/oigfK6) | [Try it in EF6](https://dotnetfiddle.net/PYjmAJ)
-
-### Synchronize with future action
-You want to synchronize entities, but you want to defer the execution.
-
-By default, `BulkSynchronize` is an immediate operation. That means, it's executed as soon as you call the method.
-
-`FutureAction`: This option lets you defer the execution of a Bulk Synchronize.
-`ExecuteFutureAction`: This option triggers and executes all pending `FutureAction`.
-
-```csharp
-// @nuget: Z.EntityFramework.Extensions.EFCore
-using Z.EntityFramework.Extensions;
-
-context.FutureAction(x => x.BulkSynchronize(customers));
-context.FutureAction(x => x.BulkSynchronize(invoices));
-
-// ...code...
-
-context.ExecuteFutureAction();
-```
-
-[Try it in EF Core](https://dotnetfiddle.net/KmXE3m) | [Try it in EF6](https://dotnetfiddle.net/78FeXe) 
-
-### More scenarios
-Hundreds of scenarios have been solved and are now supported.
-
-The best way to ask for a special request or to find out if a solution for your scenario already exists is by contacting us:
-info@zzzprojects.com
 
 ## Bulk Synchronize Options
 

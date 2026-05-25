@@ -1,16 +1,17 @@
 ---
-Title: Bulk Merge in EF Core / EF6 | Add or Update (Upsert) your entities
+Title: Bulk Merge in EF Core | Add or Update (Upsert) your entities
 MetaDescription: Efficiently add or update Entity Framework data with EF Core Bulk Merge Extensions. Perform upsert operations on large numbers of entities with customizable options for all EF versions, including EF Core 7, 6, 5, 3, and EF6. Optimize your database operations - try it now.
-LastMod: 2025-11-11
+LastMod: 2026-05-12
 ---
 
-# Entity Framework Bulk Merge (Upsert, Insert + Update)
+# EF Core Bulk Merge with Entity Framework Extensions
 
-The `BulkMerge` method lets you merge entities using your [EF Core model](https://www.learnentityframeworkcore.com/model) into your database. This kind of merge operation is often called “Upsert,” “Add or Update,” or “Insert or Update.” There is currently no direct equivalent to `BulkMerge` built into EF Core.
+The `BulkMerge` method from Entity Framework Extensions is the most flexible way to perform **upsert** operations in EF Core and EF6. It allows you to insert new entities and update existing ones in a single operation.
 
 When you perform a bulk merge, it behaves as follows:
-- Rows that match the entity key are **UPDATED**.
-- Rows that do not match any existing record are **INSERTED**.
+
+* Rows that match the entity key are **UPDATED**.
+* Rows that do not match any existing record are **INSERTED**.
 
 ```csharp
 // @nuget: Z.EntityFramework.Extensions.EFCore
@@ -23,7 +24,120 @@ context.BulkMerge(customers);
 context.BulkMerge(customers, options => options.IncludeGraph = true);
 ```
 
-[Online Example (EF Core)](https://dotnetfiddle.net/v08Jzy) | [Online Example (EF6)](https://dotnetfiddle.net/Aodij2)
+[Online Example](https://dotnetfiddle.net/v08Jzy)
+
+## Bulk Merge Example
+
+### Merge with a Custom Key
+
+The [ColumnPrimaryKeyExpression](/primary-key#using-columnprimarykeyexpression) and [ColumnPrimaryKeyNames](/primary-key#using-columnprimarykeynames) options let you define how existing rows are matched during the merge by using a custom key (or a combination of properties) instead of your entity's mapped primary key.
+
+This is particularly useful when importing data from an external source where the matching key is based on a business identifier such as a code, SKU, or external ID.
+
+```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
+// Using `ColumnPrimaryKeyExpression`
+context.BulkMerge(customers, options => options.ColumnPrimaryKeyExpression = c => c.Code);
+
+// Using `ColumnPrimaryKeyNames`
+var customKeys = new List<string>() { nameof(Customer.Code) };
+context.BulkMerge(customers, options => options.ColumnPrimaryKeyNames = customKeys);
+```
+
+[Online Example](https://dotnetfiddle.net/LqM4UJ)
+
+### Merge with Identity Value
+
+By default, when a new row is inserted during a merge, the database generates the value for identity columns. Use the `MergeKeepIdentity` option when you want to preserve the identity value from your entities instead.
+
+This is useful when importing existing data where identity values must be preserved.
+
+```csharp id="8r2mql"
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
+context.BulkMerge(customers, options => options.MergeKeepIdentity = true);
+```
+
+[Online Example](https://dotnetfiddle.net/REPLACE_ME)
+
+### Merge Only Specific Properties
+
+By default, `BulkMerge` maps all properties for both the `INSERT` and `UPDATE` parts of the operation. You can use the following options to control exactly which properties are included.
+
+All options below also have a `Names` equivalent if you prefer specifying property names instead of expressions.
+
+* [ColumnInputExpression](/input-output-ignore#column-input): Specifies which properties should be included for both `INSERT` and `UPDATE`.
+* [ColumnIgnoreExpression](/input-output-ignore#ignore): Excludes specific properties from both `INSERT` and `UPDATE`.
+* [OnMergeInsertInputExpression](/input-output-ignore#onmerge-onsynchronize): Specifies which properties should be included only for the `INSERT` part.
+* [OnMergeUpdateInputExpression](/input-output-ignore#onmerge-onsynchronize): Specifies which properties should be included only for the `UPDATE` part.
+* [IgnoreOnMergeInsertExpression](/input-output-ignore#ignore-for-merge-example): Excludes specific properties only for the `INSERT` part.
+* [IgnoreOnMergeUpdateExpression](/input-output-ignore#ignore-for-merge-example): Excludes specific properties only for the `UPDATE` part.
+
+```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
+// Include only specific properties for both INSERT and UPDATE
+context.BulkMerge(customers, options =>
+    options.ColumnInputExpression = c => new
+    {
+        c.CustomerID,
+        c.Name
+    });
+
+// Ignore specific properties only for UPDATE
+context.BulkMerge(customers, options =>
+    options.IgnoreOnMergeUpdateExpression = c => new
+    {
+        c.UpdatedDate
+    });
+```
+
+[Online Example](https://dotnetfiddle.net/mogvhA)
+
+### Merge with Related Entities (Include Graph)
+
+Use this option when you want to merge entities and automatically merge all related entities (children, grandchildren, and more) linked through navigation properties.
+
+* [IncludeGraph](/include-graph): Automatically merges all related entities linked through navigation properties.
+* [IncludeGraphOperationBuilder](/include-graph#includegraphoperationbuilder): Lets you customize how a specific entity type is merged.
+
+```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
+context.BulkMerge(invoices, options => options.IncludeGraph = true);
+```
+
+[Online Example](https://dotnetfiddle.net/imc0r5)
+
+### Merge with Rows Affected
+
+Use the [UseRowsAffected](/rows-affected) option to retrieve the number of rows affected by the `BulkMerge` operation.
+
+This is useful when you need to verify how many rows were inserted or updated for logging, validation, or reporting.
+
+```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
+var resultInfo = new Z.BulkOperations.ResultInfo();
+
+context.BulkMerge(customers, options =>
+{
+    options.UseRowsAffected = true;
+    options.ResultInfo = resultInfo;
+});
+
+int rowsAffected = resultInfo.RowsAffected;
+int rowsAffectedInserted = resultInfo.RowsAffectedInserted;
+int rowsAffectedUpdated = resultInfo.RowsAffectedUpdated;
+```
+
+[Online Example](https://dotnetfiddle.net/REPLACE_ME)
 
 ## 🔑 Key Benefits
 
@@ -141,94 +255,6 @@ The `SaveChanges` method performs one database round-trip for every entity to up
 So, if you need to merge 10,000 entities, 20,000 database round-trips will be performed + 10,000 `DetectChanges` calls which is **INSANELY** slow.
 
 The `BulkMerge` in contrast requires the minimum number of database round-trips possible. For example, under the hood for SQL Server, a `SqlBulkCopy` is performed first in a temporary table, then a `MERGE` from the temporary table to the destination table is performed which is the fastest way available.
-
-## Real Life Scenarios
-
-### Merge and keep identity value
-Your entity has an identity property, but you want to force to insert a specific value instead. The `MergeKeepIdentity` option allows you to keep the identity value of your entity.
-
-```csharp
-// @nuget: Z.EntityFramework.Extensions.EFCore
-using Z.EntityFramework.Extensions;
-
-context.BulkMerge(customers, options => options.MergeKeepIdentity = true);
-```
-
-[Try it in EF Core](https://dotnetfiddle.net/mflJdW) | [Try it in EF6](https://dotnetfiddle.net/a1qGoh)
-
-### Merge and include/exclude properties
-You want to merge your entities but only for specific properties.
-
-- `ColumnInputExpression`: This option lets you choose which properties to map.
-- `ColumnIgnoreExpression`: This option lets you ignore properties that are auto-mapped.
-- `IgnoreOnMergeInsertExpression`: This option lets you ignore properties only for the `INSERT` part.
-- `IgnoreOnMergeUpdateExpression`: This option lets you ignore properties only for the `UPDATE` part.
-
-```csharp
-// @nuget: Z.EntityFramework.Extensions.EFCore
-using Z.EntityFramework.Extensions;
-
-context.BulkMerge(customers, options => options.ColumnInputExpression = c => new { c.CustomerID, c.Name} );
-            
-context.BulkMerge(customers, options => options.IgnoreOnMergeUpdateExpression = c => new { c.UpdatedDate } );
-```
-
-[Try it in EF Core](https://dotnetfiddle.net/mogvhA) | [Try it in EF6](https://dotnetfiddle.net/l6NLDA)
-
-### Merge with custom key
-You want to merge entities, but you don't have the primary key. The `ColumnPrimaryKeyExpression` lets you use as a key any property or combination of properties.
-
-```csharp
-// @nuget: Z.EntityFramework.Extensions.EFCore
-using Z.EntityFramework.Extensions;
-
-context.BulkMerge(customers, options => options.ColumnPrimaryKeyExpression = c => c.Code);    
-```
-
-[Try it in EF Core](https://dotnetfiddle.net/LqM4UJ) | [Try it in EF6](https://dotnetfiddle.net/cS7scF)
-
-### Merge with related child entities (Include Graph)
-You want to merge entities but also automatically merge related child entities.
-
-- `IncludeGraph`: This option lets you automatically merge all entities part of the graph.
-- `IncludeGraphBuilder`: This option lets you customize how to merge entities for a specific type.
-
-```csharp
-// @nuget: Z.EntityFramework.Extensions.EFCore
-using Z.EntityFramework.Extensions;
-
-context.BulkMerge(invoices, options => options.IncludeGraph = true);
-```
-
-[Try it in EF Core](https://dotnetfiddle.net/imc0r5) | [Try it in EF6](https://dotnetfiddle.net/FEXkXi)
-
-### Merge with future action
-You want to merge entities, but you want to defer the execution.
-
-By default, `BulkMerge` is an immediate operation. That means, it's executed as soon as you call the method.
-
-`FutureAction`: This option lets you defer the execution of a Bulk Merge.
-`ExecuteFutureAction`: This option triggers and executes all pending `FutureAction`.
-
-```csharp
-// @nuget: Z.EntityFramework.Extensions.EFCore
-using Z.EntityFramework.Extensions;
-
-context.FutureAction(x => x.BulkMerge(customers));
-context.FutureAction(x => x.BulkMerge(invoices, options => options.IncludeGraph = true));
-
-// ...code...
-
-context.ExecuteFutureAction();
-```
-
-[Try it in EF Core](https://dotnetfiddle.net/CmZ8v3) | [Try it in EF6](https://dotnetfiddle.net/RUL0rL)
-
-### More scenarios
-Hundreds of scenarios have been solved and are now supported.
-
-The best way to ask for a special request or to find out if a solution for your scenario already exists is by contacting us:
-info@zzzprojects.com
 
 ## Bulk Merge Options
 

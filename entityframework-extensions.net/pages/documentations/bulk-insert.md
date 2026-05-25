@@ -1,14 +1,14 @@
 ---
-Title: EF Core Bulk Insert with Entity Framework Extensions
+Title: Bulk Insert in EF Core with Entity Framework Extensions
 MetaDescription: Boost your EF Core inserts performance by up to 15x, reducing insert time by 94% with Bulk Insert from Entity Framework Extensions. Use BulkInsert method in EF Core to handle thousands of entities with less memory and more control. Fully supports all EF Core and EF6 versions. Try the live benchmark now!
 LastMod: 2025-11-11
 ---
 
-# Entity Framework Bulk Insert
+# EF Core Bulk Insert with Entity Framework Extensions
 
-The BulkInsert method from **Entity Framework Extensions** is the easiest way to insert thousands of entities in EF Core and EF6.
+The `BulkInsert` method from Entity Framework Extensions is the most flexible way to insert entities in EF Core and EF6. It allows you to insert thousands of entities quickly while giving you full control over how the operation behaves.
 
-Not only is it super fast, but it’s also highly customizable. You can use various [options](/bulk-insert#bulk-insert-options) to bulk insert entities in EF Core exactly the way you want — like keeping identity values, inserting only new entities, and much more.
+You can customize the insert with various [options](/bulk-insert#bulk-insert-options), such as preserving identity values, inserting only new entities, including related entities, and much more.
 
 ```csharp
 // @nuget: Z.EntityFramework.Extensions.EFCore
@@ -21,12 +21,113 @@ context.BulkInsert(customers);
 context.BulkInsert(invoices, options => options.IncludeGraph = true);
 ```
 
-[Online Example (EF Core)](https://dotnetfiddle.net/2eVfFT) | [Online Example (EF6)](https://dotnetfiddle.net/bNektu)
+[Online Example](https://dotnetfiddle.net/2eVfFT)
 
-If you want to insert entities even faster, you can use the [BulkInsertOptimized](/bulk-insert-optimized) method. Here’s the key difference between both methods:
+If your scenario does not require returning generated values such as identity keys, you can use [BulkInsertOptimized](/bulk-insert-optimized) for even better performance.
 
-* **BulkInsert:** `AutoMapOutputDirection = true` by default. It returns values like identity keys but can generate slightly less optimized SQL.
-* **BulkInsertOptimized:** `AutoMapOutputDirection = false` by default. It skips return values for maximum speed, unless you explicitly ask for them.
+Here's the key difference between both methods:
+
+* **BulkInsert:** `AutoMapOutputDirection = true` by default. Returns generated values such as identity keys, but may generate slightly less optimized SQL.
+* **BulkInsertOptimized:** `AutoMapOutputDirection = false` by default. Skips returning generated values for maximum performance unless explicitly enabled.
+
+## Bulk Insert Example
+
+### Insert If Not Exists
+
+Use the `InsertIfNotExists` option when you want to insert entities only if they do not already exist in the destination table.
+
+By default, existing rows are matched using your entity's mapped primary key. You can also use the [ColumnPrimaryKeyExpression](/primary-key#using-columnprimarykeyexpression) and [ColumnPrimaryKeyNames](/primary-key#using-columnprimarykeynames) options to define a custom key (or a combination of properties) used to determine whether a row already exists.
+
+This is useful when importing data and you want to avoid inserting duplicate records.
+
+```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
+// Using mapped primary key
+context.BulkInsert(customers, options => options.InsertIfNotExists = true);
+
+// Using a custom key
+context.BulkInsert(customers, options =>
+{
+    options.InsertIfNotExists = true;
+    options.ColumnPrimaryKeyExpression = c => c.Code;
+});
+```
+
+[Online Example](https://dotnetfiddle.net/REPLACE_ME)
+
+### Insert with Identity Value
+
+By default, when inserting new rows, the database generates the value for identity columns. Use the `InsertKeepIdentity` option when you want to preserve the identity value from your entities instead.
+
+This is useful when importing existing data where identity values must be preserved.
+
+```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
+context.BulkInsert(customers, options => options.InsertKeepIdentity = true);
+```
+
+[Online Example](https://dotnetfiddle.net/REPLACE_ME)
+
+### Insert with Related Entities (Include Graph)
+
+Use this option when you want to insert entities and automatically insert all related entities (children, grandchildren, and more) linked through navigation properties.
+
+* [IncludeGraph](/include-graph): Automatically inserts all related entities linked through navigation properties.
+* [IncludeGraphOperationBuilder](/include-graph#includegraphoperationbuilder): Lets you customize how a specific entity type is inserted.
+
+```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
+context.BulkInsert(invoices, options => options.IncludeGraph = true);
+```
+
+[Online Example](https://dotnetfiddle.net/REPLACE_ME)
+
+### Insert Without Outputting Values
+
+By default, `BulkInsert` returns generated values such as identity keys and maps them back to your entities. If you don't need those values, you can disable this behavior for better performance.
+
+Use the `AutoMapOutputDirection` option to skip outputting generated values.
+
+If you never need output values and want the best possible performance, consider using [BulkInsertOptimized](/bulk-insert-optimized), which is specifically designed for that scenario.
+
+```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
+context.BulkInsert(customers, options => options.AutoMapOutputDirection = false);
+```
+
+[Online Example](https://dotnetfiddle.net/REPLACE_ME)
+
+### Insert with Rows Affected
+
+Use the [UseRowsAffected](/rows-affected) option to retrieve the number of rows affected by the `BulkInsert` operation.
+
+This is useful when you need to verify how many rows were actually inserted for logging, validation, or reporting.
+
+```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Z.EntityFramework.Extensions;
+
+var resultInfo = new Z.BulkOperations.ResultInfo();
+
+context.BulkInsert(customers, options =>
+{
+    options.UseRowsAffected = true;
+    options.ResultInfo = resultInfo;
+});
+
+int rowsAffected = resultInfo.RowsAffected;
+int rowsAffectedInserted = resultInfo.RowsAffectedInserted;
+```
+
+[Online Example](https://dotnetfiddle.net/REPLACE_ME)
 
 ## 🔑 Key Benefits
 
