@@ -129,6 +129,14 @@ int rowsAffectedInserted = resultInfo.RowsAffectedInserted;
 
 [Online Example](https://dotnetfiddle.net/REPLACE_ME)
 
+### More Examples
+
+Need a scenario not covered here?
+
+There’s a good chance we already support it.
+
+**[Contact us to discuss your scenario](/contact-us)**
+
 ## 🔑 Key Benefits
 
 One of the main reasons developers choose **EF Core Bulk Insert** from **Entity Framework Extensions** is the **performance** and **low memory usage**. Another big reason? Its **flexibility** — with **hundreds of supported options** (we’ll explore some of them later).

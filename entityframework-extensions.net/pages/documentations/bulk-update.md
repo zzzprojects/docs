@@ -138,6 +138,14 @@ int rowsAffectedUpdated = resultInfo.RowsAffectedUpdated;
 
 [Online Example](https://dotnetfiddle.net/REPLACE_ME)
 
+### More Examples
+
+Need a scenario not covered here?
+
+There’s a good chance we already support it.
+
+**[Contact us to discuss your scenario](/contact-us)**
+
 ## 🔑 Key Benefits
 
 One of the main reasons people use our Bulk Update with Entity Framework is to **update their data exactly the way they want** — whether that means updating only specific columns, skipping `null` values, or applying conditional logic. And of course, all that with great performance.

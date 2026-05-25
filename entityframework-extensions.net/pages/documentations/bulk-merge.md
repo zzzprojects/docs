@@ -139,6 +139,14 @@ int rowsAffectedUpdated = resultInfo.RowsAffectedUpdated;
 
 [Online Example](https://dotnetfiddle.net/REPLACE_ME)
 
+### More Examples
+
+Need a scenario not covered here?
+
+There’s a good chance we already support it.
+
+**[Contact us to discuss your scenario](/contact-us)**
+
 ## 🔑 Key Benefits
 
 One of the main reasons people use our Bulk Merge is to **perform add or update (upsert) operations exactly the way they want**. You get full control over how rows are matched, which values are inserted, and how updates are applied — all with exceptional performance.

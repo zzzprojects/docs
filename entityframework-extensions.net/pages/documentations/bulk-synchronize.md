@@ -147,6 +147,14 @@ int rowsAffectedDeleted = resultInfo.RowsAffectedDeleted;
 
 [Online Example](https://dotnetfiddle.net/REPLACE_ME)
 
+### More Examples
+
+Need a scenario not covered here?
+
+There’s a good chance we already support it.
+
+**[Contact us to discuss your scenario](/contact-us)**
+
 ## 🔑 Key Benefits
 
 One of the main reasons people use our Bulk Synchronize is to **perform add, update, and delete operations exactly the way they want**. Whether you want to remove rows not in your list, soft delete them, or control which properties to update, this method gives you complete control.
