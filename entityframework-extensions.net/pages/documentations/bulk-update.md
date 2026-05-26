@@ -56,13 +56,13 @@ using Z.EntityFramework.Extensions;
 
 // Update only specific properties
 context.BulkUpdate(customers, options => options.ColumnInputExpression = x => new
-	{
-		x.Name
-	});
+    {
+        x.Name
+    });
 
 // Ignore specific properties
 context.BulkUpdate(customers,
-	options => options.IgnoreOnUpdateExpression = x => x.Code);
+    options => options.IgnoreOnUpdateExpression = x => x.Code);
 ```
 
 [Online Example](https://dotnetfiddle.net/Enr2KP)

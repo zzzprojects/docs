@@ -49,8 +49,8 @@ context.BulkInsert(customers, options => options.InsertIfNotExists = true);
 
 // Using a custom key
 context.BulkInsert(customers, options => {
-	options.InsertIfNotExists = true;
-	options.ColumnPrimaryKeyExpression = x => new { x.Code };
+    options.InsertIfNotExists = true;
+    options.ColumnPrimaryKeyExpression = x => new { x.Code };
 });
 ```
 
@@ -118,8 +118,8 @@ var resultInfo = new Z.BulkOperations.ResultInfo();
 
 context.BulkInsert(customers, options =>
 {
-	options.UseRowsAffected = true;
-	options.ResultInfo = resultInfo;
+    options.UseRowsAffected = true;
+    options.ResultInfo = resultInfo;
 });
 
 int rowsAffected = resultInfo.RowsAffected;
