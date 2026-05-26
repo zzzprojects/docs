@@ -1,7 +1,7 @@
 ---
 Title: Bulk Merge in EF Core | Add or Update (Upsert) your entities
 MetaDescription: Efficiently add or update Entity Framework data with EF Core Bulk Merge Extensions. Perform upsert operations on large numbers of entities with customizable options for all EF versions, including EF Core 7, 6, 5, 3, and EF6. Optimize your database operations - try it now.
-LastMod: 2026-05-12
+LastMod: 2026-05-26
 ---
 
 # EF Core Bulk Merge with Entity Framework Extensions
@@ -18,10 +18,10 @@ When you perform a bulk merge, it behaves as follows:
 using Z.EntityFramework.Extensions;
 
 // Easy to use
-context.BulkMerge(customers);
+await context.BulkMergeAsync(customers);
 
 // Easy to customize
-context.BulkMerge(customers, options => options.IncludeGraph = true);
+await context.BulkMergeAsync(invoices, options => options.IncludeGraph = true);
 ```
 
 [Online Example](https://dotnetfiddle.net/v08Jzy)
@@ -39,7 +39,7 @@ This is particularly useful when importing data from an external source where th
 using Z.EntityFramework.Extensions;
 
 // Using `ColumnPrimaryKeyExpression`
-context.BulkMerge(customers, options => options.ColumnPrimaryKeyExpression = c => c.Code);
+context.BulkMerge(customers, options => options.ColumnPrimaryKeyExpression = x => x.Code);
 
 // Using `ColumnPrimaryKeyNames`
 var customKeys = new List<string>() { nameof(Customer.Code) };
@@ -54,14 +54,14 @@ By default, when a new row is inserted during a merge, the database generates th
 
 This is useful when importing existing data where identity values must be preserved.
 
-```csharp id="8r2mql"
+```csharp
 // @nuget: Z.EntityFramework.Extensions.EFCore
 using Z.EntityFramework.Extensions;
 
 context.BulkMerge(customers, options => options.MergeKeepIdentity = true);
 ```
 
-[Online Example](https://dotnetfiddle.net/REPLACE_ME)
+[Online Example](https://dotnetfiddle.net/5MYQpK)
 
 ### Merge Only Specific Properties
 
@@ -80,23 +80,15 @@ All options below also have a `Names` equivalent if you prefer specifying proper
 // @nuget: Z.EntityFramework.Extensions.EFCore
 using Z.EntityFramework.Extensions;
 
-// Include only specific properties for both INSERT and UPDATE
+// Ignore specific properties for INSERT and UPDATE
 context.BulkMerge(customers, options =>
-    options.ColumnInputExpression = c => new
-    {
-        c.CustomerID,
-        c.Name
-    });
-
-// Ignore specific properties only for UPDATE
-context.BulkMerge(customers, options =>
-    options.IgnoreOnMergeUpdateExpression = c => new
-    {
-        c.UpdatedDate
-    });
+{
+    options.IgnoreOnMergeInsertExpression = x => x.UpdatedDate;
+    options.IgnoreOnMergeUpdateExpression = x => x.CreatedDate;
+});
 ```
 
-[Online Example](https://dotnetfiddle.net/mogvhA)
+[Online Example](https://dotnetfiddle.net/VQkluJ)
 
 ### Merge with Related Entities (Include Graph)
 
@@ -137,7 +129,7 @@ int rowsAffectedInserted = resultInfo.RowsAffectedInserted;
 int rowsAffectedUpdated = resultInfo.RowsAffectedUpdated;
 ```
 
-[Online Example](https://dotnetfiddle.net/REPLACE_ME)
+[Online Example](https://dotnetfiddle.net/0pphXF)
 
 ### More Examples
 

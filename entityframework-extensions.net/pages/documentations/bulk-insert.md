@@ -1,7 +1,7 @@
 ---
 Title: Bulk Insert in EF Core with Entity Framework Extensions
 MetaDescription: Boost your EF Core inserts performance by up to 15x, reducing insert time by 94% with Bulk Insert from Entity Framework Extensions. Use BulkInsert method in EF Core to handle thousands of entities with less memory and more control. Fully supports all EF Core and EF6 versions. Try the live benchmark now!
-LastMod: 2025-11-11
+LastMod: 2026-05-26
 ---
 
 # EF Core Bulk Insert with Entity Framework Extensions
@@ -15,10 +15,10 @@ You can customize the insert with various [options](/bulk-insert#bulk-insert-opt
 using Z.EntityFramework.Extensions;
 
 // Easy to use
-context.BulkInsert(customers);
+await context.BulkInsertAsync(customers);
 
 // Easy to customize
-context.BulkInsert(invoices, options => options.IncludeGraph = true);
+await context.BulkInsertAsync(invoices, options => options.IncludeGraph = true);
 ```
 
 [Online Example](https://dotnetfiddle.net/2eVfFT)
@@ -48,14 +48,13 @@ using Z.EntityFramework.Extensions;
 context.BulkInsert(customers, options => options.InsertIfNotExists = true);
 
 // Using a custom key
-context.BulkInsert(customers, options =>
-{
-    options.InsertIfNotExists = true;
-    options.ColumnPrimaryKeyExpression = c => c.Code;
+context.BulkInsert(customers, options => {
+	options.InsertIfNotExists = true;
+	options.ColumnPrimaryKeyExpression = x => new { x.Code };
 });
 ```
 
-[Online Example](https://dotnetfiddle.net/REPLACE_ME)
+[Online Example](https://dotnetfiddle.net/q7dFoR)
 
 ### Insert with Identity Value
 
@@ -70,7 +69,7 @@ using Z.EntityFramework.Extensions;
 context.BulkInsert(customers, options => options.InsertKeepIdentity = true);
 ```
 
-[Online Example](https://dotnetfiddle.net/REPLACE_ME)
+[Online Example](https://dotnetfiddle.net/fUwLGI)
 
 ### Insert with Related Entities (Include Graph)
 
@@ -86,7 +85,7 @@ using Z.EntityFramework.Extensions;
 context.BulkInsert(invoices, options => options.IncludeGraph = true);
 ```
 
-[Online Example](https://dotnetfiddle.net/REPLACE_ME)
+[Online Example](https://dotnetfiddle.net/8JHVhN)
 
 ### Insert Without Outputting Values
 
@@ -103,7 +102,7 @@ using Z.EntityFramework.Extensions;
 context.BulkInsert(customers, options => options.AutoMapOutputDirection = false);
 ```
 
-[Online Example](https://dotnetfiddle.net/REPLACE_ME)
+[Online Example](https://dotnetfiddle.net/f0zuL5)
 
 ### Insert with Rows Affected
 
@@ -119,15 +118,15 @@ var resultInfo = new Z.BulkOperations.ResultInfo();
 
 context.BulkInsert(customers, options =>
 {
-    options.UseRowsAffected = true;
-    options.ResultInfo = resultInfo;
+	options.UseRowsAffected = true;
+	options.ResultInfo = resultInfo;
 });
 
 int rowsAffected = resultInfo.RowsAffected;
 int rowsAffectedInserted = resultInfo.RowsAffectedInserted;
 ```
 
-[Online Example](https://dotnetfiddle.net/REPLACE_ME)
+[Online Example](https://dotnetfiddle.net/oPM8wl)
 
 ### More Examples
 

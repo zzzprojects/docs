@@ -1,7 +1,7 @@
 ---
 Title: Bulk Synchronize in EF Core | Add or Update or Delete your entities
 MetaDescription: Efficiently synchronize Entity Framework data with EF Core Bulk Synchronize Extensions. Easily update, insert and delete large numbers of entities with customizable options for all EF versions, including EF Core 7, 6, 5, 3, and EF6. Optimize your database operations - try it now.
-LastMod: 2026-05-25
+LastMod: 2026-05-26
 ---
 
 # EF Core Bulk Synchronize with Entity Framework Extensions
@@ -21,12 +21,12 @@ In other words, your destination table becomes exactly like the list of entities
 using Z.EntityFramework.Extensions;
 
 // Easy to use
-context.BulkSynchronize(customers);
+await context.BulkSynchronizeAsync(customers);
 
 // Easy to customize
-context.BulkSynchronize(customers, options =>
+await context.BulkSynchronizeAsync(customers, options =>
 {
-    options.ColumnPrimaryKeyExpression = customer => customer.Code;
+    options.ColumnPrimaryKeyExpression = x => x.Code;
 });
 ```
 
@@ -51,7 +51,7 @@ This is particularly useful when importing data from an external source where ma
 using Z.EntityFramework.Extensions;
 
 // Using `ColumnPrimaryKeyExpression`
-context.BulkSynchronize(customers, options => options.ColumnPrimaryKeyExpression = c => c.Code);
+context.BulkSynchronize(customers, options => options.ColumnPrimaryKeyExpression = x => x.Code );
 
 // Using `ColumnPrimaryKeyNames`
 var customKeys = new List<string>() { nameof(Customer.Code) };
@@ -72,8 +72,8 @@ using Z.EntityFramework.Extensions;
 
 context.BulkSynchronize(customers, options =>
 {
-    options.ColumnPrimaryKeyExpression = customer => customer.Name;
-    options.ColumnSynchronizeDeleteKeySubsetExpression = customer => customer.Type;
+    options.ColumnPrimaryKeyExpression = x => x.Name;
+    options.ColumnSynchronizeDeleteKeySubsetExpression = x => x.Type;
 });
 ```
 
@@ -145,7 +145,7 @@ int rowsAffectedUpdated = resultInfo.RowsAffectedUpdated;
 int rowsAffectedDeleted = resultInfo.RowsAffectedDeleted;
 ```
 
-[Online Example](https://dotnetfiddle.net/REPLACE_ME)
+[Online Example](https://dotnetfiddle.net/JbQIzJ)
 
 ### More Examples
 

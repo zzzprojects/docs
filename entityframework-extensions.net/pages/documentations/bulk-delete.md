@@ -1,7 +1,7 @@
 ---
-Title: Bulk Delete in EF Core | Delete entities without tracking them
+Title: Bulk Delete in EF Core with Entity Framework Extensions
 MetaDescription: Efficiently delete Entity Framework data with EF Core Bulk Delete Extensions. Customize options to quickly delete large numbers of entities with ease, compatible with all EF versions including EF Core 7, 6, 5, 3, and EF6. Optimize your database operations - try it now.
-LastMod: 2026-05-12
+LastMod: 2026-05-26
 ---
 
 # EF Core Bulk Delete with Entity Framework Extensions
@@ -13,10 +13,10 @@ The `BulkDelete` method lets you delete thousands of entities quickly and effici
 using Z.EntityFramework.Extensions;
 
 // Easy to use
-context.BulkDelete(customers);
+await context.BulkDeleteAsync(customers);	
 
 // Easy to customize
-context.BulkDelete(customers, options => options.BatchSize = 100);
+await context.BulkDeleteAsync(customers, options => options.IncludeGraph = true);
 ````
 
 [Online Example](https://dotnetfiddle.net/BCyXU6)
@@ -40,11 +40,13 @@ This is particularly useful when your data comes from an external system and you
 using Z.EntityFramework.Extensions;
 
 // Using `ColumnPrimaryKeyExpression`
-context.BulkDelete(customers, options => options.ColumnPrimaryKeyExpression = c => c.Code);
+context.BulkDelete(customers, 
+    options => options.ColumnPrimaryKeyExpression = x => x.Code);	
 
 // Using `ColumnPrimaryKeyNames`
 var customKeys = new List<string>() { nameof(Customer.Code) };
-context.BulkDelete(customers, options => options.ColumnPrimaryKeyNames = customKeys);
+context.BulkDelete(customers,
+    options => options.ColumnPrimaryKeyNames = customKeys);
 ````
 
 [Online Example](https://dotnetfiddle.net/91wZzc)
@@ -79,16 +81,15 @@ using Z.EntityFramework.Extensions;
 
 // Using `DeleteMatchedAndConditionExpression`
 context.BulkDelete(customers, options =>
-    options.DeleteMatchedAndConditionExpression = c => c.Status);
+    options.DeleteMatchedAndConditionExpression = x => x.Status);	
 
 // Using `DeleteMatchedAndConditionNames`
 var matchedConditions = new List<string>() { nameof(Customer.Status) };
-
 context.BulkDelete(customers, options =>
     options.DeleteMatchedAndConditionNames = matchedConditions);
 ```
 
-[Online Example](https://dotnetfiddle.net/REPLACE_ME)
+[Online Example](https://dotnetfiddle.net/QJOlyk)
 
 ### Delete with Future Action
 
@@ -137,7 +138,7 @@ int rowsAffected = resultInfo.RowsAffected;
 int rowsAffectedDeleted = resultInfo.RowsAffectedDeleted;
 ```
 
-[Online Example](https://dotnetfiddle.net/REPLACE_ME)
+[Online Example](https://dotnetfiddle.net/ThTRXs)
 
 ### More Examples
 

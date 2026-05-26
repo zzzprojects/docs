@@ -1,7 +1,7 @@
 ---
 Title: Bulk Update in EF Core with Entity Framework Extensions
 MetaDescription: The BulkUpdate method from Entity Framework Extensions is the most flexible way to update your entities in EF Core. It allows you to customize how your entities will be updated, such as by specifying a custom key, updating only a few properties, and much more. - try it now.
-LastMod: 2026-05-12
+LastMod: 2026-05-26
 ---
 
 # EF Core Bulk Update with Entity Framework Extensions
@@ -13,10 +13,10 @@ The `BulkUpdate` method from Entity Framework Extensions is the most flexible wa
 using Z.EntityFramework.Extensions;
 
 // Easy to use
-context.BulkUpdate(customers);
+await context.BulkUpdateAsync(customers);
 
 // Easy to customize
-context.BulkUpdate(customers, options => options.IncludeGraph = true);
+await context.BulkUpdateAsync(customers, options => options.IncludeGraph = true);
 ```
 
 [Online Example](https://dotnetfiddle.net/Cwn8NC)
@@ -34,7 +34,7 @@ This is particularly useful when synchronizing data from an external system wher
 using Z.EntityFramework.Extensions;
 
 // Using `ColumnPrimaryKeyExpression`
-context.BulkUpdate(customers, options => options.ColumnPrimaryKeyExpression = c => c.Code);
+context.BulkUpdate(customers, options => options.ColumnPrimaryKeyExpression = x => x.Code);
 
 // Using `ColumnPrimaryKeyNames`
 var customKeys = new List<string>() { nameof(Customer.Code) };
@@ -55,20 +55,14 @@ By default, `BulkUpdate` updates all mapped properties. You can use the followin
 using Z.EntityFramework.Extensions;
 
 // Update only specific properties
-context.BulkUpdate(customers, options =>
-    options.ColumnInputExpression = c => new
-    {
-        c.Name,
-        c.Email
-    });
+context.BulkUpdate(customers, options => options.ColumnInputExpression = x => new
+	{
+		x.Name
+	});
 
 // Ignore specific properties
-context.BulkUpdate(customers, options =>
-    options.IgnoreOnUpdateExpression = c => new
-    {
-        c.ModifiedDate,
-        c.RowVersion
-    });
+context.BulkUpdate(customers,
+	options => options.IgnoreOnUpdateExpression = x => x.Code);
 ```
 
 [Online Example](https://dotnetfiddle.net/Enr2KP)
@@ -136,7 +130,7 @@ int rowsAffected = resultInfo.RowsAffected;
 int rowsAffectedUpdated = resultInfo.RowsAffectedUpdated;
 ```
 
-[Online Example](https://dotnetfiddle.net/REPLACE_ME)
+[Online Example](https://dotnetfiddle.net/IFjSZR)
 
 ### More Examples
 
