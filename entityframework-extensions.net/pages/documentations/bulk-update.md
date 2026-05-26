@@ -89,7 +89,7 @@ Use this option when you want to update entities later instead of executing the 
 
 By default, `BulkUpdate` executes as soon as you call the method.
 
-With future actions, you can queue multiple bulk operations and execute them all at once later.
+With [future actions](https://entityframework-plus.net/future-action), you can queue multiple bulk operations and execute them all at once later.
 
 * `FutureAction`: Adds a `BulkUpdate` operation to the pending action queue instead of executing it immediately.
 * `ExecuteFutureAction`: Executes all pending future actions.
