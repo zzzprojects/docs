@@ -13,9 +13,10 @@ lastmod: 2026-04-07
    - [Adding Data](/saving/adding-data)
    - [Updating Data](/saving/modifying-data)
    - [Deleting Data](/saving/deleting-data)
-   - [Change Tracker](/saving/change-tracker)	
-   - [Connected Entities](/saving/save-changes-connected-entities)					
+   - [Connected Entities](/saving/save-changes-connected-entities)	
+   - [Disconnected Entities](/saving/save-changes-disconnected-entities)	
 - How Saving Works
+   - [Change Tracker](/saving/change-tracker)	
    - [How Change Tracker Works](/saving/change-tracker-how-it-works)								
 - Execute Methods
    - [Execute Update](/saving/execute-update)

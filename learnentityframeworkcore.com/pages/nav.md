@@ -51,13 +51,14 @@
 						<li><a href="/saving/adding-data">Adding Data</a></li>
 						<li><a href="/saving/modifying-data">Updating Data</a></li>
 						<li><a href="/saving/deleting-data">Deleting Data</a></li>
-						<li><a href="/saving/change-tracker">Change Tracker</a></li>	
-						<li><a href="/saving/save-changes-connected-entities">Connected Entities </a></li>						
+						<li><a href="/saving/save-changes-connected-entities">Connected Entities </a></li>	
+						<li><a href="/saving/save-changes-disconnected-entities">Disconnected Entities </a></li>		
 					</ul>
 				</li>
 				<li>
 					<div class="header">How Saving Works</div>
 					<ul class="nav-level-three" style="display: block;">
+						<li><a href="/saving/change-tracker">Change Tracker</a></li>	
 						<li><a href="/saving/change-tracker-how-it-works">How Change Tracker Works</a></li>								
 					</ul>
 				</li>

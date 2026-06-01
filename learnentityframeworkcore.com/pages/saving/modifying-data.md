@@ -3,10 +3,10 @@ title: Modifying data via the DbSet
 description: An examination of the methods and approaches available for modifying data via the Entity Framework Core DbSet API 
 canonical: /saving/modifying-data
 status: Published
-lastmod: 2026-05-11
+lastmod: 2026-06-01
 ---
 
-# Updating Data in EF Core: How to Modify Existing Entities
+# EF Core Updating Data
 
 Updating data in EF Core usually means loading an existing entity, changing one or more property values, and calling [`SaveChangesAsync()`](/saving/save-changes).
 
