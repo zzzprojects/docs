@@ -8,6 +8,11 @@
    - [Bulk Synchronize](bulk-synchronize.md)
    - [Bulk SaveChanges](bulk-savechanges.md)
    - [WhereBulkContains](utilities/where-bulk-contains.md)
+- Single Methods
+   - [Single Insert](single-methods/single-insert.md)
+   - [Single Update](single-methods/single-update.md)
+   - [Single Delete](single-methods/single-delete.md)
+   - [Single Merge](single-methods/single-merge.md)
 - Column Options
    - [Input/Output/Ignore](options/input-output-ignore.md)
    - [Primary Key](options/primary-key.md)
