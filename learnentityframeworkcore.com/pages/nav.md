@@ -51,8 +51,9 @@
 						<li><a href="/saving/adding-data">Adding Data</a></li>
 						<li><a href="/saving/modifying-data">Updating Data</a></li>
 						<li><a href="/saving/deleting-data">Deleting Data</a></li>
-						<li><a href="/saving/save-changes-connected-entities">Connected Entities </a></li>	
-						<li><a href="/saving/save-changes-disconnected-entities">Disconnected Entities </a></li>		
+						<li><a href="/saving/save-changes-connected-entities">Connected Entities</a></li>	
+						<li><a href="/saving/save-changes-disconnected-entities">Disconnected Entities</a></li>		
+						<li><a href="/saving/cascade-delete">Cascade Delete</a></li>	
 					</ul>
 				</li>
 				<li>

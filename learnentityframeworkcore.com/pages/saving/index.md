@@ -15,6 +15,7 @@ lastmod: 2026-04-07
    - [Deleting Data](/saving/deleting-data)
    - [Connected Entities](/saving/save-changes-connected-entities)	
    - [Disconnected Entities](/saving/save-changes-disconnected-entities)	
+   - [Cascade Delete](/saving/cascade-delete)
 - How Saving Works
    - [Change Tracker](/saving/change-tracker)	
    - [How Change Tracker Works](/saving/change-tracker-how-it-works)								
