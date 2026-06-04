@@ -24,33 +24,12 @@ When you choose a date for your dedicated articles or videos, follow these simpl
 
 ## 🎯 Schedule
 
-* **2025-11-18** – AntonDevTips: *How I increased the production payment system performance by 15x with One Line of Code in EF Core*
-* **2025-11-19** – (Video) AntonDevTips: *The Real Cost of Returning the Identity Value in EF Core (When You Don't Need It)*
-* **2025-11-23** – Pavle Davitkovic: *Entity Framework Extensions - Introduction*
-* **2025-12-01** – Poorna Soysa: *Entity Framework Extensions Options Explained: Everything You Can Customize*
-* **2025-12-02** – (Video) Mohammad: *What’s New in Entity Framework Core 10 — Practical Examples & Performance Tips*
-* **2025-12-03** – CodingSonata: *Dapper Plus - For Options*
-* **2025-12-10** – (Video) Mohammad: *The Complete Guide to Bulk Operations with Entity Framework Extensions*
-* **2025-12-11** – NikolaTech: *Getting Started with Entity Framework Extensions*
-* **2025-12-12** – (Video) TheCodeMan: *This One Line of Code Makes Dapper 1000× Faster!*
-* **2025-12-16** – AntonDevTips: *EF Core Bulk Data Retrieval: 5 Methods You Should Know*
-* **2025-12-22** – Poorna Soysa: *Dapper Plus Options Explained: Everything You Can Customize*
-* **2026-01-14** – CodingSonata: *EF Core Tricks for Bulk Reading Large Data Sets*
-* **2026-01-21** – Pavle Davitkovic: *Where vs. WhereBulkContains: What’s the Real Difference in EF Core?*
-* **2026-01-21** – (Video) AntonDevTips: *Entity Framework Extensions Options Explained: Everything You Can Customize*
-* **2026-01-27** – AntonDevTips: *Why Every EF Core Developer Needs to Try Entity Framework Extensions Part 1*
-* **2026-02-04** – AntonDevTips: *Why Every EF Core Developer Needs to Try Entity Framework Extensions Part 2*
-* **2026-02-06** – NikolaTech: *Getting Started with Dapper Plus*
-* **2026-02-10** – (Video) Sarrawy Dev: *TBD*
-* **2026-02-18** – CodingSonata: *Dapper Plus - CRUD Operations with Dapper and Dapper Plus*
-* **2026-02-24** - (Video) Remigiusz: EF Core Bulk Operations: 10–100x Faster Inserts, Updates and Deletes
-* **2026-03-02** - Devskillsunlock: *TBD*
-* **2026-03-11** – (Video) AntonDevTips: *EF Core Bulk Data Retrieval: 5 Methods You Should Know* 
-* **2026-03-17** – AntonDevTips: *Entity Framework Extensions Options Explained: Everything You Can Customize*
-* **2026-03-23** – (Video) Mohammad Alshikh Khalil: *When Entity Framework Core Falls Short — High-Performance Solutions with EF Extensions*
-* **2026-04-08** – (Video) AntonDevTips: *LINQ Dynamic vs C# Eval Expression: Which One Should You Use?*
 * **2026-05-01** – Pavle Davitkovic: *Dapper Plus or SqlBulkCopy? Pros, Cons, and Hidden Limitations*
 * **2026-05-05** – AntonDevTips: *The Real Cost of Returning the Identity Value in EF Core (When You Don't Need It)*
 * **2026-05-13** – (Video) AntonDevTips: *Stop Writing Complex SQL to Save Data — Let Dapper Plus Do It for You*
 * **2026-05-27** – (Video) AntonDevTips: *Mastering Entity Mapping in Dapper Plus (With Real Examples)*
-* **2026-08-24** - (Video) Remigiusz: EF Core Bulk Operations - Two Real-Life scenarios you should know
+* **2026-06-13** – Woodruff: *EF Core Bulk Insert: The Complete Guide to Inserting Thousands of Rows Without the Wait*
+* **2026-06-25** – Nikolatech: *EF Core Extension Options*
+* **2026-08-24** - (Video) Remigiusz: *EF Core Bulk Operations - Two Real-Life scenarios you should know*
+* **2026-09-15** - Codewithmukesh: *EF Extensions TBD*
+* **2026-10-13** - (Video) Codewithmukesh: *EF Extensions TBD*
