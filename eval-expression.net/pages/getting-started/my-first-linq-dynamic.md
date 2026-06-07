@@ -1,31 +1,37 @@
 ---
 Title: Execute LINQ Dynamic Expression with List and EF Core
 MetaDescription: Learn how to use LINQ Dynamic query to execute methods such as Select, OrderBy, or Where clause dynamically.
-LastMod: 2025-08-19
+LastMod: 2026-06-07
 ---
 
 # My First LINQ Dynamic with C# Eval Expression
 
-LINQ is an incredibly powerful way of querying data. It allows developers to write code that is both expressive and easy to read. However, something that's missing is using LINQ with dynamic expressions.
+LINQ is an incredibly powerful way to query data. It allows developers to write code that is both expressive and easy to read. However, one thing that is missing is the ability to use LINQ with dynamic expressions.
 
-Indeed, you can use LINQ for most of your queries, but what to do if you wish to allow your user to dynamically filter a list for a report? That is when using LINQ Dynamic through the C# Eval Library starts to shine.
+Indeed, you can use LINQ for most of your queries, but what should you do if you want to allow your users to dynamically filter a list for a report? This is where using LINQ Dynamic through the C# Eval Expression library starts to shine.
 
-You can use LINQ Dynamic methods for `IEnumerable` and `IQueryable`. However, that also means you can use it for ORM, such as querying within Entity Framework Core and EF6.
+The best part? All LINQ Dynamic features are completely free to use through our library.
+
+You can use LINQ Dynamic methods with both `IEnumerable` and `IQueryable`. This also means you can use them with ORMs, such as Entity Framework Core and EF6.
 
 In this tutorial, you will learn how to use our library to:
 
-- [Use LINQ Dynamic with a WhereDynamic method](#use-linq-dynamic-with-a-wheredynamic-method)
-- [Use LINQ Dynamic with a WhereDynamic method with variables](#use-linq-dynamic-with-a-wheredynamic-method-with-variables)
+- [Use LINQ Dynamic with the WhereDynamic method](#use-linq-dynamic-with-the-wheredynamic-method)
+- [Use LINQ Dynamic with the WhereDynamic method and variables](#use-linq-dynamic-with-the-wheredynamic-method-and-variables)
 - [Use LINQ Dynamic with the Execute method](#use-linq-dynamic-with-the-execute-method)
 - [Use LINQ Dynamic with other methods](#use-linq-dynamic-with-other-methods)
 
-## Use LINQ Dynamic with a WhereDynamic method
+An alternative solution is to use our other popular [System.Linq.Dynamic](https://dynamic-linq.net/) library.
 
-The `Where` clause cannot have a dynamic expression. However, the C# Eval Expression library lets you easily achieve this behavior using the `WhereDynamic` method, which, under the hood, creates the lambda expression and call the `Where` method. So our library doesn't mimic and try to interpret the expression but instead really calls the `Where` LINQ method.
+## Use LINQ Dynamic with the WhereDynamic Method
 
-To use our method, you first must add the `using System.Linq;` directive to see LINQ Dynamic extension methods.
+The `Where` method cannot directly accept a dynamic expression. However, the C# Eval Expression library lets you easily achieve this behavior with the `WhereDynamic` method.
 
-In this example, we assume a typical scenario where a developer uses [EF Core](https://www.learnentityframeworkcore.com/) and needs to filter a customer list depending on a custom filter entered by the end-user input. We will filter customers in the database to return only active customers who have logged in since the last month.
+Under the hood, our library creates the lambda expression and then calls the standard LINQ `Where` method. In other words, our library does not mimic or interpret the expression itself, it actually generates the lambda expression and uses the real LINQ `Where` method.
+
+To use our method, you must first add the `using System.Linq;` directive to access the LINQ Dynamic extension methods.
+
+In this example, we assume a typical scenario where a developer uses [EF Core](https://www.learnentityframeworkcore.com/) and needs to filter a customer list based on a custom filter entered by an end user. We will filter customers in the database and return only active customers who have logged in within the last month.
 
 ```csharp
 // @nuget: Z.Expressions.Eval
@@ -41,30 +47,31 @@ var customers = context.Customers.WhereDynamic("x => x.Status == 0 && x.LastLogo
 
 {% include component-try-it.html href='https://dotnetfiddle.net/b5EmTM' %}
 
-As you can see in our example, you can pass the `input parameters` of the lambda expression in 2 different ways:
+As shown in the example, you can specify the lambda expression parameter in two different ways:
 
-- Outside the expression `x => "expression"`
-- Inside the expression `"x => expression"`
+* Outside the expression: `x => "expression"`
+* Inside the expression: `"x => expression"`
 
-There is no "recommended way" to pass it, as both solutions are valid and supported. So use the easiest and more readable way for you.
+There is no recommended approach, as both options are fully supported. Use whichever is the easiest and most readable for your scenario.
 
-## Use LINQ Dynamic with a WhereDynamic method with variables
 
-In the last example, we already saw how powerful the `WhereDynamic` method is. However, we sometimes also need to use it with variables.
+## Use LINQ Dynamic with the WhereDynamic Method and Variables
 
-For example, you can have some environment variables that will help your user to filter more easily. For instance, by having some predefined status, such as:
+In the previous example, we already saw how powerful the `WhereDynamic` method can be. However, in real-world scenarios, you will often need to use variables as part of your dynamic expressions.
 
-- `IsActive`
-- `IsDeleted`
-- `IsSuspended`
+For example, you might expose predefined variables to help users create filters more easily, such as status values:
 
-Or some variable to make the expression simpler such as:
+* `IsActive`
+* `IsDeleted`
+* `IsSuspended`
 
-- `LastWeek`
-- `LastMonth`
-- `LastYear`
+Or date-related variables to simplify expressions:
 
-In this example, we will use the same filter as the previous example (return only active customers who have logged in since the last month), but this time, with the help of variables:
+* `LastWeek`
+* `LastMonth`
+* `LastYear`
+
+In this example, we will use the same filter as before (return only active customers who have logged in within the last month), but this time we will use variables instead of hardcoded values.
 
 ```csharp
 // @nuget: Z.Expressions.Eval
@@ -122,15 +129,24 @@ using Z.Expressions;
 
 {% include component-try-it.html href='https://dotnetfiddle.net/LXuoU0' %}  
 
-## Use LINQ Dynamic with the Execute method
+As you can see, variables can be provided in multiple ways:
 
-The LINQ [Execute](/linq-dynamic#linq-execute-method) method is the most flexible of our LINQ Dynamic method. Not only can the user filter a query dynamically, but he can do whatever he wants in the expression.
+* Anonymous type
+* `Dictionary<string, object>`
+* `ExpandoObject`
+* Class instance
+
+Choose the approach that best fits your application and how you manage your predefined variables.
+
+## Use LINQ Dynamic with the Execute Method
+
+The LINQ Dynamic [Execute](/linq-dynamic#linq-execute-method) method is the most flexible method in our library. Not only can users dynamically filter a query, but they can also execute any LINQ operations they need within the expression.
 
 In this example, we will query customers in the database and:
 
-- Filter the customers to return
-- Order the returned customers
-- Select columns that we return
+* Filter the customers to return
+* Order the returned customers
+* Select only the columns we want to return
 
 ```csharp
 // @nuget: Z.Expressions.Eval
@@ -158,14 +174,15 @@ var customers = context.Customers.Execute<IEnumerable>("Where(x => x.Status == I
 
 {% include component-try-it.html href='https://dotnetfiddle.net/l1qn8c' %}  
 
-One major difference with the `Execute` method is that you call the LINQ method directly and not the `dynamic` counterpart. It makes sense as the `Execute` method behavior is really to execute C# code at runtime.
+One major difference with the `Execute` method is that you call the standard LINQ methods directly rather than their dynamic counterparts.
 
+For example, inside the expression you use `Where`, `Select`, `OrderBy`, and any other LINQ methods you need. This makes sense because the purpose of the `Execute` method is to execute C# code dynamically at runtime.
 
-## Use LINQ Dynamic with other methods
+## Use LINQ Dynamic with Other Methods
 
-Through this getting started guide about how to use LINQ Dynamic, we have seen a few methods, but almost all LINQ methods are supported:
+Throughout this getting started guide, we have explored only a few LINQ Dynamic methods. However, our library supports most LINQ methods through their dynamic counterparts.
 
-- Deferred
+- Deferred Methods
    - [DistinctDynamic](/linq-dynamic#linq-distinctdynamic-method)
    - [GroupByDynamic](/linq-dynamic#linq-groupbydynamic-method)
    - [OrderByDescendingDynamic](/linq-dynamic#linq-orderbydescendingdynamic-method)
@@ -178,7 +195,8 @@ Through this getting started guide about how to use LINQ Dynamic, we have seen a
    - [ThenByDescendingDynamic](/linq-dynamic#linq-thenbydescendingdynamic-method)
    - [ThenByDynamic](/linq-dynamic#linq-thenbydynamic-method)
    - [WhereDynamic](/linq-dynamic#linq-wheredynamic-method)
-- Immediate
+
+- Immediate Methods
    - [AllDynamic](/linq-dynamic#linq-alldynamic-method)
    - [AnyDynamic](/linq-dynamic#linq-anydynamic-method)
    - [CountDynamic](/linq-dynamic#linq-countdynamic-method)
@@ -198,19 +216,21 @@ Through this getting started guide about how to use LINQ Dynamic, we have seen a
    - [ToArrayDynamic](/linq-dynamic#linq-toarraydynamic-method)
    - [ToListDynamic](/linq-dynamic#linq-tolistdynamic-method)
 
-As you can see, we added the `Dynamic` suffix to every one of our methods to avoid confusion.
+As you can see, we added the `Dynamic` suffix to all our methods to avoid confusion with standard LINQ methods.
 
-You can use those extension methods to extend the following types:
+You can use these extension methods with the following types:
 
-- `IEnumerable`
-- `IEnumerable<T>`
-- `IQueryable`
-- `IQueryable<T>`
+* `IEnumerable`
+* `IEnumerable<T>`
+* `IQueryable`
+* `IQueryable<T>`
 
-## Conclusion
+## Summary
 
-In this getting started tutorial, you learned how to use LINQ Dynamic with the [WhereDynamic](/linq-dynamic#linq-wheredynamic-method) method, the [Execute](/linq-dynamic#linq-execute-method) method, and the existence of all other supported [LINQ Dynamic](/linq-dynamic) methods.
+In this getting started tutorial, you learned how to use LINQ Dynamic with the [WhereDynamic](/linq-dynamic#linq-wheredynamic-method) method, the [Execute](/linq-dynamic#linq-execute-method) method, and discovered the other supported [LINQ Dynamic](/linq-dynamic) methods available in our library.
 
-If you already know how to use LINQ, using LINQ Dynamic should be very straightforward as the syntax is exactly the same.
+If you already know LINQ, learning LINQ Dynamic should be very straightforward since the syntax remains almost identical.
 
-As we also have seen, using LINQ Dynamic is also compatible with EF Core and other ORM as under the hood, our library doesn't interpret the expression but really calls the underlying LINQ method at runtime.
+As we have also seen, LINQ Dynamic is compatible with EF Core and other ORMs. Under the hood, our library does not interpret queries itself. Instead, it creates the required lambda expressions and calls the underlying LINQ methods at runtime.
+
+If you are looking for a library that interprets expressions and translates them into LINQ expressions, you may prefer our other popular [System.Linq.Dynamic library](https://dynamic-linq.net/).
