@@ -15,5 +15,6 @@
    - [Query IncludeOptimized](documentations/query-include-optimized/ef-core-query-include-optimized.md)
 - Utilities
    - [Future Action](documentations/future-action.md)
+   - [Interceptors](documentations/interceptors.md)
 - Enterprise Features
    - [Bulk Methods](documentations/ef-core-bulk-methods.md)
