@@ -14,7 +14,9 @@
    - [Query IncludeFilter](documentations/query-include-filter/ef-core-query-include-filter.md)
    - [Query IncludeOptimized](documentations/query-include-optimized/ef-core-query-include-optimized.md)
 - Utilities
+   - [Execute Delete](documentations/execute-delete.md)
    - [Future Action](documentations/future-action.md)
    - [Interceptors](documentations/interceptors.md)
+   - [Update Partial](documentations/update-partial.md)
 - Enterprise Features
    - [Bulk Methods](documentations/ef-core-bulk-methods.md)

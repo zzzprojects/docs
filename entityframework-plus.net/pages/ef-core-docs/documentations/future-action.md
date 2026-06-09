@@ -1,7 +1,7 @@
 ---
 Title: EF Core Future Action: Queue Bulk Operations for Later Execution
 MetaDescription: Learn how EF Core Future Action lets you queue bulk inserts, updates, and deletes for centralized execution with Entity Framework Extensions.
-LastMod: 2026-05-26
+LastMod: 2026-06-09
 ---
 
 # EF Core Future Action with Entity Framework Extensions
@@ -25,11 +25,11 @@ await context.ExecuteFutureActionAsync(true);
 ```
 
 > ⚠️ **Warning**
-> `FutureActionAsync` is not yet released (as of 2026-06-09), but the related documentation is already available.
+> If you use `FutureActionAsync`, you must execute the actions with `ExecuteFutureActionAsync`.
 >
-> If you use `FutureActionAsync`, you must use `ExecuteFutureActionAsync`.
+> Mixing synchronous and asynchronous Future Action methods will throw an exception when using `ExecuteFutureAction`, to prevent unexpected behavior.
 >
-> Mixing synchronous and asynchronous Future Action methods will throw an exception to prevent unexpected behavior.
+> You can mix synchronous and asynchronous Future Action methods when using `ExecuteFutureActionAsync`.
 
 ## Available Methods
 

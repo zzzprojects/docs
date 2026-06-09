@@ -1,7 +1,7 @@
 ---
-Name: Model Caching & RefreshModel with Entity Framework Extensions
-MetaDescription: Learn how EF Extensions caches table models, why first calls are slower, and how to use CacheModel and RefreshModel for full performance control.
-LastMod: 2026-05-04
+Name: Model Caching and RefreshModel with Entity Framework Extensions
+MetaDescription: Learn how EF Extensions caches table models, why first calls are slower, and how to use CacheModel, RefreshModel, and CloneCacheModel for full performance control.
+LastMod: 2026-06-09
 ---
 
 # Model Caching
@@ -59,13 +59,36 @@ context.CacheModel(typeof(EntitySimple), typeof(EntitySimple2));
 
 If your database table has been modified since it was cached, you will need to refresh the information by calling the `RefreshModel` method:
 
-```csharp id="z8y2rq"
+```csharp
 context.RefreshModel();
 ```
 
 All cached information will be cleared and retrieved again, similar to the first time the model was loaded.
 
 For example, if a column is added dynamically to a table while your application is still running, the cached model will not be aware of this new column. By calling `RefreshModel`, the model will be rebuilt and include the new column without requiring an application restart.
+
+## CloneCacheModel
+
+You can also clone a model that is already cached by calling the `Z.BulkOperations.InformationSchemaManager.CloneCacheModel()` method.
+
+Two methods are available:
+
+* `CloneCacheModel<TFrom, TTo>(DbContext contextFrom, DbContext contextTo)`
+* `CloneCacheModel(DbContext contextFrom, Type typeFrom, DbContext contextTo, Type typeTo)`
+
+This method copies all schema information already retrieved from the database, including column metadata, trigger information, and other table details used by Entity Framework Extensions.
+
+It is especially useful when working with multiple schemas that share the same table structure. Instead of querying the database schema for every schema individually, you can cache the model once and reuse it across all other schemas.
+
+For example, if you have hundreds of tenant schemas containing identical tables, you can call `CacheModel` for the first schema and then use `CloneCacheModel` for all remaining schemas. This avoids additional schema lookups and can significantly reduce startup or warm-up time.
+
+```csharp
+context.CacheModel<EntitySimple>();
+
+InformationSchemaManager.CloneCacheModel<EntitySimple, EntitySimple>(
+    context,
+    contextWithAnotherSchema);
+```
 
 
 ## Summary
@@ -76,5 +99,6 @@ However, if you want more control, you can:
 
 * Use `CacheModel` to ensure the model is cached at the time you choose (for example, before a benchmark or during application startup)
 * Use `RefreshModel` to clear the cache and reload it if your table schema has been modified
+* Use `CloneCacheModel` to reuse an existing cached model for other entity types or contexts that share the same table structure
 
 This gives you full control over when the model is cached and refreshed.
