@@ -22,3 +22,4 @@ lastmod: 2026-04-07
 - Execute Methods
    - [Execute Update](/saving/execute-update)
    - [Execute Delete](/saving/execute-delete)	
+   - [Execute SQL](/saving/execute-sql)	

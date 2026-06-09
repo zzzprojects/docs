@@ -68,6 +68,7 @@
 					<ul class="nav-level-three" style="display: block;">
 						<li><a href="/saving/execute-update">Execute Update</a></li>
 						<li><a href="/saving/execute-delete">Execute Delete</a></li>	
+						<li><a href="/saving/execute-sql">Execute SQL</a></li>	
 					</ul>
 				</li>
             </ul>

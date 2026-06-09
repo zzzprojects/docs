@@ -3,14 +3,119 @@ title: Cascade Delete
 description: An examination of how cascade delete works in Entity Framework Core when deleting entities with related data
 canonical: /saving/cascade-delete
 status: Published
-lastmod: 2026-06-02
+lastmod: 2026-06-09
 ---
 
 # EF Core Cascade Delete
 
-Cascade delete controls what happens to dependent entities when a related principal entity is deleted.
+Cascade delete refers to how Entity Framework Core handles dependent entities when a related principal entity is deleted.
 
-It is useful when deleting one entity should also control what happens to related data when [`SaveChangesAsync()`](/saving/save-changes) runs.
+Depending on the configured delete behavior, EF Core can:
+
+* delete dependent entities
+* set foreign key values to `null`
+* reject the delete operation
+* take no automatic action
+
+This article explains the available delete behaviors and how to control what happens to related entities when [`SaveChangesAsync()`](/saving/save-changes) runs.
+
+Delete behavior is configured on a relationship by using the `OnDelete()` method:
+
+```csharp
+protected override void OnModelCreating(ModelBuilder modelBuilder)
+{
+    modelBuilder.Entity<Product>()
+        .HasOne(p => p.Category)
+        .WithMany(c => c.Products)
+        .HasForeignKey(p => p.CategoryId)
+        .OnDelete(DeleteBehavior.Cascade);
+}
+```
+
+The `DeleteBehavior` value determines what happens to related entities when the principal entity is deleted.
+
+| Delete Behavior  | Result                                  |
+| ---------------- | --------------------------------------- |
+| `Cascade`        | Deletes dependent entities              |
+| `ClientCascade`  | Deletes dependent entities in EF Core   |
+| `SetNull`        | Sets foreign keys to `null`             |
+| `ClientSetNull`  | Sets foreign keys to `null` in EF Core  |
+| `Restrict`       | Requires dependents to be handled first |
+| `NoAction`       | Requires dependents to be handled first |
+| `ClientNoAction` | Takes no automatic action               |
+
+## Delete Behavior Overview (SQL Server)
+
+The following table summarizes how each delete behavior works in SQL Server.
+
+The result can differ depending on whether dependent entities are tracked by the current `DbContext`.
+
+| Delete Behavior  | Database Rule                    | Dependents Not Loaded       | Dependents Loaded          |
+| ---------------- | -------------------------------- | --------------------------- | -------------------------- |
+| `Cascade`        | `ON DELETE CASCADE`              | Database deletes dependents | EF Core deletes dependents |
+| `ClientCascade`  | None                             | Delete fails                | EF Core deletes dependents |
+| `SetNull`        | `ON DELETE SET NULL`             | Database sets FK to `null`  | EF Core sets FK to `null`  |
+| `ClientSetNull`  | None                             | Delete fails                | EF Core sets FK to `null`  |
+| `Restrict`       | Same as `NoAction` on SQL Server | Delete fails                | Delete fails               |
+| `NoAction`       | `NO ACTION`                      | Delete fails                | Delete fails               |
+| `ClientNoAction` | None                             | Delete fails                | EF Core takes no action    |
+
+## When to Use Each Delete Behavior
+
+### Cascade
+
+Use when child entities should automatically be deleted when the parent entity is deleted.
+
+Typical examples:
+
+* Order → OrderLines
+* Blog → BlogPosts
+* Invoice → InvoiceItems
+
+### ClientCascade
+
+Use when EF Core should delete loaded dependents, but you do not want a database cascade rule.
+
+This is often used when database cascade paths are not allowed or would create conflicts.
+
+### SetNull
+
+Use when child entities should remain in the database after the parent entity is deleted.
+
+Requires a nullable foreign key.
+
+Typical examples:
+
+* Product → Category
+* Employee → Manager
+
+### ClientSetNull
+
+Use when EF Core should set foreign keys to `null` for loaded dependents, but you do not want a database `ON DELETE SET NULL` rule.
+
+Requires a nullable foreign key.
+
+### Restrict
+
+Use when related entities must be handled before the parent entity can be deleted.
+
+The delete operation fails until the dependent entities are deleted, moved, or disconnected.
+
+> On SQL Server, `Restrict` behaves the same as `NoAction`.
+
+### NoAction
+
+Use when you want the database to enforce referential integrity and reject invalid deletes.
+
+On SQL Server, the behavior is effectively the same as `Restrict`.
+
+### ClientNoAction
+
+Use when you want full control over dependent entities and do not want EF Core to perform any automatic action.
+
+You are responsible for deleting dependent entities or updating their foreign keys before deleting the parent entity.
+
+This means you must also call `Remove` or `RemoveRange` on the dependent entities when they should be deleted.
 
 ## Delete a Category with Related Products
 
@@ -52,7 +157,7 @@ context.Categories.Remove(category);
 await context.SaveChangesAsync();
 ```
 
-If cascade delete is configured for this relationship, deleting the category can also delete the related products when the delete operation is saved.
+If cascade delete is configured (`DeleteBehavior.Cascade` or `DeleteBehavior.CascadeClient`) for this relationship, deleting the category will also delete the related products when the delete operation is saved.
 
 The important point is that `Remove()` does not delete the rows immediately. EF Core tracks the category as `Deleted`, and `SaveChangesAsync()` sends the pending delete operation to the database.
 
@@ -105,7 +210,7 @@ This configuration tells EF Core to use cascade delete for the `Category` / `Pro
 
 If the related products are loaded and tracked by the current `DbContext`, EF Core can apply the cascade behavior before sending the delete commands.
 
-If the related products are not loaded, the database can apply the cascade behavior if the foreign key constraint was created with cascade delete enabled.
+If the related products are not loaded, the database apply the cascade behavior due to the foreign key constraint that was created.
 
 The exact SQL depends on the database provider, the relationship configuration, and whether the dependent entities are tracked.
 
