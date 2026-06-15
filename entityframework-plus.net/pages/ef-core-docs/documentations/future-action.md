@@ -1,7 +1,7 @@
 ---
 Title: EF Core Future Action: Queue Bulk Operations for Later Execution
 MetaDescription: Learn how EF Core Future Action lets you queue bulk inserts, updates, and deletes for centralized execution with Entity Framework Extensions.
-LastMod: 2026-06-09
+LastMod: 2026-06-15
 ---
 
 # EF Core Future Action with Entity Framework Extensions
@@ -140,6 +140,47 @@ context.ExecuteFutureAction();
 ```
 
 This gives you flexibility to centralize different database operations and execute them when needed.
+
+### Capture Returned Values with FutureActionAsync
+
+Unlike `FutureAction`, the `FutureActionAsync` method allows you to await asynchronous operations and capture their returned values.
+
+The important part is that the lambda must be marked with the `async` keyword. Once marked as `async`, you can use `await` and store the returned value in a variable.
+
+For example, the following code accumulates the number of rows affected by multiple delete operations:
+
+```csharp
+var rowsAffected = 0;
+
+context.FutureActionAsync(async x =>
+{
+    rowsAffected += await x.Users
+        .Where(u => !u.IsActive)
+        .ExecuteDeleteAsync();
+});
+
+context.FutureActionAsync(async x =>
+{
+    rowsAffected += await x.Orders
+        .Where(o => o.Total == 0)
+        .ExecuteDeleteAsync();
+});
+
+context.FutureActionAsync(async x =>
+{
+    rowsAffected += await x.Customers
+        .Where(c => c.IsArchived)
+        .ExecuteDeleteAsync();
+});
+
+await context.ExecuteFutureActionAsync();
+
+Console.WriteLine($"Rows affected: {rowsAffected}");
+````
+
+In this example, the returned value is the number of rows affected, but it could be any value returned by an asynchronous method.
+
+This is useful when you need to capture information from future actions and use it after all registered operations have been executed.
 
 ## Summary
 
