@@ -1,7 +1,7 @@
 ---
 Title: EF Core Interceptors
 MetaDescription: Learn how to use EF Plus interceptors to intercept commands, connections, and transactions. Create custom interceptors, register them globally or per DbContext, and handle EF Core events.
-LastMod: 2026-06-07
+LastMod: 2026-06-15
 ---
 
 # EF Core Interceptors with EF Plus
@@ -242,6 +242,63 @@ The online example contains a complete runnable example that overrides all avail
 
 [Online Example](https://dotnetfiddle.net/6BUJUM)
 
+### Populate the DbContext in the Interception Context with BindInterceptor
+
+You can use `BindInterceptor` when you want the `interceptionContext` to know which `DbContext` is currently executing the command, connection, or transaction event.
+
+However, `BindInterceptor` does **not** register the interceptor by itself. You still need to add the interceptor with `DbInterception.Add`.
+
+For example:
+
+```csharp
+public class CurrentContext : DbContext
+{
+    public CurrentContext()
+    {
+        this.BindInterceptor(CommandInterceptor);
+        this.BindInterceptor(ConnectionInterceptor);
+        this.BindInterceptor(TransactionInterceptor);
+    }
+}
+
+// or context.BindInterceptor(CommandInterceptor);
+// or context.BindInterceptor(ConnectionInterceptor);
+// or context.BindInterceptor(TransactionInterceptor);
+
+DbInterception.Add(CommandInterceptor);
+DbInterception.Add(ConnectionInterceptor);
+DbInterception.Add(TransactionInterceptor);
+````
+
+By default, `interceptionContext.DbContext` is `null`.
+
+When you use `BindInterceptor`, the `DbContext` is populated in the interception context for the interceptors bound to that context.
+
+This can be useful when you want to retrieve information from the context, such as a `TenantID`, the current user, or any other custom value.
+
+```csharp
+public class EFCommandInterceptor : DbCommandInterceptor
+{
+    public override void NonQueryExecuted(
+        DbCommand command,
+        DbCommandInterceptionContext<int> interceptionContext)
+    {
+        Logger.AppendLine(
+            "NonQueryExecuted;" +
+            interceptionContext.EventData.GetType().Name + ";" +
+            interceptionContext.DbContext?.GetType().Name);
+
+        base.NonQueryExecuted(command, interceptionContext);
+    }
+}
+```
+
+[Online Example](https://dotnetfiddle.net/flYSvX)
+
+Use `DbInterception.Add` to register the interceptor.
+
+Use `BindInterceptor` only when you also want the `DbContext` to be available from the `interceptionContext`.
+
 ## Summary
 
 In this article, you learned how to use EF Plus interceptors to intercept commands, connections, and transactions executed by Entity Framework Core.
@@ -250,6 +307,8 @@ You also learned how to:
 
 * Create a custom interceptor by inheriting from `DbCommandInterceptor`, `DbConnectionInterceptor`, or `DbTransactionInterceptor`.
 * Register an interceptor globally with `DbInterception.Add`.
+* Bind an interceptor to a specific `DbContext` with `BindInterceptor`.
+* Access the current `DbContext` through the `interceptionContext`.
 * Intercept command, connection, and transaction events.
 
 In most cases, we recommend using the official interceptors provided by EF Core. However, EF Plus interceptors remain useful for scenarios where an interceptor needs to be added after a `DbContext` has already been created, which is required by some EF Plus features such as `QueryHint` and `WhereBulkContains`.
