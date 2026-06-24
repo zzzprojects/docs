@@ -72,9 +72,15 @@
 					</ul>
 				</li>
 				<li>
-					<div class="header">Transaction</div>
+					<div class="header">Transactions</div>
 					<ul class="nav-level-three" style="display: block;">
-						<li><a href="/saving/transaction">Using Transaction</a></li>
+						<li><a href="/saving/transactions">Using Transactions</a></li>
+					</ul>
+				</li>
+				<li>
+					<div class="header">Concurrency</div>
+					<ul class="nav-level-three" style="display: block;">
+						<li><a href="/saving/concurrency">Concurrency</a></li>
 					</ul>
 				</li>
             </ul>
@@ -201,9 +207,6 @@
         </li>
         <li>
             <a href="/connection-strings">Connection Strings</a>
-        </li>
-        <li>
-            <a href="/concurrency">Concurrency</a>
         </li>
         <li>
             <a href="/migrations">Migrations</a>

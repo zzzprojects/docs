@@ -3,7 +3,7 @@ title: Using Transactions in EF Core
 description: Learn how to use implicit and explicit transactions in EF Core to commit or roll back database operations as a single unit.
 canonical: /saving/transactions
 status: Published
-lastmod: 2026-06-11
+lastmod: 2026-06-24
 ---
 
 # Using Transactions in EF Core
