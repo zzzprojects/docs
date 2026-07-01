@@ -1,9 +1,9 @@
 ---
 title: Saving data in disconnected scenarios
 description: An examination of how to save entities that are not tracked by the current DbContext in Entity Framework Core
-canonical: /saving/disconnected-entities
+canonical: /saving/save-changes-disconnected-entities
 status: Published
-lastmod: 2026-06-01
+lastmod: 2026-06-30
 ---
 
 # EF Core Disconnected Entities
