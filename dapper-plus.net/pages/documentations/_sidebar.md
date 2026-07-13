@@ -1,5 +1,6 @@
 - [Overview](/overview)
 - [Getting Started](/getting-started)
+- [Try it Online](/try-it-online)
 - Bulk Methods
    - [Overview](/bulk-extensions-methods)
    - [Bulk Insert](/bulk-insert)
