@@ -1,7 +1,7 @@
 ---
 Title: Bulk Update in EF Core with Entity Framework Extensions
 MetaDescription: The BulkUpdate method from Entity Framework Extensions is the most flexible way to update your entities in EF Core. It allows you to customize how your entities will be updated, such as by specifying a custom key, updating only a few properties, and much more. - try it now.
-LastMod: 2026-05-26
+LastMod: 2026-07-14
 ---
 
 # EF Core Bulk Update with Entity Framework Extensions
@@ -306,21 +306,28 @@ context.BulkUpdate(list, options);
 
 ## Troubleshooting
 
-### Lazy Loading + Include Graph (Update)
+### Lazy Loading + Include Graph (Before v10.5.7)
 
-When lazy loading is enabled, using the `IncludeGraph = true` option will also trigger lazy loading and load all related entities. As a result, the entire graph may be updated, even if you didn’t intend to.
+Before version **10.5.7**, `IncludeGraph` automatically traversed lazy navigations when lazy loading was enabled.
 
-To avoid this behavior, you need to turn off lazy loading before retrieving your entities:
+This behavior could unintentionally load additional related entities and cause the entire graph to be updated, even if you only intended to update part of it.
+
+To avoid this behavior, you had to disable lazy loading before retrieving your entities:
 
 ```csharp
 using (var context = new EntityContext())
 {
     context.ChangeTracker.LazyLoadingEnabled = false;
+
     var invoices = context.Invoices.ToList();
-	// ...update invoice properties...
+
+    // ...update invoice properties...
+
     context.BulkUpdate(invoices, options => options.IncludeGraph = true);
 }
 ```
+
+Starting with **v10.5.7**, this is no longer the default behavior. `IncludeGraph` only traverses already loaded navigations. If you want lazy navigations to be loaded automatically during graph traversal, set `LoadLazyNavigations` to `true`.
 
 ## Conclusion
 

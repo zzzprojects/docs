@@ -1,7 +1,7 @@
 ---
 Title: Bulk Delete in EF Core with Entity Framework Extensions
 MetaDescription: Efficiently delete Entity Framework data with EF Core Bulk Delete Extensions. Customize options to quickly delete large numbers of entities with ease, compatible with all EF versions including EF Core 7, 6, 5, 3, and EF6. Optimize your database operations - try it now.
-LastMod: 2026-05-26
+LastMod: 2026-07-14
 ---
 
 # EF Core Bulk Delete with Entity Framework Extensions
@@ -323,20 +323,26 @@ context.BulkDelete(list, options);
 
 ## Troubleshooting
 
-### Lazy Loading + Include Graph
+### Lazy Loading + Include Graph (Before v10.5.7)
 
-When lazy loading is enabled, using the `IncludeGraph = true` option will also trigger lazy loading and load all related entities. As a result, the entire graph may be deleted.
+Before version **10.5.7**, `IncludeGraph` automatically traversed lazy navigations when lazy loading was enabled.
 
-To avoid this behavior, you need to turn off lazy loading before retrieving your entities:
+This behavior could unintentionally load additional related entities and cause the entire graph to be deleted, even if you only intended to delete part of it.
+
+To avoid this behavior, you had to disable lazy loading before retrieving your entities:
 
 ```csharp
 using (var context = new EntityContext())
 {
     context.ChangeTracker.LazyLoadingEnabled = false;
+
+
     var invoices = context.Invoices.ToList();
     context.BulkDelete(invoices, options => options.IncludeGraph = true);
 }
 ```
+
+Starting with **v10.5.7**, this is no longer the default behavior. `IncludeGraph` only traverses already loaded navigations. If you want lazy navigations to be loaded automatically during graph traversal, set `LoadLazyNavigations` to `true`.
 
 ## Conclusion
 

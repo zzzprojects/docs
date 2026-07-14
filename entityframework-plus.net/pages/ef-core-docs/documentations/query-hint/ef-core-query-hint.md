@@ -1,7 +1,7 @@
 ---
 Permalink: ef-core-query-hint
 Name: Query Hint
-LastMod: 2024-10-18
+LastMod: 2026-07-14
 ---
 
 # Query Hint
@@ -100,3 +100,29 @@ context.Orders
 ```
 
 This method ensures that your hints are applied precisely where needed, enhancing query flexibility and performance.
+
+## Limitations
+
+* This limitation only affects EF Core 10. Some scenarios using [ExecuteUpdate](/execute-update) do not work correctly when combined with `TagWith`, especially queries that use the equality operator (`==`). Other query patterns may also be affected. The issue was introduced in EF Core 10 and fixed by Microsoft in EF Core 11. [See more](https://github.com/dotnet/efcore/issues/36908).
+
+For example, the following query correctly includes the tag:
+
+```csharp
+await context.Customers
+    .Where(x => x.CustomerID > 1)
+    .TagWith("TagWith will work")
+    .ExecuteUpdateAsync(x => x.SetProperty(y => y.Name, "Test"));
+```
+
+However, the following query does not include the tag:
+
+```csharp
+await context.Customers
+    .Where(x => x.CustomerID == 1)
+    .TagWith("TagWith will not work")
+    .ExecuteUpdateAsync(x => x.SetProperty(y => y.Name, "Test"));
+```
+
+This issue is resolved in EF Core 11.
+
+[Online Example](https://dotnetfiddle.net/TJZ6Fo)

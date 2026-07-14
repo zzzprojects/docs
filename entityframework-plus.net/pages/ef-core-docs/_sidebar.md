@@ -15,6 +15,7 @@
    - [Query IncludeOptimized](documentations/query-include-optimized/ef-core-query-include-optimized.md)
 - Utilities
    - [Execute Delete](documentations/execute-delete.md)
+   - [Execute Update](documentations/execute-update.md)
    - [Future Action](documentations/future-action.md)
    - [Interceptors](documentations/interceptors.md)
    - [Update Partial](documentations/update-partial.md)

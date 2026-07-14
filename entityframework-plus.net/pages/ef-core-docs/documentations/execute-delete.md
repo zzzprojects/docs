@@ -1,7 +1,7 @@
 ---
 Title: EF Core ExecuteDelete: Batch Deletes and Future Action
-MetaDescription: Discover additional features for EF Core ExecuteDelete, including batch deletes and Future Action. Delete large datasets more efficiently and execute delete operations later in a centralized location.
-LastMod: 2026-06-09
+MetaDescription: Discover additional features for EF Core ExecuteDelete, including batch deletes, Future Action, Query Hint. Delete large datasets more efficiently and execute delete operations later in a centralized location.
+LastMod: 2026-07-14
 ---
 
 # EF Core ExecuteDelete
@@ -15,6 +15,7 @@ However, while `ExecuteDelete` covers most scenarios, some real-world situations
 - [Basic ExecuteDelete](#basic-executedelete) - Delete rows directly in the database without loading entities into memory.
 - [Using ExecuteDelete with Batch](#using-executedelete-with-batch) - Delete rows in batches to better control transaction log growth and large delete operations.
 - [Using ExecuteDelete with Future Action](#using-executedelete-with-future-action) - Register delete operations and execute them later in a centralized location.
+- [Using ExecuteDelete with Hint](#using-executedelete-with-hint) - Add SQL query hints when you need more control over how the database executes the delete operation.
 
 ## ExecuteDelete Example
 
@@ -103,6 +104,34 @@ Benefits:
 * Can execute multiple delete operations together
 * Supports transactional execution with `ExecuteFutureAction(true)` or `ExecuteFutureActionAsync(true)`
 
+### Using ExecuteDelete with Hint
+
+Sometimes you need to control how the database executes a delete operation. For example, you might want to apply SQL query hints to influence locking behavior or improve performance for a specific scenario.
+
+Our library lets you apply query hints to `ExecuteDelete` by using the [WithHint](/ef-core-query-hint) extension method before calling `ExecuteDelete` or `ExecuteDeleteAsync`.
+
+```csharp
+// @nuget: Z.EntityFramework.Plus.EFCore
+using Z.EntityFramework.Plus;
+
+var rowsAffected = context.Customers
+    .Where(x => x.IsDeleted)
+    .WithHint(SqlServerTableHintFlags.TABLOCK)
+    .ExecuteDelete();
+```
+
+[Online Example](https://dotnetfiddle.net/oPSXEt)
+
+Query hints are provider-specific and are only applied when supported by the current database provider.
+
+Benefits:
+
+* Applies SQL query hints to `ExecuteDelete`
+* Helps control locking behavior for delete operations
+* Can improve performance in specific scenarios
+* Uses the same API as other query hint features provided by the library
+* Works seamlessly with `ExecuteDelete` and `ExecuteDeleteAsync`
+
 ## Summary
 
 In this article, you learned how to use EF Core's `ExecuteDelete` method together with additional features provided by Entity Framework Plus.
@@ -111,5 +140,6 @@ While we generally recommend using the built-in `ExecuteDelete` method, our libr
 
 - Use `ExecuteDeleteBatch` and `ExecuteDeleteBatchAsync` to delete rows in batches, helping control transaction log growth and improve performance when working with very large tables.
 - Use `FutureAction` to register one or more delete operations and execute them later in a centralized location, which is especially useful when working with multiple repositories.
+- Use `WithHint` to apply provider-specific query hints to the generated delete command.
 
 These features build on top of `ExecuteDelete` and help address common challenges encountered in large applications and production environments.
