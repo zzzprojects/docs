@@ -1,31 +1,33 @@
 ---
-Title: Get started with your first option with C# Eval Expression
-MetaDescription: Learn how to use options in C# Eval Expression to configure your eval context to align with your scenarios and requirements.
-LastMod: 2025-08-19
+Title: My First Option with C# Eval Expression
+MetaDescription: Learn how to configure options in C# Eval Expression, including Safe Mode, custom keywords, and dynamic methods, to customize how expressions are parsed and executed.
+LastMod: 2026-07-14
 ---
 
 # My First Option with C# Eval Expression
 
-In this article, we will only cover a few options, but you can find all the [options here](/options). Understanding how [register methods](https://eval-expression.net/register-unregister) work will also help you understand better.
+In this article, we will cover only a few options, but you can find the complete list on the [Options](/options) page. Understanding how [register methods](https://eval-expression.net/register-unregister) work will also help you better understand how options work.
 
-We will mix how options are added by either the default context, a local context, or a new static context. All three techniques are valid, and which one is recommended depends on what you want to achieve.
+In the following examples, we will use the default context, a local context, and a new static context to add options. All three approaches are valid. Which one is recommended depends on what you want to achieve.
 
-- [Use option for safe mode](#use-option-for-safe-mode)
-- [Use option to add keyword](#use-option-to-add-keyword)
-- [Use option to add method](#use-option-to-add-method)
+* [Use option for safe mode](#use-option-for-safe-mode)
+* [Use option to add keyword](#use-option-to-add-keyword)
+* [Use option to add method](#use-option-to-add-method)
+
 
 ## Use Option for Safe Mode
 
-The [Safe Mode](/options#safemode) ensures that only members and types registered can be used for the expression.
+The [Safe Mode](/options#safemode) option ensures that only registered members and types can be used in an expression.
 
-To use safe mode, we recommend:
-- A local or static context
-- Unregistering all types first
-- Limiting the maximum number of loops with the [MaxLoopIteration](/options#maxloopiteration) option
-- Setting the `SafeMode` option to true
-- Registering only what you want the user to be able to use
+When using safe mode, we recommend:
 
-For example, we will demonstrate how easy it is to configure options in the C# Eval Expression library:
+* Using a local or static context
+* Unregistering all types first
+* Limiting the maximum number of loops with the [MaxLoopIteration](/options#maxloopiteration) option
+* Setting the `SafeMode` option to `true`
+* Registering only the members and types you want users to be able to use
+
+For example, the following code shows how easy it is to configure safe mode in the C# Eval Expression library:
 
 ```csharp
 // @nuget: Z.Expressions.Eval
@@ -42,12 +44,12 @@ Console.WriteLine("1 - Result: " + r1);
 
 try
 {
-	// `List` is no longer registered, so it cannot be used
-	var r2 = evalContext.Execute("new List<int>()");
+    // `List` is no longer registered, so it cannot be used
+    var r2 = evalContext.Execute("new List<int>()");
 }
-catch(Exception ex)
+catch (Exception ex)
 {
-	Console.WriteLine("Cannot use `List` exception: " + ex.Message);
+    Console.WriteLine("Cannot use `List` exception: " + ex.Message);
 }
 ```
 
@@ -55,9 +57,9 @@ catch(Exception ex)
 
 ## Use Option to Add Keyword
 
-In the C# Eval Expression library, you can add your own `keyword`. You cannot override existing keywords, but you can create new ones, such as `isin`, that will check if the current item is in the list. 
+In the C# Eval Expression library, you can add your own keywords. While you cannot override existing keywords as easily, you can create new ones such as `isin`, which checks whether the current item is in a list.
 
-In this example, we will create an extension method named `IsIn` that checks if an item is part of a list. Then, we will create the keyword `isin` that will be bound to this extension method and can be used directly in the expression:
+In this example, we create an extension method named `IsIn` that checks whether an item is part of a list. Then, we register the `isin` keyword and bind it to the extension method so it can be used directly in an expression:
 
 ```csharp
 // @nuget: Z.Expressions.Eval
@@ -91,21 +93,19 @@ public static class CustomExtensions
 
 {% include component-try-it.html href='https://dotnetfiddle.net/EcwhUk' %}
 
-Here are some suggestions for improving the grammar and simplifying the vocabulary in your article:
-
 ## Use Option to Add Method
 
-In the C# Eval Expression library, you can add your own method.
+In the C# Eval Expression library, you can add your own methods.
 
-If you can define the method in a non-dynamic way, you should always prefer to [register your method](/register-unregister) instead of creating it dynamically. Registered methods are faster and more secure.
+If you can define a method at compile time, we strongly recommend [registering the method](/register-unregister) instead of creating it dynamically. Registered methods are faster, more secure, and easier to maintain.
 
-In this first example, we’ll create a simple custom method called `MinPlusOne` that returns the minimum value between two numbers and adds one:
+In this first example, we create a simple custom method named `MinPlusOne` that returns the minimum value between two numbers and adds one:
 
 ```csharp
 // @nuget: Z.Expressions.Eval
 using Z.Expressions;
 
-var evalContext = new EvalContext();	
+var evalContext = new EvalContext();
 
 evalContext.AddMethod(@"
 public int MinPlusOne(int A, int B)
@@ -115,12 +115,12 @@ public int MinPlusOne(int A, int B)
 ");
 
 var result = evalContext.Execute<int>("MinPlusOne(Value1, Value2)", new { Value1 = 1, Value2 = 99 });
-Console.WriteLine(result); 
+Console.WriteLine(result);
 ```
 
 {% include component-try-it.html href='https://dotnetfiddle.net/4VXupA' %}
 
-In this second example, we go one step further. We’ll create a more advanced method dynamically, where the logic (formula) is provided by the user. This is useful when you want to inject a user-defined expression directly into a method.
+In this second example, we go one step further by creating a method dynamically. The method logic (formula) is provided by the user, allowing a user-defined expression to be injected directly into the method.
 
 ```csharp
 // @nuget: Z.Expressions.Eval
@@ -129,17 +129,19 @@ using Z.Expressions;
 string userInputFormula = "A == B || A == -1 || B == -1";
 
 var evalContext = new EvalContext();
-evalContext.UseCache = false;		
+evalContext.UseCache = false;
 
 evalContext.AddMethod($$"""public bool IsEqualsCustom(int A, int B) { return {{userInputFormula}}; }""");
 
-Console.WriteLine(evalContext.Execute<bool>("IsEqualsCustom(1, 1)")); 
-Console.WriteLine(evalContext.Execute<bool>("IsEqualsCustom(1, 2)")); 
-Console.WriteLine(evalContext.Execute<bool>("IsEqualsCustom(1, -1)")); 
+Console.WriteLine(evalContext.Execute<bool>("IsEqualsCustom(1, 1)"));
+Console.WriteLine(evalContext.Execute<bool>("IsEqualsCustom(1, 2)"));
+Console.WriteLine(evalContext.Execute<bool>("IsEqualsCustom(1, -1)"));
 ```
 
 {% include component-try-it.html href='https://dotnetfiddle.net/ZlZjx4' %}
 
-## Conclusion
+## Summary
 
-Adding options in the C# Eval Library is easy, but mastering all the [available options](/options) will surely take more time. In most cases, you only need to [register types](/register-unregister), but people with advanced scenarios might need to better understand those advanced options.
+Adding options in the C# Eval Expression library is easy, but mastering all the [available options](/options) takes time. In most cases, you only need to [register types and methods](/register-unregister), which is the recommended approach.
+
+However, for more advanced scenarios, options such as `SafeMode`, custom keywords, and dynamic methods allow you to customize exactly how expressions are parsed and executed.
