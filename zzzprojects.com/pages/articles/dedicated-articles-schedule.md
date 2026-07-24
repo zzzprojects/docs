@@ -24,12 +24,9 @@ When you choose a date for your dedicated articles or videos, follow these simpl
 
 ## 🎯 Schedule
 
-* **2026-05-01** – Pavle Davitkovic: *Dapper Plus or SqlBulkCopy? Pros, Cons, and Hidden Limitations*
-* **2026-05-05** – AntonDevTips: *The Real Cost of Returning the Identity Value in EF Core (When You Don't Need It)*
-* **2026-05-13** – (Video) AntonDevTips: *Stop Writing Complex SQL to Save Data — Let Dapper Plus Do It for You*
-* **2026-05-27** – (Video) AntonDevTips: *Mastering Entity Mapping in Dapper Plus (With Real Examples)*
-* **2026-06-13** – Woodruff: *EF Core Bulk Insert: The Complete Guide to Inserting Thousands of Rows Without the Wait*
-* **2026-06-25** – Nikolatech: *EF Core Extension Options*
-* **2026-08-24** - (Video) Remigiusz: *EF Core Bulk Operations - Two Real-Life scenarios you should know*
+* **2026-07-01** - Woodruff: *5 EF Core Performance Anti-Patterns That Entity Framework Extensions Eliminates*
+* **2026-07-05** - (Video) Code Unparalleled: *.NET 10 MVC From Scratch — EF Core vs EF Extensions Benchmark (6× Faster)*
+* **2026-08-01** - (Video) Woodruff *Product review*
+* **2026-08-24** - (Video) Remigiusz *EF Core Bulk Operations - Two Real-Life scenarios you should know* 
 * **2026-09-15** - Codewithmukesh: *EF Extensions TBD*
 * **2026-10-13** - (Video) Codewithmukesh: *EF Extensions TBD*
