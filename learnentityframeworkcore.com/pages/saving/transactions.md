@@ -3,7 +3,7 @@ title: Using Transactions in EF Core
 description: Learn how to use implicit and explicit transactions in EF Core to commit or roll back database operations as a single unit.
 canonical: /saving/transactions
 status: Published
-lastmod: 2026-06-24
+lastmod: 2026-07-26
 ---
 
 # Using Transactions in EF Core
@@ -36,6 +36,8 @@ In this example, both the update and the insert are executed in the same transac
 
 For more information about saving tracked changes, see [SaveChanges](/saving/save-changes).
 
+For a deeper step-by-step explanation of what EF Core does internally during `SaveChangesAsync()`, see [How SaveChanges Works](/saving/save-changes-how-it-works).
+
 ## Use an Explicit Transaction
 
 Use `BeginTransactionAsync()` when multiple operations or calls to `SaveChangesAsync()` must be committed or rolled back together.
@@ -43,7 +45,7 @@ Use `BeginTransactionAsync()` when multiple operations or calls to `SaveChangesA
 ```csharp
 using var context = new AppDbContext();
 
-using var transaction = context.Database.BeginTransactionAsync();
+using var transaction = await context.Database.BeginTransactionAsync();
 
 try
 {
@@ -487,9 +489,12 @@ For most applications, the default `SaveChangesAsync()` transaction is sufficien
 ## Related Articles
 
 * [SaveChanges](/saving/save-changes) — how EF Core persists tracked changes and uses transactions by default
+* [How SaveChanges Works](/saving/save-changes-how-it-works) — what EF Core does internally during the normal save pipeline
 * [ExecuteSql](/saving/execute-sql) — how to execute raw SQL commands inside a transaction
 * [Adding Data](/saving/adding-data) — how to insert tracked entities
 * [Updating Data](/saving/modifying-data) — how to update tracked entities
+* [Deleting Data](/saving/deleting-data) — how to delete tracked entities
+* [Concurrency](/saving/concurrency) — how concurrency conflicts can interact with SaveChanges and retries
 
 ## FAQ
 
