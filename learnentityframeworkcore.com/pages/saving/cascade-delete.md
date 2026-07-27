@@ -3,7 +3,7 @@ title: Cascade Delete
 description: An examination of how cascade delete works in Entity Framework Core when deleting entities with related data
 canonical: /saving/cascade-delete
 status: Published
-lastmod: 2026-06-09
+lastmod: 2026-07-26
 ---
 
 # EF Core Cascade Delete
@@ -115,7 +115,7 @@ Use when you want full control over dependent entities and do not want EF Core t
 
 You are responsible for deleting dependent entities or updating their foreign keys before deleting the parent entity.
 
-This means you must also call `Remove` or `RemoveRange` on the dependent entities when they should be deleted.
+This means you must also call `Remove()` or `RemoveRange()` on the dependent entities when they should be deleted.
 
 ## Delete a Category with Related Products
 
@@ -157,7 +157,7 @@ context.Categories.Remove(category);
 await context.SaveChangesAsync();
 ```
 
-If cascade delete is configured (`DeleteBehavior.Cascade` or `DeleteBehavior.CascadeClient`) for this relationship, deleting the category will also delete the related products when the delete operation is saved.
+If cascade delete is configured (`DeleteBehavior.Cascade` or `DeleteBehavior.ClientCascade`) for this relationship, deleting the category will also delete the related products when the delete operation is saved.
 
 The important point is that `Remove()` does not delete the rows immediately. EF Core tracks the category as `Deleted`, and `SaveChangesAsync()` sends the pending delete operation to the database.
 
@@ -210,7 +210,7 @@ This configuration tells EF Core to use cascade delete for the `Category` / `Pro
 
 If the related products are loaded and tracked by the current `DbContext`, EF Core can apply the cascade behavior before sending the delete commands.
 
-If the related products are not loaded, the database apply the cascade behavior due to the foreign key constraint that was created.
+If the related products are not loaded, the database applies the cascade behavior due to the foreign key constraint that was created.
 
 The exact SQL depends on the database provider, the relationship configuration, and whether the dependent entities are tracked.
 
@@ -444,7 +444,9 @@ That means:
 
 For the basic entity delete workflow, see [Deleting Data](/saving/deleting-data).
 
-For more about how EF Core persists tracked changes, see [SaveChanges](/saving/save-changes).
+For a general overview of saving tracked changes, see [SaveChanges](/saving/save-changes).
+
+For a deeper step-by-step explanation of what EF Core does internally when changes are saved, see [How SaveChanges Works](/saving/save-changes-how-it-works).
 
 For more about relationship configuration, see [One-to-Many Relationship Configuration](/configuration/one-to-many-relationship-configuration).
 
@@ -667,7 +669,9 @@ If you want to understand how cascade delete fits into the broader EF Core savin
 
 * [Deleting Data](/saving/deleting-data) — how to delete entities with `Remove()` and `RemoveRange()`
 * [SaveChanges](/saving/save-changes) — how EF Core persists tracked changes
+* [How SaveChanges Works](/saving/save-changes-how-it-works) — what EF Core does internally when `SaveChangesAsync()` applies delete behavior
 * [ChangeTracker](/saving/change-tracker) — how EF Core tracks entity states before saving
+* [ExecuteDelete](/saving/execute-delete) — how to delete rows directly without loading or tracking entities
 * [One-to-Many Relationship Configuration](/configuration/one-to-many-relationship-configuration) — how to configure one-to-many relationships
 * [Referential Constraint Action Options](/relationships/referential-constraint-action-options) — how relationship delete behaviors affect foreign key constraints
 
