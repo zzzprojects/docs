@@ -3,7 +3,7 @@ title: How SaveChanges Works in EF Core
 description: Learn what Entity Framework Core does internally when SaveChangesAsync is called, including change detection, command generation, transactions, savepoints, concurrency checks, store-generated values, and accepting changes after a successful save.
 canonical: /saving/save-changes-how-it-works
 status: Published
-lastmod: 2026-06-28
+lastmod: 2026-07-26
 ---
 
 # How SaveChanges Works in EF Core
@@ -21,7 +21,7 @@ When you call `SaveChanges()` or `SaveChangesAsync()`, EF Core performs the foll
   * Call [`TryDetectChanges()`](https://github.com/dotnet/efcore/blob/3cb71a65a7bdd2acdb5545a1262d38b07135fbe7/src/EFCore/DbContext.cs#L652).
   * Call [`ChangeTracker.DetectChanges()`](https://github.com/dotnet/efcore/blob/3cb71a65a7bdd2acdb5545a1262d38b07135fbe7/src/EFCore/DbContext.cs#L695) if [`ChangeTracker.AutoDetectChangesEnabled`](https://github.com/dotnet/efcore/blob/3cb71a65a7bdd2acdb5545a1262d38b07135fbe7/src/EFCore/DbContext.cs#L693) is enabled.
   * If no changes are detected, [returns `0`](https://github.com/dotnet/efcore/blob/3cb71a65a7bdd2acdb5545a1262d38b07135fbe7/src/EFCore/ChangeTracking/Internal/StateManager.cs#L1391) immediately.
-  
+
 * Prepare the database commands.
 
   * [Create modification commands](https://github.com/dotnet/efcore/blob/3cb71a65a7bdd2acdb5545a1262d38b07135fbe7/src/EFCore.Relational/Update/Internal/CommandBatchPreparer.cs#L208C1-L208C92) for all pending changes.
@@ -149,7 +149,7 @@ The exact commands, ordering, and batching behavior depend on the database provi
 
 ### Step 3: Open the Database Connection
 
-After EF Core prepare batch to be saved, it needs a database connection to execute the save operation.
+After EF Core prepares the command batches, it needs a database connection to execute the save operation.
 
 If the database connection is not already open, EF Core opens it.
 
@@ -171,7 +171,7 @@ This matters because one call to `SaveChanges()` or `SaveChangesAsync()` can pro
 
 If EF Core is using an existing transaction, it can [create a savepoint](https://github.com/dotnet/efcore/blob/3cb71a65a7bdd2acdb5545a1262d38b07135fbe7/src/EFCore.Relational/Update/Internal/BatchExecutor.cs#L88) before saving, when the provider supports it and savepoints are enabled.
 
-If the save succeeds, the transaction can [commit](https://github.com/dotnet/efcore/blob/3cb71a65a7bdd2acdb5545a1262d38b07135fbe7/src/EFCore.Relational/Update/Internal/BatchExecutor.cs#L103) if created or [release](https://github.com/dotnet/efcore/blob/3cb71a65a7bdd2acdb5545a1262d38b07135fbe7/src/EFCore.Relational/Update/Internal/BatchExecutor.cs#L136) if a savepoint have been used.
+If the save succeeds, EF Core can [commit the transaction](https://github.com/dotnet/efcore/blob/3cb71a65a7bdd2acdb5545a1262d38b07135fbe7/src/EFCore.Relational/Update/Internal/BatchExecutor.cs#L103) if it created one, or [release the savepoint](https://github.com/dotnet/efcore/blob/3cb71a65a7bdd2acdb5545a1262d38b07135fbe7/src/EFCore.Relational/Update/Internal/BatchExecutor.cs#L136) if one was created.
 
 If the save fails, EF Core can roll back to the savepoint instead of rolling back the entire transaction.
 
