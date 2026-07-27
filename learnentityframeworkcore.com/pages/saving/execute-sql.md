@@ -3,7 +3,7 @@ title: EF Core ExecuteSql
 description: Learn how to use ExecuteSql in EF Core to run raw SQL commands such as INSERT, UPDATE, and DELETE directly in the database.
 canonical: /saving/execute-sql
 status: Published
-lastmod: 2026-06-09
+lastmod: 2026-07-26
 ---
 
 # EF Core ExecuteSql
@@ -176,7 +176,7 @@ The transaction ensures that the three commands are treated as one unit of work.
 
 If one command fails before `CommitAsync()`, the transaction can be rolled back and the previous commands are not permanently saved.
 
-For more details, see the Microsoft documentation on [EF Core transactions](https://learn.microsoft.com/en-us/ef/core/saving/transactions).
+For more details about EF Core transaction workflows, see [Transactions](/saving/transactions) and the Microsoft documentation on [EF Core transactions](https://learn.microsoft.com/en-us/ef/core/saving/transactions).
 
 ## Important Behavior
 
@@ -192,6 +192,8 @@ That means:
 * database constraints, foreign keys, triggers, and transaction rules still apply
 
 For tracked entity workflows, see [SaveChanges](/saving/save-changes).
+
+For a deeper step-by-step explanation of what EF Core does internally when changes are saved through the normal tracked workflow, see [How SaveChanges Works](/saving/save-changes-how-it-works).
 
 For normal tracked inserts, updates, and deletes, see [Adding Data](/saving/adding-data), [Updating Data](/saving/modifying-data), and [Deleting Data](/saving/deleting-data).
 
@@ -384,7 +386,7 @@ If you need fresh values, reload the entity or use a new `DbContext`.
 
 ## External Resources - ExecuteSql
 
-The following videos are useful if you want to see how raw SQL commands are executed from EF Core, especially how `ExecuteSqlRaw` differs from query-based APIs such as `FromSqlRaw`.
+The following videos are useful if you want to see how raw SQL commands are executed from EF Core, especially how command APIs such as `ExecuteSqlRaw` differ from query-based APIs such as `FromSqlRaw`.
 
 ### Video 1 - Entity Framework Core (Inline Query for Insert, Update and Delete)
 
@@ -442,11 +444,14 @@ Use `ExecuteSqlAsync()` when you need to write and execute the SQL command yours
 If you want to compare `ExecuteSqlAsync()` with the most closely related EF Core saving patterns, these pages are the best next step:
 
 * [SaveChanges](/saving/save-changes) — how EF Core persists tracked changes
+* [How SaveChanges Works](/saving/save-changes-how-it-works) — what EF Core does internally during the normal tracked save pipeline
 * [Adding Data](/saving/adding-data) — how to insert entities with the normal tracked workflow
 * [Updating Data](/saving/modifying-data) — how to update entities with the normal tracked workflow
 * [Deleting Data](/saving/deleting-data) — how to delete entities with the normal tracked workflow
 * [ExecuteUpdate](/saving/execute-update) — how to update rows directly in the database using a LINQ query
 * [ExecuteDelete](/saving/execute-delete) — how to delete rows directly in the database using a LINQ query
+* [Transactions](/saving/transactions) — how to group multiple saving or SQL operations into one unit of work
+* [ChangeTracker](/saving/change-tracker) — how EF Core tracks entity states in normal entity workflows
 
 ## FAQ
 
