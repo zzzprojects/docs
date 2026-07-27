@@ -3,12 +3,12 @@ title: EF Core Concurrency: Database Wins
 description: How to resolve EF Core concurrency conflicts by keeping the database values and discarding the current changes
 canonical: /saving/concurrency-database-wins
 status: Published
-lastmod: 2026-06-24
+lastmod: 2026-07-26
 ---
 
 # EF Core Concurrency: Database Wins
 
-Database Wins keeps the values currently stored in the database and discards the current application changes in conflicts and retrying `SaveChangesAsync()`.
+Database Wins keeps the values currently stored in the database, discards the current application changes, and then retries `SaveChangesAsync()`.
 
 ## Resolve a Conflict with Database Wins
 
@@ -180,6 +180,8 @@ Important points:
 
 For a broader overview of concurrency conflict handling, see [Concurrency](/saving/concurrency).
 
+For a deeper explanation of how `SaveChangesAsync()` checks affected rows and reports concurrency conflicts, see [How SaveChanges Works](/saving/save-changes-how-it-works).
+
 ## Common Pitfalls
 
 Be careful with the following mistakes.
@@ -219,7 +221,7 @@ This keeps the tracked entity consistent with the database.
 
 ### Forgetting to Retry SaveChangesAsync
 
-Refreshing `CurrentValues` and `OriginalValues` does not save the changes not in conflicts by itself.
+Refreshing `CurrentValues` and `OriginalValues` does not save the remaining pending changes by itself.
 
 After the original values are refreshed, the application must call `SaveChangesAsync()` again.
 
@@ -262,6 +264,7 @@ Use another strategy when the current changes must be preserved or when the appl
 If you want to continue with EF Core concurrency conflict handling, these articles are the best next steps:
 
 * [Concurrency](/saving/concurrency) — overview of EF Core concurrency and conflict detection
+* [How SaveChanges Works](/saving/save-changes-how-it-works) — how EF Core checks affected rows and reports concurrency conflicts during saving
 * [Client Wins](/saving/concurrency-client-wins) — resolve a conflict by keeping the current application values
 * [Custom Resolution](/saving/concurrency-custom-resolution) — resolve a conflict by choosing values property by property
 * [SaveChanges](/saving/save-changes) — understand when EF Core sends tracked changes to the database
