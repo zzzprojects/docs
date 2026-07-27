@@ -3,7 +3,7 @@ title: Modifying data via the DbSet
 description: An examination of the methods and approaches available for modifying data via the Entity Framework Core DbSet API 
 canonical: /saving/modifying-data
 status: Published
-lastmod: 2026-06-01
+lastmod: 2026-07-26
 ---
 
 # EF Core Updating Data
@@ -192,7 +192,9 @@ That means:
 - disconnected entities often need explicit tracking or state configuration
 - partial updates can be done with `Attach()` and `Property(...).IsModified = true`
 
-For a deeper explanation of the save pipeline, see [SaveChanges](/saving/save-changes).
+For a general overview of saving tracked changes, see [SaveChanges](/saving/save-changes).
+
+For a deeper step-by-step explanation of what EF Core does internally when changes are saved, see [How SaveChanges Works](/saving/save-changes-how-it-works).
 
 For more about entity states, see [ChangeTracker](/saving/change-tracker).
 
@@ -219,6 +221,8 @@ In a disconnected scenario:
 4. methods such as `Update()`, `Attach()`, and `Property(...).IsModified = true` become important
 
 For more about connected workflows, see [Saving Data in Connected Scenario](/saving/save-changes-connected-entities).
+
+For more about disconnected update workflows, see [Disconnected Entities](/saving/save-changes-disconnected-entities).
 
 For more advanced disconnected graph scenarios, see [Entity Framework Core TrackGraph For Disconnected Data](http://www.mikesdotnetting.com/article/303/entity-framework-core-trackgraph-for-disconnected-data).
 
@@ -451,7 +455,7 @@ This makes the update safer and easier to control.
 
 The following videos are useful if you want to go deeper into how EF Core tracks updates, how `Update()` behaves in disconnected scenarios, how to control specific updated properties, and when `ExecuteUpdateAsync()` can be a better fit than the normal tracked workflow.
 
-### Video 1 - How EF Core Keeps Track of Changes
+### Video 1 - How does EF Core keeps track of changes?
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/uXDYEBexlYk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
@@ -522,7 +526,9 @@ Use `Update()` or `UpdateRange()` for disconnected entities when you want EF Cor
 If you want to understand how updating data fits into the broader EF Core saving workflow, these pages are the best next steps:
 
 - [SaveChanges](/saving/save-changes) — how EF Core persists tracked changes
+- [How SaveChanges Works](/saving/save-changes-how-it-works) — what EF Core does internally when `SaveChangesAsync()` updates tracked entities
 - [Saving Data in Connected Scenario](/saving/save-changes-connected-entities) — how EF Core saves entities already tracked by the current context
+- [Disconnected Entities](/saving/save-changes-disconnected-entities) — how to save entities that are not already tracked by the current `DbContext`
 - [ChangeTracker](/saving/change-tracker) — how EF Core stores entity states such as `Modified`
 - [Tracking Changes of Entities](/saving/change-tracker-how-it-works) — how EF Core detects changes before saving
 - [ExecuteUpdate](/saving/execute-update) — how to update rows directly in the database without loading or tracking entities
