@@ -3,7 +3,7 @@ title: The Entity Framework Core ChangeTracker
 description: Learn what the ChangeTracker does in Entity Framework Core, how it tracks entity states, how it works with SaveChanges, when tracking is lost, and the most common pitfalls to avoid.
 canonical: /saving/change-tracker
 status: Published
-lastmod: 2026-04-25
+lastmod: 2026-07-26
 ---
 
 # The Entity Framework Core ChangeTracker
@@ -153,7 +153,9 @@ A simplified sequence looks like this:
 4. EF Core detects those changes
 5. `SaveChangesAsync()` uses the tracked state to generate the appropriate SQL
 
-To see the same workflow explained from the save pipeline side, see [SaveChanges](/saving/save-changes).
+For the general `SaveChangesAsync()` workflow, see [SaveChanges](/saving/save-changes).
+
+For a deeper step-by-step explanation of the internal save pipeline, see [How SaveChanges Works](/saving/save-changes-how-it-works).
 
 ## Connected vs Not Tracked
 
@@ -174,6 +176,8 @@ In those cases, EF Core no longer has the same tracked state to rely on.
 This distinction matters because code can look similar on the surface even when the tracking behavior underneath is completely different.
 
 For the normal tracked workflow where entities stay attached to the same context, see [Saving Data in Connected Scenario](/saving/save-changes-connected-entities).
+
+For disconnected workflows, see [Disconnected Entities](/saving/save-changes-disconnected-entities).
 
 ## Why `Update()` Can Be Misleading
 
@@ -291,9 +295,9 @@ It is a valuable companion resource for understanding tracking overhead in inser
 **Key sections:**
 
 * [01:30](https://youtu.be/J4x-bN3zSN4?si=MUEaOIS42xPJrp1L&t=90) — Entity and `DbContext` setup
-* [04:00](https://youtu.be/J4x-bN3zSN4?si=MUEaOIS42xPJrp1L&t=240) — Benchmark: `Add` vs `AddRange` with 100k inserts
-* [07:00](https://youtu.be/J4x-bN3zSN4?si=MUEaOIS42xPJrp1L&t=420) — Disabling `AutoDetectChangesEnabled` for better save performance
-* [10:00](https://youtu.be/J4x-bN3zSN4?si=MUEaOIS42xPJrp1L&t=600) — Reads with `AsNoTracking()` and `QueryTrackingBehavior`
+* [04:00](https://youtu.be/J4x-bN3zSN4?si=MUEaOIS42xPJrp1L&t=240) — `Add` vs `AddRange` performance scenario with 100k inserts
+* [12:02](https://youtu.be/J4x-bN3zSN4?si=MUEaOIS42xPJrp1L&t=722) — Disabling `AutoDetectChangesEnabled` for better save performance
+* [15:40](https://youtu.be/J4x-bN3zSN4?si=MUEaOIS42xPJrp1L&t=940) — Reads with `AsNoTracking()` and query tracking behavior
 
 ## Summary
 
@@ -308,7 +312,9 @@ Understanding tracking boundaries, entity states, and when tracking is lost make
 If you want to explore the most closely related saving topics, these pages are the best next step:
 
 * [SaveChanges](/saving/save-changes) — broader overview of how EF Core persists tracked changes
+* [How SaveChanges Works](/saving/save-changes-how-it-works) — what EF Core does internally after the `ChangeTracker` detects changes to save
 * [Saving Data in Connected Scenario](/saving/save-changes-connected-entities) — how tracked entities behave in the normal connected save flow
+* [Disconnected Entities](/saving/save-changes-disconnected-entities) — how to save entities that are not already tracked by the current `DbContext`
 * [Change Tracker: How It Works](/saving/change-tracker-how-it-works) — a deeper explanation of EF Core tracking internals
 
 ## FAQ
