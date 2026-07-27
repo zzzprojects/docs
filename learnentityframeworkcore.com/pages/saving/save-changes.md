@@ -3,7 +3,7 @@ title: EF Core SaveChanges - How Data Is Persisted (Tracking, Transactions, and 
 description: Learn what SaveChanges does in Entity Framework Core, how it uses the ChangeTracker, what happens under the hood, transaction behavior, common scenarios, performance tips, and FAQs.
 canonical: /saving/save-changes
 status: Published
-lastmod: 2026-04-24
+lastmod: 2026-07-26
 ---
 
 # SaveChanges in EF Core: How to Persist Changes
@@ -163,6 +163,8 @@ In a single call, EF Core inserts a new product, updates another one, and delete
 
 At a high level, `SaveChangesAsync()` reads the changes currently tracked by the `DbContext`, converts them into database commands, sends those commands to the database, and updates entity states after a successful save.
 
+For a deeper step-by-step explanation of the internal save pipeline, see [How SaveChanges Works](/saving/save-changes-how-it-works).
+
 ### Detects tracked changes
 
 EF Core uses the current `DbContext` to track entity instances and their states through the [ChangeTracker](/saving/change-tracker). Before saving, it determines which tracked entities were added, modified, or marked for deletion.
@@ -287,52 +289,52 @@ The following resources are useful if you want to go deeper into how EF Core per
 
 They are especially helpful for understanding entity states, tracking-related pitfalls, batching behavior, and when standard `SaveChanges()` may no longer be the best fit for high-volume operations.
 
-### Video 1 — How does EF Core keep track of changes?
+### Video 1 — How does EF Core keeps track of changes?
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/uXDYEBexlYk?si=ecJMtk1ZxKjv4JOs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 Hubert Mijalski explains how EF Core uses the `ChangeTracker` internally, with a focus on entity states and what `SaveChanges()` actually persists.
 
-This video is especially useful if you want to understand why saving can lead to unexpected updates, particularly in disconnected scenarios or when `Update()` is used too broadly.
+This video is especially useful if you want to understand why saving can lead to unexpected updates, particularly in disconnected scenarios, when `AsNoTracking()` is used, or when `Update()` is applied too broadly.
 
 **Key sections:**
 
-* [00:00](https://www.youtube.com/watch?v=uXDYEBexlYk&t=9s) — ChangeTracker overview and entity states (`Added`, `Unchanged`, `Deleted`, `Detached`)
-* [05:00](https://www.youtube.com/watch?v=uXDYEBexlYk&t=300s) — `AsNoTracking()` vs `Update()` and why `Update()` can be risky or overused
-* [09:00](https://www.youtube.com/watch?v=uXDYEBexlYk&t=540s) — ChangeTracker scope in web applications and the common “one SaveChanges per unit of work” pattern
-* [12:00](https://www.youtube.com/watch?v=uXDYEBexlYk&t=720s) — Code demo showing a normal tracked update versus `Update()` with SQL logs
+* [00:00](https://www.youtube.com/watch?v=uXDYEBexlYk&t=0s) — ChangeTracker overview and entity states before `SaveChanges()`
+* [03:15](https://www.youtube.com/watch?v=uXDYEBexlYk&t=195s) — Why `AsNoTracking()` prevents the `ChangeTracker` from detecting changes
+* [07:15](https://www.youtube.com/watch?v=uXDYEBexlYk&t=435s) — ChangeTracker scope and calling `SaveChanges()` once at the end of a request
+* [07:45](https://www.youtube.com/watch?v=uXDYEBexlYk&t=465s) — Risks of `Update()` and generated SQL compared with a normal tracked update
 
-### Video 2 — How SaveChanges works and 1 common mistake (EF Core / .NET 8)
+### Video 2 — How SaveChanges works and 1 common mistake EF Core (Enity Framework Core.NET 8)
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/lehYoEhFiIM?si=clN4t9FuuBZshX5i" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-Pawel Minkina explains how `SaveChanges()` works using a simple analogy, then connects that explanation to batching benchmarks and a common performance mistake.
+Pawel Minkina explains how `DbContext` and `SaveChanges()` work together, then shows why calling `SaveChanges()` repeatedly can hurt performance in large save operations.
 
-This is a useful companion resource if you want to understand why calling `SaveChanges()` once per entity is often inefficient, and why change detection can become expensive in large save operations.
+This is a useful companion resource if you want to understand why calling `SaveChanges()` once per entity is often inefficient, and why change detection and tracked entities can become expensive at scale.
 
 **Key sections:**
 
-* [00:00](https://www.youtube.com/watch?v=lehYoEhFiIM&t=1s) — Introduction and analogy for how `DbContext` and `SaveChanges()` work together
-* [02:30](https://www.youtube.com/watch?v=lehYoEhFiIM&t=150s) — Benchmark comparing batched saving versus calling `SaveChanges()` repeatedly
-* [05:00](https://www.youtube.com/watch?v=lehYoEhFiIM&t=300s) — Large-scale run (5 million items) and recreating the `DbContext` periodically to reduce memory pressure
-* [07:30](https://www.youtube.com/watch?v=lehYoEhFiIM&t=450s) — `AutoDetectChangesEnabled = false` and why it can improve performance for large save operations
+* [00:00](https://www.youtube.com/watch?v=lehYoEhFiIM&t=0s) — Introduction and analogy for how `DbContext` and `SaveChanges()` work together
+* [01:20](https://www.youtube.com/watch?v=lehYoEhFiIM&t=80s) — Why calling `SaveChanges()` repeatedly inside a loop is inefficient
+* [02:10](https://www.youtube.com/watch?v=lehYoEhFiIM&t=130s) — Benchmark comparing multiple saves with a single save operation
+* [03:40](https://www.youtube.com/watch?v=lehYoEhFiIM&t=220s) — Disabling `AutoDetectChangesEnabled` to improve performance in large save operations
 
-### Video 3 — Boost EF Core Performance: BulkInsert, BulkUpdate, BulkDelete & More (Full Guide)
+### Video 3 — Boost EF Core Performance: BulkInsert, BulkUpdate, BulkDelete & More (Full Guide by Anton Martyniuk)
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/VG-aU7WRl5g?si=M4AVM6duUS9hs8jh" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-Anton Martyniuk (ZZZ Projects) walks through why standard `SaveChanges()` can become slower at scale, then demonstrates bulk-oriented alternatives and when they start to make a measurable difference.
+Anton Martyniuk walks through why standard `SaveChanges()` can become slower at scale, then demonstrates bulk-oriented alternatives and when they start to make a measurable difference.
 
 This is a useful follow-up resource for scenarios where the standard tracked save pipeline is no longer enough for the required volume, and you need to evaluate more specialized persistence strategies.
 
 **Key sections:**
 
-* [00:00](https://www.youtube.com/watch?v=VG-aU7WRl5g&t=91s) — Introduction and benchmark: `SaveChanges()` with 10k records
-* [03:00](https://www.youtube.com/watch?v=VG-aU7WRl5g&t=180s) — `BulkInsert` vs `BulkInsertOptimized`
-* [08:00](https://www.youtube.com/watch?v=VG-aU7WRl5g&t=480s) — `BulkUpdate` and `BulkDelete`, including options such as key matching and `IncludeGraph`
-* [12:00](https://www.youtube.com/watch?v=VG-aU7WRl5g&t=720s) — `BulkMerge` and `BulkSynchronize` for combined insert/update/delete workflows
+* [00:00](https://www.youtube.com/watch?v=VG-aU7WRl5g&t=0s) — Benchmark showing `SaveChanges()` performance limitations with large workloads
+* [02:55](https://www.youtube.com/watch?v=VG-aU7WRl5g&t=175s) — `BulkInsert` and `BulkInsertOptimized` for high-volume inserts
+* [06:50](https://www.youtube.com/watch?v=VG-aU7WRl5g&t=410s) — `BulkUpdate` and `BulkDelete` for large update and delete operations
+* [10:35](https://www.youtube.com/watch?v=VG-aU7WRl5g&t=635s) — `BulkMerge` and related synchronization workflows
 
-If you want additional reading on large insert workloads and range methods, see [4 Best Ways to Do Bulk Inserts in Entity Framework](https://www.entityframeworktutorial.net/efcore/4-best-ways-to-do-bulk-inserts-in-entity-framework.aspx) and the EF Core documentation on [`AddRange`, `UpdateRange`, `AttachRange`, and `RemoveRange`](https://learn.microsoft.com/en-us/ef/core/change-tracking/miscellaneous#addrange-updaterange-attachrange-and-removerange).
+If you want additional reading on large insert workloads and range methods, see [4 Best Ways to Do Bulk Inserts in Entity Framework](https://www.entityframeworktutorial.net/efcore/4-best-ways-to-do-bulk-inserts-in-entity-framework.aspx) and the EF Core documentation on [`AddRange`, `UpdateRange`, `AttachRange`, and `RemoveRange`](https://learn.microsoft.com/en-us/ef/core/change-tracking/miscellaneous#addrange-updaterange-and-removerange).
 
 ## Summary
 
@@ -349,6 +351,7 @@ In practice, the most important ideas are:
 
 If you want to explore the most closely related save scenarios, the following pages are a good next step:
 
+* [How SaveChanges Works](/saving/save-changes-how-it-works) — what EF Core does internally when `SaveChanges()` or `SaveChangesAsync()` is called
 * [Adding Data](/saving/adding-data) — how to insert new entities, including `Add`, `AddRange`, and related entities
 * [Updating Data](/saving/modifying-data) — how to update existing entities in tracked and disconnected scenarios
 * [Deleting Data](/saving/deleting-data) — how to remove entities with `Remove` and `RemoveRange`
