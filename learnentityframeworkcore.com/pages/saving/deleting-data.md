@@ -3,7 +3,7 @@ title: Deleting data via the DbSet
 description: An examination of the methods and approaches available for deleting data via the Entity Framework Core DbSet API 
 canonical: /saving/deleting-data
 status: Published
-lastmod: 2026-05-25
+lastmod: 2026-07-26
 ---
 
 # EF Core Deleting Data
@@ -118,7 +118,9 @@ That means:
 - related data behavior depends on how the relationship is configured
 - the database can reject the delete if foreign key constraints are not satisfied
 
-For a deeper explanation of how tracked changes are persisted, see [SaveChanges](/saving/save-changes).
+For a general overview of saving tracked changes, see [SaveChanges](/saving/save-changes).
+
+For a deeper step-by-step explanation of what EF Core does internally when changes are saved, see [How SaveChanges Works](/saving/save-changes-how-it-works).
 
 For more about how EF Core stores entity states, see [ChangeTracker](/saving/change-tracker).
 
@@ -180,6 +182,8 @@ For more about relationship delete behavior, see [referential constraint action 
 For more about shadow foreign key properties, see [Shadow Properties](/model/shadow-properties).
 
 This article focuses on deleting entities with `Remove()` and `RemoveRange()`. Relationship delete behavior is usually covered separately because it depends on cascade rules, foreign keys, and database constraints.
+
+For a dedicated explanation of cascade delete behavior in EF Core, see [Cascade Delete](/saving/cascade-delete).
 
 ## RemoveRange is Not BulkDelete
 
@@ -393,7 +397,7 @@ The video is especially useful for understanding the trade-off between the norma
 - [07:12](https://www.youtube.com/watch?v=hSSatvEOp3w&t=432s) — Important caveat when the row does not exist
 - [08:32](https://www.youtube.com/watch?v=hSSatvEOp3w&t=512s) — Using `ExecuteDeleteAsync()` in EF Core 7+ without loading entities
 
-### Video 2 - How Does EF Core Keep Track of Changes?
+### Video 2 - How Does EF Core Keeps Track of Changes?
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/uXDYEBexlYk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
@@ -420,8 +424,8 @@ It is useful as a focused complement to the main delete examples, especially whe
 
 - [00:00](https://www.youtube.com/watch?v=8TnyFlD8ZUU&t=0s) — Introduction and context for the EF Core delete example
 - [00:45](https://www.youtube.com/watch?v=8TnyFlD8ZUU&t=45s) — Explaining `Attach()` as an alternative to querying the entity first
-- [01:30](https://www.youtube.com/watch?v=8TnyFlD8ZUU&t=90s) — Creating an entity with a key, attaching it, and calling `Remove()`
-- [02:30](https://www.youtube.com/watch?v=8TnyFlD8ZUU&t=150s) — Running the code and confirming the delete after `SaveChanges()`
+- [02:15](https://www.youtube.com/watch?v=8TnyFlD8ZUU&t=135s) — Creating an entity with a key and attaching it to the context
+- [03:35](https://www.youtube.com/watch?v=8TnyFlD8ZUU&t=215s) — Calling `Remove()` and `SaveChanges()` to delete the attached entity
 
 ## Summary
 
@@ -445,10 +449,12 @@ Use `Remove()` and `RemoveRange()` for normal EF Core delete scenarios. For set-
 If you want to understand how deleting data fits into the broader EF Core saving workflow, these pages are the best next steps:
 
 - [SaveChanges](/saving/save-changes) — how EF Core persists tracked changes
+- [How SaveChanges Works](/saving/save-changes-how-it-works) — what EF Core does internally when `SaveChangesAsync()` deletes tracked entities
 - [Saving Data in Connected Scenario](/saving/save-changes-connected-entities) — how EF Core saves entities that are already tracked by the current context
 - [ChangeTracker](/saving/change-tracker) — how EF Core stores entity states such as `Deleted`
 - [Tracking Changes of Entities](/saving/change-tracker-how-it-works) — how EF Core detects and tracks entity state changes
 - [Updating Data](/saving/modifying-data) — how to update existing entities with a similar tracked workflow
+- [Cascade Delete](/saving/cascade-delete) — how EF Core handles related data when a principal entity is deleted
 - [ExecuteDelete](/saving/execute-delete) — how to delete rows directly in the database without loading or tracking entities
 - [Adding data via the DbContext](/dbcontext/adding-data) — another way to work with entities through the `DbContext` API
 - [Bulk Delete](https://entityframework-extensions.net/bulk-delete) — how to delete large datasets with Entity Framework Extensions
