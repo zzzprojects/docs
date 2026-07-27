@@ -3,7 +3,7 @@ title: EF Core Concurrency
 description: An overview of how Entity Framework Core detects concurrency conflicts when multiple users or processes modify the same data
 canonical: /saving/concurrency
 status: Published
-lastmod: 2026-06-24
+lastmod: 2026-07-26
 ---
 
 # EF Core Concurrency
@@ -95,6 +95,8 @@ If another user or process changed the row first, the token in the database is d
 When EF Core expected to update a row but no row was updated, EF Core treats that as a concurrency conflict and throws `DbUpdateConcurrencyException`.
 
 For more about when EF Core sends changes to the database, see [SaveChanges](/saving/save-changes).
+
+For a deeper step-by-step explanation of how `SaveChangesAsync()` checks affected rows and can throw concurrency exceptions, see [How SaveChanges Works](/saving/save-changes-how-it-works).
 
 ## Catch DbUpdateConcurrencyException
 
@@ -334,6 +336,10 @@ Important points:
 * EF Core detects the conflict, but the application decides how to resolve it.
 * Pessimistic locking usually requires database-specific behavior.
 
+For the normal tracked save pipeline where concurrency conflicts are detected, see [SaveChanges](/saving/save-changes) and [How SaveChanges Works](/saving/save-changes-how-it-works).
+
+For transaction-related behavior, retries, and savepoints, see [Transactions](/saving/transactions).
+
 For the official EF Core documentation about concurrency conflict handling, see [Handling Concurrency Conflicts](https://learn.microsoft.com/en-us/ef/core/saving/concurrency).
 
 ## Common Pitfalls
@@ -418,8 +424,8 @@ This video fits especially well with the optimistic locking and pessimistic lock
 Key timestamps:
 
 * [00:00](https://www.youtube.com/watch?v=lLDBVMj5He8&t=0) — Introduction to concurrency conflicts and locking strategies
-* [01:30](https://www.youtube.com/watch?v=lLDBVMj5He8&t=90) — Pessimistic locking and why it can affect performance
-* [03:00](https://www.youtube.com/watch?v=lLDBVMj5He8&t=180) — Configuring optimistic concurrency with an EF Core concurrency token
+* [00:58](https://www.youtube.com/watch?v=lLDBVMj5He8&t=58) — Pessimistic locking example and its effect on the save flow
+* [01:59](https://www.youtube.com/watch?v=lLDBVMj5He8&t=119) — Introducing optimistic locking as the alternative approach
 * [04:30](https://www.youtube.com/watch?v=lLDBVMj5He8&t=270) — Detecting a conflict and handling `DbUpdateConcurrencyException`
 
 ### Video 2 - .NET Data Community Standup: Database Concurrency and EF Core
@@ -428,14 +434,15 @@ Key timestamps:
 
 This .NET Data Community Standup provides a deeper discussion of database concurrency and EF Core. It is a longer video, so it is most useful when watched by section rather than from beginning to end.
 
-The most relevant parts for this article cover optimistic concurrency, the difference between optimistic and pessimistic approaches, configuring `RowVersion`, and handling `DbUpdateConcurrencyException`. The video also includes a retry loop section for readers who want to go deeper into conflict handling.
+The most relevant parts for this article cover optimistic concurrency, database concurrency concepts, the contrast with pessimistic locking, configuring `RowVersion`, and handling `DbUpdateConcurrencyException`. The video also includes a retry loop section for readers who want to go deeper into conflict handling.
 
 Key timestamps:
 
-* [06:00](https://www.youtube.com/watch?v=YfIM-gfJe4c&t=360) — Introduction to optimistic concurrency and basic concurrency concepts
-* [45:00](https://www.youtube.com/watch?v=YfIM-gfJe4c&t=2700) — Difference between optimistic and pessimistic concurrency
-* [54:00](https://www.youtube.com/watch?v=YfIM-gfJe4c&t=3240) — Implementing `RowVersion` and handling `DbUpdateConcurrencyException`
-* [1:00:00](https://www.youtube.com/watch?v=YfIM-gfJe4c&t=3600) — Retry loop for handling concurrency conflicts
+* [03:04](https://www.youtube.com/watch?v=YfIM-gfJe4c&t=184) — Introduction to optimistic concurrency and database concurrency concepts
+* [25:25](https://www.youtube.com/watch?v=YfIM-gfJe4c&t=1525) — Pessimistic concurrency and locking as a contrasting approach
+* [54:41](https://www.youtube.com/watch?v=YfIM-gfJe4c&t=3281) — Optimistic concurrency check in the generated SQL
+* [55:53](https://www.youtube.com/watch?v=YfIM-gfJe4c&t=3353) — Configuring concurrency tokens in the EF Core model
+* [1:00:58](https://www.youtube.com/watch?v=YfIM-gfJe4c&t=3658) — Retry loop for handling concurrency conflicts
 
 ## Summary
 
@@ -465,9 +472,11 @@ Use [Custom Resolution](/saving/concurrency-custom-resolution) when the applicat
 If you want to understand how concurrency fits into the EF Core saving workflow, these pages are the best next steps:
 
 * [SaveChanges](/saving/save-changes) — how EF Core sends tracked changes to the database
+* [How SaveChanges Works](/saving/save-changes-how-it-works) — how EF Core checks affected rows and reports concurrency conflicts during saving
 * [Updating Data](/saving/modifying-data) — how normal entity updates work before concurrency checks are applied
+* [ChangeTracker](/saving/change-tracker) — how EF Core stores original values and tracks concurrency tokens
 * [Transactions](/saving/transactions) — how EF Core groups operations into a transactional unit of work
-* [Connected Entities](/saving/connected-entities) — how EF Core tracks entities that are queried and updated in the same context
+* [Connected Entities](/saving/save-changes-connected-entities) — how EF Core tracks entities that are queried and updated in the same context
 * [Database Wins](/saving/concurrency-database-wins) — how to resolve a conflict by keeping the database values
 * [Client Wins](/saving/concurrency-client-wins) — how to resolve a conflict by saving the current client values
 * [Custom Resolution](/saving/concurrency-custom-resolution) — how to resolve a conflict by choosing values property by property
