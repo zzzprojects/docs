@@ -3,7 +3,7 @@ title: Saving Data in Connected Scenario in Entity Framework Core
 description: Learn how saving data works in a connected scenario in Entity Framework Core, how tracked entities interact with SaveChanges, why explicit state setting is usually unnecessary, and the most common pitfalls to avoid.
 canonical: /saving/save-changes-connected-entities
 status: Published
-lastmod: 2026-04-26
+lastmod: 2026-07-26
 ---
 
 # Saving Data in Connected Scenario in Entity Framework Core
@@ -27,7 +27,9 @@ await context.SaveChangesAsync();
 
 In this case, the entity is already tracked by the current context, so EF Core can detect the change and persist it when `SaveChangesAsync()` runs.
 
-For the broader saving pipeline, see [SaveChanges](/saving/save-changes).
+For the general saving workflow, see [SaveChanges](/saving/save-changes).
+
+For a deeper step-by-step explanation of the internal save pipeline, see [How SaveChanges Works](/saving/save-changes-how-it-works).
 
 ## Insert a Related Entity
 
@@ -153,7 +155,11 @@ A simplified sequence looks like this:
 
 This is why connected scenarios usually require very little state-management code.
 
-For a broader explanation of the save pipeline, see [SaveChanges](/saving/save-changes). For a deeper look at tracking behavior, see [Change Tracker](/saving/change-tracker) and [Change Tracker: How It Works](/saving/change-tracker-how-it-works).
+For a general overview of saving tracked changes, see [SaveChanges](/saving/save-changes).
+
+For a deeper explanation of the internal save pipeline, see [How SaveChanges Works](/saving/save-changes-how-it-works).
+
+For a deeper look at tracking behavior, see [Change Tracker](/saving/change-tracker) and [Change Tracker: How It Works](/saving/change-tracker-how-it-works).
 
 ## Why `Attach()` and `Update()` Are Usually Not Needed
 
@@ -243,6 +249,8 @@ In a disconnected scenario, the entity is not currently tracked by the saving co
 
 For update patterns beyond the connected workflow, see [Updating Data](/saving/modifying-data).
 
+For a dedicated explanation of disconnected workflows, see [Disconnected Entities](/saving/save-changes-disconnected-entities).
+
 ## Common Pitfalls
 
 Connected scenarios are simple, but a few mistakes are common.
@@ -308,7 +316,7 @@ The following resources help explain why connected scenarios are the most natura
 
 They are especially useful for understanding how the `ChangeTracker` interacts with `SaveChanges()`, why explicit state setting is often unnecessary in connected updates, and what common mistakes can turn a simple tracked flow into an unexpected update problem.
 
-### Video 1 - How does EF Core keep track of changes?
+### Video 1 - How does EF Core keeps track of changes?
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/uXDYEBexlYk?si=DGv0q_k1cAuO6uWR" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
@@ -325,7 +333,7 @@ It is especially useful for showing why explicit `Update()` calls are often unne
 
 ### Video 2 - Part 21: Change Tracking in Entity Framework Core
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/caz8NIKncbM?si=X_8JrkFuCGmC6g9h" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+[![Part 21: Change Tracking in Entity Framework Core](https://img.youtube.com/vi/caz8NIKncbM/maxresdefault.jpg)](https://www.youtube.com/watch?v=caz8NIKncbM)
 
 Hannah explains how EF Core tracks entity changes through the `ChangeTracker`, including the main entity states and how they affect what `SaveChanges()` does.
 
@@ -335,8 +343,8 @@ This is a useful support resource if you want a shorter, more step-by-step expla
 
 * [00:00](https://www.youtube.com/watch?v=caz8NIKncbM) — Intro to change tracking and the role of `DbContext` / `ChangeTracker`
 * [00:45](https://www.youtube.com/watch?v=caz8NIKncbM&t=45s) — Entity states (`Added`, `Modified`, `Deleted`, `Unchanged`, `Detached`)
-* [01:30](https://www.youtube.com/watch?v=caz8NIKncbM&t=90s) — Code example: query, modify, and inspect the `ChangeTracker`
-* [02:30](https://www.youtube.com/watch?v=caz8NIKncbM&t=150s) — Summary of states and saving behavior
+* [02:19](https://www.youtube.com/watch?v=caz8NIKncbM&t=139s) — Starting the connected tracking example with a queried entity
+* [03:23](https://www.youtube.com/watch?v=caz8NIKncbM&t=203s) — Inspecting the `ChangeTracker` before `SaveChanges()`
 
 ### Video 3 - Soft Deletes: The Upgrade Your EF Core Needs
 
@@ -373,9 +381,11 @@ When tracking is lost through `AsNoTracking()`, a disposed context, another cont
 If you want to explore the most closely related saving topics, these pages are the best next step:
 
 * [SaveChanges](/saving/save-changes) — broader overview of how EF Core persists tracked changes
+* [How SaveChanges Works](/saving/save-changes-how-it-works) — what EF Core does internally when `SaveChangesAsync()` saves tracked entities
 * [Adding Data](/saving/adding-data) — insert patterns in normal tracked workflows
 * [Updating Data](/saving/modifying-data) — tracked and disconnected update approaches
 * [Deleting Data](/saving/deleting-data) — delete patterns with tracked entities
+* [Disconnected Entities](/saving/save-changes-disconnected-entities) — how to save entities that are not already tracked by the current `DbContext`
 * [Change Tracker](/saving/change-tracker) — how EF Core tracks entity states and detects changes
 * [Change Tracker: How It Works](/saving/change-tracker-how-it-works) — deeper explanation of EF Core tracking internals
 * [ExecuteUpdate](/saving/execute-update) — set-based updates that run without loading or tracking entities
