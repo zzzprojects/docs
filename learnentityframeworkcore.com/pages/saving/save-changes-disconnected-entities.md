@@ -3,18 +3,18 @@ title: Saving data in disconnected scenarios
 description: An examination of how to save entities that are not tracked by the current DbContext in Entity Framework Core
 canonical: /saving/save-changes-disconnected-entities
 status: Published
-lastmod: 2026-06-30
+lastmod: 2026-07-26
 ---
 
 # EF Core Disconnected Entities
 
 A disconnected entity is an entity that is not being tracked by the current `DbContext`.
 
-Use methods such as `AddRange()`, `UpdateRange()`, or `RemoveRange()` to tell EF Core whether disconnected entities should be inserted, updated, or deleted when [`SaveChangesAsync()`](/saving/save-changes) is called.
+Use methods such as `Add()`, `Update()`, `Remove()`, `Attach()`, or their range equivalents to tell EF Core whether disconnected entities should be inserted, updated, or deleted when [`SaveChangesAsync()`](/saving/save-changes) is called.
 
 ## Insert Disconnected Entities with AddRange
 
-Use `Add` or `AddRange()` when the disconnected entities are new and should be inserted.
+Use `Add()` or `AddRange()` when the disconnected entities are new and should be inserted.
 
 ```csharp
 using var context = new AppDbContext();
@@ -36,7 +36,7 @@ For more details about this insert workflow, see [Adding Data](/saving/adding-da
 
 ## Update Disconnected Entities with UpdateRange
 
-Use `Update` or `UpdateRange()` when the disconnected entities already exist in the database and should be updated.
+Use `Update()` or `UpdateRange()` when the disconnected entities already exist in the database and should be updated.
 
 ```csharp
 using var context = new AppDbContext();
@@ -77,7 +77,7 @@ For more details about this update workflow, see [Updating Data](/saving/modifyi
 
 ## Update Selected Properties with AttachRange
 
-We just saw that `Update` and `UpdateRange()` mark all properties as `Modified`.
+We just saw that `Update()` and `UpdateRange()` mark all properties as `Modified`.
 
 If you want to update only specific properties, you can use `Attach` or `AttachRange()` and explicitly mark the properties that should be updated.
 
@@ -109,7 +109,7 @@ For more details about this update workflow, see [Updating Data](/saving/modifyi
 
 ## Delete Disconnected Entities with RemoveRange
 
-Use `Remove` or `RemoveRange()` when the disconnected entities should be deleted.
+Use `Remove()` or `RemoveRange()` when the disconnected entities should be deleted.
 
 ```csharp
 using var context = new AppDbContext();
@@ -167,9 +167,13 @@ A key value is especially important for updates and deletes. Without a valid key
 
 EF Core can only track one instance of an entity with a given primary key value in the same `DbContext`. Using a short-lived context for each unit of work helps avoid tracking conflicts.
 
-For a deeper explanation of how tracked changes are persisted, see [SaveChanges](/saving/save-changes).
+For a general overview of saving tracked changes, see [SaveChanges](/saving/save-changes).
+
+For a deeper step-by-step explanation of what EF Core does internally when changes are saved, see [How SaveChanges Works](/saving/save-changes-how-it-works).
 
 For more about how EF Core stores entity states, see [ChangeTracker](/saving/change-tracker).
+
+For a deeper look at how EF Core tracks entity states before saving, see [Tracking Changes of Entities](/saving/change-tracker-how-it-works).
 
 For the official EF Core documentation about disconnected scenarios, see [Disconnected entities](https://learn.microsoft.com/en-us/ef/core/saving/disconnected-entities).
 
@@ -307,11 +311,10 @@ It is useful as a complementary resource if you want to see a practical explanat
 **Key sections:**
 
 * [1:56:00](https://www.youtube.com/watch?v=rvWQxoPXKuc&t=6960s) — Introduction to disconnected entities
-* [1:56:30](https://www.youtube.com/watch?v=rvWQxoPXKuc&t=6990s) — How a context may not track an entity
 * [1:57:00](https://www.youtube.com/watch?v=rvWQxoPXKuc&t=7020s) — Updating a disconnected entity
 * [1:58:30](https://www.youtube.com/watch?v=rvWQxoPXKuc&t=7110s) — Using `DbContext.Entry()` with disconnected entities
-* [2:00:00](https://www.youtube.com/watch?v=rvWQxoPXKuc&t=7200s) — Setting entity states such as `Added`, `Modified`, and `Deleted`
-* [2:02:00](https://www.youtube.com/watch?v=rvWQxoPXKuc&t=7320s) — Using `Add`, `Update`, and `Remove` with disconnected entities
+* [2:00:57](https://www.youtube.com/watch?v=rvWQxoPXKuc&t=7257s) — Setting the entity state to `Added` or `Modified` based on the key value
+* [2:06:53](https://www.youtube.com/watch?v=rvWQxoPXKuc&t=7613s) — Calling `SaveChanges()` to persist the disconnected entity state
 
 ### Video 2 - Change Tracker in Entity Framework Core
 
@@ -319,14 +322,14 @@ It is useful as a complementary resource if you want to see a practical explanat
 
 Rahul Pandey explains how EF Core uses the `ChangeTracker` to manage entity states such as `Detached`, `Added`, `Unchanged`, `Modified`, and `Deleted`.
 
-This is especially useful for disconnected scenarios, where an entity arrives in a new `DbContext` without existing tracking information. The video helps connect methods such as `Add()`, `Update()`, and `Remove()` with the states EF Core assigns before `SaveChanges()` generates the database commands.
+This video is useful as a supporting resource because it explains the entity states used by the `ChangeTracker`, especially `Detached`, `Added`, `Modified`, and `Deleted`. These states are important in disconnected scenarios because EF Core must start tracking an incoming entity and assign the correct state before `SaveChanges()` can generate the database command.
 
 **Key sections:**
 
-* [00:00](https://www.youtube.com/watch?v=pC2XbknnOeY&t=0s) — Introduction to change tracking in EF Core
-* [02:30](https://www.youtube.com/watch?v=pC2XbknnOeY&t=150s) — Entity states such as `Detached`, `Added`, `Modified`, and `Deleted`
-* [06:00](https://www.youtube.com/watch?v=pC2XbknnOeY&t=360s) — Practical examples of how states are handled in a `DbContext`
-* [10:00](https://www.youtube.com/watch?v=pC2XbknnOeY&t=600s) — When tracking helps and when it may not be needed
+* [1:09](https://www.youtube.com/watch?v=pC2XbknnOeY&t=69s) — Overview of entity states: `Detached`, `Added`, `Unchanged`, `Modified`, and `Deleted`
+* [7:53](https://www.youtube.com/watch?v=pC2XbknnOeY&t=473s) — Demo showing a `Detached` entity before it is added to the context
+* [8:09](https://www.youtube.com/watch?v=pC2XbknnOeY&t=489s) — Entity state changes from `Detached` to `Added` after `Add()` is called
+* [11:32](https://www.youtube.com/watch?v=pC2XbknnOeY&t=692s) — `AsNoTracking()` and no-tracking query behavior
 
 ## Summary
 
@@ -336,9 +339,9 @@ Key points:
 
 * disconnected scenarios are common in web applications and APIs
 * EF Core needs to know whether the entity should be inserted, updated, or deleted
-* use `AddRange()` when disconnected entities are new
-* use `UpdateRange()` when disconnected entities already exist and should be updated
-* use `RemoveRange()` when disconnected entities should be deleted
+* use `Add()` or `AddRange()` when disconnected entities are new
+* use `Update()` or `UpdateRange()` when disconnected entities already exist and should be updated
+* use `Remove()` or `RemoveRange()` when disconnected entities should be deleted
 * `SaveChangesAsync()` sends the corresponding `INSERT`, `UPDATE`, or `DELETE` statements to the database
 * keys are important for updating and deleting existing rows
 * EF Core can only track one instance of an entity with a given primary key value in the same `DbContext`
@@ -350,11 +353,13 @@ Use disconnected entity patterns when the original context is no longer availabl
 If you want to understand how disconnected entities fit into the broader EF Core saving workflow, these pages are the best next steps:
 
 * [SaveChanges](/saving/save-changes) — how EF Core persists tracked changes
+* [How SaveChanges Works](/saving/save-changes-how-it-works) — what EF Core does internally when `SaveChangesAsync()` saves disconnected entities after they are tracked
 * [Adding Data](/saving/adding-data) — how to insert new disconnected entities with `Add()` or `AddRange()`
 * [Updating Data](/saving/modifying-data) — how to update disconnected entities with `Update()` or `UpdateRange()`
 * [Deleting Data](/saving/deleting-data) — how to delete disconnected entities with `Remove()` or `RemoveRange()`
 * [Saving Data in Connected Scenario](/saving/save-changes-connected-entities) — how EF Core saves entities that are already tracked by the current context
 * [ChangeTracker](/saving/change-tracker) — how EF Core stores entity states such as `Added`, `Modified`, and `Deleted`
+* [Tracking Changes of Entities](/saving/change-tracker-how-it-works) — how EF Core tracks entity states before saving
 
 ## FAQ
 
