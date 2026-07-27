@@ -3,7 +3,7 @@ title: Tracking Changes of Entities in EF Core
 description: Learn how EF Core tracks entity changes, how ChangeTracker and SaveChanges work together, when tracking helps, when AsNoTracking changes behavior, and the most common pitfalls to avoid.
 canonical: /saving/change-tracker-how-it-works
 status: Published
-lastmod: 2026-04-27
+lastmod: 2026-07-26
 ---
 
 # Tracking Changes of Entities in EF Core
@@ -65,7 +65,9 @@ await db.SaveChangesAsync();
 
 Because the entity was loaded by the same `DbContext`, EF Core can track the change and save it.
 
-For the full save pipeline, see [SaveChanges](/saving/save-changes).
+For basic saving patterns, see [SaveChanges](/saving/save-changes).
+
+For a deeper step-by-step explanation of the internal save pipeline, see [How SaveChanges Works](/saving/save-changes-how-it-works).
 
 ### Track a New Entity as Added
 
@@ -329,6 +331,8 @@ In those cases, EF Core needs more explicit instructions, such as attaching the 
 
 For a dedicated explanation of the connected flow, see [Saving Data in Connected Scenario](/saving/save-changes-connected-entities).
 
+For a dedicated explanation of disconnected workflows, see [Disconnected Entities](/saving/save-changes-disconnected-entities).
+
 ## Performance Considerations
 
 Tracking is useful, but it has a cost.
@@ -409,46 +413,46 @@ The goal is not to disable tracking everywhere. The goal is to use tracking when
 
 ## External Resources - Tracking Changes
 
-The following videos are useful if you want to reinforce how EF Core tracks entity changes in practice, how entity states evolve during a unit of work, and how tracking behavior affects `SaveChangesAsync()` and performance.
+The following videos are useful if you want to reinforce how EF Core tracks entity changes in practice, how entity states evolve during a unit of work, how tracking behavior affects `SaveChangesAsync()`, and when no-tracking queries can improve read performance.
 
-### Video 1 - How does EF Core keep track of changes?
+### Video 1 - How does EF Core keeps track of changes?
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/uXDYEBexlYk?si=NBPmjARYNj9vmZmI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-This is one of the strongest technical companions for this topic because it explains how EF Core uses the `ChangeTracker` internally, how entity states change, and why `AsNoTracking()` or unnecessary `Update()` calls can change the expected save behavior.
+This is one of the strongest technical companions for this topic because it explains how EF Core uses the `ChangeTracker`, how entity states participate in saving, and why `AsNoTracking()` or unnecessary `Update()` calls can change the expected save behavior.
 
 Key timestamps:
 
-- [0:30](https://www.youtube.com/watch?v=uXDYEBexlYk&t=30) — Introduction to `ChangeTracker` and entity states
-- [2:00](https://www.youtube.com/watch?v=uXDYEBexlYk&t=120) — Delete flow (`Unchanged` → `Deleted` → `Detached`)
-- [3:30](https://www.youtube.com/watch?v=uXDYEBexlYk&t=210) — `Update()` and `AsNoTracking()` pitfalls
-- [7:00](https://www.youtube.com/watch?v=uXDYEBexlYk&t=420) — Code demo: `Update()` vs. tracked flow with SQL logs
+- [00:00](https://www.youtube.com/watch?v=uXDYEBexlYk&t=0) — What exactly the `ChangeTracker` does
+- [00:24](https://www.youtube.com/watch?v=uXDYEBexlYk&t=24) — Entity states in a normal insert/save workflow
+- [02:05](https://www.youtube.com/watch?v=uXDYEBexlYk&t=125) — What `AsNoTracking()` changes
+- [05:37](https://www.youtube.com/watch?v=uXDYEBexlYk&t=337) — Showcase of `Update()` vs. no `Update()`
 
 ### Video 2 - Don't SUCK With Entity Framework - Change Tracking - Performance Tips Part 8
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/X9un5y7073c?si=OAoDFcqpSN5v_1C3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-This video is the most performance-oriented resource in the set. It shows why tracking has a cost, when `AsNoTracking()` helps, and how query tracking behavior can affect read-heavy EF Core workloads.
+This video is the most performance-oriented resource in the set. It shows how tracking affects read-heavy EF Core workloads, how `AsNoTracking()` changes tracking behavior for a query, and how `QueryTrackingBehavior` can change the default tracking behavior for a context.
 
 Key timestamps:
 
-- [0:30](https://www.youtube.com/watch?v=X9un5y7073c&t=30) — What change tracking is and when it starts automatically
-- [2:00](https://www.youtube.com/watch?v=X9un5y7073c&t=120) — `AsNoTracking()` demo and tracked-entity count comparison
-- [4:00](https://www.youtube.com/watch?v=X9un5y7073c&t=240) — `QueryTrackingBehavior` in `DbContext`
-- [7:00](https://www.youtube.com/watch?v=X9un5y7073c&t=420) — Tracking in projections vs. full entity materialization
+- [00:30](https://www.youtube.com/watch?v=X9un5y7073c&t=30) — What change tracking is and when EF Core starts tracking entities
+- [04:00](https://www.youtube.com/watch?v=X9un5y7073c&t=240) — `AsNoTracking()` for a single query
+- [06:36](https://www.youtube.com/watch?v=X9un5y7073c&t=396) — `QueryTrackingBehavior.NoTracking` at the `DbContext` level
+- [08:56](https://www.youtube.com/watch?v=X9un5y7073c&t=536) — Comparing tracked entities and no-tracking results
 
 ### Video 3 - Change Tracker in Entity Framework Core
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/pC2XbknnOeY?si=6JWtdGK-r3Wzugdm" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-This video is a practical walkthrough of the five main `ChangeTracker` states: `Detached`, `Added`, `Unchanged`, `Modified`, and `Deleted`, with examples that connect those states to common save workflows.
+This video is a practical walkthrough of common `ChangeTracker` states such as `Detached`, `Added`, `Unchanged`, `Modified`, and `Deleted`, with examples that connect those states to normal save workflows and no-tracking queries.
 
 Key timestamps:
 
-- [0:45](https://www.youtube.com/watch?v=pC2XbknnOeY&t=45) — Introduction to change tracking and the five states
-- [3:30](https://www.youtube.com/watch?v=pC2XbknnOeY&t=210) — Demo: `Unchanged` → `Modified`
-- [6:00](https://www.youtube.com/watch?v=pC2XbknnOeY&t=360) — Demo: `Detached` → `Added`
-- [10:30](https://www.youtube.com/watch?v=pC2XbknnOeY&t=630) — `AsNoTracking()` and read-performance optimization
+- [00:45](https://www.youtube.com/watch?v=pC2XbknnOeY&t=45) — Introduction to change tracking and entity states
+- [03:30](https://www.youtube.com/watch?v=pC2XbknnOeY&t=210) — Demo: `Unchanged` → `Modified`
+- [08:09](https://www.youtube.com/watch?v=pC2XbknnOeY&t=489) — Demo: `Detached` → `Added`
+- [11:34](https://www.youtube.com/watch?v=pC2XbknnOeY&t=694) — `AsNoTracking()` query behavior
 
 ## Summary
 
@@ -467,8 +471,10 @@ Key points:
 If you want to explore the most closely related saving and tracking topics, these pages are the best next step:
 
 - [ChangeTracker](/saving/change-tracker) — how EF Core stores tracking information internally
+- [How SaveChanges Works](/saving/save-changes-how-it-works) — what EF Core does internally after tracked changes are detected and saved
 - [SaveChanges](/saving/save-changes) — how EF Core persists tracked changes
 - [Saving Data in Connected Scenario](/saving/save-changes-connected-entities) — how tracked entities are saved in a normal connected flow
+- [Disconnected Entities](/saving/save-changes-disconnected-entities) — how to save entities that are not already tracked by the current `DbContext`
 - [Updating Data](/saving/modifying-data) — how EF Core updates existing entities
 - [Adding Data](/saving/adding-data) — how new entities become tracked as `Added`
 
