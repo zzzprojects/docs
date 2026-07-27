@@ -3,7 +3,7 @@ title: EF Core Concurrency: Custom Resolution
 description: How to resolve EF Core concurrency conflicts by choosing values property by property
 canonical: /saving/concurrency-custom-resolution
 status: Published
-lastmod: 2026-06-24
+lastmod: 2026-07-26
 ---
 
 # EF Core Concurrency: Custom Resolution
@@ -38,7 +38,7 @@ while (!saved)
                     entry.State = EntityState.Detached;
                     continue;
                 }
-				
+
                 throw new InvalidOperationException("The row was deleted by another user or process.");
             }
 
@@ -46,14 +46,13 @@ while (!saved)
 
             foreach (var property in currentValues.Properties)
             {
-                var currentApplicationValue = currentValues[property];
                 var databaseValue = databaseValues[property];
 
                 // Keep the application value for Price; use the database value for all other properties.
                 if (property.Name != nameof(Product.Price))
                 {
-                    // Database Wins for all properties different then price
-                    currentValues[property] = databaseValues[property];
+                    // Use database values for all properties except Price.
+                    currentValues[property] = databaseValue;
                 }
             }
 
@@ -132,7 +131,6 @@ The final values to save must be assigned to `CurrentValues` if modified.
 ```csharp
 currentValues[property] = databaseValue;
 ```
-
 
 After the final values are chosen, refresh the original values with the latest database values.
 
@@ -224,6 +222,8 @@ Important points:
 
 For a broader overview of concurrency conflict handling, see [Concurrency](/saving/concurrency).
 
+For a deeper explanation of how `SaveChangesAsync()` checks affected rows and reports concurrency conflicts, see [How SaveChanges Works](/saving/save-changes-how-it-works).
+
 ## Common Pitfalls
 
 Be careful with the following mistakes.
@@ -249,7 +249,7 @@ When `SaveChangesAsync()` is retried, EF Core saves the values currently assigne
 
 ```csharp
 currentValues[property] = databaseValue;
-````
+```
 
 If the resolved value comes from the database, the application must assign it to `CurrentValues`.
 
@@ -280,7 +280,7 @@ if (databaseValues == null)
         entry.State = EntityState.Detached;
         continue;
     }
-	
+
     throw new InvalidOperationException("The row was deleted by another user or process.");
 }
 ```
@@ -318,6 +318,7 @@ Use Custom Resolution when the application needs to compare both versions and ch
 If you want to continue with EF Core concurrency conflict handling, these articles are the best next steps:
 
 * [Concurrency](/saving/concurrency) — overview of EF Core concurrency and conflict detection
+* [How SaveChanges Works](/saving/save-changes-how-it-works) — how EF Core checks affected rows and reports concurrency conflicts during saving
 * [Database Wins](/saving/concurrency-database-wins) — resolve a conflict by keeping the database values
 * [Client Wins](/saving/concurrency-client-wins) — resolve a conflict by keeping the current application values
 * [SaveChanges](/saving/save-changes) — understand when EF Core sends tracked changes to the database
@@ -363,4 +364,3 @@ Use Custom Resolution when the application needs to compare both versions and ch
 Use [Database Wins](/saving/concurrency-database-wins) when the database values should be kept.
 
 Use [Client Wins](/saving/concurrency-client-wins) when the current application values should overwrite the database values.
-
