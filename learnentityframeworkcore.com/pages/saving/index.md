@@ -3,7 +3,7 @@ title: EF Core Saving Data
 description: Learn how saving data works in Entity Framework Core, including SaveChanges, adding data, updating data, deleting data, connected and disconnected entities, direct database operations, transactions, and concurrency.
 canonical: /saving
 status: Published
-lastmod: 2026-06-24
+lastmod: 2026-07-26
 ---
 
 # Saving Data in EF Core
@@ -25,6 +25,7 @@ In this workflow:
 * `SaveChangesAsync()` sends the required `INSERT`, `UPDATE`, or `DELETE` commands to the database.
 
 For the complete overview, see [SaveChanges](/saving/save-changes).
+For a deeper step-by-step explanation of what EF Core does internally when `SaveChangesAsync()` is called, see [How SaveChanges Works](/saving/save-changes-how-it-works).
 
 ## Choose an EF Core Saving Workflow
 
@@ -35,6 +36,7 @@ Use the articles in this section based on what you need to do.
 Use these articles when your workflow is based on entity instances tracked by a `DbContext`.
 
 * [SaveChanges](/saving/save-changes) — persist tracked changes to the database
+* [How SaveChanges Works](/saving/save-changes-how-it-works) — understand what EF Core does internally when changes are saved
 * [Adding Data](/saving/adding-data) — insert new entities
 * [Updating Data](/saving/modifying-data) — update existing entities
 * [Deleting Data](/saving/deleting-data) — delete entities
