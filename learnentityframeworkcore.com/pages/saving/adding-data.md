@@ -1,9 +1,9 @@
 ---
 title: Adding data via the DbSet
-description: An examination of the methods and approaches available for adding data via the Entity Framework Core DbSet API 
+description: An examination of the methods and approaches available for adding data via the Entity Framework Core DbSet API
 canonical: /saving/adding-data
 status: Published
-lastmod: 2026-05-11
+lastmod: 2026-07-26
 ---
 
 # EF Core Adding Data
@@ -118,7 +118,9 @@ That means:
 - generated key values are updated on the entity instances after saving
 - related entities can also be inserted when they are part of the same object graph
 
-For a deeper explanation of how tracked changes are persisted, see [SaveChanges](/saving/save-changes).
+For a general overview of saving tracked changes, see [SaveChanges](/saving/save-changes).
+
+For a deeper step-by-step explanation of what EF Core does internally when changes are saved, see [How SaveChanges Works](/saving/save-changes-how-it-works).
 
 For more about how EF Core stores entity states, see [ChangeTracker](/saving/change-tracker).
 
@@ -412,23 +414,22 @@ For more information, see [Updating Data](/saving/modifying-data).
 
 ## External Resources - Adding Data
 
-The following videos are useful if you want to see how EF Core inserts new entities, how the standard `Add()` / `AddRange()` + `SaveChanges()` workflow behaves, and when a real bulk insert library becomes more appropriate.
+The following resources are useful if you want to see how EF Core inserts new entities, how the standard `Add()` / `AddRange()` + `SaveChanges()` workflow behaves, and when a real bulk insert library becomes more appropriate.
 
-### Video 1 - Adding Data to a Database in EF Core 7
+### Video 1 - Part-14: Adding data to a database | Entity framework core 7.0 tutorial | ef core
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/6ONaI-3sJDc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+[![Part-14: Adding data to a database | Entity framework core 7.0 tutorial | ef core](https://img.youtube.com/vi/6ONaI-3sJDc/maxresdefault.jpg)](https://www.youtube.com/watch?v=6ONaI-3sJDc)
 
-This video shows the basic insert workflow in EF Core 7: creating entity instances, adding them to the appropriate `DbSet` with `Add()`, and calling `SaveChanges()` to persist them in the database. It also demonstrates inserting a related entity by using an existing foreign key and verifies the generated primary key in the database. It is a useful visual introduction to the standard insert pattern before moving to `AddRange()`, related entity graphs, or bulk insert scenarios.
+This video shows the basic insert workflow in EF Core 7: creating entity instances, adding them to the appropriate `DbSet` with `Add()`, and calling `SaveChanges()` to persist them in the database. It also demonstrates inserting a related entity by using an existing foreign key.
 
 Key timestamps:
 
-- [0:00](https://www.youtube.com/watch?v=6ONaI-3sJDc&t=0) — Introduction and entity setup using `Manager` and `Employee`
-- [1:40](https://www.youtube.com/watch?v=6ONaI-3sJDc&t=100) — Adding an entity to the appropriate `DbSet` with `Add()`
-- [2:39](https://www.youtube.com/watch?v=6ONaI-3sJDc&t=159) — Calling `SaveChanges()` and verifying the generated primary key in the database
-- [3:36](https://www.youtube.com/watch?v=6ONaI-3sJDc&t=216) — Inserting a related `Employee` using an existing `Manager` foreign key
-- [4:30](https://www.youtube.com/watch?v=6ONaI-3sJDc&t=270) — Recap of the three-step insert pattern
+- [2:40](https://www.youtube.com/watch?v=6ONaI-3sJDc&t=160) — Three-step insert pattern: create entities, add them to the `DbSet`, and call `SaveChanges()`
+- [3:28](https://www.youtube.com/watch?v=6ONaI-3sJDc&t=208) — Adding a `Manager` entity with `Add()`
+- [3:52](https://www.youtube.com/watch?v=6ONaI-3sJDc&t=232) — Calling `SaveChanges()` to persist the insert
+- [4:27](https://www.youtube.com/watch?v=6ONaI-3sJDc&t=267) — Adding a related `Employee` using an existing `Manager` foreign key
 
-### Video 2 - Insert Data in ASP.NET Core with Entity Framework Core
+### Video 2 - (#46) Insertar datos en una base de datos usando Entity Framework Core | Tutorial de ASP.NET Core
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/cE_o8piz-2Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
@@ -436,23 +437,23 @@ This video shows how a basic `Add()` + `SaveChanges()` insert flow can be used i
 
 Key timestamps:
 
-- [2:00](https://www.youtube.com/watch?v=cE_o8piz-2Y&t=120) — Creating the `AddNewBook` repository method and adding a new entity with `Add()`
-- [4:00](https://www.youtube.com/watch?v=cE_o8piz-2Y&t=240) — Calling `SaveChanges()` and retrieving the generated identity value
-- [7:00](https://www.youtube.com/watch?v=cE_o8piz-2Y&t=420) — Registering the repository with Dependency Injection
-- [12:00](https://www.youtube.com/watch?v=cE_o8piz-2Y&t=720) — Debugging the POST action and verifying the insert in SQL Server
+- [5:06](https://www.youtube.com/watch?v=cE_o8piz-2Y&t=306) — Creating the `AddNewBook` method with `Add()` and `SaveChanges()`
+- [9:33](https://www.youtube.com/watch?v=cE_o8piz-2Y&t=573) — Debugging the POST action that adds a new book
+- [10:22](https://www.youtube.com/watch?v=cE_o8piz-2Y&t=622) — Saving the entity and returning the generated ID
+- [11:45](https://www.youtube.com/watch?v=cE_o8piz-2Y&t=705) — Verifying that the generated ID was returned after saving
 
 ### Video 3 - EF Core Bulk Operations and BulkInsert Performance
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/9QVPuuemvtE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-This video from ZZZ Projects demonstrates the performance difference between standard EF Core inserts using `AddRange()` + `SaveChanges()` and real bulk insert operations with Entity Framework Extensions. It compares insert performance, explains the cost of returning generated identity values, and shows how `IncludeGraph()` can be used for related entity graphs. It is especially useful when you want to understand why `AddRange()` is not the same as a true `BulkInsert`.
+This video from ZZZ Projects demonstrates the performance difference between standard EF Core inserts using `AddRange()` + `SaveChanges()` and real bulk insert operations with Entity Framework Extensions. It compares insert performance, explains optimized bulk insert behavior, and shows how `IncludeGraph()` can be used for related entity graphs. It is especially useful when you want to understand why `AddRange()` is not the same as a true `BulkInsert`.
 
 Key timestamps:
 
-- [0:00](https://www.youtube.com/watch?v=9QVPuuemvtE&t=0) — Introduction to `SaveChanges()` and bulk insert benchmarks with 10,000 products
-- [2:00](https://www.youtube.com/watch?v=9QVPuuemvtE&t=120) — Comparing `SaveChanges()` with `BulkInsert()` and generated identity values
-- [4:00](https://www.youtube.com/watch?v=9QVPuuemvtE&t=240) — Using `BulkInsertOptimize()` and understanding optimized inserts
-- [6:00](https://www.youtube.com/watch?v=9QVPuuemvtE&t=360) — Inserting related entity graphs with `IncludeGraph()`
+- [0:00](https://www.youtube.com/watch?v=9QVPuuemvtE&t=0) — Introduction to `SaveChanges()` vs. bulk insert performance
+- [4:32](https://www.youtube.com/watch?v=9QVPuuemvtE&t=272) — Comparing regular `SaveChanges()` inserts with `BulkInsertAsync()`
+- [5:36](https://www.youtube.com/watch?v=9QVPuuemvtE&t=336) — `BulkInsertOptimized()` and optimized insert behavior
+- [7:20](https://www.youtube.com/watch?v=9QVPuuemvtE&t=440) — Inserting related entity graphs with `IncludeGraph()`
 
 ## Summary
 
@@ -475,6 +476,7 @@ Use `Add()` and `AddRange()` for normal EF Core insert scenarios. For high-volum
 If you want to understand how adding data fits into the broader EF Core saving workflow, these pages are the best next step:
 
 - [SaveChanges](/saving/save-changes) — how EF Core persists tracked changes
+- [How SaveChanges Works](/saving/save-changes-how-it-works) — what EF Core does internally when `SaveChangesAsync()` inserts tracked entities
 - [Saving Data in Connected Scenario](/saving/save-changes-connected-entities) — how EF Core saves entities that are already tracked by the current context
 - [ChangeTracker](/saving/change-tracker) — how EF Core stores entity states such as `Added`
 - [Tracking Changes of Entities](/saving/change-tracker-how-it-works) — how EF Core detects changes before saving
@@ -507,9 +509,9 @@ No. `AddRange()` is not a true bulk insert operation.
 
 ### Is AddRange faster than Add?
 
-No, they provide similar performance. `AddRange` doesn’t magically save entities faster; it simply allows you to add a list to the change tracker instead of calling the `Add` method multiple times.
+No, they provide similar performance. `AddRange` doesn't magically save entities faster; it simply allows you to add a list to the change tracker instead of calling the `Add` method multiple times.
 
-Even the EF Core team says there is almost no difference: “These methods are provided as a convenience. Using a ‘range’ method has the same functionality as multiple calls to the equivalent non-range method. There is no significant performance difference between the two approaches.”
+Even the EF Core team says there is almost no difference: These methods are provided as a convenience. Using a range method has the same functionality as multiple calls to the equivalent non-range method. There is no significant performance difference between the two approaches.
 
 Reference: [https://learn.microsoft.com/en-us/ef/core/change-tracking/miscellaneous#addrange-updaterange-attachrange-and-removerange](https://learn.microsoft.com/en-us/ef/core/change-tracking/miscellaneous#addrange-updaterange-attachrange-and-removerange)
 
