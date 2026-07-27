@@ -3,7 +3,7 @@ title: EF Core Concurrency: Client Wins
 description: How to resolve EF Core concurrency conflicts by keeping the current application values and overwriting the database values
 canonical: /saving/concurrency-client-wins
 status: Published
-lastmod: 2026-06-24
+lastmod: 2026-07-26
 ---
 
 # EF Core Concurrency: Client Wins
@@ -38,7 +38,7 @@ while (!saved)
                     entry.State = EntityState.Detached;
                     continue;
                 }
-				
+
                 throw new InvalidOperationException("The row was deleted by another user or process.");
             }
 
@@ -159,7 +159,6 @@ if (databaseValues == null)
         entry.State = EntityState.Detached;
         continue;
     }
-	
     throw new InvalidOperationException("The row was deleted by another user or process.");
 }
 ```
@@ -193,6 +192,8 @@ Important points:
 * Client Wins does not merge values property by property.
 
 For a broader overview of concurrency conflict handling, see [Concurrency](/saving/concurrency).
+
+For a deeper explanation of how `SaveChangesAsync()` checks affected rows and reports concurrency conflicts, see [How SaveChanges Works](/saving/save-changes-how-it-works).
 
 ## Common Pitfalls
 
@@ -239,7 +240,6 @@ if (databaseValues == null)
         entry.State = EntityState.Detached;
         continue;
     }
-	
     throw new InvalidOperationException("The row was deleted by another user or process.");
 }
 ```
@@ -281,6 +281,7 @@ Use another strategy when the current changes must be reviewed, merged, or compa
 If you want to continue with EF Core concurrency conflict handling, these articles are the best next steps:
 
 * [Concurrency](/saving/concurrency) — overview of EF Core concurrency and conflict detection
+* [How SaveChanges Works](/saving/save-changes-how-it-works) — how EF Core checks affected rows and reports concurrency conflicts during saving
 * [Database Wins](/saving/concurrency-database-wins) — resolve a conflict by keeping the database values
 * [Custom Resolution](/saving/concurrency-custom-resolution) — resolve a conflict by choosing values property by property
 * [SaveChanges](/saving/save-changes) — understand when EF Core sends tracked changes to the database
