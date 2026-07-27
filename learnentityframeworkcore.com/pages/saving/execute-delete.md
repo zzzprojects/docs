@@ -3,7 +3,7 @@ title: EF Core ExecuteDelete (EF Core 7–10) – Set-Based Bulk Deletes
 description: Discover how to use the ExecuteDelete method starting from EF Core 7 to delete database rows efficiently—no tracking, no SaveChanges needed.
 canonical: /saving/execute-delete
 status: Published
-lastmod: 2026-05-04
+lastmod: 2026-07-26
 ---
 
 # EF Core ExecuteDelete
@@ -25,7 +25,6 @@ await context.Blogs
     .ExecuteDeleteAsync();
 ```
 
-
 Executed SQL:
 
 ```sql
@@ -35,8 +34,6 @@ WHERE [a].[Rating] < 3
 ```
 
 Only rows that match the filter are deleted.
-
-
 
 This is the safest and most common `ExecuteDeleteAsync()` pattern because the delete operation is limited by a query condition.
 
@@ -68,11 +65,11 @@ You can use navigation data in the query filter before calling `ExecuteDeleteAsy
 using var context = new AppDbContext();
 
 await context.Blogs
-	.Where(b => b.Posts.All(p => p.PublishedOn.Year < 2018))
-	.ExecuteDeleteAsync();
+    .Where(b => b.Posts.All(p => p.PublishedOn.Year < 2018))
+    .ExecuteDeleteAsync();
 ```
 
-This deletes all blogs which contains only posts published before 2018.
+This deletes all blogs that contain only posts published before 2018.
 
 The filter is translated to SQL and executed directly in the database.
 
@@ -96,7 +93,7 @@ You can use this value for logging, validation, or checking whether the delete m
 
 That means:
 
-- it does not require for `SaveChangesAsync()`
+- it does not require `SaveChangesAsync()`
 - it does not use the `ChangeTracker`
 - it does not load entities into memory
 - it does not remove tracked entity instances already loaded in memory
@@ -104,7 +101,11 @@ That means:
 
 For tracked entity workflows, see [SaveChanges](/saving/save-changes).
 
+For a deeper step-by-step explanation of what EF Core does internally when changes are saved through the normal tracked workflow, see [How SaveChanges Works](/saving/save-changes-how-it-works).
+
 For normal tracked deletes, see [Deleting Data](/saving/deleting-data).
+
+For relationship delete behavior and cascade rules, see [Cascade Delete](/saving/cascade-delete).
 
 For a deeper explanation of tracking behavior, see [ChangeTracker](/saving/change-tracker).
 
@@ -440,9 +441,8 @@ Jasper Kent introduces the EF Core 7 set-based execute methods and shows how `Ex
 Key timestamps:
 
 - [0:00](https://www.youtube.com/watch?v=A5_thTxsCjY&t=0) — Overview of `ExecuteDelete` and `ExecuteUpdate`
-- [0:34](https://www.youtube.com/watch?v=A5_thTxsCjY&t=34) — Project setup
 - [2:09](https://www.youtube.com/watch?v=A5_thTxsCjY&t=129) — Traditional way to delete
-- [7:19](https://www.youtube.com/watch?v=A5_thTxsCjY&t=439) — Implementing `ExecuteDelete`
+- [7:52](https://www.youtube.com/watch?v=A5_thTxsCjY&t=472) — Using `ExecuteDeleteAsync()` and noting the async/non-async overloads
 - [24:35](https://www.youtube.com/watch?v=A5_thTxsCjY&t=1475) — Conclusion and performance insights
 
 Sample repository:
@@ -457,8 +457,7 @@ Milan Jovanović shows how `ExecuteDelete` removes multiple records in a single 
 
 Key timestamps:
 
-- [7:00](https://www.youtube.com/watch?v=VYitXAc_htI&t=420) — Building the delete endpoint using `ExecuteDelete`
-- [8:25](https://www.youtube.com/watch?v=VYitXAc_htI&t=505) — Traditional delete pattern and why it is inefficient
+- [8:32](https://www.youtube.com/watch?v=VYitXAc_htI&t=512) — Introducing the EF Core 7 `ExecuteDelete` method
 - [8:45](https://www.youtube.com/watch?v=VYitXAc_htI&t=525) — Running `ExecuteDelete` with a conditional filter
 - [9:30](https://www.youtube.com/watch?v=VYitXAc_htI&t=570) — Observing the generated SQL
 - [10:15](https://www.youtube.com/watch?v=VYitXAc_htI&t=615) — SQL `DELETE` produced by EF Core 7
@@ -492,20 +491,6 @@ Key timestamps:
 - [8:31](https://www.youtube.com/watch?v=o9B3pxVpPIY&t=511) — Starting stopwatch for performance comparison
 - [9:31](https://www.youtube.com/watch?v=o9B3pxVpPIY&t=571) — Final numbers: 100k deletes
 
-### Video 5 - Do You Know The Fastest Way To Delete Data With EF Core?
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/hSSatvEOp3w?si=hF9Ha3fTBT2gg9tE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-Milan Jovanović compares three delete approaches and shows why `ExecuteDeleteAsync()` is often the most efficient option for set-based deletes. He highlights SQL generation, tracking behavior, concurrency issues, and real-world cleanup scenarios.
-
-Key timestamps:
-
-- [0:45](https://www.youtube.com/watch?v=hSSatvEOp3w&t=45) — Traditional delete workflow: find, remove, `SaveChanges`
-- [3:00](https://www.youtube.com/watch?v=hSSatvEOp3w&t=180) — Second approach: attach and mark as deleted
-- [8:32](https://www.youtube.com/watch?v=hSSatvEOp3w&t=512) — Introducing `ExecuteDeleteAsync`
-- [8:45](https://www.youtube.com/watch?v=hSSatvEOp3w&t=525) — Demo: one SQL query, no tracking
-- [9:15](https://www.youtube.com/watch?v=hSSatvEOp3w&t=555) — Final conclusion: most performant delete method
-
 ## Summary
 
 `ExecuteDeleteAsync()` lets you delete rows directly in the database without loading entities, tracking them, or calling `SaveChangesAsync()`.
@@ -530,9 +515,12 @@ If you want to compare `ExecuteDeleteAsync()` with the most closely related EF C
 
 - [ExecuteUpdate](/saving/execute-update) — how to update rows directly in the database without loading entities
 - [SaveChanges](/saving/save-changes) — how EF Core persists tracked changes
+- [How SaveChanges Works](/saving/save-changes-how-it-works) — what EF Core does internally during the normal tracked save pipeline
 - [Deleting Data](/saving/deleting-data) — how to delete entities with the normal tracked workflow
+- [Cascade Delete](/saving/cascade-delete) — how relationship delete behavior and foreign key constraints affect related data
 - [ChangeTracker](/saving/change-tracker) — how EF Core stores tracking information internally
 - [Tracking Changes of Entities](/saving/change-tracker-how-it-works) — how EF Core detects changes before saving
+- [Bulk Delete](https://entityframework-extensions.net/bulk-delete) — how to delete large datasets with Entity Framework Extensions
 
 ## FAQ
 
