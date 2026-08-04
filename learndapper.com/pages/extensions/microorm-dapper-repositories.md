@@ -3,7 +3,7 @@ title: MicroOrm.Dapper.Repositories
 description: An introduction to MicroOrm.Dapper.Repositories
 canonical: /extensions/microorm-dapper-repositories
 status: Published
-lastmod: 2026-03-28
+lastmod: 2026-08-04
 ---
 
 # MicroOrm.Dapper.Repositories
@@ -73,7 +73,7 @@ var repo = new DapperRepository<User>(connection, sqlGenerator);
 | `[IgnoreUpdate]` | Excludes property from UPDATE statements only |
 | `[Deleted]` | Enables logical (soft) delete - DELETE becomes UPDATE. Works with `bool` or `enum` (apply to the enum member representing deleted state) |
 | `[Status]` | Used together with `[Deleted]` on the status property |
-| `[UpdatedAt]` | Auto-sets timestamp on Insert and Update. Defaults to `DateTime.UtcNow`. Properties: `TimeKind` (`Utc`, `Local`, `Unspecified`), `OffSet` (hours) |
+| `[UpdatedAt]` | Auto-sets timestamp on Insert, Update and logical Delete. Defaults to `DateTime.UtcNow`. Properties: `TimeKind` (`Utc`, `Local`, `Unspecified`), `OffSet` (hours) |
 
 ### Join Attributes
 
@@ -333,18 +333,30 @@ user.Name = "Updated Name";
 bool success = await repo.UpdateAsync(user);
 ```
 
-Update specific columns only (include list):
-
-```c#
-// Only update the Name column
-bool success = await repo.UpdateAsync(user, x => x.Name);
-```
+The SET clause holds every column of the entity except the `[Key]` and `[IgnoreUpdate]` ones, whether or not the value changed.
 
 Update with predicate (WHERE clause):
 
 ```c#
 bool success = await repo.UpdateAsync(x => x.Id == 1, user);
 ```
+
+### Update Columns
+
+`UpdateColumns` writes only the columns you list, plus `[UpdatedAt]` when the entity has one:
+
+```c#
+// UPDATE Users SET Users.Name = @UserName, Users.UpdatedAt = @UserUpdatedAt WHERE Users.Id = @UserId
+bool success = await repo.UpdateColumnsAsync(user, x => x.Name);
+
+// Several columns
+bool success = await repo.UpdateColumnsAsync(user, x => x.Name, x => x.AddressId);
+
+// Rows matched by predicate instead of by [Key]
+bool success = await repo.UpdateColumnsAsync(x => x.AddressId == 1, user, x => x.Name);
+```
+
+Values are read from the entity you pass. A column that isn't mapped, or that is marked `[Key]` or `[IgnoreUpdate]`, throws an `ArgumentException`.
 
 ### Bulk Update
 
@@ -411,6 +423,17 @@ WHERE clauses can reference joined entity properties:
 ```c#
 var users = await repo.FindAllAsync(x => x.Phone.PNumber == "123");
 ```
+
+### Update with Joins
+
+`Update` takes the same navigation property expressions, and writes the joined rows in the same statement:
+
+```c#
+// UPDATE Users LEFT JOIN Addresses ON Users.AddressId = Addresses.Id SET Users.Name = ..., Addresses.Street = ...
+bool success = await repo.UpdateAsync(user, x => x.Address);
+```
+
+The navigation property has to be set on the entity, otherwise that join is skipped. `UPDATE ... JOIN ... SET ...` is MySQL syntax, so every other provider throws `NotSupportedException`. Pass a property without a join attribute and you get an `ArgumentException` naming it.
 
 ## Filtering and Pagination
 
