@@ -42,6 +42,19 @@
             </ul>
         </li>
         <li>
+            <a href="/querying">Querying</a>
+            <ul class="nav-level-two" data-display="querying">
+				<li>
+					<div class="header">Querying</div>
+					<ul class="nav-level-three" style="display: block;">
+						<li><a href="/querying/linq-queries">LINQ Queries</a></li>
+						<li><a href="/querying/linq-methods">LINQ Methods</a></li>
+						<li><a href="/querying/include">Include</a></li>
+					</ul>
+				</li>				
+            </ul>
+        </li>
+        <li>
             <a href="/saving">Saving</a>
             <ul class="nav-level-two" data-display="saving">
 				<li>
