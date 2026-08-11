@@ -1,7 +1,7 @@
 ---
 Title: EF Core ExecuteUpdate: Update Multiple Properties and Future Action
 MetaDescription: Discover additional features for EF Core ExecuteUpdate, including setting multiple properties at once, mixing SetProperty with SetProperties, and executing updates later with Future Action.
-LastMod: 2026-07-14
+LastMod: 2026-08-11
 ---
 
 # EF Core ExecuteUpdate
@@ -226,10 +226,9 @@ Our library lets you apply query hints to `ExecuteUpdate` by using the [WithHint
 // @nuget: Z.EntityFramework.Plus.EFCore
 using Z.EntityFramework.Plus;
 
-var rowsAffected = context.Customers
-    .Where(x => !x.IsActive)
+var rowsAffected = await context.Customers
     .WithHint(SqlServerTableHintFlags.TABLOCK)
-    .ExecuteUpdate(update =>
+    .ExecuteUpdateAsync(update =>
     {
         update.SetProperties(x => new Customer
         {
@@ -238,6 +237,8 @@ var rowsAffected = context.Customers
         });
     });
 ```
+
+[Online Example](https://dotnetfiddle.net/thAS4R)
 
 Query hints are provider-specific and are only applied when supported by the current database provider.
 
@@ -248,6 +249,8 @@ Benefits:
 * Can improve performance in specific scenarios
 * Supports `SetProperty` and `SetProperties`
 * Works with `ExecuteUpdate` and `ExecuteUpdateAsync`
+
+> **WARNING:** If you are using EF Core 10, make sure to review the following [limitations](https://entityframework-plus.net/ef-core-query-hint#limitations) caused by a bug in EF Core itself. This bug has been fixed in EF Core 11.
 
 ## Summary
 
