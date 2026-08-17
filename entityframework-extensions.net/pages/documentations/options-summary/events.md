@@ -1,7 +1,7 @@
 ---
 Title: Events in Entity Framework Extensions
 MetaDescription: Learn how to use events in Entity Framework Extensions to customize bulk operations. Run custom logic before or after inserts, updates, deletes, merges, and synchronizations—perfect for setting audit fields like CreatedDate and ModifiedDate, applying soft deletes, and logging.
-LastMod: 2025-08-20
+LastMod: 2026-08-17
 ---
 
 # ⚡ Events Options in EF Extensions
@@ -14,10 +14,10 @@ The most common scenario is setting audit fields such as `CreatedDate` and `Modi
 
 But events are not limited to auditing — you can also:
 
-* **Validate data** before processing
-* **Modify column mappings** dynamically
-* **Change the destination table name** at runtime
-* **Log or clean up data after processing**
+- **Validate data** before processing
+- **Modify column mappings** dynamically
+- **Change the destination table name** at runtime
+- **Log or clean up data after processing**
 
 Think of events as **lifecycle hooks** for your bulk methods. They keep your logic centralized, reusable, and consistent without duplicating code in multiple places.
 
@@ -29,8 +29,8 @@ Entity Framework Extensions provides multiple events that let you **customize bu
 
 You can think of them as checkpoints during the lifecycle of a bulk method:
 
-* **Pre events** run before the operation is executed. They’re ideal for tasks like setting audit fields, validating data, or even swapping the destination table name.
-* **Post events** run after the operation is finished. They’re useful for cleanup, logging, adjusting in-memory entities, or chaining additional logic.
+- **Pre events** run before the operation is executed. They’re ideal for tasks like setting audit fields, validating data, or even swapping the destination table name.
+- **Post events** run after the operation is finished. They’re useful for cleanup, logging, adjusting in-memory entities, or chaining additional logic.
 
 Here are the available events:
 
@@ -44,6 +44,7 @@ Here are the available events:
 | **PreBulkSaveChanges / PostBulkSaveChanges**       | Before / After `BulkSaveChanges`          | Apply rules via ChangeTracker / Log save outcome           |
 | **PreBatchSaveChanges / PostBatchSaveChanges**     | Before / After `BatchSaveChanges`         | Global batch rules / Batch completion tasks                |
 | **PostConfiguration**                              | Right before bulk method executes         | Last-minute config like logging or mappings                |
+| **AddLogExecuting / AddLogExecuted**               | Before / After a database command         | Inspect commands / Log execution details                   |
 | **BulkOperationExecuting / BulkOperationExecuted** | Before / After an operation inside a call | Fine-grained control, adjust values / log results          |
 
 ⚠️ **Warning:** When using the [IncludeGraph](/include-graph) feature, the events `PreBulkInsert`, `PreBulkUpdate`, `PreBulkMerge`, `PreBulkDelete`, `PreBulkSynchronize` — and their corresponding `Post` events — are triggered **only for root entities**. They are **not fired for the related entities** included in the graph.
@@ -53,8 +54,8 @@ Here are the available events:
 
 ## 🏷️ PreBulkInsert and PostBulkInsert
 
-* **PreBulkInsert** runs before [BulkInsert](/bulk-insert) or [BulkInsertOptimized](/bulk-insert-optimized). Commonly used to set `CreatedDate` or other default values.
-* **PostBulkInsert** runs after [BulkInsert](/bulk-insert) or [BulkInsertOptimized](/bulk-insert-optimized). Useful for logging results or adjusting in-memory entities once the data is saved.
+- **PreBulkInsert** runs before [BulkInsert](/bulk-insert) or [BulkInsertOptimized](/bulk-insert-optimized). Commonly used to set `CreatedDate` or other default values.
+- **PostBulkInsert** runs after [BulkInsert](/bulk-insert) or [BulkInsertOptimized](/bulk-insert-optimized). Useful for logging results or adjusting in-memory entities once the data is saved.
 
 The following example uses the `PreBulkInsert` event to set the `CreatedDate` property of each `Customer`:
 
@@ -80,8 +81,8 @@ EntityFrameworkManager.PreBulkInsert = (ctx, obj) =>
 
 ## 🏷️ PreBulkUpdate and PostBulkUpdate
 
-* **PreBulkUpdate** runs before [BulkUpdate](/bulk-update). Often used to set `ModifiedDate`, validate data consistency, or enforce version numbers.
-* **PostBulkUpdate** runs after [BulkUpdate](/bulk-update). Useful for triggering domain events, clearing caches, or logging changes.
+- **PreBulkUpdate** runs before [BulkUpdate](/bulk-update). Often used to set `ModifiedDate`, validate data consistency, or enforce version numbers.
+- **PostBulkUpdate** runs after [BulkUpdate](/bulk-update). Useful for triggering domain events, clearing caches, or logging changes.
 
 The following example uses the `PreBulkUpdate` event to set the `ModifiedDate` property of each `Customer`:
 
@@ -107,8 +108,8 @@ EntityFrameworkManager.PreBulkUpdate = (ctx, obj) =>
 
 ## 🏷️ PreBulkDelete and PostBulkDelete
 
-* **PreBulkDelete** runs before [BulkDelete](/bulk-delete). Often used for **soft deletes**, such as setting an `IsDeleted` flag instead of removing rows.
-* **PostBulkDelete** runs after [BulkDelete](/bulk-delete). Useful for logging, auditing, or archiving deletion results.
+- **PreBulkDelete** runs before [BulkDelete](/bulk-delete). Often used for **soft deletes**, such as setting an `IsDeleted` flag instead of removing rows.
+- **PostBulkDelete** runs after [BulkDelete](/bulk-delete). Useful for logging, auditing, or archiving deletion results.
 
 The following example uses the `PreBulkDelete` event to mark each `Customer` as deleted (`IsDeleted = true`). The list is then cleared, so the `BulkDelete` method will not physically remove rows — it will only update them:
 
@@ -137,8 +138,8 @@ EntityFrameworkManager.PreBulkDelete = (ctx, obj) =>
 
 ## 🏷️ PreBulkMerge and PostBulkMerge
 
-* **PreBulkMerge** runs before [BulkMerge](/bulk-merge). Useful for setting both `CreatedDate` and `ModifiedDate`, depending on whether the entity is new or existing.
-* **PostBulkMerge** runs after [BulkMerge](/bulk-merge). Often used to track which entities were merged or to log synchronization results.
+- **PreBulkMerge** runs before [BulkMerge](/bulk-merge). Useful for setting both `CreatedDate` and `ModifiedDate`, depending on whether the entity is new or existing.
+- **PostBulkMerge** runs after [BulkMerge](/bulk-merge). Often used to track which entities were merged or to log synchronization results.
 
 The following example uses the `PreBulkMerge` event to set the `CreatedDate` for new customers and the `ModifiedDate` for existing ones:
 
@@ -169,8 +170,8 @@ EntityFrameworkManager.PreBulkMerge = (ctx, obj) =>
 
 ## 🏷️ PreBulkSynchronize and PostBulkSynchronize
 
-* **PreBulkSynchronize** runs before [BulkSynchronize](/bulk-synchronize). Commonly used to set audit fields when syncing external data.
-* **PostBulkSynchronize** runs after [BulkSynchronize](/bulk-synchronize). Useful for reporting, monitoring, or verifying synchronization results.
+- **PreBulkSynchronize** runs before [BulkSynchronize](/bulk-synchronize). Commonly used to set audit fields when syncing external data.
+- **PostBulkSynchronize** runs after [BulkSynchronize](/bulk-synchronize). Useful for reporting, monitoring, or verifying synchronization results.
 
 The following example uses the `PreBulkSynchronize` event to set the `CreatedDate` for new customers and the `ModifiedDate` for existing ones:
 
@@ -202,8 +203,8 @@ EntityFrameworkManager.PreBulkSynchronize = (ctx, obj) =>
 
 ## 🏷️ PreBulkSaveChanges and PostBulkSaveChanges
 
-* **PreBulkSaveChanges** runs before [BulkSaveChanges](/bulk-savechanges). Useful for applying rules across all tracked entities.
-* **PostBulkSaveChanges** runs after [BulkSaveChanges](/bulk-savechanges). Often used for logging or refreshing the in-memory state.
+- **PreBulkSaveChanges** runs before [BulkSaveChanges](/bulk-savechanges). Useful for applying rules across all tracked entities.
+- **PostBulkSaveChanges** runs after [BulkSaveChanges](/bulk-savechanges). Often used for logging or refreshing the in-memory state.
 
 The following example uses the `PreBulkSaveChanges` event to set the `CreatedDate` for new customers and the `ModifiedDate` for existing customers:
 
@@ -230,8 +231,8 @@ EntityFrameworkManager.PreBulkSaveChanges = ctx =>
 
 ## 🏷️ PreBatchSaveChanges and PostBatchSaveChanges
 
-* **PreBatchSaveChanges** runs before [BatchSaveChanges](/batch-savechanges). Useful for enforcing global rules across batch operations.
-* **PostBatchSaveChanges** runs after [BatchSaveChanges](/batch-savechanges). Often used for logging or handling batch completion tasks.
+- **PreBatchSaveChanges** runs before [BatchSaveChanges](/batch-savechanges). Useful for enforcing global rules across batch operations.
+- **PostBatchSaveChanges** runs after [BatchSaveChanges](/batch-savechanges). Often used for logging or handling batch completion tasks.
 
 The following example uses the `PreBatchSaveChanges` event to set the `CreatedDate` for new customers and the `ModifiedDate` for existing customers:
 
@@ -286,10 +287,61 @@ context.BulkInsert(list, options =>
 
 ---
 
+## 🏷️ AddLogExecuting and AddLogExecuted
+
+- **AddLogExecuting** runs immediately before a command is executed. You can use it to inspect the command, add custom information to the log, or modify the command before execution.
+- **AddLogExecuted** runs immediately after a command is executed. You can use it to inspect the executed command, add execution details to the log, or send the completed log to your logging system.
+
+Both events receive two arguments:
+
+- The command being executed as an `object`. Its runtime type depends on the database provider and the current operation. For example, with SQL Server, it can be a `SqlCommand`, `SqlBulkCopy`, or another command type.
+- A `StringBuilder` containing the log generated for the operation. You can append your own information to it.
+
+Since the first argument is an `object`, you should check its runtime type before using it.
+
+The following example counts how many `SqlCommand` and `SqlBulkCopy` commands are executed during a `BulkMerge`:
+
+```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Microsoft.Data.SqlClient;
+using Z.EntityFramework.Extensions;
+
+var sqlCommandCount = 0;
+var sqlBulkCopyCount = 0;
+
+context.BulkMerge(list, options =>
+{
+    options.UseLogDump = true;
+
+    options.AddLogExecuting = (command, log) =>
+    {
+        if (command is SqlBulkCopy)
+        {
+            sqlBulkCopyCount++;
+        }
+        else if (command is SqlCommand)
+        {
+            sqlCommandCount++;
+        }
+    };
+
+    options.AddLogExecuted = (command, log) =>
+    {
+        log.AppendLine($"Executed command type: {command.GetType().Name}");
+    };
+});
+```
+
+⚠️ **Warning:** Do not assume that the command is always a `DbCommand`. Some operations use provider-specific types such as `SqlBulkCopy`, which does not inherit from `DbCommand`.
+
+These events can be called multiple times during one bulk method. For example, a `BulkMerge` can create a temporary table, insert rows into it, execute a merge statement, and delete the temporary table. The events are triggered for every logged command, not only once for the entire bulk method.
+
+---
+
 ## 🏷️ BulkOperationExecuting and BulkOperationExecuted
 
-* **BulkOperationExecuting** runs **before an individual bulk operation** inside a call. Great for tweaking values or applying validations.
-* **BulkOperationExecuted** runs **after an individual bulk operation**. Useful for marking entities, updating in-memory state, or logging results.
+- **BulkOperationExecuting** runs **before an individual bulk operation** inside a call. Great for tweaking values or applying validations.
+- **BulkOperationExecuted** runs **after an individual bulk operation**. Useful for marking entities, updating in-memory state, or logging results.
 
 The following example demonstrates how to use both events:
 
@@ -345,6 +397,7 @@ context.BulkSaveChanges(options =>
 | **PreBulkSaveChanges / PostBulkSaveChanges**       | Before / After `BulkSaveChanges`          | Apply rules via ChangeTracker / Log save outcome           |
 | **PreBatchSaveChanges / PostBatchSaveChanges**     | Before / After `BatchSaveChanges`         | Global batch rules / Batch completion tasks                |
 | **PostConfiguration**                              | Right before bulk method executes         | Configure logging or options                               |
+| **AddLogExecuting / AddLogExecuted**               | Before / After a database command         | Inspect commands / Log execution details                   |
 | **BulkOperationExecuting / BulkOperationExecuted** | Before / After an operation inside a call | Adjust entity values / Log results                         |
 
 ---
@@ -353,11 +406,11 @@ context.BulkSaveChanges(options =>
 
 Events are useful when you want to:
 
-* Automatically set `CreatedDate` and `ModifiedDate`.
-* Apply **soft delete rules** instead of physical deletes.
-* Log database commands and SQL queries for debugging or auditing.
-* Enforce validation or business rules globally before any data hits the database.
-* Run cleanup or reporting after bulk operations finish.
+- Automatically set `CreatedDate` and `ModifiedDate`.
+- Apply **soft delete rules** instead of physical deletes.
+- Log database commands and SQL queries for debugging or auditing.
+- Enforce validation or business rules globally before any data hits the database.
+- Run cleanup or reporting after bulk operations finish.
 
 ---
 
@@ -365,17 +418,17 @@ Events are useful when you want to:
 
 With events you can:
 
-* Automate audit field management without repeating code.
-* Ensure consistent rules across bulk operations.
-* Centralize logic in one place, reducing duplication and errors.
-* Add flexible, custom behaviors before **and** after the operation.
+- Automate audit field management without repeating code.
+- Ensure consistent rules across bulk operations.
+- Centralize logic in one place, reducing duplication and errors.
+- Add flexible, custom behaviors before **and** after the operation.
 
 ---
 
 ## 📚 Related Articles
 
-* [Configure Options](/configure-options)
-* [Bulk Extensions](/bulk-extensions)
+- [Configure Options](/configure-options)
+- [Bulk Extensions](/bulk-extensions)
 
 ---
 
@@ -383,8 +436,8 @@ With events you can:
 
 Events in Entity Framework Extensions give you powerful hooks into the lifecycle of bulk operations.
 
-* Use **Pre events** to adjust or validate data before saving.
-* Use **Post events** to log, monitor, or adjust state after saving.
-* Use **operation-specific events** when you need fine-grained control inside a single call.
+- Use **Pre events** to adjust or validate data before saving.
+- Use **Post events** to log, monitor, or adjust state after saving.
+- Use **operation-specific events** when you need fine-grained control inside a single call.
 
 🎯 The result: cleaner code, consistent rules, and fewer surprises in your database.
