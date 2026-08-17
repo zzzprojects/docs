@@ -1,7 +1,7 @@
 ---
 Name: Logging in Entity Framework Extensions
-MetaDescription: Learn how to use logging options in Entity Framework Extensions for EF Core and EF6, including Log, LogDump, and UseLogDump. Capture SQL statements, parameters, and execution details with flexible configuration methods.
-LastMod: 2025-08-18
+MetaDescription: Learn how to use Log, LogDump, UseLogDump, AddLogExecuting, and AddLogExecuted in Entity Framework Extensions for EF Core and EF6 to capture SQL and inspect commands.
+LastMod: 2026-08-17
 ---
 
 # 📜 Logging options in EF Extensions
@@ -10,8 +10,10 @@ The `Logging` feature in Entity Framework Extensions lets you **capture and anal
 
 You can choose between two approaches:
 
-* Use a **delegate (`Log`)** to handle log messages immediately as they are generated.
-* Use a **`StringBuilder` (`LogDump`)** to collect all log messages when `UseLogDump` is enabled.
+- Use a **delegate (`Log`)** to handle log messages immediately as they are generated.
+- Use a **`StringBuilder` (`LogDump`)** to collect all log messages when `UseLogDump` is enabled.
+
+You can also use the `AddLogExecuting` and `AddLogExecuted` events to inspect the command associated with each log before and after it is executed.
 
 ## 🏷️ Log
 
@@ -67,6 +69,54 @@ Console.WriteLine(sb.ToString());
 
 ---
 
+## 🏷️ Intercept Commands During Logging
+
+When loggin is enabled, you can use two events to inspect every logged command:
+
+- **AddLogExecuting** runs immediately before the command is executed.
+- **AddLogExecuted** runs immediately after the command is executed.
+
+Both events receive the command as an `object` and the current log as a `StringBuilder`.
+
+The command runtime type depends on the database provider and the current operation. For example, with SQL Server, it can be a `SqlCommand`, `SqlBulkCopy`, or another command type. You should always check its runtime type before using it.
+
+```csharp
+// @nuget: Z.EntityFramework.Extensions.EFCore
+using Microsoft.Data.SqlClient;
+using Z.EntityFramework.Extensions;
+
+var sb = new StringBuilder();
+
+context.BulkMerge(list, options =>
+{
+    options.UseLogDump = true;  // Enable log dump
+    options.LogDump = sb;       // Collect messages into StringBuilder
+
+    options.AddLogExecuting = (command, log) =>
+    {
+        if (command is SqlBulkCopy)
+        {
+            log.AppendLine("Executing a SqlBulkCopy operation.");
+        }
+        else if (command is SqlCommand sqlCommand)
+        {
+            log.AppendLine($"Executing command: {sqlCommand.CommandText}");
+        }
+    };
+
+    options.AddLogExecuted = (command, log) =>
+    {
+        log.AppendLine($"Executed command type: {command.GetType().Name}");
+    };
+});
+```
+
+For more information, see [AddLogExecuting and AddLogExecuted](/events#addlogexecuting-and-addlogexecuted) on the Events page.
+
+⚠️ **Warning:** Do not assume that the command is always a `DbCommand`. Some operations use provider-specific types such as `SqlBulkCopy`, which does not inherit from `DbCommand`.
+
+---
+
 ## 🔎 Log vs LogDump
 
 | Feature           | **Log** (`options.Log`)                                                     | **LogDump** (`options.LogDump + UseLogDump`)                  |
@@ -85,6 +135,7 @@ Logging is useful whenever you need to:
 
 - Debug bulk operations by reviewing executed SQL.
 - Capture logs for auditing or monitoring.
+- Inspect commands before and after they are executed.
 - Redirect SQL output into custom loggers like **NLog**, **Serilog**, or **log4net**.
 
 ---
@@ -106,10 +157,10 @@ Here we use the option `options.InsertKeepIdentity = true;` so our insert keeps 
 
 The log clearly shows what happened:
 
-* `IDENTITY_INSERT` was turned **ON**, the 3 rows were inserted, then it was turned **OFF**.
-* The exact **SQL command text** is displayed.
-* Each **parameter value and type** is listed.
-* The **command timeout**, **execution start and end time**, and the **number of results** are all logged.
+- `IDENTITY_INSERT` was turned **ON**, the 3 rows were inserted, then it was turned **OFF**.
+- The exact **SQL command text** is displayed.
+- Each **parameter value and type** is listed.
+- The **command timeout**, **execution start and end time**, and the **number of results** are all logged.
 
 ```csharp
 -- Executing Command:
@@ -143,14 +194,14 @@ In this example, a **staging table** is created to perform a bulk insert. This i
 
 The log shows each step of the process:
 
-* Create a **temporary table** (`#ZZZProjects_...`) with the required columns.
-* Create a **clustered index** on the staging table to improve performance.
-* Use **`SqlBulkCopy`** to load data into the staging table.
-* Execute a **`MERGE`** statement to insert rows into the destination table.
+- Create a **temporary table** (`#ZZZProjects_...`) with the required columns.
+- Create a **clustered index** on the staging table to improve performance.
+- Use **`SqlBulkCopy`** to load data into the staging table.
+- Execute a **`MERGE`** statement to insert rows into the destination table.
   * The `OUTPUT` clause is used here to return additional details.
-* Log the **parameters** (`@IndexStart`, `@IndexEnd`) with their values and types.
-* Log **timing information** and the **number of rows inserted**.
-* Finally, **drop** the temporary table once the operation completes.
+- Log the **parameters** (`@IndexStart`, `@IndexEnd`) with their values and types.
+- Log **timing information** and the **number of rows inserted**.
+- Finally, **drop** the temporary table once the operation completes.
 
 ```csharp
 -- Executing Command:
@@ -207,8 +258,9 @@ DROP TABLE #ZZZProjects_5e417609_6377_4596_a517_6cf250906727;
 
 ## 📚 Related Articles
 
-* [Bulk Operations](/bulk-extensions)
-* [Configure Options](/configure-options)
+- [Bulk Operations](/bulk-extensions)
+- [Configure Options](/configure-options)
+- [Events](/events)
 
 ---
 
@@ -218,7 +270,8 @@ Logging in Entity Framework Extensions is a simple but powerful feature that hel
 
 You can choose:
 
-* **Custom action logging** → `Log`
-* **Buffered logging** → `UseLogDump + LogDump`
+- **Custom action logging** → `Log`
+- **Buffered logging** → `UseLogDump + LogDump`
+- **Command interception during logging** → `AddLogExecuting` and `AddLogExecuted`
 
 With these options, you can easily integrate logging into your workflow — whether you want quick debugging, compliance tracking, or advanced integration with logging frameworks.
