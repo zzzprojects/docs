@@ -19,5 +19,6 @@
    - [Future Action](documentations/future-action.md)
    - [Interceptors](documentations/interceptors.md)
    - [Update Partial](documentations/update-partial.md)
+   - [GetTagsWithValues](documentations/get-tag-with-values.md)
 - Enterprise Features
    - [Bulk Methods](documentations/ef-core-bulk-methods.md)
