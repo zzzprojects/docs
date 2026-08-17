@@ -50,6 +50,7 @@
 						<li><a href="/querying/linq-queries">LINQ Queries</a></li>
 						<li><a href="/querying/linq-methods">LINQ Methods</a></li>
 						<li><a href="/querying/include">Include</a></li>
+						<li><a href="/querying/projection">Projection</a></li>
 					</ul>
 				</li>				
             </ul>
