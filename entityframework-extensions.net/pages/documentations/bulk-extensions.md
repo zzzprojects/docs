@@ -1,7 +1,7 @@
 ---
 Title: Bulk Extensions for EF Core | Bulk Insert, Update, Delete, Merge & Upsert
 MetaDescription: Learn how to use Bulk Extensions in EF Core to boost your CRUD operations performance. Discover how to save entities faster and by using less memory. Try it now.
-LastMod: 2025-11-11
+LastMod: 2026-08-18
 ---
 
 # Entity Framework Bulk Extensions
@@ -18,6 +18,20 @@ context.BulkInsert(invoices, options => { options.IncludeGraph = true; });
 ```
 
 The [BulkInsert](https://entityframework-extensions.net/bulk-insert) method from Entity Framework Extensions is not only much faster than using `SaveChanges`, it also [reduces memory consumption](https://entityframework-extensions.net/v7-100-0-0-include-graph#memory-performance-improvements).
+
+## Why Choose Entity Framework Extensions for Bulk Operations?
+
+Performance is only part of the value. Entity Framework Extensions gives your team a production-ready solution backed by years of development, extensive testing, and expert support.
+
+- **Build faster with less risk:** Replace weeks of development, testing, and provider-specific code with powerful bulk operations that work in only a few lines of code.
+- **Proven reliability:** Before every release, we run **more than 20,000 unit tests** to detect regressions and ensure existing features continue to work as expected.
+- **Trusted in production:** Since 2014, **more than 5,000 companies** have trusted Entity Framework Extensions for their applications.
+- **Tier-1 customer support:** Get direct help from experienced Entity Framework experts, often with a personalized [online example](/online-examples). We also proactively follow up to make sure your issue is fully resolved.
+- **Ready for what comes next:** Benefit from **day-one support for every major EF Core release** and reliable monthly updates with fixes, improvements, and new features.
+
+You are not simply adding bulk methods to your application. You are benefiting from **more than a decade of development, testing, and expertise that your team does not have to rebuild**.
+
+[Discover the value behind Entity Framework Extensions →](/why-entity-framework-extensions)
 
 ## 🚀 Performance Benchmark
 

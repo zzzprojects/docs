@@ -1,10 +1,10 @@
 ---
-Title: Bulk Delete in EF Core with Entity Framework Extensions
+Title: Bulk Delete for EF Core and EF6 | Entity Framework Extensions
 MetaDescription: Efficiently delete Entity Framework data with EF Core Bulk Delete Extensions. Customize options to quickly delete large numbers of entities with ease, compatible with all EF versions including EF Core 7, 6, 5, 3, and EF6. Optimize your database operations - try it now.
-LastMod: 2026-07-14
+LastMod: 2026-08-18
 ---
 
-# EF Core Bulk Delete with Entity Framework Extensions
+# Entity Framework Bulk Delete
 
 The `BulkDelete` method lets you delete thousands of entities quickly and efficiently in EF Core and EF6.
 
