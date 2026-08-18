@@ -3,7 +3,7 @@ title: Adding data via the DbSet
 description: An examination of the methods and approaches available for adding data via the Entity Framework Core DbSet API
 canonical: /saving/adding-data
 status: Published
-lastmod: 2026-07-26
+lastmod: 2026-08-18
 ---
 
 # EF Core Adding Data
@@ -429,7 +429,7 @@ Key timestamps:
 - [3:52](https://www.youtube.com/watch?v=6ONaI-3sJDc&t=232) — Calling `SaveChanges()` to persist the insert
 - [4:27](https://www.youtube.com/watch?v=6ONaI-3sJDc&t=267) — Adding a related `Employee` using an existing `Manager` foreign key
 
-### Video 2 - (#46) Insertar datos en una base de datos usando Entity Framework Core | Tutorial de ASP.NET Core
+### Video 2 - (#46) Insert data in database using entity framework core | Asp.Net core tutorial
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/cE_o8piz-2Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 

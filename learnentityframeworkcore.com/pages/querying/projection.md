@@ -216,9 +216,9 @@ EF Core can evaluate part of the top-level projection — the final `Select` —
 
 The following videos are useful if you want to see `Select` projections in practical Entity Framework Core examples. The first demonstrates projecting related data directly into a DTO, including a calculated count. The second visually compares the SQL generated when retrieving a complete entity with the SQL generated after projecting only the required columns.
 
-### Video 1 - Seleccionar columnas con Select y usar DTO en Entity Framework Core (Tutorial paso a paso)
+### Video 1 - Selecting columns with SELECT and using DTOs in Entity Framework Core (Step-by-step tutorial)
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/r0-gZFTJ9Ew" title="Seleccionar columnas con Select y usar DTO en Entity Framework Core (Tutorial paso a paso)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/r0-gZFTJ9Ew" title="Selecting columns with SELECT and using DTOs in Entity Framework Core (Step-by-step tutorial)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 render2web demonstrates how to create a DTO projection with `Select`, access a related category value, and calculate the number of related comments with `Count()`. The final query is materialized asynchronously with `ToListAsync()`, and the resulting projected data is displayed in the application.
 

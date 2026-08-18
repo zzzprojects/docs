@@ -3,7 +3,7 @@ title: The Entity Framework Core ChangeTracker
 description: Learn what the ChangeTracker does in Entity Framework Core, how it tracks entity states, how it works with SaveChanges, when tracking is lost, and the most common pitfalls to avoid.
 canonical: /saving/change-tracker
 status: Published
-lastmod: 2026-07-26
+lastmod: 2026-08-18
 ---
 
 # The Entity Framework Core ChangeTracker
@@ -283,21 +283,6 @@ This is especially useful if you want a more in-depth look at how EF Core compar
 * [20:00](https://youtu.be/o9XoiPPP2Lw?si=uw6IJ1bHN8i16O_R&t=1200) — Full state lifecycle with `SaveChanges()` (`Detached` → `Added` → `Unchanged` → `Modified` → `Deleted` → `Detached`)
 * [33:20](https://youtu.be/o9XoiPPP2Lw?si=uw6IJ1bHN8i16O_R&t=2000) — `OriginalValues` and precise change detection for `UPDATE`
 * [55:00](https://youtu.be/o9XoiPPP2Lw?si=uw6IJ1bHN8i16O_R&t=3300) — `AsNoTracking()`, tracking loss, and `DbContext`-scoped tracking behavior
-
-### Video 3 — ChangeTracker e Performance con Entity Framework Core
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/J4x-bN3zSN4?si=MUEaOIS42xPJrp1L" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-This video adds an important performance angle by showing how the `ChangeTracker` can affect EF Core workloads when many entities are involved.
-
-It is a valuable companion resource for understanding tracking overhead in inserts and reads, and for seeing practical optimization techniques such as `AddRange`, `AsNoTracking()`, and temporarily disabling `AutoDetectChangesEnabled` in high-volume scenarios.
-
-**Key sections:**
-
-* [01:30](https://youtu.be/J4x-bN3zSN4?si=MUEaOIS42xPJrp1L&t=90) — Entity and `DbContext` setup
-* [04:00](https://youtu.be/J4x-bN3zSN4?si=MUEaOIS42xPJrp1L&t=240) — `Add` vs `AddRange` performance scenario with 100k inserts
-* [12:02](https://youtu.be/J4x-bN3zSN4?si=MUEaOIS42xPJrp1L&t=722) — Disabling `AutoDetectChangesEnabled` for better save performance
-* [15:40](https://youtu.be/J4x-bN3zSN4?si=MUEaOIS42xPJrp1L&t=940) — Reads with `AsNoTracking()` and query tracking behavior
 
 ## Summary
 
