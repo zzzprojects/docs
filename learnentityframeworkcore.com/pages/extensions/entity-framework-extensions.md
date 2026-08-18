@@ -1,225 +1,108 @@
 ---
 title: Entity Framework Extensions
-description: An introduction to Entity Framework Extensions
+description: Learn how Entity Framework Extensions accelerates EF Core and EF6 with bulk operations, advanced options, production-tested reliability, and expert support.
 canonical: /extensions/entity-framework-extensions
 status: Published
-lastmod: 2025-11-11
+lastmod: 2026-08-18
 ---
 
 # Entity Framework Extensions
 
-> **TL;DR:** Entity Framework Extensions is the recommended library for professionals who need the fastest performance, reliable support, and complete documentation.
+> **TL;DR:** Entity Framework Extensions is a commercial library for EF Core and EF6 that dramatically improves performance with bulk operations such as `BulkInsert`, `BulkUpdate`, `BulkDelete`, `BulkMerge`, and `BulkSaveChanges`. It combines a simple `DbContext` API with advanced model support, more than **20,000 automated tests**, monthly releases, and direct professional support.
 
-[Entity Framework Extensions](https://entityframework-extensions.net/) is the most downloaded library for developers looking for high-performance bulk operations backed by professional support — with **over 55 million downloads** worldwide.
+[Entity Framework Extensions](https://entityframework-extensions.net/)—often called **EF Extensions** or **EFE**—helps developers process thousands or millions of records without replacing Entity Framework or maintaining complex, provider-specific SQL.
 
-Developed and maintained by [ZZZ Projects](https://zzzprojects.com/) — a leading .NET software company since 2014 — this library, often called **"EF Extensions"** or **"EFE"**, includes **hundreds of features**, **monthly updates**, and **dedicated support** through GitHub and email.
+The library has been developed by [ZZZ Projects](https://zzzprojects.com/) since 2014. It supports **EF6 and EF Core 2 through EF Core 10**, works with the major relational database providers, and is trusted by **more than 5,000 companies**.
 
-It supports all major versions of Entity Framework, including **EF6** and **EF Core 2 to EF Core 10**, with continuous updates to ensure compatibility.
+Entity Framework Extensions is more than a collection of fast methods. It is a production-ready library backed by extensive testing, predictable releases, and a support team that helps customers move forward when an issue blocks their project.
 
-Trusted by **thousands of .NET developers worldwide**, it has become the go-to choice for teams that need both **speed** and **reliability**.
-
-You can explore the [professional documentation](https://entityframework-extensions.net/bulk-extensions) to learn more about bulk operations and discover advanced use cases.
+[Discover the value behind Entity Framework Extensions](https://entityframework-extensions.net/why-entity-framework-extensions) or [try the full-featured trial](https://entityframework-extensions.net/download).
 
 ---
 
+## Why Use Entity Framework Extensions?
+
+Entity Framework makes data access productive, but its standard change-tracking workflow can become expensive when an application must process large collections. Saving many entities individually increases database round trips, command execution, and overall processing time.
+
+Entity Framework Extensions replaces this work with optimized bulk operations while preserving your existing entities, mappings, relationships, and `DbContext`.
+
+The result is:
+
+* **Faster data operations:** Process large collections using optimized, provider-specific techniques.
+* **Less development work:** Use production-ready features instead of building and maintaining custom bulk code.
+* **Support for complex models:** Handle graphs, owned types, inheritance, custom keys, and database-generated values.
+* **Lower technical risk:** Benefit from more than 20,000 automated tests before every release.
+* **Help when you need it:** Get direct expert support, often with a personalized online example for your scenario.
+
+## Installation
+
+Install the Entity Framework Extensions package for EF Core:
+
+```powershell
+Install-Package Z.EntityFramework.Extensions.EFCore
+```
+
+No special database schema or replacement `DbContext` is required. After installing the package, bulk methods are available directly from your existing context.
+
+[EF Core NuGet package](https://www.nuget.org/packages/Z.EntityFramework.Extensions.EFCore/)
+
 ## Code Examples
 
-You can use **Entity Framework Extensions (EFE)** to perform all your bulk operations with just a few lines of code.
-
-Here’s a quick overview showing how simple and powerful it is:
+Entity Framework Extensions uses a familiar API and requires only a few lines of code:
 
 ```csharp
 // @nuget: Z.EntityFramework.Extensions.EFCore
 using Z.EntityFramework.Extensions;
 
-// --- Saving Operations ---
-context.BulkInsert(customers); // Fast insert
-context.BulkInsert(customers, options => { options.IncludeGraph = true; }); // Insert with related entities
-context.BulkUpdate(customers); // Fast update
-context.BulkDelete(customers); // Fast delete
-context.BulkMerge(customers);  // Insert or update (Upsert)
-context.BulkSynchronize(customers); // Keep table in sync with your data
-context.BulkSaveChanges(); // Replace SaveChanges() with a faster version
-
-// --- Retrieval Operations ---
-context.Customers.BulkRead(deserializedCustomers); // Retrieve entities using a filtered query
-context.Customers.WhereBulkContains(deserializedCustomers).ToList(); // Filter the query to include matching items
-context.Customers.WhereBulkNotContains(deserializedCustomers).ToList(); // Filter the query to exclude matching items
-context.Customers.WhereBulkContainsFilterList(deserializedCustomers).ToList(); // Return entities from the list that exist in the database
-context.Customers.WhereBulkNotContainsFilterList(deserializedCustomers).ToList(); // Return entities from the list that don't exist in the database
+// Saving operations
+context.BulkInsert(customers);
+context.BulkInsertOptimized(customers); // Insert without output
+context.BulkUpdate(customers);
+context.BulkDelete(customers);
+context.BulkMerge(customers);          // Insert or update
+context.BulkSynchronize(customers);    // Insert, update, and delete
+context.BulkSaveChanges();             // Faster alternative to SaveChanges
 ```
 
-These methods work seamlessly with your existing `DbContext` — no special setup required.
+Options can be configured for advanced scenarios:
 
-You can start small with one operation and easily extend it as your project grows.
+```csharp
+context.BulkInsert(customers, options =>
+{
+    options.IncludeGraph = true;
+    options.BatchSize = 5000;
+});
+```
 
-To explore and run these examples interactively, visit the [**Online Examples page**](https://entityframework-extensions.net/online-examples).
+The library also includes high-performance retrieval and filtering operations:
 
+```csharp
+context.Customers.BulkRead(deserializedCustomers);
 
----
+var existingCustomers = context.Customers
+    .WhereBulkContains(deserializedCustomers)
+    .ToList();
 
-## Key Highlights
+var missingCustomers = context.Customers
+    .WhereBulkNotContains(deserializedCustomers)
+    .ToList();
+```
 
-### ✅ Pros
+You can run and modify working examples directly from the [Entity Framework Extensions online examples](https://entityframework-extensions.net/online-examples).
 
-* ⚡ **Exceptional performance** — up to **95% faster** than `SaveChanges()` for both simple and complex bulk operations.
-* 🧩 **Seamless integration** — works out of the box with your existing EF Core entities, relationships, and configurations.
-* ⚙️ **Hundreds of options** — fine-tune every operation (batch size, keys, transactions, formulas, temporary tables, and more).
-* 🧠 **Supports complex models** — handles deep graphs, owned types, navigation properties, and inheritance without issues.
-* 🗄️ **Database agnostic** — compatible with major providers like **SQL Server**, **PostgreSQL**, **MySQL**, **MariaDB**, **SQLite**, and **Oracle**.
-* 🔁 **Actively maintained** — frequent updates ensure compatibility from **EF6** to **EF Core 2–9**, with ongoing support for future versions.
-* 💬 **Professional support** — get direct access to experienced developers through GitHub and email for fast and reliable assistance.
+## Supported Bulk Operations
 
-### ⚠️ Cons
-
-* 💰 **Requires a license for production use** — while a commercial license is needed for deployed projects, an unlimited **trial version** is available for testing, learning, and evaluating all features risk-free.
-
----
-
-## 🧪 Benchmarks
-
-✅ **Entity Framework Extensions delivers outstanding performance gains in every scenario** — whether you’re inserting thousands of entities, updating existing data, or performing complex merge operations.
-
-The `IncludeGraph` feature works seamlessly with the `BulkInsert`, `BulkUpdate`, `BulkDelete`, and `BulkMerge` methods, allowing you to process entire entity graphs efficiently.
-
-You can view or reproduce all benchmark results directly in our [GitHub repository](https://github.com/zzzprojects/learnentityframeworkcore/tree/main/benchmarks/Z.EntityFramework.Extensions.EFCore).
-
-### Bulk Insert
-
-![Benchmark EFCore vs Entity Framework Extensions – SQL Server - Bulk Insert](https://raw.githubusercontent.com/zzzprojects/learnentityframeworkcore/main/benchmarks/Z.EntityFramework.Extensions.EFCore/benchmark-result/bulk-insert.png)
-
-### Bulk Update
-
-![Benchmark EFCore vs Entity Framework Extensions – SQL Server - Bulk Update](https://raw.githubusercontent.com/zzzprojects/learnentityframeworkcore/main/benchmarks/Z.EntityFramework.Extensions.EFCore/benchmark-result/bulk-update.png)
-
-### Bulk Merge (“Upsert” / “InsertOrUpdate”)
-
-![Benchmark EFCore vs Entity Framework Extensions – SQL Server - Bulk Merge](https://raw.githubusercontent.com/zzzprojects/learnentityframeworkcore/main/benchmarks/Z.EntityFramework.Extensions.EFCore/benchmark-result/bulk-merge.png)
-
-### More Benchmarks
-
-Entity Framework Extensions also provides additional benchmark projects and detailed comparisons for developers who want to explore more results.
-
-#### 📊 By Provider (EF Core)
-
-* [SQL Server](https://github.com/zzzprojects/EntityFramework-Extensions/blob/master/benchmark-result/efcore-sqlserver.md)
-* [PostgreSQL](https://github.com/zzzprojects/EntityFramework-Extensions/blob/master/benchmark-result/efcore-postgresql.md)
-* [MySQL](https://github.com/zzzprojects/EntityFramework-Extensions/blob/master/benchmark-result/efcore-mysql.md)
-* [MariaDB](https://github.com/zzzprojects/EntityFramework-Extensions/blob/master/benchmark-result/efcore-mariadb.md)
-* [Oracle](https://github.com/zzzprojects/EntityFramework-Extensions/blob/master/benchmark-result/efcore-oracle.md)
-* [SQLite](https://github.com/zzzprojects/EntityFramework-Extensions/blob/master/benchmark-result/efcore-sqlite.md)
-
-#### ⚙️ By Operation (EF Core)
-
-* [Bulk Insert](https://github.com/zzzprojects/EntityFramework-Extensions/blob/master/benchmark-result/efcore-bulk-insert.md)
-* [Bulk Update](https://github.com/zzzprojects/EntityFramework-Extensions/blob/master/benchmark-result/efcore-bulk-update.md)
-* [Bulk Delete](https://github.com/zzzprojects/EntityFramework-Extensions/blob/master/benchmark-result/efcore-bulk-delete.md)
-* [Bulk Merge](https://github.com/zzzprojects/EntityFramework-Extensions/blob/master/benchmark-result/efcore-bulk-merge.md)
-* [Bulk SaveChanges](https://github.com/zzzprojects/EntityFramework-Extensions/blob/master/benchmark-result/efcore-bulk-savechanges.md)
-* [Bulk Synchronize](https://github.com/zzzprojects/EntityFramework-Extensions/blob/master/benchmark-result/efcore-bulk-synchronize.md)
-
-
----
-
-## ❓ FAQ
-
-### 🧪 How can I use the monthly trial?
-
-To use the **Entity Framework Extensions trial**, simply **download the latest version from [NuGet](https://www.nuget.org/packages/Z.EntityFramework.Extensions.EFCore/)** and start coding — no registration required.
-
-Each new release (published once per month) automatically refreshes the trial period. Just update the package to the latest version to continue your evaluation.
-
-The trial includes **all features**, allowing you to fully test and explore the library before deciding to purchase a license.
-
----
-
-### 💡 Is the license perpetual or subscription-based?
-
-The **Entity Framework Extensions** license type is **perpetual**, meaning you purchase it once and can use it forever.
-
-Renewing **support and upgrades** is **optional**, but highly recommended if you want to access the latest features, improvements, and performance updates.
-
----
-
-### 💰 Can Entity Framework Extensions be used for free?
-
-Yes — you can use it for free by downloading the **latest trial version** each month.
-
-However, this is **not recommended for commercial use**, since the trial period may expire before a new release becomes available.
-
-For personal projects, learning, or testing, you can continue using the trial as long as you want without any restrictions.
-
----
-
-### ⚙️ Which EF Core versions are supported?
-
-**Entity Framework Extensions** supports all major versions — from **EF Core 2** up to **EF Core 10**.
-
-It also supports **Entity Framework 6 (EF6)** for legacy or existing projects.
-
-For more details and download options, visit the [official download page](https://entityframework-extensions.net/download).
-
----
-
-### 🧩 Which version of Entity Framework Extensions should I use?
-
-Each version of **Entity Framework Extensions** is designed to match the corresponding **EF Core major release** for the best compatibility and performance.
-
-Here’s a quick guide:
-
-* For **EF Core 10.x**, use **EF Extensions v10.x**
-* For **EF Core 9.x**, use **EF Extensions v9.x**
-* For **EF Core 8.x**, use **EF Extensions v8.x**
-* For **EF Core 7.x**, use **EF Extensions v7.x**
-* For **EF Core 6.x**, use **EF Extensions v6.x**
-* For **EF Core 5.x**, use **EF Extensions v5.x**
-* For **EF Core 3.x**, use **EF Extensions v3.x**
-* For **EF Core 2.x**, use **EF Extensions v2.x**
-
-Each release of **EF Extensions** is actively maintained for its corresponding EF Core version to ensure **full feature compatibility** and **optimal performance**.
-
----
-
-### 🗄️ Which databases are supported?
-
-**Entity Framework Extensions** supports all major relational databases used with EF Core, ensuring consistent behavior and performance across providers.
-
-Supported databases include:
-
-* **SQL Server**
-* **PostgreSQL**
-* **MySQL**
-* **Oracle**
-* **SQLite**
-* **MariaDB**
-
----
-
-### 🔁 Is Entity Framework Extensions still maintained?
-
-Yes — **Entity Framework Extensions** is **actively maintained** and receives **monthly updates** that include bug fixes, performance improvements, and new features.
-
-Developed and supported **since 2014**, the library has evolved alongside every major EF Core release and is trusted by **thousands of developers and companies worldwide**.
-
-You can get **direct support** on **[GitHub Issues](https://github.com/zzzprojects/EntityFramework-Extensions/issues)** and by **email**.
-
----
-
-### 🚀 What kind of operations can it accelerate?
-
-Entity Framework Extensions provides **high-performance alternatives** for common EF Core operations, allowing you to process thousands — or even millions — of records efficiently.
-
-Here are some of the most popular methods:
+The most commonly used operations include:
 
 * [BulkInsert](https://entityframework-extensions.net/bulk-insert)
 * [BulkInsertOptimized](https://entityframework-extensions.net/bulk-insert-optimized)
 * [BulkUpdate](https://entityframework-extensions.net/bulk-update)
 * [BulkDelete](https://entityframework-extensions.net/bulk-delete)
-* [BulkMerge (Upsert)](https://entityframework-extensions.net/bulk-merge)
+* [BulkMerge](https://entityframework-extensions.net/bulk-merge)
 * [BulkSynchronize](https://entityframework-extensions.net/bulk-synchronize)
 * [BulkSaveChanges](https://entityframework-extensions.net/bulk-savechanges)
 
-In addition, the library offers **powerful data retrieval extensions**, such as:
+Retrieval and bulk-query features include:
 
 * [BulkRead](https://entityframework-extensions.net/bulk-read)
 * [WhereBulkContains](https://entityframework-extensions.net/where-bulk-contains)
@@ -227,34 +110,137 @@ In addition, the library offers **powerful data retrieval extensions**, such as:
 * [WhereBulkContainsFilterList](https://entityframework-extensions.net/where-bulk-contains-filter-list)
 * [WhereBulkNotContainsFilterList](https://entityframework-extensions.net/where-bulk-not-contains-filter-list)
 
-These methods go beyond EF Core’s built-in capabilities — giving you speed, flexibility, and full control over how your data is processed and retrieved.
+Hundreds of options let you control batching, keys, identity values, formulas, temporary tables, transactions, graph behavior, and provider-specific features.
+
+## Key Advantages
+
+### High Performance Without Rewriting Your Data Layer
+
+Entity Framework Extensions uses optimized bulk and database-provider techniques to reduce commands, round trips, and processing time. Your application keeps the productivity of Entity Framework while gaining the performance required for demanding workloads.
+
+### Advanced Model and Provider Support
+
+Real applications often go beyond flat entity lists. Entity Framework Extensions supports scenarios involving related entities, owned types, inheritance, custom keys, database-generated values, and advanced mappings.
+
+Supported databases include:
+
+* SQL Server and SQL Azure
+* PostgreSQL
+* MySQL
+* MariaDB
+* Oracle
+* SQLite
+
+### Production-Tested Reliability
+
+More than **20,000 automated tests** run before every release to detect regressions across Entity Framework versions, database providers, operations, options, and mapping scenarios.
+
+This testing does not eliminate the need to validate your own application, but it significantly reduces the amount of complex provider-specific behavior your team must build and maintain itself.
+
+### Tier-1 Customer Support
+
+When an issue blocks your project, you need more than a generic reply. Customers receive direct help from experienced Entity Framework specialists who investigate the actual scenario and often provide a personalized online example demonstrating the solution.
+
+Support continues after the initial response. The team proactively follows up after **48 hours**, and again after **96 hours** when necessary, to make sure the issue is truly resolved.
+
+You can [experience the support before purchasing](mailto:info@zzzprojects.com) or read what customers say on the [ZZZ Projects testimonials page](https://zzzprojects.com/testimonials).
+
+### Predictable, Long-Term Maintenance
+
+Entity Framework Extensions has evolved alongside Entity Framework since 2014. It provides day-one support for major EF Core releases and publishes reliable monthly releases with fixes, improvements, new features, and provider updates.
+
+This gives teams greater confidence when planning framework and database upgrades around a business-critical dependency.
+
+## Performance Benchmarks
+
+Bulk operations are designed to reduce the overhead of processing large collections through the standard Entity Framework change-tracking pipeline.
+
+Benchmark results depend on the database, network, model, options, and number of entities. The following SQL Server benchmarks compare Entity Framework Extensions with EF Core `SaveChanges` in reproducible test projects.
+
+You can inspect the source and reproduce the results from the [benchmark repository](https://github.com/zzzprojects/learnentityframeworkcore/tree/main/benchmarks/Z.EntityFramework.Extensions.EFCore).
+
+### Bulk Insert
+
+![Benchmark EF Core vs Entity Framework Extensions – SQL Server – Bulk Insert](https://raw.githubusercontent.com/zzzprojects/learnentityframeworkcore/main/benchmarks/Z.EntityFramework.Extensions.EFCore/benchmark-result/bulk-insert.png)
+
+### Bulk Update
+
+![Benchmark EF Core vs Entity Framework Extensions – SQL Server – Bulk Update](https://raw.githubusercontent.com/zzzprojects/learnentityframeworkcore/main/benchmarks/Z.EntityFramework.Extensions.EFCore/benchmark-result/bulk-update.png)
+
+### Bulk Merge
+
+![Benchmark EF Core vs Entity Framework Extensions – SQL Server – Bulk Merge](https://raw.githubusercontent.com/zzzprojects/learnentityframeworkcore/main/benchmarks/Z.EntityFramework.Extensions.EFCore/benchmark-result/bulk-merge.png)
+
+Additional benchmarks are available by [database provider and bulk operation](https://github.com/zzzprojects/EntityFramework-Extensions/tree/master#-benchmark-results).
+
+## Considerations
+
+Entity Framework Extensions is a commercial library and requires a paid license for production use. The license is **perpetual**, so you can continue using the purchased version indefinitely. Renewing support and upgrades is optional, with renewal discounts ranging from **30% to 50%**.
+
+A full-featured trial is available for evaluation without registration. The latest monthly release refreshes the trial period, allowing teams to test performance, compatibility, and advanced scenarios before purchasing.
+
+The practical comparison is not simply paid versus free. It is the license cost compared with the development time, maintenance work, production risk, release reliability, and support your team would otherwise need to provide.
+
+[See why companies choose Entity Framework Extensions](https://entityframework-extensions.net/why-entity-framework-extensions).
 
 ---
 
-### 🧠 How hard is it to integrate?
+## FAQ
 
-Integration is simple — you just install the **[NuGet package](https://www.nuget.org/packages/Z.EntityFramework.Extensions.EFCore/)**, and your existing EF Core entities and configurations will work immediately.
+### How Can I Try Entity Framework Extensions?
 
-There’s no need to change your existing mappings or database schema.
+Install the latest [EF Core NuGet package](https://www.nuget.org/packages/Z.EntityFramework.Extensions.EFCore/) or visit the [download page](https://entityframework-extensions.net/download). No registration is required, and the trial includes every feature.
 
----
+The trial expires at the end of a month. Installing the latest monthly release refreshes the evaluation period.
 
-### 🧾 Can it be used in production?
+### Is the License Perpetual or Subscription-Based?
 
-Absolutely. Entity Framework Extensions is trusted by **thousands of .NET developers and companies worldwide**, from small startups to large enterprises.
+The license is perpetual. You can continue using the version you purchased without renewing.
 
-It’s built for reliability, scalability, and long-term support.
+Support and upgrades are included for the selected term. Renewal is optional and provides continued access to new EF Core versions, provider compatibility, fixes, features, performance improvements, and customer support. Renewal discounts range from 30% to 50%.
 
----
+### Can Entity Framework Extensions Be Used for Free?
 
-## 🧭 Summary
+The full-featured trial can be used for testing, learning, and evaluating the library. A commercial license is required for production use.
 
-Entity Framework Extensions isn’t just another EF Core library — it’s the **#1 performance upgrade** for your data access layer.
-With just a few lines of code, you can make your operations run **up to 95% faster**, reduce memory usage, and handle **millions of records** effortlessly.
+### Which Entity Framework Versions Are Supported?
 
-Trusted by **thousands of developers and companies worldwide** since **2014**, EF Extensions has become the go-to solution for teams who want both **speed and stability** without rewriting their applications.
+Entity Framework Extensions supports EF6 and all major EF Core versions from EF Core 2 through EF Core 10.
 
-It includes **hundreds of options**, seamless integration with all major databases, and professional support that’s always ready to help you succeed.
+Use the package major version that matches your EF Core major version—for example, EF Extensions 10.x with EF Core 10.x.
 
-If you want your EF Core projects to feel **faster, smarter, and production-ready**, there’s no reason to wait —
-👉 [Try the full-featured trial today](https://entityframework-extensions.net/download) and experience the difference for yourself.
+### Which Databases Are Supported?
+
+Entity Framework Extensions supports SQL Server, SQL Azure, PostgreSQL, MySQL, MariaDB, Oracle, and SQLite. Features and implementation details can vary by provider.
+
+### Is Entity Framework Extensions Maintained?
+
+Yes. ZZZ Projects has continuously developed Entity Framework Extensions since 2014. The library receives day-one support for major EF Core versions and reliable monthly releases with compatibility updates, fixes, improvements, and new features.
+
+Before every release, more than 20,000 automated tests run across supported versions, providers, operations, and options.
+
+### What Support Is Included?
+
+Customers receive direct Tier-1 support from experienced Entity Framework specialists through email and [GitHub Issues](https://github.com/zzzprojects/EntityFramework-Extensions/issues).
+
+The team can investigate complex scenarios and create personalized online examples. It also proactively follows up after 48 hours—and again after 96 hours when necessary—to confirm that the issue has been resolved.
+
+### How Difficult Is It to Integrate?
+
+Integration is usually straightforward. Install the NuGet package and call the bulk methods from your existing `DbContext`. Your current entities, mappings, relationships, and database schema can remain in place.
+
+Because every application is different, teams should test their actual models and operations with the trial before deploying to production.
+
+### Is It Suitable for Production Applications?
+
+Yes. Entity Framework Extensions has been used in production since 2014 and is trusted by more than 5,000 companies. Its extensive automated testing, broad provider support, predictable releases, and direct professional support are designed for long-term and business-critical use.
+
+## Summary
+
+Entity Framework Extensions lets teams keep the productivity of EF Core or EF6 while gaining the performance and flexibility of optimized bulk operations.
+
+Its value goes beyond faster inserts and updates. Your team benefits from advanced model support, more than 20,000 automated tests, monthly releases, day-one EF Core compatibility, and experts who help when an issue blocks your project.
+
+* [Discover why more than 5,000 companies choose Entity Framework Extensions](https://entityframework-extensions.net/why-entity-framework-extensions)
+* [Try Entity Framework Extensions for free](https://entityframework-extensions.net/download)
+* [View pricing](https://entityframework-extensions.net/pricing)
