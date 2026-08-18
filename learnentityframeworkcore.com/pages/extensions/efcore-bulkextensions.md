@@ -262,19 +262,43 @@ You can inspect the benchmark source and reproduce the tests in our [GitHub benc
 
 ![Benchmark EF Core vs EFCore.BulkExtensions.MIT – SQL Server – Bulk Insert](https://raw.githubusercontent.com/zzzprojects/learnentityframeworkcore/main/benchmarks/EFCore.BulkExtensions.MIT/benchmark-result/bulk-insert.png)
 
-### Bulk Insert with Graph
+| Method        | 10 Entities | 1,000 Entities | 100,000 Entities |
+| ------------- | ----------: | -------------: | ---------------: |
+| `SaveChanges` |     1.59 ms |       99.12 ms |         7,003 ms |
+| `BulkInsert`  |     3.54 ms |       14.20 ms |         1,144 ms |
 
-In our tested scenario, graph performance declined significantly as the number of related entities increased.
+### Bulk Insert with Graph
 
 ![Benchmark EF Core vs EFCore.BulkExtensions.MIT – SQL Server – Bulk Insert with Graph](https://raw.githubusercontent.com/zzzprojects/learnentityframeworkcore/main/benchmarks/EFCore.BulkExtensions.MIT/benchmark-result/bulk-insert-with-graph.png)
 
+| Method        | 10 Entities | 1,000 Entities | 100,000 Entities |
+| ------------- | ----------: | -------------: | ---------------: |
+| `SaveChanges` |    11.38 ms |       517.5 ms |        52,157 ms |
+| `BulkInsert`  |    61.45 ms |       194.2 ms |       584,484 ms |
+
+> In this tested scenario, `BulkInsert` with `IncludeGraph` became significantly slower as the number of related entities increased. At 100,000 entities, it took approximately **584 seconds**, compared with **52 seconds** for `SaveChanges`.
+
 ### Bulk Update
+
+#### Without Related Entities
 
 ![Benchmark EF Core vs EFCore.BulkExtensions.MIT – SQL Server – Bulk Update](https://raw.githubusercontent.com/zzzprojects/learnentityframeworkcore/main/benchmarks/EFCore.BulkExtensions.MIT/benchmark-result/bulk-update.png)
 
+| Method        | 10 Entities | 1,000 Entities | 100,000 Entities |
+| ------------- | ----------: | -------------: | ---------------: |
+| `SaveChanges` |     1.70 ms |       76.61 ms |         7,878 ms |
+| `BulkUpdate`  |    18.88 ms |       73.39 ms |         1,823 ms |
+
 ### Bulk Insert or Update
 
+#### Without Related Entities
+
 ![Benchmark EF Core vs EFCore.BulkExtensions.MIT – SQL Server – Bulk Insert or Update](https://raw.githubusercontent.com/zzzprojects/learnentityframeworkcore/main/benchmarks/EFCore.BulkExtensions.MIT/benchmark-result/bulk-insert-or-update.png)
+
+| Method               | 10 Entities | 1,000 Entities | 100,000 Entities |
+| -------------------- | ----------: | -------------: | ---------------: |
+| `SaveChanges`        |     1.89 ms |       82.66 ms |         7,403 ms |
+| `BulkInsertOrUpdate` |    22.54 ms |       71.49 ms |         1,519 ms |
 
 ## EFCore.BulkExtensions or Entity Framework Extensions?
 

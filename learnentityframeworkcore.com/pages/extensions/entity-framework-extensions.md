@@ -159,19 +159,63 @@ Benchmark results depend on the database, network, model, options, and number of
 
 You can inspect the source and reproduce the results from the [benchmark repository](https://github.com/zzzprojects/learnentityframeworkcore/tree/main/benchmarks/Z.EntityFramework.Extensions.EFCore).
 
+Additional benchmarks are available by [database provider and bulk operation](https://github.com/zzzprojects/EntityFramework-Extensions/tree/master#-benchmark-results).
+
 ### Bulk Insert
 
 ![Benchmark EF Core vs Entity Framework Extensions – SQL Server – Bulk Insert](https://raw.githubusercontent.com/zzzprojects/learnentityframeworkcore/main/benchmarks/Z.EntityFramework.Extensions.EFCore/benchmark-result/bulk-insert.png)
+
+#### Without Related Entities
+
+| Method                | 10 Entities | 1,000 Entities | 100,000 Entities |
+| --------------------- | ----------: | -------------: | ---------------: |
+| `SaveChanges`         |     1.71 ms |       93.97 ms |         6,934 ms |
+| `BulkInsert`          |     1.52 ms |       25.36 ms |         924.7 ms |
+| `BulkInsert_NoOutput` |     1.45 ms |       11.83 ms |         647.6 ms |
+| `BulkInsertOptimized` |     1.47 ms |       10.48 ms |         996.1 ms |
+
+#### With Related Entities (`IncludeGraph`)
+
+| Method        | 10 Entities | 1,000 Entities | 100,000 Entities |
+| ------------- | ----------: | -------------: | ---------------: |
+| `SaveChanges` |     5.89 ms |       514.8 ms |        53,213 ms |
+| `BulkInsert`  |    12.41 ms |       114.4 ms |         9,652 ms |
 
 ### Bulk Update
 
 ![Benchmark EF Core vs Entity Framework Extensions – SQL Server – Bulk Update](https://raw.githubusercontent.com/zzzprojects/learnentityframeworkcore/main/benchmarks/Z.EntityFramework.Extensions.EFCore/benchmark-result/bulk-update.png)
 
+#### Without Related Entities
+
+| Method        | 10 Entities | 1,000 Entities | 100,000 Entities |
+| ------------- | ----------: | -------------: | ---------------: |
+| `SaveChanges` |     1.89 ms |       96.48 ms |         7,903 ms |
+| `BulkUpdate`  |     1.91 ms |       39.51 ms |         1,589 ms |
+
+#### With Related Entities (`IncludeGraph`)
+
+| Method        | 10 Entities | 1,000 Entities | 100,000 Entities |
+| ------------- | ----------: | -------------: | ---------------: |
+| `SaveChanges` |    12.02 ms |       579.3 ms |        55,981 ms |
+| `BulkUpdate`  |    13.85 ms |       112.1 ms |         7,879 ms |
+
 ### Bulk Merge
 
 ![Benchmark EF Core vs Entity Framework Extensions – SQL Server – Bulk Merge](https://raw.githubusercontent.com/zzzprojects/learnentityframeworkcore/main/benchmarks/Z.EntityFramework.Extensions.EFCore/benchmark-result/bulk-merge.png)
 
-Additional benchmarks are available by [database provider and bulk operation](https://github.com/zzzprojects/EntityFramework-Extensions/tree/master#-benchmark-results).
+#### Without Related Entities
+
+| Method        | 10 Entities | 1,000 Entities | 100,000 Entities |
+| ------------- | ----------: | -------------: | ---------------: |
+| `SaveChanges` |     2.04 ms |       102.7 ms |         7,524 ms |
+| `BulkMerge`   |     2.09 ms |       39.12 ms |         1,396 ms |
+
+#### With Related Entities (`IncludeGraph`)
+
+| Method        | 10 Entities | 1,000 Entities | 100,000 Entities |
+| ------------- | ----------: | -------------: | ---------------: |
+| `SaveChanges` |    12.02 ms |       531.2 ms |        54,118 ms |
+| `BulkMerge`   |    21.20 ms |       151.9 ms |        14,916 ms |
 
 ## Considerations
 
