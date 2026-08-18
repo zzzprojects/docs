@@ -210,7 +210,7 @@ In short:
 
 ## External Resources - Join
 
-The following videos are useful if you want to see `LeftJoin`, `RightJoin`, and `GroupJoin` in practical examples. The first focuses on the new `LeftJoin` and `RightJoin` operators in .NET 10 with EF Core 10. The second adds a practical comparison with navigation-property queries, while the third helps illustrate the grouped result shape produced by LINQ `GroupJoin`.
+The following videos are useful if you want to see `LeftJoin`, `RightJoin`, and `GroupJoin` in practical examples. The first focuses on the new `LeftJoin` and `RightJoin` operators in .NET 10 with EF Core 10. The second adds a practical comparison with navigation-property queries, while the third helps illustrate the grouped result shape produced by LINQ `GroupJoin`. The fourth provides a concise walkthrough of `LeftJoin` and `RightJoin` with visual explanations, code, and executed results.
 
 ### Video 1 - EF Core 10 Finally Adds LeftJoin + RightJoin (Too Little, Too Late?)
 
@@ -250,6 +250,21 @@ Harshit Agarwal provides a focused introduction to LINQ `GroupJoin` and its hier
 * [2:20](https://www.youtube.com/watch?v=kw-YRVRt8cE&t=140s) — Using `join ... into` to create and project a grouped result
 * [4:25](https://www.youtube.com/watch?v=kw-YRVRt8cE&t=265s) — Showing an outer element with an empty group when no matches exist
 * [5:30](https://www.youtube.com/watch?v=kw-YRVRt8cE&t=330s) — Implementing the same grouped result with method-syntax `GroupJoin`
+
+### Video 4 - The 2 NEW LINQ Methods in EF CORE 10 that make Joins EASY!
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/0kvFnB3_a24" title="The 2 NEW LINQ Methods in EF CORE 10 that make Joins EASY!" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+Israel Quiroz provides a concise introduction to the `LeftJoin` and `RightJoin` operators available in .NET 10 and supported by EF Core 10. He visually explains which side of each join is preserved, demonstrates both operators in code, and executes the query to inspect the resulting data.
+
+The video is especially useful as a clear, practical walkthrough of the `LeftJoin` and `RightJoin` syntax and behavior, complementing the broader examples and explanations covered in the other resources in this section.
+
+**Key timestamps:**
+
+* [1:20](https://www.youtube.com/watch?v=0kvFnB3_a24&t=80s) — Visual explanation of `LeftJoin` and how it preserves the left side of the join
+* [2:59](https://www.youtube.com/watch?v=0kvFnB3_a24&t=179s) — Showing the `RightJoin` query in code
+* [3:27](https://www.youtube.com/watch?v=0kvFnB3_a24&t=207s) — Showing the corresponding `LeftJoin` query in code
+* [5:43](https://www.youtube.com/watch?v=0kvFnB3_a24&t=343s) — Inspecting the executed `RightJoin` result and the rows preserved from the right side
 
 ## Summary
 

@@ -11,5 +11,5 @@ lastmod: 2026-07-26
 - [LINQ Queries](/querying/linq-queries)
 - [LINQ Methods](/querying/linq-methods)
 - [Include](/querying/include)
-- [Projection](/querying/join)
+- [Join](/querying/join)
 - [Projection](/querying/projection)
