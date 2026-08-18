@@ -1,11 +1,4 @@
-- Batch Operations
-   - [Batch Delete](documentations/batch-delete/ef-core-batch-delete.md)
-   - [Batch Update](documentations/batch-update/ef-core-batch-update.md)
-- Misc
-   - [LINQ Dynamic](documentations/linq-dynamic/ef-core-linq-dynamic.md)
-   - [Audit](documentations/audit/ef-core-audit.md)
-   - [Sync Properties](documentations/sync-properties-from-database-values/ef-core-sync-properties-from-database-values.md)
-- Query
+- Querying
    - [Query Cache](documentations/query-cache/ef-core-query-cache.md)
    - [Query Deferred](documentations/query-deferred/ef-core-query-deferred.md)
    - [Query Filter](documentations/query-filter/ef-core-query-filter.md)
@@ -13,12 +6,19 @@
    - [Query Hint](documentations/query-hint/ef-core-query-hint.md)
    - [Query IncludeFilter](documentations/query-include-filter/ef-core-query-include-filter.md)
    - [Query IncludeOptimized](documentations/query-include-optimized/ef-core-query-include-optimized.md)
-- Utilities
+   - [Where Contains](documentations/where-contains.md)
+- Saving
    - [Execute Delete](documentations/execute-delete.md)
    - [Execute Update](documentations/execute-update.md)
+   - [Update Partial](documentations/update-partial.md)
+   - [Batch Delete](documentations/batch-delete/ef-core-batch-delete.md)
+   - [Batch Update](documentations/batch-update/ef-core-batch-update.md)
+- Utilities
    - [Future Action](documentations/future-action.md)
    - [Interceptors](documentations/interceptors.md)
-   - [Update Partial](documentations/update-partial.md)
    - [GetTagsWithValues](documentations/get-tag-with-values.md)
+   - [Audit](documentations/audit/ef-core-audit.md)
+   - [LINQ Dynamic](documentations/linq-dynamic/ef-core-linq-dynamic.md)
+   - [Sync Properties](documentations/sync-properties-from-database-values/ef-core-sync-properties-from-database-values.md)
 - Enterprise Features
    - [Bulk Methods](documentations/ef-core-bulk-methods.md)
