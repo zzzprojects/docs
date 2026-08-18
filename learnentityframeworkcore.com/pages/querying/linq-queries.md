@@ -294,7 +294,7 @@ Choose the terminal method that matches the required result, and remember that s
 ## Related Articles
 
 - [LINQ Methods](/querying/linq-methods) — Learn how to use individual LINQ operators with EF Core.
-- Projection _(Coming soon)_ — Learn how to return only the data a query needs.
+- [Projection](/querying/projection) — Learn how to return only the data a query needs.
 - [Include](/querying/include) — Learn how to load related entities in an EF Core query.
 - Query Tracking _(Coming soon)_ — Learn how tracking behavior affects queried entities.
 
