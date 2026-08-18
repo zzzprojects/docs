@@ -53,7 +53,13 @@
 						<li><a href="/querying/join">Join</a></li>
 						<li><a href="/querying/projection">Projection</a></li>
 					</ul>
-				</li>				
+				</li>	
+				<li>
+					<div class="header">Query Behavior</div>
+					<ul class="nav-level-three" style="display: block;">
+						<li><a href="/querying/query-tracking">Query Tracking</a></li>
+					</ul>
+				</li>	
             </ul>
         </li>
         <li>

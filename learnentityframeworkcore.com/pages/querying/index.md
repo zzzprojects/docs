@@ -13,3 +13,4 @@ lastmod: 2026-07-26
 - [Include](/querying/include)
 - [Join](/querying/join)
 - [Projection](/querying/projection)
+- [Query Tracking](/querying/query-tracking)
