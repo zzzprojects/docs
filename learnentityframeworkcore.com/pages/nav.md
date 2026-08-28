@@ -59,8 +59,16 @@
 					<ul class="nav-level-three" style="display: block;">
 						<li><a href="/querying/query-tracking">Query Tracking</a></li>
 						<li><a href="/querying/split-queries">Split Queries</a></li>
+						<li><a href="/querying/tagwith">TagWith</a></li>
 					</ul>
-				</li>	
+				</li>
+				<li>
+					<div class="header">Loading</div>
+					<ul class="nav-level-three" style="display: block;">
+						<li><a href="/querying/eager-loading">Eager Loading</a></li>
+						<li><a href="/querying/explicit-loading">Explicit Loading</a></li>
+					</ul>
+				</li>
             </ul>
         </li>
         <li>
