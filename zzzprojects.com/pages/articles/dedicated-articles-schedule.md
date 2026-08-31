@@ -24,9 +24,7 @@ When you choose a date for your dedicated articles or videos, follow these simpl
 
 ## 🎯 Schedule
 
-* **2026-07-01** - Woodruff: *5 EF Core Performance Anti-Patterns That Entity Framework Extensions Eliminates*
-* **2026-07-05** - (Video) Code Unparalleled: *.NET 10 MVC From Scratch — EF Core vs EF Extensions Benchmark (6× Faster)*
-* **2026-08-01** - (Video) Woodruff *Product review*
-* **2026-08-24** - (Video) Remigiusz *EF Core Bulk Operations - Two Real-Life scenarios you should know* 
-* **2026-09-15** - Codewithmukesh: *EF Extensions TBD*
-* **2026-10-13** - (Video) Codewithmukesh: *EF Extensions TBD*
+* **2026-08-24** - (Video) Remigiusz *EF Core Bulk Operations - Two Real-Life scenarios you should know*
+* **2026-09-09** - (Video) Woodruff *Product review*
+* **2026-09-15** - Codewithmukesh: *Filtering EF Core Queries by a Large List: Contains, the 2100-Parameter Wall, and What Actually Works*
+* **2026-10-13** - (Video) Codewithmukesh: *I Broke EF Core With 5,000 IDs (And Four Ways to Fix It)*
