@@ -240,7 +240,7 @@ Key timestamps:
 * [9:03](https://www.youtube.com/watch?v=hXfHWvezBoA&t=543) — Interpolated values are converted into SQL parameters
 * [9:11](https://www.youtube.com/watch?v=hXfHWvezBoA&t=551) — The command returns `-1` while the stored procedure still updates the data
 
-### FromSqlRaw vs. ExecuteSqlRaw en ASP.NET Core
+### FromSqlRaw vs ExecuteSqlRaw in ASP NET Core
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/HHaCTg0kTbA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
@@ -257,7 +257,7 @@ Key timestamps:
 * [3:14](https://www.youtube.com/watch?v=HHaCTg0kTbA&t=194) — `ExecuteSqlRaw` for database operations that do not return entities
 * [4:43](https://www.youtube.com/watch?v=HHaCTg0kTbA&t=283) — Executing an insert stored procedure with `ExecuteSqlRaw` and returning an integer result
 
-### Ejecutar procedimientos almacenados en EF Core | Tutorial completo
+### Execute Stored Procedures in EF Core | Complete Tutorial
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/UiCDtrhOnGg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
