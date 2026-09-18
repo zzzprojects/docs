@@ -3,7 +3,7 @@ title: MicroOrm.Dapper.Repositories
 description: An introduction to MicroOrm.Dapper.Repositories
 canonical: /extensions/microorm-dapper-repositories
 status: Published
-lastmod: 2026-08-04
+lastmod: 2026-09-18
 ---
 
 # MicroOrm.Dapper.Repositories
@@ -269,9 +269,18 @@ var users = await repo.FindAllAsync(x => x.AddressId == 1 && !x.Deleted);
 - Comparison: `x => x.Id > 5`
 - Contains (IN clause): `x => idList.Contains(x.Id)`
 - String methods: `x => x.Name.StartsWith("J")`, `EndsWith()`, `Contains()`
+- Case-insensitive string methods: `x => x.Name.Contains("john", StringComparison.OrdinalIgnoreCase)`, also `StartsWith()`, `EndsWith()`, `Equals()`
 - Boolean: `x => x.IsActive`, `x => !x.Deleted`
 - Null checks: `x => x.Name != null`
 - Logical operators: `&&`, `||`
+
+Passing a `StringComparison` that ignores case (`OrdinalIgnoreCase`, `InvariantCultureIgnoreCase`, `CurrentCultureIgnoreCase`) makes the comparison case-insensitive. PostgreSQL uses `ILIKE`; other providers wrap both sides in `LOWER()`. Other `StringComparison` values keep the default behavior, so the database collation decides.
+
+```c#
+// PostgreSQL: "Users"."Name" ILIKE @Name_p0
+// Others:     LOWER(Users.Name) LIKE LOWER(@Name_p0)
+var users = await repo.FindAllAsync(x => x.Name.Contains("john", StringComparison.OrdinalIgnoreCase));
+```
 
 ### FindAllBetween
 
