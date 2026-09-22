@@ -76,6 +76,7 @@
 						<li><a href="/querying/from-sql">FromSQL</a></li>
 						<li><a href="/querying/sql-query">SqlQuery</a></li>
 						<li><a href="/querying/execute-sql">ExecuteSql</a></li>
+						<li><a href="/querying/query-parameters">Query Parameters</a></li>
 					</ul>
 				</li>
             </ul>

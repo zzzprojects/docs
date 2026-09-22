@@ -27,4 +27,4 @@ lastmod: 2026-07-26
 	- [FromSql](/querying/from-sql)
 	- [SqlQuery](/querying/sql-query)
 	- [ExuecuteSql](/querying/execute-sql)
-	- Query Parameters
+	- [Query Parameters](/querying/query-parameters)
