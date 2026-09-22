@@ -15,7 +15,7 @@ lastmod: 2026-07-26
    - [Join](/querying/join)
    - [Projection](/querying/projection)
 - Query Behavior
-   - Global Query Filters
+   - [Global Query Filters](/querying/global-query-filters)
    - [Query Tracking](/querying/query-tracking)
    - [Split Queries](/querying/split-queries)
    - [TagWith](/querying/tagwith)

@@ -57,6 +57,7 @@
 				<li>
 					<div class="header">Query Behavior</div>
 					<ul class="nav-level-three" style="display: block;">
+						<li><a href="/querying/global-query-filters">Global Query Filters</a></li>
 						<li><a href="/querying/query-tracking">Query Tracking</a></li>
 						<li><a href="/querying/split-queries">Split Queries</a></li>
 						<li><a href="/querying/tagwith">TagWith</a></li>
