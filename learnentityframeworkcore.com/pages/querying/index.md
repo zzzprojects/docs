@@ -22,9 +22,9 @@ lastmod: 2026-07-26
 - Loading
    - [Eager Loading](/querying/eager-loading)
    - [Explicit Loading](/querying/explicit-loading)
-   - Lazy Loading
+   - [Lazy Loading](/querying/lazy-loading)
 - Raw SQL
-	- FromSql
-	- SqlQuery
-	- ExuecuteSql
+	- [FromSql](/querying/from-sql)
+	- [SqlQuery](/querying/sql-query)
+	- [ExuecuteSql](/querying/execute-sql)
 	- Query Parameters

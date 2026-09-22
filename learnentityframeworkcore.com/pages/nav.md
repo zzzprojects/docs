@@ -67,6 +67,15 @@
 					<ul class="nav-level-three" style="display: block;">
 						<li><a href="/querying/eager-loading">Eager Loading</a></li>
 						<li><a href="/querying/explicit-loading">Explicit Loading</a></li>
+						<li><a href="/querying/lazy-loading">Lazy Loading</a></li>
+					</ul>
+				</li>
+				<li>
+					<div class="header">Raw SQL</div>
+					<ul class="nav-level-three" style="display: block;">
+						<li><a href="/querying/from-sql">FromSQL</a></li>
+						<li><a href="/querying/sql-query">SqlQuery</a></li>
+						<li><a href="/querying/execute-sql">ExecuteSql</a></li>
 					</ul>
 				</li>
             </ul>
