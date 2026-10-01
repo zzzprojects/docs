@@ -15,16 +15,16 @@ lastmod: 2026-07-26
    - [Join](/querying/join)
    - [Projection](/querying/projection)
 - Query Behavior
-   - Global Query Filters
+   - [Global Query Filters](/querying/global-query-filters)
    - [Query Tracking](/querying/query-tracking)
    - [Split Queries](/querying/split-queries)
    - [TagWith](/querying/tagwith)
 - Loading
    - [Eager Loading](/querying/eager-loading)
    - [Explicit Loading](/querying/explicit-loading)
-   - Lazy Loading
+   - [Lazy Loading](/querying/lazy-loading)
 - Raw SQL
-	- FromSql
-	- SqlQuery
-	- ExuecuteSql
-	- Query Parameters
+	- [FromSql](/querying/from-sql)
+	- [SqlQuery](/querying/sql-query)
+	- [ExuecuteSql](/querying/execute-sql)
+	- [Query Parameters](/querying/query-parameters)
