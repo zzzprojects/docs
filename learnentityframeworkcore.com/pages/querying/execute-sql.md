@@ -3,7 +3,7 @@ title: ExecuteSql in EF Core
 description: Learn how to use ExecuteSql and ExecuteSqlRaw in EF Core to execute SQL commands that do not return result rows, including stored procedures.
 canonical: /querying/execute-sql
 status: Published
-lastmod: 2026-09-11
+lastmod: 2026-10-01
 ---
 
 # ExecuteSql in EF Core

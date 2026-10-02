@@ -3,7 +3,7 @@ title: FromSql in EF Core
 description: Learn how to use FromSql and FromSqlRaw in EF Core to query entities with raw SQL, pass parameters safely, compose LINQ, include related data, and call stored procedures.
 canonical: /querying/from-sql
 status: Published
-lastmod: 2026-09-04
+lastmod: 2026-10-01
 ---
 
 # FromSql in EF Core
@@ -181,7 +181,52 @@ When `FromSql` returns an entity type, the SQL result must provide the data EF C
 
 The query must return values for all mapped properties of the entity type, and the column names in the result must match the column names configured in the EF Core model.
 
-For example, if `Product` maps `ProductId`, `Name`, `Price`, `IsActive`, and `CategoryId`, the SQL query must return the columns required for those mapped properties.
+Those column names do not necessarily have to match the C# property names. If a property is mapped to a different database column name, `FromSql` expects the column name defined by that mapping.
+
+For example, suppose `Product.ProductId` is mapped to a database column named `ID`:
+
+```csharp
+modelBuilder.Entity<Product>()
+    .Property(product => product.ProductId)
+    .HasColumnName("ID");
+```
+
+The raw SQL can return `ID` directly:
+
+```csharp
+var products = await context.Products
+    .FromSql(
+        $"""
+        SELECT ID, Name, Price, IsActive, CategoryId
+        FROM Products
+        """)
+    .ToListAsync();
+```
+
+In this case, `ID AS ProductId` is not required because EF Core already knows that the `ProductId` property is mapped to the `ID` column.
+
+If the SQL returns a different column name from the one configured in the EF Core mapping, use a SQL alias so that the result matches the expected mapped column name.
+
+For example, suppose `ProductId` is mapped directly to a column named `ProductId`, but a query returns that value from a column named `LegacyProductId`. Alias the returned column to the name EF Core expects:
+
+```csharp
+var products = await context.Products
+    .FromSql(
+        $"""
+        SELECT LegacyProductId AS ProductId,
+               Name,
+               Price,
+               IsActive,
+               CategoryId
+        FROM LegacyProducts
+        """)
+    .ToListAsync();
+```
+
+Here, `AS ProductId` is necessary because the SQL result would otherwise expose `LegacyProductId`, while the EF Core mapping expects a column named `ProductId`.
+
+If `Product` maps `ProductId`, `Name`, `Price`, `IsActive`, and `CategoryId` directly to columns with those same names, a normal query can return those columns without aliases:
+
 
 ```csharp
 var products = await context.Products
@@ -323,6 +368,14 @@ On SQL Server, do not compose additional LINQ operators directly over the stored
 ### Are entities returned by `FromSql` tracked?
 
 By default, yes. Use `AsNoTracking()` when the returned entities do not need to be tracked by the current `DbContext`.
+
+### Do column names returned by `FromSql` need to match property names?
+
+Not necessarily. The column names returned by the SQL must match the column names configured in the EF Core model, which can be different from the C# property names.
+
+For example, if `ProductId` is mapped to a database column named `ID`, the SQL can return `ID` directly. You do not need to write `ID AS ProductId`.
+
+Use a SQL alias when the column name returned by the query does not match the column name expected by the EF Core mapping.
 
 ### Can `FromSql` return only some columns from an entity?
 

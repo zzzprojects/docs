@@ -3,7 +3,7 @@ title: TagWith in EF Core
 description: Learn how to use TagWith and TagWithCallSite in EF Core to add identifying comments to generated SQL queries.
 canonical: /querying/tagwith
 status: Published
-lastmod: 2026-09-08
+lastmod: 2026-10-01
 ---
 
 # TagWith in EF Core

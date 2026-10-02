@@ -3,7 +3,7 @@ title: EF Core Querying Data
 description: Learn how to query data in Entity Framework Core using LINQ, projection, joins, related-data loading, query behaviors, tracking, split queries, and raw SQL.
 canonical: /querying
 status: Published
-lastmod: 2026-09-24
+lastmod: 2026-10-01
 ---
 
 # Querying Data in EF Core

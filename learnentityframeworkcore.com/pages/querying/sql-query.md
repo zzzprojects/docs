@@ -3,7 +3,7 @@ title: SqlQuery in EF Core
 description: Learn how to use SqlQuery and SqlQueryRaw in EF Core to query scalar values and non-entity types with raw SQL, return DTOs, and compose LINQ over SQL queries.
 canonical: /querying/sql-query
 status: Published
-lastmod: 2026-09-07
+lastmod: 2026-10-01
 ---
 
 # SqlQuery in EF Core

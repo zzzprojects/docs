@@ -3,7 +3,7 @@ title: Eager Loading in EF Core
 description: Learn how eager loading works in EF Core, when to use Include, how it differs from explicit and lazy loading, and how tracking and split queries affect related data.
 canonical: /querying/eager-loading
 status: Published
-lastmod: 2026-08-28
+lastmod: 2026-10-01
 ---
 
 # Eager Loading in EF Core

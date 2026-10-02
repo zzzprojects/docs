@@ -3,7 +3,7 @@ title: Global Query Filters in EF Core
 description: Learn how to automatically filter EF Core queries with global query filters, including soft delete, multi-tenancy, multiple and named filters, and IgnoreQueryFilters.
 canonical: /querying/global-query-filters
 status: Published
-lastmod: 2026-09-22
+lastmod: 2026-10-01
 ---
 
 # Global Query Filters in EF Core

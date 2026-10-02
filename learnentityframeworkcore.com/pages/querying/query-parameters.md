@@ -3,7 +3,7 @@ title: Query Parameters in EF Core
 description: Learn how to safely pass parameters to raw SQL queries in EF Core using FromSql, DbParameter, and FromSqlRaw without inserting data values directly into SQL.
 canonical: /querying/query-parameters
 status: Published
-lastmod: 2026-09-17
+lastmod: 2026-10-01
 ---
 
 # Query Parameters in EF Core

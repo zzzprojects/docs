@@ -3,7 +3,7 @@ title: Lazy Loading in EF Core
 description: Learn how to lazy-load related data in EF Core with proxies, ILazyLoader, and delegates, and understand the N+1 query risk.
 canonical: /querying/lazy-loading
 status: Published
-lastmod: 2026-09-03
+lastmod: 2026-10-01
 ---
 
 # Lazy Loading Related Data in Entity Framework Core

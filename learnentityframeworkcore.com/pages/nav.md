@@ -280,21 +280,10 @@
             </ul>
         </li>
         <li>
-            <a href="/raw-sql">Raw SQL</a>
-            <ul class="nav-level-two" data-display="raw-sql">
-                <li><a href="/raw-sql/from-sql">FromSql</a></li>
-                <li><a href="/raw-sql/sql-query">SqlQuery</a></li>
-                <li><a href="/raw-sql/execute-sql">ExecuteSql</a></li>
-            </ul>
-        </li>
-        <li>
             <a href="/query-types">Query Types</a>
         </li>
       <li>
             <a href="/database-providers">Database Providers</a>
-        </li>
-         <li>
-            <a href="/lazy-loading">Lazy Loading</a>
         </li>
         <li>
             <a href="/misc">Misc</a>
