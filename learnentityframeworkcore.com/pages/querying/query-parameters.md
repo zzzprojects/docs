@@ -216,7 +216,7 @@ The same distinction between parameterized values and dynamic SQL structure appl
 | --- | --- | --- |
 | Query mapped entities | `FromSql`, `FromSqlInterpolated` | `FromSqlRaw` |
 | Query scalar or non-entity results | `SqlQuery` | `SqlQueryRaw` |
-| Execute SQL commands that do not return rows | `ExecuteSql`, `ExecuteSqlAsync`, `ExecuteSqlInterpolated`, `ExecuteSqlInterpolatedAsync` | `ExecuteSqlRaw`, `ExecuteSqlRawAsync` |
+| Execute SQL commands that do not return rows | `ExecuteSql`, `ExecuteSqlInterpolated` | `ExecuteSqlRaw` |
 
 For each family, use the parameterized API when the parts that vary are data values.
 
