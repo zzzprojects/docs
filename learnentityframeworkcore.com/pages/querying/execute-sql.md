@@ -3,7 +3,7 @@ title: ExecuteSql in EF Core
 description: Learn how to use ExecuteSql and ExecuteSqlRaw in EF Core to execute SQL commands that do not return result rows, including stored procedures.
 canonical: /querying/execute-sql
 status: Published
-lastmod: 2026-10-01
+lastmod: 2026-10-06
 ---
 
 # ExecuteSql in EF Core
@@ -45,7 +45,7 @@ This makes `ExecuteSql` the preferred option when the variable parts of the comm
 
 When part of the SQL syntax itself must be constructed dynamically, use `ExecuteSqlRaw` instead.
 
-For a broader explanation of parameterization across EF Core raw SQL APIs, see **Query Parameters in EF Core** *(Coming soon)*.
+For a broader explanation of parameterization across EF Core raw SQL APIs, see [Query Parameters in EF Core](/querying/query-parameters).
 
 ## Use `ExecuteSqlRaw`
 
@@ -77,7 +77,7 @@ Use `ExecuteSqlRawAsync()` when the SQL structure itself must vary. Content inse
 
 When only data values need to vary, prefer `ExecuteSql`.
 
-`ExecuteSqlRawAsync()` can also receive explicit `DbParameter` instances when you need more control over parameter configuration. For a broader explanation of parameterization and `DbParameter`, see **Query Parameters in EF Core** *(Coming soon)*.
+`ExecuteSqlRawAsync()` can also receive explicit `DbParameter` instances when you need more control over parameter configuration. For a broader explanation of parameterization and `DbParameter`, see [Query Parameters in EF Core](/querying/query-parameters).
 
 ## Execute a Stored Procedure
 
@@ -298,7 +298,7 @@ The following articles cover the closest raw SQL and saving scenarios:
 
 * [FromSql in EF Core](/querying/from-sql) — Query mapped entity types using raw SQL.
 * [SqlQuery in EF Core](/querying/sql-query) — Query scalar values and non-entity CLR types using raw SQL.
-* **Query Parameters in EF Core** *(Coming soon)* — Learn how parameters are handled across EF Core raw SQL APIs.
+* [Query Parameters in EF Core](/querying/query-parameters) — Learn how parameters are handled across EF Core raw SQL APIs.
 * [ExecuteSql in the Saving section](/saving/execute-sql) — Compare raw SQL commands with `SaveChanges`, `ExecuteUpdate`, `ExecuteDelete`, and tracked saving workflows.
 * [Transactions in EF Core](/saving/transactions) — Group multiple database operations into a transaction when they must succeed or fail together.
 

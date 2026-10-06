@@ -3,7 +3,7 @@ title: EF Core Querying Data
 description: Learn how to query data in Entity Framework Core using LINQ, projection, joins, related-data loading, query behaviors, tracking, split queries, and raw SQL.
 canonical: /querying
 status: Published
-lastmod: 2026-10-01
+lastmod: 2026-10-06
 ---
 
 # Querying Data in EF Core
@@ -57,13 +57,13 @@ Use these articles when your application needs related entities loaded through n
 * [Include](/querying/include) — specify related navigations to load with `Include`, `ThenInclude`, filtered Include, and `AutoInclude`
 * [Eager Loading](/querying/eager-loading) — load related data as part of the initial query operation
 * [Explicit Loading](/querying/explicit-loading) — load a related navigation deliberately after the main entity has already been retrieved
-* **Lazy Loading** *(Coming soon)* — load related data automatically when a navigation property is accessed
+* [Lazy Loading](/querying/lazy-loading) — load related data automatically when a navigation property is accessed
 
 ### Control Query Behavior
 
 Use these articles when you need to control automatic filtering, tracking, query splitting, or how generated SQL is annotated.
 
-* **Global Query Filters** *(Coming soon)* — configure filtering rules that EF Core applies by default to queries for an entity type
+* [Global Query Filters](/querying/global-query-filters) — configure filtering rules that EF Core applies by default to queries for an entity type
 * [Query Tracking](/querying/query-tracking) — choose between tracking and no-tracking queries and control the default tracking behavior
 * [Split Queries](/querying/split-queries) — choose whether certain related-data queries are executed as a single query or split into multiple database queries
 * [TagWith](/querying/tagwith) — add identifying comments to generated SQL to make queries easier to trace in logs or database tools
@@ -72,10 +72,10 @@ Use these articles when you need to control automatic filtering, tracking, query
 
 Use these articles when you need to write SQL directly instead of building the operation entirely with LINQ.
 
-* **FromSql** *(Coming soon)* — query entity types from SQL that you provide
-* **SqlQuery** *(Coming soon)* — query scalar values or non-entity result types from raw SQL
-* **Query Parameters** *(Coming soon)* — pass values safely to raw SQL queries and commands
-* **ExecuteSql** *(Coming soon)* — execute SQL commands that do not return query rows
+* [FromSql](/querying/from-sql) — query entity types from SQL that you provide
+* [SqlQuery](/querying/sql-query) — query scalar values or non-entity result types from raw SQL
+* [Query Parameters](/querying/query-parameters) — pass values safely to raw SQL queries and commands
+* [ExecuteSql](/querying/execute-sql) — execute SQL commands that do not return query rows
 
 ## The Main Querying Decision: What Should the Query Return?
 
@@ -117,7 +117,7 @@ For eager loading, [Include](/querying/include) explains how to specify navigati
 
 Use [Explicit Loading](/querying/explicit-loading) when the application should decide after loading the main entity whether a particular reference or collection also needs to be retrieved.
 
-Use **Lazy Loading** *(Coming soon)* when navigation access itself should trigger the loading of related data.
+Use [Lazy Loading](/querying/lazy-loading) when navigation access itself should trigger the loading of related data.
 
 The loading strategy affects when related data is retrieved and can affect the number of database queries executed.
 
@@ -127,7 +127,7 @@ Result shape and loading strategy are only part of query design. You may also ne
 
 These behaviors solve different problems and are not mutually exclusive. A query can, for example, have a global filter applied, run without tracking, use split-query behavior, and include a SQL tag at the same time.
 
-Use **Global Query Filters** *(Coming soon)* when the same filtering rule should apply automatically to queries for an entity type, such as excluding soft-deleted rows or restricting data to the current tenant.
+Use [Global Query Filters](/querying/global-query-filters) when the same filtering rule should apply automatically to queries for an entity type, such as excluding soft-deleted rows or restricting data to the current tenant.
 
 Use [Query Tracking](/querying/query-tracking) to control whether returned entity instances are tracked by the current `DbContext`. Tracking keeps entity instances associated with the context, while no-tracking queries avoid that tracking when it is not needed.
 
@@ -147,11 +147,11 @@ Using raw SQL does not always mean giving up LINQ composition. `FromSql` and `Sq
 
 Choose the Raw SQL API based on the kind of result the operation needs:
 
-* **FromSql** *(Coming soon)* — start an entity query from SQL you provide
-* **SqlQuery** *(Coming soon)* — return scalar values or non-entity result types from SQL
-* **ExecuteSql** *(Coming soon)* — execute SQL commands when no query rows need to be returned
+* [FromSql](/querying/from-sql) — start an entity query from SQL you provide
+* [SqlQuery](/querying/sql-query) — return scalar values or non-entity result types from SQL
+* [ExecuteSql](/querying/execute-sql) — execute SQL commands when no query rows need to be returned
 
-When values need to be supplied to SQL, **Query Parameters** *(Coming soon)* explains how to pass them safely with the different raw SQL APIs.
+When values need to be supplied to SQL, [Query Parameters](/querying/query-parameters) explains how to pass them safely with the different raw SQL APIs.
 
 Start with LINQ when the operation can be expressed clearly through the EF Core model. Use raw SQL when writing the SQL directly is the better fit for the operation.
 

@@ -3,7 +3,7 @@ title: Query Parameters in EF Core
 description: Learn how to safely pass parameters to raw SQL queries in EF Core using FromSql, DbParameter, and FromSqlRaw without inserting data values directly into SQL.
 canonical: /querying/query-parameters
 status: Published
-lastmod: 2026-10-01
+lastmod: 2026-10-06
 ---
 
 # Query Parameters in EF Core
@@ -70,7 +70,7 @@ The database provider can then handle each parameter using the appropriate datab
 
 When automatic parameter creation is not enough, you can also supply an explicit `DbParameter` to control how a value is sent to the database.
 
-For more about querying mapped entities, calling stored procedures, including related data, and composing LINQ over raw SQL, see **FromSql in EF Core** *(Coming soon)*.
+For more about querying mapped entities, calling stored procedures, including related data, and composing LINQ over raw SQL, see [FromSql in EF Core](/querying/from-sql).
 
 ## Pass a `DbParameter`
 
@@ -222,11 +222,11 @@ For each family, use the parameterized API when the parts that vary are data val
 
 For example, interpolated values passed to `SqlQuery` are parameterized just as they are with `FromSql`. Use `SqlQueryRaw` when part of the SQL text itself must be constructed dynamically.
 
-For scalar values, DTOs, and other non-entity raw SQL results, see **SqlQuery in EF Core** *(Coming soon)*.
+For scalar values, DTOs, and other non-entity raw SQL results, see [SqlQuery in EF Core](/querying/sql-query).
 
 The same principle applies to `ExecuteSql`, `ExecuteSqlAsync`, `ExecuteSqlInterpolated`, and `ExecuteSqlInterpolatedAsync`: interpolated data values are parameterized. Use `ExecuteSqlRaw` or `ExecuteSqlRawAsync` when the command text itself must vary.
 
-For executing SQL commands that do not return rows, see **ExecuteSql in EF Core** *(Coming soon)*.
+For executing SQL commands that do not return rows, see [ExecuteSql in EF Core](/querying/execute-sql).
 
 Across these API families, the rule remains the same:
 
@@ -259,7 +259,7 @@ When parameters are passed to a stored procedure, their names, types, and other 
 
 Named parameter notation can make calls with multiple or optional parameters easier to understand and can reduce the risk of supplying values in the wrong position.
 
-For more about executing stored procedures that return mapped entities, see **FromSql in EF Core** *(Coming soon)*.
+For more about executing stored procedures that return mapped entities, see [FromSql in EF Core](/querying/from-sql).
 
 ### Interpolated API Variants
 
@@ -361,9 +361,9 @@ Key points:
 
 The following articles cover the raw SQL operations that use the parameterization patterns explained on this page:
 
-* **FromSql in EF Core** *(Coming soon)* — Query mapped entity types using raw SQL, including stored procedures and LINQ composition.
-* **SqlQuery in EF Core** *(Coming soon)* — Query scalar values and non-entity CLR types using raw SQL.
-* **ExecuteSql in EF Core** *(Coming soon)* — Execute SQL commands that do not return rows.
+* [FromSql in EF Core](/querying/from-sql) — Query mapped entity types using raw SQL, including stored procedures and LINQ composition.
+* [SqlQuery in EF Core](/querying/sql-query) — Query scalar values and non-entity CLR types using raw SQL.
+* [ExecuteSql in EF Core](/querying/execute-sql) — Execute SQL commands that do not return rows.
 * [LINQ Queries in EF Core](/querying/linq-queries) — Build and execute EF Core queries without writing raw SQL when the operation can be expressed with LINQ.
 
 ## FAQ

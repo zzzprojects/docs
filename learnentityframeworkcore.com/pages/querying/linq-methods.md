@@ -3,12 +3,14 @@ title: LINQ Methods in EF Core
 description: Learn how to use LINQ methods with EF Core to filter, sort, project, group, combine, and execute database queries.
 canonical: /querying/linq-methods
 status: Published
-lastmod: 2026-08-10
+lastmod: 2026-10-06
 ---
 
 # LINQ Methods in EF Core
 
 This article covers the LINQ methods presented in the accompanying video and shows how to use them with EF Core to filter, sort, project, group, combine, and execute queries.
+
+For the broader EF Core query workflow, including `DbSet`, query composition, deferred execution, and materialization, see [LINQ Queries in EF Core](/querying/linq-queries).
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/tXOWx9OdMXE" title="¡Explicación de todos los métodos LINQ en .NET 10! (La guía completa)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
@@ -484,6 +486,8 @@ EF Core requests only the projected columns. Because the result contains scalar 
 
 `Select` can project a single property, an anonymous type, or a custom result type.
 
+For more complete projection patterns, including single properties, DTOs, counts, and nested results, see [Projection in EF Core](/querying/projection).
+
 ### `SelectMany`
 
 [`SelectMany` in the video (59:55)](https://www.youtube.com/watch?v=tXOWx9OdMXE&t=3595s)
@@ -669,6 +673,8 @@ The lookup contains a group of product names for each `CategoryId`.
 Unlike a dictionary, a lookup can associate multiple elements with the same key. When a key does not exist, it returns an empty sequence rather than throwing a key-not-found exception.
 
 ## Join Data
+
+For complete join patterns, including composite keys, see [Join in EF Core](/querying/join).
 
 Use these methods to combine two sequences by matching their key values.
 

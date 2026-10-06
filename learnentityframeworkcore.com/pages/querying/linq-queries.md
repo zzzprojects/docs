@@ -3,7 +3,7 @@ title: LINQ Queries in EF Core
 description: Learn how to query a database with EF Core by building, filtering, ordering, composing, and executing LINQ queries.
 canonical: /querying/linq-queries
 status: Published
-lastmod: 2026-08-10
+lastmod: 2026-10-06
 ---
 
 # LINQ Queries in EF Core
@@ -296,7 +296,7 @@ Choose the terminal method that matches the required result, and remember that s
 - [LINQ Methods](/querying/linq-methods) — Learn how to use individual LINQ operators with EF Core.
 - [Projection](/querying/projection) — Learn how to return only the data a query needs.
 - [Include](/querying/include) — Learn how to load related entities in an EF Core query.
-- Query Tracking _(Coming soon)_ — Learn how tracking behavior affects queried entities.
+- [Query Tracking](/querying/query-tracking) — Learn how tracking behavior affects queried entities.
 
 ## FAQ
 

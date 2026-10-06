@@ -3,7 +3,7 @@ title: FromSql in EF Core
 description: Learn how to use FromSql and FromSqlRaw in EF Core to query entities with raw SQL, pass parameters safely, compose LINQ, include related data, and call stored procedures.
 canonical: /querying/from-sql
 status: Published
-lastmod: 2026-10-01
+lastmod: 2026-10-06
 ---
 
 # FromSql in EF Core
@@ -345,9 +345,9 @@ The video uses an earlier generation of EF Core raw SQL APIs. Although the API n
 
 * [Include in EF Core](/querying/include) — Load related entities through navigation properties.
 * [Query Tracking in EF Core](/querying/query-tracking) — Understand tracking and no-tracking behavior for queried entities.
-* **SqlQuery in EF Core** *(Coming soon)* — Query scalar values and non-entity result types using raw SQL.
-* **ExecuteSql in EF Core** *(Coming soon)* — Execute SQL commands that do not return rows.
-* **Query Parameters in EF Core** *(Coming soon)* — Learn how to pass parameters safely to raw SQL APIs.
+* [SqlQuery in EF Core](/querying/sql-query) — Query scalar values and non-entity result types using raw SQL.
+* [ExecuteSql in EF Core](/querying/execute-sql) — Execute SQL commands that do not return rows.
+* [Query Parameters in EF Core](/querying/query-parameters) — Learn how to pass parameters safely to raw SQL APIs.
 
 ## FAQ
 

@@ -3,7 +3,7 @@ title: SqlQuery in EF Core
 description: Learn how to use SqlQuery and SqlQueryRaw in EF Core to query scalar values and non-entity types with raw SQL, return DTOs, and compose LINQ over SQL queries.
 canonical: /querying/sql-query
 status: Published
-lastmod: 2026-10-01
+lastmod: 2026-10-06
 ---
 
 # SqlQuery in EF Core
@@ -12,7 +12,7 @@ lastmod: 2026-10-01
 
 Use `SqlQuery` when raw SQL should return scalar values or mappable CLR types that are not part of the EF Core model.
 
-For raw SQL queries that return mapped entities, use [`FromSql`](/querying/from-sql) instead. For SQL commands that do not return rows, use `ExecuteSql`.
+For raw SQL queries that return mapped entities, use [`FromSql`](/querying/from-sql) instead. For SQL commands that do not return rows, use [`ExecuteSql`](/querying/execute-sql).
 
 ## Use `SqlQuery`
 
@@ -57,7 +57,7 @@ Use this pattern when the parts that vary are data values, such as identifiers, 
 
 When part of the SQL text itself must be constructed dynamically, use `SqlQueryRaw` instead.
 
-For a broader explanation of parameterization across EF Core raw SQL APIs, see **Query Parameters in EF Core** *(Coming soon)*.
+For a broader explanation of parameterization across EF Core raw SQL APIs, see [Query Parameters in EF Core](/querying/query-parameters).
 
 ## Use `SqlQueryRaw`
 
@@ -301,8 +301,8 @@ These articles provide the most useful next steps for working with raw SQL, cust
 * [FromSql in EF Core](/querying/from-sql) — Query mapped entity types using raw SQL from a `DbSet`.
 * [Projection in EF Core](/querying/projection) — Return scalar values, DTOs, and custom result shapes using LINQ instead of writing raw SQL.
 * [LINQ Queries in EF Core](/querying/linq-queries) — Learn how EF Core queries are built, composed, and executed.
-* **ExecuteSql in EF Core** *(Coming soon)* — Execute SQL commands that do not return rows.
-* **Query Parameters in EF Core** *(Coming soon)* — Learn how to pass parameters safely to raw SQL APIs.
+* [ExecuteSql in EF Core](/querying/execute-sql) — Execute SQL commands that do not return rows.
+* [Query Parameters in EF Core](/querying/query-parameters) — Learn how to pass parameters safely to raw SQL APIs.
 
 ## FAQ
 
@@ -329,4 +329,3 @@ Yes, when the supplied SQL is composable. For scalar queries, alias the output c
 ### Does `SqlQuery` execute immediately?
 
 No. `SqlQuery` returns an `IQueryable<TResult>`. The database query executes when the results are requested through an operation such as `ToListAsync()` or `SingleAsync()`.
-

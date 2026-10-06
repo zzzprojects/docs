@@ -3,7 +3,7 @@ title: Projection in EF Core
 description: Learn how to use Select in EF Core to project only the data you need into properties, anonymous types, DTOs, counts, and nested results.
 canonical: /querying/projection
 status: Published
-lastmod: 2026-08-17
+lastmod: 2026-10-06
 ---
 
 # Projection in EF Core
@@ -259,6 +259,8 @@ Projection can reduce the data retrieved when complete entity instances are not 
 * [LINQ Queries](/querying/linq-queries) — Learn how to build, compose, and execute EF Core queries.
 * [LINQ Methods](/querying/linq-methods) — Learn how to use `Select` and other LINQ operators with EF Core.
 * [Include](/querying/include) — Learn how to load related entities into navigation properties.
+* [Query Tracking](/querying/query-tracking) — Understand how tracking behaves when projected results contain entity instances.
+* [Eager Loading](/querying/eager-loading) — Learn when to load complete related entities instead of projecting selected values.
 
 ## FAQ
 

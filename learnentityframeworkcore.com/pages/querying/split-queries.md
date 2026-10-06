@@ -3,12 +3,12 @@ title: Split Queries in EF Core
 description: Learn when to use split queries in EF Core, including AsSplitQuery, AsSingleQuery, global query splitting behavior, and single vs. split query trade-offs.
 canonical: /querying/split-queries
 status: Published
-lastmod: 2026-08-24
+lastmod: 2026-10-06
 ---
 
 # Split Queries in EF Core
 
-EF Core uses single-query behavior by default when loading related data. Use `AsSplitQuery()` when you want a query that loads related collections to execute as multiple database queries instead.
+EF Core uses single-query behavior by default when loading related data. Use `AsSplitQuery()` when you want a query that loads related collections to execute as multiple database queries instead. For the broader strategy of loading related data as part of the initial query operation, see [Eager Loading in EF Core](/querying/eager-loading).
 
 ## Using AsSplitQuery
 
@@ -222,9 +222,10 @@ Neither strategy is always better. Choose based on the query shape and workload.
 
 ## Related Articles
 
+* [Eager Loading](/querying/eager-loading) — Learn how related data is requested as part of the initial query operation.
 * [Include](/querying/include) — Learn how to load related entities through navigation properties.
-* [LINQ Queries](/querying/linq-queries) — Learn how to build, compose, and execute EF Core queries.
 * [Projection](/querying/projection) — Learn how to select only the data a query needs.
+* [LINQ Queries](/querying/linq-queries) — Learn how to build, compose, and execute EF Core queries.
 
 ## FAQ
 

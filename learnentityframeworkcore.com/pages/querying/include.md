@@ -3,12 +3,12 @@ title: Include in EF Core
 description: Learn how to use Include and ThenInclude in EF Core to load related data, filter included collections, and configure AutoInclude.
 canonical: /querying/include
 status: Published
-lastmod: 2026-08-07
+lastmod: 2026-10-06
 ---
 
 # Include in EF Core
 
-Entity Framework Core uses `Include` to load related data together with the root entities returned by a query. Use `ThenInclude` when you need to continue loading data through a nested relationship.
+Entity Framework Core uses `Include` to load related data together with the root entities returned by a query. Use `ThenInclude` when you need to continue loading data through a nested relationship. For the broader loading strategy and when to use it, see [Eager Loading in EF Core](/querying/eager-loading).
 
 ## Load Related Data with Include
 
@@ -322,6 +322,10 @@ Use `AutoInclude` to configure a navigation that should normally be loaded whene
 
 * [LINQ Queries](/querying/linq-queries) — Learn how to build, compose, and execute EF Core queries.
 * [LINQ Methods](/querying/linq-methods) — Learn how to use individual LINQ operators with EF Core.
+* [Eager Loading](/querying/eager-loading) — Learn when to load related data as part of the initial query operation.
+* [Split Queries](/querying/split-queries) — Learn how EF Core can retrieve related collections using multiple database queries.
+* [Query Tracking](/querying/query-tracking) — Understand how tracking and navigation fixup can affect loaded relationships.
+* [Projection](/querying/projection) — Return selected related values without loading complete related entities.
 
 ## FAQ
 

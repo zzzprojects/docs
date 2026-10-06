@@ -3,7 +3,7 @@ title: Eager Loading in EF Core
 description: Learn how eager loading works in EF Core, when to use Include, how it differs from explicit and lazy loading, and how tracking and split queries affect related data.
 canonical: /querying/eager-loading
 status: Published
-lastmod: 2026-10-01
+lastmod: 2026-10-06
 ---
 
 # Eager Loading in EF Core
@@ -246,7 +246,7 @@ Unlike eager loading, the original query does not need to specify that navigatio
 
 Lazy loading requires additional configuration, such as lazy-loading proxies or `ILazyLoader`, depending on the approach used.
 
-> Lazy Loading is covered separately in **Lazy Loading in EF Core** *(Coming soon)*.
+> Lazy Loading is covered separately in [Lazy Loading in EF Core](/querying/lazy-loading).
 
 ## Eager Loading vs. Projection
 
@@ -540,7 +540,7 @@ To continue exploring how EF Core loads, shapes, and tracks related data, these 
 * [Query Tracking in EF Core](/querying/query-tracking) — Understand tracking, no-tracking queries, identity resolution, and how tracked entities affect query results.
 * [LINQ Queries in EF Core](/querying/linq-queries) — Learn how EF Core queries are built, composed, and executed.
 * [Explicit Loading in EF Core](/querying/explicit-loading) — Load related data explicitly after the main entities have been retrieved.
-* **Lazy Loading in EF Core** *(Coming soon)* — Load related data automatically when a navigation property is accessed.
+* [Lazy Loading in EF Core](/querying/lazy-loading) — Load related data automatically when a navigation property is accessed.
 
 ## FAQ
 

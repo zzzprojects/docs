@@ -3,12 +3,12 @@ title: Query Tracking in EF Core
 description: Learn when to use tracking, AsNoTracking, AsNoTrackingWithIdentityResolution, and QueryTrackingBehavior in Entity Framework Core.
 canonical: /querying/query-tracking
 status: Published
-lastmod: 2026-08-18
+lastmod: 2026-10-06
 ---
 
 # Query Tracking in EF Core
 
-Entity Framework Core tracks entities returned by queries by default so changes to those entities can be detected and saved. Use no-tracking queries when the current `DbContext` does not need to track the returned entities for later updates.
+Entity Framework Core tracks entities returned by queries by default so changes to those entities can be detected and saved. Use no-tracking queries when the current `DbContext` does not need to track the returned entities for later updates. For how EF Core records entity states and changes, see [ChangeTracker in EF Core](/saving/change-tracker).
 
 ## Query with Tracking
 
@@ -175,6 +175,8 @@ EF Core tracks entity queries by default, but each query can use a different tra
 
 * [LINQ Queries](/querying/linq-queries) — Learn how to build, compose, and execute EF Core queries.
 * [Projection](/querying/projection) — Learn how projected results interact with tracking when they contain entity instances.
+* [Include](/querying/include) — Learn how tracking and navigation fixup can affect included related data.
+* [Eager Loading](/querying/eager-loading) — Learn how tracking behavior applies to eagerly loaded entity graphs.
 * [ChangeTracker](/saving/change-tracker) — Learn how EF Core keeps track of entity instances and their state inside a `DbContext`.
 
 ## FAQ

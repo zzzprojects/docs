@@ -3,7 +3,7 @@ title: Explicit Loading in EF Core
 description: Learn how to explicitly load reference and collection navigations in EF Core, query related data with Query(), and use relationship fixup.
 canonical: /querying/explicit-loading
 status: Published
-lastmod: 2026-08-28
+lastmod: 2026-10-06
 ---
 
 # Explicit Loading in EF Core
@@ -169,7 +169,7 @@ Use [Eager Loading in EF Core](/querying/eager-loading) when you already know th
 
 Use explicit loading when related data should be retrieved later, under application control.
 
-Lazy loading follows a different model because EF Core loads related data automatically when a navigation is accessed. See **Lazy Loading in EF Core** *(Coming soon)* for that behavior.
+Lazy loading follows a different model because EF Core loads related data automatically when a navigation is accessed. See [Lazy Loading in EF Core](/querying/lazy-loading) for that behavior.
 
 ## When Should You Use Explicit Loading?
 
@@ -251,7 +251,7 @@ Explicit loading gives you control over when related data is retrieved after the
 Explicit loading is one of several ways EF Core can work with related data. The following articles explain the neighboring querying and loading behaviors in more detail:
 
 * [Eager Loading in EF Core](/querying/eager-loading) — Load related data together with the main entity.
-* **Lazy Loading in EF Core** *(Coming soon)* — Load related data automatically when a navigation is accessed.
+* [Lazy Loading in EF Core](/querying/lazy-loading) — Load related data automatically when a navigation is accessed.
 * [Include in EF Core](/querying/include) — Use `Include` and `ThenInclude` to specify related data in the original query.
 * [Query Tracking in EF Core](/querying/query-tracking) — Understand how tracked and no-tracking queries behave.
 * [LINQ Queries in EF Core](/querying/linq-queries) — Learn how EF Core queries are composed and executed.
@@ -281,4 +281,3 @@ Use eager loading when you already know the related data is needed with the init
 ### Can the Change Tracker connect related entities loaded by separate queries?
 
 Yes. When change tracking is enabled, EF Core can perform relationship fixup between newly materialized entities and related entities that are already being tracked.
-
