@@ -38,7 +38,8 @@ var countries2 = ctx.Countries.FromCache().ToList();
  - [Tag & ExpireTag](#tag-expiretag)
  - [Expiration](#expiration)
  - [Query Cache Control](#query-cache-control)
- 
+ - [Skip Command Creation](#skip-command-creation)
+
 ### Query Criteria
 
 Return the query result from the cache. If the query is not cached yet, it will be materialized and cached before being returned.
@@ -167,6 +168,30 @@ context.Customers.FromCache().ToList();
 
 ```
 [Try it](https://dotnetfiddle.net/k1TOWX)
+
+### Skip Command Creation
+
+By default, EF+ Query Cache compiles the query and creates a database command to generate the cache key.
+
+You can enable `SkipCommandCreationForCacheKey` to skip this step and improve performance by avoiding unnecessary query compilation and command creation when retrieving data from the cache.
+
+When this option is enabled, the cache key is generated using only the query tags. You must also enable either `UseFirstTagAsCacheKey` or `UseTagsAsCacheKey`.
+
+```csharp
+// using Z.EntityFramework.Plus;
+
+QueryCacheManager.UseFirstTagAsCacheKey = true;
+QueryCacheManager.SkipCommandCreationForCacheKey = true;
+
+var customers = context.Customers
+    .TagWith("ActiveCustomers")
+    .Where(x => x.IsActive)
+    .FromCache();
+```
+
+This option is especially useful when you frequently execute cached queries and want to reduce the overhead of checking whether a result already exists in the cache.
+
+**WARNING:** Since the query itself is no longer used to generate the cache key, you must ensure that your tags uniquely identify each query and its parameters. Otherwise, different queries could share the same cache key and return incorrect cached results.
  
 ## Real Life Scenarios
 
