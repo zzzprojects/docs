@@ -1,12 +1,12 @@
 ---
-title: EF Core Table Per Hierarchy (TPH) — Inheritance Mapping Explained
+title: Table Per Hierarchy in EF Core (TPH) — Inheritance Mapping Explained
 description: Learn how Table Per Hierarchy (TPH) inheritance works in Entity Framework Core, including discriminator columns, SQL behavior, performance trade-offs, and when to use it.
 canonical: /modeling/inheritance-table-per-hierarchy
 status: Published
-lastmod: 2026-04-08
+lastmod: 2026-10-13
 ---
 
-# EF Core - Table Per Hierarchy (TPH)
+# Table Per Hierarchy in EF Core (TPH)
 
 EF Core provides three inheritance mapping strategies:
 
@@ -14,28 +14,30 @@ EF Core provides three inheritance mapping strategies:
 - [Table Per Type (TPT)](/modeling/inheritance-table-per-type)
 - [Table Per Concrete Type (TPC)](/modeling/inheritance-table-per-concrete-type)
 
-This page focuses on **Table Per Hierarchy (TPH)**.  
+This page focuses on **Table Per Hierarchy (TPH)**.
 
 ## What is Table Per Hierarchy (TPH) in EF Core
 
-Table Per Hierarchy (TPH) is the **default inheritance mapping strategy in Entity Framework Core**.  
+Table Per Hierarchy (TPH) is the **default inheritance mapping strategy in Entity Framework Core**.
 
 EF Core represents an object-oriented inheritance hierarchy using a **single database table**, where a **discriminator column** identifies the concrete derived type for each row.
 
-All entities in the hierarchy share the same table structure, with unused columns set to `NULL` depending on the concrete type. Adding new derived types typically results in additional nullable columns being added to the same table.
+All entities in the hierarchy share the same table. Columns for properties specific to derived types are nullable so that rows of other types can contain `NULL`. Adding new derived types with additional properties typically adds columns to this table.
 
 <div class="image-outer"><img src="/images/efcore/inheritance/table-per-hierarchy.png" loading="lazy" alt="EF Core TPH Inheritance"></div>
+
+This diagram shows the conventional `Discriminator` column. The Fluent API example below uses a custom integer discriminator named `AnimalType` instead.
 
 [Online Example](https://dotnetfiddle.net/SitJWp)
 
 ## TL;DR - EF Core TPH
 
-- Uses **one table** for the entire inheritance hierarchy  
-- Relies on a **discriminator column** to identify derived types  
-- **No JOINs** when querying derived entities  
-- Generally provides **strong read performance**  
-- Results in **wide tables** with nullable columns  
-- Best suited for **stable hierarchies** with limited derived types  
+- Uses **one table** for the entire inheritance hierarchy
+- Relies on a **discriminator column** to identify derived types
+- Avoids **JOINs between base and derived inheritance tables**
+- Often supports **efficient polymorphic queries**
+- Can produce **wide tables** with nullable columns for derived-type properties
+- Adding derived types with new properties can require schema changes
 
 
 ## Quick Mental Model
@@ -44,11 +46,11 @@ Think of TPH as **one large table** storing all entities in an inheritance hiera
 
 The discriminator column tells EF Core **how to materialize each row into the correct CLR type**.
 
-You gain performance by avoiding JOINs in polymorphic queries, but you trade schema normalization for simplicity and speed.
+TPH avoids the joins that TPT uses to combine base and derived tables, but stores properties from different entity types in the same table.
 
 ## Schema Shape
 
-- A **single table** represents the entire hierarchy  
+- A **single table** represents the entire hierarchy
 - Columns include:
    - Base class properties
    - All derived-type specific properties
@@ -56,7 +58,7 @@ You gain performance by avoiding JOINs in polymorphic queries, but you trade sch
 - Many columns may be `NULL` depending on the row type
 
 
-## Configuration TPH in EF Core
+## Configuring TPH in EF Core
 
 ### The Model
 
@@ -81,11 +83,11 @@ public class Dog : Animal
     public string? Breed { get; set; }
     public bool IsGoodBoy { get; set; }
 }
-````
+```
 
-### Configuring TPH Mapping
+### Fluent API Configuration
 
-Although TPH is the default strategy, we always recommend configuring it explicitly by using `UseTphMappingStrategy()` to avoid any ambiguity for other developers:
+TPH is the default strategy, so `UseTphMappingStrategy()` is optional. You can use it to make the strategy explicit and customize the discriminator with `HasDiscriminator()` and `HasValue()`:
 
 ```csharp
 public class AnimalsDbContext : DbContext
@@ -111,13 +113,15 @@ public class AnimalsDbContext : DbContext
 
 [Online Example](https://dotnetfiddle.net/WGJoXM)
 
-The discriminator column tells EF Core which concrete CLR type should be materialized for each row.
+This configuration maps `Animal`, `Cat`, and `Dog` to the same table. The integer discriminator `AnimalType` identifies `Cat` with value `1` and `Dog` with value `2`.
 
-Usually, only the base set (`Animals`) is exposed.
+The root `DbSet<Animal>` can query the hierarchy; separate `DbSet` properties for derived types are optional.
+
+**Unmapped discriminator values:** If the database contains a discriminator value that is not mapped to an entity type, EF Core throws an exception when it tries to materialize that row. For intentionally incomplete mappings, configure the discriminator with `IsComplete(false)` so EF Core filters queries, including queries of the root type, to mapped discriminator values.
 
 ### TPH Generated Database Schema
 
-With this configuration, EF Core generates only **one table** for the entire inheritance hierarchy:
+With this configuration, EF Core maps the entire inheritance hierarchy to **one table**. The following example shows the table structure for SQL Server:
 
 ```sql
 CREATE TABLE [Animals] (
@@ -137,9 +141,9 @@ The table includes the base class properties and all derived-type specific prope
 
 [Online Example](https://dotnetfiddle.net/OSxCmt)
 
-## TPH Retrieving Derived Types via DbSet
+## Querying Derived Types in TPH
 
-To retrieve derived types, you normally query the root `Animals` set and use `OfType<T>()` to retrieve a specific derived type.
+You can query a specific derived type through the root `Animals` set using `OfType<T>()`.
 
 ```csharp
 public class AnimalsDbContext : DbContext
@@ -171,7 +175,7 @@ using (var context = new AnimalsDbContext())
 
 [Online Example](https://dotnetfiddle.net/Hh8mlE)
 
-This is the traditional way to retrieve derived types when only the root `DbSet` is exposed.
+No separate `DbSet<Cat>` or `DbSet<Dog>` properties are needed for these queries.
 
 In addition to `OfType<T>()`, EF Core also allows querying derived entities directly by exposing `DbSet` properties for concrete types.
 
@@ -199,20 +203,20 @@ using (var context = new AnimalsDbContext())
 
 [Online Example](https://dotnetfiddle.net/TISeBz)
 
-This approach is less traditional but often **simpler and more expressive**, especially when working primarily with concrete types.
+Exposing `DbSet<Cat>` and `DbSet<Dog>` lets you query each derived type directly and includes them in the EF Core model by convention. EF Core does not automatically scan for every subclass in an inheritance hierarchy, so derived types must be included through model configuration or discovery.
 
 
 ### SQL Behavior
 
 * Queries against derived types are translated into **single-table SELECTs**
 * Filtering is performed using the discriminator column
-* **No JOINs** are generated
-* All data is retrieved from one table
+* No additional **JOINs** are needed to reconstruct the inheritance hierarchy
+* Queries involving only this hierarchy retrieve its data from the shared table
 
 
 ### Generated SQL
 
-The following examples show a simplified version of the SQL typically generated by EF Core for the TPH mapping strategy.
+The two querying examples above use the conventional `Discriminator` column with values such as `Cat` and `Dog`. The simplified SQL Server queries below instead use the custom `AnimalType` discriminator configured earlier (`1` for `Cat` and `2` for `Dog`).
 
 
 ```sql
@@ -252,66 +256,64 @@ FROM [Animals] AS [a]
 WHERE [a].[AnimalType] = 2
 ```
 
+In this example, the root query reads from the shared table without a discriminator filter, while the `Cat` and `Dog` queries filter by their mapped `AnimalType` values. TPH does not require JOINs between inheritance tables.
+
 [Online Example](https://dotnetfiddle.net/2j34Pq)
 
 ### Performance Characteristics
 
-* Reads are typically **very efficient** due to single-table access
-* Writes are simple and fast
+* Queries over the inheritance hierarchy can benefit from **single-table access**
+* Each entity is stored in one row of the shared table
 * Trade-offs include:
   * Wide tables
   * Many nullable columns
-  * Schema changes when adding new derived types
+  * Schema changes when adding new derived types with additional properties
 
-Compared to other inheritance strategies, TPH usually offers the **best query performance for polymorphic workloads**, since it avoids JOINs entirely.
+TPH often performs well for polymorphic queries because it avoids joins between inheritance tables. Actual performance depends on the queries, indexes, data volume, and database provider.
 
-## TPH Common Use Cases
+## When to Use TPH in EF Core
 
-TPH is commonly used when:
-
-* Query performance matters more than normalization
-* The inheritance hierarchy is stable
-* Most derived types share a significant number of common properties
-
-## When to Use vs When NOT to Use TPH
-
-**Use TPH when:**
+TPH is often a good choice when:
 
 * Polymorphic queries are common
-* Performance is critical
-* The number of derived types is limited
-* Schema simplicity is preferred
+* A single table simplifies access to the inheritance hierarchy
+* Derived types share many properties, limiting type-specific columns
+* The shared-table schema fits the application's maintenance requirements
 
-**Avoid TPH when:**
+**Consider TPT or TPC when:**
 
-* The hierarchy contains many optional properties
-* New derived types are added frequently
-* Table width becomes difficult to manage
+* Numerous type-specific columns make the shared table difficult to manage
+* Frequently adding derived types with new properties makes shared-table schema changes difficult to manage
+* Query patterns or database design requirements favor another mapping strategy
+
+For a broader comparison, see [Inheritance in EF Core](/modeling/inheritance#quick-comparison).
 
 ## External Resources — Table Per Hierarchy (TPH)
 
-The following resources provide deeper insight into **EF Core inheritance mapping**, including internal design decisions, SQL behavior, and performance trade-offs.  
+The following videos complement this article from three perspectives: an in-depth discussion by the EF Core team of inheritance mapping and its performance trade-offs, a practical walkthrough of TPH configuration and queries, and a visual comparison of the database schemas produced by TPH, TPT, and TPC.
 
-They are especially useful for understanding **why TPH is the default strategy**, how it compares to **TPT and TPC**, and what practical implications each approach has in real-world systems.
+Together, they connect the single-table model and discriminator behavior explained above with real SQL output, database migrations, and the decisions involved in choosing an inheritance strategy.
 
 ### Video 1 — .NET Data Community Standup  
 **TPH, TPT, and TPC Inheritance Mapping with EF Core**  
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/HaL6DKW1mrg?si=v4aXXMrSAdl28cqU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-Arthur Vickers explains how EF Core maps inheritance hierarchies internally, with a strong focus on **SQL generation, performance characteristics, and storage trade-offs**. This talk provides essential context for understanding why TPH often delivers the best query performance.
+Arthur Vickers and Shay Rojansky examine how EF Core maps inheritance hierarchies, using an `Animal` model to demonstrate TPH, TPT, and TPC. They show the generated SQL for polymorphic and derived-type queries, compare TPH and TPT performance, and investigate storage trade-offs, including SQL Server sparse columns.
 
 **Key sections:**
-- [09:00](https://www.youtube.com/watch?v=HaL6DKW1mrg&t=540s) — TPH concept and discriminator column
-- [15:00](https://www.youtube.com/watch?v=HaL6DKW1mrg&t=900s) — Queries without JOINs
-- [26:30](https://www.youtube.com/watch?v=HaL6DKW1mrg&t=1590s) — Performance comparison: TPT vs TPH
-- [42:00](https://www.youtube.com/watch?v=HaL6DKW1mrg&t=2520s) — Sparse columns optimization (SQL Server)
+- [12:24](https://www.youtube.com/watch?v=HaL6DKW1mrg&t=744s) — TPH concept and single-table mapping
+- [31:32](https://www.youtube.com/watch?v=HaL6DKW1mrg&t=1892s) — TPH query examples and generated SQL
+- [42:01](https://www.youtube.com/watch?v=HaL6DKW1mrg&t=2521s) — Performance comparison: TPT vs TPH
+- [1:04:04](https://www.youtube.com/watch?v=HaL6DKW1mrg&t=3844s) — Sparse columns optimization (SQL Server)
+
+This resource is especially useful for understanding why TPH can simplify polymorphic queries without assuming that it is always the fastest strategy. The benchmarks illustrate how query patterns, table structure, and database providers affect the comparison, while the sparse-column discussion adds a SQL Server-specific perspective on managing wide TPH tables.
 
 ### Video 2 — EF Core Inheritance: TPH vs TPT vs TPC with Real Examples  
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/dtqvdlVRG18?si=7Fwis9DyTMKw9zg5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-Remigiusz demonstrates inheritance mapping using **real models and migrations**, highlighting common configuration pitfalls. The TPH section clearly shows how a single-table strategy simplifies queries while introducing nullable columns as a trade-off.
+Remigiusz demonstrates TPH through a `Vehicle` hierarchy containing cars, motorcycles, and trucks. He configures an enum-based discriminator using `HasDiscriminator()` and `HasValue()`, compares `OfType<T>()` with direct access through derived `DbSet` properties, and inspects the resulting migrations and database records.
 
 **Key sections:**
 - [03:08](https://www.youtube.com/watch?v=dtqvdlVRG18&t=188s) — Single table with discriminator column
@@ -319,11 +321,13 @@ Remigiusz demonstrates inheritance mapping using **real models and migrations**,
 - [06:31](https://www.youtube.com/watch?v=dtqvdlVRG18&t=391s) — Explicit `HasDiscriminator()` and `HasValue()` configuration
 - [09:31](https://www.youtube.com/watch?v=dtqvdlVRG18&t=571s) — Abstract base class and discriminator configuration errors
 
+Its main value is showing how Fluent API configuration translates into an actual database table and working queries. The enum discriminator also offers a useful alternative to the integer-based configuration used in this article, without requiring another complete example in the main text.
+
 ### Video 3 — Entity Framework 7 — Inheritance  
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/zctMt_rF9_U?si=Ov6fwQ8TTqKdPyfO" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-[Jasper](/contributors/jasper-kent) provides a high-level overview of inheritance strategies in EF Core 7, showing how TPH is applied by default and how discriminator columns affect the generated schema and query behavior.
+[Jasper Kent](/contributors/jasper-kent) demonstrates inheritance mapping using a `Pet` hierarchy with `Cat` and `Dog` entities. Starting with EF Core's default TPH mapping, he inspects the SQL Server table, its discriminator and derived-type columns, then switches to TPT and TPC to show how the database schema changes.
 
 **Key sections:**
 - [04:30](https://www.youtube.com/watch?v=zctMt_rF9_U&t=270s) — Default TPH mapping (single table)
@@ -331,16 +335,18 @@ Remigiusz demonstrates inheritance mapping using **real models and migrations**,
 - [11:45](https://www.youtube.com/watch?v=zctMt_rF9_U&t=705s) — Explicit `UseTphMappingStrategy()` configuration
 - [12:30](https://www.youtube.com/watch?v=zctMt_rF9_U&t=750s) — Conclusions and EF Core 7 considerations
 
-## Summary & Next Steps
+This video is particularly useful for visualizing the structural differences between the three strategies. Although recorded for EF Core 7, its TPH examples remain relevant and reinforce an important design trade-off: keeping the hierarchy in one shared table versus distributing its data across multiple tables.
 
-Table Per Hierarchy (TPH) is the simplest and most performant inheritance strategy in EF Core.
+## Summary
 
-It excels at read-heavy, polymorphic workloads but trades normalization for speed and simplicity.
+Table Per Hierarchy (TPH) is the default inheritance mapping strategy in EF Core, storing the hierarchy in one table.
 
-**Next steps:**
-
-* Explore [Table Per Type (TPT)](/modeling/inheritance-table-per-type) for normalized schemas
-* Explore [Table Per Concrete Type (TPC)](/modeling/inheritance-table-per-concrete-type) for write-optimized scenarios
-* Review a [side-by-side comparison](/modeling/inheritance#quick-comparison) of all inheritance strategies in EF Core
+It can simplify polymorphic queries by avoiding joins between inheritance tables, while introducing nullable columns for derived-type properties.
 
 Each inheritance strategy (TPH, TPT, TPC) optimizes for different trade-offs between performance, normalization, and schema flexibility.
+
+## Related Articles
+
+* Explore [Table Per Type (TPT)](/modeling/inheritance-table-per-type) for normalized schemas
+* Explore [Table Per Concrete Type (TPC)](/modeling/inheritance-table-per-concrete-type) for separate concrete-type tables without inheritance joins
+* Review a [side-by-side comparison](/modeling/inheritance#quick-comparison) of all inheritance strategies in EF Core

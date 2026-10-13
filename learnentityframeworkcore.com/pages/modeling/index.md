@@ -14,3 +14,5 @@ lastmod: 2026-04-08
    - [Table-per-Hierarchy (TPH)](/modeling/inheritance-table-per-hierarchy)
    - [Table-per-Type (TPT)](/modeling/inheritance-table-per-type)
    - [Table-per-Concrete-Type (TPC)](/modeling/inheritance-table-per-concrete-type)
+- [Owned Entity](/modeling/owned-entity)
+- [Complex Type](/modeling/complex-type)

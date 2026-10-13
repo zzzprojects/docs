@@ -39,6 +39,12 @@
 						<li><a href="/modeling/inheritance-table-per-concrete-type">Table-per-Concrete-Type (TPC)</a></li>	
 					</ul>
 				</li>
+				<li>
+					<a href="/modeling/owned-entity">Owned Entity</a>
+				</li>
+				<li>
+					<a href="/modeling/complex-type">Complex Type</a>
+				</li>
             </ul>
         </li>
         <li>
