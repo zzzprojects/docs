@@ -60,6 +60,7 @@ public class AuditEntry
 	public DateTime Date { get; set; }
 	public Dictionary<object, object> Metas { get; set; } // Hold any custom information you want to add
 	public string TableName { get; set; }
+	public string RawTableName { get; set; } // Available starting from v10.105.9.0
 	public List<AuditEntryItem> Values { get; set; }
 }
 ```
@@ -81,6 +82,27 @@ public enum AuditActionType
 	Update,
 	SoftDelete,
 }
+```
+
+## AuditMode 
+
+By default, the audit feature includes all table columns in the audit results.
+
+You can use the `AuditMode` option to control which columns are included:
+
+- `IncludeAll` (**Default**): Includes all table columns.
+- `IncludeInput`: Includes only mapped input columns (Available starting from v10.105.9.0).
+- `ExcludeAll`: Excludes all table columns.
+
+For **EF Core**, we recommend using `IncludeAll` or `IncludeInput`. The `IncludeInput` mode is supported for `BulkInsert`, `BulkUpdate`, `BulkMerge`, and `BulkSynchronize`.
+
+```csharp
+context.BulkMerge(list, options =>
+{
+    options.UseAudit = true;
+    options.AuditMode = AuditModeType.IncludeInput;
+    options.AuditEntries = auditEntries;
+});
 ```
 
 ## FAQ
