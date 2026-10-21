@@ -2,7 +2,7 @@
 PermaID: 1000213
 Title: Dapper - An Overview of Third-Party Libraries
 MetaDescription: Discover third-party libraries to perform CRUD operations, Bulk Operations, mapping, and use dapper through the `IDbTransaction` interface. Learn about their limitations and how to install them with NuGet.
-LastMod: 2025-06-16
+LastMod: 2026-10-20
 ---
 
 # Dapper: An Overview of Third-Party Libraries
@@ -42,7 +42,7 @@ Here is a list of libraries that you can use with `Dapper`:
 | [Dapper.Contrib](dapper-contrib-third-party-library) | Free | 2 - 3 Days | [Yes](https://github.com/StackExchange/Dapper/tree/master/Dapper.Contrib) | Get<br>GetAll<br>Insert<br>Update<br>Delete<br>DeleteAll |
 | [DapperExtensions](dapper-extensions) | Free | No | No | Get<br>GetList<br>Insert<br>Update<br>Delete<br>Count |
 | [Dapper.FastCrud](dapper-fastcrud) | Free | < 1 Day | [Yes](https://github.com/MoonStorm/Dapper.FastCRUD/wiki) | Get<br>Find<br>Insert<br>Update<br>BulkUpdate<br>Delete<br>BulkDelete<br>Count |
-| [Dapper.FluentMap](dapper-fluentmap) | Free | 2 - 5 Days | [Yes](https://github.com/henkmollema/Dapper-FluentMap) | Manual mapping<br>Convention based mapping |
+| [Dapper.FluentMap](dapper-fluentmap) | Free | [GitHub Issues](https://github.com/rodri-oliveira-dev/Dapper-FluentMap/issues) | [Yes](https://github.com/rodri-oliveira-dev/Dapper-FluentMap#readme) | Manual mapping<br>Convention-based mapping<br>Mapping profiles<br>Immutable-object materialization<br>Optional DI, analyzers, and source generators |
 | [Dapper.Mapper](dapper-mapper) | Free | No | No | Multi-mapping |
 | [Dapper.Rainbow](dapper-rainbow) | Free | 2 - 3 Days | No | Get<br>Insert<br>Update<br>Delete<br>All |
 | [Dapper.SimpleCRUD](dapper-simplecrud) | Free | 1 - 3 Days | [Yes](https://github.com/ericdc1/Dapper.SimpleCRUD) | Get<br>GetList<br>GetListPaged<br>Insert<br>Update<br>Delete<br>DeleteList<br>RecordCount |
