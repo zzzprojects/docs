@@ -1,6 +1,7 @@
 ---
-Name: Compile Method
-LastMod: 2025-08-19
+Title: C# Eval Expression Compile Method: Syntax, Examples & Usage
+MetaDescription: Learn how to use the C# Eval Expression Compile method to compile C# code at runtime, create reusable delegates, pass parameters, and improve performance.
+LastMod: 2026-11-02
 ---
 
 # How to use the Compile Method?

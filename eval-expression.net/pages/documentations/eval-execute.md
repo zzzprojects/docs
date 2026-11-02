@@ -1,6 +1,7 @@
 ---
-Name: Execute Method
-LastMod: 2025-08-19
+Title: C# Eval Expression Execute Method: Syntax, Parameters & Examples
+MetaDescription: Learn how to use the C# Eval Expression Execute method to run C# code at runtime. Explore parameters, return types, async execution, and code examples.
+LastMod: 2026-11-02
 ---
 
 # How to use the Execute Method?

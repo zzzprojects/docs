@@ -1,6 +1,7 @@
 ---
-Name: Eval Context
-LastMod: 2025-08-19
+Title: C# Eval Expression EvalContext: Instance vs Global Context
+MetaDescription: Learn how to use EvalContext in C# Eval Expression. Compare instance vs global contexts, customize options, register types, and avoid concurrency issues.
+LastMod: 2026-11-02
 ---
 
 # What is the Eval Context?

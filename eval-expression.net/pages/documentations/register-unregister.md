@@ -1,6 +1,7 @@
 ---
-Name: Register & Unregister Methods
-LastMod: 2025-08-19
+Title: C# Eval Expression: Register, Unregister & IsRegistered Methods
+MetaDescription: Learn how to register, unregister, and check types, methods, aliases, variables, and assemblies in C# Eval Expression with practical examples and code.
+LastMod: 2026-11-02
 ---
 
 # How to use  Register & Unregister Methods in C# Eval Expression library

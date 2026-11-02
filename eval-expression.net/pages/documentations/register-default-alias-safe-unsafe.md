@@ -1,6 +1,7 @@
 ---
-Name: RegisterDefaultAliasSafe vs RegisterDefaultAliasUnsafe
-LastMod: 2025-08-19
+Title: C# Eval: RegisterDefaultAliasSafe vs Unsafe – Security Differences
+MetaDescription: Compare RegisterDefaultAliasSafe and RegisterDefaultAliasUnsafe in C# Eval Expression. Learn their security differences, registered types, and when to use SafeMode.
+LastMod: 2026-11-02
 ---
 
 # RegisterDefaultAliasSafe vs RegisterDefaultAliasUnsafe

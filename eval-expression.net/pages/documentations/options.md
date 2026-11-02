@@ -1,6 +1,7 @@
 ---
-Name: Eval Expression Options
-LastMod: 2025-11-03
+Title: C# Eval Expression Options: Complete Guide with Examples
+MetaDescription: Explore all C# Eval Expression options with practical examples. Learn to configure SafeMode, caching, type resolution, performance, and expression execution.
+LastMod: 2026-11-02
 ---
 
 # How to use options with C# Eval Expression library

@@ -1,6 +1,7 @@
 ---
-Name: LINQ Dynamic
-LastMod: 2025-08-19
+Title: C# Dynamic LINQ: Free LINQ Methods, Syntax & Examples
+MetaDescription: Learn how to use Dynamic LINQ in C# Eval Expression for free. Build dynamic Where, Select, OrderBy, GroupBy, and other LINQ queries with code examples.
+LastMod: 2026-11-02
 ---
 
 # How to use LINQ with Dynamic Expression

@@ -1,6 +1,7 @@
 ---
-Name: Eval Manager
-LastMod: 2025-08-19
+Title: C# Eval Expression EvalManager: Cache & DefaultContext Options
+MetaDescription: Learn how to use EvalManager in C# Eval Expression to configure caching, customize DefaultContext, register methods, and manage shared global options.
+LastMod: 2026-11-02
 ---
 
 # Eval Manager
