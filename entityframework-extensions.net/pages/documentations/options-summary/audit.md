@@ -94,13 +94,13 @@ You can use the `AuditMode` option to control which columns are included:
 - `IncludeInputAndKey`: Includes only mapped input and key columns (Available starting from v10.106.0.0).
 - `ExcludeAll`: Excludes all table columns.
 
-For **EF Core**, we recommend using `IncludeAll` or `IncludeInput`. The `IncludeInput` mode is supported for `BulkInsert`, `BulkUpdate`, `BulkMerge`, and `BulkSynchronize`.
+For **EF Core**, we recommend using `IncludeAll` or `IncludeInputAndKey`. The `IncludeInputAndKey` mode is supported for `BulkInsert`, `BulkUpdate`, `BulkMerge`, and `BulkSynchronize`.
 
 ```csharp
 context.BulkMerge(list, options =>
 {
     options.UseAudit = true;
-    options.AuditMode = AuditModeType.IncludeInput;
+    options.AuditMode = AuditModeType.IncludeInputAndKey;
     options.AuditEntries = auditEntries;
 });
 ```
