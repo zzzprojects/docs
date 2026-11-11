@@ -1,7 +1,7 @@
 ---
 Title: Auditing in Entity Framework Extensions  
 MetaDescription: Learn how to use auditing options in Entity Framework Extensions for EF Core and EF6. Discover how to use `UseAudit`, `AuditEntries`, and `AuditEntry` to capture which data has been inserted, modified, or deleted in your database.
-LastMod: 2025-10-30
+LastMod: 2026-11-11
 ---
 
 # 📜 Auditing Options in EF Extensions
@@ -91,7 +91,7 @@ By default, the audit feature includes all table columns in the audit results.
 You can use the `AuditMode` option to control which columns are included:
 
 - `IncludeAll` (**Default**): Includes all table columns.
-- `IncludeInput`: Includes only mapped input columns (Available starting from v10.105.9.0).
+- `IncludeInputAndKey`: Includes only mapped input and key columns (Available starting from v10.106.0.0).
 - `ExcludeAll`: Excludes all table columns.
 
 For **EF Core**, we recommend using `IncludeAll` or `IncludeInput`. The `IncludeInput` mode is supported for `BulkInsert`, `BulkUpdate`, `BulkMerge`, and `BulkSynchronize`.
