@@ -225,6 +225,8 @@ await this.Db.RaceResult
 [![Dapper Plus](https://raw.githubusercontent.com/StevenRasmussen/EFCore.SqlServer.NodaTime/master/dapper-plus-sponsor.png)](https://dapper-plus.net/bulk-insert)
 
 ## Version History
+* 11.0.0 (Nov 12, 2026)
+  * Release for EF Core 11
 * 10.0.1 (May 8, 2026)
   * Fixed: DateTime.UtcNow and other plain System.DateTime expressions without an entity-column anchor (e.g. Select(r => DateTime.UtcNow) or Where(r => dt >=
     DateTime.UtcNow)) threw InvalidCastException when UseNodaTime() was registered. The type mapping plugin now defers to EF Core's default mapping source for
