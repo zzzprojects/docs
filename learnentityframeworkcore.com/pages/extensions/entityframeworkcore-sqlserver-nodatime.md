@@ -3,7 +3,7 @@ title: EntityFrameworkCore.SqlServer.NodaTime
 description: An introduction to EntityFrameworkCore.SqlServer.NodaTime
 canonical: /extensions/entityframeworkcore-sqlserver-nodatime
 status: Published
-lastmod: 2026-11-13
+lastmod: 2026-11-14
 ---
 
 # EntityFrameworkCore.SqlServer.NodaTime
@@ -395,7 +395,7 @@ Things to know:
 [![Dapper Plus](https://raw.githubusercontent.com/StevenRasmussen/EntityFrameworkCore.SqlServer.NodaTime/master/dapper-plus-sponsor.png)](https://dapper-plus.net/bulk-insert)
 
 ## Version History
-* 11.0.2
+* 11.0.2 (November 14, 2026)
   * Fixed:
     * Scaffolding (`dotnet ef dbcontext scaffold`) failed in 11.0.1 with an `AmbiguousMatchException`.
     * Since 10.0.1, scaffolding gave date and time columns `DateTime`, `DateOnly`, `TimeOnly` and `DateTimeOffset` properties. They get NodaTime types again, as listed under [Reverse Engineering](#reverse-engineering-scaffolding).
