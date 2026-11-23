@@ -1,9 +1,9 @@
 ---
-title: Entity Framework Core One To One Relationships Conventions
+title: Entity Framework Core One-To-One Relationships Conventions
 description: How to design and configure one-to-one relationships in Entity Framework Core using conventions, shadow foreign keys, and required or optional relationships.
 canonical: /modeling/relationships-one-to-one
 status: Published
-lastmod: 2026-11-18
+lastmod: 2026-11-23
 ---
 
 # One-to-One Relationships in EF Core
@@ -125,7 +125,19 @@ Unlike the previous examples, `AuthorId` is declared directly in the `AuthorBiog
 
 The choice between a shadow and an explicit foreign key is separate from whether the relationship is required or optional.
 
-For additional details, see [Configuring One-to-One Relationships](https://www.learnentityframeworkcore.com/configuration/one-to-one-relationship-configuration).
+If the foreign key uses a non-conventional name, such as `AuthorRef` instead of `AuthorId`, EF Core may not identify the dependent entity from the two reference navigations alone. In that case, replace the `public int AuthorId { get; set; }` property in `AuthorBiography` with `public int AuthorRef { get; set; }`. Then, configure the relationship explicitly in `OnModelCreating`:
+
+```csharp
+protected override void OnModelCreating(ModelBuilder modelBuilder)
+{
+    modelBuilder.Entity<Author>()
+        .HasOne(a => a.Biography)
+        .WithOne(b => b.Author)
+        .HasForeignKey<AuthorBiography>(b => b.AuthorRef);
+}
+```
+
+This identifies `AuthorBiography` as the dependent and maps its existing `AuthorRef` property as the foreign key. The relationship remains required because `AuthorRef` is a non-nullable `int`.
 
 ## Other One-to-One Configurations
 
@@ -138,6 +150,7 @@ EF Core supports other one-to-one configurations for more specialized models. Th
 | [Alternate Key](https://learn.microsoft.com/en-us/ef/core/modeling/relationships/one-to-one#one-to-one-with-alternate-key) | When the foreign key references an alternate key instead of the principal's primary key. |
 | [Composite Foreign Key](https://learn.microsoft.com/en-us/ef/core/modeling/relationships/one-to-one#one-to-one-with-composite-foreign-key) | When the relationship uses multiple foreign key properties. |
 | [Self-Referencing One-to-One](https://learn.microsoft.com/en-us/ef/core/modeling/relationships/one-to-one#self-referencing-one-to-one) | When an entity has a one-to-one relationship with another instance of the same type. |
+| [Table Splitting](https://learn.microsoft.com/en-us/ef/core/modeling/table-splitting#table-splitting) | When two entity types share a single database table and row; this is an advanced table-mapping scenario. |
 
 Required relationships use cascade delete by convention. To configure deletion behavior, see [Cascade Delete in EF Core](/saving/cascade-delete).
 
@@ -145,22 +158,26 @@ Required relationships use cascade delete by convention. To configure deletion b
 
 The following videos complement the examples in this article with practical EF Core configuration, a closer look at shadow foreign keys, and visual explanations of optional and required relationships.
 
-### Master EF Core One-to-One Relationships in 10 Minutes — Poorna Soysa
+### Video 1 - Master EF Core One-to-One Relationships in 10 Minutes — Poorna Soysa
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/5pVWefeTuvY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 This tutorial demonstrates a one-to-one relationship between `Customer` and `CustomerProfile`, covering Fluent API configuration, foreign keys, migrations, and database inspection. It also shows how to resolve a foreign key type mismatch.
+
+**Key timestamps:**
 
 - [01:28 — Identifying principal and dependent entities](https://www.youtube.com/watch?v=5pVWefeTuvY&t=88s)
 - [03:03 — Configuring the relationship with Fluent API](https://www.youtube.com/watch?v=5pVWefeTuvY&t=183s)
 - [05:12 — Fixing a foreign key type mismatch](https://www.youtube.com/watch?v=5pVWefeTuvY&t=312s)
 - [06:30 — Inspecting the generated database table](https://www.youtube.com/watch?v=5pVWefeTuvY&t=390s)
 
-### Shadow Properties - EF Core - Foreign Keys — Full Stack Amigo
+### Video 2 - Shadow Properties - EF Core - Foreign Keys — Full Stack Amigo
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/SSqB_Z48co4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 This video explains how EF Core manages foreign keys that are not declared in entity classes. Using `User` and `Tweet`, it demonstrates shadow properties, how to access their values, and how to configure a required shadow foreign key.
+
+**Key timestamps:**
 
 - [01:26 — Inspecting the generated shadow foreign key column](https://www.youtube.com/watch?v=SSqB_Z48co4&t=86s)
 - [02:00 — Understanding shadow properties and the Change Tracker](https://www.youtube.com/watch?v=SSqB_Z48co4&t=120s)
@@ -169,11 +186,13 @@ This video explains how EF Core manages foreign keys that are not declared in en
 
 Although the demonstration uses a one-to-many relationship, the shadow foreign key concepts also apply to the one-to-one configurations discussed in this article. Foreign key requiredness depends on the relationship configuration and applicable nullability conventions.
 
-### ERD: Relationship Cardinalities — Dustin Ormond
+### Video 3 - ERD: Relationship Cardinalities — Dustin Ormond
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/9dtSEavLIWA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 This video uses entity-relationship diagrams to explain optional and mandatory participation. Its one-to-one examples illustrate the difference between zero-or-one and exactly-one associations, helping clarify how required and optional relationships differ conceptually.
+
+**Key timestamps:**
 
 - [00:16 — Understanding optional one (zero or one)](https://www.youtube.com/watch?v=9dtSEavLIWA&t=16s)
 - [00:47 — Understanding mandatory one (exactly one)](https://www.youtube.com/watch?v=9dtSEavLIWA&t=47s)

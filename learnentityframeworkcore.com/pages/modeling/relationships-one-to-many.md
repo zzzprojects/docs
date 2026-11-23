@@ -1,204 +1,158 @@
 ---
 title: Entity Framework Core One-To-Many Relationships Conventions
-description: How to design your model so that it maps to a one-to-many relationship by convention in Entity Framework Core
+description: How to configure one-to-many relationships in EF Core using conventions, Fluent API, shadow foreign keys, and required or optional relationships.
 canonical: /modeling/relationships-one-to-many
 status: Published
-lastmod: 2026-11-18
+lastmod: 2026-11-23
 ---
 
-# EF Core One-to-Many Relationships
+# One-to-Many Relationships in EF Core
 
-A one-to-many relationship allows one entity to be associated with multiple related entities. For example, an author can have many books, while each book belongs to at most one author. EF Core can discover these relationships by convention; for explicit Fluent API mapping, see [One-to-Many Relationship Configuration](/configuration/one-to-many-relationship-configuration).
+A one-to-many relationship associates one principal entity with multiple dependent entities. For example, an order can contain many order items, while each order item belongs to at most one order. EF Core can discover this relationship by convention, or you can configure it explicitly using Fluent API.
 
 ## Basic One-to-Many Relationship
 
-```csharp
-public class Author
-{
-    public int AuthorId { get; set; }
-    public string FirstName { get; set; }
-    public string LastName { get; set; }
-    public ICollection<Book> Books { get; set; }
-}
-
-public class Book
-{
-    public int BookId { get; set; }
-    public string Title { get; set; }
-}
-```
-
-EF Core discovers this relationship by convention through the `Books` collection in the `Author` entity. This means one author can be associated with multiple books without explicitly configuring the relationship.
-
-Because `Book` does not define a foreign key property, EF Core creates a [shadow foreign key](/model/shadow-properties) named `AuthorId`. This foreign key identifies the author associated with each book. It exists in the EF Core model but is not declared in the C# class. EF Core manages its value internally, and the database still contains the corresponding foreign key column.
-
-In this example, the foreign key is nullable by convention, making the relationship optional. A book can therefore exist without an associated author.
-
-The relationship can also be configured as required using `IsRequired()`.
-
-For more configuration options, see the [official EF Core one-to-many documentation](https://learn.microsoft.com/en-us/ef/core/modeling/relationships/one-to-many).
-
-The following excerpt from the previously published SQL Server migration illustrates how the shadow foreign key is represented in the `Books` table:
+An `Order` can contain many `OrderItem` records. The following example uses only the collection navigation on `Order`:
 
 ```csharp
-migrationBuilder.CreateTable(
-    name: "Books",
-    columns: table => new
-    {
-        BookId = table.Column<int>(nullable: false)
-            .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-        AuthorId = table.Column<int>(nullable: true),
-        Title = table.Column<string>(nullable: true)
-    },
-    constraints: table =>
-    {
-        table.PrimaryKey("PK_Books", x => x.BookId);
-        table.ForeignKey(
-            name: "FK_Books_Authors_AuthorId",
-            column: x => x.AuthorId,
-            principalTable: "Authors",
-            principalColumn: "AuthorId",
-            onDelete: ReferentialAction.Restrict);
-    });
+public class Order
+{
+    public int OrderId { get; set; }
+    public ICollection<OrderItem> Items { get; set; } = new List<OrderItem>();
+}
+
+public class OrderItem
+{
+    public int OrderItemId { get; set; }
+    public string ProductName { get; set; } = null!;
+}
 ```
 
-The historical migration specifies `ReferentialAction.Restrict` for deletes. The `ReferentialAction` enumeration also includes `NoAction`, `SetNull`, `Cascade`, and `SetDefault`. These values describe referential actions for migrations; their database behavior can vary by provider. See [Referential Constraint Action Options](/relationships/referential-constraint-action-options) for an explanation of the options.
+EF Core discovers a one-to-many relationship from `Order.Items`. Since `OrderItem` does not declare a foreign key property, EF Core creates a [shadow foreign key](/model/shadow-properties) named `OrderId`. The property exists in the EF Core model and as a column in the database, but not in the C# class.
 
-The corresponding SQL Server table definition from the original documentation is shown below. Notice that the `AuthorId` column is nullable, even though it is not declared in the `Book` class.
+With this model, the shadow foreign key is nullable by convention, so an `OrderItem` can exist without an associated `Order`. In a typical order-processing application, order items are usually required to belong to an order; we will model that more common rule in the explicit foreign key example below.
 
-```sql
-CREATE TABLE [Books] (
-    [BookId] int NOT NULL IDENTITY,
-    [AuthorId] int,
-    [Title] nvarchar(max),
-    CONSTRAINT [PK_Books] PRIMARY KEY ([BookId]),
-    CONSTRAINT [FK_Books_Authors_AuthorId] FOREIGN KEY ([AuthorId])
-        REFERENCES [Authors] ([AuthorId]) ON DELETE NO ACTION
-);
+See the [official EF Core one-to-many documentation](https://learn.microsoft.com/en-us/ef/core/modeling/relationships/one-to-many) for additional relationship patterns.
+
+## Configure One-to-Many with Fluent API
+
+EF Core can discover the basic example without `OnModelCreating`. You can also express the mapping explicitly using the **Has/With** pattern, where `HasMany()` identifies the collection navigation and `WithOne()` identifies the other end of the relationship:
+
+```csharp
+protected override void OnModelCreating(ModelBuilder modelBuilder)
+{
+    modelBuilder.Entity<Order>()
+        .HasMany(o => o.Items)
+        .WithOne()
+        .HasForeignKey("OrderId")
+        .IsRequired(false);
+}
 ```
 
-These historical snippets are preserved from the original article and were not regenerated with EF Core 10. The exact migration syntax and generated SQL may differ depending on the EF Core version and database provider.
+This configuration uses the same `Order` and `OrderItem` classes as the basic example. `WithOne()` has no argument because `OrderItem` has no inverse navigation property; `HasForeignKey("OrderId")` specifies the shadow foreign key, and `IsRequired(false)` makes the relationship optional.
+
+When both entities have navigation properties, you can instead use `HasMany(o => o.Items).WithOne(i => i.Order)`. The equivalent configuration can start from `OrderItem` with `HasOne(i => i.Order).WithMany(o => o.Items)`; configure the relationship once, not from both ends separately.
+
+For required relationships, use `IsRequired()` or a non-nullable foreign key as in the example below. Use `OnDelete()` when you need to customize deletion behavior; see [Cascade Delete in EF Core](/saving/cascade-delete) for the available behaviors and their implications.
 
 ## Inverse Navigation Property
 
-Another way to define a one-to-many relationship by convention is to include an inverse navigation property in the dependent entity.
+You can add an inverse reference navigation property to the dependent entity, allowing navigation in both directions:
 
 ```csharp
-public class Author
+public class Order
 {
-    public int AuthorId { get; set; }
-    public string FirstName { get; set; }
-    public string LastName { get; set; }
-    public ICollection<Book> Books { get; set; }
+    public int OrderId { get; set; }
+    public ICollection<OrderItem> Items { get; set; } = new List<OrderItem>();
 }
 
-public class Book
+public class OrderItem
 {
-    public int BookId { get; set; }
-    public string Title { get; set; }
-    public Author Author { get; set; }
+    public int OrderItemId { get; set; }
+    public string ProductName { get; set; } = null!;
+    public Order? Order { get; set; }
 }
 ```
 
-Adding the `Author` property to `Book` lets you access the author of a book, while the `Books` collection lets you access all books belonging to an author. This allows navigation in both directions without declaring an explicit foreign key property.
-
-EF Core still creates a shadow foreign key because `Book` does not declare an `AuthorId` property. With nullable reference types disabled, the relationship is optional by convention. With nullable reference types enabled, the nullability of the `Author` navigation affects whether the relationship is required or optional.
+`OrderItem.Order` provides access to the principal order; `Order.Items` provides access to its items. No foreign key is declared in `OrderItem`, so EF Core still creates a shadow `OrderId` foreign key. Because `OrderItem.Order` is nullable, this example is optional with nullable reference types enabled.
 
 ## Optional One-to-Many Relationship
 
-The previous examples use shadow foreign keys. You can also declare a nullable foreign key explicitly to define an optional relationship.
-
-For example, a tenant can exist without being assigned to a property:
+Instead of a shadow foreign key, declare a nullable foreign key explicitly if an item may temporarily exist without an order—for example, while assembling a draft order:
 
 ```csharp
-public class Property
+public class Order
 {
-    public int PropertyId { get; set; }
-    public string Address { get; set; }
-    public List<Tenant> Tenants { get; set; }
+    public int OrderId { get; set; }
+    public ICollection<OrderItem> Items { get; set; } = new List<OrderItem>();
 }
 
-public class Tenant
+public class OrderItem
 {
-    public int TenantId { get; set; }
-    public string Name { get; set; }
-    public string Email { get; set; }
-    public int? PropertyId { get; set; }
-    public Property Property { get; set; }
+    public int OrderItemId { get; set; }
+    public string ProductName { get; set; } = null!;
+    public int? OrderId { get; set; }
+    public Order? Order { get; set; }
 }
 ```
 
-EF Core discovers this relationship by convention through the `Property.Tenants` and `Tenant.Property` navigation properties, using `PropertyId` as the foreign key.
+EF Core discovers `OrderItem.OrderId` as the foreign key. Because it is a nullable `int?`, the relationship is optional. The nullable `Order?` navigation is consistent with this configuration when nullable reference types are enabled.
 
-The nullable `PropertyId` foreign key makes this relationship optional. When nullable reference types are enabled, declaring the `Tenant.Property` navigation as `Property?` also reflects that the related property may be absent.
-
-By default, EF Core uses `ClientSetNull` for optional relationships. When a property is deleted, EF Core sets `PropertyId` to `null` for related tenants that are loaded and tracked. If the tenants are not loaded, the database normally prevents the deletion unless a database-side action such as `ON DELETE SET NULL` has been configured. For details, see [Cascade Delete in EF Core](/saving/cascade-delete).
+Optional relationships use `ClientSetNull` by convention: EF Core sets the foreign key to null for tracked dependents when the relationship is severed or the principal is deleted. With untracked dependents, the database may reject a principal deletion unless a database-side action has been configured. For more details, see [Cascade Delete in EF Core](/saving/cascade-delete).
 
 ## One-to-Many with Explicit Foreign Key
 
-A one-to-many relationship can also be configured using an explicit, non-nullable foreign key in the dependent entity.
-
-In the following example, `Book` defines both the `AuthorId` foreign key and the `Author` navigation property:
+In a typical order-processing model, every saved order item belongs to an order. Define a non-nullable `OrderId` foreign key to make the relationship required:
 
 ```csharp
-public class Author
+public class Order
 {
-    public int AuthorId { get; set; }
-    public string FirstName { get; set; }
-    public string LastName { get; set; }
-    public ICollection<Book> Books { get; set; }
+    public int OrderId { get; set; }
+    public ICollection<OrderItem> Items { get; set; } = new List<OrderItem>();
 }
 
-public class Book
+public class OrderItem
 {
-    public int BookId { get; set; }
-    public string Title { get; set; }
-    public int AuthorId { get; set; }
-    public Author Author { get; set; }
+    public int OrderItemId { get; set; }
+    public string ProductName { get; set; } = null!;
+    public int OrderId { get; set; }
+    public Order Order { get; set; } = null!;
 }
 ```
 
-EF Core discovers this relationship by convention. The `AuthorId` property is the foreign key, and because it is a non-nullable `int`, the relationship is required.
-
-This means that each book must be associated with an author, although an author can exist without any books.
-
-By convention, EF Core configures cascade delete for required relationships. Deleting an author therefore deletes their related books unless a different delete behavior is configured.
+EF Core discovers the one-to-many relationship by convention. Because `OrderItem.OrderId` is a non-nullable `int`, each order item must reference an order, although an order can exist without any items. Required relationships use cascade delete by convention; to change that behavior, see [Cascade Delete in EF Core](/saving/cascade-delete).
 
 ### Without an Inverse Navigation Property
 
-You can also define the same required relationship without the `Book.Author` navigation property:
+The dependent entity does not need an `Order` navigation property when the foreign key is explicit:
 
 ```csharp
-public class Author
+public class Order
 {
-    public int AuthorId { get; set; }
-    public string FirstName { get; set; }
-    public string LastName { get; set; }
-    public ICollection<Book> Books { get; set; }
+    public int OrderId { get; set; }
+    public ICollection<OrderItem> Items { get; set; } = new List<OrderItem>();
 }
 
-public class Book
+public class OrderItem
 {
-    public int BookId { get; set; }
-    public string Title { get; set; }
-    public int AuthorId { get; set; }
+    public int OrderItemId { get; set; }
+    public string ProductName { get; set; } = null!;
+    public int OrderId { get; set; }
 }
 ```
 
-EF Core still discovers the required relationship through the `Author.Books` collection and the non-nullable `Book.AuthorId` foreign key. An inverse navigation property is not required to configure the relationship.
-
-For an additional example of this configuration, see the [official EF Core documentation on one-to-many relationships without navigation to the principal](https://learn.microsoft.com/en-us/ef/core/modeling/relationships/one-to-many#one-to-many-without-navigation-to-principal).
+EF Core discovers the required relationship from `Order.Items` and `OrderItem.OrderId`; an inverse reference navigation is not required. See the [official documentation on one-to-many relationships without navigation to the principal](https://learn.microsoft.com/en-us/ef/core/modeling/relationships/one-to-many#one-to-many-without-navigation-to-principal).
 
 ## Other One-to-Many Configurations
 
-EF Core supports additional one-to-many configurations for relationships with different navigation properties or key requirements.
+EF Core supports additional one-to-many configurations. The following references cover less common scenarios without expanding the introductory examples.
 
 | Configuration | When to use it | Documentation |
 |---|---|---|
-| Without navigation to dependents | The principal entity does not have a collection navigation property. | [Microsoft Learn](https://learn.microsoft.com/en-us/ef/core/modeling/relationships/one-to-many#one-to-many-without-navigation-to-dependents) |
-| Without navigations | Neither entity defines navigation properties, so the relationship must be configured explicitly. | [Microsoft Learn](https://learn.microsoft.com/en-us/ef/core/modeling/relationships/one-to-many#one-to-many-with-no-navigations) |
-| Alternate key | The foreign key references an alternate key instead of the principal's primary key. | [Microsoft Learn](https://learn.microsoft.com/en-us/ef/core/modeling/relationships/one-to-many#one-to-many-with-alternate-key) |
-| Composite foreign key | The relationship uses multiple foreign key properties to reference a composite key. | [Microsoft Learn](https://learn.microsoft.com/en-us/ef/core/modeling/relationships/one-to-many#one-to-many-with-composite-foreign-key) |
+| Without navigation to dependents | The principal does not expose a collection navigation. | [Microsoft Learn](https://learn.microsoft.com/en-us/ef/core/modeling/relationships/one-to-many#one-to-many-without-navigation-to-dependents) |
+| Without navigations | Neither entity exposes navigation properties; explicit configuration is necessary. | [Microsoft Learn](https://learn.microsoft.com/en-us/ef/core/modeling/relationships/one-to-many#one-to-many-with-no-navigations) |
+| Alternate key | The dependent references an alternate key instead of the principal's primary key. | [Microsoft Learn](https://learn.microsoft.com/en-us/ef/core/modeling/relationships/one-to-many#one-to-many-with-alternate-key) |
+| Composite foreign key | The dependent uses more than one foreign key property. | [Microsoft Learn](https://learn.microsoft.com/en-us/ef/core/modeling/relationships/one-to-many#one-to-many-with-composite-foreign-key) |
 
 When conventions do not produce the intended relationship, Fluent API methods such as `HasMany()`, `WithOne()`, and `HasForeignKey()` allow you to configure it explicitly.
 
@@ -206,11 +160,13 @@ When conventions do not produce the intended relationship, Fluent API methods su
 
 The following videos demonstrate different ways to define and configure one-to-many relationships in EF Core. Together, they cover explicit foreign keys, shadow foreign keys, required and optional relationships, and navigation properties.
 
-### Master One-to-Many EF Core Relationships in 10 Minutes | ASP.NET Core Minimal API Tutorial — Poorna Soysa
+### Video 1 - Master One-to-Many EF Core Relationships in 10 Minutes | ASP.NET Core Minimal API Tutorial — Poorna Soysa
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/1P_O7j6J-m0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 Poorna Soysa demonstrates a one-to-many relationship between `Customer` and `Order`, using an explicit foreign key, navigation properties, and Fluent API. The example also shows how the relationship is represented in SQL Server after applying a migration.
+
+**Key timestamps:**
 
 - [0:56 — Introducing the one-to-many relationship between Customer and Order](https://www.youtube.com/watch?v=1P_O7j6J-m0&t=56s)
 - [1:53 — Defining the CustomerId foreign key and navigation properties](https://www.youtube.com/watch?v=1P_O7j6J-m0&t=113s)
@@ -219,11 +175,13 @@ Poorna Soysa demonstrates a one-to-many relationship between `Customer` and `Ord
 
 Although EF Core can discover this relationship by convention, Fluent API provides additional control when needed.
 
-### Shadow Properties - EF Core - Foreign Keys — Full Stack Amigo
+### Video 2 - Shadow Properties - EF Core - Foreign Keys — Full Stack Amigo
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/SSqB_Z48co4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 Full Stack Amigo demonstrates how EF Core creates and manages a shadow foreign key in a one-to-many relationship between `User` and `Tweet`. The example shows that a foreign key can exist in the EF Core model and database without being declared as a property in the dependent C# class.
+
+**Key timestamps:**
 
 - [0:00 — Removing the explicit foreign key and dependent navigation](https://www.youtube.com/watch?v=SSqB_Z48co4&t=0s)
 - [1:30 — Inspecting the UserId shadow foreign key in SQL Server](https://www.youtube.com/watch?v=SSqB_Z48co4&t=90s)
@@ -232,11 +190,13 @@ Full Stack Amigo demonstrates how EF Core creates and manages a shadow foreign k
 
 Shadow foreign keys can be optional or required. Their nullability depends on the relationship conventions and configuration, not simply on whether the foreign key is declared in the C# class.
 
-### EF Core 6: How to build and manage relationships (Part 4) — Building SaaS with Gabriel
+### Video 3 - EF Core 6: How to build and manage relationships (Part 4) — Building SaaS with Gabriel
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ujf8lGv8OTo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 Building SaaS with Gabriel demonstrates a one-to-many relationship between `Grade` and `Student`. The relevant sections show how EF Core initially generates a nullable shadow foreign key and how declaring a non-nullable `GradeId` property changes the relationship to required. The example also introduces an inverse navigation property.
+
+**Key timestamps:**
 
 - [4:31 — Introducing the Grade–Student one-to-many relationship](https://www.youtube.com/watch?v=ujf8lGv8OTo&t=271s)
 - [6:28 — Examining the migration with a nullable shadow foreign key](https://www.youtube.com/watch?v=ujf8lGv8OTo&t=388s)
@@ -256,10 +216,8 @@ EF Core supports one-to-many relationships through conventions or explicit confi
 
 ## Related Articles
 
-- [Relationships](/relationships) — Review how primary keys, foreign keys, and navigation properties connect entities.
 - [One-to-One Relationships](/modeling/relationships-one-to-one) — Configure relationships with one dependent per principal.
 - [Many-to-Many Relationships](/modeling/relationships-many-to-many) — Configure relationships where entities can be associated with multiple entities on both sides.
-- [Managing One-to-Many Relationships](/relationships/managing-one-to-many-relationships) — Create, update, and remove relationships between existing entities.
 
 ## FAQ
 
@@ -269,7 +227,7 @@ Yes. A shadow foreign key can be required even when no foreign key property is d
 
 ### Does a required one-to-many relationship mean the principal must have dependents?
 
-No. A required relationship means each dependent must be associated with a principal. It does not require the principal to have any dependents. For example, an author can exist without books, even when every book must have an author.
+No. A required relationship means each dependent must be associated with a principal. It does not require the principal to have any dependents. For example, an order can exist without items, even when every order item must belong to an order.
 
 ### Are navigation properties required for a one-to-many relationship?
 

@@ -1,44 +1,34 @@
 ---
-title: Entity Framework Core Many To Many Relationships
+title: Entity Framework Core Many-To-Many Relationships
 description: How to use conventions to establish a many-to-many relationship in Entity Framework Core, or configure it with an explicit join entity.
 canonical: /modeling/relationships-many-to-many
 status: Published
-lastmod: 2026-11-18
+lastmod: 2026-11-23
 ---
 
-# EF Core Many-to-Many Relationships
+# Many-to-Many Relationships in EF Core
 
 A many-to-many relationship allows multiple records of one entity to be associated with multiple records of another. For example, a book can belong to several categories, and a category can contain several books. In EF Core 5.0 and later, you can configure this relationship by convention without defining a separate join entity class. For advanced configurations, see the [official EF Core documentation](https://learn.microsoft.com/en-us/ef/core/modeling/relationships/many-to-many).
 
 ## Basic Many-to-Many Relationship
 
 ```csharp
-public class Author
-{
-    public int AuthorId { get; set; }
-    public string? FirstName { get; set; }
-    public string? LastName { get; set; }
-    public ICollection<Book> Books { get; set; }
-}
-
 public class Book
 {
     public int BookId { get; set; }
     public string? Title { get; set; }
-    public Author Author { get; set; }
-    public ICollection<Category> Categories { get; set; }
+    public ICollection<Category> Categories { get; set; } = new List<Category>();
 }
+
 public class Category
 {
     public int CategoryId { get; set; }
     public string? CategoryName { get; set; }
-    public ICollection<Book> Books { get; set; }
+    public ICollection<Book> Books { get; set; } = new List<Book>();
 }
 ```
 
 As you can see, the `Book` class contains a collection of `Categories`, and the `Category` class contains a collection of `Books`. EF Core 5.0 and later recognizes this as a many-to-many relationship by convention, and there is no need for configuration in `OnModelCreating`.
-
-The `Author` and `Book` classes also illustrate a [one-to-many relationship](/modeling/relationships-one-to-many), while `Book.Categories` and `Category.Books` define the many-to-many relationship.
 
 In a relational database, a many-to-many relationship uses a join table to connect the two entities. Each row represents one association between a book and a category, using a foreign key to identify each related record. EF Core manages this table without requiring a separate C# class.
 
@@ -51,24 +41,21 @@ public class LibraryContext : DbContext
 {
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseSqlServer(@"Data Source=(localdb)\ProjectsV13;Initial Catalog=LibraryDb;");
+        optionsBuilder.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=LibraryDb;Integrated Security=True;");
     }
 
     public DbSet<Book> Books { get; set; }
-    public DbSet<Author> Authors { get; set; }
     public DbSet<Category> Categories { get; set; }
 }
 ```
 
-When you apply a migration or call the `EnsureCreated` method, EF Core creates the necessary tables, including the join table. The following SQL Server example illustrates the generated database structure; you do not need to write this SQL yourself. The `Authors` table is omitted from the example.
+When you apply a migration or call the `EnsureCreated` method, EF Core creates the necessary tables, including the join table. The following SQL Server example illustrates the expected table structure; you do not need to write this SQL yourself. The exact generated SQL can vary by EF Core and SQL Server versions.
 
 ```sql
 CREATE TABLE [dbo].[Books] (
     [BookId]   INT            IDENTITY (1, 1) NOT NULL,
     [Title]    NVARCHAR (MAX) NULL,
-    [AuthorId] INT            NOT NULL,
-    CONSTRAINT [PK_Books] PRIMARY KEY CLUSTERED ([BookId] ASC),
-    CONSTRAINT [FK_Books_Authors_AuthorId] FOREIGN KEY ([AuthorId]) REFERENCES [dbo].[Authors] ([AuthorId]) ON DELETE CASCADE
+    CONSTRAINT [PK_Books] PRIMARY KEY CLUSTERED ([BookId] ASC)
 );
 
 CREATE TABLE [dbo].[Categories] (
@@ -118,7 +105,7 @@ protected override void OnModelCreating(ModelBuilder modelBuilder)
 }
 ```
 
-The `UsingEntity<BookCategory>()` method tells EF Core to use the `BookCategory` class as the join entity.
+The `UsingEntity<BookCategory>()` method tells EF Core to use the `BookCategory` class as the join entity. This is the current approach to the explicit join model that older versions of EF Core configured using two `HasOne()` / `WithMany()` relationships and a composite key.
 
 EF Core recognizes `BookId` and `CategoryId` as foreign keys by convention. Together, they form a composite primary key, ensuring that the same book-category association cannot be added twice. No additional key configuration is needed for this example.
 
@@ -140,15 +127,11 @@ EF Core supports additional configurations for many-to-many relationships. The f
 | Join entity with payload | Store additional information about an association, such as its creation date. | [Join table with payload](https://learn.microsoft.com/en-us/ef/core/modeling/relationships/many-to-many#many-to-many-and-join-table-with-payload) |
 | Unidirectional many-to-many | Configure a relationship when only one entity has a collection navigation. | [Unidirectional many-to-many](https://learn.microsoft.com/en-us/ef/core/modeling/relationships/many-to-many#unidirectional-many-to-many) |
 
-### Further Reading
-
-- [Many To Many Relationship Configuration](/configuration/many-to-many-relationship-configuration) — Explore the explicit join entity approach used in earlier versions of EF Core. For current configuration options, use the official documentation linked above.
-
 ## External Resources
 
 The following videos complement the examples in this article with practical demonstrations of many-to-many relationships in EF Core. Together, they cover convention-based configuration, join entities with additional properties, and more advanced Fluent API customization.
 
-### Mastering EF Core Relationships: One-to-One, One-to-Many, and Many-to-Many in .NET — Remigiusz Zalewski
+### Video 1 - Mastering EF Core Relationships: One-to-One, One-to-Many, and Many-to-Many in .NET — Remigiusz Zalewski
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/BfoK6R8OIR8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
@@ -165,7 +148,7 @@ Although the tutorial also covers one-to-one and one-to-many relationships, the 
 
 This example reinforces how EF Core can manage a many-to-many relationship without an explicitly defined join entity class or additional Fluent API configuration.
 
-### EF Core 6: How to build and manage relationships (Part 4) — Building SaaS with Gabriel
+### Video 2 - EF Core 6: How to build and manage relationships (Part 4) — Building SaaS with Gabriel
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ujf8lGv8OTo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
@@ -182,7 +165,7 @@ The demonstration also uses migrations and relationship diagrams to illustrate h
 
 The payload example extends the concepts in our `BookCategory` example by showing when association-specific data may justify an explicit join entity. The tutorial also discusses preserving an existing join table name during a schema change; this is a migration consideration, not a general requirement for many-to-many relationships.
 
-### Deep Dive into Many-to-Many: A Tour of EF Core 5.0 pt. 2 — dotnet
+### Video 3 - Deep Dive into Many-to-Many: A Tour of EF Core 5.0 pt. 2 — dotnet
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/b2klBzcALJc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
@@ -209,6 +192,7 @@ EF Core supports many-to-many relationships through conventions or explicit join
 
 ## Related Articles
 
+- [One-to-Many Relationships](/modeling/relationships-one-to-many)
 - [One-to-One Relationships](/modeling/relationships-one-to-one) — Learn how EF Core configures a relationship in which each entity is associated with at most one entity on the other side.
 - [Cascade Delete](/saving/cascade-delete) — Understand how EF Core handles related data when entities are deleted.
 
