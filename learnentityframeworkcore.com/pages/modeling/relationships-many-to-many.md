@@ -192,7 +192,7 @@ EF Core supports many-to-many relationships through conventions or explicit join
 
 ## Related Articles
 
-- [One-to-Many Relationships](/modeling/relationships-one-to-many)
+- [One-to-Many Relationships in EF Core](/modeling/relationships-one-to-many) — Learn how to configure one-to-many relationships, including navigation properties and foreign keys.
 - [One-to-One Relationships](/modeling/relationships-one-to-one) — Learn how EF Core configures a relationship in which each entity is associated with at most one entity on the other side.
 - [Cascade Delete](/saving/cascade-delete) — Understand how EF Core handles related data when entities are deleted.
 

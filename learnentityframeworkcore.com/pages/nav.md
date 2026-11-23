@@ -28,7 +28,9 @@
 					<ul class="nav-level-three" style="display: block;">
 						<li><a href="/modeling/relationships-one-to-one">One-to-One</a></li>
 						<li><a href="/modeling/relationships-one-to-many">One-to-Many</a></li>
-						<li><a href="/modeling/relationships-many-to-many">Many-to-Many</a></li>					
+						<li><a href="/modeling/relationships-many-to-many">Many-to-Many</a></li>
+						<li><a href="/modeling/relationships-self-reference">Self-Reference</a></li>
+						<li><a href="/modeling/relationships-delete-behavior">Delete Behavior</a></li>
 					</ul>
 				</li>
 				<li>
@@ -45,7 +47,63 @@
 				<li>
 					<a href="/modeling/complex-type">Complex Type</a>
 				</li>
+				<li>
+					<div class="header">Specialized Entity Types</div>
+					<ul class="nav-level-three" style="display: block;">
+						<li><a href="/modeling/specialized-entity-type#keyless-entity-types">Keyless Entity Type</a></li>
+						<li><a href="/modeling/specialized-entity-type#shared-type-entity-types">Shared-Type Entity Type</a></li>
+						<li><a href="/modeling/specialized-entity-type#indexer-properties">Indexer Property</a></li>
+						<li><a href="/modeling/specialized-entity-type#property-bag-entity-types">Property Bag</a></li>
+					</ul>
+				</li>
             </ul>
+        </li>
+		<li>
+            <a href="/mapping">Mapping</a> 
+            <ul class="nav-level-two" data-display="modeling">
+				<li>
+					<div class="header">Table</div>
+					<ul class="nav-level-three" style="display: block;">
+						<li><a href="/mapping/table">Table</a></li>
+						<li><a href="/mapping/table#table-name-and-schema">Schema</a></li>
+						<li><a href="/mapping/table#view-mapping">View</a></li>
+						<li><a href="/mapping/table#table-comment">Comment</a></li>
+						<li><a href="/mapping/table#exclude-from-migrations">Exclude from Migrations</a></li>
+						<li><a href="/mapping/table#table-trigger">Trigger</a></li>
+						<li><a href="/mapping/table#check-constraint">Check Constraint</a></li>
+						<li><a href="/mapping/table#sql-server-specific-features">SQL Output Clause</a></li>
+						<li><a href="/mapping/table#sql-server-specific-features">Memory-Optimized Table</a></li>
+						<li><a href="/mapping/table#sql-server-specific-features">Temporal Table</a></li>
+					</ul>
+				</li>
+				<li>
+					<div class="header">Table (Advanced)</div>
+					<ul class="nav-level-three" style="display: block;">
+						<li><a href="/mapping/table-advanced#table-splitting">Table Splitting</a></li>
+						<li><a href="/mapping/table-advanced#entity-splitting">Entity Splitting</a></li>
+						<li><a href="/mapping/table-advanced#table-valued-function">Table-Valued Function</a></li>
+					</ul>
+				</li>
+				<li>
+					<div class="header">Column</div>
+					<ul class="nav-level-three" style="display: block;">
+						<li><a href="/mapping/column#column-name">Column Name</a></li>
+						<li><a href="/mapping/column#column-type">Column Type</a></li>
+						<li><a href="/mapping/column#column-order">Column Order</a></li>
+						<li><a href="/mapping/column#column-comment">Comment</a></li>
+						<li><a href="/mapping/column#notmapped-ignore">Not Mapped/Ignore</a></li>
+						<li><a href="/mapping/column#required">Required</a></li>
+						<li><a href="/mapping/column#precision-and-scale">Precision & Scale</a></li>
+						<li><a href="/mapping/column#maxlength">Max Length</a></li>
+						<li><a href="/mapping/column#stringlength">String Length</a></li>
+						<li><a href="/mapping/column#unicode">Unicode</a></li>
+						<li><a href="/mapping/column#collation">Collation</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="/mapping/indexes">Index</a>
+				</li>
+			</ul>
         </li>
         <li>
             <a href="/querying">Querying</a>
