@@ -3,7 +3,7 @@ title: EF Core WhereBulkContains with Entity Framework Extensions
 description: Learn how to use the `WhereBulkContains` method from Entity Framework Extensions to retrieve entities from your database that match a list of IDs, GUIDs, or even full entities.  
 canonical: /bulk-extensions/where-bulk-contains  
 status: Published  
-lastmod: 2025-11-11
+LastMod: 2026-11-24
 ---
 
 # EF Core WhereBulkContains with Entity Framework Extensions

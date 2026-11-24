@@ -1,7 +1,7 @@
 ---
 Title: Bulk Insert for EF Core and EF6 | Entity Framework Extensions
 MetaDescription: Bulk insert thousands of entities up to 15x faster in EF Core and EF6. Support identity values, related entities, insert-if-not-exists, and more.
-LastMod: 2026-08-18
+LastMod: 2026-11-24
 ---
 
 # Entity Framework Bulk Insert

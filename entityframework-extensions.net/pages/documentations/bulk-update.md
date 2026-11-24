@@ -1,7 +1,7 @@
 ---
 Title: Bulk Update for EF Core and EF6 | Entity Framework Extensions
 MetaDescription: The BulkUpdate method from Entity Framework Extensions is the most flexible way to update your entities in EF Core. It allows you to customize how your entities will be updated, such as by specifying a custom key, updating only a few properties, and much more. - try it now.
-LastMod: 2026-08-18
+LastMod: 2026-11-24
 ---
 
 # Entity Framework Bulk Update

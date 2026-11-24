@@ -1,7 +1,7 @@
 ---
 Title: Getting Started with Entity Framework Extensions (EF Core & EF6)
 MetaDescription: Learn how to get started with Entity Framework Extensions. Install, configure, and use bulk operations and BulkSaveChanges with EF Core & EF6.
-LastMod: 2026-05-05
+LastMod: 2026-11-24
 ---
 
 # What is Entity Framework Extensions?

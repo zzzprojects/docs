@@ -3,7 +3,7 @@ title: Entity Framework Extensions: Bulk Insert, Update, Delete for EF Core
 description: Learn how to use high-performance bulk operations in EF Core with Entity Framework Extensions. Easily speed up your .NET Core apps using methods like BulkInsert, BulkUpdate, BulkDelete, BulkRead, and BulkSaveChanges.
 canonical: /bulk-extensions
 status: Published
-lastmod: 2025-11-11
+LastMod: 2026-11-24
 ---
 
 # Bulk Extensions with EF Core from Entity Framework Extensions

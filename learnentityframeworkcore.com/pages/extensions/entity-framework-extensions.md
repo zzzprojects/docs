@@ -3,7 +3,7 @@ title: Entity Framework Extensions
 description: Learn how Entity Framework Extensions accelerates EF Core and EF6 with bulk operations, advanced options, production-tested reliability, and expert support.
 canonical: /extensions/entity-framework-extensions
 status: Published
-lastmod: 2026-08-18
+LastMod: 2026-11-24
 ---
 
 # Entity Framework Extensions

@@ -1,7 +1,7 @@
 ---
 Title: Bulk Extensions for EF Core | Bulk Insert, Update, Delete, Merge & Upsert
 MetaDescription: Learn how to use Bulk Extensions in EF Core to boost your CRUD operations performance. Discover how to save entities faster and by using less memory. Try it now.
-LastMod: 2026-08-18
+LastMod: 2026-11-24
 ---
 
 # Entity Framework Bulk Extensions
