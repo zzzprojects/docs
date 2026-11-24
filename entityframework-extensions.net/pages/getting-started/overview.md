@@ -39,6 +39,7 @@ context.BulkMerge(customers, options =>
 
 ### EF Core versions
 
+* EF Core 11
 * EF Core 10
 * EF Core 9
 * EF Core 8

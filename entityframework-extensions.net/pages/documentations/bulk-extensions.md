@@ -105,7 +105,7 @@ Whether you need to **save** or **query** data in bulk, Entity Framework Extensi
 
 In short, **all versions of EF Core and Entity Framework are supported**:
 
-* **Entity Framework Core:** EF Core 10 and earlier
+* **Entity Framework Core:** EF Core 11 and earlier
 * **Entity Framework:** EF6 and earlier
 
 ## Which Providers Are Supported by Entity Framework Extensions?

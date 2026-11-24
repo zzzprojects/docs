@@ -12,7 +12,7 @@ lastmod: 2026-08-18
 
 [Entity Framework Extensions](https://entityframework-extensions.net/)—often called **EF Extensions** or **EFE**—helps developers process thousands or millions of records without replacing Entity Framework or maintaining complex, provider-specific SQL.
 
-The library has been developed by [ZZZ Projects](https://zzzprojects.com/) since 2014. It supports **EF6 and EF Core 2 through EF Core 10**, works with the major relational database providers, and is trusted by **more than 5,000 companies**.
+The library has been developed by [ZZZ Projects](https://zzzprojects.com/) since 2014. It supports **EF6 and EF Core 2 through EF Core 11**, works with the major relational database providers, and is trusted by **more than 5,000 companies**.
 
 Entity Framework Extensions is more than a collection of fast methods. It is a production-ready library backed by extensive testing, predictable releases, and a support team that helps customers move forward when an issue blocks their project.
 
@@ -249,9 +249,9 @@ The full-featured trial can be used for testing, learning, and evaluating the li
 
 ### Which Entity Framework Versions Are Supported?
 
-Entity Framework Extensions supports EF6 and all major EF Core versions from EF Core 2 through EF Core 10.
+Entity Framework Extensions supports EF6 and all major EF Core versions from EF Core 2 through EF Core 11.
 
-Use the package major version that matches your EF Core major version—for example, EF Extensions 10.x with EF Core 10.x.
+Use the package major version that matches your EF Core major version—for example, EF Extensions 11.x with EF Core 11.x.
 
 ### Which Databases Are Supported?
 

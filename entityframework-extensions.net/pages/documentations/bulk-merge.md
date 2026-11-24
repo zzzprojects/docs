@@ -152,8 +152,8 @@ One of the main reasons people use our Bulk Merge is to **perform add or update 
 
 Our library supports all the common scenarios — and almost everything you can do with EF Core and EF6!
 
-- ✅ The latest Entity Framework Core version: EF Core 10
-- ✅ All previous EF Core versions: EF Core 2 to 9
+- ✅ The latest Entity Framework Core version: EF Core 11
+- ✅ All previous EF Core versions: EF Core 2 to 10
 - ✅ All Entity Framework versions: EF6, EF5, EF4, and EF Classic  
 - ✅ All major database providers: SQL Server, SQL Azure, PostgreSQL, MySQL, MariaDB, SQLite, and Oracle  
 - ✅ All inheritance mapping strategies: TPC, TPH, and TPT  
